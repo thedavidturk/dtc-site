@@ -60,6 +60,7 @@ const projects: Project[] = [
     href: "/projects/betterfly",
     gradient: "from-emerald-500 via-teal-500 to-cyan-800",
     accentGlow: "group-hover:shadow-emerald-500/30",
+    coverImage: "https://media.giphy.com/media/OWRTtgINto81tGKtJi/giphy.gif",
   },
 ];
 
