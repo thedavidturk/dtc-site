@@ -9,8 +9,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        'deep-space': '#0B0F19',
+        'electric-indigo': '#6366F1',
+        'warm-coral': '#F97316',
+        'cool-gray': '#94A3B8',
+        'soft-white': '#F8FAFC',
+        'pure-white': '#FFFFFF',
+      },
+      fontFamily: {
+        headline: ['var(--font-space-grotesk)', 'sans-serif'],
+        body: ['var(--font-inter)', 'sans-serif'],
+        mono: ['var(--font-jetbrains-mono)', 'monospace'],
+      },
+      backgroundImage: {
+        'gradient-cta': 'linear-gradient(135deg, #6366F1, #F97316)',
+        'gradient-dark': 'linear-gradient(180deg, #0B0F19 0%, #131A2B 100%)',
       },
     },
   },
