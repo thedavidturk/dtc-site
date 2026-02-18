@@ -39,6 +39,7 @@ const projects: Project[] = [
     href: "/projects/seaworld",
     gradient: "from-blue-600 via-cyan-500 to-teal-700",
     accentGlow: "group-hover:shadow-cyan-500/30",
+    coverImage: "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExenYxcmUybjVyanNlZjF1b3FxMGZvaDZhZDE0ZTVpYTI0dGdtamFkcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/V9e6dWr3gEjPCoNJ7c/giphy.gif",
   },
   {
     client: "BARRY'S BOOTCAMP",
@@ -51,12 +52,12 @@ const projects: Project[] = [
     accentGlow: "group-hover:shadow-warm-coral/30",
   },
   {
-    client: "FORD",
-    title: "Mustang Mach-E",
-    type: "3D Animation + Motion Graphics",
+    client: "BETTERFLY",
+    title: "#RecursosMasHumanos",
+    type: "VFX + FOOH Campaign",
     teaser:
-      "Hi-res 4K animations capturing the spirit of an American icon gone electric",
-    href: "/projects/ford-mustang",
+      "Digitally draping branded banners over iconic global monuments for a bold fake out-of-home campaign",
+    href: "/projects/betterfly",
     gradient: "from-emerald-500 via-teal-500 to-cyan-800",
     accentGlow: "group-hover:shadow-emerald-500/30",
   },

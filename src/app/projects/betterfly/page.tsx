@@ -1,12 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
-
-const ProjectScene = dynamic(() => import("@/components/ProjectScene"), {
-  ssr: false,
-});
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -42,14 +37,14 @@ const staggerItem = {
 /* ------------------------------------------------------------------ */
 
 const overview = {
-  client: "Ford",
-  industry: "Automotive",
-  timeline: "8 Weeks",
+  client: "Betterfly",
+  industry: "HR Technology / Benefits",
+  timeline: "4 Weeks",
   services: [
-    "3D Animation",
-    "Motion Graphics",
-    "3D Vehicle Visualization",
-    "Cinematic Animation",
+    "VFX Compositing",
+    "FOOH (Fake Out-of-Home)",
+    "Campaign Video Production",
+    "VFX Breakdown Reels",
     "Social Media Content",
   ],
 };
@@ -57,64 +52,64 @@ const overview = {
 const approach = [
   {
     step: "01",
-    title: "3D Vehicle Visualization",
+    title: "Concept & Monument Selection",
     description:
-      "Created photorealistic 3D models capturing every curve, detail, and design element of the Mustang Mach-E using Cinema 4D. Materials, reflections, and paint finishes were engineered to be indistinguishable from real-world photography.",
+      "Identified iconic global monuments that would maximize visual impact and cultural resonance. Each location was chosen for its recognizability and the dramatic potential of draping massive branded banners across its architecture.",
   },
   {
     step: "02",
-    title: "Cinematic Animation",
+    title: "Footage Acquisition & Camera Matching",
     description:
-      "Developed dynamic animation sequences showcasing performance, design, and innovation. Camera moves were crafted to emphasize speed, power, and elegance — making each frame feel like a moment from a high-end automotive commercial.",
+      "Sourced high-quality footage of each monument and meticulously matched camera angles, lighting conditions, and perspective to ensure seamless VFX integration. Every frame needed to feel authentically captured.",
   },
   {
     step: "03",
-    title: "Motion Graphics Integration",
+    title: "VFX Banner Simulation & Compositing",
     description:
-      "Layered dynamic typography, graphic elements, and visual effects that complemented the vehicle animations. Specs, features, and brand messaging were woven seamlessly into the visual narrative.",
+      "Digitally created and animated massive Betterfly banners draped over each monument using advanced cloth simulation and compositing. Shadows, reflections, and environmental interactions were crafted to make each placement indistinguishable from reality.",
   },
   {
     step: "04",
-    title: "4K Delivery for Social",
+    title: "Campaign Video Assembly",
     description:
-      "All animations were rendered in full 4K resolution, then carefully optimized for various social platforms. Each asset was formatted to stop the scroll on every feed.",
+      "Assembled the individual monument executions into a cohesive campaign video with dynamic pacing, branded messaging, and a narrative arc targeting HR administrators worldwide.",
   },
   {
     step: "05",
-    title: "Brand DNA Preservation",
+    title: "VFX Breakdowns & Social Distribution",
     description:
-      "Every creative decision honored the Mustang legacy — six decades of American performance — while pushing confidently into the future of electric innovation. Heritage and progress in every frame.",
+      "Produced detailed VFX breakdown reels showing each monument's transformation stages — from raw footage to final composite. These behind-the-scenes assets amplified engagement and showcased production expertise.",
   },
 ];
 
 const results = [
-  "4K cinematic animations optimized for social media",
-  "Content capturing Mustang heritage and EV innovation",
-  "High-impact visuals that stopped the scroll",
-  "Premium quality that elevated brand perception",
-  "Deliverables ready for immediate platform deployment",
+  "Six iconic monument executions delivered across social platforms",
+  "Campaign generated measurable social media buzz and engagement",
+  "VFX breakdowns drove additional content virality",
+  "Achieved global out-of-home impact without physical production costs",
+  "Positioned Betterfly as a bold, innovative brand in the HR tech space",
 ];
 
 const tools = [
   {
-    name: "Cinema 4D",
-    description:
-      "3D vehicle modeling, photorealistic materials, lighting, and rendering pipeline.",
-  },
-  {
     name: "Adobe After Effects",
     description:
-      "Motion graphics, visual effects compositing, typography animation, and color grading.",
+      "VFX compositing, banner simulation, camera tracking, and final visual effects polish for each monument execution.",
+  },
+  {
+    name: "Cinema 4D",
+    description:
+      "3D cloth simulation for realistic banner draping, lighting matching, and environmental integration.",
   },
   {
     name: "Adobe Premiere Pro",
     description:
-      "Editorial assembly, pacing, and multi-format social media delivery.",
+      "Campaign video assembly, pacing, and multi-format social media delivery across platforms.",
   },
   {
-    name: "4K Rendering Pipeline",
+    name: "Adobe Photoshop",
     description:
-      "Custom rendering workflow optimized for high-resolution output with social-first optimization.",
+      "Texture creation, matte painting, and detailed compositing work for seamless monument integration.",
   },
 ];
 
@@ -122,9 +117,9 @@ const tools = [
 /*  Component                                                          */
 /* ------------------------------------------------------------------ */
 
-export default function FordMustangProject() {
+export default function BetterflyProject() {
   return (
-    <article className="bg-deep-space min-h-screen">
+    <article className="bg-deep-space min-h-screen" style={{ backgroundColor: "#0B0F19" }}>
       {/* ── Back Link ─────────────────────────────────────────────── */}
       <motion.div
         initial={{ opacity: 0, x: -20 }}
@@ -164,9 +159,6 @@ export default function FordMustangProject() {
         {/* Grid pattern */}
         <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:60px_60px]" />
 
-        {/* 3D Scene */}
-        <ProjectScene theme="automotive" className="absolute inset-0 z-[1]" />
-
         {/* Radial fade at bottom */}
         <div className="absolute inset-0 z-[2] bg-gradient-to-t from-deep-space via-deep-space/40 to-transparent" />
 
@@ -183,7 +175,7 @@ export default function FordMustangProject() {
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
-              3D Animation + Motion Graphics
+              VFX + FOOH Campaign
             </span>
           </motion.div>
 
@@ -193,7 +185,7 @@ export default function FordMustangProject() {
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="font-headline text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-4"
           >
-            FORD
+            BETTERFLY
           </motion.h1>
 
           <motion.p
@@ -202,7 +194,7 @@ export default function FordMustangProject() {
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
             className="font-headline text-2xl md:text-3xl lg:text-4xl font-medium text-white/80 tracking-tight"
           >
-            Mustang Mach-E Social Media Campaign
+            #RecursosMasHumanos FOOH Campaign
           </motion.p>
 
           {/* Animated line */}
@@ -216,7 +208,7 @@ export default function FordMustangProject() {
       </section>
 
       {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
-      <section className="section-container section-padding">
+      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Sidebar */}
           <motion.aside
@@ -282,22 +274,25 @@ export default function FordMustangProject() {
               The Challenge
             </p>
             <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
-              Premium 3D content{" "}
-              <span className="gradient-text">worthy of an American icon</span>
+              Global out-of-home impact{" "}
+              <span className="gradient-text">without the logistics</span>
             </h2>
             <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
               <p>
-                Ford needed high-impact social media content for the Mustang
-                Mach-E launch. The brief: cinematic-quality animations that
-                capture the vehicle&rsquo;s innovative spirit and performance
-                DNA — optimized for social feeds and digital platforms.
+                Betterfly needed a visually striking campaign to announce
+                &ldquo;a new era of benefits&rdquo; and position their platform
+                in front of HR administrators worldwide. They wanted the impact
+                of a massive global out-of-home campaign — branded banners
+                draped over iconic monuments — without the impossible logistics
+                and budget of physically wrapping world landmarks.
               </p>
               <p>
-                The challenge was twofold: create premium 3D content worthy of
-                the Mustang legacy — six decades of American muscle car heritage
-                — while simultaneously meeting the speed and volume demands of
-                modern social media. Every asset needed to feel like a
-                superbowl-caliber automotive ad, but be built for the scroll.
+                The challenge: make it look completely real. Every banner needed
+                to interact convincingly with the architecture — matching
+                lighting, casting shadows, responding to wind — so viewers
+                would do a double-take before realizing it was VFX. The campaign
+                had to generate social media buzz and position Betterfly as a
+                bold, forward-thinking brand.
               </p>
             </div>
           </motion.div>
@@ -310,7 +305,7 @@ export default function FordMustangProject() {
       </div>
 
       {/* ── Our Approach ─────────────────────────────────────────── */}
-      <section className="section-container section-padding">
+      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -322,8 +317,8 @@ export default function FordMustangProject() {
             Our Approach
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            Heritage meets innovation{" "}
-            <span className="gradient-text">in every pixel</span>
+            From monuments to feeds{" "}
+            <span className="gradient-text">in five steps</span>
           </h2>
         </motion.div>
 
@@ -364,7 +359,7 @@ export default function FordMustangProject() {
       </div>
 
       {/* ── The Solution ─────────────────────────────────────────── */}
-      <section className="section-container section-padding">
+      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -376,24 +371,23 @@ export default function FordMustangProject() {
             The Solution
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
-            Cinematic social content{" "}
-            <span className="gradient-text">that stops the scroll</span>
+            Fake out-of-home,{" "}
+            <span className="gradient-text">real impact</span>
           </h2>
           <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
             <p>
-              We delivered high-resolution 4K animations and motion graphics
-              that captured the Mustang Mach-E&rsquo;s innovative spirit. Cinema
-              4D powered the 3D visualization — photorealistic paint finishes,
-              accurate reflections, every sculpted line — while Adobe After
-              Effects handled compositing, motion graphics, and the final
-              cinematic polish.
+              We used VFX to digitally drape massive Betterfly branded banners
+              over six iconic global monuments. Advanced cloth simulation,
+              precise camera tracking, and meticulous compositing made each
+              execution indistinguishable from a real installation — the kind of
+              spectacle that makes people stop scrolling and share.
             </p>
             <p>
-              The result was a suite of cinematic social content that performed
-              across every platform with premium quality. Each asset honored the
-              Mustang&rsquo;s legendary heritage while showcasing the electric
-              future — a visual bridge between decades of performance DNA and
-              the next era of American automotive innovation.
+              Beyond the hero campaign video, we produced detailed VFX breakdown
+              reels for each monument, showing the transformation from raw
+              footage to final composite. These behind-the-scenes assets became
+              content multipliers, driving additional engagement and showcasing
+              the craft behind the campaign.
             </p>
           </div>
         </motion.div>
@@ -405,7 +399,7 @@ export default function FordMustangProject() {
       </div>
 
       {/* ── The Result ───────────────────────────────────────────── */}
-      <section className="section-container section-padding">
+      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -417,8 +411,8 @@ export default function FordMustangProject() {
             The Result
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            Scroll-stopping content,{" "}
-            <span className="gradient-text">premium quality</span>
+            Global presence,{" "}
+            <span className="gradient-text">zero logistics</span>
           </h2>
         </motion.div>
 
@@ -462,7 +456,7 @@ export default function FordMustangProject() {
       </div>
 
       {/* ── Tools & Technology ────────────────────────────────────── */}
-      <section className="section-container section-padding">
+      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -508,7 +502,7 @@ export default function FordMustangProject() {
       </div>
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
-      <section className="section-container section-padding">
+      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -517,12 +511,12 @@ export default function FordMustangProject() {
           className="text-center max-w-2xl mx-auto"
         >
           <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
-            Ready to{" "}
-            <span className="gradient-text">accelerate your brand</span>?
+            Ready to make{" "}
+            <span className="gradient-text">a global statement</span>?
           </h2>
           <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed mb-10">
-            Let&rsquo;s create cinematic content that captures your brand&rsquo;s
-            DNA and commands attention on every platform.
+            Let&rsquo;s create campaign content that commands attention and
+            breaks through the noise — no logistics required.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/#contact" className="btn-primary">

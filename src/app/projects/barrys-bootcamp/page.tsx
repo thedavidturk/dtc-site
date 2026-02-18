@@ -526,7 +526,7 @@ export default function BarrysBootcampProject() {
               Start Your Project
             </Link>
             <Link
-              href="/projects/ford-mustang"
+              href="/projects/betterfly"
               className="btn-secondary group inline-flex items-center gap-2"
             >
               View Next Project
