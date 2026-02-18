@@ -3,6 +3,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import TiltCard from "@/components/TiltCard";
+import HolographicSheen from "@/components/HolographicSheen";
+import DistortionCard from "@/components/DistortionCard";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -30,6 +33,23 @@ const staggerItem = {
     opacity: 1,
     y: 0,
     transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
+  },
+};
+
+const galleryContainer = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.14 },
+  },
+};
+
+const galleryItem = {
+  hidden: { opacity: 0, scale: 0.92, y: 30 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 
@@ -397,6 +417,126 @@ export default function NewEraCapProject() {
               crafted digitally and rendered to perfection.
             </p>
           </div>
+        </motion.div>
+      </section>
+
+      {/* ── Divider ──────────────────────────────────────────────── */}
+      <div className="section-container">
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      </div>
+
+      {/* ── Campaign Gallery ───────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="mb-16"
+        >
+          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+            Campaign Gallery
+          </p>
+          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+            Visual highlights{" "}
+            <span className="gradient-text">from the cosmos</span>
+          </h2>
+        </motion.div>
+
+        <motion.div
+          variants={galleryContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-5"
+        >
+          {/* Image 1 — nec03 | TiltCard + HolographicSheen | 16:10 wide */}
+          <motion.div variants={galleryItem} className="md:col-span-7">
+            <TiltCard className="rounded-2xl overflow-hidden group">
+              <HolographicSheen className="rounded-2xl">
+                <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/5 hover:border-electric-indigo/20 transition-colors duration-500">
+                  <Image
+                    src="https://i.ibb.co/8n644br2/nec03.png"
+                    alt="New Era Cap space collection — cosmic hero shot"
+                    fill
+                    className="object-cover"
+                    unoptimized
+                  />
+                  {/* Vignette */}
+                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_50%,rgba(0,0,0,0.45)_100%)] pointer-events-none" />
+                  {/* Indigo corner bleed */}
+                  <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-electric-indigo/15 rounded-full blur-3xl pointer-events-none" />
+                  {/* Caption badge */}
+                  <div className="absolute bottom-4 left-4 px-3 py-1.5 rounded-full bg-black/50 backdrop-blur-sm border border-white/10 font-mono text-[10px] tracking-widest uppercase text-white/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    Cosmic Hero
+                  </div>
+                </div>
+              </HolographicSheen>
+            </TiltCard>
+          </motion.div>
+
+          {/* Image 2 — nec02 | DistortionCard | 3:4 tall */}
+          <motion.div variants={galleryItem} className="md:col-span-5">
+            <DistortionCard className="rounded-2xl overflow-hidden">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-white/5 hover:border-electric-indigo/20 transition-colors duration-500">
+                <Image
+                  src="https://i.ibb.co/LXtJ8L6M/nec02.png"
+                  alt="New Era Cap space collection — product detail"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+                {/* Coral gradient at bottom */}
+                <div className="absolute bottom-0 inset-x-0 h-1/3 bg-gradient-to-t from-warm-coral/10 to-transparent pointer-events-none" />
+                {/* Constellation dots */}
+                <div className="absolute top-6 right-6 w-1.5 h-1.5 bg-white/20 rounded-full pointer-events-none" />
+                <div className="absolute top-10 right-14 w-1 h-1 bg-white/15 rounded-full pointer-events-none" />
+                <div className="absolute top-16 right-8 w-1 h-1 bg-white/10 rounded-full pointer-events-none" />
+              </div>
+            </DistortionCard>
+          </motion.div>
+
+          {/* Image 3 — nec01 | TiltCard (higher tilt) | 4:3 */}
+          <motion.div variants={galleryItem} className="md:col-start-2 md:col-span-5">
+            <TiltCard maxTilt={12} className="rounded-2xl overflow-hidden">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/5 hover:border-electric-indigo/20 transition-colors duration-500">
+                <Image
+                  src="https://i.ibb.co/1tXJv5KM/nec01.png"
+                  alt="New Era Cap space collection — environment shot"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+                {/* Film strip edge line */}
+                <div className="absolute inset-y-0 left-0 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent pointer-events-none" />
+                {/* Faint indigo bleed */}
+                <div className="absolute -top-6 -right-6 w-32 h-32 bg-electric-indigo/10 rounded-full blur-3xl pointer-events-none" />
+              </div>
+            </TiltCard>
+          </motion.div>
+
+          {/* Image 4 — nec00 | HolographicSheen + TiltCard | 16:9 */}
+          <motion.div variants={galleryItem} className="md:col-span-6">
+            <TiltCard className="rounded-2xl overflow-hidden group">
+              <HolographicSheen className="rounded-2xl">
+                <div className="relative aspect-[16/9] overflow-hidden rounded-2xl border border-white/5 hover:border-electric-indigo/20 transition-colors duration-500">
+                  <Image
+                    src="https://i.ibb.co/Gv6Vx9Wx/nec00.png"
+                    alt="New Era Cap space collection — campaign finale"
+                    fill
+                    className="object-cover"
+                    unoptimized
+                  />
+                  {/* Right-side indigo wash */}
+                  <div className="absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-electric-indigo/12 to-transparent pointer-events-none" />
+                  {/* Caption badge */}
+                  <div className="absolute bottom-4 right-4 px-3 py-1.5 rounded-full bg-black/50 backdrop-blur-sm border border-white/10 font-mono text-[10px] tracking-widest uppercase text-white/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    Campaign Finale
+                  </div>
+                </div>
+              </HolographicSheen>
+            </TiltCard>
+          </motion.div>
         </motion.div>
       </section>
 

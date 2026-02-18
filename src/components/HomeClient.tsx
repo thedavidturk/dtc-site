@@ -15,8 +15,11 @@ const CinematicIntro = dynamic(() => import("@/components/CinematicIntro"), {
   ssr: false,
 });
 
+/** Survives client-side navigations but resets on hard reload / new tab */
+let introHasPlayed = false;
+
 export default function HomeClient() {
-  const [introComplete, setIntroComplete] = useState(false);
+  const [introComplete, setIntroComplete] = useState(introHasPlayed);
 
   return (
     <>
@@ -32,7 +35,7 @@ export default function HomeClient() {
         />
       )}
       {!introComplete && (
-        <CinematicIntro onComplete={() => setIntroComplete(true)} />
+        <CinematicIntro onComplete={() => { introHasPlayed = true; setIntroComplete(true); }} />
       )}
       <Hero introComplete={introComplete} />
       <ValuePropositions />
