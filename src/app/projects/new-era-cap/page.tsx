@@ -62,9 +62,9 @@ const overview = {
   industry: "Fashion / Headwear",
   timeline: "6 Weeks",
   services: [
-    "3D Animation",
-    "Virtual World Cinematic",
-    "Unreal Engine 5 Production",
+    "Research & Discovery",
+    "Creative Strategy",
+    "Content Development",
     "Post-Production & VFX",
     "Multi-Platform Delivery",
   ],
@@ -73,27 +73,27 @@ const overview = {
 const approach = [
   {
     step: "01",
-    title: "Virtual Worldbuilding in Unreal Engine 5",
+    title: "Research & Discovery",
     description:
-      "Designed and built immersive 3D environments featuring planets, stars, and galaxies. Leveraged real-time rendering for instant creative feedback and rapid iteration.",
+      "Immersed ourselves in the brand, the collection, and the competitive landscape. Identified the cultural tension between streetwear and space exploration that would anchor the entire campaign.",
   },
   {
     step: "02",
-    title: "Cinematic Animation and Sequencing",
+    title: "Creative Strategy",
     description:
-      "Utilized UE5's Sequencer for dynamic, sweeping camera moves through the space environments. Every shot crafted to feel like a feature-film sequence.",
+      "Developed a cinematic concept that positioned each cap as a gateway to its own cosmic world. Defined the visual language, narrative arc, and channel strategy before a single frame was produced.",
   },
   {
     step: "03",
-    title: "3D Product Visualization",
+    title: "Content Development",
     description:
-      "Created photorealistic 3D models of each cap, integrated seamlessly into the virtual space environments with accurate materials and lighting.",
+      "Brought the strategy to life through immersive 3D environments, photorealistic product visualization, and cinematic sequencing — all rendered in real time for rapid iteration and creative feedback.",
   },
   {
     step: "04",
-    title: "Post-Production and Polish",
+    title: "Post-Production & Polish",
     description:
-      "Refined every frame in Adobe After Effects with VFX, color grading, and motion graphics. Elevated the output to feature-film quality in 4K resolution.",
+      "Refined every frame with VFX compositing, color grading, and motion graphics. Elevated the output to feature-film quality in 4K resolution.",
   },
   {
     step: "05",
@@ -104,10 +104,10 @@ const approach = [
 ];
 
 const results = [
+  "Research-backed creative strategy that connected product to culture",
   "Cinematic 4K campaign delivered across digital and retail channels",
-  "Photorealistic product visualization in immersive space environments",
-  "Rapid iteration and approval through real-time rendering",
-  "Feature-film quality achieved without location shoots",
+  "Feature-film quality content achieved without physical production",
+  "Rapid iteration through real-time rendering workflows",
   "Campaign assets that captured attention and drove engagement",
 ];
 
@@ -205,7 +205,7 @@ export default function NewEraCapProject() {
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
-              3D Animation + Virtual World Cinematic
+              Strategy + Content Development
             </span>
           </motion.div>
 
@@ -399,22 +399,23 @@ export default function NewEraCapProject() {
             The Solution
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
-            A virtual universe{" "}
+            Strategy-driven content{" "}
             <span className="gradient-text">built for impact</span>
           </h2>
           <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
             <p>
-              We built a complete virtual world in Unreal Engine 5 to design,
-              animate, and render cinematic 4K sequences. Real-time rendering
-              accelerated the entire production pipeline while maintaining
-              premium quality at every stage.
+              The research pointed to one clear insight: the audience wanted to
+              feel the wonder of space, not just see hats in front of it. That
+              became our strategic foundation — every creative decision, from
+              environment design to camera movement, served that emotional goal.
             </p>
             <p>
-              By combining photorealistic product visualization with cosmic
-              storytelling, we delivered a campaign that felt like a feature film
-              — all without a single location shoot, physical set, or on-site
-              crew. Every planet, every star, every reflection on the product was
-              crafted digitally and rendered to perfection.
+              From there, we developed cinematic 4K content across immersive 3D
+              environments, photorealistic product shots, and sweeping
+              cinematics — all without a single location shoot, physical set, or
+              on-site crew. Every planet, every star, every reflection on the
+              product was crafted to make the audience feel something first and
+              notice the product second.
             </p>
           </div>
         </motion.div>
