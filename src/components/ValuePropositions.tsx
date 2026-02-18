@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
+import TextReveal from "./TextReveal";
 
 // Dynamic import to handle SSR gracefully -- Canvas requires browser APIs
 const FloatingIcon = dynamic(() => import("./FloatingIcon"), { ssr: false });
@@ -116,10 +117,17 @@ export default function ValuePropositions() {
           >
             What We Do
           </motion.span>
-          <h2 className="font-headline font-bold text-3xl md:text-4xl lg:text-5xl text-pure-white leading-tight">
-            The future of creative production{" "}
-            <span className="gradient-text">is here</span>
-          </h2>
+          <TextReveal
+            text="The future of creative production"
+            as="h2"
+            className="font-headline font-bold text-3xl md:text-4xl lg:text-5xl text-pure-white leading-tight"
+          />
+          <TextReveal
+            text="is here"
+            as="span"
+            className="font-headline font-bold text-3xl md:text-4xl lg:text-5xl leading-tight gradient-text block"
+            delay={0.2}
+          />
         </motion.div>
 
         {/* Pillars grid */}

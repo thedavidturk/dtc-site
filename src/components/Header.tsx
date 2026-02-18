@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import MagneticButton from "./MagneticButton";
 
 const navLinks = [
   { label: "Work", href: "#projects" },
@@ -16,9 +17,24 @@ const navLinks = [
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-deep-space/80 backdrop-blur-lg border-b border-white/5">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-white/[0.06] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)] ${
+        scrolled
+          ? "bg-white/[0.06] backdrop-blur-2xl backdrop-saturate-[1.8]"
+          : "bg-white/[0.03] backdrop-blur-xl backdrop-saturate-[1.8]"
+      }`}
+    >
       <div className="section-container flex items-center justify-between h-16 md:h-20">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
@@ -38,9 +54,11 @@ export default function Header() {
               {link.label}
             </a>
           ))}
-          <a href="#contact" className="btn-primary text-sm !px-6 !py-2.5">
-            Start a Project
-          </a>
+          <MagneticButton strength={0.2} radius={100}>
+            <a href="#contact" className="btn-primary text-sm !px-6 !py-2.5">
+              Start a Project
+            </a>
+          </MagneticButton>
         </nav>
 
         {/* Mobile Toggle */}
@@ -64,6 +82,17 @@ export default function Header() {
         </button>
       </div>
 
+      {/* Animated shimmer border */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-px"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent, rgba(99,102,241,0.3), rgba(249,115,22,0.2), transparent)",
+          backgroundSize: "200% 100%",
+          animation: "shimmer-border 3.5s linear infinite",
+        }}
+      />
+
       {/* Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
@@ -72,7 +101,7 @@ export default function Header() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden overflow-hidden bg-deep-space/95 backdrop-blur-lg border-b border-white/5"
+            className="lg:hidden overflow-hidden bg-white/[0.04] backdrop-blur-2xl backdrop-saturate-[1.8] border-b border-white/[0.06]"
           >
             <div className="section-container py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
@@ -96,6 +125,18 @@ export default function Header() {
           </motion.nav>
         )}
       </AnimatePresence>
+
+      {/* Keyframes for shimmer border animation */}
+      <style jsx>{`
+        @keyframes shimmer-border {
+          0% {
+            background-position: -200% 0;
+          }
+          100% {
+            background-position: 200% 0;
+          }
+        }
+      `}</style>
     </header>
   );
 }

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
+import TextReveal from "./TextReveal";
 
 const FloatingText3D = dynamic(() => import("./FloatingText3D"), {
   ssr: false,
@@ -94,9 +95,11 @@ export default function About() {
           <span className="font-mono text-xs tracking-[0.3em] text-electric-indigo uppercase mb-4 block">
             About
           </span>
-          <h2 className="font-headline text-4xl md:text-5xl font-bold text-pure-white tracking-tight">
-            BUILT FOR WHAT&apos;S NEXT
-          </h2>
+          <TextReveal
+            text="BUILT FOR WHAT'S NEXT"
+            as="h2"
+            className="font-headline text-4xl md:text-5xl font-bold text-pure-white tracking-tight"
+          />
         </motion.div>
 
         {/* Split Layout */}

@@ -1,47 +1,14 @@
 "use client";
 
+import { Fragment } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
+import MagneticButton from "./MagneticButton";
 
 const ParticleNebula = dynamic(() => import("@/components/ParticleNebula"), {
   ssr: false,
   loading: () => <div className="absolute inset-0 z-0 bg-deep-space" />,
 });
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.3,
-    },
-  },
-};
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.8,
-      ease: [0.25, 0.46, 0.45, 0.94] as const,
-    },
-  },
-};
-
-const buttonVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: [0.25, 0.46, 0.45, 0.94] as const,
-    },
-  },
-};
 
 const scrollIndicatorVariants = {
   animate: {
@@ -54,6 +21,72 @@ const scrollIndicatorVariants = {
     },
   },
 };
+
+/* ------------------------------------------------------------------ */
+/*  Kinetic Typography Helpers                                        */
+/* ------------------------------------------------------------------ */
+
+const wordEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
+function AnimatedWord({
+  word,
+  delay,
+  animate,
+}: {
+  word: string;
+  delay: number;
+  animate: boolean;
+}) {
+  return (
+    <span className="inline-block overflow-hidden">
+      <motion.span
+        className="inline-block"
+        initial={{ y: "100%", rotateX: 40, opacity: 0 }}
+        animate={
+          animate
+            ? { y: 0, rotateX: 0, opacity: 1 }
+            : { y: "100%", rotateX: 40, opacity: 0 }
+        }
+        transition={{ duration: 0.7, delay: animate ? delay : 0, ease: wordEase }}
+        style={{ transformOrigin: "bottom" }}
+      >
+        {word}
+      </motion.span>
+    </span>
+  );
+}
+
+function AnimatedLine({
+  text,
+  baseDelay,
+  className,
+  animate,
+}: {
+  text: string;
+  baseDelay: number;
+  className?: string;
+  animate: boolean;
+}) {
+  const words = text.split(" ");
+  return (
+    <span className={`block ${className || ""}`}>
+      {words.map((word, i) => (
+        <Fragment key={i}>
+          {i > 0 && <span className="inline-block">&nbsp;</span>}
+          <AnimatedWord
+            word={word}
+            delay={baseDelay + i * 0.12}
+            animate={animate}
+          />
+        </Fragment>
+      ))}
+    </span>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  Hero Component                                                    */
+/* ------------------------------------------------------------------ */
 
 interface HeroProps {
   introComplete?: boolean;
@@ -85,29 +118,39 @@ export default function Hero({ introComplete = true }: HeroProps) {
       </div>
 
       {/* Main content */}
-      <motion.div
-        className="relative z-10 section-container section-padding text-center max-w-6xl mx-auto"
-        variants={containerVariants}
-        initial="hidden"
-        animate={introComplete ? "visible" : "hidden"}
-      >
-        {/* Headline */}
-        <motion.h1
+      <div className="relative z-10 section-container section-padding text-center max-w-6xl mx-auto">
+        {/* Headline — kinetic word-by-word reveal */}
+        <h1
           className="font-headline font-bold text-5xl md:text-7xl lg:text-8xl tracking-tight leading-[0.95] mb-8"
-          variants={fadeUp}
+          style={{ perspective: 400 }}
         >
-          <span className="block text-pure-white">
-            FUTURE-PROOF CREATIVE
-          </span>
-          <span className="block mt-2 gradient-text">
-            FOR FORWARD-THINKING BRANDS
-          </span>
-        </motion.h1>
+          {/* Line 1: "FUTURE-PROOF CREATIVE" — white */}
+          <AnimatedLine
+            text="FUTURE-PROOF CREATIVE"
+            baseDelay={0}
+            className="text-pure-white"
+            animate={introComplete}
+          />
 
-        {/* Subheadline */}
+          {/* Line 2: "FOR FORWARD-THINKING BRANDS" — gradient */}
+          <AnimatedLine
+            text="FOR FORWARD-THINKING BRANDS"
+            baseDelay={0.4}
+            className="mt-2 gradient-text"
+            animate={introComplete}
+          />
+        </h1>
+
+        {/* Subheadline — blur-in entrance */}
         <motion.p
           className="font-body text-cool-gray text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-12"
-          variants={fadeUp}
+          initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
+          animate={
+            introComplete
+              ? { opacity: 1, filter: "blur(0px)", y: 0 }
+              : { opacity: 0, filter: "blur(10px)", y: 20 }
+          }
+          transition={{ duration: 0.8, delay: introComplete ? 1.0 : 0, ease: wordEase }}
         >
           We combine Unreal Engine 5 virtual worlds, 4K cinematics, and
           intelligent workflows to create content that doesn&apos;t just keep
@@ -117,28 +160,38 @@ export default function Hero({ introComplete = true }: HeroProps) {
         {/* CTA Buttons */}
         <motion.div
           className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
-          variants={fadeUp}
+          initial={{ opacity: 0, y: 20 }}
+          animate={
+            introComplete
+              ? { opacity: 1, y: 0 }
+              : { opacity: 0, y: 20 }
+          }
+          transition={{
+            duration: 0.6,
+            delay: introComplete ? 1.3 : 0,
+            ease: [0.25, 0.46, 0.45, 0.94],
+          }}
         >
-          <motion.a
-            href="#projects"
-            className="btn-primary"
-            variants={buttonVariants}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            Explore Our Work
-          </motion.a>
-          <motion.a
-            href="#contact"
-            className="btn-secondary"
-            variants={buttonVariants}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            Start a Project
-          </motion.a>
+          <MagneticButton>
+            <motion.a
+              href="#projects"
+              className="btn-primary"
+              whileTap={{ scale: 0.98 }}
+            >
+              Explore Our Work
+            </motion.a>
+          </MagneticButton>
+          <MagneticButton>
+            <motion.a
+              href="#contact"
+              className="btn-secondary"
+              whileTap={{ scale: 0.98 }}
+            >
+              Start a Project
+            </motion.a>
+          </MagneticButton>
         </motion.div>
-      </motion.div>
+      </div>
 
       {/* Scroll indicator */}
       <motion.div

@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ClientLayout from "@/components/ClientLayout";
 
 const CursorTrail = dynamic(() => import("@/components/CursorTrail"), {
   ssr: false,
@@ -78,7 +79,9 @@ export default function RootLayout({
         <ScrollStreaks />
         <ScrollProgressTrail />
         <Header />
-        <main>{children}</main>
+        <main>
+          <ClientLayout>{children}</ClientLayout>
+        </main>
         <Footer />
       </body>
     </html>

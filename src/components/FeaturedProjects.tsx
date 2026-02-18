@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import TiltCard from "./TiltCard";
+import TextReveal from "./TextReveal";
 
 interface Project {
   client: string;
@@ -111,9 +112,8 @@ export default function FeaturedProjects() {
             Selected Work
           </p>
           <h2 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold text-pure-white tracking-tight">
-            WORK THAT PUSHES
-            <br />
-            <span className="gradient-text">BOUNDARIES</span>
+            <TextReveal text="WORK THAT PUSHES" as="span" className="block" />
+            <TextReveal text="BOUNDARIES" as="span" className="block gradient-text" delay={0.2} />
           </h2>
         </motion.div>
 

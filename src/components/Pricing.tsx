@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import WireframeTerrain from "./WireframeTerrain";
+import MagneticButton from "./MagneticButton";
 
 const packages = [
   {
@@ -154,8 +155,8 @@ export default function Pricing() {
               key={pkg.name}
               className={`relative flex flex-col rounded-2xl p-8 transition-colors duration-300 ${
                 pkg.popular
-                  ? "bg-white/[0.05] border-2 border-electric-indigo/50 lg:scale-105 lg:-my-2 shadow-[0_0_60px_-15px_rgba(99,102,241,0.15)]"
-                  : "bg-white/[0.03] border border-white/5 hover:border-white/10"
+                  ? "bg-white/[0.06] backdrop-blur-xl backdrop-saturate-150 border-2 border-electric-indigo/30 lg:scale-105 lg:-my-2 shadow-[0_0_60px_-15px_rgba(99,102,241,0.2),inset_0_1px_0_0_rgba(255,255,255,0.08)] hover:bg-white/[0.09] hover:border-electric-indigo/50"
+                  : "bg-white/[0.04] backdrop-blur-xl backdrop-saturate-150 border border-white/[0.08] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)] hover:bg-white/[0.07] hover:border-white/[0.12]"
               }`}
               variants={cardVariants}
               whileHover={{
@@ -166,7 +167,7 @@ export default function Pricing() {
               {/* Most Popular Badge */}
               {pkg.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <span className="inline-block bg-gradient-cta text-white font-mono text-xs font-bold tracking-wider uppercase px-5 py-1.5 rounded-full">
+                  <span className="inline-block bg-electric-indigo/20 backdrop-blur-sm border border-electric-indigo/30 text-white font-mono text-xs font-bold tracking-wider uppercase px-5 py-1.5 rounded-full">
                     Most Popular
                   </span>
                 </div>
@@ -188,7 +189,7 @@ export default function Pricing() {
               </div>
 
               {/* Divider */}
-              <div className="h-px bg-white/[0.06] mb-6" />
+              <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-6" />
 
               {/* Features */}
               <ul className="space-y-4 mb-8 flex-1">
@@ -208,14 +209,15 @@ export default function Pricing() {
               </p>
 
               {/* CTA */}
-              <motion.a
-                href="#contact"
-                className={pkg.popular ? "btn-primary w-full text-center" : "btn-secondary w-full text-center"}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Get Started
-              </motion.a>
+              <MagneticButton strength={0.2}>
+                <motion.a
+                  href="#contact"
+                  className={pkg.popular ? "btn-primary w-full text-center" : "btn-secondary w-full text-center"}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  Get Started
+                </motion.a>
+              </MagneticButton>
             </motion.div>
           ))}
         </div>

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
+import TextReveal from "./TextReveal";
 
 // Dynamically import ServiceScene with SSR disabled (Three.js needs the DOM)
 const ServiceScene = dynamic(() => import("./ServiceScene"), { ssr: false });
@@ -123,8 +124,17 @@ export default function Services() {
             Capabilities
           </p>
           <h2 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold text-pure-white tracking-tight">
-            WHAT WE{" "}
-            <span className="gradient-text">DO</span>
+            <TextReveal
+              text="WHAT WE"
+              as="span"
+              className="inline"
+            />{" "}
+            <TextReveal
+              text="DO"
+              as="span"
+              className="gradient-text inline"
+              delay={0.15}
+            />
           </h2>
         </motion.div>
       </div>

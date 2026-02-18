@@ -3,6 +3,7 @@
 import { useRef, useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
+import TextReveal from "./TextReveal";
 import WireframeTerrain from "./WireframeTerrain";
 
 const ProcessPipeline = dynamic(() => import("./ProcessPipeline"), {
@@ -151,9 +152,11 @@ export default function Process() {
           <span className="font-mono text-xs tracking-[0.3em] text-electric-indigo uppercase mb-4 block">
             Our Process
           </span>
-          <h2 className="font-headline text-4xl md:text-5xl font-bold text-pure-white tracking-tight">
-            HOW WE PARTNER
-          </h2>
+          <TextReveal
+            text="HOW WE PARTNER"
+            as="h2"
+            className="font-headline text-4xl md:text-5xl font-bold text-pure-white tracking-tight"
+          />
         </motion.div>
 
         {/* 3D Pipeline — desktop only */}
