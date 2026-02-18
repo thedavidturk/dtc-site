@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import TiltCard from "./TiltCard";
 import TextReveal from "./TextReveal";
+import DistortionCard from "./DistortionCard";
 
 interface Project {
   client: string;
@@ -127,6 +128,7 @@ export default function FeaturedProjects() {
         >
           {projects.map((project) => (
             <motion.div key={project.href} variants={cardVariants}>
+              <DistortionCard>
               <Link
                 href={project.href}
                 className={`group relative block ${project.accentGlow}`}
@@ -215,6 +217,7 @@ export default function FeaturedProjects() {
                   <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none shadow-[inset_0_0_60px_rgba(99,102,241,0.08)]" />
                 </TiltCard>
               </Link>
+              </DistortionCard>
             </motion.div>
           ))}
         </motion.div>

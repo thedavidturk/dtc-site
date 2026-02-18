@@ -6,6 +6,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ClientLayout from "@/components/ClientLayout";
 
+const ScrollScene = dynamic(() => import("@/components/ScrollScene"), {
+  ssr: false,
+});
+
 const CursorTrail = dynamic(() => import("@/components/CursorTrail"), {
   ssr: false,
 });
@@ -24,6 +28,14 @@ const ScrollProgressTrail = dynamic(
   () => import("@/components/ScrollProgressTrail"),
   { ssr: false }
 );
+
+const FilmGrain = dynamic(() => import("@/components/FilmGrain"), {
+  ssr: false,
+});
+
+const SmoothScroll = dynamic(() => import("@/components/SmoothScroll"), {
+  ssr: false,
+});
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -74,10 +86,13 @@ export default function RootLayout({
       <body
         className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} font-body antialiased bg-deep-space text-pure-white`}
       >
+        <ScrollScene />
+        <SmoothScroll />
         <CursorTrail />
         <ShootingStars />
         <ScrollStreaks />
         <ScrollProgressTrail />
+        <FilmGrain />
         <Header />
         <main>
           <ClientLayout>{children}</ClientLayout>
