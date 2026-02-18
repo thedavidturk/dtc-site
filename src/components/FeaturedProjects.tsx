@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import TiltCard from "./TiltCard";
 import TextReveal from "./TextReveal";
@@ -14,6 +15,7 @@ interface Project {
   href: string;
   gradient: string;
   accentGlow: string;
+  coverImage?: string;
 }
 
 const projects: Project[] = [
@@ -26,6 +28,7 @@ const projects: Project[] = [
     href: "/projects/new-era-cap",
     gradient: "from-electric-indigo via-purple-600 to-violet-900",
     accentGlow: "group-hover:shadow-electric-indigo/30",
+    coverImage: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdDBnMzY2M2JzNDFzNms4ejJvZmRyNGo1YmsyYjdlaHZlMXphZG14dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2UeBIRTL9ZA2BvmZD5/giphy.gif",
   },
   {
     client: "SEAWORLD",
@@ -134,16 +137,28 @@ export default function FeaturedProjects() {
                 className={`group relative block ${project.accentGlow}`}
               >
                 <TiltCard className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 hover:shadow-2xl">
-                  {/* Gradient background placeholder */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${project.gradient} transition-transform duration-700 ease-out group-hover:scale-105`}
-                  />
-
-                  {/* Noise / grain overlay for cinematic feel */}
-                  <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIxIi8+PC9zdmc+')]" />
-
-                  {/* Subtle grid pattern */}
-                  <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:60px_60px]" />
+                  {/* Background — cover image or gradient */}
+                  {project.coverImage ? (
+                    <div className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-105">
+                      <Image
+                        src={project.coverImage}
+                        alt={`${project.client} project`}
+                        fill
+                        className="object-cover"
+                        unoptimized
+                      />
+                    </div>
+                  ) : (
+                    <>
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-br ${project.gradient} transition-transform duration-700 ease-out group-hover:scale-105`}
+                      />
+                      {/* Noise / grain overlay for cinematic feel */}
+                      <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIxIi8+PC9zdmc+')]" />
+                      {/* Subtle grid pattern */}
+                      <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:60px_60px]" />
+                    </>
+                  )}
 
                   {/* Dark overlay — intensifies on hover */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-500 group-hover:from-black/90 group-hover:via-black/40" />
