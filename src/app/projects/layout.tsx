@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | David Turk Creative",
-    default: "Projects | David Turk Creative",
+    template: "%s | TURKS",
+    default: "Projects | TURKS",
   },
   description:
     "Explore our portfolio of 3D animation, virtual world cinematics, and motion design work for forward-thinking brands.",
   openGraph: {
-    title: "Projects | David Turk Creative",
+    title: "Projects | TURKS",
     description:
       "Explore our portfolio of 3D animation, virtual world cinematics, and motion design work for forward-thinking brands.",
     type: "website",

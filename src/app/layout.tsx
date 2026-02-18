@@ -6,10 +6,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ClientLayout from "@/components/ClientLayout";
 
-const ScrollScene = dynamic(() => import("@/components/ScrollScene"), {
-  ssr: false,
-});
-
 const CursorTrail = dynamic(() => import("@/components/CursorTrail"), {
   ssr: false,
 });
@@ -56,7 +52,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "David Turk Creative | Future-Proof Creative for Forward-Thinking Brands",
+  title: "TURKS | Future-Proof Creative for Forward-Thinking Brands",
   description:
     "We combine Unreal Engine 5 virtual worlds, 4K cinematics, and intelligent workflows to create content that doesn't just keep up — it leads.",
   keywords: [
@@ -69,7 +65,7 @@ export const metadata: Metadata = {
     "photography",
   ],
   openGraph: {
-    title: "David Turk Creative | Future-Proof Creative",
+    title: "TURKS | Future-Proof Creative",
     description:
       "Unreal Engine 5 virtual worlds, 4K cinematics, and intelligent workflows for forward-thinking brands.",
     type: "website",
@@ -86,7 +82,6 @@ export default function RootLayout({
       <body
         className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} font-body antialiased bg-deep-space text-pure-white`}
       >
-        <ScrollScene />
         <SmoothScroll />
         <CursorTrail />
         <ShootingStars />

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import HolographicSheen from "./HolographicSheen";
 
@@ -9,6 +10,7 @@ interface BlogPost {
   category: string;
   gradient: string;
   gradientAccent: string;
+  slug: string;
 }
 
 const posts: BlogPost[] = [
@@ -19,6 +21,7 @@ const posts: BlogPost[] = [
     category: "VIRTUAL PRODUCTION",
     gradient: "from-electric-indigo/40 via-purple-900/60 to-deep-space",
     gradientAccent: "bg-electric-indigo/10",
+    slug: "virtual-worlds",
   },
   {
     title: "4K in Real-Time: How Unreal Engine Changed Everything",
@@ -27,6 +30,7 @@ const posts: BlogPost[] = [
     category: "TECHNOLOGY",
     gradient: "from-cyan-500/30 via-blue-900/50 to-deep-space",
     gradientAccent: "bg-cyan-500/10",
+    slug: "real-time-4k",
   },
   {
     title: "Building Worlds in Days, Not Months",
@@ -35,6 +39,7 @@ const posts: BlogPost[] = [
     category: "METHODOLOGY",
     gradient: "from-warm-coral/30 via-amber-900/40 to-deep-space",
     gradientAccent: "bg-warm-coral/10",
+    slug: "building-worlds",
   },
 ];
 
@@ -111,8 +116,9 @@ export default function Insights() {
             <motion.article
               key={post.title}
               variants={cardVariants}
-              className="group relative bg-white/[0.03] border border-white/5 rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 hover:-translate-y-2 hover:border-white/15 hover:shadow-2xl hover:shadow-black/30"
+              className="group relative"
             >
+              <Link href={`/insights/${post.slug}`} className="block bg-white/[0.03] border border-white/5 rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 hover:-translate-y-2 hover:border-white/15 hover:shadow-2xl hover:shadow-black/30">
               <HolographicSheen className="rounded-2xl">
                 {/* Gradient image placeholder area */}
                 <div className="relative aspect-video overflow-hidden">
@@ -176,6 +182,7 @@ export default function Insights() {
                 {/* Hover border glow */}
                 <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none shadow-[inset_0_0_40px_rgba(99,102,241,0.05)]" />
               </HolographicSheen>
+              </Link>
             </motion.article>
           ))}
         </div>

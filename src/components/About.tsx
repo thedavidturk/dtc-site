@@ -126,7 +126,7 @@ export default function About() {
             </p>
 
             <p className="font-body text-lg text-cool-gray leading-relaxed">
-              DT+C is a forward-thinking creative studio that uses Unreal Engine
+              TURKS is a forward-thinking creative studio that uses Unreal Engine
               5 to create virtual worlds and 4K cinematics — the same technology
               powering Hollywood productions. The result? Premium content
               produced at the speed of now, without the limitations of physical

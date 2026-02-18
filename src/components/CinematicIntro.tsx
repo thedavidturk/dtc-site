@@ -20,7 +20,7 @@ const WARM_CORAL = "#F97316";
 
 const PARTICLE_COUNT = 300;
 const AMBIENT_COUNT = 120;
-const WARP_PARTICLE_COUNT = 500;
+const WARP_PARTICLE_COUNT = 800;
 
 /** Time offset added to all original phases so the warp tunnel plays first */
 const WARP_DURATION = 2.0;
@@ -28,24 +28,6 @@ const WARP_DURATION = 2.0;
 // ---------------------------------------------------------------------------
 // Letter position generators
 // ---------------------------------------------------------------------------
-
-/** Generate approximate positions for the letter "D" */
-function generateD(offsetX: number, scale: number): [number, number][] {
-  const pts: [number, number][] = [];
-  // Vertical bar
-  for (let i = 0; i < 14; i++) {
-    const y = (i / 13) * 2 - 1;
-    pts.push([offsetX, y * scale]);
-  }
-  // Right curve
-  for (let i = 0; i < 18; i++) {
-    const angle = (i / 17) * Math.PI - Math.PI / 2;
-    const cx = offsetX + 0.5 * scale;
-    const cy = 0;
-    pts.push([cx + Math.cos(angle) * 0.5 * scale, cy + Math.sin(angle) * scale]);
-  }
-  return pts;
-}
 
 /** Generate approximate positions for the letter "T" */
 function generateT(offsetX: number, scale: number): [number, number][] {
@@ -63,30 +45,107 @@ function generateT(offsetX: number, scale: number): [number, number][] {
   return pts;
 }
 
-/** Generate approximate positions for "+" */
-function generatePlus(offsetX: number, scale: number): [number, number][] {
+/** Generate approximate positions for the letter "U" */
+function generateU(offsetX: number, scale: number): [number, number][] {
   const pts: [number, number][] = [];
-  // Horizontal
-  for (let i = 0; i < 10; i++) {
-    const x = (i / 9) * 1.0 - 0.5;
-    pts.push([offsetX + x * scale, 0]);
+  // Left vertical (top to bottom)
+  for (let i = 0; i < 12; i++) {
+    const y = scale - (i / 11) * 1.5 * scale;
+    pts.push([offsetX - 0.4 * scale, y]);
   }
-  // Vertical
-  for (let i = 0; i < 10; i++) {
-    const y = (i / 9) * 1.0 - 0.5;
-    pts.push([offsetX, y * scale]);
+  // Bottom curve
+  for (let i = 0; i < 14; i++) {
+    const angle = Math.PI + (i / 13) * Math.PI;
+    pts.push([
+      offsetX + Math.cos(angle) * 0.4 * scale,
+      -0.5 * scale + Math.sin(angle) * 0.5 * scale,
+    ]);
+  }
+  // Right vertical (bottom to top)
+  for (let i = 0; i < 12; i++) {
+    const y = -0.5 * scale + (i / 11) * 1.5 * scale;
+    pts.push([offsetX + 0.4 * scale, y]);
   }
   return pts;
 }
 
-/** Generate approximate positions for the letter "C" */
-function generateC(offsetX: number, scale: number): [number, number][] {
+/** Generate approximate positions for the letter "R" */
+function generateR(offsetX: number, scale: number): [number, number][] {
   const pts: [number, number][] = [];
-  for (let i = 0; i < 22; i++) {
-    const angle = (i / 21) * Math.PI * 1.4 + Math.PI * 0.3;
+  // Vertical bar
+  for (let i = 0; i < 16; i++) {
+    const y = (i / 15) * 2 - 1;
+    pts.push([offsetX - 0.3 * scale, y * scale]);
+  }
+  // Top curve (bump of R)
+  for (let i = 0; i < 14; i++) {
+    const angle = -Math.PI / 2 + (i / 13) * Math.PI;
     pts.push([
-      offsetX + Math.cos(angle) * 0.6 * scale,
-      Math.sin(angle) * scale,
+      offsetX + 0.05 * scale + Math.cos(angle) * 0.35 * scale,
+      0.5 * scale + Math.sin(angle) * 0.5 * scale,
+    ]);
+  }
+  // Horizontal middle
+  for (let i = 0; i < 6; i++) {
+    const x = (i / 5) * 0.5;
+    pts.push([offsetX - 0.3 * scale + x * scale, 0]);
+  }
+  // Diagonal leg
+  for (let i = 0; i < 10; i++) {
+    const t = i / 9;
+    pts.push([
+      offsetX + t * 0.5 * scale,
+      -t * scale,
+    ]);
+  }
+  return pts;
+}
+
+/** Generate approximate positions for the letter "K" */
+function generateK(offsetX: number, scale: number): [number, number][] {
+  const pts: [number, number][] = [];
+  // Vertical bar
+  for (let i = 0; i < 16; i++) {
+    const y = (i / 15) * 2 - 1;
+    pts.push([offsetX - 0.3 * scale, y * scale]);
+  }
+  // Upper diagonal (middle to top-right)
+  for (let i = 0; i < 12; i++) {
+    const t = i / 11;
+    pts.push([
+      offsetX - 0.3 * scale + t * 0.7 * scale,
+      t * scale,
+    ]);
+  }
+  // Lower diagonal (middle to bottom-right)
+  for (let i = 0; i < 12; i++) {
+    const t = i / 11;
+    pts.push([
+      offsetX - 0.3 * scale + t * 0.7 * scale,
+      -t * scale,
+    ]);
+  }
+  return pts;
+}
+
+/** Generate approximate positions for the letter "S" */
+function generateS(offsetX: number, scale: number): [number, number][] {
+  const pts: [number, number][] = [];
+  // S as two connected arcs
+  // Top arc (curves right then left)
+  for (let i = 0; i < 16; i++) {
+    const angle = Math.PI * 0.8 - (i / 15) * Math.PI * 1.2;
+    pts.push([
+      offsetX + Math.cos(angle) * 0.4 * scale,
+      0.5 * scale + Math.sin(angle) * 0.4 * scale,
+    ]);
+  }
+  // Bottom arc (curves left then right)
+  for (let i = 0; i < 16; i++) {
+    const angle = Math.PI * 0.2 + (i / 15) * Math.PI * 1.2;
+    pts.push([
+      offsetX - Math.cos(angle) * 0.4 * scale,
+      -0.5 * scale - Math.sin(angle) * 0.4 * scale,
     ]);
   }
   return pts;
@@ -94,17 +153,18 @@ function generateC(offsetX: number, scale: number): [number, number][] {
 
 /** Build all letter target positions with jitter */
 function buildLetterPositions(): [number, number][] {
-  const scale = 1.2;
+  const scale = 1.1;
   const allPts: [number, number][] = [
-    ...generateD(-2.8, scale),
-    ...generateT(-1.0, scale),
-    ...generatePlus(0.7, scale),
-    ...generateC(2.4, scale),
+    ...generateT(-3.2, scale),
+    ...generateU(-1.6, scale),
+    ...generateR(0.0, scale),
+    ...generateK(1.6, scale),
+    ...generateS(3.2, scale),
   ];
   // Add small jitter
   return allPts.map(([x, y]) => [
-    x + (Math.random() - 0.5) * 0.12,
-    y + (Math.random() - 0.5) * 0.12,
+    x + (Math.random() - 0.5) * 0.1,
+    y + (Math.random() - 0.5) * 0.1,
   ]);
 }
 
@@ -112,6 +172,29 @@ function buildLetterPositions(): [number, number][] {
 // Particle Texture (soft circle)
 // ---------------------------------------------------------------------------
 function createParticleTexture(): THREE.CanvasTexture {
+  const size = 128;
+  const canvas = document.createElement("canvas");
+  canvas.width = size;
+  canvas.height = size;
+  const ctx = canvas.getContext("2d")!;
+  const gradient = ctx.createRadialGradient(
+    size / 2, size / 2, 0,
+    size / 2, size / 2, size / 2
+  );
+  gradient.addColorStop(0, "rgba(255,255,255,1)");
+  gradient.addColorStop(0.1, "rgba(255,255,255,0.9)");
+  gradient.addColorStop(0.3, "rgba(255,255,255,0.4)");
+  gradient.addColorStop(0.6, "rgba(255,255,255,0.08)");
+  gradient.addColorStop(1, "rgba(255,255,255,0)");
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, size, size);
+  const tex = new THREE.CanvasTexture(canvas);
+  tex.needsUpdate = true;
+  return tex;
+}
+
+/** Create a soft, spherical glow texture for warp particles */
+function createWarpTexture(): THREE.CanvasTexture {
   const size = 64;
   const canvas = document.createElement("canvas");
   canvas.width = size;
@@ -122,32 +205,12 @@ function createParticleTexture(): THREE.CanvasTexture {
     size / 2, size / 2, size / 2
   );
   gradient.addColorStop(0, "rgba(255,255,255,1)");
-  gradient.addColorStop(0.3, "rgba(255,255,255,0.8)");
-  gradient.addColorStop(0.7, "rgba(255,255,255,0.15)");
+  gradient.addColorStop(0.15, "rgba(255,255,255,0.7)");
+  gradient.addColorStop(0.4, "rgba(255,255,255,0.15)");
+  gradient.addColorStop(0.7, "rgba(255,255,255,0.03)");
   gradient.addColorStop(1, "rgba(255,255,255,0)");
   ctx.fillStyle = gradient;
   ctx.fillRect(0, 0, size, size);
-  const tex = new THREE.CanvasTexture(canvas);
-  tex.needsUpdate = true;
-  return tex;
-}
-
-/** Create an elongated streak texture for warp particles */
-function createStreakTexture(): THREE.CanvasTexture {
-  const w = 16;
-  const h = 128;
-  const canvas = document.createElement("canvas");
-  canvas.width = w;
-  canvas.height = h;
-  const ctx = canvas.getContext("2d")!;
-  const gradient = ctx.createLinearGradient(0, 0, 0, h);
-  gradient.addColorStop(0, "rgba(255,255,255,0)");
-  gradient.addColorStop(0.2, "rgba(255,255,255,0.6)");
-  gradient.addColorStop(0.5, "rgba(255,255,255,1)");
-  gradient.addColorStop(0.8, "rgba(255,255,255,0.6)");
-  gradient.addColorStop(1, "rgba(255,255,255,0)");
-  ctx.fillStyle = gradient;
-  ctx.fillRect(0, 0, w, h);
   const tex = new THREE.CanvasTexture(canvas);
   tex.needsUpdate = true;
   return tex;
@@ -159,7 +222,7 @@ function createStreakTexture(): THREE.CanvasTexture {
 function WarpTunnel({ startTime }: { startTime: React.MutableRefObject<number> }) {
   const pointsRef = useRef<THREE.Points>(null);
 
-  const particleTexture = useMemo(() => createStreakTexture(), []);
+  const particleTexture = useMemo(() => createWarpTexture(), []);
 
   const data = useMemo(() => {
     const positions = new Float32Array(WARP_PARTICLE_COUNT * 3);
@@ -269,16 +332,16 @@ function WarpTunnel({ startTime }: { startTime: React.MutableRefObject<number> }
     // Opacity: fade in 0-0.5, full 0.5-1.8, fade out 1.8-2.2
     const mat = pointsRef.current.material as THREE.PointsMaterial;
     if (elapsed < 0.5) {
-      mat.opacity = (elapsed / 0.5) * 0.9;
+      mat.opacity = (elapsed / 0.5) * 0.75;
     } else if (elapsed < WARP_DURATION - 0.2) {
-      mat.opacity = 0.9;
+      mat.opacity = 0.75;
     } else {
       const fadeOutT = (elapsed - (WARP_DURATION - 0.2)) / 0.4;
-      mat.opacity = 0.9 * Math.max(0, 1 - fadeOutT);
+      mat.opacity = 0.75 * Math.max(0, 1 - fadeOutT);
     }
 
-    // Size increases with speed to create streak effect
-    mat.size = 0.15 + warpT * 0.35;
+    // Soft spherical particles that grow slightly with speed
+    mat.size = 0.12 + warpT * 0.14;
   });
 
   return (
@@ -299,7 +362,7 @@ function WarpTunnel({ startTime }: { startTime: React.MutableRefObject<number> }
         vertexColors
         transparent
         opacity={0}
-        size={0.15}
+        size={0.12}
         sizeAttenuation
         blending={THREE.AdditiveBlending}
         depthWrite={false}
@@ -615,7 +678,7 @@ function IntroParticles({ startTime }: { startTime: React.MutableRefObject<numbe
       colors[i3 + 1] = tmpColor.g;
       colors[i3 + 2] = tmpColor.b;
 
-      sizes[i] = 0.04 + Math.random() * 0.08;
+      sizes[i] = 0.08 + Math.random() * 0.14;
     }
 
     return {
@@ -753,7 +816,7 @@ function IntroParticles({ startTime }: { startTime: React.MutableRefObject<numbe
         vertexColors
         transparent
         opacity={0}
-        size={0.15}
+        size={0.22}
         sizeAttenuation
         blending={THREE.AdditiveBlending}
         depthWrite={false}

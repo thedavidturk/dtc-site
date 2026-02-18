@@ -8,7 +8,6 @@ import FeaturedProjects from "@/components/FeaturedProjects";
 import Services from "@/components/Services";
 import Process from "@/components/Process";
 import About from "@/components/About";
-import Pricing from "@/components/Pricing";
 import Insights from "@/components/Insights";
 import Contact from "@/components/Contact";
 
@@ -21,6 +20,17 @@ export default function HomeClient() {
 
   return (
     <>
+      {/* Static dark overlay — blocks content while CinematicIntro JS bundle loads.
+          CinematicIntro is dynamically imported (ssr: false), so without this overlay
+          the page content flashes briefly before the intro canvas mounts. This overlay
+          is purely CSS (no JS needed) and gets hidden once the intro takes over. */}
+      {!introComplete && (
+        <div
+          className="fixed inset-0 z-[99] pointer-events-none"
+          style={{ backgroundColor: "#0B0F19" }}
+          aria-hidden="true"
+        />
+      )}
       {!introComplete && (
         <CinematicIntro onComplete={() => setIntroComplete(true)} />
       )}
@@ -30,7 +40,6 @@ export default function HomeClient() {
       <Services />
       <Process />
       <About />
-      <Pricing />
       <Insights />
       <Contact />
     </>

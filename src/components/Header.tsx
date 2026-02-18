@@ -39,7 +39,7 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <span className="font-headline font-bold text-xl tracking-tight">
-            DT<span className="text-electric-indigo">+</span>C
+            TURKS
           </span>
         </Link>
 

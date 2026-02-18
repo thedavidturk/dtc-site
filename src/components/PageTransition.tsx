@@ -11,6 +11,8 @@ export default function PageTransition({ children }: PageTransitionProps) {
     <>
       {/* Content wrapper with fade + slide animation */}
       <motion.div
+        className="bg-deep-space"
+        style={{ backgroundColor: "#0B0F19" }}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
