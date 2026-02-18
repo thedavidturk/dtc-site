@@ -1,12 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
-
-const ProjectScene = dynamic(() => import("@/components/ProjectScene"), {
-  ssr: false,
-});
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -42,79 +37,79 @@ const staggerItem = {
 /* ------------------------------------------------------------------ */
 
 const overview = {
-  client: "Barry's Bootcamp",
-  industry: "Fitness / Wellness",
-  timeline: "4 Weeks",
+  client: "The Hospitality Mentor",
+  industry: "Hospitality / Culinary",
+  timeline: "3 Weeks",
   services: [
-    "Motion Graphics",
-    "Video Editing",
-    "Brand Storytelling",
-    "Material Integration",
-    "Brand Consistency",
+    "Cinematic Video Production",
+    "Documentary-Style Direction",
+    "Food Cinematography",
+    "Post-Production & VFX",
+    "4K Delivery",
   ],
 };
 
 const approach = [
   {
     step: "01",
-    title: "Brand Legacy Storytelling",
+    title: "Cinematic Food Cinematography",
     description:
-      "Crafted a visually stunning narrative encapsulating Barry's rich history and vibrant future. Integrated existing footage and logos with current branding to weave together 25 years of fitness culture.",
+      "Leveraged the Canon C70 cinema camera's high dynamic range to capture every texture, color, and detail of the omakase dishes. Each plate was treated as its own visual composition — lit and framed to evoke the artistry behind the cuisine.",
   },
   {
     step: "02",
-    title: "High-Energy Motion Design",
+    title: "Documentary-Style Handheld Filming",
     description:
-      "Developed motion graphics that matched Barry's intense, motivational brand identity. Dynamic typography, energetic transitions, and bold visual treatments that pulse with the same energy as a Barry's class.",
+      "Moved through the live kitchen environment with handheld cinematography, using the C70's Dual Gain Output sensor to maintain broadcast-quality imagery in challenging, low-light conditions. The result is raw authenticity paired with cinematic polish.",
   },
   {
     step: "03",
-    title: "New Instructor Onboarding",
+    title: "Narrative Structure & Editorial",
     description:
-      "Designed a Welcome Video built to inspire and motivate new team members from their very first day. Every element — color, pace, music cue — was aligned to Barry's dynamic identity.",
+      "Structured the episode's narrative flow in Adobe Premiere Pro, weaving together the chef's craft, the guest experience, and the atmosphere of Faena Miami Beach into a cohesive story that unfolds like a short film.",
   },
   {
     step: "04",
-    title: "Material Integration",
+    title: "Motion Graphics & Visual Effects",
     description:
-      "Worked with pre-existing footage, brand assets, and archival materials, enhancing and elevating everything into a cohesive visual package that honored the original material.",
+      "Added elegant motion graphics and subtle visual effects in Adobe After Effects to enhance transitions, introduce segments, and reinforce the premium aesthetic without overshadowing the organic storytelling.",
   },
   {
     step: "05",
-    title: "Brand Consistency",
+    title: "4K Mastering & Delivery",
     description:
-      "Every graphic, transition, and visual element was meticulously crafted to maintain Barry's established brand standards while feeling fresh and forward-looking.",
+      "Mastered the final cut in full 4K resolution to preserve every sensory detail — from the glistening surface of fresh sashimi to the ambient glow of the dining room. Delivered optimized assets for digital distribution.",
   },
 ];
 
 const results = [
-  "25th Anniversary video celebrating brand legacy and future",
-  "Welcome Video that inspired and motivated new instructors",
-  "Motion graphics capturing Barry's high-energy brand identity",
-  "Seamless integration of existing footage with new design",
-  "Enhanced brand consistency across multiple touchpoints",
+  "Sensory-driven episode placing viewers inside an upscale omakase experience",
+  "Cinematic quality achieved in a live, uncontrolled environment",
+  "Blended Faena Miami Beach's luxury aesthetic with culinary craftsmanship",
+  "Documentary authenticity paired with feature-film visual storytelling",
+  "Full 4K delivery for immersive detail across digital platforms",
 ];
 
 const tools = [
   {
-    name: "Adobe After Effects",
+    name: "Canon C70",
     description:
-      "Motion graphics design, animation, visual effects, and dynamic typography.",
+      "Cinema camera with Dual Gain Output sensor for high dynamic range capture in challenging lighting conditions.",
   },
   {
     name: "Adobe Premiere Pro",
     description:
-      "Video editing, pacing, assembly, and final delivery across formats.",
+      "Editorial assembly, narrative structuring, pacing, and color grading for the final episode.",
   },
   {
-    name: "Adobe Photoshop",
+    name: "Adobe After Effects",
     description:
-      "Graphic design, texture work, and visual asset creation for motion elements.",
+      "Motion graphics, visual effects, transitions, and title design for premium presentation.",
   },
   {
-    name: "Existing Brand Assets",
+    name: "4K Pipeline",
     description:
-      "Integration of archival footage, brand guidelines, logos, and historical materials.",
+      "End-to-end 4K production workflow from capture through final delivery for maximum visual fidelity.",
   },
 ];
 
@@ -122,9 +117,9 @@ const tools = [
 /*  Component                                                          */
 /* ------------------------------------------------------------------ */
 
-export default function BarrysBootcampProject() {
+export default function ElSecretoProject() {
   return (
-    <article className="bg-deep-space min-h-screen">
+    <article className="bg-deep-space min-h-screen" style={{ backgroundColor: "#0B0F19" }}>
       {/* ── Back Link ─────────────────────────────────────────────── */}
       <motion.div
         initial={{ opacity: 0, x: -20 }}
@@ -164,17 +159,14 @@ export default function BarrysBootcampProject() {
         {/* Grid pattern */}
         <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:60px_60px]" />
 
-        {/* 3D Scene */}
-        <ProjectScene theme="energy" className="absolute inset-0 z-[1]" />
-
         {/* Radial fade at bottom */}
         <div className="absolute inset-0 z-[2] bg-gradient-to-t from-deep-space via-deep-space/40 to-transparent" />
 
         {/* Floating geometric accents */}
-        <div className="absolute top-1/3 left-1/4 w-36 h-36 border border-white/[0.06] rounded-full animate-pulse z-[2]" />
-        <div className="absolute top-1/4 right-1/5 w-24 h-24 border border-white/10 rounded-xl rotate-6 z-[2]" />
-        <div className="absolute bottom-1/3 right-1/3 w-3 h-3 bg-white/20 rounded-full z-[2]" />
-        <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-white/10 rounded-full z-[2]" />
+        <div className="absolute top-1/4 left-1/3 w-44 h-44 border border-white/[0.06] rounded-full animate-pulse z-[2]" />
+        <div className="absolute bottom-1/3 right-1/4 w-20 h-20 border border-white/10 rounded-xl rotate-[18deg] z-[2]" />
+        <div className="absolute top-1/3 left-1/5 w-3 h-3 bg-white/20 rounded-full z-[2]" />
+        <div className="absolute bottom-1/4 right-1/3 w-2 h-2 bg-white/10 rounded-full z-[2]" />
 
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
           <motion.div
@@ -183,7 +175,7 @@ export default function BarrysBootcampProject() {
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
-              Motion Graphics + Video Editing
+              Cinematic Video Production
             </span>
           </motion.div>
 
@@ -193,7 +185,7 @@ export default function BarrysBootcampProject() {
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="font-headline text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-4"
           >
-            BARRY&rsquo;S BOOTCAMP
+            EL SECRETO
           </motion.h1>
 
           <motion.p
@@ -202,7 +194,7 @@ export default function BarrysBootcampProject() {
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
             className="font-headline text-2xl md:text-3xl lg:text-4xl font-medium text-white/80 tracking-tight"
           >
-            25th Anniversary & Welcome Videos
+            Savoring the Unseen
           </motion.p>
 
           {/* Animated line */}
@@ -216,7 +208,7 @@ export default function BarrysBootcampProject() {
       </section>
 
       {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
-      <section className="section-container section-padding">
+      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Sidebar */}
           <motion.aside
@@ -282,21 +274,24 @@ export default function BarrysBootcampProject() {
               The Challenge
             </p>
             <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
-              Celebrating 25 years of legacy{" "}
-              <span className="gradient-text">while energizing the future</span>
+              Capturing culinary artistry{" "}
+              <span className="gradient-text">in a live environment</span>
             </h2>
             <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
               <p>
-                Barry&rsquo;s Bootcamp and The Workshop Collective needed motion
-                graphics and video editing for two key projects: the milestone
-                25th Anniversary video and a Welcome Video for new instructors.
+                The Hospitality Mentor needed a cinematic episode documenting an
+                exclusive omakase dining experience at Faena Miami Beach — one of
+                the most prestigious hotel properties in the world. The content
+                had to convey the intimacy, craftsmanship, and sensory richness
+                of the experience while maintaining the luxury aesthetic of the
+                venue.
               </p>
               <p>
-                They needed to celebrate the brand&rsquo;s legendary history
-                while energizing new team members — all while maintaining the
-                brand&rsquo;s dynamic, high-energy identity that has defined
-                boutique fitness for a generation. Every frame needed to feel
-                like a Barry&rsquo;s class: bold, intense, and unforgettable.
+                The challenge: capture broadcast-quality footage in a live,
+                uncontrolled kitchen and dining environment. Low light, tight
+                spaces, constant movement, and no ability to reset or reshoot.
+                Every moment was one take — the cinematography had to be both
+                documentary-authentic and cinematic-premium simultaneously.
               </p>
             </div>
           </motion.div>
@@ -309,7 +304,7 @@ export default function BarrysBootcampProject() {
       </div>
 
       {/* ── Our Approach ─────────────────────────────────────────── */}
-      <section className="section-container section-padding">
+      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -321,8 +316,8 @@ export default function BarrysBootcampProject() {
             Our Approach
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            High-energy design{" "}
-            <span className="gradient-text">built on brand DNA</span>
+            From kitchen to screen{" "}
+            <span className="gradient-text">in five steps</span>
           </h2>
         </motion.div>
 
@@ -363,7 +358,7 @@ export default function BarrysBootcampProject() {
       </div>
 
       {/* ── The Solution ─────────────────────────────────────────── */}
-      <section className="section-container section-padding">
+      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -375,22 +370,26 @@ export default function BarrysBootcampProject() {
             The Solution
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
-            Dynamic motion design{" "}
-            <span className="gradient-text">honoring a legacy</span>
+            Documentary soul,{" "}
+            <span className="gradient-text">cinematic craft</span>
           </h2>
           <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
             <p>
-              We delivered high-quality, on-brand motion graphics celebrating a
-              significant milestone and welcoming new instructors into the
-              Barry&rsquo;s family. The 25th Anniversary video wove archival
-              moments together with bold new motion design, creating an
-              emotional arc from humble beginnings to global fitness phenomenon.
+              Using the Canon C70 cinema camera, we captured every moment of the
+              omakase experience with documentary intimacy and cinematic
+              precision. The camera&rsquo;s Dual Gain Output sensor allowed us to
+              work in the ambient light of the kitchen and dining room — no
+              additional lighting rigs, no disruption to the experience — while
+              maintaining the dynamic range and color depth of a controlled studio
+              shoot.
             </p>
             <p>
-              By seamlessly integrating existing materials with dynamic new
-              motion design, we created two cohesive, energetic videos that felt
-              unmistakably Barry&rsquo;s — high-energy, motivational, and
-              impossible to look away from.
+              The result is an episode that feels like you&rsquo;re sitting at the
+              counter yourself. Every slice, every sear, every plating gesture is
+              captured in 4K detail. The editorial narrative weaves together the
+              chef&rsquo;s artistry, the guest experience, and the luxury atmosphere
+              of Faena Miami Beach into a sensory-driven story that transcends
+              typical food content.
             </p>
           </div>
         </motion.div>
@@ -402,7 +401,7 @@ export default function BarrysBootcampProject() {
       </div>
 
       {/* ── The Result ───────────────────────────────────────────── */}
-      <section className="section-container section-padding">
+      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -414,8 +413,8 @@ export default function BarrysBootcampProject() {
             The Result
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            On-brand energy,{" "}
-            <span className="gradient-text">delivered with impact</span>
+            An immersive experience,{" "}
+            <span className="gradient-text">captured in 4K</span>
           </h2>
         </motion.div>
 
@@ -459,7 +458,7 @@ export default function BarrysBootcampProject() {
       </div>
 
       {/* ── Tools & Technology ────────────────────────────────────── */}
-      <section className="section-container section-padding">
+      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -505,7 +504,7 @@ export default function BarrysBootcampProject() {
       </div>
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
-      <section className="section-container section-padding">
+      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -514,12 +513,12 @@ export default function BarrysBootcampProject() {
           className="text-center max-w-2xl mx-auto"
         >
           <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
-            Ready to{" "}
-            <span className="gradient-text">energize your brand</span>?
+            Ready to tell{" "}
+            <span className="gradient-text">your story cinematically</span>?
           </h2>
           <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed mb-10">
-            Let&rsquo;s create motion design that captures your brand&rsquo;s
-            energy and moves your audience.
+            Let&rsquo;s create premium video content that captures the soul of
+            your brand and commands attention.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/#contact" className="btn-primary">

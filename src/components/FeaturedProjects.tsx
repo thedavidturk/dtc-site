@@ -42,12 +42,12 @@ const projects: Project[] = [
     coverImage: "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExenYxcmUybjVyanNlZjF1b3FxMGZvaDZhZDE0ZTVpYTI0dGdtamFkcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/V9e6dWr3gEjPCoNJ7c/giphy.gif",
   },
   {
-    client: "BARRY'S BOOTCAMP",
-    title: "25th Anniversary",
-    type: "Motion Graphics + Video Editing",
+    client: "EL SECRETO",
+    title: "Savoring the Unseen",
+    type: "Cinematic Video Production",
     teaser:
-      "Celebrating 25 years of fitness legacy with dynamic motion design",
-    href: "/projects/barrys-bootcamp",
+      "An intimate omakase experience captured with cinematic storytelling at Faena Miami Beach",
+    href: "/projects/el-secreto",
     gradient: "from-warm-coral via-amber-500 to-red-700",
     accentGlow: "group-hover:shadow-warm-coral/30",
   },

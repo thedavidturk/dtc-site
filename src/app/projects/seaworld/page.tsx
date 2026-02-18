@@ -532,7 +532,7 @@ export default function SeaWorldProject() {
               Start Your Project
             </Link>
             <Link
-              href="/projects/barrys-bootcamp"
+              href="/projects/el-secreto"
               className="btn-secondary group inline-flex items-center gap-2"
             >
               View Next Project
