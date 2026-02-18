@@ -54,10 +54,10 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "TURKS | Future-Proof Creative for Forward-Thinking Brands",
   description:
-    "We combine Unreal Engine 5 virtual worlds, 4K cinematics, and intelligent workflows to create content that doesn't just keep up — it leads.",
+    "Strategy-led content development with fast production pipelines. We research your audience, develop the creative, and deliver results — at the speed your brand needs.",
   keywords: [
-    "Unreal Engine 5",
-    "virtual production",
+    "creative strategy",
+    "content development",
     "4K cinematics",
     "3D animation",
     "creative studio",
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "TURKS | Future-Proof Creative",
     description:
-      "Unreal Engine 5 virtual worlds, 4K cinematics, and intelligent workflows for forward-thinking brands.",
+      "Strategy-led content development with fast production pipelines for forward-thinking brands.",
     type: "website",
   },
 };
