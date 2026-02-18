@@ -132,21 +132,19 @@ function generateK(offsetX: number, scale: number): [number, number][] {
 function generateS(offsetX: number, scale: number): [number, number][] {
   const pts: [number, number][] = [];
   const r = 0.45 * scale;
-  // Top arc: center at (offsetX, 0.45*scale), bulges RIGHT
-  // Sweep from ~150 deg down to ~-30 deg (top-left to center-right)
+  // Top arc: center at (offsetX, 0.45*scale), bulges LEFT
   for (let i = 0; i < 18; i++) {
     const angle = (Math.PI * 5) / 6 - (i / 17) * Math.PI * 1.1;
     pts.push([
-      offsetX + Math.cos(angle) * r,
+      offsetX - Math.cos(angle) * r,
       0.45 * scale + Math.sin(angle) * r,
     ]);
   }
-  // Bottom arc: center at (offsetX, -0.45*scale), bulges LEFT
-  // Sweep from ~-30 deg down to ~210 deg (center-right to bottom-left)
+  // Bottom arc: center at (offsetX, -0.45*scale), bulges RIGHT
   for (let i = 0; i < 18; i++) {
     const angle = -Math.PI / 6 - (i / 17) * Math.PI * 1.1;
     pts.push([
-      offsetX + Math.cos(angle) * r,
+      offsetX - Math.cos(angle) * r,
       -0.45 * scale + Math.sin(angle) * r,
     ]);
   }
