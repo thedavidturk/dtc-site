@@ -96,7 +96,7 @@ const headingVariants = {
 
 export default function FeaturedProjects() {
   return (
-    <section id="projects" className="bg-deep-space section-padding relative overflow-hidden">
+    <section id="projects" className="bg-deep-space section-padding relative overflow-hidden" style={{ backgroundColor: "#0B0F19" }}>
       {/* Subtle background texture */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(99,102,241,0.05)_0%,transparent_60%)]" />
 

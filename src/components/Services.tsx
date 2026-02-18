@@ -108,7 +108,7 @@ const capabilityVariants = {
 
 export default function Services() {
   return (
-    <section id="services" className="bg-deep-space relative overflow-hidden">
+    <section id="services" className="bg-deep-space relative overflow-hidden" style={{ backgroundColor: "#0B0F19" }}>
       {/* Background accent */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(99,102,241,0.04)_0%,transparent_50%)]" />
 

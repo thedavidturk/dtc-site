@@ -122,7 +122,7 @@ export default function Process() {
   }, []);
 
   return (
-    <section id="process" className="relative bg-deep-space overflow-hidden">
+    <section id="process" className="relative bg-deep-space overflow-hidden" style={{ backgroundColor: "#0B0F19" }}>
       {/* Wireframe terrain background */}
       <WireframeTerrain
         className="absolute inset-0 z-0"

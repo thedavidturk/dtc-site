@@ -160,7 +160,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="bg-deep-space section-padding relative overflow-hidden">
+    <section id="contact" className="bg-deep-space section-padding relative overflow-hidden" style={{ backgroundColor: "#0B0F19" }}>
       {/* Background decorative elements */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.06)_0%,transparent_50%)]" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] opacity-[0.03] bg-[radial-gradient(circle,#F97316,transparent_60%)]" />

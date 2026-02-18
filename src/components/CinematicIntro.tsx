@@ -131,21 +131,23 @@ function generateK(offsetX: number, scale: number): [number, number][] {
 /** Generate approximate positions for the letter "S" */
 function generateS(offsetX: number, scale: number): [number, number][] {
   const pts: [number, number][] = [];
-  // S as two connected arcs
-  // Top arc (curves right then left)
-  for (let i = 0; i < 16; i++) {
-    const angle = Math.PI * 0.8 - (i / 15) * Math.PI * 1.2;
+  const r = 0.45 * scale;
+  // Top arc: center at (offsetX, 0.45*scale), bulges RIGHT
+  // Sweep from ~150 deg down to ~-30 deg (top-left to center-right)
+  for (let i = 0; i < 18; i++) {
+    const angle = (Math.PI * 5) / 6 - (i / 17) * Math.PI * 1.1;
     pts.push([
-      offsetX + Math.cos(angle) * 0.4 * scale,
-      0.5 * scale + Math.sin(angle) * 0.4 * scale,
+      offsetX + Math.cos(angle) * r,
+      0.45 * scale + Math.sin(angle) * r,
     ]);
   }
-  // Bottom arc (curves left then right)
-  for (let i = 0; i < 16; i++) {
-    const angle = Math.PI * 0.2 + (i / 15) * Math.PI * 1.2;
+  // Bottom arc: center at (offsetX, -0.45*scale), bulges LEFT
+  // Sweep from ~-30 deg down to ~210 deg (center-right to bottom-left)
+  for (let i = 0; i < 18; i++) {
+    const angle = -Math.PI / 6 - (i / 17) * Math.PI * 1.1;
     pts.push([
-      offsetX - Math.cos(angle) * 0.4 * scale,
-      -0.5 * scale - Math.sin(angle) * 0.4 * scale,
+      offsetX + Math.cos(angle) * r,
+      -0.45 * scale + Math.sin(angle) * r,
     ]);
   }
   return pts;

@@ -66,7 +66,7 @@ const fadeUp = {
 
 export default function About() {
   return (
-    <section id="about" className="relative bg-deep-space overflow-hidden">
+    <section id="about" className="relative bg-deep-space overflow-hidden" style={{ backgroundColor: "#0B0F19" }}>
       {/* Background accents */}
       <div
         className="absolute top-0 right-0 w-[600px] h-[600px] opacity-[0.04]"

@@ -94,7 +94,7 @@ interface HeroProps {
 
 export default function Hero({ introComplete = true }: HeroProps) {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-deep-space pt-20">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-deep-space pt-20" style={{ backgroundColor: "#0B0F19" }}>
       {/* 3D Particle Nebula background */}
       <ParticleNebula />
 

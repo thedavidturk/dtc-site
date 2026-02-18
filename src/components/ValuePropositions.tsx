@@ -90,6 +90,7 @@ export default function ValuePropositions() {
     <section
       id="value-propositions"
       className="relative bg-deep-space py-24 md:py-32 lg:py-40 overflow-hidden"
+      style={{ backgroundColor: "#0B0F19" }}
     >
       {/* Subtle background accent */}
       <div className="absolute inset-0 pointer-events-none">
