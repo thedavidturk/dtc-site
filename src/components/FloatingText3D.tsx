@@ -233,7 +233,7 @@ function PlusGlow() {
 }
 
 // ---------------------------------------------------------------------------
-// Main 3D Text Group — "TURKS" with depth layers, parallax, animations
+// Main 3D Text Group — "DT+C" with depth layers, parallax, animations
 // ---------------------------------------------------------------------------
 interface TextGroupProps {
   mouse: React.MutableRefObject<THREE.Vector2>;
@@ -282,7 +282,7 @@ function TextGroup({ mouse }: TextGroupProps) {
 
   return (
     <group ref={groupRef}>
-      {/* Main text: "TURKS" in white */}
+      {/* Main text: "DT+C" in white */}
       <Text
         position={[0, 0, 0]}
         fontSize={2}
@@ -294,7 +294,7 @@ function TextGroup({ mouse }: TextGroupProps) {
         outlineColor={COLOR_INDIGO}
         outlineOpacity={0.8}
       >
-        TURKS
+        DT+C
         <meshBasicMaterial
           color="#FFFFFF"
           transparent
@@ -303,7 +303,7 @@ function TextGroup({ mouse }: TextGroupProps) {
         />
       </Text>
 
-      {/* Depth / extrusion layers — full "TURKS" at increasing Z offsets */}
+      {/* Depth / extrusion layers — full "DT+C" at increasing Z offsets */}
       {depthLayers.map((layer, idx) => (
         <Text
           key={idx}
@@ -314,7 +314,7 @@ function TextGroup({ mouse }: TextGroupProps) {
           anchorY="middle"
           fillOpacity={layer.opacity}
         >
-          TURKS
+          DT+C
           <meshBasicMaterial
             color={layer.color}
             transparent

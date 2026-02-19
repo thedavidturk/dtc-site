@@ -21,7 +21,7 @@ export default function Footer() {
           {/* Logo */}
           <div>
             <Link href="/" className="font-headline font-bold text-2xl tracking-tight">
-              TURKS
+              DT+C
             </Link>
             <p className="text-cool-gray text-sm mt-2 max-w-xs">
               Future-proof creative for forward-thinking brands.
@@ -69,7 +69,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-white/5 text-center">
           <p className="text-cool-gray text-sm">
-            &copy; 2026 TURKS. All rights reserved.
+            &copy; 2026 DT+C. All rights reserved.
           </p>
         </div>
       </div>

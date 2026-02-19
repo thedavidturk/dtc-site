@@ -3,6 +3,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import TiltCard from "@/components/TiltCard";
+import HolographicSheen from "@/components/HolographicSheen";
+import DistortionCard from "@/components/DistortionCard";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -30,6 +33,23 @@ const staggerItem = {
     opacity: 1,
     y: 0,
     transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
+  },
+};
+
+const galleryContainer = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.14 },
+  },
+};
+
+const galleryItem = {
+  hidden: { opacity: 0, y: 50, scale: 0.92 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 
@@ -399,6 +419,207 @@ export default function TodesVejiganteProject() {
               donations, and social sharing by message ambassadors.
             </p>
           </div>
+        </motion.div>
+      </section>
+
+      {/* ── Divider ──────────────────────────────────────────────── */}
+      <div className="section-container">
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      </div>
+
+      {/* ── Campaign Gallery ────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="mb-16"
+        >
+          <p className="font-mono text-sm text-amber-400 tracking-widest uppercase mb-4">
+            Campaign Gallery
+          </p>
+          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+            Portraits, exhibition &{" "}
+            <span className="gradient-text">community</span>
+          </h2>
+        </motion.div>
+
+        <motion.div
+          variants={galleryContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6"
+        >
+          {/* Row 1 — wide + tall portrait */}
+          <motion.div variants={galleryItem} className="md:col-span-7">
+            <DistortionCard>
+              <TiltCard className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
+                <div className="relative w-full h-full">
+                  <Image
+                    src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/5c702b8d-e939-46c9-9a51-21f7465d6b67_rw_1920.jpg?h=0d55bd3b23e10a0b7b506f672a98d2f1"
+                    alt="Todes Vejigante community portrait"
+                    fill
+                    className="object-cover"
+                    unoptimized
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                </div>
+              </TiltCard>
+            </DistortionCard>
+          </motion.div>
+
+          <motion.div variants={galleryItem} className="md:col-span-5">
+            <HolographicSheen>
+              <TiltCard className="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
+                <div className="relative w-full h-full">
+                  <Image
+                    src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/a0c12513-c551-46dc-834c-7cc8b86565cf_rw_1920.jpg?h=0d55bd3b23e10a0b7b506f672a98d2f1"
+                    alt="Vejigante mask portrait"
+                    fill
+                    className="object-cover"
+                    unoptimized
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                </div>
+              </TiltCard>
+            </HolographicSheen>
+          </motion.div>
+
+          {/* Row 2 — offset editorial */}
+          <motion.div variants={galleryItem} className="md:col-span-5 md:col-start-2">
+            <TiltCard maxTilt={10} className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
+              <div className="relative w-full h-full">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/2366b306-628e-40ef-b957-49ea27e2ca94_rw_1920.png?h=0d55bd3b23e10a0b7b506f672a98d2f1"
+                  alt="Campaign identity"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+              </div>
+            </TiltCard>
+          </motion.div>
+
+          <motion.div variants={galleryItem} className="md:col-span-6">
+            <DistortionCard>
+              <TiltCard className="aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
+                <div className="relative w-full h-full">
+                  <Image
+                    src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6f6775eb-a524-4ee6-921e-55d7dd255f6c_rw_1920.jpg?h=0d55bd3b23e10a0b7b506f672a98d2f1"
+                    alt="Exhibition display"
+                    fill
+                    className="object-cover"
+                    unoptimized
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                </div>
+              </TiltCard>
+            </DistortionCard>
+          </motion.div>
+
+          {/* Row 3 — three equal columns */}
+          <motion.div variants={galleryItem} className="md:col-span-4">
+            <HolographicSheen>
+              <TiltCard className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
+                <div className="relative w-full h-full">
+                  <Image
+                    src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/bbc241fe-1029-4a0e-9f4d-d44d4eed7c48_rw_1920.jpg?h=0d55bd3b23e10a0b7b506f672a98d2f1"
+                    alt="Portrait with machete and plants"
+                    fill
+                    className="object-cover"
+                    unoptimized
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                </div>
+              </TiltCard>
+            </HolographicSheen>
+          </motion.div>
+
+          <motion.div variants={galleryItem} className="md:col-span-4">
+            <TiltCard className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
+              <div className="relative w-full h-full">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/a7c6289a-1050-405d-a340-a793d92b29cd_rw_1920.png?h=0d55bd3b23e10a0b7b506f672a98d2f1"
+                  alt="Event production"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+              </div>
+            </TiltCard>
+          </motion.div>
+
+          <motion.div variants={galleryItem} className="md:col-span-4">
+            <DistortionCard>
+              <TiltCard className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
+                <div className="relative w-full h-full">
+                  <Image
+                    src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/ec3965ca-86b5-46e9-a8dd-947479c91eeb_rw_1920.png?h=0d55bd3b23e10a0b7b506f672a98d2f1"
+                    alt="Bomba drumming performance"
+                    fill
+                    className="object-cover"
+                    unoptimized
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                </div>
+              </TiltCard>
+            </DistortionCard>
+          </motion.div>
+
+          {/* Row 4 — asymmetric pair */}
+          <motion.div variants={galleryItem} className="md:col-span-6">
+            <HolographicSheen>
+              <TiltCard className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
+                <div className="relative w-full h-full">
+                  <Image
+                    src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/34c014e3-651c-47cb-ae49-3572fc351b0f_rw_1200.png?h=0d55bd3b23e10a0b7b506f672a98d2f1"
+                    alt="Video mapping installation"
+                    fill
+                    className="object-cover"
+                    unoptimized
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                </div>
+              </TiltCard>
+            </HolographicSheen>
+          </motion.div>
+
+          <motion.div variants={galleryItem} className="md:col-span-6">
+            <TiltCard maxTilt={10} className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
+              <div className="relative w-full h-full">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/95bd6c52-fbb1-4b5c-b8f4-f13e8bb8ad05_rw_1920.png?h=0d55bd3b23e10a0b7b506f672a98d2f1"
+                  alt="Merchandise and fundraising"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+              </div>
+            </TiltCard>
+          </motion.div>
+
+          {/* Row 5 — full-width hero shot */}
+          <motion.div variants={galleryItem} className="md:col-span-12">
+            <DistortionCard>
+              <TiltCard maxTilt={6} className="aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
+                <div className="relative w-full h-full">
+                  <Image
+                    src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/7cf1295f-7c6f-4057-a833-094f979df0d3_rw_1200.png?h=0d55bd3b23e10a0b7b506f672a98d2f1"
+                    alt="Todes Vejigante community gathering"
+                    fill
+                    className="object-cover"
+                    unoptimized
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                </div>
+              </TiltCard>
+            </DistortionCard>
+          </motion.div>
         </motion.div>
       </section>
 

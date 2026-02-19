@@ -29,6 +29,25 @@ const WARP_DURATION = 2.0;
 // Letter position generators
 // ---------------------------------------------------------------------------
 
+/** Generate approximate positions for the letter "D" */
+function generateD(offsetX: number, scale: number): [number, number][] {
+  const pts: [number, number][] = [];
+  // Vertical bar
+  for (let i = 0; i < 16; i++) {
+    const y = (i / 15) * 2 - 1;
+    pts.push([offsetX - 0.35 * scale, y * scale]);
+  }
+  // Right curve
+  for (let i = 0; i < 20; i++) {
+    const angle = -Math.PI / 2 + (i / 19) * Math.PI;
+    pts.push([
+      offsetX + Math.cos(angle) * 0.45 * scale,
+      Math.sin(angle) * scale,
+    ]);
+  }
+  return pts;
+}
+
 /** Generate approximate positions for the letter "T" */
 function generateT(offsetX: number, scale: number): [number, number][] {
   const pts: [number, number][] = [];
@@ -45,107 +64,31 @@ function generateT(offsetX: number, scale: number): [number, number][] {
   return pts;
 }
 
-/** Generate approximate positions for the letter "U" */
-function generateU(offsetX: number, scale: number): [number, number][] {
-  const pts: [number, number][] = [];
-  // Left vertical (top to bottom)
-  for (let i = 0; i < 12; i++) {
-    const y = scale - (i / 11) * 1.5 * scale;
-    pts.push([offsetX - 0.4 * scale, y]);
-  }
-  // Bottom curve
-  for (let i = 0; i < 14; i++) {
-    const angle = Math.PI + (i / 13) * Math.PI;
-    pts.push([
-      offsetX + Math.cos(angle) * 0.4 * scale,
-      -0.5 * scale + Math.sin(angle) * 0.5 * scale,
-    ]);
-  }
-  // Right vertical (bottom to top)
-  for (let i = 0; i < 12; i++) {
-    const y = -0.5 * scale + (i / 11) * 1.5 * scale;
-    pts.push([offsetX + 0.4 * scale, y]);
-  }
-  return pts;
-}
-
-/** Generate approximate positions for the letter "R" */
-function generateR(offsetX: number, scale: number): [number, number][] {
+/** Generate approximate positions for the "+" symbol */
+function generatePlus(offsetX: number, scale: number): [number, number][] {
   const pts: [number, number][] = [];
   // Vertical bar
-  for (let i = 0; i < 16; i++) {
-    const y = (i / 15) * 2 - 1;
-    pts.push([offsetX - 0.3 * scale, y * scale]);
-  }
-  // Top curve (bump of R)
   for (let i = 0; i < 14; i++) {
-    const angle = -Math.PI / 2 + (i / 13) * Math.PI;
-    pts.push([
-      offsetX + 0.05 * scale + Math.cos(angle) * 0.35 * scale,
-      0.5 * scale + Math.sin(angle) * 0.5 * scale,
-    ]);
+    const y = (i / 13) * 1.6 - 0.8;
+    pts.push([offsetX, y * scale]);
   }
-  // Horizontal middle
-  for (let i = 0; i < 6; i++) {
-    const x = (i / 5) * 0.5;
-    pts.push([offsetX - 0.3 * scale + x * scale, 0]);
-  }
-  // Diagonal leg
-  for (let i = 0; i < 10; i++) {
-    const t = i / 9;
-    pts.push([
-      offsetX + t * 0.5 * scale,
-      -t * scale,
-    ]);
+  // Horizontal bar
+  for (let i = 0; i < 14; i++) {
+    const x = (i / 13) * 1.6 - 0.8;
+    pts.push([offsetX + x * scale, 0]);
   }
   return pts;
 }
 
-/** Generate approximate positions for the letter "K" */
-function generateK(offsetX: number, scale: number): [number, number][] {
+/** Generate approximate positions for the letter "C" */
+function generateC(offsetX: number, scale: number): [number, number][] {
   const pts: [number, number][] = [];
-  // Vertical bar
-  for (let i = 0; i < 16; i++) {
-    const y = (i / 15) * 2 - 1;
-    pts.push([offsetX - 0.3 * scale, y * scale]);
-  }
-  // Upper diagonal (middle to top-right)
-  for (let i = 0; i < 12; i++) {
-    const t = i / 11;
+  // Arc from top-right around to bottom-right (open on the right)
+  for (let i = 0; i < 28; i++) {
+    const angle = Math.PI / 3 + (i / 27) * (Math.PI * 4 / 3);
     pts.push([
-      offsetX - 0.3 * scale + t * 0.7 * scale,
-      t * scale,
-    ]);
-  }
-  // Lower diagonal (middle to bottom-right)
-  for (let i = 0; i < 12; i++) {
-    const t = i / 11;
-    pts.push([
-      offsetX - 0.3 * scale + t * 0.7 * scale,
-      -t * scale,
-    ]);
-  }
-  return pts;
-}
-
-/** Generate approximate positions for the letter "S" */
-function generateS(offsetX: number, scale: number): [number, number][] {
-  const pts: [number, number][] = [];
-  const r = 0.45 * scale;
-  // Top arc: center at (offsetX, 0.45*scale), bulges LEFT
-  for (let i = 0; i < 18; i++) {
-    const angle = (Math.PI * 5) / 6 - (i / 17) * Math.PI * 1.1;
-    pts.push([
-      offsetX - Math.cos(angle) * r,
-      0.45 * scale + Math.sin(angle) * r,
-    ]);
-  }
-  // Bottom arc: center at (offsetX, -0.45*scale), bulges RIGHT
-  for (let i = 0; i < 18; i++) {
-    const angle = -Math.PI / 6 - (i / 17) * Math.PI * 1.1;
-    pts.push([
-      offsetX - Math.cos(angle) * r,
-      -0.45 * scale + Math.sin(angle) * r,
+      offsetX + Math.cos(angle) * 0.5 * scale,
+      Math.sin(angle) * scale,
     ]);
   }
   return pts;
@@ -155,11 +98,10 @@ function generateS(offsetX: number, scale: number): [number, number][] {
 function buildLetterPositions(): [number, number][] {
   const scale = 1.1;
   const allPts: [number, number][] = [
-    ...generateT(-3.2, scale),
-    ...generateU(-1.6, scale),
-    ...generateR(0.0, scale),
-    ...generateK(1.6, scale),
-    ...generateS(3.2, scale),
+    ...generateD(-2.8, scale),
+    ...generateT(-1.2, scale),
+    ...generatePlus(0.4, scale),
+    ...generateC(2.2, scale),
   ];
   // Add small jitter
   return allPts.map(([x, y]) => [

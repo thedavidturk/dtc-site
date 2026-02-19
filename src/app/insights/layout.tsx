@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | TURKS",
-    default: "Insights | TURKS",
+    template: "%s | DT+C",
+    default: "Insights | DT+C",
   },
   description:
     "Thoughts on virtual production, real-time rendering, and the future of creative content.",
   openGraph: {
-    title: "Insights | TURKS",
+    title: "Insights | DT+C",
     description:
       "Thoughts on virtual production, real-time rendering, and the future of creative content.",
     type: "website",

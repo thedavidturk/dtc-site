@@ -52,7 +52,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "TURKS | Future-Proof Creative for Forward-Thinking Brands",
+  title: "DT+C | Future-Proof Creative for Forward-Thinking Brands",
   description:
     "Strategy-led content development with fast production pipelines. We research your audience, develop the creative, and deliver results — at the speed your brand needs.",
   keywords: [
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     "photography",
   ],
   openGraph: {
-    title: "TURKS | Future-Proof Creative",
+    title: "DT+C | Future-Proof Creative",
     description:
       "Strategy-led content development with fast production pipelines for forward-thinking brands.",
     type: "website",

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import dynamic from "next/dynamic";
 import Hero from "@/components/Hero";
+import HeroVideo from "@/components/HeroVideo";
 import ValuePropositions from "@/components/ValuePropositions";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import Services from "@/components/Services";
@@ -38,6 +39,7 @@ export default function HomeClient() {
         <CinematicIntro onComplete={() => { introHasPlayed = true; setIntroComplete(true); }} />
       )}
       <Hero introComplete={introComplete} />
+      <HeroVideo />
       <ValuePropositions />
       <FeaturedProjects />
       <Services />

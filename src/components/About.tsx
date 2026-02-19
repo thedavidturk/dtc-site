@@ -116,26 +116,26 @@ export default function About() {
           {/* Right — Story */}
           <motion.div className="space-y-6" variants={slideFromRight}>
             <p className="font-body text-lg text-cool-gray leading-relaxed">
-              I&apos;m David Turk. I spent years as a Creative Director watching
-              brands struggle with slow production timelines, expensive location
-              shoots, and content that took months to produce.
+              Too many brands are stuck waiting — on slow production timelines,
+              expensive location shoots, and content pipelines that can&apos;t
+              keep up with the pace of culture.
             </p>
 
             <p className="font-headline text-2xl text-pure-white font-bold leading-snug">
-              So I built something different.
+              DT+C was built to change that.
             </p>
 
             <p className="font-body text-lg text-cool-gray leading-relaxed">
-              TURKS is a forward-thinking creative studio that uses Unreal Engine
-              5 to create virtual worlds and 4K cinematics — the same technology
-              powering Hollywood productions. The result? Premium content
-              produced at the speed of now, without the limitations of physical
-              production.
+              We&apos;re a strategy-led creative agency that starts with
+              research, builds around audience insight, and delivers through
+              production pipelines designed for speed. From content strategy to
+              4K cinematics, 3D animation to multi-platform delivery — our team
+              handles the full creative lifecycle so your brand stays ahead.
             </p>
 
             <p className="font-body text-lg text-cool-gray leading-relaxed">
-              The future belongs to brands that adapt. We&apos;re here to make
-              sure you&apos;re one of them.
+              The future belongs to brands that adapt. We&apos;re the agency
+              that makes sure you&apos;re one of them.
             </p>
 
             {/* CTA Buttons */}
@@ -180,7 +180,7 @@ export default function About() {
                   <rect x="2" y="4" width="20" height="16" rx="2" />
                   <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                 </svg>
-                Email David
+                Get in Touch
               </motion.a>
             </motion.div>
           </motion.div>

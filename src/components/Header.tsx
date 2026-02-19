@@ -10,8 +10,7 @@ const navLinks = [
   { label: "Services", href: "#services" },
   { label: "Process", href: "#process" },
   { label: "About", href: "#about" },
-  { label: "Investment", href: "#pricing" },
-  { label: "Perspectives", href: "#insights" },
+{ label: "Perspectives", href: "#insights" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -39,7 +38,7 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <span className="font-headline font-bold text-xl tracking-tight">
-            TURKS
+            DT+C
           </span>
         </Link>
 
