@@ -22,9 +22,9 @@ const projects: Project[] = [
   {
     client: "NEW ERA CAP",
     title: "Out of This World",
-    type: "3D Animation + Virtual World Cinematic",
+    type: "Strategy + Content Development",
     teaser:
-      "Creating cosmic environments in Unreal Engine 5 for a space-themed product launch",
+      "A cinematic campaign that placed space-themed caps inside immersive cosmic environments",
     href: "/projects/new-era-cap",
     gradient: "from-electric-indigo via-purple-600 to-violet-900",
     accentGlow: "group-hover:shadow-electric-indigo/30",
@@ -33,9 +33,9 @@ const projects: Project[] = [
   {
     client: "SEAWORLD",
     title: "SEAQuest Campaign",
-    type: "Virtual World Cinematic + 3D Animation",
+    type: "Strategy + Content Development",
     teaser:
-      "Building immersive deep-sea worlds for a theme park attraction launch",
+      "Immersive deep-sea cinematics for a theme park attraction launch campaign",
     href: "/projects/seaworld",
     gradient: "from-blue-600 via-cyan-500 to-teal-700",
     accentGlow: "group-hover:shadow-cyan-500/30",
@@ -61,6 +61,28 @@ const projects: Project[] = [
     gradient: "from-emerald-500 via-teal-500 to-cyan-800",
     accentGlow: "group-hover:shadow-emerald-500/30",
     coverImage: "https://media.giphy.com/media/OWRTtgINto81tGKtJi/giphy.gif",
+  },
+  {
+    client: "NEW ERA CAP",
+    title: "Sprouted Collection",
+    type: "Strategy + Content Development",
+    teaser:
+      "A nature-inspired campaign bringing a foliage-themed hat collection to life through immersive 3D environments",
+    href: "/projects/new-era-cap-sprouted",
+    gradient: "from-green-600 via-emerald-500 to-lime-700",
+    accentGlow: "group-hover:shadow-emerald-500/30",
+    coverImage: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/954aa9d2-b941-4324-b4c8-0ffc1d4300de_rwc_0x0x638x360x32.gif?h=82ef3a046f67bbee7dcafd36ab8ac653",
+  },
+  {
+    client: "EL ANCON DE LOIZA",
+    title: "Todes Vejigante",
+    type: "Strategy + Campaign Production",
+    teaser:
+      "A post-Hurricane Maria campaign preserving Afro-Caribbean heritage through documentary, photography, and immersive events",
+    href: "/projects/todes-vejigante",
+    gradient: "from-amber-600 via-red-500 to-rose-800",
+    accentGlow: "group-hover:shadow-amber-500/30",
+    coverImage: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/736208c5-f9f4-49ab-9e48-3c862261dc42_rw_1920.jpg?h=0d55bd3b23e10a0b7b506f672a98d2f1",
   },
 ];
 
@@ -239,34 +261,6 @@ export default function FeaturedProjects() {
           ))}
         </motion.div>
 
-        {/* CTA below grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] as const }}
-          className="mt-16 text-center"
-        >
-          <Link
-            href="#contact"
-            className="btn-secondary text-sm group inline-flex items-center gap-2"
-          >
-            View All Projects
-            <svg
-              className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-              />
-            </svg>
-          </Link>
-        </motion.div>
       </div>
     </section>
   );
