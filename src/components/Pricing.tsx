@@ -113,7 +113,7 @@ function CheckIcon() {
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="relative bg-deep-space overflow-hidden">
+    <section id="pricing" className="relative bg-deep-space overflow-hidden" style={{ backgroundColor: "#0B0F19" }}>
       {/* Wireframe terrain background */}
       <WireframeTerrain
         className="absolute inset-0 z-0"

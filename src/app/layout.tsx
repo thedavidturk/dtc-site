@@ -78,9 +78,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark" style={{ backgroundColor: "#0B0F19" }}>
+      <head>
+        {/* Critical CSS — prevents white flash before Tailwind loads */}
+        <style dangerouslySetInnerHTML={{ __html: `html,body,main,section,footer{background-color:#0B0F19!important}` }} />
+      </head>
       <body
         className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} font-body antialiased bg-deep-space text-pure-white`}
+        style={{ backgroundColor: "#0B0F19" }}
       >
         <SmoothScroll />
         <CursorTrail />
@@ -89,7 +94,7 @@ export default function RootLayout({
         <ScrollProgressTrail />
         <FilmGrain />
         <Header />
-        <main>
+        <main style={{ backgroundColor: "#0B0F19" }}>
           <ClientLayout>{children}</ClientLayout>
         </main>
         <Footer />

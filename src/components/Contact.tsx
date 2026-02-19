@@ -110,6 +110,8 @@ export default function Contact() {
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   function validate(): FormErrors {
     const newErrors: FormErrors = {};
@@ -147,7 +149,7 @@ export default function Contact() {
     }
   }
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     const validationErrors = validate();
 
@@ -156,7 +158,32 @@ export default function Contact() {
       return;
     }
 
-    setSubmitted(true);
+    setSubmitting(true);
+    setSubmitError("");
+
+    try {
+      const res = await fetch("https://formspree.io/f/meezzwjl", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          company: formData.company,
+          email: formData.email,
+          projectType: formData.projectType,
+          message: formData.message,
+        }),
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setSubmitError("Something went wrong. Please try again or email us directly.");
+      }
+    } catch {
+      setSubmitError("Network error. Please check your connection and try again.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -322,14 +349,22 @@ export default function Contact() {
                     )}
                   </div>
 
+                  {/* Submit error */}
+                  {submitError && (
+                    <p className="text-sm text-warm-coral font-body text-center">
+                      {submitError}
+                    </p>
+                  )}
+
                   {/* Submit */}
                   <motion.button
                     type="submit"
-                    className="btn-primary w-full text-center justify-center"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                    disabled={submitting}
+                    className="btn-primary w-full text-center justify-center disabled:opacity-60 disabled:cursor-not-allowed"
+                    whileHover={submitting ? {} : { scale: 1.02 }}
+                    whileTap={submitting ? {} : { scale: 0.98 }}
                   >
-                    Send Message
+                    {submitting ? "Sending..." : "Send Message"}
                   </motion.button>
                 </motion.form>
               ) : (

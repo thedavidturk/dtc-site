@@ -9,6 +9,7 @@ import * as THREE from "three";
 // ---------------------------------------------------------------------------
 interface CinematicIntroProps {
   onComplete: () => void;
+  onReady?: () => void;
 }
 
 // ---------------------------------------------------------------------------
@@ -867,12 +868,14 @@ function IntroScene({ startTime }: { startTime: React.MutableRefObject<number> }
 // ---------------------------------------------------------------------------
 // Main Component
 // ---------------------------------------------------------------------------
-export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
+export default function CinematicIntro({ onComplete, onReady }: CinematicIntroProps) {
   const [mounted, setMounted] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
   const [removed, setRemoved] = useState(false);
+  const [canvasError, setCanvasError] = useState(false);
   const startTime = useRef(0);
   const hasStarted = useRef(false);
+  const completedRef = useRef(false);
 
   const setStartTime = useCallback((time: number) => {
     if (!hasStarted.current) {
@@ -880,6 +883,13 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
       hasStarted.current = true;
     }
   }, []);
+
+  const safeComplete = useCallback(() => {
+    if (completedRef.current) return;
+    completedRef.current = true;
+    setRemoved(true);
+    onComplete();
+  }, [onComplete]);
 
   useEffect(() => {
     setMounted(true);
@@ -895,17 +905,19 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
     timers.push(setTimeout(() => setFadeOut(true), 4800));
     // Remove overlay and signal completion so Hero can animate its text in
     // Original 3300 + WARP_DURATION(2000) = 5300
-    timers.push(
-      setTimeout(() => {
-        setRemoved(true);
-        onComplete();
-      }, 5300)
-    );
+    timers.push(setTimeout(safeComplete, 5300));
 
     return () => {
       timers.forEach(clearTimeout);
     };
-  }, [mounted, onComplete]);
+  }, [mounted, safeComplete]);
+
+  // If Canvas fails to create a WebGL context, skip the intro gracefully
+  useEffect(() => {
+    if (canvasError) {
+      safeComplete();
+    }
+  }, [canvasError, safeComplete]);
 
   if (!mounted || removed) return null;
 
@@ -924,9 +936,11 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
           gl={{ antialias: true, alpha: false }}
           dpr={[1, 2]}
           frameloop="always"
+          onCreated={() => {}}
+          onError={() => setCanvasError(true)}
         >
           <color attach="background" args={[DEEP_SPACE]} />
-          <StartTimeTracker onStart={setStartTime} />
+          <StartTimeTracker onStart={setStartTime} onReady={onReady} />
           <IntroScene startTime={startTime} />
         </Canvas>
       </div>
@@ -937,12 +951,13 @@ export default function CinematicIntro({ onComplete }: CinematicIntroProps) {
 // ---------------------------------------------------------------------------
 // Helper: tracks when the canvas clock starts and reports it
 // ---------------------------------------------------------------------------
-function StartTimeTracker({ onStart }: { onStart: (time: number) => void }) {
+function StartTimeTracker({ onStart, onReady }: { onStart: (time: number) => void; onReady?: () => void }) {
   const reported = useRef(false);
 
   useFrame(({ clock }) => {
     if (!reported.current) {
       onStart(clock.getElapsedTime());
+      onReady?.();
       reported.current = true;
     }
   });

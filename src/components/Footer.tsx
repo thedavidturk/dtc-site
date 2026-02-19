@@ -14,7 +14,7 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-deep-space border-t border-white/5">
+    <footer className="relative overflow-hidden bg-deep-space border-t border-white/5" style={{ backgroundColor: "#0B0F19" }}>
       <ConstellationNetwork className="absolute inset-0 z-0" />
       <div className="relative z-10 section-container py-12 md:py-16">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
