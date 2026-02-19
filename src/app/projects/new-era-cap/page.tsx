@@ -39,7 +39,7 @@ const staggerItem = {
 const galleryContainer = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.14 },
+    transition: { staggerChildren: 0.12 },
   },
 };
 
@@ -60,87 +60,196 @@ const galleryItem = {
 const overview = {
   client: "New Era Cap",
   industry: "Fashion / Headwear",
-  timeline: "6 Weeks",
+  scope: "4 Campaigns",
   services: [
     "Research & Discovery",
     "Creative Strategy",
-    "Content Development",
+    "3D Animation & Sequencing",
     "Post-Production & VFX",
     "Multi-Platform Delivery",
   ],
 };
 
-const approach = [
+const campaigns = [
   {
-    step: "01",
-    title: "Research & Discovery",
+    id: "out-of-this-world",
+    title: "Out of This World",
+    subtitle: "Space-themed collection campaign",
     description:
-      "Immersed ourselves in the brand, the collection, and the competitive landscape. Identified the cultural tension between streetwear and space exploration that would anchor the entire campaign.",
+      "A cinematic campaign that placed New Era's space-themed caps inside immersive cosmic environments. We built entire planets, star fields, and galaxies in 3D — then wove the product into each world so the audience could feel the wonder of space exploration, not just see a hat in front of it.",
+    accent: "electric-indigo",
+    images: [
+      { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6a9909de-e004-4637-b305-03c7c3afc105_rw_1920.png?h=0d2513de6a3d5442c9276b98ca32ddb3", alt: "Cosmic hero shot", aspect: "aspect-[16/10]", span: "md:col-span-7" },
+      { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/9ec30c8f-1df0-44b6-beb6-4574f6a913b4_rw_1920.png?h=eeb922659707c7884cabc10a61293320", alt: "Planet environment", aspect: "aspect-[3/4]", span: "md:col-span-5" },
+      { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/cc3a4fbe-4ca6-4d60-bca6-51799a85db47_rw_1920.png?h=441fe9462b246273ed82dd6f83b66778", alt: "Star field product shot", aspect: "aspect-[4/3]", span: "md:col-span-6" },
+      { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/cb41ea3b-ac5a-4a74-8885-3a71b4a98a0c_rw_1920.png?h=18dd0e4e6a38f61470aa5c22c2946a1a", alt: "Galaxy campaign visual", aspect: "aspect-[4/3]", span: "md:col-span-6" },
+      { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/640046cb-6deb-42c6-8f45-85daed849b04_rw_1920.png?h=9d2436cf80cf1291ef946d98bf298c79", alt: "Cosmic cap close-up", aspect: "aspect-[16/9]", span: "md:col-span-7" },
+      { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/f2556d88-e571-40ba-a976-5a4d51c6a6eb_rw_1920.png?h=12bfdb634517cd415cb4f17ec9361e37", alt: "Space environment detail", aspect: "aspect-square", span: "md:col-span-5" },
+    ],
   },
   {
-    step: "02",
-    title: "Creative Strategy",
+    id: "sprouted",
+    title: "Sprouted Collection",
+    subtitle: "Nature-inspired foliage campaign",
     description:
-      "Developed a cinematic concept that positioned each cap as a gateway to its own cosmic world. Defined the visual language, narrative arc, and channel strategy before a single frame was produced.",
+      "A nature-inspired campaign bringing New Era's foliage-themed hat collection to life through immersive 3D environments. We built lush forests, mushroom hilltops, and overgrown cityscapes — grounding each cap in a world that felt as organic and alive as the designs themselves.",
+    accent: "emerald-400",
+    images: [
+      { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/9093a3b0-956b-49e3-a039-06897868e553_rw_1200.png?h=bf736fd7c3636fa8eedc8a44dd910bcd", alt: "Forest environment hero", aspect: "aspect-[16/10]", span: "md:col-span-6" },
+      { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/81c15846-3edc-43b1-bd8c-21a7cae08637_rw_1200.png?h=c8ff17d05d3e9612c76960bd7b9a7f4c", alt: "Mushroom hilltop scene", aspect: "aspect-[16/10]", span: "md:col-span-6" },
+      { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/4cbd526d-9906-447f-91d0-5c6e59f609e8_rw_1200.png?h=0cc9df9997bca5886ff834d500818b09", alt: "Overgrown cityscape", aspect: "aspect-[4/3]", span: "md:col-span-5" },
+      { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/4d442495-867e-4cb8-893d-324b0d8b7891_rw_1200.png?h=c7e466457f34bb51662ca58b05450614", alt: "Product in nature", aspect: "aspect-[4/3]", span: "md:col-span-7" },
+      { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/2e0e99b6-fca3-46e9-ac63-c8c03e8b1293_rw_1920.png?h=1dfc1086152293dc45601cb3ab9b8dc3", alt: "Foliage cap detail", aspect: "aspect-[16/9]", span: "md:col-span-12" },
+    ],
   },
   {
-    step: "03",
-    title: "Content Development",
+    id: "elements",
+    title: "Elements",
+    subtitle: "Earth, Fire, Air & Water 3D animation",
     description:
-      "Brought the strategy to life through immersive 3D environments, photorealistic product visualization, and cinematic sequencing — all rendered in real time for rapid iteration and creative feedback.",
+      "Immersive elemental environments built to showcase New Era's Elements collection. Each hat was reconstructed through photogrammetry and placed inside its own world — volcanic landscapes for Fire, underwater caverns for Water, windswept peaks for Air, and ancient forests for Earth.",
+    accent: "amber-400",
+    images: [
+      { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/bc84ed39-2bc9-411a-8290-6f0cc5b43df2_rw_3840.png?h=ccf4884ee6b1129fa7a3eecd9ddb11f9", alt: "Elements hero shot", aspect: "aspect-[21/9]", span: "md:col-span-12" },
+      { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/5320bf72-8ee0-4db5-baec-efa352e93988_rw_3840.png?h=0a6bf09111cac68772eec801db975fd5", alt: "Fire element world", aspect: "aspect-[4/3]", span: "md:col-span-6" },
+      { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6f3db669-3a2f-4529-b2bb-8ab286f37bfe_rw_3840.png?h=a1e1e912dc0671a55cc143d02cf4888b", alt: "Water element world", aspect: "aspect-[4/3]", span: "md:col-span-6" },
+      { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/ab23358c-183c-40a9-a20d-47805b1c8a1b_rw_3840.png?h=0d3ff6176f94da406a941bf52c2e10e2", alt: "Air element world", aspect: "aspect-[4/3]", span: "md:col-span-4" },
+      { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/25bbc284-4291-46d4-8d96-e04f76ddcace_rw_1200.png?h=6064da262bda1da39f13bc149324cc1f", alt: "Earth element world", aspect: "aspect-[4/3]", span: "md:col-span-4" },
+      { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/70ac1f4f-322c-46ab-a6c9-d88e19efbef6_rw_1200.png?h=d6b030c01cd6de104c8e502386b61df8", alt: "Elements product detail", aspect: "aspect-[4/3]", span: "md:col-span-4" },
+    ],
   },
   {
-    step: "04",
-    title: "Post-Production & Polish",
+    id: "holiday-2023",
+    title: "Holiday 2023",
+    subtitle: "Festive VFX campaign",
     description:
-      "Refined every frame with VFX compositing, color grading, and motion graphics. Elevated the output to feature-film quality in 4K resolution.",
-  },
-  {
-    step: "05",
-    title: "Multi-Platform Delivery",
-    description:
-      "Adapted final assets for web, social media, digital displays, and retail environments. Ensured every format was optimized for maximum impact.",
-  },
-];
-
-const results = [
-  "Research-backed creative strategy that connected product to culture",
-  "Cinematic 4K campaign delivered across digital and retail channels",
-  "Feature-film quality content achieved without physical production",
-  "Rapid iteration through real-time rendering workflows",
-  "Campaign assets that captured attention and drove engagement",
-];
-
-const tools = [
-  {
-    name: "Unreal Engine 5",
-    description:
-      "Virtual worldbuilding, real-time rendering, and cinematic sequencing for the cosmic environments.",
-  },
-  {
-    name: "Cinema 4D",
-    description:
-      "3D modeling and product visualization with photorealistic materials and lighting.",
-  },
-  {
-    name: "Adobe After Effects",
-    description:
-      "VFX compositing, motion graphics, and color grading for final polish.",
-  },
-  {
-    name: "Adobe Premiere Pro",
-    description:
-      "Editorial assembly, pacing, and delivery-format exports across all platforms.",
-  },
-  {
-    name: "Adobe Photoshop",
-    description:
-      "Texture creation, matte painting, and hero key-visual compositing.",
+      "A festive opening sequence featuring a single brownstone on a snowy city block, built entirely in 3D. We captured the essence of a cozy holiday night with warm glowing windows, falling snow, and dynamic camera movement — delivering high-end production value without a single location shoot.",
+    accent: "red-400",
+    images: [
+      { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/f5254e37-7c30-48ac-9a2c-cf4191fa8719_rw_3840.png?h=6bcd777da7c646bb14244acd5c429f4d", alt: "Holiday brownstone hero", aspect: "aspect-[16/10]", span: "md:col-span-7" },
+      { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/bc9ba708-0c5a-4b56-ae4a-269322f2a34b_rw_3840.png?h=3cc752b80414e61c042eed64e1b8eeaa", alt: "Snowy street scene", aspect: "aspect-[3/4]", span: "md:col-span-5" },
+      { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/1efa6945-881d-43fb-b59f-4c7456626f82_rw_3840.png?h=12069a14eac4b52fa136db33c2878e2e", alt: "Holiday environment detail", aspect: "aspect-[4/3]", span: "md:col-span-6" },
+      { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/720cfec1-6be7-4eca-9c29-f4e355526930_rw_1920.png?h=f4b28d19628f8f76bf9222a33fe68d45", alt: "Warm window glow close-up", aspect: "aspect-[4/3]", span: "md:col-span-6" },
+      { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/891f4e22-59c4-42e2-bcca-c6f989850a28_rw_1920.png?h=9cf6e144f3e3478c09c3eaba75bcd88f", alt: "Holiday product shot", aspect: "aspect-[16/9]", span: "md:col-span-12" },
+    ],
   },
 ];
 
 /* ------------------------------------------------------------------ */
-/*  Component                                                          */
+/*  Campaign Section Component                                         */
+/* ------------------------------------------------------------------ */
+
+function CampaignSection({
+  campaign,
+  index,
+}: {
+  campaign: (typeof campaigns)[0];
+  index: number;
+}) {
+  // Alternate interactive component per campaign
+  const wrappers = [
+    // Campaign 0: TiltCard + HolographicSheen
+    (children: React.ReactNode, i: number) =>
+      i % 2 === 0 ? (
+        <TiltCard className="rounded-2xl overflow-hidden">
+          <HolographicSheen className="rounded-2xl">{children}</HolographicSheen>
+        </TiltCard>
+      ) : (
+        <DistortionCard className="rounded-2xl overflow-hidden">{children}</DistortionCard>
+      ),
+    // Campaign 1: DistortionCard + TiltCard
+    (children: React.ReactNode, i: number) =>
+      i % 2 === 0 ? (
+        <DistortionCard className="rounded-2xl overflow-hidden">{children}</DistortionCard>
+      ) : (
+        <TiltCard maxTilt={10} className="rounded-2xl overflow-hidden">
+          <HolographicSheen className="rounded-2xl">{children}</HolographicSheen>
+        </TiltCard>
+      ),
+    // Campaign 2: HolographicSheen + TiltCard
+    (children: React.ReactNode, i: number) =>
+      i % 3 === 0 ? (
+        <HolographicSheen className="rounded-2xl">
+          <TiltCard className="rounded-2xl overflow-hidden">{children}</TiltCard>
+        </HolographicSheen>
+      ) : (
+        <TiltCard maxTilt={12} className="rounded-2xl overflow-hidden">{children}</TiltCard>
+      ),
+    // Campaign 3: Mixed
+    (children: React.ReactNode, i: number) =>
+      i === 0 ? (
+        <TiltCard className="rounded-2xl overflow-hidden">
+          <HolographicSheen className="rounded-2xl">{children}</HolographicSheen>
+        </TiltCard>
+      ) : (
+        <DistortionCard className="rounded-2xl overflow-hidden">{children}</DistortionCard>
+      ),
+  ];
+
+  const wrap = wrappers[index % wrappers.length];
+
+  return (
+    <section id={campaign.id} className="section-container section-padding">
+      {/* Campaign header */}
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+        className="mb-12"
+      >
+        <div className="flex items-center gap-4 mb-4">
+          <span className="font-mono text-4xl md:text-5xl font-bold text-white/10">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+          <div>
+            <p className="font-mono text-xs tracking-widest uppercase text-electric-indigo mb-1">
+              {campaign.subtitle}
+            </p>
+            <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight text-pure-white">
+              {campaign.title}
+            </h2>
+          </div>
+        </div>
+        <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed max-w-4xl">
+          {campaign.description}
+        </p>
+      </motion.div>
+
+      {/* Image gallery */}
+      <motion.div
+        variants={galleryContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-60px" }}
+        className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-5"
+      >
+        {campaign.images.map((img, i) => (
+          <motion.div key={img.src} variants={galleryItem} className={img.span}>
+            {wrap(
+              <div
+                className={`relative ${img.aspect} overflow-hidden rounded-2xl border border-white/5 hover:border-electric-indigo/20 transition-colors duration-500`}
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+              </div>,
+              i
+            )}
+          </motion.div>
+        ))}
+      </motion.div>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  Page Component                                                     */
 /* ------------------------------------------------------------------ */
 
 export default function NewEraCapProject() {
@@ -176,11 +285,10 @@ export default function NewEraCapProject() {
 
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-end overflow-hidden">
-        {/* GIF cover image */}
         <div className="absolute inset-0">
           <Image
             src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdDBnMzY2M2JzNDFzNms4ejJvZmRyNGo1YmsyYjdlaHZlMXphZG14dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2UeBIRTL9ZA2BvmZD5/giphy.gif"
-            alt="New Era Cap cosmic space scene"
+            alt="New Era Cap campaign visual"
             fill
             className="object-cover"
             unoptimized
@@ -188,15 +296,11 @@ export default function NewEraCapProject() {
           />
         </div>
         <div className="absolute inset-0 bg-black/30" />
-
-        {/* Radial fade at bottom */}
         <div className="absolute inset-0 z-[2] bg-gradient-to-t from-deep-space via-deep-space/40 to-transparent" />
 
-        {/* Floating geometric accents */}
+        {/* Geometric accents */}
         <div className="absolute top-1/4 left-1/5 w-32 h-32 border border-white/[0.06] rounded-full animate-pulse z-[2]" />
         <div className="absolute top-1/3 right-1/4 w-20 h-20 border border-white/10 rounded-xl rotate-12 z-[2]" />
-        <div className="absolute bottom-1/3 left-1/3 w-3 h-3 bg-white/20 rounded-full z-[2]" />
-        <div className="absolute top-1/2 right-1/3 w-2 h-2 bg-white/10 rounded-full z-[2]" />
 
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
           <motion.div
@@ -205,7 +309,7 @@ export default function NewEraCapProject() {
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
-              Strategy + Content Development
+              Strategy + 3D Animation + VFX
             </span>
           </motion.div>
 
@@ -224,10 +328,9 @@ export default function NewEraCapProject() {
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
             className="font-headline text-2xl md:text-3xl lg:text-4xl font-medium text-white/80 tracking-tight"
           >
-            &ldquo;Out of This World&rdquo; Campaign
+            4 Campaigns. One Vision.
           </motion.p>
 
-          {/* Animated line */}
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: "6rem" }}
@@ -237,7 +340,7 @@ export default function NewEraCapProject() {
         </div>
       </section>
 
-      {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
+      {/* ── Overview + Partnership Story ────────────────────────────── */}
       <section className="section-container section-padding">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Sidebar */}
@@ -261,17 +364,13 @@ export default function NewEraCapProject() {
                 <p className="font-mono text-xs tracking-widest uppercase text-electric-indigo mb-2">
                   Industry
                 </p>
-                <p className="font-body text-cool-gray">
-                  {overview.industry}
-                </p>
+                <p className="font-body text-cool-gray">{overview.industry}</p>
               </div>
               <div>
                 <p className="font-mono text-xs tracking-widest uppercase text-electric-indigo mb-2">
-                  Timeline
+                  Scope
                 </p>
-                <p className="font-body text-cool-gray">
-                  {overview.timeline}
-                </p>
+                <p className="font-body text-cool-gray">{overview.scope}</p>
               </div>
               <div>
                 <p className="font-mono text-xs tracking-widest uppercase text-electric-indigo mb-2">
@@ -292,7 +391,7 @@ export default function NewEraCapProject() {
             </div>
           </motion.aside>
 
-          {/* Challenge */}
+          {/* Partnership overview */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
@@ -301,348 +400,69 @@ export default function NewEraCapProject() {
             className="lg:col-span-8"
           >
             <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
-              The Challenge
+              The Partnership
             </p>
             <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
-              Delivering cinematic impact{" "}
-              <span className="gradient-text">without physical production</span>
+              Building worlds for{" "}
+              <span className="gradient-text">an iconic brand</span>
             </h2>
             <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
               <p>
-                New Era Cap approached us to create a compelling and visually
-                stunning campaign for their space-themed hat collection. They
-                needed to stand out in a crowded marketplace and convey the
-                excitement and wonder of space exploration while showcasing the
-                unique features of the product.
+                New Era Cap is one of the most recognized headwear brands in the
+                world. Over the course of four campaigns, DT+C became their go-to
+                partner for immersive 3D content — transforming each seasonal
+                collection into a fully realized visual world.
               </p>
               <p>
-                The challenge: deliver cinematic quality without the cost and
-                complexity of physical production. Every frame needed to feel
-                like it belonged in a blockbuster, but the entire production had
-                to happen in-studio, on a tight timeline, and at a fraction of
-                traditional costs.
+                From cosmic galaxies to lush forests, elemental landscapes to snowy
+                city blocks — every campaign started with research and creative
+                strategy, then came to life through 3D animation, VFX, and
+                cinematic sequencing. No location shoots. No physical sets. Just
+                ambitious creative delivered at the speed their release calendar
+                demanded.
               </p>
             </div>
+
+            {/* Campaign quick nav */}
+            <motion.div
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="mt-10 grid grid-cols-2 gap-3"
+            >
+              {campaigns.map((c, i) => (
+                <motion.a
+                  key={c.id}
+                  href={`#${c.id}`}
+                  variants={staggerItem}
+                  className="group p-4 rounded-xl border border-white/5 bg-white/[0.02] hover:border-electric-indigo/20 hover:bg-electric-indigo/[0.03] transition-all duration-500"
+                >
+                  <span className="font-mono text-xs text-electric-indigo/50 group-hover:text-electric-indigo transition-colors">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <p className="font-headline text-sm font-bold text-pure-white mt-1">
+                    {c.title}
+                  </p>
+                  <p className="font-body text-xs text-cool-gray mt-0.5">
+                    {c.subtitle}
+                  </p>
+                </motion.a>
+              ))}
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-      </div>
-
-      {/* ── Our Approach ─────────────────────────────────────────── */}
-      <section className="section-container section-padding">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mb-16"
-        >
-          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
-            Our Approach
-          </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            From concept to cosmos{" "}
-            <span className="gradient-text">in five steps</span>
-          </h2>
-        </motion.div>
-
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="space-y-12"
-        >
-          {approach.map((item) => (
-            <motion.div
-              key={item.step}
-              variants={staggerItem}
-              className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 group"
-            >
-              <div className="md:col-span-1">
-                <span className="font-mono text-3xl md:text-4xl font-bold text-electric-indigo/30 group-hover:text-electric-indigo transition-colors duration-500">
-                  {item.step}
-                </span>
-              </div>
-              <div className="md:col-span-11">
-                <h3 className="font-headline text-xl md:text-2xl font-bold text-pure-white mb-3 group-hover:text-soft-white transition-colors duration-300">
-                  {item.title}
-                </h3>
-                <p className="font-body text-cool-gray leading-relaxed max-w-3xl">
-                  {item.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
-
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-      </div>
-
-      {/* ── The Solution ─────────────────────────────────────────── */}
-      <section className="section-container section-padding">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="max-w-4xl"
-        >
-          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
-            The Solution
-          </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
-            Strategy-driven content{" "}
-            <span className="gradient-text">built for impact</span>
-          </h2>
-          <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
-            <p>
-              The research pointed to one clear insight: the audience wanted to
-              feel the wonder of space, not just see hats in front of it. That
-              became our strategic foundation — every creative decision, from
-              environment design to camera movement, served that emotional goal.
-            </p>
-            <p>
-              From there, we developed cinematic 4K content across immersive 3D
-              environments, photorealistic product shots, and sweeping
-              cinematics — all without a single location shoot, physical set, or
-              on-site crew. Every planet, every star, every reflection on the
-              product was crafted to make the audience feel something first and
-              notice the product second.
-            </p>
+      {/* ── Campaign Sections ───────────────────────────────────────── */}
+      {campaigns.map((campaign, index) => (
+        <div key={campaign.id}>
+          <div className="section-container">
+            <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
           </div>
-        </motion.div>
-      </section>
-
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-      </div>
-
-      {/* ── Campaign Gallery ───────────────────────────────────── */}
-      <section className="section-container section-padding">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mb-16"
-        >
-          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
-            Campaign Gallery
-          </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            Visual highlights{" "}
-            <span className="gradient-text">from the cosmos</span>
-          </h2>
-        </motion.div>
-
-        <motion.div
-          variants={galleryContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-5"
-        >
-          {/* Image 1 — nec03 | TiltCard + HolographicSheen | 16:10 wide */}
-          <motion.div variants={galleryItem} className="md:col-span-7">
-            <TiltCard className="rounded-2xl overflow-hidden group">
-              <HolographicSheen className="rounded-2xl">
-                <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/5 hover:border-electric-indigo/20 transition-colors duration-500">
-                  <Image
-                    src="https://i.ibb.co/8n644br2/nec03.png"
-                    alt="New Era Cap space collection — cosmic hero shot"
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                  {/* Vignette */}
-                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_50%,rgba(0,0,0,0.45)_100%)] pointer-events-none" />
-                  {/* Indigo corner bleed */}
-                  <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-electric-indigo/15 rounded-full blur-3xl pointer-events-none" />
-                  {/* Caption badge */}
-                  <div className="absolute bottom-4 left-4 px-3 py-1.5 rounded-full bg-black/50 backdrop-blur-sm border border-white/10 font-mono text-[10px] tracking-widest uppercase text-white/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    Cosmic Hero
-                  </div>
-                </div>
-              </HolographicSheen>
-            </TiltCard>
-          </motion.div>
-
-          {/* Image 2 — nec02 | DistortionCard | 3:4 tall */}
-          <motion.div variants={galleryItem} className="md:col-span-5">
-            <DistortionCard className="rounded-2xl overflow-hidden">
-              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-white/5 hover:border-electric-indigo/20 transition-colors duration-500">
-                <Image
-                  src="https://i.ibb.co/LXtJ8L6M/nec02.png"
-                  alt="New Era Cap space collection — product detail"
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
-                {/* Coral gradient at bottom */}
-                <div className="absolute bottom-0 inset-x-0 h-1/3 bg-gradient-to-t from-warm-coral/10 to-transparent pointer-events-none" />
-                {/* Constellation dots */}
-                <div className="absolute top-6 right-6 w-1.5 h-1.5 bg-white/20 rounded-full pointer-events-none" />
-                <div className="absolute top-10 right-14 w-1 h-1 bg-white/15 rounded-full pointer-events-none" />
-                <div className="absolute top-16 right-8 w-1 h-1 bg-white/10 rounded-full pointer-events-none" />
-              </div>
-            </DistortionCard>
-          </motion.div>
-
-          {/* Image 3 — nec01 | TiltCard (higher tilt) | 4:3 */}
-          <motion.div variants={galleryItem} className="md:col-start-2 md:col-span-5">
-            <TiltCard maxTilt={12} className="rounded-2xl overflow-hidden">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/5 hover:border-electric-indigo/20 transition-colors duration-500">
-                <Image
-                  src="https://i.ibb.co/1tXJv5KM/nec01.png"
-                  alt="New Era Cap space collection — environment shot"
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
-                {/* Film strip edge line */}
-                <div className="absolute inset-y-0 left-0 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent pointer-events-none" />
-                {/* Faint indigo bleed */}
-                <div className="absolute -top-6 -right-6 w-32 h-32 bg-electric-indigo/10 rounded-full blur-3xl pointer-events-none" />
-              </div>
-            </TiltCard>
-          </motion.div>
-
-          {/* Image 4 — nec00 | HolographicSheen + TiltCard | 16:9 */}
-          <motion.div variants={galleryItem} className="md:col-span-6">
-            <TiltCard className="rounded-2xl overflow-hidden group">
-              <HolographicSheen className="rounded-2xl">
-                <div className="relative aspect-[16/9] overflow-hidden rounded-2xl border border-white/5 hover:border-electric-indigo/20 transition-colors duration-500">
-                  <Image
-                    src="https://i.ibb.co/Gv6Vx9Wx/nec00.png"
-                    alt="New Era Cap space collection — campaign finale"
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                  {/* Right-side indigo wash */}
-                  <div className="absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-electric-indigo/12 to-transparent pointer-events-none" />
-                  {/* Caption badge */}
-                  <div className="absolute bottom-4 right-4 px-3 py-1.5 rounded-full bg-black/50 backdrop-blur-sm border border-white/10 font-mono text-[10px] tracking-widest uppercase text-white/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    Campaign Finale
-                  </div>
-                </div>
-              </HolographicSheen>
-            </TiltCard>
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-      </div>
-
-      {/* ── The Result ───────────────────────────────────────────── */}
-      <section className="section-container section-padding">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mb-12"
-        >
-          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
-            The Result
-          </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            Measurable impact,{" "}
-            <span className="gradient-text">cinematic quality</span>
-          </h2>
-        </motion.div>
-
-        <motion.ul
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-4"
-        >
-          {results.map((result) => (
-            <motion.li
-              key={result}
-              variants={staggerItem}
-              className="flex items-start gap-4 p-5 rounded-xl border border-white/5 bg-white/[0.02] hover:border-electric-indigo/20 hover:bg-electric-indigo/[0.03] transition-all duration-500"
-            >
-              <svg
-                className="w-5 h-5 text-electric-indigo flex-shrink-0 mt-0.5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <span className="font-body text-soft-white text-sm md:text-base leading-relaxed">
-                {result}
-              </span>
-            </motion.li>
-          ))}
-        </motion.ul>
-      </section>
-
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-      </div>
-
-      {/* ── Tools & Technology ────────────────────────────────────── */}
-      <section className="section-container section-padding">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mb-12"
-        >
-          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
-            Tools & Technology
-          </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            The <span className="gradient-text">production stack</span>
-          </h2>
-        </motion.div>
-
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
-        >
-          {tools.map((tool) => (
-            <motion.div
-              key={tool.name}
-              variants={staggerItem}
-              className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-electric-indigo/20 hover:bg-electric-indigo/[0.03] transition-all duration-500"
-            >
-              <h3 className="font-headline text-lg font-bold text-pure-white mb-2 group-hover:text-electric-indigo transition-colors duration-300">
-                {tool.name}
-              </h3>
-              <p className="font-body text-sm text-cool-gray leading-relaxed">
-                {tool.description}
-              </p>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
+          <CampaignSection campaign={campaign} index={index} />
+        </div>
+      ))}
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
@@ -659,12 +479,12 @@ export default function NewEraCapProject() {
           className="text-center max-w-2xl mx-auto"
         >
           <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
-            Ready to create something{" "}
-            <span className="gradient-text">out of this world</span>?
+            Ready to build your{" "}
+            <span className="gradient-text">next world</span>?
           </h2>
           <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed mb-10">
-            Let&rsquo;s build your next campaign with the same cinematic quality
-            and creative ambition.
+            Let&rsquo;s create a campaign with the same cinematic ambition and
+            creative strategy.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/#contact" className="btn-primary">

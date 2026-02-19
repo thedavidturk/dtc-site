@@ -21,10 +21,10 @@ interface Project {
 const projects: Project[] = [
   {
     client: "NEW ERA CAP",
-    title: "Out of This World",
-    type: "Strategy + Content Development",
+    title: "4 Campaigns. One Vision.",
+    type: "Strategy + 3D Animation + VFX",
     teaser:
-      "A cinematic campaign that placed space-themed caps inside immersive cosmic environments",
+      "An ongoing partnership delivering immersive 3D campaigns — from cosmic worlds to elemental landscapes to holiday storytelling",
     href: "/projects/new-era-cap",
     gradient: "from-electric-indigo via-purple-600 to-violet-900",
     accentGlow: "group-hover:shadow-electric-indigo/30",
@@ -50,6 +50,7 @@ const projects: Project[] = [
     href: "/projects/el-secreto",
     gradient: "from-warm-coral via-amber-500 to-red-700",
     accentGlow: "group-hover:shadow-warm-coral/30",
+    coverImage: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/2b30b8bf-b3fd-43fd-b242-1fc4736e6946_rw_3840.png?h=de0ce295ccfda4a8762ce19708703262",
   },
   {
     client: "BETTERFLY",
@@ -61,28 +62,6 @@ const projects: Project[] = [
     gradient: "from-emerald-500 via-teal-500 to-cyan-800",
     accentGlow: "group-hover:shadow-emerald-500/30",
     coverImage: "https://media.giphy.com/media/OWRTtgINto81tGKtJi/giphy.gif",
-  },
-  {
-    client: "NEW ERA CAP",
-    title: "Sprouted Collection",
-    type: "Strategy + Content Development",
-    teaser:
-      "A nature-inspired campaign bringing a foliage-themed hat collection to life through immersive 3D environments",
-    href: "/projects/new-era-cap-sprouted",
-    gradient: "from-green-600 via-emerald-500 to-lime-700",
-    accentGlow: "group-hover:shadow-emerald-500/30",
-    coverImage: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/954aa9d2-b941-4324-b4c8-0ffc1d4300de_rwc_0x0x638x360x32.gif?h=82ef3a046f67bbee7dcafd36ab8ac653",
-  },
-  {
-    client: "EL ANCON DE LOIZA",
-    title: "Todes Vejigante",
-    type: "Strategy + Campaign Production",
-    teaser:
-      "A post-Hurricane Maria campaign preserving Afro-Caribbean heritage through documentary, photography, and immersive events",
-    href: "/projects/todes-vejigante",
-    gradient: "from-amber-600 via-red-500 to-rose-800",
-    accentGlow: "group-hover:shadow-amber-500/30",
-    coverImage: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/736208c5-f9f4-49ab-9e48-3c862261dc42_rw_1920.jpg?h=0d55bd3b23e10a0b7b506f672a98d2f1",
   },
 ];
 

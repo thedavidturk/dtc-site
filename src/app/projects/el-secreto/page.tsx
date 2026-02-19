@@ -1,7 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
+import TiltCard from "@/components/TiltCard";
+import HolographicSheen from "@/components/HolographicSheen";
+import DistortionCard from "@/components/DistortionCard";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -29,6 +33,23 @@ const staggerItem = {
     opacity: 1,
     y: 0,
     transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
+  },
+};
+
+const galleryContainer = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.14 },
+  },
+};
+
+const galleryItem = {
+  hidden: { opacity: 0, y: 50, scale: 0.96 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 
@@ -392,6 +413,378 @@ export default function ElSecretoProject() {
               typical food content.
             </p>
           </div>
+        </motion.div>
+      </section>
+
+      {/* ── Divider ──────────────────────────────────────────────── */}
+      <div className="section-container">
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      </div>
+
+      {/* ── Video ───────────────────────────────────────────────── */}
+      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="mb-10"
+        >
+          <p className="font-mono text-sm text-warm-coral tracking-widest uppercase mb-4">
+            The Film
+          </p>
+          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+            Savoring the Unseen — <span className="gradient-text">Full Episode</span>
+          </h2>
+        </motion.div>
+
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="relative max-w-5xl mx-auto"
+        >
+          {/* Ambient glow behind the video */}
+          <div className="absolute -inset-4 md:-inset-8 bg-gradient-to-r from-warm-coral/10 via-amber-500/5 to-red-700/10 rounded-3xl blur-2xl opacity-60 pointer-events-none" />
+
+          {/* Video container */}
+          <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/40">
+            {/* Corner accent brackets */}
+            <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-warm-coral/40 rounded-tl-2xl z-10 pointer-events-none" />
+            <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-warm-coral/40 rounded-tr-2xl z-10 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-warm-coral/40 rounded-bl-2xl z-10 pointer-events-none" />
+            <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-warm-coral/40 rounded-br-2xl z-10 pointer-events-none" />
+
+            {/* 16:9 aspect ratio wrapper */}
+            <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/l5h79VGqVSg?rel=0&modestbranding=1&color=white"
+                title="El Secreto — Savoring the Unseen"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
+              />
+            </div>
+
+            {/* Scan line overlay for cinematic feel */}
+            <div
+              className="absolute inset-0 pointer-events-none opacity-[0.03] z-10"
+              style={{
+                backgroundImage:
+                  "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.3) 2px, rgba(0,0,0,0.3) 4px)",
+              }}
+            />
+          </div>
+        </motion.div>
+      </section>
+
+      {/* ── Divider ──────────────────────────────────────────────── */}
+      <div className="section-container">
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      </div>
+
+      {/* ── Campaign Gallery ────────────────────────────────────── */}
+      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="mb-16"
+        >
+          <p className="font-mono text-sm text-warm-coral tracking-widest uppercase mb-4">
+            Campaign Gallery
+          </p>
+          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+            Savoring <span className="gradient-text">Every Detail</span>
+          </h2>
+        </motion.div>
+
+        <motion.div
+          variants={galleryContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6"
+        >
+          {/* Row 1: Full-width hero */}
+          <motion.div variants={galleryItem} className="md:col-span-12">
+            <TiltCard className="aspect-[21/9] rounded-2xl overflow-hidden relative group">
+              <HolographicSheen className="!absolute inset-0">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/2b30b8bf-b3fd-43fd-b242-1fc4736e6946_rw_3840.png?h=de0ce295ccfda4a8762ce19708703262"
+                  alt="El Secreto omakase cinematic still 1"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+              </HolographicSheen>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+            </TiltCard>
+          </motion.div>
+
+          {/* Row 2: Wide + tall */}
+          <motion.div variants={galleryItem} className="md:col-span-7">
+            <DistortionCard>
+              <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/24b244e3-b83b-4b7a-baf5-c6b8b65e4475_rw_3840.png?h=99f746c5ced60dde7de6ce105d8562a5"
+                  alt="El Secreto omakase cinematic still 2"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+              </div>
+            </DistortionCard>
+          </motion.div>
+          <motion.div variants={galleryItem} className="md:col-span-5">
+            <TiltCard className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/30be6f9c-e1f9-47e2-86a9-6e7c05d3461d_rw_3840.png?h=202bc393101a46898c0ebd5c84062caa"
+                alt="El Secreto omakase cinematic still 3"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+            </TiltCard>
+          </motion.div>
+
+          {/* Row 3: Three equal columns */}
+          <motion.div variants={galleryItem} className="md:col-span-4">
+            <HolographicSheen>
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/bdd74e73-998e-4882-8a91-8c3ce1487e32_rw_3840.png?h=4a6b1eb3c72cd77ed660dd55224c5899"
+                  alt="El Secreto omakase cinematic still 4"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+              </div>
+            </HolographicSheen>
+          </motion.div>
+          <motion.div variants={galleryItem} className="md:col-span-4">
+            <TiltCard className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6b90fc91-2a17-4373-a58a-4dc68aacbfff_rw_3840.png?h=eb8e89cc54173ba379375ea0788697b0"
+                alt="El Secreto omakase cinematic still 5"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+            </TiltCard>
+          </motion.div>
+          <motion.div variants={galleryItem} className="md:col-span-4">
+            <DistortionCard>
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/72f388ff-6ed0-4b8e-8088-1d696ef1bf15_rw_3840.png?h=56fde8ff61d535628929d86d9c1c353e"
+                  alt="El Secreto omakase cinematic still 6"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+              </div>
+            </DistortionCard>
+          </motion.div>
+
+          {/* Row 4: Asymmetric pair */}
+          <motion.div variants={galleryItem} className="md:col-span-5">
+            <TiltCard className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
+              <HolographicSheen className="!absolute inset-0">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/fb88a0b8-75ef-49b6-90b8-2c12f7dc6318_rw_3840.png?h=7368e43c6bb7ee0e6895275a50d7f0bf"
+                  alt="El Secreto omakase cinematic still 7"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+              </HolographicSheen>
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+            </TiltCard>
+          </motion.div>
+          <motion.div variants={galleryItem} className="md:col-span-7">
+            <DistortionCard>
+              <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/afb6b9e1-83e4-454f-9101-4d6dfc55a1ed_rw_3840.png?h=3d167587d6ac1952d9ad386620d9459c"
+                  alt="El Secreto omakase cinematic still 8"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+              </div>
+            </DistortionCard>
+          </motion.div>
+
+          {/* Row 5: Three equal columns */}
+          <motion.div variants={galleryItem} className="md:col-span-4">
+            <DistortionCard>
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/f05ee96a-032f-4dff-9495-61defe3508c4_rw_3840.png?h=c9b6cc64c72f7eb987304990567a9d2b"
+                  alt="El Secreto omakase cinematic still 9"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+              </div>
+            </DistortionCard>
+          </motion.div>
+          <motion.div variants={galleryItem} className="md:col-span-4">
+            <HolographicSheen>
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/684bd88c-a12a-43f0-8c86-42513107abef_rw_3840.png?h=6cc869a96a4b5566dde315e9d9d0cc25"
+                  alt="El Secreto omakase cinematic still 10"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+              </div>
+            </HolographicSheen>
+          </motion.div>
+          <motion.div variants={galleryItem} className="md:col-span-4">
+            <TiltCard className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6e5a427f-3801-426f-838a-f97c0467e240_rw_3840.png?h=2a531adc8de1e7c1047d3fac08665657"
+                alt="El Secreto omakase cinematic still 11"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+            </TiltCard>
+          </motion.div>
+
+          {/* Row 6: Wide cinematic + narrow */}
+          <motion.div variants={galleryItem} className="md:col-span-8">
+            <TiltCard className="aspect-[16/9] rounded-2xl overflow-hidden relative group">
+              <HolographicSheen className="!absolute inset-0">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/b07529cf-7338-4033-b7f3-ed2338735f32_rw_3840.png?h=d7969ee36bbfa2b38d252720de936370"
+                  alt="El Secreto omakase cinematic still 12"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+              </HolographicSheen>
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+            </TiltCard>
+          </motion.div>
+          <motion.div variants={galleryItem} className="md:col-span-4">
+            <DistortionCard>
+              <div className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/10da8fa1-c7ba-479a-94d7-ffe48c5a98b1_rw_3840.png?h=0ab7636ad107a1b53fd3cda3df1b19d9"
+                  alt="El Secreto omakase cinematic still 13"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+              </div>
+            </DistortionCard>
+          </motion.div>
+
+          {/* Row 7: Three equal columns */}
+          <motion.div variants={galleryItem} className="md:col-span-4">
+            <HolographicSheen>
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/5250cabf-bb36-4d03-8c07-0392c092b569_rw_3840.png?h=e383294d59703110b6434dc6a2fadef7"
+                  alt="El Secreto omakase cinematic still 14"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+              </div>
+            </HolographicSheen>
+          </motion.div>
+          <motion.div variants={galleryItem} className="md:col-span-4">
+            <TiltCard className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/2aa570be-ae99-42bd-940b-e71d8e921690_rw_3840.png?h=83ea0ac28d55d1476ef4923c6e0caa70"
+                alt="El Secreto omakase cinematic still 15"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+            </TiltCard>
+          </motion.div>
+          <motion.div variants={galleryItem} className="md:col-span-4">
+            <DistortionCard>
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/f97d5232-2ffd-435a-a5b9-aff188149226_rw_3840.png?h=db99a24a6e8d32a253917d9b386fe2d3"
+                  alt="El Secreto omakase cinematic still 16"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+              </div>
+            </DistortionCard>
+          </motion.div>
+
+          {/* Row 8: Asymmetric pair */}
+          <motion.div variants={galleryItem} className="md:col-span-6">
+            <TiltCard className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
+              <HolographicSheen className="!absolute inset-0">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/413be7b5-9592-43c1-8aa5-ccd1b202a4e7_rw_3840.png?h=09567a03c34e0ddb4f946ab2437980c5"
+                  alt="El Secreto omakase cinematic still 17"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+              </HolographicSheen>
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+            </TiltCard>
+          </motion.div>
+          <motion.div variants={galleryItem} className="md:col-span-6">
+            <DistortionCard>
+              <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/a803fc78-3105-40fe-9681-ac2082b581bd_rw_3840.png?h=46f1734c03714d3e082846c2daf6c057"
+                  alt="El Secreto omakase cinematic still 18"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+              </div>
+            </DistortionCard>
+          </motion.div>
+
+          {/* Row 9: Full-width closing */}
+          <motion.div variants={galleryItem} className="md:col-span-12">
+            <TiltCard className="aspect-[21/9] rounded-2xl overflow-hidden relative group">
+              <HolographicSheen className="!absolute inset-0">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/8476057e-bafc-4c8d-9ce2-c66a58a59c00_rw_3840.png?h=50d3ee6ea0b7a45dbd5e35bcfb45ee14"
+                  alt="El Secreto omakase cinematic closing still"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+              </HolographicSheen>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+            </TiltCard>
+          </motion.div>
         </motion.div>
       </section>
 

@@ -3,6 +3,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import TiltCard from "@/components/TiltCard";
+import HolographicSheen from "@/components/HolographicSheen";
+import DistortionCard from "@/components/DistortionCard";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -30,6 +33,23 @@ const staggerItem = {
     opacity: 1,
     y: 0,
     transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
+  },
+};
+
+const galleryContainer = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.14 },
+  },
+};
+
+const galleryItem = {
+  hidden: { opacity: 0, y: 50, scale: 0.96 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 
@@ -395,6 +415,181 @@ export default function BetterflyProject() {
               the craft behind the campaign.
             </p>
           </div>
+        </motion.div>
+      </section>
+
+      {/* ── Divider ──────────────────────────────────────────────── */}
+      <div className="section-container">
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      </div>
+
+      {/* ── Campaign Gallery ────────────────────────────────────── */}
+      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="mb-16"
+        >
+          <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
+            Campaign Gallery
+          </p>
+          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+            Monument <span className="gradient-text">Executions</span>
+          </h2>
+        </motion.div>
+
+        <motion.div
+          variants={galleryContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6"
+        >
+          {/* Row 1: Wide hero + tall side */}
+          <motion.div variants={galleryItem} className="md:col-span-7">
+            <TiltCard className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
+              <HolographicSheen className="!absolute inset-0">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/afa1b619-7f85-4631-b906-65725f2afb1d_rw_3840.jpg?h=c011327012d82e389e6536546dad732a"
+                  alt="Betterfly FOOH monument execution 1"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+              </HolographicSheen>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
+            </TiltCard>
+          </motion.div>
+          <motion.div variants={galleryItem} className="md:col-span-5">
+            <DistortionCard>
+              <div className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/0c4aae34-962c-4708-9e09-10d7c2270b0d_rw_3840.jpg?h=9486e194d38c38c0b70c1ffc7e317fcd"
+                  alt="Betterfly FOOH monument execution 2"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
+              </div>
+            </DistortionCard>
+          </motion.div>
+
+          {/* Row 2: Three equal columns */}
+          <motion.div variants={galleryItem} className="md:col-span-4">
+            <TiltCard className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/86e3da3a-6b51-4572-94f5-260d6a761c0f_rw_3840.jpg?h=9b9f844be5ce86bd5089282e90bddbea"
+                alt="Betterfly FOOH monument execution 3"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
+            </TiltCard>
+          </motion.div>
+          <motion.div variants={galleryItem} className="md:col-span-4">
+            <HolographicSheen>
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/700cdcee-cf9b-4414-b54c-82e507d0ed53_rw_3840.jpg?h=ad51ee0c19861e16fffbd807aa14d780"
+                  alt="Betterfly FOOH monument execution 4"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
+              </div>
+            </HolographicSheen>
+          </motion.div>
+          <motion.div variants={galleryItem} className="md:col-span-4">
+            <DistortionCard>
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/158c693d-d708-434a-8451-47c529b3cc20_rw_3840.jpg?h=a7b17b9dff25de2b80d8d8cdfeb196cc"
+                  alt="Betterfly FOOH monument execution 5"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
+              </div>
+            </DistortionCard>
+          </motion.div>
+
+          {/* Row 3: Full-width VFX breakdown */}
+          <motion.div variants={galleryItem} className="md:col-span-12">
+            <TiltCard className="aspect-[21/9] rounded-2xl overflow-hidden relative group">
+              <HolographicSheen className="!absolute inset-0">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/e9307a9f-c204-4722-9a9f-4d5b3113db28_rw_3840.jpg?h=72945d2944442b86cf4ba4dc3f52f58b"
+                  alt="Betterfly FOOH VFX breakdown"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+              </HolographicSheen>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
+            </TiltCard>
+          </motion.div>
+
+          {/* Row 4: Social media assets — 2x2 grid */}
+          <motion.div variants={galleryItem} className="md:col-span-3">
+            <TiltCard className="aspect-square rounded-2xl overflow-hidden relative group">
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/d06fd2d0-9618-4b28-a9ca-e2a56de0f9cc_rw_600.png?h=840f98de7ce65d2053f15fc1a332bb28"
+                alt="Betterfly social media asset 1"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
+            </TiltCard>
+          </motion.div>
+          <motion.div variants={galleryItem} className="md:col-span-3">
+            <DistortionCard>
+              <div className="aspect-square rounded-2xl overflow-hidden relative group">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/cccf2a57-e137-49db-b68b-570f7e4fe7bb_rw_600.png?h=c478a37e18d4ff133ffe947f26345c64"
+                  alt="Betterfly social media asset 2"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
+              </div>
+            </DistortionCard>
+          </motion.div>
+          <motion.div variants={galleryItem} className="md:col-span-3">
+            <HolographicSheen>
+              <div className="aspect-square rounded-2xl overflow-hidden relative group">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/e854902b-d6b9-4da5-af46-a70b99f340c9_rw_1200.png?h=e07b0dc8c60685b5d414767e27915bfe"
+                  alt="Betterfly social media asset 3"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
+              </div>
+            </HolographicSheen>
+          </motion.div>
+          <motion.div variants={galleryItem} className="md:col-span-3">
+            <TiltCard className="aspect-square rounded-2xl overflow-hidden relative group">
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/bc6dcbf4-5941-4a5b-9eaf-ec3f35d31163_rw_1200.png?h=60a8aa2806584e03b80f08b765317b22"
+                alt="Betterfly social media asset 4"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
+            </TiltCard>
+          </motion.div>
         </motion.div>
       </section>
 
