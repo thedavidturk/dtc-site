@@ -2,8 +2,37 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
 import HolographicSheen from "./HolographicSheen";
 
+// ---------------------------------------------------------------------------
+// Dynamic imports for Three.js cover scenes (SSR disabled)
+// ---------------------------------------------------------------------------
+const InsightCoverVirtualWorlds = dynamic(
+  () => import("./InsightCoverVirtualWorlds"),
+  { ssr: false }
+);
+const InsightCoverRealTime4K = dynamic(
+  () => import("./InsightCoverRealTime4K"),
+  { ssr: false }
+);
+const InsightCoverBuildingWorlds = dynamic(
+  () => import("./InsightCoverBuildingWorlds"),
+  { ssr: false }
+);
+
+// ---------------------------------------------------------------------------
+// Map component names to dynamically imported components
+// ---------------------------------------------------------------------------
+const coverComponents: Record<string, React.ComponentType> = {
+  InsightCoverVirtualWorlds,
+  InsightCoverRealTime4K,
+  InsightCoverBuildingWorlds,
+};
+
+// ---------------------------------------------------------------------------
+// Types
+// ---------------------------------------------------------------------------
 interface BlogPost {
   title: string;
   subtitle: string;
@@ -11,8 +40,12 @@ interface BlogPost {
   gradient: string;
   gradientAccent: string;
   slug: string;
+  coverComponent: string;
 }
 
+// ---------------------------------------------------------------------------
+// Data
+// ---------------------------------------------------------------------------
 const posts: BlogPost[] = [
   {
     title: "Why I Switched from Location Shoots to Virtual Worlds",
@@ -22,6 +55,7 @@ const posts: BlogPost[] = [
     gradient: "from-electric-indigo/40 via-purple-900/60 to-deep-space",
     gradientAccent: "bg-electric-indigo/10",
     slug: "virtual-worlds",
+    coverComponent: "InsightCoverVirtualWorlds",
   },
   {
     title: "4K in Real-Time: How Unreal Engine Changed Everything",
@@ -31,6 +65,7 @@ const posts: BlogPost[] = [
     gradient: "from-cyan-500/30 via-blue-900/50 to-deep-space",
     gradientAccent: "bg-cyan-500/10",
     slug: "real-time-4k",
+    coverComponent: "InsightCoverRealTime4K",
   },
   {
     title: "Building Worlds in Days, Not Months",
@@ -40,9 +75,13 @@ const posts: BlogPost[] = [
     gradient: "from-warm-coral/30 via-amber-900/40 to-deep-space",
     gradientAccent: "bg-warm-coral/10",
     slug: "building-worlds",
+    coverComponent: "InsightCoverBuildingWorlds",
   },
 ];
 
+// ---------------------------------------------------------------------------
+// Animation variants
+// ---------------------------------------------------------------------------
 const sectionVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -83,6 +122,9 @@ const cardVariants = {
   },
 };
 
+// ---------------------------------------------------------------------------
+// Component
+// ---------------------------------------------------------------------------
 export default function Insights() {
   return (
     <section id="insights" className="bg-deep-space section-padding relative overflow-hidden" style={{ backgroundColor: "#0B0F19" }}>
@@ -112,79 +154,91 @@ export default function Insights() {
 
         {/* Blog post grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-          {posts.map((post) => (
-            <motion.article
-              key={post.title}
-              variants={cardVariants}
-              className="group relative"
-            >
-              <Link href={`/insights/${post.slug}`} className="block bg-white/[0.03] border border-white/5 rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 hover:-translate-y-2 hover:border-white/15 hover:shadow-2xl hover:shadow-black/30">
-              <HolographicSheen className="rounded-2xl">
-                {/* Gradient image placeholder area */}
-                <div className="relative aspect-video overflow-hidden">
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${post.gradient} transition-transform duration-700 ease-out group-hover:scale-110`}
-                  />
+          {posts.map((post) => {
+            const CoverScene = coverComponents[post.coverComponent];
 
-                  {/* Noise overlay */}
-                  <div className="absolute inset-0 opacity-[0.04] mix-blend-overlay bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIxIi8+PC9zdmc+')]" />
+            return (
+              <motion.article
+                key={post.title}
+                variants={cardVariants}
+                className="group relative"
+              >
+                <Link href={`/insights/${post.slug}`} className="block bg-white/[0.03] border border-white/5 rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 hover:-translate-y-2 hover:border-white/15 hover:shadow-2xl hover:shadow-black/30">
+                <HolographicSheen className="rounded-2xl">
+                  {/* Cover area: gradient background + Three.js scene overlay */}
+                  <div className="relative aspect-video overflow-hidden">
+                    {/* Gradient fallback/background */}
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${post.gradient} transition-transform duration-700 ease-out group-hover:scale-110`}
+                    />
 
-                  {/* Subtle grid pattern */}
-                  <div className="absolute inset-0 opacity-[0.06] bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:40px_40px]" />
+                    {/* Three.js cover scene */}
+                    {CoverScene && (
+                      <div className="absolute inset-0 z-10">
+                        <CoverScene />
+                      </div>
+                    )}
 
-                  {/* Bottom fade */}
-                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#0B0F19]/80 to-transparent" />
+                    {/* Noise overlay */}
+                    <div className="absolute inset-0 z-20 opacity-[0.04] mix-blend-overlay bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIxIi8+PC9zdmc+')]" />
 
-                  {/* Corner accent glow on hover */}
-                  <div className="absolute top-0 right-0 w-32 h-32 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-[radial-gradient(circle_at_top_right,rgba(99,102,241,0.15),transparent_70%)]" />
-                </div>
+                    {/* Subtle grid pattern */}
+                    <div className="absolute inset-0 z-20 opacity-[0.06] bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:40px_40px]" />
 
-                {/* Card content */}
-                <div className="p-6">
-                  {/* Category label */}
-                  <div className="border-l-2 border-electric-indigo pl-3">
-                    <span className="font-mono text-xs text-electric-indigo uppercase tracking-wider">
-                      {post.category}
-                    </span>
+                    {/* Bottom fade */}
+                    <div className="absolute inset-x-0 bottom-0 h-1/3 z-20 bg-gradient-to-t from-[#0B0F19]/80 to-transparent" />
+
+                    {/* Corner accent glow on hover */}
+                    <div className="absolute top-0 right-0 w-32 h-32 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-[radial-gradient(circle_at_top_right,rgba(99,102,241,0.15),transparent_70%)]" />
                   </div>
 
-                  {/* Title */}
-                  <h3 className="font-headline font-bold text-xl text-pure-white mt-3 leading-snug group-hover:text-soft-white transition-colors duration-300">
-                    {post.title}
-                  </h3>
+                  {/* Card content */}
+                  <div className="p-6">
+                    {/* Category label */}
+                    <div className="border-l-2 border-electric-indigo pl-3">
+                      <span className="font-mono text-xs text-electric-indigo uppercase tracking-wider">
+                        {post.category}
+                      </span>
+                    </div>
 
-                  {/* Subtitle */}
-                  <p className="text-cool-gray text-sm mt-2 leading-relaxed">
-                    {post.subtitle}
-                  </p>
+                    {/* Title */}
+                    <h3 className="font-headline font-bold text-xl text-pure-white mt-3 leading-snug group-hover:text-soft-white transition-colors duration-300">
+                      {post.title}
+                    </h3>
 
-                  {/* Read Article link */}
-                  <div className="mt-5 pt-4 border-t border-white/5">
-                    <span className="inline-flex items-center gap-2 text-warm-coral text-sm font-medium group-hover:gap-3 transition-all duration-300">
-                      Read Article
-                      <svg
-                        className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        strokeWidth={2}
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-                        />
-                      </svg>
-                    </span>
+                    {/* Subtitle */}
+                    <p className="text-cool-gray text-sm mt-2 leading-relaxed">
+                      {post.subtitle}
+                    </p>
+
+                    {/* Read Article link */}
+                    <div className="mt-5 pt-4 border-t border-white/5">
+                      <span className="inline-flex items-center gap-2 text-warm-coral text-sm font-medium group-hover:gap-3 transition-all duration-300">
+                        Read Article
+                        <svg
+                          className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                          />
+                        </svg>
+                      </span>
+                    </div>
                   </div>
-                </div>
 
-                {/* Hover border glow */}
-                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none shadow-[inset_0_0_40px_rgba(99,102,241,0.05)]" />
-              </HolographicSheen>
-              </Link>
-            </motion.article>
-          ))}
+                  {/* Hover border glow */}
+                  <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none shadow-[inset_0_0_40px_rgba(99,102,241,0.05)]" />
+                </HolographicSheen>
+                </Link>
+              </motion.article>
+            );
+          })}
         </div>
       </motion.div>
     </section>
