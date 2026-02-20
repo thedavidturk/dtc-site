@@ -142,15 +142,9 @@ export default function Services() {
           </p>
           <h2 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold text-pure-white tracking-tight">
             <TextReveal
-              text="WHAT WE"
+              text="WHAT WE DO"
               as="span"
               className="inline"
-            />{" "}
-            <TextReveal
-              text="DO"
-              as="span"
-              className="gradient-text inline"
-              delay={0.15}
             />
           </h2>
         </motion.div>

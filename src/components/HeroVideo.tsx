@@ -204,6 +204,7 @@ export default function HeroVideo() {
               <video
                 ref={videoRef}
                 src="/videos/dtc-reel.mp4"
+                poster="/videos/dtc-reel-poster.jpg"
                 className="absolute inset-0 w-full h-full object-cover"
                 playsInline
                 muted={isMuted}
