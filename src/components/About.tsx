@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import TextReveal from "./TextReveal";
+import Lazy3D from "./Lazy3D";
 
 const AboutVisual3D = dynamic(() => import("./AboutVisual3D"), {
   ssr: false,
@@ -106,7 +107,9 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left — 3D Visual */}
           <motion.div className="relative" variants={slideFromLeft}>
-            <AboutVisual3D className="aspect-[3/4] w-full max-w-[480px] mx-auto lg:mx-0 rounded-2xl overflow-hidden relative" />
+            <Lazy3D className="aspect-[3/4] w-full max-w-[480px] mx-auto lg:mx-0 rounded-2xl overflow-hidden relative">
+              <AboutVisual3D className="w-full h-full" />
+            </Lazy3D>
 
             {/* Decorative corner accents */}
             <div className="absolute -top-3 -left-3 w-16 h-16 border-t border-l border-electric-indigo/20 rounded-tl-xl" />

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import TextReveal from "./TextReveal";
+import Lazy3D from "./Lazy3D";
 
 // Dynamic import to handle SSR gracefully -- Canvas requires browser APIs
 const FloatingIcon = dynamic(() => import("./FloatingIcon"), { ssr: false });
@@ -159,10 +160,10 @@ export default function ValuePropositions() {
                   }}
                 />
 
-                {/* 3D Floating Icon */}
-                <div className="relative mb-6 w-16 h-16 md:w-20 md:h-20">
+                {/* 3D Floating Icon — lazy-mounted to limit WebGL contexts */}
+                <Lazy3D className="relative mb-6 w-16 h-16 md:w-20 md:h-20">
                   <FloatingIcon shape={pillar.shape} />
-                </div>
+                </Lazy3D>
 
                 {/* Title */}
                 <h3 className="relative font-headline font-bold text-sm md:text-base tracking-[0.15em] text-pure-white mb-4">

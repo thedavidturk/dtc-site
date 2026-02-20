@@ -3,6 +3,7 @@
 import { useState, FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import dynamic from "next/dynamic";
+import Lazy3D from "./Lazy3D";
 
 const OrganicBlob = dynamic(() => import("./OrganicBlob"), { ssr: false });
 
@@ -432,9 +433,9 @@ export default function Contact() {
           {/* Right side: Contact info */}
           <motion.div className="lg:col-span-2 relative" variants={rightColVariants}>
             {/* Organic Blob — decorative 3D element behind the card */}
-            <div className="absolute -top-20 -right-20 w-[400px] h-[400px] z-0 opacity-70 pointer-events-auto hidden lg:block">
+            <Lazy3D className="absolute -top-20 -right-20 w-[400px] h-[400px] z-0 opacity-70 pointer-events-auto hidden lg:block">
               <OrganicBlob className="w-full h-full" />
-            </div>
+            </Lazy3D>
 
             <div className="relative h-full z-10">
               {/* Decorative gradient border element */}

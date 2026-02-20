@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import HolographicSheen from "./HolographicSheen";
+import Lazy3D from "./Lazy3D";
 
 // ---------------------------------------------------------------------------
 // Dynamic imports for Three.js cover scenes (SSR disabled)
@@ -174,9 +175,9 @@ export default function Insights() {
 
                     {/* Three.js cover scene */}
                     {CoverScene && (
-                      <div className="absolute inset-0 z-10">
+                      <Lazy3D className="absolute inset-0 z-10">
                         <CoverScene />
-                      </div>
+                      </Lazy3D>
                     )}
 
                     {/* Noise overlay */}

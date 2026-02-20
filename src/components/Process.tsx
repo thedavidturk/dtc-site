@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import TextReveal from "./TextReveal";
 import WireframeTerrain from "./WireframeTerrain";
+import Lazy3D from "./Lazy3D";
 
 const ProcessPipeline = dynamic(() => import("./ProcessPipeline"), {
   ssr: false,
@@ -124,12 +125,14 @@ export default function Process() {
   return (
     <section id="process" className="relative bg-deep-space overflow-hidden" style={{ backgroundColor: "#0B0F19" }}>
       {/* Wireframe terrain background */}
-      <WireframeTerrain
-        className="absolute inset-0 z-0"
-        color="#6366F1"
-        opacity={0.07}
-        speed={1}
-      />
+      <Lazy3D className="absolute inset-0 z-0">
+        <WireframeTerrain
+          className="absolute inset-0"
+          color="#6366F1"
+          opacity={0.07}
+          speed={1}
+        />
+      </Lazy3D>
 
       {/* Subtle background accent */}
       <div
@@ -160,9 +163,9 @@ export default function Process() {
         </motion.div>
 
         {/* 3D Pipeline — desktop only */}
-        <div className="hidden lg:block mx-auto max-w-[800px] h-[100px] mb-12">
+        <Lazy3D className="hidden lg:block mx-auto max-w-[800px] h-[100px] mb-12">
           <ProcessPipeline activeStep={activeStep} className="w-full h-full" />
-        </div>
+        </Lazy3D>
 
         {/* Steps Grid */}
         <div className="relative grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-0">

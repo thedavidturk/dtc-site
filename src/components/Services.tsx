@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import TextReveal from "./TextReveal";
+import Lazy3D from "./Lazy3D";
 
 // Dynamically import ServiceScene with SSR disabled (Three.js needs the DOM)
 const ServiceScene = dynamic(() => import("./ServiceScene"), { ssr: false });
@@ -163,12 +164,12 @@ export default function Services() {
                     viewport={{ once: true, margin: "-80px" }}
                     className="w-full lg:w-1/2 flex-shrink-0"
                   >
-                    <div className="aspect-video rounded-2xl overflow-hidden relative">
+                    <Lazy3D className="aspect-video rounded-2xl overflow-hidden relative">
                       <ServiceScene
                         scene={service.scene}
                         className="w-full h-full"
                       />
-                    </div>
+                    </Lazy3D>
                   </motion.div>
 
                   {/* Text content */}
