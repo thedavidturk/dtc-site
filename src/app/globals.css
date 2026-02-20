@@ -89,3 +89,127 @@ main > div > div {
     @apply inline-flex items-center justify-center px-8 py-4 border border-cool-gray/30 text-pure-white font-headline font-bold rounded-lg transition-all duration-300 hover:border-electric-indigo hover:bg-electric-indigo/10;
   }
 }
+
+/* ------------------------------------------------------------------ */
+/* Hero text effects                                                   */
+/* ------------------------------------------------------------------ */
+
+@keyframes shimmer-sweep {
+  0%, 100% { background-position: 100% center; }
+  50% { background-position: 0% center; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 15px rgba(99,102,241,0))
+            drop-shadow(0 0 35px rgba(99,102,241,0));
+  }
+  50% {
+    filter: drop-shadow(0 0 15px rgba(99,102,241,0.15))
+            drop-shadow(0 0 40px rgba(99,102,241,0.06));
+  }
+}
+
+/* White text with subtle indigo highlight sweep */
+.hero-shimmer-white {
+  background: linear-gradient(
+    105deg,
+    #ffffff 0%,
+    #ffffff 40%,
+    #c7d2fe 49%,
+    #a5b4fc 50%,
+    #c7d2fe 51%,
+    #ffffff 60%,
+    #ffffff 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-sweep 8s ease-in-out infinite;
+}
+
+/* Gradient text with bright highlight sweep */
+.hero-shimmer-gradient {
+  background: linear-gradient(
+    105deg,
+    #6366F1 0%,
+    #818cf8 15%,
+    #F97316 40%,
+    #fef3c7 49%,
+    #ffffff 50%,
+    #fef3c7 51%,
+    #6366F1 60%,
+    #818cf8 80%,
+    #F97316 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-sweep 6s ease-in-out infinite;
+  animation-delay: -3s;
+}
+
+/* Breathing indigo glow on headline wrappers */
+.hero-glow-line {
+  animation: glow-pulse 4s ease-in-out infinite;
+}
+
+/* Accent line breathing pulse */
+@keyframes accent-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.hero-accent-pulse {
+  animation: accent-pulse 3s ease-in-out infinite;
+}
+
+/* Rotating gradient border for CTA buttons */
+@keyframes border-rotate {
+  0% { --border-angle: 0deg; }
+  100% { --border-angle: 360deg; }
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.hero-border-gradient {
+  background: conic-gradient(
+    from var(--border-angle),
+    #6366F1 0%,
+    #818cf8 25%,
+    #F97316 50%,
+    #fb923c 75%,
+    #6366F1 100%
+  );
+  animation: border-rotate 4s linear infinite;
+}
+
+/* Edge light leaks — slow drift + breathing */
+@keyframes light-leak-drift {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  25% {
+    transform: translate(10px, -8px) scale(1.05);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(-5px, 5px) scale(0.95);
+    opacity: 1;
+  }
+  75% {
+    transform: translate(8px, 10px) scale(1.08);
+    opacity: 0.6;
+  }
+}
+
+.hero-light-leak {
+  animation: light-leak-drift 12s ease-in-out infinite;
+}
