@@ -14,7 +14,7 @@ interface Service {
   description: string;
   capabilities: string[];
   accentColor: string;
-  scene: "cinematography" | "animation" | "direction";
+  scene: "cinematography" | "animation" | "direction" | "capture";
 }
 
 const services: Service[] = [
@@ -48,6 +48,22 @@ const services: Service[] = [
     ],
     accentColor: "bg-cyan-500",
     scene: "animation",
+  },
+  {
+    label: "VIDEOGRAPHY & PHOTOGRAPHY",
+    headline: "Real moments. Captured with intent.",
+    description:
+      "From brand documentaries and commercials to product photography and lifestyle shoots — we capture the real, human moments that make brands unforgettable. Every frame is deliberate, every shot tells a story.",
+    capabilities: [
+      "Brand documentaries and short films",
+      "Commercial and promotional video",
+      "Product photography and styling",
+      "Lifestyle and editorial shoots",
+      "On-location and studio production",
+      "Color grading and retouching",
+    ],
+    accentColor: "bg-amber-500",
+    scene: "capture",
   },
   {
     label: "CREATIVE DIRECTION & POST",

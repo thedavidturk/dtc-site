@@ -10,7 +10,7 @@ import * as THREE from "three";
 /* ================================================================== */
 
 interface ServiceSceneProps {
-  scene: "cinematography" | "animation" | "direction";
+  scene: "cinematography" | "animation" | "direction" | "capture";
   className?: string;
 }
 
@@ -825,6 +825,246 @@ function DirectionScene() {
 }
 
 /* ================================================================== */
+/*  SCENE 4: CAPTURE - Videography & Photography                       */
+/* ================================================================== */
+
+function CaptureCinemaCamera() {
+  const groupRef = useRef<THREE.Group>(null!);
+
+  useFrame(({ clock }) => {
+    if (!groupRef.current) return;
+    groupRef.current.rotation.y = clock.elapsedTime * 0.3;
+  });
+
+  const wireframeMat = useMemo(
+    () => ({
+      color: "#6366F1",
+      wireframe: true,
+      transparent: true,
+      opacity: 0.55,
+      depthWrite: false,
+    }),
+    []
+  );
+
+  const accentMat = useMemo(
+    () => ({
+      color: "#F97316",
+      wireframe: true,
+      transparent: true,
+      opacity: 0.5,
+      depthWrite: false,
+    }),
+    []
+  );
+
+  return (
+    <group ref={groupRef} position={[0, 0.3, 0]}>
+      {/* Camera body — main housing */}
+      <mesh position={[0, 0, 0]}>
+        <boxGeometry args={[1.8, 1.1, 1.0]} />
+        <meshBasicMaterial {...wireframeMat} />
+      </mesh>
+
+      {/* Lens barrel — primary */}
+      <mesh position={[0, -0.05, 0.85]} rotation={[Math.PI / 2, 0, 0]}>
+        <cylinderGeometry args={[0.38, 0.42, 0.8, 16]} />
+        <meshBasicMaterial {...wireframeMat} />
+      </mesh>
+
+      {/* Lens hood — front ring */}
+      <mesh position={[0, -0.05, 1.35]} rotation={[Math.PI / 2, 0, 0]}>
+        <cylinderGeometry args={[0.44, 0.38, 0.2, 16]} />
+        <meshBasicMaterial {...accentMat} />
+      </mesh>
+
+      {/* Lens glass — front element */}
+      <mesh position={[0, -0.05, 1.46]}>
+        <circleGeometry args={[0.32, 16]} />
+        <meshBasicMaterial
+          color="#6366F1"
+          transparent
+          opacity={0.08}
+          depthWrite={false}
+          side={THREE.DoubleSide}
+        />
+      </mesh>
+
+      {/* Film magazine — top cylinder (classic cinema look) */}
+      <mesh position={[0.3, 0.85, 0]} rotation={[0, 0, Math.PI / 2]}>
+        <cylinderGeometry args={[0.45, 0.45, 0.35, 16]} />
+        <meshBasicMaterial {...wireframeMat} />
+      </mesh>
+
+      {/* Second film magazine — slightly offset */}
+      <mesh position={[-0.3, 0.85, 0]} rotation={[0, 0, Math.PI / 2]}>
+        <cylinderGeometry args={[0.45, 0.45, 0.35, 16]} />
+        <meshBasicMaterial {...wireframeMat} />
+      </mesh>
+
+      {/* Viewfinder — rear box */}
+      <mesh position={[0, 0.25, -0.6]}>
+        <boxGeometry args={[0.3, 0.25, 0.25]} />
+        <meshBasicMaterial {...accentMat} />
+      </mesh>
+
+      {/* Viewfinder eyepiece */}
+      <mesh position={[0, 0.25, -0.8]} rotation={[Math.PI / 2, 0, 0]}>
+        <cylinderGeometry args={[0.1, 0.12, 0.15, 8]} />
+        <meshBasicMaterial {...wireframeMat} />
+      </mesh>
+
+      {/* Handle — top grip bar */}
+      <mesh position={[0, 0.7, -0.15]}>
+        <boxGeometry args={[0.8, 0.08, 0.08]} />
+        <meshBasicMaterial {...wireframeMat} />
+      </mesh>
+      {/* Handle supports */}
+      <mesh position={[0.35, 0.62, -0.15]}>
+        <boxGeometry args={[0.06, 0.12, 0.06]} />
+        <meshBasicMaterial {...wireframeMat} />
+      </mesh>
+      <mesh position={[-0.35, 0.62, -0.15]}>
+        <boxGeometry args={[0.06, 0.12, 0.06]} />
+        <meshBasicMaterial {...wireframeMat} />
+      </mesh>
+
+      {/* Matte box — front of lens */}
+      <mesh position={[0, -0.05, 1.15]}>
+        <boxGeometry args={[0.95, 0.75, 0.15]} />
+        <meshBasicMaterial
+          color="#6366F1"
+          wireframe
+          transparent
+          opacity={0.2}
+          depthWrite={false}
+        />
+      </mesh>
+
+      {/* Follow focus ring */}
+      <mesh position={[0.5, -0.05, 0.7]} rotation={[Math.PI / 2, 0, 0]}>
+        <torusGeometry args={[0.12, 0.025, 6, 12]} />
+        <meshBasicMaterial {...accentMat} />
+      </mesh>
+    </group>
+  );
+}
+
+function CaptureOrbitRing() {
+  return (
+    <mesh position={[0, 0.3, 0]} rotation={[Math.PI * 0.4, 0, Math.PI * 0.08]}>
+      <torusGeometry args={[2.5, 0.005, 8, 64]} />
+      <meshBasicMaterial
+        color="#6366F1"
+        transparent
+        opacity={0.12}
+        depthWrite={false}
+      />
+    </mesh>
+  );
+}
+
+function CaptureGridFloor() {
+  return (
+    <mesh position={[0, -0.7, 0]} rotation-x={-Math.PI / 2}>
+      <planeGeometry args={[6, 6, 15, 15]} />
+      <meshBasicMaterial
+        color="#ffffff"
+        wireframe
+        transparent
+        opacity={0.08}
+        depthWrite={false}
+      />
+    </mesh>
+  );
+}
+
+function CaptureFloatingPoints() {
+  const pointsRef = useRef<THREE.Points>(null!);
+  const count = 12;
+
+  const { positions, colors, angles, radii, speeds, yOffsets } = useMemo(() => {
+    const pos = new Float32Array(count * 3);
+    const col = new Float32Array(count * 3);
+    const ang = new Float32Array(count);
+    const rad = new Float32Array(count);
+    const spd = new Float32Array(count);
+    const yOff = new Float32Array(count);
+
+    const indigoColor = new THREE.Color("#6366F1");
+    const coralColor = new THREE.Color("#F97316");
+
+    for (let i = 0; i < count; i++) {
+      ang[i] = Math.random() * Math.PI * 2;
+      rad[i] = 1.8 + Math.random() * 1.2;
+      spd[i] = 0.15 + Math.random() * 0.3;
+      yOff[i] = (Math.random() - 0.5) * 2.0;
+
+      const c = Math.random() > 0.5 ? indigoColor : coralColor;
+      col[i * 3] = c.r;
+      col[i * 3 + 1] = c.g;
+      col[i * 3 + 2] = c.b;
+    }
+    return { positions: pos, colors: col, angles: ang, radii: rad, speeds: spd, yOffsets: yOff };
+  }, []);
+
+  useFrame(({ clock }) => {
+    if (!pointsRef.current) return;
+    const posAttr = pointsRef.current.geometry.attributes.position as THREE.BufferAttribute;
+    const arr = posAttr.array as Float32Array;
+    const t = clock.elapsedTime;
+
+    for (let i = 0; i < count; i++) {
+      const angle = angles[i] + t * speeds[i];
+      arr[i * 3] = Math.cos(angle) * radii[i];
+      arr[i * 3 + 1] = yOffsets[i] + Math.sin(t * 0.5 + angles[i]) * 0.3 + 0.3;
+      arr[i * 3 + 2] = Math.sin(angle) * radii[i];
+    }
+    posAttr.needsUpdate = true;
+  });
+
+  return (
+    <points ref={pointsRef}>
+      <bufferGeometry>
+        <bufferAttribute
+          attach="attributes-position"
+          args={[positions, 3]}
+          count={count}
+        />
+        <bufferAttribute
+          attach="attributes-color"
+          args={[colors, 3]}
+          count={count}
+        />
+      </bufferGeometry>
+      <pointsMaterial
+        size={0.06}
+        vertexColors
+        transparent
+        opacity={0.8}
+        blending={THREE.AdditiveBlending}
+        depthWrite={false}
+        sizeAttenuation
+      />
+    </points>
+  );
+}
+
+function CaptureScene() {
+  return (
+    <>
+      <ambientLight intensity={0.3} />
+      <MouseParallaxGroup>
+        <CaptureCinemaCamera />
+        <CaptureOrbitRing />
+        <CaptureGridFloor />
+        <CaptureFloatingPoints />
+      </MouseParallaxGroup>
+    </>
+  );
+}
+
+/* ================================================================== */
 /*  Scene Map & Camera Configs                                         */
 /* ================================================================== */
 
@@ -832,12 +1072,14 @@ const sceneComponents: Record<ServiceSceneProps["scene"], React.FC> = {
   cinematography: CinematographyScene,
   animation: AnimationScene,
   direction: DirectionScene,
+  capture: CaptureScene,
 };
 
 const cameraPositions: Record<ServiceSceneProps["scene"], [number, number, number]> = {
   cinematography: [0, 3, 8],
   animation: [0, 1, 5],
   direction: [0, 0, 6],
+  capture: [0, 0, 5.5],
 };
 
 /* ================================================================== */
