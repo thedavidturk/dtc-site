@@ -7,12 +7,10 @@ import * as THREE from "three";
 // ---------------------------------------------------------------------------
 // Constants
 // ---------------------------------------------------------------------------
-const PARTICLE_COUNT = 100;
-const RING_SEGMENTS = 64;
-
 const COLOR_INDIGO = "#6366F1";
 const COLOR_CORAL = "#F97316";
 const DEEP_SPACE = "#0B0F19";
+const PARTICLE_COUNT = 60;
 
 // ---------------------------------------------------------------------------
 // Types
@@ -21,436 +19,387 @@ interface AboutVisual3DProps {
   className?: string;
 }
 
-// ---------------------------------------------------------------------------
-// Shared state — mouse + scroll passed into the Canvas
-// ---------------------------------------------------------------------------
 interface InputState {
   mouseX: number;
   mouseY: number;
-  scroll: number; // 0..1 section visibility
+  scroll: number;
 }
 
 // ---------------------------------------------------------------------------
-// CoreStructure — icosahedron with vertex displacement toward mouse
+// Letter shape builders — return ExtrudeGeometry for each character
 // ---------------------------------------------------------------------------
-function CoreStructure({ input }: { input: React.MutableRefObject<InputState> }) {
-  const outerRef = useRef<THREE.Mesh>(null);
-  const innerRef = useRef<THREE.Mesh>(null);
-  const glowRef = useRef<THREE.Mesh>(null);
+function buildLetterD(): THREE.ExtrudeGeometry {
+  const s = new THREE.Shape();
+  s.moveTo(0, 0);
+  s.lineTo(0, 1.2);
+  s.lineTo(0.35, 1.2);
+  s.quadraticCurveTo(0.85, 1.2, 0.85, 0.6);
+  s.quadraticCurveTo(0.85, 0, 0.35, 0);
+  s.lineTo(0, 0);
 
-  // Base geometry for vertex displacement
-  const { outerGeo, basePositions } = useMemo(() => {
-    const geo = new THREE.IcosahedronGeometry(1.5, 2);
-    const base = geo.attributes.position.array.slice() as Float32Array;
-    return { outerGeo: geo, basePositions: base };
-  }, []);
+  const hole = new THREE.Path();
+  hole.moveTo(0.18, 0.18);
+  hole.lineTo(0.18, 1.02);
+  hole.lineTo(0.32, 1.02);
+  hole.quadraticCurveTo(0.67, 1.02, 0.67, 0.6);
+  hole.quadraticCurveTo(0.67, 0.18, 0.32, 0.18);
+  hole.lineTo(0.18, 0.18);
+  s.holes.push(hole);
 
-  const innerGeo = useMemo(() => new THREE.IcosahedronGeometry(0.55, 1), []);
-  const glowGeo = useMemo(() => new THREE.IcosahedronGeometry(1.65, 2), []);
+  return new THREE.ExtrudeGeometry(s, { depth: 0.25, bevelEnabled: false });
+}
 
+function buildLetterT(): THREE.ExtrudeGeometry {
+  const s = new THREE.Shape();
+  // Top bar
+  s.moveTo(0, 1.02);
+  s.lineTo(0.8, 1.02);
+  s.lineTo(0.8, 1.2);
+  s.lineTo(0, 1.2);
+  s.lineTo(0, 1.02);
+  // Vertical stem
+  const stem = new THREE.Shape();
+  stem.moveTo(0.31, 0);
+  stem.lineTo(0.49, 0);
+  stem.lineTo(0.49, 1.02);
+  stem.lineTo(0.31, 1.02);
+  stem.lineTo(0.31, 0);
+
+  // Combine by making a single shape for the T
+  const combined = new THREE.Shape();
+  // Top bar
+  combined.moveTo(0, 1.02);
+  combined.lineTo(0, 1.2);
+  combined.lineTo(0.8, 1.2);
+  combined.lineTo(0.8, 1.02);
+  // Step down to stem right
+  combined.lineTo(0.49, 1.02);
+  combined.lineTo(0.49, 0);
+  combined.lineTo(0.31, 0);
+  combined.lineTo(0.31, 1.02);
+  combined.lineTo(0, 1.02);
+
+  return new THREE.ExtrudeGeometry(combined, { depth: 0.25, bevelEnabled: false });
+}
+
+function buildPlus(): THREE.ExtrudeGeometry {
+  const s = new THREE.Shape();
+  const w = 0.5;
+  const h = 0.5;
+  const t = 0.14; // bar thickness
+  const cx = w / 2;
+  const cy = h / 2;
+
+  // Cross shape
+  s.moveTo(cx - t / 2, 0);
+  s.lineTo(cx + t / 2, 0);
+  s.lineTo(cx + t / 2, cy - t / 2);
+  s.lineTo(w, cy - t / 2);
+  s.lineTo(w, cy + t / 2);
+  s.lineTo(cx + t / 2, cy + t / 2);
+  s.lineTo(cx + t / 2, h);
+  s.lineTo(cx - t / 2, h);
+  s.lineTo(cx - t / 2, cy + t / 2);
+  s.lineTo(0, cy + t / 2);
+  s.lineTo(0, cy - t / 2);
+  s.lineTo(cx - t / 2, cy - t / 2);
+  s.lineTo(cx - t / 2, 0);
+
+  return new THREE.ExtrudeGeometry(s, { depth: 0.25, bevelEnabled: false });
+}
+
+function buildLetterC(): THREE.ExtrudeGeometry {
+  const s = new THREE.Shape();
+  const segments = 24;
+  const outerR = 0.6;
+  const innerR = 0.42;
+  const startAngle = 0.45; // gap opening angle
+  const endAngle = Math.PI * 2 - 0.45;
+
+  // Outer arc
+  for (let i = 0; i <= segments; i++) {
+    const angle = startAngle + (i / segments) * (endAngle - startAngle);
+    const x = 0.45 + Math.cos(angle) * outerR;
+    const y = 0.6 + Math.sin(angle) * outerR;
+    if (i === 0) s.moveTo(x, y);
+    else s.lineTo(x, y);
+  }
+
+  // Inner arc (reverse)
+  for (let i = segments; i >= 0; i--) {
+    const angle = startAngle + (i / segments) * (endAngle - startAngle);
+    const x = 0.45 + Math.cos(angle) * innerR;
+    const y = 0.6 + Math.sin(angle) * innerR;
+    s.lineTo(x, y);
+  }
+
+  s.closePath();
+
+  return new THREE.ExtrudeGeometry(s, { depth: 0.25, bevelEnabled: false });
+}
+
+// ---------------------------------------------------------------------------
+// DTCText — the 3D letters group
+// ---------------------------------------------------------------------------
+function DTCText({ input }: { input: React.MutableRefObject<InputState> }) {
+  const groupRef = useRef<THREE.Group>(null);
   const smoothMouse = useRef({ x: 0, y: 0 });
 
+  const geometries = useMemo(() => {
+    const d = buildLetterD();
+    const t = buildLetterT();
+    const plus = buildPlus();
+    const c = buildLetterC();
+
+    // Center each geometry vertically
+    d.center();
+    t.center();
+    plus.center();
+    c.center();
+
+    return { d, t, plus, c };
+  }, []);
+
+  // Letter refs for individual animation
+  const dRef = useRef<THREE.Mesh>(null);
+  const tRef = useRef<THREE.Mesh>(null);
+  const plusRef = useRef<THREE.Mesh>(null);
+  const cRef = useRef<THREE.Mesh>(null);
+
   useFrame(({ clock }) => {
-    const t = clock.elapsedTime;
+    if (!groupRef.current) return;
+    const time = clock.elapsedTime;
     const { mouseX, mouseY, scroll } = input.current;
 
-    // Smooth mouse for vertex displacement
+    // Smooth mouse
     smoothMouse.current.x += (mouseX - smoothMouse.current.x) * 0.08;
     smoothMouse.current.y += (mouseY - smoothMouse.current.y) * 0.08;
-
     const mx = smoothMouse.current.x;
     const my = smoothMouse.current.y;
     const mouseStrength = Math.sqrt(mx * mx + my * my);
 
-    // Scroll-driven rotation speed boost
-    const rotSpeed = 0.1 + scroll * 0.3;
+    // Group rotation — tilts toward mouse
+    groupRef.current.rotation.y = mx * 0.5;
+    groupRef.current.rotation.x = -my * 0.35;
 
-    // --- Vertex displacement on outer icosahedron ---
-    const posArr = outerGeo.attributes.position.array as Float32Array;
-    const count = outerGeo.attributes.position.count;
+    // Gentle floating bob
+    groupRef.current.position.y = Math.sin(time * 0.4) * 0.08;
 
-    for (let i = 0; i < count; i++) {
-      const bx = basePositions[i * 3];
-      const by = basePositions[i * 3 + 1];
-      const bz = basePositions[i * 3 + 2];
+    // Scroll pushes slightly back and rotates
+    groupRef.current.rotation.z = scroll * 0.15;
+    groupRef.current.position.z = -scroll * 0.5;
 
-      // Normalize vertex direction
-      const len = Math.sqrt(bx * bx + by * by + bz * bz);
-      const nx = bx / len;
-      const ny = by / len;
+    // Individual letter reactions
+    const letterRefs = [dRef, tRef, plusRef, cRef];
+    letterRefs.forEach((ref, i) => {
+      if (!ref.current) return;
+      // Each letter bobs at a different phase
+      ref.current.position.y =
+        ref.current.userData.baseY +
+        Math.sin(time * 0.6 + i * 0.8) * 0.04;
 
-      // Mouse proximity effect — vertices near the projected mouse pull outward
-      const dx = nx - mx * 0.8;
-      const dy = ny - my * 0.8;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      const pull = Math.max(0, 1 - dist / 1.2) * mouseStrength * 0.35;
+      // On hover, letters spread apart slightly
+      const spreadX = mouseStrength * 0.08 * (i - 1.5);
+      ref.current.position.x = ref.current.userData.baseX + spreadX;
 
-      // Organic breathing wave
-      const wave = Math.sin(t * 0.8 + bx * 2 + by * 2) * 0.04 +
-                   Math.sin(t * 0.5 + bz * 3) * 0.03;
+      // Each letter rotates subtly on its own axis
+      ref.current.rotation.y = Math.sin(time * 0.3 + i * 1.2) * 0.06 * (1 + mouseStrength);
+      ref.current.rotation.x = Math.cos(time * 0.25 + i * 0.9) * 0.04;
+    });
 
-      const scale = 1 + pull + wave;
-      posArr[i * 3] = bx * scale;
-      posArr[i * 3 + 1] = by * scale;
-      posArr[i * 3 + 2] = bz * scale;
-    }
-    outerGeo.attributes.position.needsUpdate = true;
-    outerGeo.computeVertexNormals();
-
-    // Outer rotation
-    if (outerRef.current) {
-      outerRef.current.rotation.x += rotSpeed * 0.008;
-      outerRef.current.rotation.y += rotSpeed * 0.012;
-    }
-    if (glowRef.current) {
-      glowRef.current.rotation.copy(outerRef.current!.rotation);
-    }
-
-    // Inner — counter-rotate, breathe with scroll
-    if (innerRef.current) {
-      const breathe = 0.8 + Math.sin(t * 0.7) * 0.2 + scroll * 0.3;
-      innerRef.current.scale.setScalar(breathe);
-      innerRef.current.rotation.x = -t * 0.18;
-      innerRef.current.rotation.y = -t * 0.12 + scroll * Math.PI * 0.5;
-      innerRef.current.rotation.z = t * 0.06;
-
-      // Inner color shifts from indigo to coral as mouse moves
-      const mat = innerRef.current.material as THREE.MeshBasicMaterial;
-      const lerpT = mouseStrength * 0.6;
-      mat.color.set(COLOR_INDIGO).lerp(new THREE.Color(COLOR_CORAL), lerpT);
-      mat.opacity = 0.1 + mouseStrength * 0.15;
+    // Plus sign spins faster on hover
+    if (plusRef.current) {
+      plusRef.current.rotation.z =
+        time * 0.2 + mouseStrength * time * 0.5;
     }
   });
 
-  return (
-    <group>
-      {/* Outer glow shell */}
-      <mesh ref={glowRef} geometry={glowGeo}>
-        <meshBasicMaterial
-          color={COLOR_INDIGO}
-          transparent
-          opacity={0.04}
-          wireframe
-          side={THREE.DoubleSide}
-        />
-      </mesh>
-
-      {/* Main wireframe — displaces toward mouse */}
-      <mesh ref={outerRef} geometry={outerGeo}>
-        <meshBasicMaterial
-          color={COLOR_INDIGO}
-          transparent
-          opacity={0.3}
-          wireframe
-        />
-      </mesh>
-
-      {/* Inner breathing form */}
-      <mesh ref={innerRef} geometry={innerGeo}>
-        <meshBasicMaterial
-          color={COLOR_INDIGO}
-          transparent
-          opacity={0.12}
-        />
-      </mesh>
-    </group>
+  const wireframeMat = useMemo(
+    () => ({
+      color: COLOR_INDIGO,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.55,
+      depthWrite: false,
+    }),
+    []
   );
-}
 
-// ---------------------------------------------------------------------------
-// OrbitRings — two rotating ring outlines that respond to scroll
-// ---------------------------------------------------------------------------
-function OrbitRings({ input }: { input: React.MutableRefObject<InputState> }) {
-  const ring1Ref = useRef<THREE.LineLoop>(null);
-  const ring2Ref = useRef<THREE.LineLoop>(null);
-
-  const ringGeo = useMemo(() => {
-    const pts: THREE.Vector3[] = [];
-    for (let i = 0; i <= RING_SEGMENTS; i++) {
-      const angle = (i / RING_SEGMENTS) * Math.PI * 2;
-      pts.push(new THREE.Vector3(Math.cos(angle), Math.sin(angle), 0));
-    }
-    return new THREE.BufferGeometry().setFromPoints(pts);
+  // Letter positions — spaced for "D T + C"
+  const positions = useMemo(() => {
+    const spacing = 1.15;
+    const totalW = spacing * 3;
+    const startX = -totalW / 2;
+    return [
+      { x: startX, y: 0 },
+      { x: startX + spacing, y: 0 },
+      { x: startX + spacing * 2, y: 0 },
+      { x: startX + spacing * 3, y: 0 },
+    ];
   }, []);
 
-  useFrame(({ clock }) => {
-    const t = clock.elapsedTime;
-    const { scroll } = input.current;
-
-    // Ring 1 — expands with scroll, tilts
-    if (ring1Ref.current) {
-      const s = 2.2 + scroll * 0.8;
-      ring1Ref.current.scale.set(s, s, s);
-      ring1Ref.current.rotation.x = Math.PI * 0.35 + Math.sin(t * 0.2) * 0.1;
-      ring1Ref.current.rotation.y = t * 0.15;
-      ring1Ref.current.rotation.z = Math.sin(t * 0.1) * 0.1;
-    }
-
-    // Ring 2 — counter-rotates, different tilt
-    if (ring2Ref.current) {
-      const s = 2.6 + scroll * 0.6;
-      ring2Ref.current.scale.set(s, s, s);
-      ring2Ref.current.rotation.x = Math.PI * 0.55 + Math.cos(t * 0.15) * 0.12;
-      ring2Ref.current.rotation.y = -t * 0.1;
-      ring2Ref.current.rotation.z = t * 0.08;
-    }
-  });
-
   return (
-    <group>
-      <lineLoop ref={ring1Ref} geometry={ringGeo}>
-        <lineBasicMaterial color={COLOR_INDIGO} transparent opacity={0.15} />
-      </lineLoop>
-      <lineLoop ref={ring2Ref} geometry={ringGeo}>
-        <lineBasicMaterial color={COLOR_CORAL} transparent opacity={0.1} />
-      </lineLoop>
+    <group ref={groupRef}>
+      <mesh
+        ref={dRef}
+        geometry={geometries.d}
+        position={[positions[0].x, positions[0].y, 0]}
+        userData={{ baseX: positions[0].x, baseY: positions[0].y }}
+      >
+        <meshBasicMaterial {...wireframeMat} />
+      </mesh>
+      <mesh
+        ref={tRef}
+        geometry={geometries.t}
+        position={[positions[1].x, positions[1].y, 0]}
+        userData={{ baseX: positions[1].x, baseY: positions[1].y }}
+      >
+        <meshBasicMaterial {...wireframeMat} />
+      </mesh>
+      <mesh
+        ref={plusRef}
+        geometry={geometries.plus}
+        position={[positions[2].x, positions[2].y, 0]}
+        userData={{ baseX: positions[2].x, baseY: positions[2].y }}
+      >
+        <meshBasicMaterial {...wireframeMat} color={COLOR_CORAL} opacity={0.5} />
+      </mesh>
+      <mesh
+        ref={cRef}
+        geometry={geometries.c}
+        position={[positions[3].x, positions[3].y, 0]}
+        userData={{ baseX: positions[3].x, baseY: positions[3].y }}
+      >
+        <meshBasicMaterial {...wireframeMat} />
+      </mesh>
     </group>
   );
 }
 
 // ---------------------------------------------------------------------------
-// ReactiveParticles — scatter from mouse, expand with scroll
+// Ambient particles orbiting the text
 // ---------------------------------------------------------------------------
-function ReactiveParticles({ input }: { input: React.MutableRefObject<InputState> }) {
+function TextParticles({ input }: { input: React.MutableRefObject<InputState> }) {
   const pointsRef = useRef<THREE.Points>(null);
 
   const data = useMemo(() => {
     const positions = new Float32Array(PARTICLE_COUNT * 3);
     const colors = new Float32Array(PARTICLE_COUNT * 3);
-    const baseAngles = new Float32Array(PARTICLE_COUNT);
-    const baseRadii = new Float32Array(PARTICLE_COUNT);
-    const basePhi = new Float32Array(PARTICLE_COUNT);
+    const angles = new Float32Array(PARTICLE_COUNT);
+    const radii = new Float32Array(PARTICLE_COUNT);
     const speeds = new Float32Array(PARTICLE_COUNT);
-    const phases = new Float32Array(PARTICLE_COUNT);
+    const yOffsets = new Float32Array(PARTICLE_COUNT);
 
-    const indigoColor = new THREE.Color(COLOR_INDIGO);
-    const coralColor = new THREE.Color(COLOR_CORAL);
-    const whiteColor = new THREE.Color("#FFFFFF");
-    const tmpColor = new THREE.Color();
+    const indigo = new THREE.Color(COLOR_INDIGO);
+    const coral = new THREE.Color(COLOR_CORAL);
 
     for (let i = 0; i < PARTICLE_COUNT; i++) {
-      const i3 = i * 3;
+      angles[i] = Math.random() * Math.PI * 2;
+      radii[i] = 2.0 + Math.random() * 1.5;
+      speeds[i] = 0.1 + Math.random() * 0.25;
+      yOffsets[i] = (Math.random() - 0.5) * 2.0;
 
-      // Spherical distribution
-      baseAngles[i] = Math.random() * Math.PI * 2;
-      baseRadii[i] = 1.8 + Math.random() * 1.6;
-      basePhi[i] = Math.acos(2 * Math.random() - 1);
-      speeds[i] = 0.1 + Math.random() * 0.3;
-      phases[i] = Math.random() * Math.PI * 2;
-
-      positions[i3] = 0;
-      positions[i3 + 1] = 0;
-      positions[i3 + 2] = 0;
-
-      // Color: 50% indigo, 30% coral, 20% white
-      const roll = Math.random();
-      if (roll < 0.5) {
-        tmpColor.copy(indigoColor);
-      } else if (roll < 0.8) {
-        tmpColor.copy(coralColor);
-      } else {
-        tmpColor.copy(whiteColor);
-      }
-      colors[i3] = tmpColor.r;
-      colors[i3 + 1] = tmpColor.g;
-      colors[i3 + 2] = tmpColor.b;
+      const c = Math.random() > 0.4 ? indigo : coral;
+      colors[i * 3] = c.r;
+      colors[i * 3 + 1] = c.g;
+      colors[i * 3 + 2] = c.b;
     }
 
-    return { positions, colors, baseAngles, baseRadii, basePhi, speeds, phases };
-  }, []);
-
-  const particleTexture = useMemo(() => {
-    if (typeof document === "undefined") return null;
-    const size = 32;
-    const canvas = document.createElement("canvas");
-    canvas.width = size;
-    canvas.height = size;
-    const ctx = canvas.getContext("2d")!;
-    const gradient = ctx.createRadialGradient(
-      size / 2, size / 2, 0,
-      size / 2, size / 2, size / 2
-    );
-    gradient.addColorStop(0, "rgba(255,255,255,1)");
-    gradient.addColorStop(0.3, "rgba(255,255,255,0.7)");
-    gradient.addColorStop(0.7, "rgba(255,255,255,0.15)");
-    gradient.addColorStop(1, "rgba(255,255,255,0)");
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, size, size);
-    const tex = new THREE.CanvasTexture(canvas);
-    tex.needsUpdate = true;
-    return tex;
+    return { positions, colors, angles, radii, speeds, yOffsets };
   }, []);
 
   useFrame(({ clock }) => {
     if (!pointsRef.current) return;
     const t = clock.elapsedTime;
     const { mouseX, mouseY, scroll } = input.current;
-    const posArr = pointsRef.current.geometry.attributes.position.array as Float32Array;
-
-    // Scroll expands the particle cloud
-    const radiusMult = 1 + scroll * 0.5;
+    const arr = pointsRef.current.geometry.attributes.position.array as Float32Array;
+    const radiusMult = 1 + scroll * 0.4;
+    const mouseStrength = Math.sqrt(mouseX * mouseX + mouseY * mouseY);
 
     for (let i = 0; i < PARTICLE_COUNT; i++) {
-      const i3 = i * 3;
-      const angle = data.baseAngles[i] + t * data.speeds[i];
-      const phi = data.basePhi[i] + Math.sin(t * 0.2 + data.phases[i]) * 0.3;
-      const r = data.baseRadii[i] * radiusMult;
+      const angle = data.angles[i] + t * data.speeds[i];
+      const r = data.radii[i] * radiusMult;
 
-      // Base spherical position
-      let px = r * Math.sin(phi) * Math.cos(angle);
-      let py = r * Math.sin(phi) * Math.sin(angle);
-      const pz = r * Math.cos(phi);
+      let px = Math.cos(angle) * r;
+      let py = data.yOffsets[i] + Math.sin(t * 0.4 + data.angles[i]) * 0.3;
+      const pz = Math.sin(angle) * r * 0.5;
 
-      // Mouse repulsion — particles near projected mouse push away
-      const dx = px - mouseX * 2.5;
-      const dy = py - mouseY * 2.5;
+      // Mouse repulsion
+      const dx = px - mouseX * 2;
+      const dy = py - mouseY * 2;
       const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < 2.0) {
-        const repel = (1 - dist / 2.0) * 0.8;
+      if (dist < 1.5) {
+        const repel = (1 - dist / 1.5) * 0.6;
         px += (dx / (dist + 0.01)) * repel;
         py += (dy / (dist + 0.01)) * repel;
       }
 
-      posArr[i3] = px;
-      posArr[i3 + 1] = py;
-      posArr[i3 + 2] = pz;
+      arr[i * 3] = px;
+      arr[i * 3 + 1] = py;
+      arr[i * 3 + 2] = pz;
     }
 
     pointsRef.current.geometry.attributes.position.needsUpdate = true;
 
-    // Particle size pulses with mouse movement
     const mat = pointsRef.current.material as THREE.PointsMaterial;
-    const mouseStrength = Math.sqrt(mouseX * mouseX + mouseY * mouseY);
-    mat.size = 0.05 + mouseStrength * 0.03;
+    mat.size = 0.04 + mouseStrength * 0.025;
   });
-
-  if (!particleTexture) return null;
 
   return (
     <points ref={pointsRef}>
       <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          args={[data.positions, 3]}
-          count={PARTICLE_COUNT}
-        />
-        <bufferAttribute
-          attach="attributes-color"
-          args={[data.colors, 3]}
-          count={PARTICLE_COUNT}
-        />
+        <bufferAttribute attach="attributes-position" args={[data.positions, 3]} count={PARTICLE_COUNT} />
+        <bufferAttribute attach="attributes-color" args={[data.colors, 3]} count={PARTICLE_COUNT} />
       </bufferGeometry>
       <pointsMaterial
         vertexColors
         transparent
-        opacity={0.75}
-        size={0.05}
+        opacity={0.7}
+        size={0.04}
         sizeAttenuation
         blending={THREE.AdditiveBlending}
         depthWrite={false}
-        map={particleTexture}
       />
     </points>
   );
 }
 
 // ---------------------------------------------------------------------------
-// AmbientGlow — reactive glow that shifts with mouse
+// Orbit ring around the text
 // ---------------------------------------------------------------------------
-function AmbientGlow({ input }: { input: React.MutableRefObject<InputState> }) {
-  const spriteRef = useRef<THREE.Sprite>(null);
-
-  const glowTexture = useMemo(() => {
-    if (typeof document === "undefined") return null;
-    const size = 128;
-    const canvas = document.createElement("canvas");
-    canvas.width = size;
-    canvas.height = size;
-    const ctx = canvas.getContext("2d")!;
-    const gradient = ctx.createRadialGradient(
-      size / 2, size / 2, 0,
-      size / 2, size / 2, size / 2
-    );
-    gradient.addColorStop(0, "rgba(99,102,241,0.4)");
-    gradient.addColorStop(0.25, "rgba(99,102,241,0.15)");
-    gradient.addColorStop(0.5, "rgba(249,115,22,0.06)");
-    gradient.addColorStop(1, "rgba(99,102,241,0)");
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, size, size);
-    const tex = new THREE.CanvasTexture(canvas);
-    tex.needsUpdate = true;
-    return tex;
-  }, []);
+function TextOrbitRing({ input }: { input: React.MutableRefObject<InputState> }) {
+  const ref = useRef<THREE.Mesh>(null);
 
   useFrame(({ clock }) => {
-    if (!spriteRef.current) return;
+    if (!ref.current) return;
     const t = clock.elapsedTime;
-    const { mouseX, mouseY } = input.current;
-
-    // Glow follows mouse slightly
-    spriteRef.current.position.x = mouseX * 0.5;
-    spriteRef.current.position.y = mouseY * 0.5;
-
-    // Pulse + react to mouse
-    const mouseStrength = Math.sqrt(mouseX * mouseX + mouseY * mouseY);
-    const scale = 4.0 + Math.sin(t * 0.5) * 0.4 + mouseStrength * 1.2;
-    spriteRef.current.scale.set(scale, scale, 1);
-
-    const mat = spriteRef.current.material as THREE.SpriteMaterial;
-    mat.opacity = 0.35 + mouseStrength * 0.2;
+    const { scroll } = input.current;
+    const s = 2.8 + scroll * 0.5;
+    ref.current.scale.set(s, s, s);
+    ref.current.rotation.x = Math.PI * 0.38 + Math.sin(t * 0.2) * 0.08;
+    ref.current.rotation.y = t * 0.12;
   });
 
-  if (!glowTexture) return null;
-
   return (
-    <sprite ref={spriteRef} position={[0, 0, -1]}>
-      <spriteMaterial
-        map={glowTexture}
-        transparent
-        opacity={0.35}
-        blending={THREE.AdditiveBlending}
-        depthWrite={false}
-      />
-    </sprite>
+    <mesh ref={ref}>
+      <torusGeometry args={[1, 0.004, 8, 64]} />
+      <meshBasicMaterial color={COLOR_INDIGO} transparent opacity={0.15} depthWrite={false} />
+    </mesh>
   );
 }
 
 // ---------------------------------------------------------------------------
-// Scene — orchestrates everything, handles parallax
+// Scene — orchestrates everything
 // ---------------------------------------------------------------------------
 function Scene({ input }: { input: React.MutableRefObject<InputState> }) {
-  const groupRef = useRef<THREE.Group>(null);
-  const smoothMouse = useRef({ x: 0, y: 0 });
   const { viewport } = useThree();
-
-  const scale = Math.min(1, viewport.width / 6);
-
-  useFrame(({ clock }) => {
-    if (!groupRef.current) return;
-    const t = clock.elapsedTime;
-    const { mouseX, mouseY, scroll } = input.current;
-
-    // Mouse parallax — more responsive with higher lerp
-    smoothMouse.current.x += (mouseX - smoothMouse.current.x) * 0.1;
-    smoothMouse.current.y += (mouseY - smoothMouse.current.y) * 0.1;
-
-    // Tilt toward mouse — stronger effect
-    groupRef.current.rotation.y = smoothMouse.current.x * 0.4;
-    groupRef.current.rotation.x = -smoothMouse.current.y * 0.3;
-
-    // Floating bob
-    groupRef.current.position.y = Math.sin(t * 0.4) * 0.12;
-
-    // Slight z-shift with scroll (push back / pull forward)
-    groupRef.current.position.z = -scroll * 0.8;
-  });
+  const scale = Math.min(1, viewport.width / 5.5);
 
   return (
-    <group ref={groupRef} scale={[scale, scale, scale]}>
-      <CoreStructure input={input} />
-      <OrbitRings input={input} />
-      <ReactiveParticles input={input} />
-      <AmbientGlow input={input} />
+    <group scale={[scale, scale, scale]}>
+      <DTCText input={input} />
+      <TextParticles input={input} />
+      <TextOrbitRing input={input} />
     </group>
   );
 }
@@ -458,9 +407,7 @@ function Scene({ input }: { input: React.MutableRefObject<InputState> }) {
 // ---------------------------------------------------------------------------
 // AboutVisual3D — SSR-safe container with mouse + scroll tracking
 // ---------------------------------------------------------------------------
-export default function AboutVisual3D({
-  className = "",
-}: AboutVisual3DProps) {
+export default function AboutVisual3D({ className = "" }: AboutVisual3DProps) {
   const [mounted, setMounted] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<InputState>({ mouseX: 0, mouseY: 0, scroll: 0 });
@@ -469,7 +416,6 @@ export default function AboutVisual3D({
     setMounted(true);
   }, []);
 
-  // Mouse tracking
   const onPointerMove = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
     const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
     inputRef.current.mouseX = ((e.clientX - rect.left) / rect.width) * 2 - 1;
@@ -477,12 +423,10 @@ export default function AboutVisual3D({
   }, []);
 
   const onPointerLeave = useCallback(() => {
-    // Slowly drift back to center (handled by lerp in Scene)
     inputRef.current.mouseX = 0;
     inputRef.current.mouseY = 0;
   }, []);
 
-  // Scroll tracking — how far through the about section viewport
   useEffect(() => {
     if (!mounted) return;
 
@@ -491,8 +435,7 @@ export default function AboutVisual3D({
       if (!el) return;
       const rect = el.getBoundingClientRect();
       const vh = window.innerHeight;
-      // 0 when section top enters viewport, 1 when section bottom leaves
-      const progress = 1 - (rect.bottom / (vh + rect.height));
+      const progress = 1 - rect.bottom / (vh + rect.height);
       inputRef.current.scroll = Math.max(0, Math.min(1, progress));
     };
 
@@ -507,8 +450,7 @@ export default function AboutVisual3D({
         className={className}
         aria-hidden="true"
         style={{
-          background:
-            `linear-gradient(160deg, #131A2B 0%, #1a1f35 30%, ${DEEP_SPACE} 70%, #1a1535 100%)`,
+          background: `linear-gradient(160deg, #131A2B 0%, #1a1f35 30%, ${DEEP_SPACE} 70%, #1a1535 100%)`,
         }}
       />
     );
@@ -523,8 +465,8 @@ export default function AboutVisual3D({
       aria-hidden="true"
     >
       <Canvas
-        camera={{ fov: 50, position: [0, 0, 5.5], near: 0.1, far: 50 }}
-        gl={{ alpha: true, antialias: false, powerPreference: "low-power" }}
+        camera={{ fov: 50, position: [0, 0, 5], near: 0.1, far: 50 }}
+        gl={{ alpha: true, antialias: true, powerPreference: "low-power" }}
         dpr={[1, 1.5]}
         frameloop="always"
         style={{ background: "transparent" }}
