@@ -316,60 +316,6 @@ function WarpTunnel({ startTime }: { startTime: React.MutableRefObject<number> }
 }
 
 // ---------------------------------------------------------------------------
-// Warp Flash Transition (white plane at t=2.0)
-// ---------------------------------------------------------------------------
-function WarpFlash({ startTime }: { startTime: React.MutableRefObject<number> }) {
-  const meshRef = useRef<THREE.Mesh>(null);
-
-  useFrame(({ clock, camera }) => {
-    if (!meshRef.current) return;
-    const elapsed = clock.getElapsedTime() - startTime.current;
-
-    // Flash between t=1.9 and t=2.3
-    if (elapsed < 1.9 || elapsed > 2.4) {
-      meshRef.current.visible = false;
-      return;
-    }
-
-    meshRef.current.visible = true;
-
-    // Position the flash plane in front of the camera
-    meshRef.current.position.copy(camera.position);
-    meshRef.current.position.z -= 2;
-    meshRef.current.quaternion.copy(camera.quaternion);
-
-    const mat = meshRef.current.material as THREE.MeshBasicMaterial;
-    if (elapsed < 2.0) {
-      // Build-up: subtle glow before flash
-      const buildT = (elapsed - 1.9) / 0.1;
-      mat.opacity = buildT * 0.2;
-    } else if (elapsed < 2.1) {
-      // Peak flash
-      const flashT = (elapsed - 2.0) / 0.1;
-      mat.opacity = 0.2 + flashT * 0.6;
-    } else {
-      // Fade out
-      const fadeT = (elapsed - 2.1) / 0.3;
-      mat.opacity = 0.8 * Math.max(0, 1 - fadeT);
-    }
-  });
-
-  return (
-    <mesh ref={meshRef} visible={false}>
-      <planeGeometry args={[50, 50]} />
-      <meshBasicMaterial
-        color="#FFFFFF"
-        transparent
-        opacity={0}
-        blending={THREE.AdditiveBlending}
-        depthWrite={false}
-        side={THREE.DoubleSide}
-      />
-    </mesh>
-  );
-}
-
-// ---------------------------------------------------------------------------
 // Camera Controller (warp movement then static)
 // ---------------------------------------------------------------------------
 function CameraController({ startTime }: { startTime: React.MutableRefObject<number> }) {
@@ -393,168 +339,6 @@ function CameraController({ startTime }: { startTime: React.MutableRefObject<num
   });
 
   return null;
-}
-
-// ---------------------------------------------------------------------------
-// Shockwave Ring (shifted by +WARP_DURATION)
-// ---------------------------------------------------------------------------
-function ShockwaveRing({ startTime }: { startTime: React.MutableRefObject<number> }) {
-  const meshRef = useRef<THREE.Mesh>(null);
-
-  useFrame(({ clock }) => {
-    if (!meshRef.current) return;
-    const elapsed = clock.getElapsedTime() - startTime.current;
-
-    // Original: 2.0-2.8 → Now: 4.0-4.8
-    if (elapsed < 2.0 + WARP_DURATION || elapsed > 2.8 + WARP_DURATION) {
-      meshRef.current.visible = false;
-      return;
-    }
-
-    meshRef.current.visible = true;
-    const t = (elapsed - (2.0 + WARP_DURATION)) / 0.8; // 0 -> 1
-    const radius = t * 8;
-    meshRef.current.scale.set(radius, radius, radius);
-
-    const mat = meshRef.current.material as THREE.MeshBasicMaterial;
-    mat.opacity = 0.5 * (1 - t);
-  });
-
-  return (
-    <mesh ref={meshRef} rotation={[Math.PI / 2, 0, 0]} visible={false}>
-      <torusGeometry args={[1, 0.015, 8, 64]} />
-      <meshBasicMaterial
-        color="#FFFFFF"
-        transparent
-        opacity={0.5}
-        blending={THREE.AdditiveBlending}
-        depthWrite={false}
-        side={THREE.DoubleSide}
-      />
-    </mesh>
-  );
-}
-
-// ---------------------------------------------------------------------------
-// Pulse Ring (shifted by +WARP_DURATION)
-// ---------------------------------------------------------------------------
-function PulseRing({ startTime }: { startTime: React.MutableRefObject<number> }) {
-  const meshRef = useRef<THREE.Mesh>(null);
-
-  useFrame(({ clock }) => {
-    if (!meshRef.current) return;
-    const elapsed = clock.getElapsedTime() - startTime.current;
-
-    // Original: 0.2-1.2 → Now: 2.2-3.2
-    if (elapsed < 0.2 + WARP_DURATION || elapsed > 1.2 + WARP_DURATION) {
-      meshRef.current.visible = false;
-      return;
-    }
-
-    meshRef.current.visible = true;
-    const t = (elapsed - (0.2 + WARP_DURATION)) / 1.0;
-    const radius = t * 3;
-    meshRef.current.scale.set(radius, radius, radius);
-
-    const mat = meshRef.current.material as THREE.MeshBasicMaterial;
-    mat.opacity = 0.4 * (1 - t);
-  });
-
-  return (
-    <mesh ref={meshRef} rotation={[Math.PI / 2, 0, 0]} visible={false}>
-      <torusGeometry args={[1, 0.01, 8, 64]} />
-      <meshBasicMaterial
-        color="#FFFFFF"
-        transparent
-        opacity={0.4}
-        blending={THREE.AdditiveBlending}
-        depthWrite={false}
-        side={THREE.DoubleSide}
-      />
-    </mesh>
-  );
-}
-
-// ---------------------------------------------------------------------------
-// Central Light Sphere (shifted by +WARP_DURATION)
-// ---------------------------------------------------------------------------
-function CentralLight({ startTime }: { startTime: React.MutableRefObject<number> }) {
-  const meshRef = useRef<THREE.Mesh>(null);
-  const lightRef = useRef<THREE.PointLight>(null);
-
-  useFrame(({ clock }) => {
-    if (!meshRef.current || !lightRef.current) return;
-    const elapsed = clock.getElapsedTime() - startTime.current;
-
-    // Shift all timings by +WARP_DURATION
-    const t_local = elapsed - WARP_DURATION;
-
-    if (t_local < 0.2) {
-      meshRef.current.visible = false;
-      lightRef.current.intensity = 0;
-      return;
-    }
-
-    meshRef.current.visible = true;
-
-    // Phase 1 (0.2-1s local): appear and grow
-    if (t_local < 1.0) {
-      const t = (t_local - 0.2) / 0.8;
-      const scale = 0.02 + t * 0.08;
-      meshRef.current.scale.setScalar(scale * 10);
-      lightRef.current.intensity = t * 2;
-      const mat = meshRef.current.material as THREE.MeshBasicMaterial;
-      mat.opacity = 0.8 + t * 0.2;
-    }
-    // Phase 2 (1-2s local): pulse and intensify
-    else if (t_local < 2.0) {
-      const t = t_local - 1.0;
-      const pulse = 1 + Math.sin(t * 8) * 0.15;
-      const growFactor = 1 + t * 0.3;
-      meshRef.current.scale.setScalar(1.0 * pulse * growFactor);
-      lightRef.current.intensity = 2 + t * 2 + Math.sin(t * 8) * 0.5;
-      // Energy build-up near end of phase 2
-      if (t_local > 1.7) {
-        const buildT = (t_local - 1.7) / 0.3;
-        lightRef.current.intensity = 4 + buildT * 4;
-        meshRef.current.scale.setScalar(1.3 * (1 + buildT * 0.5));
-      }
-    }
-    // Phase 3 (2-2.8s local): flash then fade
-    else if (t_local < 2.8) {
-      const t = (t_local - 2.0) / 0.8;
-      if (t < 0.1) {
-        // Bright flash
-        meshRef.current.scale.setScalar(3);
-        lightRef.current.intensity = 12;
-      } else {
-        const fadeT = (t - 0.1) / 0.9;
-        meshRef.current.scale.setScalar(3 * (1 - fadeT));
-        lightRef.current.intensity = 12 * (1 - fadeT);
-      }
-    }
-    // Phase 4 (2.8+ local): gone
-    else {
-      meshRef.current.visible = false;
-      lightRef.current.intensity = 0;
-    }
-  });
-
-  return (
-    <>
-      <mesh ref={meshRef} visible={false}>
-        <sphereGeometry args={[0.1, 16, 16]} />
-        <meshBasicMaterial
-          color="#FFFFFF"
-          transparent
-          opacity={1}
-          blending={THREE.AdditiveBlending}
-          depthWrite={false}
-        />
-      </mesh>
-      <pointLight ref={lightRef} color="#FFFFFF" intensity={0} distance={30} />
-    </>
-  );
 }
 
 // ---------------------------------------------------------------------------
@@ -635,9 +419,6 @@ function IntroParticles({ startTime }: { startTime: React.MutableRefObject<numbe
     };
   }, [letterTargets]);
 
-  // Track positions during explosion (current animated positions)
-  const explodePositions = useRef<number[][] | null>(null);
-
   useFrame(({ clock }) => {
     if (!pointsRef.current) return;
     const elapsed = clock.getElapsedTime() - startTime.current;
@@ -667,9 +448,9 @@ function IntroParticles({ startTime }: { startTime: React.MutableRefObject<numbe
         posArr[i3 + 1] = data.startPositions[i][1] + (data.letterPositions[i][1] - data.startPositions[i][1]) * eased * 0.6;
         posArr[i3 + 2] = data.startPositions[i][2] + (data.letterPositions[i][2] - data.startPositions[i][2]) * eased * 0.6;
       }
-      // Phase 2 (1-2s local): settle into letter positions with vibration buildup
-      else if (t_local < 2.0) {
-        const t = (t_local - 1.0) / 1.0;
+      // Phase 2 (1-2.2s local): settle into letter positions and hold
+      else if (t_local < 2.2) {
+        const t = Math.min(1, (t_local - 1.0) / 1.0);
         const eased = t * t * (3 - 2 * t);
 
         // Lerp rest of the way to letter positions
@@ -678,66 +459,44 @@ function IntroParticles({ startTime }: { startTime: React.MutableRefObject<numbe
         const baseY = data.startPositions[i][1] + (data.letterPositions[i][1] - data.startPositions[i][1]) * lerpT;
         const baseZ = data.startPositions[i][2] + (data.letterPositions[i][2] - data.startPositions[i][2]) * lerpT;
 
-        // Vibration increases toward end of phase 2
-        let vibration = 0;
-        if (t_local > 1.7) {
-          vibration = ((t_local - 1.7) / 0.3) * 0.15;
-        }
-
-        posArr[i3] = baseX + Math.sin(t_local * 30 + phase) * vibration;
-        posArr[i3 + 1] = baseY + Math.cos(t_local * 25 + phase * 1.3) * vibration;
-        posArr[i3 + 2] = baseZ + Math.sin(t_local * 20 + phase * 0.7) * vibration;
-
-        // Store positions for explosion start
-        if (t_local > 1.95 && !explodePositions.current) {
-          explodePositions.current = [];
-          for (let j = 0; j < PARTICLE_COUNT; j++) {
-            const j3 = j * 3;
-            explodePositions.current.push([posArr[j3], posArr[j3 + 1], posArr[j3 + 2]]);
-          }
-        }
+        // Gentle shimmer while holding
+        const shimmer = 0.02;
+        posArr[i3] = baseX + Math.sin(t_local * 4 + phase) * shimmer;
+        posArr[i3 + 1] = baseY + Math.cos(t_local * 3.5 + phase * 1.3) * shimmer;
+        posArr[i3 + 2] = baseZ;
       }
-      // Phase 3 (2-2.8s local): explosion outward
-      else if (t_local < 2.8) {
-        const t = t_local - 2.0;
-        const decel = Math.exp(-t * 1.5); // deceleration
-
-        const startPos = explodePositions.current
-          ? explodePositions.current[i]
-          : [data.letterPositions[i][0], data.letterPositions[i][1], data.letterPositions[i][2]];
-
-        posArr[i3] = startPos[0] + data.explodeVelocities[i][0] * t * decel;
-        posArr[i3 + 1] = startPos[1] + data.explodeVelocities[i][1] * t * decel;
-        posArr[i3 + 2] = startPos[2] + data.explodeVelocities[i][2] * t * decel;
-      }
-      // Phase 4 (2.8+ local): drift outward and fade
+      // Phase 3 (2.2+ local): gentle dissolve — particles drift slowly outward
       else {
-        const t = t_local - 2.0;
-        const decel = Math.exp(-t * 1.5);
+        const t = t_local - 2.2;
+        const driftSpeed = 0.4;
 
-        const startPos = explodePositions.current
-          ? explodePositions.current[i]
-          : [data.letterPositions[i][0], data.letterPositions[i][1], data.letterPositions[i][2]];
+        const baseX = data.letterPositions[i][0];
+        const baseY = data.letterPositions[i][1];
+        const baseZ = data.letterPositions[i][2];
 
-        posArr[i3] = startPos[0] + data.explodeVelocities[i][0] * t * decel;
-        posArr[i3 + 1] = startPos[1] + data.explodeVelocities[i][1] * t * decel;
-        posArr[i3 + 2] = startPos[2] + data.explodeVelocities[i][2] * t * decel;
+        // Gentle outward drift using explode velocities at very low speed
+        posArr[i3] = baseX + data.explodeVelocities[i][0] * t * driftSpeed * 0.15;
+        posArr[i3 + 1] = baseY + data.explodeVelocities[i][1] * t * driftSpeed * 0.15;
+        posArr[i3 + 2] = baseZ + data.explodeVelocities[i][2] * t * driftSpeed * 0.1;
       }
     }
 
     pointsRef.current.geometry.attributes.position.needsUpdate = true;
 
-    // Fade out particles in phase 4
+    // Particle opacity
     const mat = pointsRef.current.material as THREE.PointsMaterial;
-    if (t_local > 2.8) {
-      const fadeT = Math.min(1, (t_local - 2.8) / 1.2);
-      mat.opacity = 0.85 * (1 - fadeT);
-    } else if (t_local < 0) {
+    if (t_local < 0) {
       mat.opacity = 0;
-    } else {
+    } else if (t_local < 0.5) {
       // Fade in during phase 1
-      const fadeIn = Math.min(1, t_local / 0.5);
-      mat.opacity = 0.85 * fadeIn;
+      mat.opacity = 0.85 * (t_local / 0.5);
+    } else if (t_local < 2.2) {
+      // Full opacity while forming and holding
+      mat.opacity = 0.85;
+    } else {
+      // Gentle dissolve fade starting when particles drift
+      const fadeT = Math.min(1, (t_local - 2.2) / 1.0);
+      mat.opacity = 0.85 * (1 - fadeT * fadeT); // ease-in fade
     }
   });
 
@@ -811,8 +570,8 @@ function AmbientStars({ startTime }: { startTime: React.MutableRefObject<number>
       mat.opacity = 0;
     } else if (t_local < 2.0) {
       mat.opacity = ((t_local - 1.0) / 1.0) * 0.4;
-    } else if (t_local > 2.8) {
-      const fadeT = Math.min(1, (t_local - 2.8) / 1.2);
+    } else if (t_local > 2.2) {
+      const fadeT = Math.min(1, (t_local - 2.2) / 1.0);
       mat.opacity = 0.4 * (1 - fadeT);
     } else {
       mat.opacity = 0.4;
@@ -855,10 +614,6 @@ function IntroScene({ startTime }: { startTime: React.MutableRefObject<number> }
     <>
       <CameraController startTime={startTime} />
       <WarpTunnel startTime={startTime} />
-      <WarpFlash startTime={startTime} />
-      <CentralLight startTime={startTime} />
-      <PulseRing startTime={startTime} />
-      <ShockwaveRing startTime={startTime} />
       <IntroParticles startTime={startTime} />
       <AmbientStars startTime={startTime} />
     </>
@@ -901,11 +656,10 @@ export default function CinematicIntro({ onComplete, onReady }: CinematicIntroPr
     const timers: ReturnType<typeof setTimeout>[] = [];
 
     // After the 3D detonation + particle fade, begin overlay fade-out
-    // Original 2800 + WARP_DURATION(2000) = 4800
-    timers.push(setTimeout(() => setFadeOut(true), 4800));
-    // Remove overlay and signal completion so Hero can animate its text in
-    // Original 3300 + WARP_DURATION(2000) = 5300
-    timers.push(setTimeout(safeComplete, 5300));
+    // Start fade slightly earlier for a smoother blend
+    timers.push(setTimeout(() => setFadeOut(true), 4500));
+    // Remove overlay after the 1.2s CSS fade completes
+    timers.push(setTimeout(safeComplete, 5800));
 
     return () => {
       timers.forEach(clearTimeout);
@@ -926,7 +680,7 @@ export default function CinematicIntro({ onComplete, onReady }: CinematicIntroPr
       className="fixed inset-0 z-[100]"
       style={{
         opacity: fadeOut ? 0 : 1,
-        transition: "opacity 0.5s ease-out",
+        transition: "opacity 1.2s ease-in-out",
         pointerEvents: fadeOut ? "none" : "auto",
       }}
     >

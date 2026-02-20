@@ -92,11 +92,22 @@ interface HeroProps {
   introComplete?: boolean;
 }
 
+/** Extra delay added to all hero animations so content fades in
+ *  after the cinematic intro overlay has fully dissolved. */
+const REVEAL_OFFSET = 0.4;
+
 export default function Hero({ introComplete = true }: HeroProps) {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-deep-space pt-20" style={{ backgroundColor: "#0B0F19" }}>
-      {/* 3D Particle Nebula background */}
-      <ParticleNebula />
+      {/* 3D Particle Nebula background — fades in after intro */}
+      <motion.div
+        className="absolute inset-0 z-0"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: introComplete ? 1 : 0 }}
+        transition={{ duration: 1.8, ease: "easeOut" }}
+      >
+        <ParticleNebula />
+      </motion.div>
 
       {/* Overlay elements on top of the 3D canvas */}
       <div className="absolute inset-0 z-[1] pointer-events-none overflow-hidden">
@@ -127,7 +138,7 @@ export default function Hero({ introComplete = true }: HeroProps) {
           {/* Line 1: "FUTURE-PROOF CREATIVE" — white */}
           <AnimatedLine
             text="FUTURE-PROOF CREATIVE"
-            baseDelay={0}
+            baseDelay={REVEAL_OFFSET}
             className="text-pure-white"
             animate={introComplete}
           />
@@ -135,7 +146,7 @@ export default function Hero({ introComplete = true }: HeroProps) {
           {/* Line 2: "FOR FORWARD-THINKING BRANDS" — gradient */}
           <AnimatedLine
             text="FOR FORWARD-THINKING BRANDS"
-            baseDelay={0.4}
+            baseDelay={REVEAL_OFFSET + 0.4}
             className="mt-2 gradient-text"
             animate={introComplete}
           />
@@ -150,7 +161,7 @@ export default function Hero({ introComplete = true }: HeroProps) {
               ? { opacity: 1, filter: "blur(0px)", y: 0 }
               : { opacity: 0, filter: "blur(10px)", y: 20 }
           }
-          transition={{ duration: 0.8, delay: introComplete ? 1.0 : 0, ease: wordEase }}
+          transition={{ duration: 0.8, delay: introComplete ? 1.0 + REVEAL_OFFSET : 0, ease: wordEase }}
         >
           Strategy-led content development with fast production pipelines.
           We research your audience, develop the creative, and deliver
@@ -168,7 +179,7 @@ export default function Hero({ introComplete = true }: HeroProps) {
           }
           transition={{
             duration: 0.6,
-            delay: introComplete ? 1.3 : 0,
+            delay: introComplete ? 1.3 + REVEAL_OFFSET : 0,
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
         >
@@ -198,7 +209,7 @@ export default function Hero({ introComplete = true }: HeroProps) {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: introComplete ? 1 : 0 }}
-        transition={{ delay: 1.5, duration: 1 }}
+        transition={{ delay: 1.5 + REVEAL_OFFSET, duration: 1 }}
       >
         <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-cool-gray/50">
           Scroll
