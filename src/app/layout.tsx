@@ -36,7 +36,7 @@ const SmoothScroll = dynamic(() => import("@/components/SmoothScroll"), {
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-space-grotesk",
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 const inter = Inter({

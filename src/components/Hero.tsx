@@ -32,22 +32,54 @@ function AnimatedWord({
   word,
   delay,
   animate,
+  finalLetterSpacing,
 }: {
   word: string;
   delay: number;
   animate: boolean;
+  finalLetterSpacing?: string;
 }) {
+  const startSpacing = finalLetterSpacing
+    ? `${parseFloat(finalLetterSpacing) - 0.08}em`
+    : undefined;
+
   return (
     <span className="inline-block overflow-hidden">
       <motion.span
         className="inline-block"
-        initial={{ y: "100%", rotateX: 40, opacity: 0 }}
+        initial={{
+          y: "100%",
+          rotateX: 40,
+          opacity: 0,
+          ...(startSpacing && { letterSpacing: startSpacing }),
+        }}
         animate={
           animate
-            ? { y: 0, rotateX: 0, opacity: 1 }
-            : { y: "100%", rotateX: 40, opacity: 0 }
+            ? {
+                y: 0,
+                rotateX: 0,
+                opacity: 1,
+                ...(finalLetterSpacing && { letterSpacing: finalLetterSpacing }),
+              }
+            : {
+                y: "100%",
+                rotateX: 40,
+                opacity: 0,
+                ...(startSpacing && { letterSpacing: startSpacing }),
+              }
         }
-        transition={{ duration: 0.7, delay: animate ? delay : 0, ease: wordEase }}
+        transition={{
+          duration: 0.7,
+          delay: animate ? delay : 0,
+          ease: wordEase,
+          ...(finalLetterSpacing && {
+            letterSpacing: {
+              duration: 1.2,
+              delay: animate ? delay + 0.3 : 0,
+              ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+            },
+          }),
+        }}
         style={{ transformOrigin: "bottom" }}
       >
         {word}
@@ -61,11 +93,13 @@ function AnimatedLine({
   baseDelay,
   className,
   animate,
+  letterSpacing,
 }: {
   text: string;
   baseDelay: number;
   className?: string;
   animate: boolean;
+  letterSpacing?: string;
 }) {
   const words = text.split(" ");
   return (
@@ -77,6 +111,7 @@ function AnimatedLine({
             word={word}
             delay={baseDelay + i * 0.12}
             animate={animate}
+            finalLetterSpacing={letterSpacing}
           />
         </Fragment>
       ))}
@@ -94,7 +129,7 @@ function AccentLine({ animate }: { animate: boolean }) {
       className="relative mx-auto my-8 md:my-10"
       initial={{ opacity: 0 }}
       animate={animate ? { opacity: 1 } : { opacity: 0 }}
-      transition={{ duration: 0.6, delay: animate ? REVEAL_OFFSET + 0.9 : 0 }}
+      transition={{ duration: 0.6, delay: animate ? REVEAL_OFFSET + 1.2 : 0 }}
     >
       {/* The drawn line */}
       <motion.div
@@ -103,7 +138,7 @@ function AccentLine({ animate }: { animate: boolean }) {
         animate={animate ? { width: "min(320px, 60%)" } : { width: 0 }}
         transition={{
           duration: 1.2,
-          delay: animate ? REVEAL_OFFSET + 0.9 : 0,
+          delay: animate ? REVEAL_OFFSET + 1.2 : 0,
           ease: [0.22, 1, 0.36, 1],
         }}
       >
@@ -121,7 +156,7 @@ function AccentLine({ animate }: { animate: boolean }) {
         }
         transition={{
           duration: 1.4,
-          delay: animate ? REVEAL_OFFSET + 1.0 : 0,
+          delay: animate ? REVEAL_OFFSET + 1.3 : 0,
           ease: [0.22, 1, 0.36, 1],
         }}
       >
@@ -135,7 +170,7 @@ function AccentLine({ animate }: { animate: boolean }) {
         animate={animate ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
         transition={{
           duration: 0.4,
-          delay: animate ? REVEAL_OFFSET + 1.3 : 0,
+          delay: animate ? REVEAL_OFFSET + 1.6 : 0,
           ease: [0.22, 1, 0.36, 1],
         }}
       />
@@ -360,8 +395,10 @@ export default function Hero({ introComplete = true }: HeroProps) {
   });
 
   // Parallax depth layers — headline moves fastest, lower elements slower
-  const line1Y = useTransform(scrollYProgress, [0, 1], [0, -80]);
-  const line2Y = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const line1Y = useTransform(scrollYProgress, [0, 1], [0, -90]);
+  const line2Y = useTransform(scrollYProgress, [0, 1], [0, -75]);
+  const line3Y = useTransform(scrollYProgress, [0, 1], [0, -55]);
+  const line4Y = useTransform(scrollYProgress, [0, 1], [0, -40]);
   const subY = useTransform(scrollYProgress, [0, 1], [0, -25]);
   const ctaY = useTransform(scrollYProgress, [0, 1], [0, -10]);
 
@@ -463,27 +500,51 @@ export default function Hero({ introComplete = true }: HeroProps) {
         className="relative z-10 section-container section-padding text-center max-w-6xl mx-auto"
         style={{ scale: contentScale, opacity: contentOpacity }}
       >
-        {/* Headline — kinetic word-by-word reveal with parallax + shimmer + glow */}
+        {/* Headline — editorial asymmetric layout with typographic contrast */}
         <h1
-          className="font-headline font-bold text-5xl md:text-7xl lg:text-8xl tracking-tight leading-[0.95]"
+          className="font-headline leading-none"
           style={{ perspective: 400 }}
         >
-          {/* Line 1: parallax + shimmer white + glow */}
-          <motion.span style={{ y: line1Y, display: "block" }} className="hero-glow-line">
+          {/* Line 1: FUTURE-PROOF — left, light, wide tracking, small label */}
+          <motion.span style={{ y: line1Y, display: "block" }} className="hero-glow-line text-left">
             <AnimatedLine
-              text="FUTURE-PROOF CREATIVE"
+              text="FUTURE-PROOF"
               baseDelay={REVEAL_OFFSET}
-              className="hero-shimmer-white"
+              className="hero-shimmer-white text-base md:text-xl lg:text-2xl font-light"
+              letterSpacing="0.2em"
               animate={introComplete}
             />
           </motion.span>
 
-          {/* Line 2: parallax + shimmer gradient + glow */}
-          <motion.span style={{ y: line2Y, display: "block" }} className="hero-glow-line">
+          {/* Line 2: CREATIVE — left, bold, big, gradient */}
+          <motion.span style={{ y: line2Y, display: "block" }} className="hero-glow-line text-left mt-2 md:mt-3">
             <AnimatedLine
-              text="FOR FORWARD-THINKING BRANDS"
-              baseDelay={REVEAL_OFFSET + 0.4}
-              className="mt-2 hero-shimmer-gradient"
+              text="CREATIVE"
+              baseDelay={REVEAL_OFFSET + 0.2}
+              className="hero-shimmer-gradient text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.9]"
+              letterSpacing="-0.02em"
+              animate={introComplete}
+            />
+          </motion.span>
+
+          {/* Line 3: FOR FORWARD-THINKING — right, light, wide tracking, small label */}
+          <motion.span style={{ y: line3Y, display: "block" }} className="hero-glow-line text-right mt-6 md:mt-8">
+            <AnimatedLine
+              text="FOR FORWARD-THINKING"
+              baseDelay={REVEAL_OFFSET + 0.5}
+              className="hero-shimmer-white text-base md:text-xl lg:text-2xl font-light"
+              letterSpacing="0.15em"
+              animate={introComplete}
+            />
+          </motion.span>
+
+          {/* Line 4: BRANDS — right, bold, big, gradient */}
+          <motion.span style={{ y: line4Y, display: "block" }} className="hero-glow-line text-right mt-2 md:mt-3">
+            <AnimatedLine
+              text="BRANDS"
+              baseDelay={REVEAL_OFFSET + 0.7}
+              className="hero-shimmer-gradient text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.9]"
+              letterSpacing="-0.02em"
               animate={introComplete}
             />
           </motion.span>
@@ -502,7 +563,7 @@ export default function Hero({ introComplete = true }: HeroProps) {
                 ? { opacity: 1, filter: "blur(0px)", y: 0 }
                 : { opacity: 0, filter: "blur(10px)", y: 20 }
             }
-            transition={{ duration: 0.8, delay: introComplete ? 1.0 + REVEAL_OFFSET : 0, ease: wordEase }}
+            transition={{ duration: 0.8, delay: introComplete ? REVEAL_OFFSET + 1.5 : 0, ease: wordEase }}
           >
             Strategy-led content development with fast production pipelines.
             We research your audience, develop the creative, and deliver
@@ -522,7 +583,7 @@ export default function Hero({ introComplete = true }: HeroProps) {
             }
             transition={{
               duration: 0.6,
-              delay: introComplete ? 1.3 + REVEAL_OFFSET : 0,
+              delay: introComplete ? REVEAL_OFFSET + 1.8 : 0,
               ease: [0.25, 0.46, 0.45, 0.94],
             }}
           >
@@ -541,7 +602,7 @@ export default function Hero({ introComplete = true }: HeroProps) {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: introComplete ? 1 : 0 }}
-        transition={{ delay: 1.5 + REVEAL_OFFSET, duration: 1 }}
+        transition={{ delay: REVEAL_OFFSET + 2.2, duration: 1 }}
       >
         <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-cool-gray/50">
           Scroll
