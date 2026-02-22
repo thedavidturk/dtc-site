@@ -76,7 +76,7 @@ const campaigns = [
     title: "Out of This World",
     subtitle: "Space-themed collection campaign",
     description:
-      "A cinematic campaign that placed New Era's space-themed caps inside immersive cosmic environments. We built entire planets, star fields, and galaxies in 3D — then wove the product into each world so the audience could feel the wonder of space exploration, not just see a hat in front of it.",
+      "A cinematic campaign that placed New Era's space-themed caps inside immersive cosmic environments. We built entire planets, star fields, and galaxies in 3D, then wove the product into each world so the audience could feel the wonder of space exploration, not just see a hat in front of it.",
     accent: "electric-indigo",
     images: [
       { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6a9909de-e004-4637-b305-03c7c3afc105_rw_1920.png?h=0d2513de6a3d5442c9276b98ca32ddb3", alt: "Cosmic hero shot", aspect: "aspect-[16/10]", span: "md:col-span-7" },
@@ -92,7 +92,7 @@ const campaigns = [
     title: "Sprouted Collection",
     subtitle: "Nature-inspired foliage campaign",
     description:
-      "A nature-inspired campaign bringing New Era's foliage-themed hat collection to life through immersive 3D environments. We built lush forests, mushroom hilltops, and overgrown cityscapes — grounding each cap in a world that felt as organic and alive as the designs themselves.",
+      "A nature-inspired campaign bringing New Era's foliage-themed hat collection to life through immersive 3D environments. We built lush forests, mushroom hilltops, and overgrown cityscapes, grounding each cap in a world that felt as organic and alive as the designs themselves.",
     accent: "emerald-400",
     images: [
       { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/9093a3b0-956b-49e3-a039-06897868e553_rw_1200.png?h=bf736fd7c3636fa8eedc8a44dd910bcd", alt: "Forest environment hero", aspect: "aspect-[16/10]", span: "md:col-span-6" },
@@ -107,7 +107,7 @@ const campaigns = [
     title: "Elements",
     subtitle: "Earth, Fire, Air & Water 3D animation",
     description:
-      "Immersive elemental environments built to showcase New Era's Elements collection. Each hat was reconstructed through photogrammetry and placed inside its own world — volcanic landscapes for Fire, underwater caverns for Water, windswept peaks for Air, and ancient forests for Earth.",
+      "Immersive elemental environments built to showcase New Era's Elements collection. Each hat was reconstructed through photogrammetry and placed inside its own world: volcanic landscapes for Fire, underwater caverns for Water, windswept peaks for Air, and ancient forests for Earth.",
     accent: "amber-400",
     images: [
       { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/bc84ed39-2bc9-411a-8290-6f0cc5b43df2_rw_3840.png?h=ccf4884ee6b1129fa7a3eecd9ddb11f9", alt: "Elements hero shot", aspect: "aspect-[21/9]", span: "md:col-span-12" },
@@ -123,7 +123,7 @@ const campaigns = [
     title: "Holiday 2023",
     subtitle: "Festive VFX campaign",
     description:
-      "A festive opening sequence featuring a single brownstone on a snowy city block, built entirely in 3D. We captured the essence of a cozy holiday night with warm glowing windows, falling snow, and dynamic camera movement — delivering high-end production value without a single location shoot.",
+      "A festive opening sequence featuring a single brownstone on a snowy city block, built entirely in 3D. We captured the essence of a cozy holiday night with warm glowing windows, falling snow, and dynamic camera movement, delivering high-end production value without a single location shoot.",
     accent: "red-400",
     images: [
       { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/f5254e37-7c30-48ac-9a2c-cf4191fa8719_rw_3840.png?h=6bcd777da7c646bb14244acd5c429f4d", alt: "Holiday brownstone hero", aspect: "aspect-[16/10]", span: "md:col-span-7" },
@@ -410,12 +410,12 @@ export default function NewEraCapProject() {
               <p>
                 New Era Cap is one of the most recognized headwear brands in the
                 world. Over the course of four campaigns, DT+C became their go-to
-                partner for immersive 3D content — transforming each seasonal
+                partner for immersive 3D content, transforming each seasonal
                 collection into a fully realized visual world.
               </p>
               <p>
                 From cosmic galaxies to lush forests, elemental landscapes to snowy
-                city blocks — every campaign started with research and creative
+                city blocks, every campaign started with research and creative
                 strategy, then came to life through 3D animation, VFX, and
                 cinematic sequencing. No location shoots. No physical sets. Just
                 ambitious creative delivered at the speed their release calendar

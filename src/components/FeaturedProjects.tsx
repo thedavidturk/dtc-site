@@ -24,7 +24,7 @@ const projects: Project[] = [
     title: "4 Campaigns. One Vision.",
     type: "Strategy + 3D Animation + VFX",
     teaser:
-      "An ongoing partnership delivering immersive 3D campaigns — from cosmic worlds to elemental landscapes to holiday storytelling",
+      "An ongoing partnership delivering immersive 3D campaigns, from cosmic worlds to elemental landscapes to holiday storytelling",
     href: "/projects/new-era-cap",
     gradient: "from-electric-indigo via-purple-600 to-violet-900",
     accentGlow: "group-hover:shadow-electric-indigo/30",

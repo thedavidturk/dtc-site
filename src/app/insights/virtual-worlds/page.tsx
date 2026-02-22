@@ -131,7 +131,7 @@ export default function VirtualWorldsArticle() {
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
             className="font-body text-lg md:text-xl text-white/70 max-w-2xl"
           >
-            The transition from traditional production to Unreal Engine 5 — and
+            The transition from traditional production to Unreal Engine 5, and
             why I&rsquo;ll never go back to doing things the old way.
           </motion.p>
 
@@ -176,14 +176,14 @@ export default function VirtualWorldsArticle() {
             </h2>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               For years, my workflow looked the same. Wake up before dawn to catch
-              golden hour. Load a van full of gear — cameras, lenses, lighting rigs,
+              golden hour. Load a van full of gear: cameras, lenses, lighting rigs,
               monitors, batteries, cables, and whatever else the shoot demanded.
               Drive an hour, sometimes two, to a location I&rsquo;d scouted the
               week before. Set up. Wait for the light. Shoot. Tear down. Do it
               again tomorrow.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              Don&rsquo;t get me wrong — there&rsquo;s a magic to location work that
+              Don&rsquo;t get me wrong, there&rsquo;s a magic to location work that
               I genuinely love. The unpredictability of natural light, the energy of
               being on-set, the feeling of capturing something real and unrepeatable.
               But there&rsquo;s also the other side: permit headaches, weather
@@ -212,14 +212,14 @@ export default function VirtualWorldsArticle() {
               there for a solid ten minutes just moving a virtual camera through a
               photorealistic environment. Volumetric fog rolling through a forest.
               Dynamic global illumination shifting as the sun angle changed. A fully
-              realized world that I could light, frame, and shoot — right there on
+              realized world that I could light, frame, and shoot, right there on
               my screen, with instant feedback, no render queue, no waiting.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               It wasn&rsquo;t a gradual realization. It was more like a switch
               flipping in my head. I remember thinking: &ldquo;I could build any
               location I want. Any time of day. Any weather. Any planet.&rdquo; The
-              creative possibilities weren&rsquo;t just expanded — they were
+              creative possibilities weren&rsquo;t just expanded. They were
               fundamentally unlimited.
             </p>
           </motion.div>
@@ -234,7 +234,7 @@ export default function VirtualWorldsArticle() {
               production to virtual production was one of the hardest things
               I&rsquo;ve done professionally. Unreal Engine is powerful, but
               it&rsquo;s also a beast. Blueprints, materials, lighting systems,
-              Sequencer, Niagara particles — the amount of new knowledge required
+              Sequencer, Niagara particles. The amount of new knowledge required
               was staggering.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
@@ -262,8 +262,8 @@ export default function VirtualWorldsArticle() {
             </h2>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               The moment it all clicked was the New Era Cap project. They wanted a
-              cosmic, &ldquo;out-of-this-world&rdquo; campaign — planets, galaxies,
-              deep space environments — with their products floating through it all.
+              cosmic, &ldquo;out-of-this-world&rdquo; campaign (planets, galaxies,
+              deep space environments) with their products floating through it all.
               On a traditional production, that brief would have meant green screen
               stages, weeks of post-production compositing, and a budget that would
               make most brands walk away.
@@ -280,8 +280,8 @@ export default function VirtualWorldsArticle() {
               What would have been a multi-month production became a six-week
               pipeline from concept to delivery. The client saw real-time previews
               during the process and could give feedback that I implemented in
-              minutes, not days. That project didn&rsquo;t just prove the concept —
-              it fundamentally changed how I approach every brief that comes through
+              minutes, not days. That project didn&rsquo;t just prove the concept.
+              It fundamentally changed how I approach every brief that comes through
               the door.
             </p>
           </motion.div>
@@ -294,7 +294,7 @@ export default function VirtualWorldsArticle() {
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               After working this way for a while now, the benefits have compounded
               in ways I didn&rsquo;t initially expect. Unlimited creative control is
-              the obvious one — I can put a product on Mars or at the bottom of the
+              the obvious one. I can put a product on Mars or at the bottom of the
               ocean, and both scenarios are equally achievable. But the less obvious
               advantages are just as powerful.
             </p>
@@ -303,12 +303,12 @@ export default function VirtualWorldsArticle() {
               means clients see their vision coming to life in real-time instead of
               waiting weeks for a rough cut. Cost efficiency at scale means I can
               deliver cinematic 4K content at a fraction of what traditional
-              production would cost — and reinvest that savings into higher
+              production would cost, and reinvest that savings into higher
               production value.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               And then there&rsquo;s reusability. Every environment I build, every
-              asset I create, every lighting setup I dial in — it all lives in a
+              asset I create, every lighting setup I dial in, it all lives in a
               library that I can pull from for future projects. The more I create, the
               faster and more efficient the pipeline becomes.
             </p>
@@ -341,7 +341,7 @@ export default function VirtualWorldsArticle() {
               constraints. I can ask &ldquo;what&rsquo;s the best approach for this
               story?&rdquo; instead of &ldquo;what can we afford to build on
               set?&rdquo; Sometimes the answer is a location shoot. Sometimes
-              it&rsquo;s a fully virtual environment. Often, it&rsquo;s a hybrid —
+              it&rsquo;s a fully virtual environment. Often, it&rsquo;s a hybrid:
               real footage enhanced and extended by virtual worlds.
             </p>
           </motion.div>
@@ -355,7 +355,7 @@ export default function VirtualWorldsArticle() {
               This isn&rsquo;t a story about traditional filmmaking dying. It&rsquo;s
               a story about having more tools in the arsenal. The brands I work with
               don&rsquo;t care whether their content was shot on location or rendered
-              in Unreal Engine — they care that it looks incredible, tells a
+              in Unreal Engine. They care that it looks incredible, tells a
               compelling story, and was delivered on time and on budget.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
@@ -366,8 +366,8 @@ export default function VirtualWorldsArticle() {
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               If you&rsquo;re a creative professional still on the fence about making
-              the leap — or a brand wondering if virtual production is right for your
-              next project — my advice is simple: the best time to start was two years
+              the leap, or a brand wondering if virtual production is right for your
+              next project, my advice is simple: the best time to start was two years
               ago. The second-best time is now.
             </p>
           </motion.div>

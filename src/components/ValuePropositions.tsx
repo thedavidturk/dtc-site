@@ -27,7 +27,7 @@ const pillars: Pillar[] = [
     shape: "globe",
     title: "VIRTUAL CINEMATOGRAPHY",
     description:
-      "Unreal Engine 5 virtual worlds and 4K cinematics. Create any environment, any location \u2014 without physical production. Real-time rendering means instant feedback.",
+      "Unreal Engine 5 virtual worlds and 4K cinematics. Create any environment, any location, without physical production. Real-time rendering means instant feedback.",
   },
   {
     shape: "icosahedron",

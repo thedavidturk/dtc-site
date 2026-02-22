@@ -75,7 +75,7 @@ const approach = [
     step: "01",
     title: "Worldbuilding in Unreal Engine 5",
     description:
-      "Built immersive deep-sea environments from the ground up: coral reefs, ancient shipwrecks, bioluminescent zones, and mysterious underwater landscapes — all designed to evoke wonder and exploration.",
+      "Built immersive deep-sea environments from the ground up: coral reefs, ancient shipwrecks, bioluminescent zones, and mysterious underwater landscapes, all designed to evoke wonder and exploration.",
   },
   {
     step: "02",
@@ -99,7 +99,7 @@ const approach = [
     step: "05",
     title: "Fast-Track Production",
     description:
-      "The entire campaign — from worldbuilding to final delivery — was produced in just 30 days. Speed without compromise: every deadline met, every frame polished.",
+      "The entire campaign, from worldbuilding to final delivery, was produced in just 30 days. Speed without compromise: every deadline met, every frame polished.",
   },
 ];
 
@@ -319,7 +319,7 @@ export default function SeaWorldProject() {
               </p>
               <p>
                 The constraint that made it even more challenging? The entire
-                production — from initial concept to final delivery — had to be
+                production, from initial concept to final delivery, had to be
                 completed within a tight 30-day window. No room for delays, no
                 margin for error. Just pure creative execution at speed.
               </p>
@@ -405,8 +405,8 @@ export default function SeaWorldProject() {
           </h2>
           <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
             <p>
-              We created a full UE5 virtual environment — coral reefs, ancient
-              shipwrecks, bioluminescent deep-sea zones — and used it as the
+              We created a full UE5 virtual environment (coral reefs, ancient
+              shipwrecks, bioluminescent deep-sea zones) and used it as the
               foundation for cinematic sequences forming a 30-second teaser
               trailer. Every shot was choreographed to build mystery and
               excitement, mirroring the pacing of a theatrical movie preview.
@@ -415,7 +415,7 @@ export default function SeaWorldProject() {
               Hero visuals were developed using UE5 renders and advanced
               compositing techniques, while all assets were adapted for multiple
               aspect ratios (16:9, 4:5, 9:16) for optimized impact across every
-              digital platform — from widescreen displays to vertical social
+              digital platform, from widescreen displays to vertical social
               stories.
             </p>
           </div>

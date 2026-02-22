@@ -55,13 +55,13 @@ const approach = [
     step: "01",
     title: "Research & Discovery",
     description:
-      "Studied the collection's design language — organic textures, earthy tones, and botanical motifs — alongside the target audience's connection to nature-inspired streetwear. Identified the creative gap between typical product photography and the immersive experience the collection deserved.",
+      "Studied the collection's design language (organic textures, earthy tones, and botanical motifs) alongside the target audience's connection to nature-inspired streetwear. Identified the creative gap between typical product photography and the immersive experience the collection deserved.",
   },
   {
     step: "02",
     title: "Creative Strategy",
     description:
-      "Developed a campaign concept that placed each cap inside its own living ecosystem. Rather than showing hats on shelves, we built a narrative where the product grows from the world around it — forests, mushroom hilltops, overgrown cityscapes.",
+      "Developed a campaign concept that placed each cap inside its own living ecosystem. Rather than showing hats on shelves, we built a narrative where the product grows from the world around it: forests, mushroom hilltops, overgrown cityscapes.",
   },
   {
     step: "03",
@@ -289,7 +289,7 @@ export default function SproutedProject() {
             </h2>
             <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
               <p>
-                New Era Cap launched the &ldquo;Sprouted&rdquo; collection — a
+                New Era Cap launched the &ldquo;Sprouted&rdquo; collection, a
                 line of hats built around botanical motifs, earthy textures, and
                 organic design elements. They needed a campaign that went beyond
                 standard product photography and immersed the audience in the
@@ -298,7 +298,7 @@ export default function SproutedProject() {
               <p>
                 The challenge: create visuals of a foliage-filled world that
                 would spotlight the product&rsquo;s distinctive features while
-                generating excitement across digital and social channels — all
+                generating excitement across digital and social channels, all
                 without physical sets or location shoots.
               </p>
             </div>
@@ -384,7 +384,7 @@ export default function SproutedProject() {
           <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
             <p>
               Our research revealed that the audience didn&rsquo;t just want to
-              see hats — they wanted to feel the world behind the collection.
+              see hats; they wanted to feel the world behind the collection.
               That insight drove every creative decision: forests that feel alive,
               mushroom hilltops that glow with atmosphere, and overgrown cityscapes
               where nature reclaims the urban landscape.

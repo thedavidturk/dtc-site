@@ -119,7 +119,7 @@ export default function About() {
           {/* Right — Story */}
           <motion.div className="space-y-6" variants={slideFromRight}>
             <p className="font-body text-lg text-cool-gray leading-relaxed">
-              Too many brands are stuck waiting — on slow production timelines,
+              Too many brands are stuck waiting on slow production timelines,
               expensive location shoots, and content pipelines that can&apos;t
               keep up with the pace of culture.
             </p>
@@ -132,7 +132,7 @@ export default function About() {
               We&apos;re a strategy-led creative agency that starts with
               research, builds around audience insight, and delivers through
               production pipelines designed for speed. From content strategy to
-              4K cinematics, 3D animation to multi-platform delivery — our team
+              4K cinematics, 3D animation to multi-platform delivery, our team
               handles the full creative lifecycle so your brand stays ahead.
             </p>
 

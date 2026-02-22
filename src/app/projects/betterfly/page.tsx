@@ -99,7 +99,7 @@ const approach = [
     step: "05",
     title: "VFX Breakdowns & Social Distribution",
     description:
-      "Produced detailed VFX breakdown reels showing each monument's transformation stages — from raw footage to final composite. These behind-the-scenes assets amplified engagement and showcased production expertise.",
+      "Produced detailed VFX breakdown reels showing each monument's transformation stages, from raw footage to final composite. These behind-the-scenes assets amplified engagement and showcased production expertise.",
   },
 ];
 
@@ -307,14 +307,14 @@ export default function BetterflyProject() {
                 Betterfly needed a visually striking campaign to announce
                 &ldquo;a new era of benefits&rdquo; and position their platform
                 in front of HR administrators worldwide. They wanted the impact
-                of a massive global out-of-home campaign — branded banners
-                draped over iconic monuments — without the impossible logistics
+                of a massive global out-of-home campaign (branded banners
+                draped over iconic monuments) without the impossible logistics
                 and budget of physically wrapping world landmarks.
               </p>
               <p>
                 The challenge: make it look completely real. Every banner needed
-                to interact convincingly with the architecture — matching
-                lighting, casting shadows, responding to wind — so viewers
+                to interact convincingly with the architecture (matching
+                lighting, casting shadows, responding to wind) so viewers
                 would do a double-take before realizing it was VFX. The campaign
                 had to generate social media buzz and position Betterfly as a
                 bold, forward-thinking brand.
@@ -404,7 +404,7 @@ export default function BetterflyProject() {
               We used VFX to digitally drape massive Betterfly branded banners
               over six iconic global monuments. Advanced cloth simulation,
               precise camera tracking, and meticulous compositing made each
-              execution indistinguishable from a real installation — the kind of
+              execution indistinguishable from a real installation, the kind of
               spectacle that makes people stop scrolling and share.
             </p>
             <p>
@@ -716,7 +716,7 @@ export default function BetterflyProject() {
           </h2>
           <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s create campaign content that commands attention and
-            breaks through the noise — no logistics required.
+            breaks through the noise, no logistics required.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/#contact" className="btn-primary">

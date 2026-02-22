@@ -567,7 +567,7 @@ export default function Hero({ introComplete = true }: HeroProps) {
           >
             Strategy-led content development with fast production pipelines.
             We research your audience, develop the creative, and deliver
-            results — at the speed your brand needs to stay ahead.
+            results at the speed your brand needs to stay ahead.
           </motion.p>
         </motion.div>
 

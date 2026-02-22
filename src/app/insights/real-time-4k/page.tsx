@@ -132,7 +132,7 @@ export default function RealTime4KArticle() {
             className="font-body text-lg md:text-xl text-white/70 max-w-2xl"
           >
             Why real-time rendering isn&rsquo;t just the future of premium
-            content — it&rsquo;s already here.
+            content. It&rsquo;s already here.
           </motion.p>
 
           <motion.div
@@ -175,19 +175,19 @@ export default function RealTime4KArticle() {
               The Overnight Render Era
             </h2>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              There was a time — not that long ago — when producing a single 4K
+              There was a time, not that long ago, when producing a single 4K
               frame meant sending it to a render farm and waiting. Sometimes hours.
               Sometimes overnight. You&rsquo;d set up your scene, queue the render,
               go home, and hope that when you came back in the morning everything
-              looked right. More often than not, something was off — a light was too
-              hot, a shadow was wrong, a material looked flat — and you&rsquo;d fix
+              looked right. More often than not, something was off (a light was too
+              hot, a shadow was wrong, a material looked flat) and you&rsquo;d fix
               it, re-queue, and wait again.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               For animation and cinematic work, multiply that by hundreds or
               thousands of frames. A 30-second sequence at 30fps is 900 frames.
               If each frame takes 10 minutes to render, that&rsquo;s 150 hours of
-              compute time — over six straight days — for half a minute of content.
+              compute time (over six straight days) for half a minute of content.
               And that&rsquo;s before you factor in revisions, which meant
               re-rendering entire sequences from scratch.
             </p>
@@ -209,14 +209,14 @@ export default function RealTime4KArticle() {
             </h2>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               The first time I moved a camera through a fully lit, fully textured
-              Unreal Engine 5 scene at 4K resolution — in real-time, at 60 frames
-              per second — I genuinely couldn&rsquo;t process what I was seeing. I
+              Unreal Engine 5 scene at 4K resolution, in real-time, at 60 frames
+              per second, I genuinely couldn&rsquo;t process what I was seeing. I
               kept looking for the catch. Where&rsquo;s the quality tradeoff?
               Where&rsquo;s the visual compromise? There wasn&rsquo;t one.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               I was looking at cinematic-quality lighting, photorealistic materials,
-              volumetric atmospherics, and physically accurate reflections —
+              volumetric atmospherics, and physically accurate reflections,
               all updating in real-time as I adjusted parameters. Move the sun angle?
               Instant. Change a material color? Instant. Add fog density? Instant.
               Every change that used to cost hours of re-rendering was now
@@ -230,7 +230,7 @@ export default function RealTime4KArticle() {
               The Technology Under the Hood
             </h2>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              What makes this possible isn&rsquo;t magic — it&rsquo;s a suite of
+              What makes this possible isn&rsquo;t magic. It&rsquo;s a suite of
               technologies that Epic Games has been building and refining. For
               anyone curious about the technical side, here&rsquo;s the short
               version of what changed the game.
@@ -238,7 +238,7 @@ export default function RealTime4KArticle() {
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               <strong className="text-pure-white">Nanite</strong> is Unreal
               Engine&rsquo;s virtualized geometry system. It lets you work with
-              film-quality 3D assets — millions of polygons per object — without
+              film-quality 3D assets (millions of polygons per object) without
               tanking performance. The engine intelligently streams and renders only
               the detail you can actually see at any given moment. This means I can
               fill a scene with incredibly detailed assets and the engine handles the
@@ -247,7 +247,7 @@ export default function RealTime4KArticle() {
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               <strong className="text-pure-white">Lumen</strong> is the global
               illumination and reflections system, and it&rsquo;s the one that
-              really blew my mind. Fully dynamic lighting — no more baking lightmaps
+              really blew my mind. Fully dynamic lighting means no more baking lightmaps
               for hours, no more faking bounce light with fill lights everywhere.
               Move a light source and the entire scene responds naturally: indirect
               bounces, color bleeding, accurate reflections, all in real-time. This
@@ -289,7 +289,7 @@ export default function RealTime4KArticle() {
               a different lighting angle? That&rsquo;s a re-render. Curious what the
               scene looks like at dusk instead of noon? Re-render. Client wants to
               see a warmer color palette? Re-render. Each experiment cost time and
-              money, so you naturally became conservative — you&rsquo;d settle on
+              money, so you naturally became conservative. You&rsquo;d settle on
               &ldquo;good enough&rdquo; because &ldquo;let&rsquo;s try one more
               thing&rdquo; meant another four-hour wait.
             </p>
@@ -297,7 +297,7 @@ export default function RealTime4KArticle() {
               With real-time rendering, experimentation is free. I can try 50
               different lighting setups in the time it used to take to render one. I
               can sit with a client, make changes live on screen, and arrive at the
-              best creative solution together — in the same session. The feedback
+              best creative solution together, in the same session. The feedback
               loop went from days to seconds, and that fundamentally changes the
               quality of the output because you&rsquo;re never settling.
             </p>
@@ -311,8 +311,8 @@ export default function RealTime4KArticle() {
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               The SeaWorld project was where real-time 4K rendering truly proved
               itself under pressure. We needed to create photorealistic underwater
-              environments — deep ocean trenches, bioluminescent creatures, light
-              shafts penetrating through water columns — all at a level of quality
+              environments (deep ocean trenches, bioluminescent creatures, light
+              shafts penetrating through water columns) all at a level of quality
               that would hold up on large-format displays.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
@@ -327,7 +327,7 @@ export default function RealTime4KArticle() {
               In Unreal Engine 5, we were running the entire scene at 4K in
               real-time. I could adjust the depth of the water, the color of the
               bioluminescence, the density of particulate matter, and the camera
-              path — all live, all immediately visible at final quality. We iterated
+              path, all live, all immediately visible at final quality. We iterated
               faster, explored more creative directions, and delivered a
               higher-quality result than I could have achieved with unlimited time in
               a traditional pipeline.
@@ -351,7 +351,7 @@ export default function RealTime4KArticle() {
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               I still encounter skepticism from people in the industry who assume
               that &ldquo;real-time&rdquo; means &ldquo;lower quality.&rdquo;
-              It&rsquo;s an understandable assumption — for years, that was true.
+              It&rsquo;s an understandable assumption. For years, that was true.
               Real-time engines were for games, and offline renderers were for film.
               The quality gap was obvious.
             </p>
@@ -368,8 +368,8 @@ export default function RealTime4KArticle() {
               V-Ray might produce marginally better results for specific scenarios?
               Sure, if you&rsquo;re doing sub-surface scattering on a close-up
               human face for a feature film, offline still has a slight edge. But for
-              95% of commercial content — product visualization, environmental
-              cinematics, brand campaigns, motion graphics — real-time quality is
+              95% of commercial content (product visualization, environmental
+              cinematics, brand campaigns, motion graphics) real-time quality is
               indistinguishable from offline, and the production benefits make it the
               smarter choice by a wide margin.
             </p>
@@ -391,7 +391,7 @@ export default function RealTime4KArticle() {
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               We&rsquo;re heading toward a world where the distinction between
               &ldquo;real-time&rdquo; and &ldquo;offline&rdquo; rendering becomes
-              meaningless — because real-time will do everything offline can do,
+              meaningless, because real-time will do everything offline can do,
               faster, and with a fundamentally better creative workflow. That
               world is closer than most people think. For the work I do, it&rsquo;s
               already here.
@@ -407,15 +407,15 @@ export default function RealTime4KArticle() {
               Real-time 4K rendering isn&rsquo;t the future. It&rsquo;s the
               present, and it&rsquo;s been the present for anyone willing to invest
               the time to learn the tools. The production advantages are too
-              significant to ignore — faster iteration, better creative
+              significant to ignore: faster iteration, better creative
               collaboration, lower costs at scale, and output quality that stands
               toe-to-toe with anything produced offline.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               Every project I take on now starts in Unreal Engine. Not because
               I&rsquo;m chasing a trend, but because it consistently produces the
-              best work I&rsquo;ve ever done. The tools aren&rsquo;t just faster —
-              they&rsquo;re better. And that&rsquo;s a combination that doesn&rsquo;t
+              best work I&rsquo;ve ever done. The tools aren&rsquo;t just faster.
+              They&rsquo;re better. And that&rsquo;s a combination that doesn&rsquo;t
               come along very often.
             </p>
           </motion.div>

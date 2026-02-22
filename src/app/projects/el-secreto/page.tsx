@@ -75,7 +75,7 @@ const approach = [
     step: "01",
     title: "Cinematic Food Cinematography",
     description:
-      "Leveraged the Canon C70 cinema camera's high dynamic range to capture every texture, color, and detail of the omakase dishes. Each plate was treated as its own visual composition — lit and framed to evoke the artistry behind the cuisine.",
+      "Leveraged the Canon C70 cinema camera's high dynamic range to capture every texture, color, and detail of the omakase dishes. Each plate was treated as its own visual composition, lit and framed to evoke the artistry behind the cuisine.",
   },
   {
     step: "02",
@@ -99,7 +99,7 @@ const approach = [
     step: "05",
     title: "4K Mastering & Delivery",
     description:
-      "Mastered the final cut in full 4K resolution to preserve every sensory detail — from the glistening surface of fresh sashimi to the ambient glow of the dining room. Delivered optimized assets for digital distribution.",
+      "Mastered the final cut in full 4K resolution to preserve every sensory detail, from the glistening surface of fresh sashimi to the ambient glow of the dining room. Delivered optimized assets for digital distribution.",
   },
 ];
 
@@ -301,7 +301,7 @@ export default function ElSecretoProject() {
             <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
               <p>
                 The Hospitality Mentor needed a cinematic episode documenting an
-                exclusive omakase dining experience at Faena Miami Beach — one of
+                exclusive omakase dining experience at Faena Miami Beach, one of
                 the most prestigious hotel properties in the world. The content
                 had to convey the intimacy, craftsmanship, and sensory richness
                 of the experience while maintaining the luxury aesthetic of the
@@ -311,7 +311,7 @@ export default function ElSecretoProject() {
                 The challenge: capture broadcast-quality footage in a live,
                 uncontrolled kitchen and dining environment. Low light, tight
                 spaces, constant movement, and no ability to reset or reshoot.
-                Every moment was one take — the cinematography had to be both
+                Every moment was one take, and the cinematography had to be both
                 documentary-authentic and cinematic-premium simultaneously.
               </p>
             </div>
@@ -399,8 +399,8 @@ export default function ElSecretoProject() {
               Using the Canon C70 cinema camera, we captured every moment of the
               omakase experience with documentary intimacy and cinematic
               precision. The camera&rsquo;s Dual Gain Output sensor allowed us to
-              work in the ambient light of the kitchen and dining room — no
-              additional lighting rigs, no disruption to the experience — while
+              work in the ambient light of the kitchen and dining room with no
+              additional lighting rigs, no disruption to the experience, while
               maintaining the dynamic range and color depth of a controlled studio
               shoot.
             </p>
@@ -434,7 +434,7 @@ export default function ElSecretoProject() {
             The Film
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            Savoring the Unseen — <span className="gradient-text">Full Episode</span>
+            Savoring the Unseen: <span className="gradient-text">Full Episode</span>
           </h2>
         </motion.div>
 
@@ -460,7 +460,7 @@ export default function ElSecretoProject() {
             <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
               <iframe
                 src="https://www.youtube-nocookie.com/embed/l5h79VGqVSg?rel=0&modestbranding=1&color=white"
-                title="El Secreto — Savoring the Unseen"
+                title="El Secreto: Savoring the Unseen"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 className="absolute inset-0 w-full h-full"

@@ -54,7 +54,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "DT+C | Future-Proof Creative for Forward-Thinking Brands",
   description:
-    "Strategy-led content development with fast production pipelines. We research your audience, develop the creative, and deliver results — at the speed your brand needs.",
+    "Strategy-led content development with fast production pipelines. We research your audience, develop the creative, and deliver results at the speed your brand needs.",
   keywords: [
     "creative strategy",
     "content development",

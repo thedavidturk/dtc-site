@@ -22,7 +22,7 @@ const services: Service[] = [
     label: "VIRTUAL CINEMATOGRAPHY",
     headline: "Create any world. In 4K. Without leaving the studio.",
     description:
-      "Unreal Engine 5 puts infinite environments at your fingertips. We build photorealistic virtual worlds, craft cinematic camera moves, and render in 4K — all in real-time. No location scouts. No travel days. No compromises on quality.",
+      "Unreal Engine 5 puts infinite environments at your fingertips. We build photorealistic virtual worlds, craft cinematic camera moves, and render in 4K, all in real-time. No location scouts. No travel days. No compromises on quality.",
     capabilities: [
       "Virtual world creation in UE5",
       "Cinematic camera work and sequencer animation",
@@ -53,7 +53,7 @@ const services: Service[] = [
     label: "VIDEOGRAPHY & PHOTOGRAPHY",
     headline: "Real moments. Captured with intent.",
     description:
-      "From brand documentaries and commercials to product photography and lifestyle shoots — we capture the real, human moments that make brands unforgettable. Every frame is deliberate, every shot tells a story.",
+      "From brand documentaries and commercials to product photography and lifestyle shoots, we capture the real, human moments that make brands unforgettable. Every frame is deliberate, every shot tells a story.",
     capabilities: [
       "Brand documentaries and short films",
       "Commercial and promotional video",
@@ -69,7 +69,7 @@ const services: Service[] = [
     label: "CREATIVE DIRECTION & POST",
     headline: "Vision that drives results.",
     description:
-      "Strategic creative direction ensures every asset serves your business goals. From brand films to social content — cohesive, compelling, and conversion-focused. Expert post-production brings it all together.",
+      "Strategic creative direction ensures every asset serves your business goals. From brand films to social content, cohesive, compelling, and conversion-focused. Expert post-production brings it all together.",
     capabilities: [
       "Campaign strategy and concepting",
       "Video editing and color grading",

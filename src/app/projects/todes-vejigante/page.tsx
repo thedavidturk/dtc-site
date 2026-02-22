@@ -75,13 +75,13 @@ const approach = [
     step: "01",
     title: "Research & Cultural Immersion",
     description:
-      "Embedded with the community in Loiza, Puerto Rico to understand the post-Hurricane Maria landscape — the economic pressures, the cultural erasure, and the role of vejigante mask traditions as symbols of resistance. This research became the foundation for every creative decision.",
+      "Embedded with the community in Loiza, Puerto Rico to understand the post-Hurricane Maria landscape: the economic pressures, the cultural erasure, and the role of vejigante mask traditions as symbols of resistance. This research became the foundation for every creative decision.",
   },
   {
     step: "02",
     title: "Campaign Strategy",
     description:
-      "Developed a two-phase strategy: a documentary released through Puerto Rican artist networks and Latinx influencers to build awareness, followed by Proyecto Todes — a Miami activation amplifying LGBTQ voices within the Afro-Caribbean community. Each phase built on the last.",
+      "Developed a two-phase strategy: a documentary released through Puerto Rican artist networks and Latinx influencers to build awareness, followed by Proyecto Todes, a Miami activation amplifying LGBTQ voices within the Afro-Caribbean community. Each phase built on the last.",
   },
   {
     step: "03",
@@ -309,12 +309,12 @@ export default function TodesVejiganteProject() {
                 and the economic forces of gentrification pushing out
                 generations of Afro-Caribbean cultural heritage. El Ancon de
                 Loiza needed to establish itself as a community center for job
-                training and cultural preservation — but first, people needed to
+                training and cultural preservation, but first, people needed to
                 care.
               </p>
               <p>
                 The challenge: build a campaign that would generate awareness,
-                funding, and sustained support for cultural preservation — not
+                funding, and sustained support for cultural preservation, not
                 through charity messaging, but through the power and dignity of
                 the culture itself. The traditional vejigante coconut masks of
                 Loiza, symbols of resistance against oppression for centuries,
@@ -406,8 +406,8 @@ export default function TodesVejiganteProject() {
               culture the centerpiece. The documentary gave voice to the
               community&rsquo;s own story of resilience. The portrait exhibition
               confronted audiences with the faces and tools of people fighting
-              to preserve their heritage. And the immersive event — with live
-              bomba drumming, video mapping, and vejigante masks on display —
+              to preserve their heritage. And the immersive event, with live
+              bomba drumming, video mapping, and vejigante masks on display,
               turned passive sympathy into active participation.
             </p>
             <p>
@@ -415,7 +415,7 @@ export default function TodesVejiganteProject() {
               voices within the Afro-Caribbean community and broadening the
               conversation beyond disaster relief into intersectional cultural
               preservation. Every touchpoint was designed to convert attention
-              into lasting support — through merchandise sales, mobile payment
+              into lasting support through merchandise sales, mobile payment
               donations, and social sharing by message ambassadors.
             </p>
           </div>
@@ -746,7 +746,7 @@ export default function TodesVejiganteProject() {
           </h2>
           <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s build a campaign that turns your mission into
-            movement — through research, strategy, and powerful content.
+            movement through research, strategy, and powerful content.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/#contact" className="btn-primary">

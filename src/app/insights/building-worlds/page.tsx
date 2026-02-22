@@ -131,7 +131,7 @@ export default function BuildingWorldsArticle() {
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
             className="font-body text-lg md:text-xl text-white/70 max-w-2xl"
           >
-            The methodology behind rapid virtual production — and why speed
+            The methodology behind rapid virtual production, and why speed
             doesn&rsquo;t mean cutting corners.
           </motion.p>
 
@@ -184,7 +184,7 @@ export default function BuildingWorldsArticle() {
               Final delivery.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              Each of those stages is sequential — you can&rsquo;t light a scene
+              Each of those stages is sequential. You can&rsquo;t light a scene
               that hasn&rsquo;t been modeled, you can&rsquo;t animate a camera in
               an environment that isn&rsquo;t textured, and you definitely
               can&rsquo;t composite final frames that haven&rsquo;t been rendered.
@@ -218,7 +218,7 @@ export default function BuildingWorldsArticle() {
               stretching over months, the process flows through four overlapping
               phases: concept, blockout, materials and lighting, and final polish.
               The key difference? In Unreal Engine, these phases aren&rsquo;t
-              strictly sequential — they&rsquo;re iterative and often happen in
+              strictly sequential. They&rsquo;re iterative and often happen in
               parallel.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
@@ -234,13 +234,13 @@ export default function BuildingWorldsArticle() {
             </h2>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               Everything starts with the brief and a clear creative direction. Once
-              I know what the world needs to feel like — the mood, the scale, the
-              story — I go straight into Unreal Engine and start blocking out the
+              I know what the world needs to feel like (the mood, the scale, the
+              story) I go straight into Unreal Engine and start blocking out the
               environment using simple geometric shapes and placeholder assets.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               This is where Unreal&rsquo;s modular approach pays massive dividends.
-              I&rsquo;m not modeling from scratch. I&rsquo;m assembling — pulling
+              I&rsquo;m not modeling from scratch. I&rsquo;m assembling, pulling
               from libraries of modular pieces, terrain systems, and atmospheric
               presets to rapidly establish the world&rsquo;s geography, scale, and
               spatial composition. Within a few hours, there&rsquo;s already a
@@ -249,7 +249,7 @@ export default function BuildingWorldsArticle() {
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               By the end of day two, I typically have a graybox environment that
               communicates the scale, layout, and camera flow of the final piece.
-              It&rsquo;s rough, but it&rsquo;s dimensional — and clients can already
+              It&rsquo;s rough, but it&rsquo;s dimensional, and clients can already
               walk through it in the engine and understand the vision.
             </p>
           </motion.div>
@@ -265,10 +265,10 @@ export default function BuildingWorldsArticle() {
               surface materials, lighting, and atmospheric effects.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              For materials, I leverage Quixel Megascans — a massive library of
-              photogrammetry-scanned real-world surfaces — along with custom shaders
+              For materials, I leverage Quixel Megascans, a massive library of
+              photogrammetry-scanned real-world surfaces, along with custom shaders
               built in Unreal&rsquo;s material editor. Rock faces, water surfaces,
-              metal textures, organic materials — all physically accurate and all
+              metal textures, organic materials, all physically accurate and all
               responding to lighting in real-time. What used to take a texture artist
               weeks to hand-paint is now a matter of applying, blending, and
               customizing high-fidelity scanned materials.
@@ -276,10 +276,10 @@ export default function BuildingWorldsArticle() {
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               Lighting is where I spend the most creative energy. With Lumen
               handling global illumination in real-time, I can sculpt the mood of a
-              scene the way a cinematographer works on a film set — adjusting key
+              scene the way a cinematographer works on a film set, adjusting key
               lights, filling shadows, adding rim lights, and dialing in atmosphere
               until every frame tells the right story. Volumetric fog, god rays,
-              haze, dust particles — all layered in to add depth and cinematic
+              haze, dust particles, all layered in to add depth and cinematic
               texture.
             </p>
           </motion.div>
@@ -291,7 +291,7 @@ export default function BuildingWorldsArticle() {
           >
             Megascans and Lumen turned what used to be weeks of texturing and
             lighting into days of creative exploration. The quality didn&rsquo;t
-            drop — the ceiling rose.
+            drop. The ceiling rose.
           </motion.blockquote>
 
           {/* --- Day 6-7 --- */}
@@ -301,14 +301,14 @@ export default function BuildingWorldsArticle() {
             </h2>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               With the environment looking near-final, the last phase is all about
-              cinematography and polish. Using Unreal&rsquo;s Sequencer — the
-              engine&rsquo;s built-in timeline and cinematic tool — I block out
+              cinematography and polish. Using Unreal&rsquo;s Sequencer, the
+              engine&rsquo;s built-in timeline and cinematic tool, I block out
               camera moves, set keyframes, and choreograph the visual narrative.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               This is where my background in traditional cinematography becomes a
               superpower. I approach virtual camera work exactly like I would a
-              real shoot — thinking about lens selection, depth of field, camera
+              real shoot, thinking about lens selection, depth of field, camera
               motion, pacing, and composition. The difference is that I can try a
               crane shot, a dolly move, and a handheld feel within minutes, compare
               them side by side, and pick the one that serves the story best.
@@ -327,7 +327,7 @@ export default function BuildingWorldsArticle() {
               The Secret: Reusable Assets and Modular Thinking
             </h2>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              The speed isn&rsquo;t just about the tools — it&rsquo;s about the
+              The speed isn&rsquo;t just about the tools. It&rsquo;s about the
               system. Over time, I&rsquo;ve built a deep library of reusable assets,
               material presets, lighting rigs, atmospheric setups, and modular
               environment pieces. Each project adds to that library, which means
@@ -336,7 +336,7 @@ export default function BuildingWorldsArticle() {
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               Modular design thinking is at the core of this approach. Instead of
               building every element from scratch, I design assets to be
-              reconfigurable — a cliff face module that can be tiled, rotated, and
+              reconfigurable: a cliff face module that can be tiled, rotated, and
               varied. A lighting rig that can shift from golden hour to overcast
               with a few parameter changes. An atmospheric preset that can go from
               desert heat haze to misty forest with a single blend slider.
@@ -355,12 +355,12 @@ export default function BuildingWorldsArticle() {
               them into the engine.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              We sit together — in person or over a screen share — and I navigate
+              We sit together, in person or over a screen share, and I navigate
               through the environment in real-time. &ldquo;What if the camera came
               from this angle?&rdquo; Done, let&rsquo;s see it. &ldquo;Can the
               lighting feel warmer?&rdquo; Adjusted live. &ldquo;What would this
               look like at night?&rdquo; Give me thirty seconds. The client
-              isn&rsquo;t guessing about the final product — they&rsquo;re seeing
+              isn&rsquo;t guessing about the final product. They&rsquo;re seeing
               it evolve in front of them and shaping it with direct input.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
@@ -388,8 +388,8 @@ export default function BuildingWorldsArticle() {
             </h2>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               The Ford Mustang Mach-E project is a perfect example of this pipeline
-              in action. Ford needed cinematic environments — dramatic desert
-              landscapes, urban environments, and atmospheric driving sequences —
+              in action. Ford needed cinematic environments (dramatic desert
+              landscapes, urban environments, and atmospheric driving sequences)
               to showcase the vehicle in a way that felt premium, aspirational, and
               visually striking.
             </p>
@@ -405,7 +405,7 @@ export default function BuildingWorldsArticle() {
               A traditional production would have required location scouts across
               multiple states, weather-dependent shoot schedules, vehicle transport
               logistics, and weeks of post-production compositing. We delivered
-              equivalent — arguably superior — visual quality from a single
+              equivalent, arguably superior, visual quality from a single
               workstation, in a fraction of the time and at a fraction of the cost.
             </p>
           </motion.div>
@@ -420,16 +420,16 @@ export default function BuildingWorldsArticle() {
               opposites. When I say I can build a world in days instead of months,
               I&rsquo;m not talking about cutting corners or accepting lower
               standards. I&rsquo;m talking about a fundamentally different approach
-              to production that removes unnecessary friction while maintaining —
-              and often exceeding — traditional quality benchmarks.
+              to production that removes unnecessary friction while maintaining,
+              and often exceeding, traditional quality benchmarks.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               The time savings come from eliminating waste, not quality. No more
               waiting overnight for renders that might need to be redone. No more
               rebuilding lighting setups from scratch for each revision. No more
               sequential bottlenecks where one delayed stage holds up the entire
-              pipeline. The creative effort — the artistry, the attention to detail,
-              the storytelling — that all stays the same. It&rsquo;s the logistics
+              pipeline. The creative effort (the artistry, the attention to detail,
+              the storytelling) all stays the same. It&rsquo;s the logistics
               and technical overhead that get compressed.
             </p>
           </motion.div>
@@ -454,7 +454,7 @@ export default function BuildingWorldsArticle() {
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               This isn&rsquo;t about racing to the finish line. It&rsquo;s about
               having a production methodology that matches the speed of modern
-              business — without ever compromising on the craft. The brands that
+              business, without ever compromising on the craft. The brands that
               embrace this approach will move faster, create more, and win more
               attention. The ones that don&rsquo;t will be left wondering how their
               competitors keep shipping cinematic content at a pace that seems
