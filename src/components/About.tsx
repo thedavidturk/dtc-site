@@ -119,26 +119,27 @@ export default function About() {
           {/* Right — Story */}
           <motion.div className="space-y-6" variants={slideFromRight}>
             <p className="font-body text-lg text-cool-gray leading-relaxed">
-              Too many brands are stuck waiting on slow production timelines,
-              expensive location shoots, and content pipelines that can&apos;t
-              keep up with the pace of culture.
+              Most agencies were built for a pace that no longer exists.
+              Campaigns launch on Monday whether you&apos;re ready or not, and
+              trends move faster than any traditional production timeline can
+              keep up with.
             </p>
 
             <p className="font-headline text-2xl text-pure-white font-bold leading-snug">
-              DT+C was built to change that.
+              DT+C was built for the pace of right now.
             </p>
 
             <p className="font-body text-lg text-cool-gray leading-relaxed">
-              We&apos;re a strategy-led creative agency that starts with
-              research, builds around audience insight, and delivers through
-              production pipelines designed for speed. From content strategy to
-              4K cinematics, 3D animation to multi-platform delivery, our team
-              handles the full creative lifecycle so your brand stays ahead.
+              Our stack: Unreal Engine 5, real-time rendering, intelligent
+              workflows, and a team that thinks in systems, not silos. We handle
+              the full creative lifecycle, from strategy and research through 4K
+              production and multi-platform delivery, so your brand never falls
+              behind.
             </p>
 
             <p className="font-body text-lg text-cool-gray leading-relaxed">
-              The future belongs to brands that adapt. We&apos;re the agency
-              that makes sure you&apos;re one of them.
+              The future belongs to brands that adapt. We make sure
+              you&apos;re one of them.
             </p>
 
             {/* CTA Buttons */}

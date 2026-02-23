@@ -319,19 +319,20 @@ function WarpTunnel({ startTime }: { startTime: React.MutableRefObject<number> }
 // Camera Controller (warp movement then static)
 // ---------------------------------------------------------------------------
 function CameraController({ startTime }: { startTime: React.MutableRefObject<number> }) {
-  const { camera } = useThree();
+  const { camera, viewport } = useThree();
+  // On portrait (mobile) viewports, pull camera back so DT+C text fits
+  const finalZ = viewport.aspect < 1 ? 13 : 8;
 
   useFrame(({ clock }) => {
     const elapsed = clock.getElapsedTime() - startTime.current;
 
     if (elapsed < WARP_DURATION) {
-      // Smoothstep from z=50 to z=8 during warp phase
+      // Smoothstep from z=50 to finalZ during warp phase
       const t = Math.min(1, elapsed / WARP_DURATION);
       const eased = t * t * (3 - 2 * t);
-      camera.position.z = 50 - (50 - 8) * eased;
+      camera.position.z = 50 - (50 - finalZ) * eased;
     } else {
-      // Hold at z=8 for the letter formation phases
-      camera.position.z = 8;
+      camera.position.z = finalZ;
     }
 
     camera.position.x = 0;

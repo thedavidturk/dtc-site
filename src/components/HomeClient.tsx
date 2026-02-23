@@ -10,6 +10,7 @@ import Services from "@/components/Services";
 import Process from "@/components/Process";
 import About from "@/components/About";
 import Insights from "@/components/Insights";
+import TheProblem from "@/components/TheProblem";
 import Contact from "@/components/Contact";
 
 const CinematicIntro = dynamic(() => import("@/components/CinematicIntro"), {
@@ -73,6 +74,7 @@ export default function HomeClient() {
       )}
       <Hero introComplete={introComplete} />
       <HeroVideo />
+      <TheProblem />
       <ValuePropositions />
       <FeaturedProjects />
       <Services />

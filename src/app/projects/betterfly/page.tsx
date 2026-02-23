@@ -720,7 +720,7 @@ export default function BetterflyProject() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/#contact" className="btn-primary">
-              Start Your Project
+              Book a Call
             </Link>
             <Link
               href="/projects/new-era-cap"

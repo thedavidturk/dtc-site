@@ -90,7 +90,7 @@ export default function ValuePropositions() {
   return (
     <section
       id="value-propositions"
-      className="relative bg-deep-space py-24 md:py-32 lg:py-40 overflow-hidden"
+      className="relative bg-deep-space py-16 md:py-20 lg:py-24 overflow-hidden"
       style={{ backgroundColor: "#0B0F19" }}
     >
       {/* Subtle background accent */}

@@ -11,7 +11,9 @@ const ServiceScene = dynamic(() => import("./ServiceScene"), { ssr: false });
 interface Service {
   label: string;
   headline: string;
-  description: string;
+  oldWay: string;
+  ourWay: string;
+  result: string;
   capabilities: string[];
   accentColor: string;
   scene: "cinematography" | "animation" | "direction" | "capture";
@@ -21,8 +23,10 @@ const services: Service[] = [
   {
     label: "VIRTUAL CINEMATOGRAPHY",
     headline: "Create any world. In 4K. Without leaving the studio.",
-    description:
-      "Unreal Engine 5 puts infinite environments at your fingertips. We build photorealistic virtual worlds, craft cinematic camera moves, and render in 4K, all in real-time. No location scouts. No travel days. No compromises on quality.",
+    oldWay: "Location scouts, permits, travel days, weather delays.",
+    ourWay:
+      "Photorealistic worlds built in UE5. Any environment. Any lighting. Any camera move. Rendered in 4K in real-time.",
+    result: "Campaign-ready footage in days, not weeks.",
     capabilities: [
       "Virtual world creation in UE5",
       "Cinematic camera work and sequencer animation",
@@ -37,8 +41,12 @@ const services: Service[] = [
   {
     label: "3D ANIMATION & VISUALIZATION",
     headline: "Products and worlds. Brought to life in pixels.",
-    description:
-      "From product launches to brand films, we create stunning 3D animation that captures attention. Cinema 4D and Unreal Engine 5 combine for photorealistic materials, dynamic motion, and cinematic storytelling.",
+    oldWay:
+      "Physical prototypes, expensive photo shoots, weeks of post-production.",
+    ourWay:
+      "Cinema 4D + UE5 for photorealistic materials, dynamic motion, and cinematic storytelling, all before anything exists in the real world.",
+    result:
+      "Launch visuals before products are manufactured. Test concepts before building sets.",
     capabilities: [
       "Product visualization and animation",
       "Environmental storytelling",
@@ -52,8 +60,10 @@ const services: Service[] = [
   {
     label: "VIDEOGRAPHY & PHOTOGRAPHY",
     headline: "Real moments. Captured with intent.",
-    description:
-      "From brand documentaries and commercials to product photography and lifestyle shoots, we capture the real, human moments that make brands unforgettable. Every frame is deliberate, every shot tells a story.",
+    oldWay: "Bloated crews, multi-day shoots, months in post.",
+    ourWay:
+      "Lean, intentional production. Every frame planned, every shot deliberate. From brand documentaries to product photography, captured with cinematic precision.",
+    result: "Premium content delivered fast, without the overhead.",
     capabilities: [
       "Brand documentaries and short films",
       "Commercial and promotional video",
@@ -68,8 +78,12 @@ const services: Service[] = [
   {
     label: "CREATIVE DIRECTION & POST",
     headline: "Vision that drives results.",
-    description:
-      "Strategic creative direction ensures every asset serves your business goals. From brand films to social content, cohesive, compelling, and conversion-focused. Expert post-production brings it all together.",
+    oldWay:
+      "Strategy in one silo, production in another, post-production in a third.",
+    ourWay:
+      "One team from concept through delivery. Campaign strategy, video editing, motion graphics, and multi-channel execution, all under one roof.",
+    result:
+      "Cohesive creative that moves faster because nobody's waiting on a handoff.",
     capabilities: [
       "Campaign strategy and concepting",
       "Video editing and color grading",
@@ -200,10 +214,21 @@ export default function Services() {
                       <span className="gradient-text">{service.headline}</span>
                     </h3>
 
-                    {/* Description */}
-                    <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed mb-10">
-                      {service.description}
-                    </p>
+                    {/* Old Way / Our Way / Result */}
+                    <div className="space-y-4 mb-10">
+                      <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed">
+                        <span className="font-bold text-soft-white">The old way:</span>{" "}
+                        {service.oldWay}
+                      </p>
+                      <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed">
+                        <span className="font-bold text-soft-white">Our way:</span>{" "}
+                        {service.ourWay}
+                      </p>
+                      <p className="font-body text-base md:text-lg leading-relaxed text-electric-indigo">
+                        <span className="font-bold">Result:</span>{" "}
+                        {service.result}
+                      </p>
+                    </div>
 
                     {/* Capabilities grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">

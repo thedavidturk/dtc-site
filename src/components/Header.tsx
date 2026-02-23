@@ -54,8 +54,8 @@ export default function Header() {
             </a>
           ))}
           <MagneticButton strength={0.2} radius={100}>
-            <a href="#contact" className="btn-primary text-sm !px-6 !py-2.5">
-              Start a Project
+            <a href="/#contact" className="btn-primary text-sm !px-6 !py-2.5">
+              Book a Call
             </a>
           </MagneticButton>
         </nav>
@@ -114,11 +114,11 @@ export default function Header() {
                 </a>
               ))}
               <a
-                href="#contact"
+                href="/#contact"
                 onClick={() => setMobileOpen(false)}
                 className="btn-primary text-center mt-2"
               >
-                Start a Project
+                Book a Call
               </a>
             </div>
           </motion.nav>

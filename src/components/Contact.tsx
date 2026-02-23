@@ -212,8 +212,7 @@ export default function Contact() {
             <span className="gradient-text">WHAT&apos;S NEXT</span>
           </h2>
           <p className="font-body text-cool-gray text-lg mt-4 max-w-2xl mx-auto leading-relaxed">
-            Have a project in mind? Let&apos;s talk about how we can bring your vision to life
-            with cutting-edge virtual production.
+            Have a project in mind? Tell us what you&apos;re building and we&apos;ll show you how we&apos;d execute it.
           </p>
         </motion.div>
 

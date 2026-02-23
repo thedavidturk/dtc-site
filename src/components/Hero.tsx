@@ -505,13 +505,13 @@ export default function Hero({ introComplete = true }: HeroProps) {
           className="font-headline leading-none"
           style={{ perspective: 400 }}
         >
-          {/* Line 1: FUTURE-PROOF — left, light, wide tracking, small label */}
+          {/* Line 1: STUDIO-QUALITY — left, light, ultra-wide tracking to match CREATIVE width */}
           <motion.span style={{ y: line1Y, display: "block" }} className="hero-glow-line text-left">
             <AnimatedLine
-              text="FUTURE-PROOF"
+              text="STUDIO-QUALITY"
               baseDelay={REVEAL_OFFSET}
-              className="hero-shimmer-white text-base md:text-xl lg:text-2xl font-light"
-              letterSpacing="0.2em"
+              className="hero-shimmer-white text-lg md:text-2xl lg:text-3xl font-light"
+              letterSpacing="0.38em"
               animate={introComplete}
             />
           </motion.span>
@@ -527,24 +527,24 @@ export default function Hero({ introComplete = true }: HeroProps) {
             />
           </motion.span>
 
-          {/* Line 3: FOR FORWARD-THINKING — right, light, wide tracking, small label */}
+          {/* Line 3: AT THE SPEED — right, light, wide tracking */}
           <motion.span style={{ y: line3Y, display: "block" }} className="hero-glow-line text-right mt-6 md:mt-8">
             <AnimatedLine
-              text="FOR FORWARD-THINKING"
+              text="AT THE SPEED"
               baseDelay={REVEAL_OFFSET + 0.5}
-              className="hero-shimmer-white text-base md:text-xl lg:text-2xl font-light"
-              letterSpacing="0.15em"
+              className="hero-shimmer-white text-lg md:text-2xl lg:text-3xl font-light"
+              letterSpacing="0.2em"
               animate={introComplete}
             />
           </motion.span>
 
-          {/* Line 4: BRANDS — right, bold, big, gradient */}
+          {/* Line 4: YOUR BRAND DEMANDS — right, bold, medium-large, gradient */}
           <motion.span style={{ y: line4Y, display: "block" }} className="hero-glow-line text-right mt-2 md:mt-3">
             <AnimatedLine
-              text="BRANDS"
+              text="YOUR BRAND DEMANDS"
               baseDelay={REVEAL_OFFSET + 0.7}
-              className="hero-shimmer-gradient text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.9]"
-              letterSpacing="-0.02em"
+              className="hero-shimmer-gradient text-3xl md:text-5xl lg:text-6xl font-bold leading-[0.9]"
+              letterSpacing="-0.01em"
               animate={introComplete}
             />
           </motion.span>
@@ -565,9 +565,9 @@ export default function Hero({ introComplete = true }: HeroProps) {
             }
             transition={{ duration: 0.8, delay: introComplete ? REVEAL_OFFSET + 1.5 : 0, ease: wordEase }}
           >
-            Strategy-led content development with fast production pipelines.
-            We research your audience, develop the creative, and deliver
-            results at the speed your brand needs to stay ahead.
+            Launch campaigns in weeks, not months. Virtual cinematography,
+            3D animation, and production pipelines built to move as fast as
+            your business does.
           </motion.p>
         </motion.div>
 
@@ -588,10 +588,10 @@ export default function Hero({ introComplete = true }: HeroProps) {
             }}
           >
             <GradientBorderButton href="#projects" variant="primary">
-              Explore Our Work
+              See Our Work
             </GradientBorderButton>
-            <GradientBorderButton href="#contact" variant="secondary">
-              Start a Project
+            <GradientBorderButton href="/#contact" variant="secondary">
+              Book a Call
             </GradientBorderButton>
           </motion.div>
         </motion.div>
