@@ -53,6 +53,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://davidturkcreative.com"),
   title: "DT+C | Future-Proof Creative for Forward-Thinking Brands",
   description:
     "Strategy-led content development with fast production pipelines. We research your audience, develop the creative, and deliver results at the speed your brand needs.",
@@ -70,6 +71,15 @@ export const metadata: Metadata = {
     description:
       "Strategy-led content development with fast production pipelines for forward-thinking brands.",
     type: "website",
+    url: "https://davidturkcreative.com",
+    siteName: "DT+C",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DT+C | Future-Proof Creative",
+    description:
+      "Strategy-led content development with fast production pipelines for forward-thinking brands.",
   },
 };
 
