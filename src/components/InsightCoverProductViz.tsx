@@ -5,7 +5,6 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
 // A rotating 3D product-like object (gem/crystal) with orbiting particles
-const FACET_COUNT = 12;
 const ORBIT_COUNT = 20;
 const ACCENT = new THREE.Color("#10B981");
 
