@@ -130,11 +130,11 @@ export default function About() {
             </p>
 
             <p className="font-body text-lg text-cool-gray leading-relaxed">
-              Our stack: Unreal Engine 5, real-time rendering, intelligent
-              workflows, and a team that thinks in systems, not silos. We handle
-              the full creative lifecycle, from strategy and research through 4K
-              production and multi-platform delivery, so your brand never falls
-              behind.
+              Our stack: 3D pipelines, AI workflows, VFX, video gen, and
+              sound design, powered by a team that thinks in systems, not
+              silos. We handle the full creative lifecycle, from strategy and
+              research through 4K production and multi-platform delivery, so
+              your brand never falls behind.
             </p>
 
             <p className="font-body text-lg text-cool-gray leading-relaxed">

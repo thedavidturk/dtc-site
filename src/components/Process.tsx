@@ -28,7 +28,7 @@ const steps = [
     number: "03",
     title: "PRODUCE",
     description:
-      "Unreal Engine cinematics, 3D animation, and post-production. Real-time iteration, 4K delivery.",
+      "3D pipelines, AI workflows, VFX, video gen, and sound design. Cinematic quality, 4K ready.",
   },
   {
     number: "04",

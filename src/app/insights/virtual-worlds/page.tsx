@@ -38,14 +38,14 @@ const staggerItem = {
 
 const moreArticles = [
   {
-    title: "4K in Real-Time: How Unreal Engine Changed Everything",
-    category: "TECHNOLOGY",
+    title: "The AI-Powered Creative Pipeline: VFX, Sound Design, and Content at Machine Speed",
+    category: "CREATIVE TECHNOLOGY",
     href: "/insights/real-time-4k",
     gradient: "from-cyan-500/30 via-blue-900/50 to-deep-space",
   },
   {
-    title: "Building Worlds in Days, Not Months",
-    category: "METHODOLOGY",
+    title: "Your Brand in the Age of AI Search: Why GEO Is the New SEO",
+    category: "AI STRATEGY",
     href: "/insights/building-worlds",
     gradient: "from-warm-coral/30 via-amber-900/40 to-deep-space",
   },
@@ -112,7 +112,7 @@ export default function VirtualWorldsArticle() {
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
-              Virtual Production
+              AI Production
             </span>
           </motion.div>
 
@@ -122,7 +122,7 @@ export default function VirtualWorldsArticle() {
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="font-headline text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight mb-4 max-w-4xl"
           >
-            Why I Switched from Location Shoots to Virtual Worlds
+            AI Video Generation Is Replacing Traditional Production Pipelines
           </motion.h1>
 
           <motion.p
@@ -131,8 +131,9 @@ export default function VirtualWorldsArticle() {
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
             className="font-body text-lg md:text-xl text-white/70 max-w-2xl"
           >
-            The transition from traditional production to Unreal Engine 5, and
-            why I&rsquo;ll never go back to doing things the old way.
+            75% of marketing videos will be AI-generated or AI-assisted by the
+            end of 2026. Here&rsquo;s how we&rsquo;re building for that shift,
+            and why it matters for every brand producing content today.
           </motion.p>
 
           <motion.div
@@ -169,27 +170,27 @@ export default function VirtualWorldsArticle() {
           viewport={{ once: true, margin: "-80px" }}
           className="max-w-3xl mx-auto"
         >
-          {/* --- The Production Grind --- */}
+          {/* --- The Shift --- */}
           <motion.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
-              The Production Grind
+              The Numbers Are Already Here
             </h2>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              For years, my workflow looked the same. Wake up before dawn to catch
-              golden hour. Load a van full of gear: cameras, lenses, lighting rigs,
-              monitors, batteries, cables, and whatever else the shoot demanded.
-              Drive an hour, sometimes two, to a location I&rsquo;d scouted the
-              week before. Set up. Wait for the light. Shoot. Tear down. Do it
-              again tomorrow.
+              This isn&rsquo;t a prediction anymore. 91% of businesses now use
+              video as a marketing tool. The demand for short-form, personalized,
+              multi-platform video content has outpaced what traditional
+              production crews can deliver on any reasonable timeline or budget.
+              AI video generation didn&rsquo;t emerge because the technology was
+              ready. It emerged because brands had no other choice.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              Don&rsquo;t get me wrong, there&rsquo;s a magic to location work that
-              I genuinely love. The unpredictability of natural light, the energy of
-              being on-set, the feeling of capturing something real and unrepeatable.
-              But there&rsquo;s also the other side: permit headaches, weather
-              cancellations, three-hour round trips for a 20-minute window of usable
-              light, and the constant pressure of knowing that every second on
-              location costs money.
+              The cost math alone tells the story. Traditional freelance or
+              agency production runs between $1,000 and $50,000 per finished
+              minute. AI-assisted production pipelines are delivering comparable
+              quality at a fraction of that, while cutting turnaround from weeks
+              to days. For brands producing content at volume across TikTok,
+              Instagram Reels, YouTube Shorts, and LinkedIn, that efficiency
+              gap is existential.
             </p>
           </motion.div>
 
@@ -198,51 +199,38 @@ export default function VirtualWorldsArticle() {
             variants={fadeUp}
             className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8"
           >
-            I spent more time fighting logistics than making creative decisions.
-            Something had to change.
+            The brands still debating whether to adopt AI video are already
+            losing ground to the ones that built it into their pipeline six
+            months ago.
           </motion.blockquote>
 
-          {/* --- The Discovery --- */}
+          {/* --- How We Use It --- */}
           <motion.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
-              The Moment Everything Shifted
+              How We Actually Use AI Video Generation
             </h2>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              The first time I saw Unreal Engine 5 running in real-time, I sat
-              there for a solid ten minutes just moving a virtual camera through a
-              photorealistic environment. Volumetric fog rolling through a forest.
-              Dynamic global illumination shifting as the sun angle changed. A fully
-              realized world that I could light, frame, and shoot, right there on
-              my screen, with instant feedback, no render queue, no waiting.
+              Let me be direct about how this works in our studio, because
+              there&rsquo;s a lot of noise around AI video right now and most of
+              it misses the point. We don&rsquo;t use AI to replace creative
+              vision. We use it to remove the bottlenecks that sit between a
+              creative idea and a finished deliverable.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              It wasn&rsquo;t a gradual realization. It was more like a switch
-              flipping in my head. I remember thinking: &ldquo;I could build any
-              location I want. Any time of day. Any weather. Any planet.&rdquo; The
-              creative possibilities weren&rsquo;t just expanded. They were
-              fundamentally unlimited.
-            </p>
-          </motion.div>
-
-          {/* --- The Learning Curve --- */}
-          <motion.div variants={fadeUp}>
-            <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
-              The Honest Learning Curve
-            </h2>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              I&rsquo;m not going to sugarcoat this. Transitioning from traditional
-              production to virtual production was one of the hardest things
-              I&rsquo;ve done professionally. Unreal Engine is powerful, but
-              it&rsquo;s also a beast. Blueprints, materials, lighting systems,
-              Sequencer, Niagara particles. The amount of new knowledge required
-              was staggering.
+              Our workflow starts with concept and storyboarding, the same as it
+              always has. Then AI enters the pipeline at specific leverage
+              points: generating initial visual concepts for client approval,
+              producing motion tests before committing to full animation,
+              creating variations for A/B testing across platforms, and
+              generating supplementary assets like b-roll, transitions, and
+              background footage that would otherwise require separate shoots.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              There were weeks where I felt like a complete beginner again. I&rsquo;d
-              been directing and shooting for years, and suddenly I was watching
-              YouTube tutorials about node graphs and UV mapping. It was humbling.
-              But it was also exhilarating. Every new technique I learned opened up
-              ten more creative possibilities I hadn&rsquo;t considered.
+              The human creative directs every stage. AI handles the execution
+              velocity. That distinction matters. The brands getting the best
+              results from AI video aren&rsquo;t the ones automating everything.
+              They&rsquo;re the ones with strong creative directors who know
+              exactly where to deploy AI for maximum leverage.
             </p>
           </motion.div>
 
@@ -251,66 +239,60 @@ export default function VirtualWorldsArticle() {
             variants={fadeUp}
             className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8"
           >
-            The learning curve was steep, but the view from the other side was
-            worth every hour of frustration.
+            AI doesn&rsquo;t replace the creative eye. It gives the creative
+            eye more tools to work with, faster iterations, and fewer
+            compromises.
           </motion.blockquote>
 
-          {/* --- The Breakthrough --- */}
+          {/* --- Personalization --- */}
           <motion.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
-              The Breakthrough: New Era Cap
+              Hyper-Personalized Video at Scale
             </h2>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              The moment it all clicked was the New Era Cap project. They wanted a
-              cosmic, &ldquo;out-of-this-world&rdquo; campaign (planets, galaxies,
-              deep space environments) with their products floating through it all.
-              On a traditional production, that brief would have meant green screen
-              stages, weeks of post-production compositing, and a budget that would
-              make most brands walk away.
+              The capability that changes the game most is hyper-personalization.
+              AI video generation tools can now produce customized video content
+              tailored to specific audience segments, demographics, and even
+              individual viewer behaviors. One campaign, dozens of variations,
+              each one feeling bespoke.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              Instead, I built the entire universe in Unreal Engine 5. Planets with
-              atmospheric scattering. Nebulae with volumetric particle systems. Stars
-              that reflected off photorealistic 3D cap models. And the best part? I
-              could fly a virtual camera through the entire thing in real-time,
-              composing shots on the fly, adjusting lighting with a slider, and
-              seeing final-quality output instantly.
+              We&rsquo;ve been building workflows around this for clients who
+              need multi-market content. Instead of shooting separate campaigns
+              for different regions, we produce a core creative and then
+              generate localized variations with AI. Different talent
+              representations, different environmental contexts, different
+              messaging angles. All maintaining brand consistency because the
+              creative DNA was set by a human director from the start.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              What would have been a multi-month production became a six-week
-              pipeline from concept to delivery. The client saw real-time previews
-              during the process and could give feedback that I implemented in
-              minutes, not days. That project didn&rsquo;t just prove the concept.
-              It fundamentally changed how I approach every brief that comes through
-              the door.
+              This is where AI video generation stops being a novelty and
+              becomes a competitive weapon. The brand that can speak directly to
+              ten different audience segments with ten different video
+              executions, while their competitor is still finishing one generic
+              spot, wins the attention game every time.
             </p>
           </motion.div>
 
-          {/* --- Benefits Realized --- */}
+          {/* --- Transparency --- */}
           <motion.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
-              What Virtual Production Actually Delivers
+              Transparency Builds Trust
             </h2>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              After working this way for a while now, the benefits have compounded
-              in ways I didn&rsquo;t initially expect. Unlimited creative control is
-              the obvious one. I can put a product on Mars or at the bottom of the
-              ocean, and both scenarios are equally achievable. But the less obvious
-              advantages are just as powerful.
+              Here&rsquo;s something most agencies won&rsquo;t talk about: as
+              AI-generated video becomes indistinguishable from traditional
+              footage, transparency about AI involvement becomes a competitive
+              advantage, not a liability. Audiences can tell when brands are
+              hiding something. The ones that openly share how they use AI in
+              their creative process are building stronger relationships than
+              the ones pretending everything was shot on a soundstage.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              Weather-proof production means I never cancel a shoot. Rapid iteration
-              means clients see their vision coming to life in real-time instead of
-              waiting weeks for a rough cut. Cost efficiency at scale means I can
-              deliver cinematic 4K content at a fraction of what traditional
-              production would cost, and reinvest that savings into higher
-              production value.
-            </p>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              And then there&rsquo;s reusability. Every environment I build, every
-              asset I create, every lighting setup I dial in, it all lives in a
-              library that I can pull from for future projects. The more I create, the
-              faster and more efficient the pipeline becomes.
+              We lean into this with our clients. We explain the workflow. We
+              show where AI accelerated the process and where human craft
+              elevated the output. That transparency has consistently
+              strengthened client relationships, not weakened them.
             </p>
           </motion.div>
 
@@ -319,56 +301,52 @@ export default function VirtualWorldsArticle() {
             variants={fadeUp}
             className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8"
           >
-            Virtual production isn&rsquo;t about replacing what works. It&rsquo;s
-            about removing the barriers between imagination and execution.
+            The brands that openly share how they use AI in production are
+            building more trust than the ones pretending it doesn&rsquo;t exist
+            in their workflow.
           </motion.blockquote>
 
-          {/* --- The Hybrid Approach --- */}
+          {/* --- The Pipeline --- */}
           <motion.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
-              The Hybrid Approach
+              Building the Pipeline That Scales
             </h2>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              Here&rsquo;s something I want to be clear about: I haven&rsquo;t
-              abandoned real-world cinematography. I still shoot on location when it
-              makes sense. There are projects where nothing beats the texture and
-              authenticity of a real environment, real talent, and real light. I
-              still love those shoots.
+              The real advantage isn&rsquo;t any single AI tool. It&rsquo;s the
+              pipeline you build around them. We&rsquo;ve spent the last year
+              constructing custom workflows that chain AI video generation with
+              our 3D animation pipelines, sound design tools, and
+              post-production processes into a unified system.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              What&rsquo;s changed is that virtual production has expanded my
-              toolkit. Now when a brief comes in, I&rsquo;m not limited by physical
-              constraints. I can ask &ldquo;what&rsquo;s the best approach for this
-              story?&rdquo; instead of &ldquo;what can we afford to build on
-              set?&rdquo; Sometimes the answer is a location shoot. Sometimes
-              it&rsquo;s a fully virtual environment. Often, it&rsquo;s a hybrid:
-              real footage enhanced and extended by virtual worlds.
+              A brief comes in. Creative direction is set by a human. AI
+              generates initial visual concepts in hours, not days. 3D pipelines
+              handle product visualization and environmental work. AI-powered
+              VFX and sound design layers are added. The final output goes
+              through human quality control and creative refinement. What used
+              to be a six-week pipeline is now a six-day pipeline, with higher
+              output quality because we have more room for creative iteration.
             </p>
           </motion.div>
 
           {/* --- Conclusion --- */}
           <motion.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
-              More Tools, Better Work
+              Adapt Now or Fall Behind
             </h2>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              This isn&rsquo;t a story about traditional filmmaking dying. It&rsquo;s
-              a story about having more tools in the arsenal. The brands I work with
-              don&rsquo;t care whether their content was shot on location or rendered
-              in Unreal Engine. They care that it looks incredible, tells a
-              compelling story, and was delivered on time and on budget.
+              AI video generation is not a trend. It&rsquo;s a structural shift
+              in how content gets made. The studios and brands that are building
+              AI into their production pipelines right now will own the next
+              decade of visual content. The ones waiting for the technology to
+              &ldquo;mature&rdquo; are already behind.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              Virtual production lets me deliver on all three, consistently, without
-              compromise. And the technology is only getting better. Every update to
-              Unreal Engine closes the gap between &ldquo;virtual&rdquo; and
-              &ldquo;indistinguishable from reality&rdquo; a little further.
-            </p>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              If you&rsquo;re a creative professional still on the fence about making
-              the leap, or a brand wondering if virtual production is right for your
-              next project, my advice is simple: the best time to start was two years
-              ago. The second-best time is now.
+              The question isn&rsquo;t whether AI will change your production
+              process. It&rsquo;s whether you&rsquo;ll be the one setting the
+              pace or the one trying to catch up. We chose to build. If
+              you&rsquo;re a brand thinking about where your content strategy
+              goes from here, the answer starts with the pipeline.
             </p>
           </motion.div>
         </motion.div>

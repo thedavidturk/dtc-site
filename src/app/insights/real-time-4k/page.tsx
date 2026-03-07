@@ -38,14 +38,14 @@ const staggerItem = {
 
 const moreArticles = [
   {
-    title: "Why I Switched from Location Shoots to Virtual Worlds",
-    category: "VIRTUAL PRODUCTION",
+    title: "AI Video Generation Is Replacing Traditional Production Pipelines",
+    category: "AI PRODUCTION",
     href: "/insights/virtual-worlds",
     gradient: "from-electric-indigo/40 via-purple-900/60 to-deep-space",
   },
   {
-    title: "Building Worlds in Days, Not Months",
-    category: "METHODOLOGY",
+    title: "Your Brand in the Age of AI Search: Why GEO Is the New SEO",
+    category: "AI STRATEGY",
     href: "/insights/building-worlds",
     gradient: "from-warm-coral/30 via-amber-900/40 to-deep-space",
   },
@@ -88,7 +88,7 @@ export default function RealTime4KArticle() {
 
       {/* -- Hero ----------------------------------------------------- */}
       <section className="relative min-h-[60vh] md:min-h-[70vh] flex items-end overflow-hidden">
-        {/* Gradient background — cyan/blue tones */}
+        {/* Gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 via-blue-700 to-blue-950" />
 
         {/* Noise overlay */}
@@ -112,7 +112,7 @@ export default function RealTime4KArticle() {
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
-              Technology
+              Creative Technology
             </span>
           </motion.div>
 
@@ -122,7 +122,7 @@ export default function RealTime4KArticle() {
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="font-headline text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight mb-4 max-w-4xl"
           >
-            4K in Real-Time: How Unreal Engine Changed Everything
+            The AI-Powered Creative Pipeline: VFX, Sound Design, and Content at Machine Speed
           </motion.h1>
 
           <motion.p
@@ -131,8 +131,8 @@ export default function RealTime4KArticle() {
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
             className="font-body text-lg md:text-xl text-white/70 max-w-2xl"
           >
-            Why real-time rendering isn&rsquo;t just the future of premium
-            content. It&rsquo;s already here.
+            How custom AI workflows are collapsing post-production timelines
+            from months to days, without sacrificing the craft.
           </motion.p>
 
           <motion.div
@@ -169,27 +169,27 @@ export default function RealTime4KArticle() {
           viewport={{ once: true, margin: "-80px" }}
           className="max-w-3xl mx-auto"
         >
-          {/* --- The Old Way --- */}
+          {/* --- The Old Post-Production --- */}
           <motion.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
-              The Overnight Render Era
+              Post-Production Used to Be the Bottleneck
             </h2>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              There was a time, not that long ago, when producing a single 4K
-              frame meant sending it to a render farm and waiting. Sometimes hours.
-              Sometimes overnight. You&rsquo;d set up your scene, queue the render,
-              go home, and hope that when you came back in the morning everything
-              looked right. More often than not, something was off (a light was too
-              hot, a shadow was wrong, a material looked flat) and you&rsquo;d fix
-              it, re-queue, and wait again.
+              For as long as I&rsquo;ve been in this industry, post-production
+              has been where timelines go to die. You shoot for three days, then
+              spend three weeks in post. VFX compositing, color grading, sound
+              design, audio mixing, motion graphics, format conversions. Each
+              stage is sequential. Each stage has its own specialists, its own
+              tools, its own revision cycles. A single round of client feedback
+              could add a week to the schedule.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              For animation and cinematic work, multiply that by hundreds or
-              thousands of frames. A 30-second sequence at 30fps is 900 frames.
-              If each frame takes 10 minutes to render, that&rsquo;s 150 hours of
-              compute time (over six straight days) for half a minute of content.
-              And that&rsquo;s before you factor in revisions, which meant
-              re-rendering entire sequences from scratch.
+              The irony was always obvious: the creative work (the part that
+              actually matters) takes a fraction of the total production time.
+              Most of the calendar was consumed by technical execution, file
+              management, rendering, and waiting. AI didn&rsquo;t just offer to
+              speed that up. It offered to fundamentally restructure how
+              post-production works.
             </p>
           </motion.div>
 
@@ -198,68 +198,70 @@ export default function RealTime4KArticle() {
             variants={fadeUp}
             className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8"
           >
-            The render queue was the bottleneck that defined every creative
-            decision. Not because we wanted it to, but because we had no choice.
+            We used to spend 80% of post-production time on technical
+            execution and 20% on creative decisions. AI flipped that ratio.
           </motion.blockquote>
 
-          {/* --- The Jaw Drop --- */}
+          {/* --- AI VFX --- */}
           <motion.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
-              The Jaw-Drop Moment
+              AI-Powered VFX: 40% Cost Reduction, Zero Quality Compromise
             </h2>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              The first time I moved a camera through a fully lit, fully textured
-              Unreal Engine 5 scene at 4K resolution, in real-time, at 60 frames
-              per second, I genuinely couldn&rsquo;t process what I was seeing. I
-              kept looking for the catch. Where&rsquo;s the quality tradeoff?
-              Where&rsquo;s the visual compromise? There wasn&rsquo;t one.
+              The VFX side of the pipeline has seen the most dramatic
+              transformation. Tasks that used to require frame-by-frame manual
+              work are now handled by AI tools that deliver results in a
+              fraction of the time. Rotoscoping, cleanup, motion tracking,
+              object removal, sky replacements, crowd augmentation. These are
+              tasks that ate hundreds of artist-hours per project. AI tools are
+              now handling them with 30-40% cost reduction while maintaining
+              broadcast-quality output.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              I was looking at cinematic-quality lighting, photorealistic materials,
-              volumetric atmospherics, and physically accurate reflections,
-              all updating in real-time as I adjusted parameters. Move the sun angle?
-              Instant. Change a material color? Instant. Add fog density? Instant.
-              Every change that used to cost hours of re-rendering was now
-              happening live on my screen.
+              But here&rsquo;s what matters: the AI handles the repetitive
+              technical execution. The creative decisions (what the effect
+              should look like, how it serves the story, where it directs the
+              viewer&rsquo;s eye) those remain entirely human. We&rsquo;re not
+              replacing VFX artists. We&rsquo;re freeing them from the grunt
+              work so they can focus on the craft.
+            </p>
+            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
+              We&rsquo;ve integrated AI VFX tools directly into our 3D
+              pipelines, creating a seamless workflow where generated
+              environments, composited elements, and real-time rendered scenes
+              all feed into the same output. No more bouncing between six
+              different applications. One pipeline, one creative direction,
+              dramatically faster execution.
             </p>
           </motion.div>
 
-          {/* --- Technical Deep Dive --- */}
+          {/* --- AI Sound Design --- */}
           <motion.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
-              The Technology Under the Hood
+              Sound Design: Where AI Removes Friction Without Removing Soul
             </h2>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              What makes this possible isn&rsquo;t magic. It&rsquo;s a suite of
-              technologies that Epic Games has been building and refining. For
-              anyone curious about the technical side, here&rsquo;s the short
-              version of what changed the game.
+              Sound is the most underestimated element of visual content. Great
+              visuals with mediocre audio feel amateur. But traditional sound
+              design and mixing has always been expensive and time-consuming,
+              which meant it was the first thing to get cut when budgets got
+              tight.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              <strong className="text-pure-white">Nanite</strong> is Unreal
-              Engine&rsquo;s virtualized geometry system. It lets you work with
-              film-quality 3D assets (millions of polygons per object) without
-              tanking performance. The engine intelligently streams and renders only
-              the detail you can actually see at any given moment. This means I can
-              fill a scene with incredibly detailed assets and the engine handles the
-              optimization automatically.
+              AI has changed this equation completely. Audio cleanup, noise
+              reduction, stem separation, dialogue enhancement. These used to
+              require dedicated studio time and specialized engineers. Now AI
+              tools handle them as part of the pipeline, automatically, at a
+              quality level that matches or exceeds what we were getting from
+              manual processing.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              <strong className="text-pure-white">Lumen</strong> is the global
-              illumination and reflections system, and it&rsquo;s the one that
-              really blew my mind. Fully dynamic lighting means no more baking lightmaps
-              for hours, no more faking bounce light with fill lights everywhere.
-              Move a light source and the entire scene responds naturally: indirect
-              bounces, color bleeding, accurate reflections, all in real-time. This
-              single technology eliminated what used to be the most time-consuming
-              part of 3D lighting.
-            </p>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              <strong className="text-pure-white">Virtual Shadow Maps</strong>{" "}
-              deliver consistent, high-resolution shadows across massive
-              environments without the artifacts and resolution issues that plagued
-              older shadow techniques. Combined with Nanite and Lumen, you get
-              scenes that look physically correct from any angle, at any distance.
+              For original score and sound design, we use AI as a starting
+              point, not an endpoint. AI generates initial sound beds,
+              atmospheric layers, and tonal foundations that our team then
+              sculpts, layers, and refines into the final soundtrack. The
+              result is faster production with the same level of sonic craft
+              that brands expect from studio-quality content.
             </p>
           </motion.div>
 
@@ -268,69 +270,56 @@ export default function RealTime4KArticle() {
             variants={fadeUp}
             className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8"
           >
-            Nanite, Lumen, and Virtual Shadow Maps aren&rsquo;t incremental
-            improvements. They&rsquo;re a generational leap that collapsed the
-            gap between &ldquo;real-time&rdquo; and &ldquo;offline render
-            quality.&rdquo;
+            AI handles the technical foundation. Humans handle the emotion.
+            That&rsquo;s the workflow that produces content people actually
+            feel.
           </motion.blockquote>
 
-          {/* --- Creative Process --- */}
+          {/* --- Image Generation --- */}
           <motion.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
-              How Real-Time Changes the Creative Process
+              AI Image Generation as a Creative Accelerator
             </h2>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              The technical specs are impressive, but what matters to me as a
-              creative is how real-time rendering changes the way I work. And the
-              difference is night and day.
+              Before a single frame of video is produced, AI image generation
+              has already transformed our pre-production process. Concept art
+              that used to take days now takes hours. Mood boards are generated
+              with specific lighting references, color palettes, and
+              compositional styles that communicate creative direction to
+              clients with an immediacy that sketches and reference folders
+              never could.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              In the old workflow, every creative decision carried risk. Want to try
-              a different lighting angle? That&rsquo;s a re-render. Curious what the
-              scene looks like at dusk instead of noon? Re-render. Client wants to
-              see a warmer color palette? Re-render. Each experiment cost time and
-              money, so you naturally became conservative. You&rsquo;d settle on
-              &ldquo;good enough&rdquo; because &ldquo;let&rsquo;s try one more
-              thing&rdquo; meant another four-hour wait.
-            </p>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              With real-time rendering, experimentation is free. I can try 50
-              different lighting setups in the time it used to take to render one. I
-              can sit with a client, make changes live on screen, and arrive at the
-              best creative solution together, in the same session. The feedback
-              loop went from days to seconds, and that fundamentally changes the
-              quality of the output because you&rsquo;re never settling.
+              We also use AI image generation for texture creation, environment
+              concepts, and product visualization mockups. These assets feed
+              directly into our 3D pipelines, giving the animation and look
+              development teams a head start on the visual language of each
+              project. The creative iteration that used to happen over weeks of
+              back-and-forth now happens in a single afternoon session with the
+              client.
             </p>
           </motion.div>
 
-          {/* --- Case Study --- */}
+          {/* --- The Unified Pipeline --- */}
           <motion.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
-              Putting It to Work: SeaWorld Deep-Sea Environments
+              The Unified Pipeline: Everything Connects
             </h2>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              The SeaWorld project was where real-time 4K rendering truly proved
-              itself under pressure. We needed to create photorealistic underwater
-              environments (deep ocean trenches, bioluminescent creatures, light
-              shafts penetrating through water columns) all at a level of quality
-              that would hold up on large-format displays.
+              The real power isn&rsquo;t in any individual AI tool. It&rsquo;s
+              in how we&rsquo;ve wired them together into a single production
+              pipeline. AI image generation feeds into 3D look development.
+              3D animation and cinematics render in real-time. AI VFX handles
+              compositing and cleanup. AI sound design delivers the audio
+              foundation. Human creatives direct, refine, and elevate at every
+              stage.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              These are exactly the kinds of scenes that would have crushed a
-              traditional render pipeline. Volumetric lighting through participating
-              media (water), translucent materials (jellyfish, coral), thousands of
-              particle effects (bubbles, plankton), and caustic light patterns on
-              the ocean floor. In a traditional pipeline, a single frame of this
-              complexity could take 30 minutes or more to render.
-            </p>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              In Unreal Engine 5, we were running the entire scene at 4K in
-              real-time. I could adjust the depth of the water, the color of the
-              bioluminescence, the density of particulate matter, and the camera
-              path, all live, all immediately visible at final quality. We iterated
-              faster, explored more creative directions, and delivered a
-              higher-quality result than I could have achieved with unlimited time in
-              a traditional pipeline.
+              This unified approach means there&rsquo;s no handoff delay
+              between stages. No waiting for one vendor to finish before
+              another can start. The pipeline flows continuously from concept
+              to delivery, with AI handling the throughput and humans handling
+              the taste.
             </p>
           </motion.div>
 
@@ -339,84 +328,37 @@ export default function RealTime4KArticle() {
             variants={fadeUp}
             className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8"
           >
-            Real-time rendering doesn&rsquo;t just save time. It makes the work
-            better, because you can explore more and settle for less.
+            The competitive advantage isn&rsquo;t the AI tools you use.
+            It&rsquo;s how you connect them into a pipeline that moves at the
+            speed of creative thought.
           </motion.blockquote>
-
-          {/* --- The Quality Myth --- */}
-          <motion.div variants={fadeUp}>
-            <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
-              Addressing the Quality Myth
-            </h2>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              I still encounter skepticism from people in the industry who assume
-              that &ldquo;real-time&rdquo; means &ldquo;lower quality.&rdquo;
-              It&rsquo;s an understandable assumption. For years, that was true.
-              Real-time engines were for games, and offline renderers were for film.
-              The quality gap was obvious.
-            </p>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              That gap doesn&rsquo;t exist anymore. Not in any way that matters for
-              commercial production. The materials look photorealistic. The lighting
-              is physically accurate. The geometry detail is virtually unlimited
-              thanks to Nanite. When I show people final 4K output from Unreal
-              Engine, they consistently assume it was rendered offline. It
-              wasn&rsquo;t.
-            </p>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              Are there edge cases where a dedicated offline renderer like Arnold or
-              V-Ray might produce marginally better results for specific scenarios?
-              Sure, if you&rsquo;re doing sub-surface scattering on a close-up
-              human face for a feature film, offline still has a slight edge. But for
-              95% of commercial content (product visualization, environmental
-              cinematics, brand campaigns, motion graphics) real-time quality is
-              indistinguishable from offline, and the production benefits make it the
-              smarter choice by a wide margin.
-            </p>
-          </motion.div>
-
-          {/* --- Where It's Heading --- */}
-          <motion.div variants={fadeUp}>
-            <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
-              Closing the Gap Faster Than Anyone Expected
-            </h2>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              What excites me most is the trajectory. Every major Unreal Engine
-              update pushes the quality ceiling higher while making the tools more
-              accessible. Features that required custom shader work a year ago are
-              now built-in. Performance that required high-end workstations is
-              becoming achievable on more modest hardware. The democratization of
-              this technology is accelerating.
-            </p>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              We&rsquo;re heading toward a world where the distinction between
-              &ldquo;real-time&rdquo; and &ldquo;offline&rdquo; rendering becomes
-              meaningless, because real-time will do everything offline can do,
-              faster, and with a fundamentally better creative workflow. That
-              world is closer than most people think. For the work I do, it&rsquo;s
-              already here.
-            </p>
-          </motion.div>
 
           {/* --- Conclusion --- */}
           <motion.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
-              Already Here
+              The New Standard for Creative Production
             </h2>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              Real-time 4K rendering isn&rsquo;t the future. It&rsquo;s the
-              present, and it&rsquo;s been the present for anyone willing to invest
-              the time to learn the tools. The production advantages are too
-              significant to ignore: faster iteration, better creative
-              collaboration, lower costs at scale, and output quality that stands
-              toe-to-toe with anything produced offline.
+              Virtual production hardware costs have dropped 40% since 2022.
+              AI tools driving real-time rendering and post-production have
+              reached quality thresholds that make them viable for premium brand
+              content. The economic and creative case for AI-powered pipelines
+              is no longer theoretical. It&rsquo;s proven.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              Every project I take on now starts in Unreal Engine. Not because
-              I&rsquo;m chasing a trend, but because it consistently produces the
-              best work I&rsquo;ve ever done. The tools aren&rsquo;t just faster.
-              They&rsquo;re better. And that&rsquo;s a combination that doesn&rsquo;t
-              come along very often.
+              Every project we take on now runs through this AI-augmented
+              pipeline. Not because we&rsquo;re chasing technology trends, but
+              because it consistently delivers better creative work in less
+              time. More iterations. More experimentation. More polish. Less
+              waiting. Less waste. Less compromise.
+            </p>
+            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
+              The studios that build this pipeline now will set the standard for
+              the next era of content production. The ones still running
+              traditional post-production workflows will find themselves
+              outpaced by teams that can deliver the same quality in a fifth of
+              the time. That&rsquo;s not a threat. It&rsquo;s an invitation to
+              build something better.
             </p>
           </motion.div>
         </motion.div>

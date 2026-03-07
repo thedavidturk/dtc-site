@@ -6,11 +6,11 @@ export const metadata: Metadata = {
     default: "Insights | DT+C",
   },
   description:
-    "Thoughts on virtual production, real-time rendering, and the future of creative content.",
+    "Thoughts on AI-driven production, creative technology, and the future of brand content.",
   openGraph: {
     title: "Insights | DT+C",
     description:
-      "Thoughts on virtual production, real-time rendering, and the future of creative content.",
+      "Thoughts on AI-driven production, creative technology, and the future of brand content.",
     type: "website",
   },
 };

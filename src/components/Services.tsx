@@ -44,9 +44,9 @@ const services: Service[] = [
     oldWay:
       "Physical prototypes, expensive photo shoots, weeks of post-production.",
     ourWay:
-      "Cinema 4D + UE5 for photorealistic materials, dynamic motion, and cinematic storytelling, all before anything exists in the real world.",
+      "3D pipelines including animation, cinematics, and look development for photorealistic materials, dynamic motion, and cinematic storytelling, all before anything exists in the real world. Custom AI workflows for image and video generation, VFX, and sound design to elevate every visual.",
     result:
-      "Launch visuals before products are manufactured. Test concepts before building sets.",
+      "Launch visuals before products are manufactured. Test concepts before building sets. AI-enhanced production that moves faster and hits harder.",
     capabilities: [
       "Product visualization and animation",
       "Environmental storytelling",

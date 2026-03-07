@@ -38,14 +38,14 @@ const staggerItem = {
 
 const moreArticles = [
   {
-    title: "Why I Switched from Location Shoots to Virtual Worlds",
-    category: "VIRTUAL PRODUCTION",
+    title: "AI Video Generation Is Replacing Traditional Production Pipelines",
+    category: "AI PRODUCTION",
     href: "/insights/virtual-worlds",
     gradient: "from-electric-indigo/40 via-purple-900/60 to-deep-space",
   },
   {
-    title: "4K in Real-Time: How Unreal Engine Changed Everything",
-    category: "TECHNOLOGY",
+    title: "The AI-Powered Creative Pipeline: VFX, Sound Design, and Content at Machine Speed",
+    category: "CREATIVE TECHNOLOGY",
     href: "/insights/real-time-4k",
     gradient: "from-cyan-500/30 via-blue-900/50 to-deep-space",
   },
@@ -88,7 +88,7 @@ export default function BuildingWorldsArticle() {
 
       {/* -- Hero ----------------------------------------------------- */}
       <section className="relative min-h-[60vh] md:min-h-[70vh] flex items-end overflow-hidden">
-        {/* Gradient background — warm-coral/amber tones */}
+        {/* Gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-warm-coral via-amber-700 to-amber-950" />
 
         {/* Noise overlay */}
@@ -112,7 +112,7 @@ export default function BuildingWorldsArticle() {
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
-              Methodology
+              AI Strategy
             </span>
           </motion.div>
 
@@ -122,7 +122,7 @@ export default function BuildingWorldsArticle() {
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="font-headline text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight mb-4 max-w-4xl"
           >
-            Building Worlds in Days, Not Months
+            Your Brand in the Age of AI Search: Why GEO Is the New SEO
           </motion.h1>
 
           <motion.p
@@ -131,8 +131,9 @@ export default function BuildingWorldsArticle() {
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
             className="font-body text-lg md:text-xl text-white/70 max-w-2xl"
           >
-            The methodology behind rapid virtual production, and why speed
-            doesn&rsquo;t mean cutting corners.
+            Generative Engine Optimization is reshaping how brands get
+            discovered. If you&rsquo;re still optimizing only for Google
+            rankings, you&rsquo;re optimizing for yesterday.
           </motion.p>
 
           <motion.div
@@ -169,32 +170,33 @@ export default function BuildingWorldsArticle() {
           viewport={{ once: true, margin: "-80px" }}
           className="max-w-3xl mx-auto"
         >
-          {/* --- The Old Timeline Problem --- */}
+          {/* --- The Shift --- */}
           <motion.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
-              The Old Timeline Problem
+              The Way People Find Brands Has Fundamentally Changed
             </h2>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              Here&rsquo;s a scenario every creative professional knows: a brand
-              needs a 30-second cinematic for a product launch. In the traditional
-              pipeline, that 30 seconds of content could take three to four months
-              to produce. Concept development. Storyboarding. Art direction. 3D
-              modeling. Texturing and materials. Lighting. Animation. Rendering.
-              Compositing. Color grading. Sound design. Revisions. More revisions.
-              Final delivery.
+              Nearly 800 million people a week now use ChatGPT alone to answer
+              questions, compare options, and plan purchases. 35% of Gen Z uses
+              AI chatbots as their primary search tool. When someone asks an AI
+              assistant &ldquo;what creative studio should I hire for a product
+              launch video,&rdquo; the AI doesn&rsquo;t return ten blue links.
+              It returns a direct recommendation. If your brand isn&rsquo;t in
+              that recommendation, you don&rsquo;t exist for that buyer.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              Each of those stages is sequential. You can&rsquo;t light a scene
-              that hasn&rsquo;t been modeled, you can&rsquo;t animate a camera in
-              an environment that isn&rsquo;t textured, and you definitely
-              can&rsquo;t composite final frames that haven&rsquo;t been rendered.
-              The pipeline is inherently linear, and every stage has to wait for
-              the one before it.
+              This is the shift from SEO (Search Engine Optimization) to GEO
+              (Generative Engine Optimization). Traditional SEO optimized for
+              rankings, traffic, and clicks on Google. GEO optimizes for being
+              cited, mentioned, and recommended in AI-generated answers across
+              platforms like ChatGPT, Google AI Overviews, Perplexity, and
+              Gemini.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              In a market where brands need to move fast and stay relevant, that
-              timeline is a liability. By the time a four-month production delivers,
-              the cultural moment may have already passed.
+              The overlap between top Google links and AI-cited sources has
+              dropped from 70% to below 20%. Ranking on page one of Google no
+              longer guarantees visibility in the AI answers that are
+              increasingly where buyer research starts and ends.
             </p>
           </motion.div>
 
@@ -203,84 +205,60 @@ export default function BuildingWorldsArticle() {
             variants={fadeUp}
             className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8"
           >
-            The traditional production timeline wasn&rsquo;t built for the speed
-            brands need today. Something had to be rethought from the ground up.
+            If your brand doesn&rsquo;t show up in AI-generated
+            recommendations, it doesn&rsquo;t matter how well you rank on
+            Google. The buyer never sees you.
           </motion.blockquote>
 
-          {/* --- The Pipeline --- */}
+          {/* --- What GEO Actually Means --- */}
           <motion.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
-              The Virtual Production Pipeline
+              What Generative Engine Optimization Actually Means
             </h2>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              The pipeline I&rsquo;ve built over the past few years collapses the
-              traditional timeline dramatically. Instead of sequential stages
-              stretching over months, the process flows through four overlapping
-              phases: concept, blockout, materials and lighting, and final polish.
-              The key difference? In Unreal Engine, these phases aren&rsquo;t
-              strictly sequential. They&rsquo;re iterative and often happen in
-              parallel.
+              GEO is not a rebrand of SEO. It requires a fundamentally
+              different approach to content strategy. AI systems don&rsquo;t
+              crawl and rank pages the way Google does. They understand the
+              world through entities (brands, people, concepts) and the
+              relationships between them. They favor authoritative,
+              evidence-backed content over keyword-stuffed pages.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              Here&rsquo;s what a typical week looks like when building a
-              complete virtual environment from scratch.
+              Where traditional SEO rewarded publishing frequency and keyword
+              volume, GEO rewards expertise, credibility, and topical depth.
+              AI engines pull from sources they trust, and trust is built
+              through consistent, substantive content that demonstrates real
+              knowledge, not content farms churning out thin articles optimized
+              for search crawlers.
+            </p>
+            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
+              This is actually good news for brands that do legitimate work.
+              If you have genuine expertise and you articulate it clearly, GEO
+              rewards you. If you&rsquo;ve been gaming search rankings with
+              low-quality content, the AI era is going to be painful.
             </p>
           </motion.div>
 
-          {/* --- Day 1-2 --- */}
+          {/* --- Why It Matters for Creative Brands --- */}
           <motion.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
-              Days 1&ndash;2: Concept and Rapid Blockout
+              Why This Matters for Every Brand Producing Content
             </h2>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              Everything starts with the brief and a clear creative direction. Once
-              I know what the world needs to feel like (the mood, the scale, the
-              story) I go straight into Unreal Engine and start blocking out the
-              environment using simple geometric shapes and placeholder assets.
+              Here&rsquo;s where this connects directly to what we do at DT+C.
+              The content you produce (videos, visuals, written insights,
+              case studies) is now the primary signal that AI engines use to
+              understand what your brand does and whether to recommend it. Your
+              content isn&rsquo;t just marketing collateral anymore.
+              It&rsquo;s your AI visibility strategy.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              This is where Unreal&rsquo;s modular approach pays massive dividends.
-              I&rsquo;m not modeling from scratch. I&rsquo;m assembling, pulling
-              from libraries of modular pieces, terrain systems, and atmospheric
-              presets to rapidly establish the world&rsquo;s geography, scale, and
-              spatial composition. Within a few hours, there&rsquo;s already a
-              navigable 3D environment with rough camera angles identified.
-            </p>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              By the end of day two, I typically have a graybox environment that
-              communicates the scale, layout, and camera flow of the final piece.
-              It&rsquo;s rough, but it&rsquo;s dimensional, and clients can already
-              walk through it in the engine and understand the vision.
-            </p>
-          </motion.div>
-
-          {/* --- Day 3-5 --- */}
-          <motion.div variants={fadeUp}>
-            <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
-              Days 3&ndash;5: Materials, Lighting, and Atmosphere
-            </h2>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              This is where the magic happens. The graybox transforms into a
-              photorealistic environment through three simultaneous workstreams:
-              surface materials, lighting, and atmospheric effects.
-            </p>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              For materials, I leverage Quixel Megascans, a massive library of
-              photogrammetry-scanned real-world surfaces, along with custom shaders
-              built in Unreal&rsquo;s material editor. Rock faces, water surfaces,
-              metal textures, organic materials, all physically accurate and all
-              responding to lighting in real-time. What used to take a texture artist
-              weeks to hand-paint is now a matter of applying, blending, and
-              customizing high-fidelity scanned materials.
-            </p>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              Lighting is where I spend the most creative energy. With Lumen
-              handling global illumination in real-time, I can sculpt the mood of a
-              scene the way a cinematographer works on a film set, adjusting key
-              lights, filling shadows, adding rim lights, and dialing in atmosphere
-              until every frame tells the right story. Volumetric fog, god rays,
-              haze, dust particles, all layered in to add depth and cinematic
-              texture.
+              A brand with a rich library of well-produced video content,
+              detailed case studies, and substantive thought leadership will
+              show up in AI recommendations. A brand with a thin website and a
+              social media presence built on reposts will not. The quality and
+              depth of your content portfolio directly determines whether AI
+              engines consider you an authority worth citing.
             </p>
           </motion.div>
 
@@ -289,85 +267,70 @@ export default function BuildingWorldsArticle() {
             variants={fadeUp}
             className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8"
           >
-            Megascans and Lumen turned what used to be weeks of texturing and
-            lighting into days of creative exploration. The quality didn&rsquo;t
-            drop. The ceiling rose.
+            Your content portfolio is no longer just a marketing asset.
+            It&rsquo;s the data that AI engines use to decide whether your
+            brand deserves to be recommended.
           </motion.blockquote>
 
-          {/* --- Day 6-7 --- */}
+          {/* --- How We're Building for GEO --- */}
           <motion.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
-              Days 6&ndash;7: Camera Work, Animation, and Final Polish
+              How We Build Content for AI Visibility
             </h2>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              With the environment looking near-final, the last phase is all about
-              cinematography and polish. Using Unreal&rsquo;s Sequencer, the
-              engine&rsquo;s built-in timeline and cinematic tool, I block out
-              camera moves, set keyframes, and choreograph the visual narrative.
+              We&rsquo;ve restructured our content approach around GEO
+              principles, both for our own brand and for our clients. The
+              strategy centers on three pillars.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              This is where my background in traditional cinematography becomes a
-              superpower. I approach virtual camera work exactly like I would a
-              real shoot, thinking about lens selection, depth of field, camera
-              motion, pacing, and composition. The difference is that I can try a
-              crane shot, a dolly move, and a handheld feel within minutes, compare
-              them side by side, and pick the one that serves the story best.
+              <strong className="text-pure-white">Topical authority over keyword targeting.</strong>{" "}
+              Instead of chasing individual keywords, we build comprehensive
+              content around topics we genuinely own. For us, that&rsquo;s
+              AI-powered creative production, 3D pipelines, and brand content
+              strategy. Every piece of content we publish reinforces our
+              authority in these areas, making it more likely that AI engines
+              cite us when users ask about these subjects.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              Final polish includes color grading passes within the engine, particle
-              effects tuning, post-process effects (bloom, chromatic aberration,
-              lens flares), and any last material or lighting adjustments. By the
-              end of day seven, the world is complete and camera-ready.
+              <strong className="text-pure-white">Entity-first thinking.</strong>{" "}
+              AI engines understand brands as entities with attributes and
+              relationships. We ensure our brand identity is clearly
+              articulated across every touchpoint: who we are, what we do, who
+              we serve, what makes us different. Structured data, consistent
+              messaging, and clear positioning all feed into how AI systems
+              categorize and recommend us.
+            </p>
+            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
+              <strong className="text-pure-white">Evidence over assertions.</strong>{" "}
+              AI engines heavily favor content that provides evidence: case
+              studies with real results, specific methodologies, concrete
+              examples. Vague marketing language gets filtered out. Substantive,
+              evidence-backed content gets cited. This has pushed us to be more
+              transparent and specific in how we talk about our work, which has
+              been good for client relationships too.
             </p>
           </motion.div>
 
-          {/* --- The Secret --- */}
+          {/* --- The Visibility Gap --- */}
           <motion.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
-              The Secret: Reusable Assets and Modular Thinking
+              The Widening Visibility Gap
             </h2>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              The speed isn&rsquo;t just about the tools. It&rsquo;s about the
-              system. Over time, I&rsquo;ve built a deep library of reusable assets,
-              material presets, lighting rigs, atmospheric setups, and modular
-              environment pieces. Each project adds to that library, which means
-              each subsequent project starts from a stronger foundation.
+              By the end of 2026, the gap between brands that proactively
+              manage AI visibility and those that don&rsquo;t will be
+              impossible to ignore. The brands investing in GEO now will
+              consistently appear in AI-generated recommendations, shaping how
+              buyers understand their market. The ones that ignore it will be
+              mentioned less often, lose market share, and watch revenue
+              growth slow without understanding why.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              Modular design thinking is at the core of this approach. Instead of
-              building every element from scratch, I design assets to be
-              reconfigurable: a cliff face module that can be tiled, rotated, and
-              varied. A lighting rig that can shift from golden hour to overcast
-              with a few parameter changes. An atmospheric preset that can go from
-              desert heat haze to misty forest with a single blend slider.
-            </p>
-          </motion.div>
-
-          {/* --- Client Collaboration --- */}
-          <motion.div variants={fadeUp}>
-            <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
-              Real-Time Client Collaboration
-            </h2>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              One of the most underappreciated advantages of this pipeline is what
-              it does for client relationships. Instead of presenting static
-              storyboards and asking clients to imagine the final result, I bring
-              them into the engine.
-            </p>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              We sit together, in person or over a screen share, and I navigate
-              through the environment in real-time. &ldquo;What if the camera came
-              from this angle?&rdquo; Done, let&rsquo;s see it. &ldquo;Can the
-              lighting feel warmer?&rdquo; Adjusted live. &ldquo;What would this
-              look like at night?&rdquo; Give me thirty seconds. The client
-              isn&rsquo;t guessing about the final product. They&rsquo;re seeing
-              it evolve in front of them and shaping it with direct input.
-            </p>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              This collapses the revision cycle dramatically. Instead of three
-              rounds of notes over two weeks, we often nail the creative direction
-              in a single collaborative session. Clients feel more ownership over
-              the result, and I get clearer, more immediate feedback. Everyone wins.
+              This isn&rsquo;t speculation. We&rsquo;re already seeing it play
+              out. Brands with deep, authoritative content libraries are
+              showing up in AI responses for commercial queries. Brands with
+              thin content footprints are invisible, regardless of how much
+              they spend on traditional advertising.
             </p>
           </motion.div>
 
@@ -376,92 +339,38 @@ export default function BuildingWorldsArticle() {
             variants={fadeUp}
             className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8"
           >
-            When clients can see changes happen in real-time, the conversation
-            shifts from &ldquo;trust me, it&rsquo;ll look good&rdquo; to
-            &ldquo;let&rsquo;s make this perfect together.&rdquo;
+            The brands that own their AI narrative now will define their
+            category in the minds of AI-assisted buyers. The rest will be
+            playing catch-up for years.
           </motion.blockquote>
-
-          {/* --- Case Study --- */}
-          <motion.div variants={fadeUp}>
-            <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
-              Case in Point: Ford Mustang Mach-E
-            </h2>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              The Ford Mustang Mach-E project is a perfect example of this pipeline
-              in action. Ford needed cinematic environments (dramatic desert
-              landscapes, urban environments, and atmospheric driving sequences)
-              to showcase the vehicle in a way that felt premium, aspirational, and
-              visually striking.
-            </p>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              Using the methodology I&rsquo;ve outlined, we built multiple
-              complete environments in under two weeks. Desert canyons with
-              physically accurate rock formations and atmospheric dust. City streets
-              with reflective wet asphalt and volumetric street lighting.
-              Mountainous highways with dynamic sky systems and distance fog. Each
-              environment was photorealistic, fully lit, and camera-ready.
-            </p>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              A traditional production would have required location scouts across
-              multiple states, weather-dependent shoot schedules, vehicle transport
-              logistics, and weeks of post-production compositing. We delivered
-              equivalent, arguably superior, visual quality from a single
-              workstation, in a fraction of the time and at a fraction of the cost.
-            </p>
-          </motion.div>
-
-          {/* --- The Mindset Shift --- */}
-          <motion.div variants={fadeUp}>
-            <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
-              Working Smarter, Not Cutting Corners
-            </h2>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              I want to address something head-on: speed and quality are not
-              opposites. When I say I can build a world in days instead of months,
-              I&rsquo;m not talking about cutting corners or accepting lower
-              standards. I&rsquo;m talking about a fundamentally different approach
-              to production that removes unnecessary friction while maintaining,
-              and often exceeding, traditional quality benchmarks.
-            </p>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              The time savings come from eliminating waste, not quality. No more
-              waiting overnight for renders that might need to be redone. No more
-              rebuilding lighting setups from scratch for each revision. No more
-              sequential bottlenecks where one delayed stage holds up the entire
-              pipeline. The creative effort (the artistry, the attention to detail,
-              the storytelling) all stays the same. It&rsquo;s the logistics
-              and technical overhead that get compressed.
-            </p>
-          </motion.div>
 
           {/* --- Conclusion --- */}
           <motion.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
-              Speed Is the New Advantage
+              Start Building Your AI Presence Now
             </h2>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              In a landscape where attention spans are shrinking and content
-              cycles are accelerating, the brands that can move fast without
-              sacrificing quality have a massive competitive advantage. Virtual
-              production is how you get there.
+              GEO is not optional for brands that want to stay visible. It
+              requires a content strategy built on genuine expertise, topical
+              depth, and evidence-backed storytelling. It rewards the brands
+              that do real work and talk about it substantively. It punishes
+              the ones that relied on gaming search algorithms.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              A week to build a world. Two weeks to deliver a complete cinematic
-              campaign. Real-time collaboration with clients who see exactly what
-              they&rsquo;re getting before a single frame is finalized. Reusable
-              assets that make every subsequent project faster than the last.
+              At DT+C, we&rsquo;re building content that works across both
+              paradigms: traditional search and AI-generated discovery. Our
+              production pipeline (AI video generation, 3D pipelines, VFX,
+              sound design) is designed to produce the volume and quality of
+              content that GEO demands, at a pace that keeps brands relevant
+              in both search engines and AI recommendations.
             </p>
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              This isn&rsquo;t about racing to the finish line. It&rsquo;s about
-              having a production methodology that matches the speed of modern
-              business, without ever compromising on the craft. The brands that
-              embrace this approach will move faster, create more, and win more
-              attention. The ones that don&rsquo;t will be left wondering how their
-              competitors keep shipping cinematic content at a pace that seems
-              impossible.
-            </p>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
-              It&rsquo;s not impossible. It&rsquo;s just a better pipeline.
+              The question for every brand is simple: when someone asks an AI
+              assistant about your category, does your name come up? If the
+              answer is no, or if you don&rsquo;t know, that&rsquo;s the
+              signal to start building. The brands that move first will own the
+              conversation. Everyone else will be competing for whatever
+              visibility is left.
             </p>
           </motion.div>
         </motion.div>
