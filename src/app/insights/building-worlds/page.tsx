@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import ArticleJsonLd from "@/components/ArticleJsonLd";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -58,6 +59,12 @@ const moreArticles = [
 export default function BuildingWorldsArticle() {
   return (
     <article className="bg-deep-space min-h-screen">
+      <ArticleJsonLd
+        title="Your Brand in the Age of AI Search: Why GEO Is the New SEO"
+        description="Generative Engine Optimization is reshaping how brands get discovered. If you're still optimizing only for Google rankings, you're optimizing for yesterday."
+        datePublished="2026-02-01"
+        url="https://davidturkcreative.com/insights/building-worlds"
+      />
       {/* -- Back Link ------------------------------------------------ */}
       <motion.div
         initial={{ opacity: 0, x: -20 }}

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import ArticleJsonLd from "@/components/ArticleJsonLd";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -46,6 +47,12 @@ const moreArticles = [
 export default function AIProductVisualizationArticle() {
   return (
     <article className="bg-deep-space min-h-screen">
+      <ArticleJsonLd
+        title="The Death of the Photo Shoot: AI Product Visualization for Modern Brands"
+        description="How AI-powered 3D rendering is replacing traditional product photography at a fraction of the cost, and why the brands making the switch are never going back."
+        datePublished="2026-03-01"
+        url="https://davidturkcreative.com/insights/ai-product-visualization"
+      />
       <motion.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}

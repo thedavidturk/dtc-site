@@ -6,6 +6,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ClientLayout from "@/components/ClientLayout";
+import JsonLd from "@/components/JsonLd";
 
 const CursorTrail = dynamic(() => import("@/components/CursorTrail"), {
   ssr: false,
@@ -34,6 +35,10 @@ const SmoothScroll = dynamic(() => import("@/components/SmoothScroll"), {
   ssr: false,
 });
 
+const Analytics = dynamic(() => import("@/components/Analytics"), {
+  ssr: false,
+});
+
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-space-grotesk",
@@ -56,20 +61,25 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://davidturkcreative.com"),
   title: "DT+C | Future-Proof Creative for Forward-Thinking Brands",
   description:
-    "Strategy-led content development with fast production pipelines. We research your audience, develop the creative, and deliver results at the speed your brand needs.",
+    "AI-native creative studio delivering strategy-led content through 3D pipelines, AI workflows, VFX, video generation, and sound design. Future-proof creative for forward-thinking brands.",
   keywords: [
-    "creative strategy",
-    "content development",
-    "4K cinematics",
-    "3D animation",
-    "creative studio",
-    "videography",
-    "photography",
+    "AI creative studio",
+    "AI video generation",
+    "AI VFX production",
+    "3D animation studio",
+    "AI brand identity",
+    "creative technology",
+    "AI content production",
+    "generative AI for brands",
+    "3D product visualization",
+    "AI sound design",
+    "short-form video production",
+    "GEO optimization",
   ],
   openGraph: {
     title: "DT+C | Future-Proof Creative",
     description:
-      "Strategy-led content development with fast production pipelines for forward-thinking brands.",
+      "AI-native creative studio delivering strategy-led content through 3D pipelines, AI workflows, VFX, video generation, and sound design. Future-proof creative for forward-thinking brands.",
     type: "website",
     url: "https://davidturkcreative.com",
     siteName: "DT+C",
@@ -79,7 +89,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "DT+C | Future-Proof Creative",
     description:
-      "Strategy-led content development with fast production pipelines for forward-thinking brands.",
+      "AI-native creative studio delivering strategy-led content through 3D pipelines, AI workflows, VFX, video generation, and sound design. Future-proof creative for forward-thinking brands.",
   },
 };
 
@@ -91,6 +101,17 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" style={{ backgroundColor: "#0B0F19" }}>
       <head>
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "DT+C",
+            url: "https://davidturkcreative.com",
+            description:
+              "Strategy-led creative studio specializing in AI workflows, 3D pipelines, VFX, video generation, and sound design for forward-thinking brands.",
+            sameAs: [],
+          }}
+        />
         {/* Critical CSS — prevents white flash before Tailwind loads */}
         <style dangerouslySetInnerHTML={{ __html: `html,body,main,section,footer{background-color:#0B0F19!important}` }} />
         {/* Google Analytics */}
@@ -112,6 +133,7 @@ export default function RootLayout({
         style={{ backgroundColor: "#0B0F19" }}
       >
         <SmoothScroll />
+        <Analytics />
         <CursorTrail />
         <ShootingStars />
         <ScrollStreaks />

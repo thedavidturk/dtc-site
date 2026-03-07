@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import ArticleJsonLd from "@/components/ArticleJsonLd";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -46,6 +47,12 @@ const moreArticles = [
 export default function AIShortFormContentArticle() {
   return (
     <article className="bg-deep-space min-h-screen">
+      <ArticleJsonLd
+        title="Short-Form, High Impact: How AI Is Powering the Next Wave of Social Content"
+        description="The playbook for producing scroll-stopping Reels, Shorts, and TikToks at scale with AI workflows, without losing the human edge that makes content connect."
+        datePublished="2026-02-15"
+        url="https://davidturkcreative.com/insights/ai-short-form-content"
+      />
       <motion.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}

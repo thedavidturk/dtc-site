@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import ArticleJsonLd from "@/components/ArticleJsonLd";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -58,6 +59,12 @@ const moreArticles = [
 export default function VirtualWorldsArticle() {
   return (
     <article className="bg-deep-space min-h-screen">
+      <ArticleJsonLd
+        title="AI Video Generation Is Replacing Traditional Production Pipelines"
+        description="75% of marketing videos will be AI-generated or AI-assisted by the end of 2026. Here's how we're building for that shift, and why it matters for every brand producing content today."
+        datePublished="2026-03-01"
+        url="https://davidturkcreative.com/insights/virtual-worlds"
+      />
       {/* -- Back Link ------------------------------------------------ */}
       <motion.div
         initial={{ opacity: 0, x: -20 }}

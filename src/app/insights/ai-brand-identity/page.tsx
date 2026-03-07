@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import ArticleJsonLd from "@/components/ArticleJsonLd";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -46,6 +47,12 @@ const moreArticles = [
 export default function AIBrandIdentityArticle() {
   return (
     <article className="bg-deep-space min-h-screen">
+      <ArticleJsonLd
+        title="AI-Native Brand Identity: Building Visual Systems That Adapt in Real Time"
+        description="Why static brand guidelines are giving way to dynamic, AI-driven identity systems that scale across every touchpoint without losing coherence."
+        datePublished="2026-02-01"
+        url="https://davidturkcreative.com/insights/ai-brand-identity"
+      />
       <motion.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}

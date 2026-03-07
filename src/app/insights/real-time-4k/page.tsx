@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import ArticleJsonLd from "@/components/ArticleJsonLd";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -58,6 +59,12 @@ const moreArticles = [
 export default function RealTime4KArticle() {
   return (
     <article className="bg-deep-space min-h-screen">
+      <ArticleJsonLd
+        title="The AI-Powered Creative Pipeline: VFX, Sound Design, and Content at Machine Speed"
+        description="How custom AI workflows are collapsing post-production timelines from months to days, without sacrificing the craft."
+        datePublished="2026-02-15"
+        url="https://davidturkcreative.com/insights/real-time-4k"
+      />
       {/* -- Back Link ------------------------------------------------ */}
       <motion.div
         initial={{ opacity: 0, x: -20 }}
