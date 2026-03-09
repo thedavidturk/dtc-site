@@ -6,11 +6,11 @@ export const metadata: Metadata = {
     default: "Insights | DT+C",
   },
   description:
-    "Thoughts on AI-driven production, creative technology, and the future of brand content.",
+    "Expert perspectives on AI video generation, VFX automation, GEO optimization, AI brand identity, and the future of creative production. Monthly insights from DT+C.",
   openGraph: {
     title: "Insights | DT+C",
     description:
-      "Thoughts on AI-driven production, creative technology, and the future of brand content.",
+      "Expert perspectives on AI video generation, VFX automation, GEO optimization, AI brand identity, and the future of creative production. Monthly insights from DT+C.",
     type: "website",
   },
 };

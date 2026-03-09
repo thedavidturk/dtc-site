@@ -10,6 +10,8 @@ import Services from "@/components/Services";
 import Process from "@/components/Process";
 import About from "@/components/About";
 import Insights from "@/components/Insights";
+import FAQ from "@/components/FAQ";
+import EmailCapture from "@/components/EmailCapture";
 import TheProblem from "@/components/TheProblem";
 import Contact from "@/components/Contact";
 
@@ -81,6 +83,8 @@ export default function HomeClient() {
       <Process />
       <About />
       <Insights />
+      <FAQ />
+      <EmailCapture />
       <Contact />
     </>
   );
