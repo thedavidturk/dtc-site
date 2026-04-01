@@ -9,56 +9,56 @@ import { motion } from "framer-motion";
 
 const articles = [
   {
-    title: "AI Video Generation Is Replacing Traditional Production Pipelines",
+    title: "Why Your Competitors Are Using AI Agents — And You Should Too",
     description:
-      "How AI video generation tools are reshaping content production and cutting costs by 60-80%.",
-    category: "AI PRODUCTION",
-    href: "/insights/virtual-worlds",
+      "Autonomous AI agents are transforming how businesses operate — from customer service to content production.",
+    category: "AI + BUSINESS",
+    href: "/insights/ai-agents-business",
+    gradient: "from-indigo-500/30 via-blue-900/50 to-deep-space",
+  },
+  {
+    title:
+      "The Rise of AI-Generated UGC: Authentic Content Without the Creator",
+    description:
+      "AI-generated user content is blurring the line between real and synthetic. Brands that master this format will dominate social feeds.",
+    category: "AI + MARKETING",
+    href: "/insights/ai-generated-ugc",
+    gradient: "from-rose-500/30 via-pink-900/50 to-deep-space",
+  },
+  {
+    title: "From Prompt to Production: How AI Is Rewriting the Creative Brief",
+    description:
+      "The traditional creative brief was built for a slower world. AI is compressing the gap between idea and execution.",
+    category: "AI + CREATIVE",
+    href: "/insights/ai-creative-brief",
+    gradient: "from-fuchsia-500/30 via-purple-900/50 to-deep-space",
+  },
+  {
+    title:
+      "The AI Content Flywheel: How Smart Brands Turn One Idea Into 50 Assets",
+    description:
+      "The brands winning the content game aren't producing more — they're producing smarter with AI-powered content flywheels.",
+    category: "CONTENT STRATEGY",
+    href: "/insights/ai-content-flywheel",
     gradient: "from-violet-500/30 via-purple-900/50 to-deep-space",
   },
   {
     title:
-      "The AI-Powered Creative Pipeline: VFX, Sound Design, and Content at Machine Speed",
+      "Why Every Brand Needs a Custom AI Workflow (Not Just Off-the-Shelf Tools)",
     description:
-      "Inside the AI-powered creative pipeline combining VFX, sound design, and content production.",
-    category: "CREATIVE TECHNOLOGY",
-    href: "/insights/real-time-4k",
-    gradient: "from-cyan-500/30 via-blue-900/50 to-deep-space",
-  },
-  {
-    title: "Your Brand in the Age of AI Search: Why GEO Is the New SEO",
-    description:
-      "Why optimizing for AI search engines is essential for brand visibility in 2026.",
-    category: "AI STRATEGY",
-    href: "/insights/building-worlds",
-    gradient: "from-rose-500/30 via-pink-900/50 to-deep-space",
+      "Off-the-shelf AI tools are table stakes. The real competitive advantage comes from custom workflows built around your brand.",
+    category: "AI + OPERATIONS",
+    href: "/insights/custom-ai-workflows",
+    gradient: "from-sky-500/30 via-cyan-900/50 to-deep-space",
   },
   {
     title:
-      "The Death of the Photo Shoot: AI Product Visualization for Modern Brands",
+      "AI-Powered Advertising: The End of the Generic Campaign",
     description:
-      "AI product visualization is replacing traditional photo shoots at a fraction of the cost.",
-    category: "AI + 3D",
-    href: "/insights/ai-product-visualization",
-    gradient: "from-emerald-500/30 via-teal-900/50 to-deep-space",
-  },
-  {
-    title:
-      "Short-Form, High Impact: How AI Is Powering the Next Wave of Social Content",
-    description:
-      "How brands are using AI to produce TikTok, Reels, and Shorts content at scale.",
-    category: "SOCIAL + AI",
-    href: "/insights/ai-short-form-content",
-    gradient: "from-pink-500/30 via-rose-900/50 to-deep-space",
-  },
-  {
-    title:
-      "AI-Native Brand Identity: Building Visual Systems That Adapt in Real Time",
-    description:
-      "How AI-native identity systems let brands scale visual consistency across every touchpoint.",
-    category: "BRAND + AI",
-    href: "/insights/ai-brand-identity",
-    gradient: "from-amber-500/30 via-orange-900/50 to-deep-space",
+      "Generic one-size-fits-all ad campaigns are dying. AI-powered creative production lets brands run hyper-targeted campaigns that convert.",
+    category: "AI + ADVERTISING",
+    href: "/insights/ai-powered-advertising",
+    gradient: "from-red-500/30 via-rose-900/50 to-deep-space",
   },
 ];
 
