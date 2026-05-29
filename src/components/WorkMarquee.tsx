@@ -109,17 +109,34 @@ export default function WorkMarquee({
     rafRef.current = requestAnimationFrame(tick);
 
     // ---- Pointer drag (mouse + touch) ----
+    // A press alone does NOT start a drag or capture the pointer, so a plain
+    // tap/click still reaches the tile's <a> and navigates. We only begin
+    // dragging (and capture) once movement crosses DRAG_THRESHOLD px.
+    const DRAG_THRESHOLD = 8;
     const getPos = (e: PointerEvent) => (isVertical ? e.clientY : e.clientX);
+    const pressedRef = { current: false };
+    const startPosRef = { current: 0 };
+    const activePointerRef = { current: -1 };
 
     const onDown = (e: PointerEvent) => {
-      draggingRef.current = true;
+      pressedRef.current = true;
+      draggingRef.current = false;
       movedRef.current = 0;
+      startPosRef.current = getPos(e);
       lastPointerRef.current = getPos(e);
-      track.setPointerCapture?.(e.pointerId);
+      activePointerRef.current = e.pointerId;
     };
     const onMove = (e: PointerEvent) => {
-      if (!draggingRef.current) return;
+      if (!pressedRef.current) return;
       const pos = getPos(e);
+
+      // Promote to a real drag only after crossing the threshold.
+      if (!draggingRef.current) {
+        if (Math.abs(pos - startPosRef.current) < DRAG_THRESHOLD) return;
+        draggingRef.current = true;
+        track.setPointerCapture?.(e.pointerId);
+      }
+
       const delta = pos - lastPointerRef.current;
       lastPointerRef.current = pos;
       movedRef.current += Math.abs(delta);
@@ -127,13 +144,20 @@ export default function WorkMarquee({
       apply();
     };
     const onUp = (e: PointerEvent) => {
+      pressedRef.current = false;
+      if (draggingRef.current) {
+        track.releasePointerCapture?.(e.pointerId);
+      }
+      // Defer clearing the drag flag so onClickCapture (which fires right
+      // after pointerup) can still see that this was a drag.
+      const wasDrag = draggingRef.current;
       draggingRef.current = false;
-      track.releasePointerCapture?.(e.pointerId);
+      if (!wasDrag) movedRef.current = 0;
     };
 
-    // Suppress click navigation if this was a drag, not a tap.
+    // Suppress click navigation only if this was an actual drag.
     const onClickCapture = (e: MouseEvent) => {
-      if (movedRef.current > 8) {
+      if (movedRef.current > DRAG_THRESHOLD) {
         e.preventDefault();
         e.stopPropagation();
         movedRef.current = 0;
