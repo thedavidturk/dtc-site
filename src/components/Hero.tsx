@@ -269,16 +269,16 @@ export default function Hero() {
           {/* Headline */}
           <h1 className="font-headline font-bold leading-[0.92] tracking-tight text-pure-white">
             <motion.span variants={item} className="block text-5xl sm:text-6xl lg:text-[5.25rem]">
-              Studio-quality
+              Content that moves
             </motion.span>
             <motion.span variants={item} className="block text-5xl sm:text-6xl lg:text-[5.25rem]">
-              creative,
+              at the speed
             </motion.span>
             <motion.span
               variants={item}
               className="block gradient-text text-5xl sm:text-6xl lg:text-[5.25rem]"
             >
-              at brand speed.
+              of culture.
             </motion.span>
           </h1>
 
@@ -287,8 +287,8 @@ export default function Hero() {
             variants={item}
             className="mt-7 max-w-xl font-body text-lg leading-relaxed text-cool-gray"
           >
-            Virtual cinematography, 3D animation, and AI-driven production
-            pipelines built to launch campaigns in{" "}
+            Research, creative strategy, content production, VFX, and website
+            development under one roof, built to launch campaigns in{" "}
             <span className="text-pure-white">weeks, not months.</span>
           </motion.p>
 
