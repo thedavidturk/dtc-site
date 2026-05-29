@@ -21,6 +21,46 @@ interface Service {
 
 const services: Service[] = [
   {
+    label: "CREATIVE STRATEGY & RESEARCH",
+    headline: "Strategy first. So the work has somewhere to go.",
+    oldWay:
+      "A brief lands, production starts, and nobody can say what the work is actually for.",
+    ourWay:
+      "We start with research and positioning. Audience, category, and cultural insight shape a clear creative strategy and messaging platform before anything goes into production.",
+    result:
+      "Campaigns built on a point of view, not a guess. Creative that means something to the people you are trying to reach.",
+    capabilities: [
+      "Brand positioning and platforms",
+      "Audience and category research",
+      "Messaging and narrative frameworks",
+      "Campaign concepting and big ideas",
+      "Competitive and cultural insight",
+      "Creative briefs that actually direct",
+    ],
+    accentColor: "bg-warm-coral",
+    scene: "direction",
+  },
+  {
+    label: "AI PRODUCTION PIPELINES",
+    headline: "One idea in. A full campaign out.",
+    oldWay:
+      "Every asset built from scratch, every format a new project, every round of edits a new bottleneck.",
+    ourWay:
+      "Custom AI pipelines run alongside our team. Research agents, asset generation, VFX, and sound design, orchestrated so one concept becomes dozens of platform-ready deliverables, with a human directing every decision.",
+    result:
+      "More output, more formats, faster turnarounds, without the work feeling mass-produced.",
+    capabilities: [
+      "Custom AI workflow design",
+      "Research and trend agents",
+      "AI image and video generation",
+      "One-to-many asset repurposing",
+      "Multi-format, multi-platform delivery",
+      "Human-in-the-loop quality control",
+    ],
+    accentColor: "bg-cyan-500",
+    scene: "animation",
+  },
+  {
     label: "VIRTUAL CINEMATOGRAPHY",
     headline: "Create any world. In 4K. Without leaving the studio.",
     oldWay: "Location scouts, permits, travel days, weather delays.",

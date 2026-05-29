@@ -24,6 +24,24 @@ interface Pillar {
 
 const pillars: Pillar[] = [
   {
+    shape: "torusKnot",
+    title: "CREATIVE STRATEGY",
+    description:
+      "Positioning, brand platforms, and campaign concepts that give the work a reason to exist. We define what to say and why it matters before a single frame is made.",
+  },
+  {
+    shape: "aperture",
+    title: "RESEARCH & DISCOVERY",
+    description:
+      "Audience, category, and cultural insight that grounds every idea. We dig into what your market actually responds to so the creative lands instead of guesses.",
+  },
+  {
+    shape: "nodes",
+    title: "AI PRODUCTION PIPELINES",
+    description:
+      "Custom AI workflows that turn one concept into a full campaign. Research, asset generation, and multi-format output, scaled without scaling your team.",
+  },
+  {
     shape: "globe",
     title: "VIRTUAL CINEMATOGRAPHY",
     description:
@@ -33,31 +51,31 @@ const pillars: Pillar[] = [
     shape: "icosahedron",
     title: "3D ANIMATION & VISUALIZATION",
     description:
-      "Photorealistic product visualization and dynamic motion graphics. Cinema 4D and UE5 combine for stunning 4K content.",
+      "Photorealistic product visualization and dynamic motion graphics. Cinema 4D and UE5 combine for stunning 4K content, often before a product physically exists.",
   },
   {
     shape: "camera",
-    title: "VIDEOGRAPHY",
+    title: "VIDEOGRAPHY & PHOTOGRAPHY",
     description:
-      "Professional video production from concept to final cut. Cinematic storytelling, brand films, and commercial content captured with precision and purpose.",
-  },
-  {
-    shape: "aperture",
-    title: "PHOTOGRAPHY",
-    description:
-      "High-impact visual imagery that elevates brands. Product photography, lifestyle shoots, and creative direction that makes every frame count.",
+      "Cinematic storytelling, brand films, and high-impact imagery captured with intent. From documentaries to product shoots, every frame is made to count.",
   },
   {
     shape: "nodes",
-    title: "INTELLIGENT WORKFLOWS",
+    title: "BRAND SYSTEMS & MESSAGING",
     description:
-      "Systems that learn and adapt. From one concept to thirty deliverables automatically. Scale your content without scaling your team.",
+      "Visual identity, voice, and messaging frameworks that hold up across every channel. The connective tissue that makes a brand feel like one coherent thing.",
+  },
+  {
+    shape: "globe",
+    title: "CONTENT FLYWHEELS",
+    description:
+      "One shoot, one render, one idea, repurposed into a steady stream of platform-native content. We build the engine, not just the one-off asset.",
   },
   {
     shape: "torusKnot",
     title: "AUDIENCE-FIRST CRAFT",
     description:
-      "Data-informed creative that resonates. Every frame engineered for impact with your specific audience.",
+      "Data-informed creative engineered for impact with your specific audience. Strategy and taste working together, measured against what actually moves people.",
   },
 ];
 
