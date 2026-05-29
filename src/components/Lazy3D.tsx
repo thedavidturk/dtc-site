@@ -23,7 +23,7 @@ interface Lazy3DProps {
 export default function Lazy3D({
   children,
   className,
-  rootMargin = "500px",
+  rootMargin = "200px",
   style,
 }: Lazy3DProps) {
   const [visible, setVisible] = useState(false);

@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ClientLayout from "@/components/ClientLayout";
 import JsonLd from "@/components/JsonLd";
+import DesktopFX from "@/components/DesktopFX";
 
 const CursorTrail = dynamic(() => import("@/components/CursorTrail"), {
   ssr: false,
@@ -142,10 +143,12 @@ export default function RootLayout({
         <SmoothScroll />
         <Analytics />
         <CursorTrail />
-        <ShootingStars />
-        <ScrollStreaks />
-        <ScrollProgressTrail />
-        <FilmGrain />
+        <DesktopFX>
+          <ShootingStars />
+          <ScrollStreaks />
+          <ScrollProgressTrail />
+          <FilmGrain />
+        </DesktopFX>
         <Header />
         <main style={{ backgroundColor: "#0B0F19" }}>
           <ClientLayout>{children}</ClientLayout>

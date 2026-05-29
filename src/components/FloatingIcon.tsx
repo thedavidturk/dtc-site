@@ -334,8 +334,8 @@ export default function FloatingIcon({
 
   return (
     <Canvas
-      dpr={[1, 2]}
-      gl={{ alpha: true, antialias: true }}
+      dpr={[1, 1.5]}
+      gl={{ alpha: true, antialias: true, powerPreference: "low-power" }}
       camera={{ position: [0, 0, 3.5], fov: 40 }}
       frameloop="always"
       style={{ background: "transparent" }}
