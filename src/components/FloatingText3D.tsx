@@ -23,7 +23,7 @@ interface FloatingText3DProps {
 }
 
 // ---------------------------------------------------------------------------
-// Mouse hook — normalized -1..1 from pointer events on the container
+// Mouse hook - normalized -1..1 from pointer events on the container
 // ---------------------------------------------------------------------------
 function useMousePosition() {
   const mouse = useRef(new THREE.Vector2(0, 0));
@@ -44,7 +44,7 @@ function useMousePosition() {
 }
 
 // ---------------------------------------------------------------------------
-// Floating Particles — small dots scattered around the text area
+// Floating Particles - small dots scattered around the text area
 // ---------------------------------------------------------------------------
 function FloatingParticles() {
   const pointsRef = useRef<THREE.Points>(null);
@@ -177,7 +177,7 @@ function FloatingParticles() {
 }
 
 // ---------------------------------------------------------------------------
-// Glow Sprite — a soft colored blob behind the "+" sign
+// Glow Sprite - a soft colored blob behind the "+" sign
 // ---------------------------------------------------------------------------
 function PlusGlow() {
   const spriteRef = useRef<THREE.Sprite>(null);
@@ -233,7 +233,7 @@ function PlusGlow() {
 }
 
 // ---------------------------------------------------------------------------
-// Main 3D Text Group — "DT+C" with depth layers, parallax, animations
+// Main 3D Text Group - "DT+C" with depth layers, parallax, animations
 // ---------------------------------------------------------------------------
 interface TextGroupProps {
   mouse: React.MutableRefObject<THREE.Vector2>;
@@ -303,7 +303,7 @@ function TextGroup({ mouse }: TextGroupProps) {
         />
       </Text>
 
-      {/* Depth / extrusion layers — full "DT+C" at increasing Z offsets */}
+      {/* Depth / extrusion layers - full "DT+C" at increasing Z offsets */}
       {depthLayers.map((layer, idx) => (
         <Text
           key={idx}
@@ -334,7 +334,7 @@ function TextGroup({ mouse }: TextGroupProps) {
 }
 
 // ---------------------------------------------------------------------------
-// Scene — assembles everything inside the Canvas
+// Scene - assembles everything inside the Canvas
 // ---------------------------------------------------------------------------
 function Scene({
   mouse,
@@ -353,7 +353,7 @@ function Scene({
 }
 
 // ---------------------------------------------------------------------------
-// Exported component — SSR-safe container with Canvas
+// Exported component - SSR-safe container with Canvas
 // ---------------------------------------------------------------------------
 export default function FloatingText3D({
   className = "",
@@ -366,7 +366,7 @@ export default function FloatingText3D({
   }, []);
 
   if (!mounted) {
-    // SSR / pre-hydration fallback — matches the size but shows nothing
+    // SSR / pre-hydration fallback - matches the size but shows nothing
     return (
       <div
         className={className}

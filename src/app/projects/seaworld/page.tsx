@@ -452,7 +452,7 @@ export default function SeaWorldProject() {
           viewport={{ once: true, margin: "-60px" }}
           className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6"
         >
-          {/* Row 1 — full-width cinematic hero */}
+          {/* Row 1 - full-width cinematic hero */}
           <motion.div variants={galleryItem} className="md:col-span-12">
             <DistortionCard>
               <TiltCard maxTilt={6} className="aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
@@ -470,7 +470,7 @@ export default function SeaWorldProject() {
             </DistortionCard>
           </motion.div>
 
-          {/* Row 2 — wide + tall */}
+          {/* Row 2 - wide + tall */}
           <motion.div variants={galleryItem} className="md:col-span-7">
             <TiltCard className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
               <div className="relative w-full h-full">
@@ -503,7 +503,7 @@ export default function SeaWorldProject() {
             </HolographicSheen>
           </motion.div>
 
-          {/* Row 3 — three equal */}
+          {/* Row 3 - three equal */}
           <motion.div variants={galleryItem} className="md:col-span-4">
             <DistortionCard>
               <TiltCard className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
@@ -553,13 +553,13 @@ export default function SeaWorldProject() {
             </HolographicSheen>
           </motion.div>
 
-          {/* Row 4 — asymmetric pair */}
+          {/* Row 4 - asymmetric pair */}
           <motion.div variants={galleryItem} className="md:col-span-5">
             <TiltCard className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
               <div className="relative w-full h-full">
                 <Image
                   src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/ee311317-b52f-486c-b7b8-a7ff822d4072_rw_1920.PNG?h=4a424422f10bb668b900397248ed4aa9"
-                  alt="Trailer frame — underwater cave"
+                  alt="Trailer frame - underwater cave"
                   fill
                   className="object-cover"
                   unoptimized
@@ -586,14 +586,14 @@ export default function SeaWorldProject() {
             </DistortionCard>
           </motion.div>
 
-          {/* Row 5 — hero visuals & ad formats */}
+          {/* Row 5 - hero visuals & ad formats */}
           <motion.div variants={galleryItem} className="md:col-span-6">
             <HolographicSheen>
               <TiltCard className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
                 <div className="relative w-full h-full">
                   <Image
                     src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/90b4e2ae-8a49-43e4-bf1c-ab699d4be4bd_rw_1920.png?h=5170336821b0fa88310d44d96d9c81f0"
-                    alt="Hero visual — SEAQuest key art"
+                    alt="Hero visual - SEAQuest key art"
                     fill
                     className="object-cover"
                     unoptimized
@@ -619,14 +619,14 @@ export default function SeaWorldProject() {
             </TiltCard>
           </motion.div>
 
-          {/* Row 6 — three format variations */}
+          {/* Row 6 - three format variations */}
           <motion.div variants={galleryItem} className="md:col-span-4">
             <DistortionCard>
               <TiltCard className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
                 <div className="relative w-full h-full">
                   <Image
                     src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/22f7b6a7-fa2a-423e-9131-21aa2ca30d30_rw_1200.png?h=951bc97f963a396b893b96b579241f48"
-                    alt="Social media format — square"
+                    alt="Social media format - square"
                     fill
                     className="object-cover"
                     unoptimized
@@ -642,7 +642,7 @@ export default function SeaWorldProject() {
               <div className="relative w-full h-full">
                 <Image
                   src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6e8eaa44-8e9a-4a35-ae02-8d2ad72906a7_rw_1200.png?h=0b699e851567f945902885e75a975a5f"
-                  alt="Social media format — vertical"
+                  alt="Social media format - vertical"
                   fill
                   className="object-cover"
                   unoptimized
@@ -669,13 +669,13 @@ export default function SeaWorldProject() {
             </HolographicSheen>
           </motion.div>
 
-          {/* Row 7 — behind the scenes / production */}
+          {/* Row 7 - behind the scenes / production */}
           <motion.div variants={galleryItem} className="md:col-span-6">
             <TiltCard maxTilt={10} className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
               <div className="relative w-full h-full">
                 <Image
                   src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/bf9e63f9-1332-4a61-8b37-9e9ff18599d0_rw_1200.png?h=2f6fc056141cc8e5c3d2ea749a0cc8ec"
-                  alt="Production environment — UE5 viewport"
+                  alt="Production environment - UE5 viewport"
                   fill
                   className="object-cover"
                   unoptimized
@@ -702,7 +702,7 @@ export default function SeaWorldProject() {
             </DistortionCard>
           </motion.div>
 
-          {/* Row 8 — final two wide shots */}
+          {/* Row 8 - final two wide shots */}
           <motion.div variants={galleryItem} className="md:col-span-7">
             <HolographicSheen>
               <TiltCard className="aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
@@ -735,7 +735,7 @@ export default function SeaWorldProject() {
             </TiltCard>
           </motion.div>
 
-          {/* Row 9 — closing full-width shot */}
+          {/* Row 9 - closing full-width shot */}
           <motion.div variants={galleryItem} className="md:col-span-12">
             <DistortionCard>
               <TiltCard maxTilt={6} className="aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">

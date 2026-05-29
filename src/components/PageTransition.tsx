@@ -21,7 +21,7 @@ export default function PageTransition({ children }: PageTransitionProps) {
         {children}
       </motion.div>
 
-      {/* Cinematic wipe overlay — slides up from bottom, then continues off the top */}
+      {/* Cinematic wipe overlay - slides up from bottom, then continues off the top */}
       <motion.div
         className="fixed inset-0 z-[100] bg-deep-space origin-bottom pointer-events-none"
         initial={{ y: "100%" }}

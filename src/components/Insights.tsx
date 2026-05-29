@@ -62,7 +62,7 @@ interface BlogPost {
 // ---------------------------------------------------------------------------
 const posts: BlogPost[] = [
   {
-    title: "Why Your Competitors Are Using AI Agents — And You Should Too",
+    title: "Why Your Competitors Are Using AI Agents - And You Should Too",
     subtitle:
       "Autonomous AI agents are transforming how businesses operate. Here is why the companies adopting them now are pulling ahead.",
     category: "AI + BUSINESS",
@@ -94,7 +94,7 @@ const posts: BlogPost[] = [
   {
     title: "The AI Content Flywheel: How Smart Brands Turn One Idea Into 50 Assets",
     subtitle:
-      "The brands winning the content game are not producing more — they are producing smarter with AI-powered content flywheels.",
+      "The brands winning the content game are not producing more - they are producing smarter with AI-powered content flywheels.",
     category: "CONTENT STRATEGY",
     gradient: "from-violet-500/30 via-purple-900/50 to-deep-space",
     slug: "ai-content-flywheel",

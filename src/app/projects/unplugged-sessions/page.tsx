@@ -58,87 +58,107 @@ const galleryItem = {
 /* ------------------------------------------------------------------ */
 
 const overview = {
-  client: "Betterfly",
-  industry: "HR Technology / Benefits",
-  timeline: "4 Weeks",
+  client: "Unplugged Music Sessions",
+  industry: "Live Music / Direction",
+  timeline: "Recurring Series",
   services: [
-    "VFX Compositing",
-    "FOOH (Fake Out-of-Home)",
-    "Campaign Video Production",
-    "VFX Breakdown Reels",
-    "Social Media Content",
+    "Live Music Direction",
+    "Multi-Camera Capture",
+    "Performance Cinematography",
+    "Editorial & Color",
+    "Social Delivery",
   ],
 };
 
 const approach = [
   {
     step: "01",
-    title: "Concept & Monument Selection",
+    title: "Building the Room",
     description:
-      "Identified iconic global monuments that would maximize visual impact and cultural resonance. Each location was chosen for its recognizability and the dramatic potential of draping massive branded banners across its architecture.",
+      "Designed each session as a stripped back live set, an intimate space where the artist, the band, and the song are the entire event. The room itself becomes part of the direction, with lighting and framing shaped around the mood of every performance.",
   },
   {
     step: "02",
-    title: "Footage Acquisition & Camera Matching",
+    title: "Multi-Camera Performance Capture",
     description:
-      "Sourced high-quality footage of each monument and meticulously matched camera angles, lighting conditions, and perspective to ensure seamless VFX integration. Every frame needed to feel authentically captured.",
+      "Directed a multi-camera setup to cover the full performance in real time, moving between wide stage frames and tight detail on hands, faces, and instruments. Every angle was planned to let the cut breathe with the music rather than fight it.",
   },
   {
     step: "03",
-    title: "VFX Banner Simulation & Compositing",
+    title: "Cutting to the Music",
     description:
-      "Digitally created and animated massive Betterfly banners draped over each monument using advanced cloth simulation and compositing. Shadows, reflections, and environmental interactions were crafted to make each placement indistinguishable from reality.",
+      "Edited each session to the rhythm and dynamics of the song, holding on emotional beats and cutting on transitions so the visual pacing tracks the music. The goal was a film that feels like being in the room, not a montage laid over a track.",
   },
   {
     step: "04",
-    title: "Campaign Video Assembly",
+    title: "Color & Tone",
     description:
-      "Assembled the individual monument executions into a cohesive campaign video with dynamic pacing, branded messaging, and a narrative arc targeting HR administrators worldwide.",
+      "Graded each session toward a warm, lived in look that matches the unplugged spirit. The color work keeps skin tones honest and the atmosphere intimate, so the focus stays on the artist and the moment.",
   },
   {
     step: "05",
-    title: "VFX Breakdowns & Social Distribution",
+    title: "Built for Sharing",
     description:
-      "Produced detailed VFX breakdown reels showing each monument's transformation stages, from raw footage to final composite. These behind-the-scenes assets amplified engagement and showcased production expertise.",
+      "Delivered finished sessions optimized for social and streaming, framed and paced to hold attention from the first second. Each piece doubles as a standalone performance film and a calling card for the series itself.",
   },
 ];
 
 const results = [
-  "Six iconic monument executions delivered across social platforms",
-  "Campaign generated measurable social media buzz and engagement",
-  "VFX breakdowns drove additional content virality",
-  "Achieved global out-of-home impact without physical production costs",
-  "Positioned Betterfly as a bold, innovative brand in the HR tech space",
+  "An intimate live music series with a consistent visual identity",
+  "Multiple performance films directed, shot, and finished end to end",
+  "Editorial pacing built around the music rather than imposed on it",
+  "A warm, cinematic look that fits the unplugged spirit of the room",
+  "Performance content shaped for social and streaming distribution",
 ];
 
 const tools = [
   {
-    name: "Adobe After Effects",
+    name: "Multi-Camera Direction",
     description:
-      "VFX compositing, banner simulation, camera tracking, and final visual effects polish for each monument execution.",
+      "Live performance coverage planned and directed across multiple angles for full, real time capture of each session.",
   },
   {
-    name: "Cinema 4D",
+    name: "Performance Cinematography",
     description:
-      "3D cloth simulation for realistic banner draping, lighting matching, and environmental integration.",
+      "Lighting and framing built around the artist and the song to create an intimate, room-level point of view.",
   },
   {
     name: "Adobe Premiere Pro",
     description:
-      "Campaign video assembly, pacing, and multi-format social media delivery across platforms.",
+      "Editorial assembly, music-led pacing, and color grading to finish each session as a standalone performance film.",
   },
   {
-    name: "Adobe Photoshop",
+    name: "Social Delivery",
     description:
-      "Texture creation, matte painting, and detailed compositing work for seamless monument integration.",
+      "Sessions finished and formatted for social and streaming platforms with a consistent look across the series.",
   },
+];
+
+/* Real performance stills scraped from the live source, in page order. */
+const galleryImages = [
+  "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6e2f254b-92f1-4a9f-b3b8-e685f99b17e2_rw_1920.jpg?h=db4a60a79d74fd97ad1f94cc94151a03",
+  "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6a6b4df0-4af8-40f7-b94b-a390f7622ca7_rw_1920.jpg?h=aba0d5b72f1af534c52c4daf7db18083",
+  "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/86730945-cd89-4ba8-ba51-b4afa20868e9_rw_1920.jpg?h=ffe9eb8f513c1f10f1515a8b8a950731",
+  "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/9cbe3d77-4764-4780-875e-980de56689cb_rw_1920.jpg?h=eeae0bfcfc0ef5712094bdaf760b8b64",
+  "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/15aebb8c-cddc-4fbf-8f4d-1e50f4b9065a_rw_1920.jpg?h=df9786b428b1b61475ff725375333372",
+  "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/1aebc538-81eb-4974-8b28-78aafc1a54f5_rw_1920.jpg?h=bfda9ef88f92c8700b0f3e19cea45177",
+  "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/3c2d3c5d-460f-4425-be54-6ecd086044a5_rw_1920.jpg?h=d6cbe376dea7a1257930df5f05dfeb66",
+  "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/f9923bd1-dbc3-46ee-bf14-10ab9b5362fb_rw_1920.jpg?h=fa7bff7c268c096ca2b1e75eec67514e",
+  "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/fe679578-f5cf-4a09-b48c-bc5490fbd9ba_rw_1920.jpg?h=eab8951d0daddbdf5ed6db72005d6551",
+];
+
+/* Adobe CCV performance video embeds scraped from the live source. */
+const videos = [
+  { id: "Pexs9H2brcJ", label: "Session One" },
+  { id: "6enmnpI-WUx", label: "Session Two" },
+  { id: "RgDvHPPd6Bd", label: "Session Three" },
 ];
 
 /* ------------------------------------------------------------------ */
 /*  Component                                                          */
 /* ------------------------------------------------------------------ */
 
-export default function BetterflyProject() {
+export default function UnpluggedSessionsProject() {
   return (
     <article className="bg-deep-space min-h-screen" style={{ backgroundColor: "#0B0F19" }}>
       {/* ── Back Link ─────────────────────────────────────────────── */}
@@ -171,26 +191,29 @@ export default function BetterflyProject() {
 
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-end overflow-hidden">
-        {/* GIF cover image */}
+        {/* Cover image */}
         <div className="absolute inset-0">
           <Image
-            src="https://media.giphy.com/media/OWRTtgINto81tGKtJi/giphy.gif"
-            alt="Betterfly FOOH campaign VFX scene"
+            src={galleryImages[0]}
+            alt="Unplugged Music Sessions live performance still"
             fill
             className="object-cover"
-            unoptimized
             priority
+            sizes="100vw"
           />
         </div>
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-black/50" />
+
+        {/* Indigo wash */}
+        <div className="absolute inset-0 bg-gradient-to-br from-electric-indigo/30 via-transparent to-black/40 mix-blend-multiply" />
 
         {/* Radial fade at bottom */}
         <div className="absolute inset-0 z-[2] bg-gradient-to-t from-deep-space via-deep-space/40 to-transparent" />
 
         {/* Floating geometric accents */}
-        <div className="absolute top-1/4 left-1/3 w-44 h-44 border border-white/[0.06] rounded-full animate-pulse z-[2]" />
-        <div className="absolute bottom-1/3 right-1/4 w-20 h-20 border border-white/10 rounded-xl rotate-[18deg] z-[2]" />
-        <div className="absolute top-1/3 left-1/5 w-3 h-3 bg-white/20 rounded-full z-[2]" />
+        <div className="absolute top-1/4 left-1/5 w-40 h-40 border border-white/[0.06] rounded-full animate-pulse z-[2]" />
+        <div className="absolute bottom-1/3 right-1/4 w-20 h-20 border border-white/10 rounded-xl rotate-[14deg] z-[2]" />
+        <div className="absolute top-1/3 left-1/3 w-3 h-3 bg-white/20 rounded-full z-[2]" />
         <div className="absolute bottom-1/4 right-1/3 w-2 h-2 bg-white/10 rounded-full z-[2]" />
 
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
@@ -200,7 +223,7 @@ export default function BetterflyProject() {
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
-              VFX + FOOH Campaign
+              Live Music Direction
             </span>
           </motion.div>
 
@@ -210,7 +233,7 @@ export default function BetterflyProject() {
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="font-headline text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-4"
           >
-            BETTERFLY
+            UNPLUGGED SESSIONS
           </motion.h1>
 
           <motion.p
@@ -219,7 +242,7 @@ export default function BetterflyProject() {
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
             className="font-headline text-2xl md:text-3xl lg:text-4xl font-medium text-white/80 tracking-tight"
           >
-            #RecursosMasHumanos FOOH Campaign
+            Live Music, Captured in the Room
           </motion.p>
 
           {/* Animated line */}
@@ -227,7 +250,7 @@ export default function BetterflyProject() {
             initial={{ width: 0 }}
             animate={{ width: "6rem" }}
             transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="h-px bg-gradient-to-r from-emerald-400 to-teal-400 mt-8"
+            className="h-px bg-gradient-to-r from-electric-indigo to-violet-400 mt-8"
           />
         </div>
       </section>
@@ -245,31 +268,31 @@ export default function BetterflyProject() {
           >
             <div className="lg:sticky lg:top-28 space-y-8">
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-2">
-                  Client
+                <p className="font-mono text-xs tracking-widest uppercase text-electric-indigo mb-2">
+                  Project
                 </p>
                 <p className="font-headline text-lg font-semibold text-pure-white">
                   {overview.client}
                 </p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-2">
-                  Industry
+                <p className="font-mono text-xs tracking-widest uppercase text-electric-indigo mb-2">
+                  Discipline
                 </p>
                 <p className="font-body text-cool-gray">
                   {overview.industry}
                 </p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-2">
-                  Timeline
+                <p className="font-mono text-xs tracking-widest uppercase text-electric-indigo mb-2">
+                  Format
                 </p>
                 <p className="font-body text-cool-gray">
                   {overview.timeline}
                 </p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-electric-indigo mb-2">
                   Services
                 </p>
                 <ul className="space-y-2">
@@ -278,7 +301,7 @@ export default function BetterflyProject() {
                       key={service}
                       className="flex items-center gap-3 font-body text-sm text-cool-gray"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-electric-indigo flex-shrink-0" />
                       {service}
                     </li>
                   ))}
@@ -295,33 +318,98 @@ export default function BetterflyProject() {
             viewport={{ once: true, margin: "-80px" }}
             className="lg:col-span-8"
           >
-            <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
-              The Challenge
+            <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+              The Idea
             </p>
             <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
-              Global out-of-home impact{" "}
-              <span className="gradient-text">without the logistics</span>
+              A live series built around{" "}
+              <span className="gradient-text">the song itself</span>
             </h2>
             <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
               <p>
-                Betterfly needed a visually striking campaign to announce
-                &ldquo;a new era of benefits&rdquo; and position their platform
-                in front of HR administrators worldwide. They wanted the impact
-                of a massive global out-of-home campaign (branded banners
-                draped over iconic monuments) without the impossible logistics
-                and budget of physically wrapping world landmarks.
+                Unplugged Sessions is a live music series built to strip a
+                performance down to its core. No heavy production gloss, no
+                distractions, just an artist, a room, and a song captured the way
+                it actually sounds and feels in the moment.
               </p>
               <p>
-                The challenge: make it look completely real. Every banner needed
-                to interact convincingly with the architecture (matching
-                lighting, casting shadows, responding to wind) so viewers
-                would do a double-take before realizing it was VFX. The campaign
-                had to generate social media buzz and position Betterfly as a
-                bold, forward-thinking brand.
+                The direction challenge was to make something intimate feel
+                cinematic without losing the rawness that makes an unplugged
+                performance special. Every session had to hold the energy of a
+                live take while still reading as a finished, shareable film.
               </p>
             </div>
           </motion.div>
         </div>
+      </section>
+
+      {/* ── Divider ──────────────────────────────────────────────── */}
+      <div className="section-container">
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      </div>
+
+      {/* ── The Sessions (Video) ─────────────────────────────────── */}
+      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="mb-10"
+        >
+          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+            The Sessions
+          </p>
+          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+            Press play on{" "}
+            <span className="gradient-text">the performances</span>
+          </h2>
+        </motion.div>
+
+        <motion.div
+          variants={galleryContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8"
+        >
+          {videos.map((video, index) => (
+            <motion.div
+              key={video.id}
+              variants={galleryItem}
+              className={`relative ${
+                index === 0 ? "lg:col-span-2" : "lg:col-span-1"
+              }`}
+            >
+              {/* Ambient glow behind the video */}
+              <div className="absolute -inset-3 md:-inset-5 bg-gradient-to-r from-electric-indigo/10 via-violet-500/5 to-electric-indigo/10 rounded-3xl blur-2xl opacity-60 pointer-events-none" />
+
+              {/* Video container */}
+              <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/40">
+                {/* Corner accent brackets */}
+                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-electric-indigo/40 rounded-tl-2xl z-10 pointer-events-none" />
+                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-electric-indigo/40 rounded-tr-2xl z-10 pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-electric-indigo/40 rounded-bl-2xl z-10 pointer-events-none" />
+                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-electric-indigo/40 rounded-br-2xl z-10 pointer-events-none" />
+
+                {/* 16:9 aspect ratio wrapper */}
+                <div className="relative w-full aspect-video">
+                  <iframe
+                    src={`https://www-ccv.adobe.io/v1/player/ccv/${video.id}/embed?bgcolor=%230B0F19&lazyLoading=true&api_key=BehancePro2View`}
+                    title={`Unplugged Sessions: ${video.label}`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full"
+                  />
+                </div>
+              </div>
+
+              <p className="mt-3 font-mono text-xs tracking-widest uppercase text-cool-gray">
+                {video.label}
+              </p>
+            </motion.div>
+          ))}
+        </motion.div>
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────── */}
@@ -338,12 +426,12 @@ export default function BetterflyProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-16"
         >
-          <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
-            Our Approach
+          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+            The Direction
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            From monuments to feeds{" "}
-            <span className="gradient-text">in five steps</span>
+            From the room to the cut{" "}
+            <span className="gradient-text">in five moves</span>
           </h2>
         </motion.div>
 
@@ -361,7 +449,7 @@ export default function BetterflyProject() {
               className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 group"
             >
               <div className="md:col-span-1">
-                <span className="font-mono text-3xl md:text-4xl font-bold text-emerald-400/30 group-hover:text-emerald-400 transition-colors duration-500">
+                <span className="font-mono text-3xl md:text-4xl font-bold text-electric-indigo/30 group-hover:text-electric-indigo transition-colors duration-500">
                   {item.step}
                 </span>
               </div>
@@ -383,7 +471,7 @@ export default function BetterflyProject() {
         <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
-      {/* ── The Solution ─────────────────────────────────────────── */}
+      {/* ── The Approach Narrative ───────────────────────────────── */}
       <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
         <motion.div
           variants={fadeUp}
@@ -392,27 +480,26 @@ export default function BetterflyProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="max-w-4xl"
         >
-          <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
-            The Solution
+          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+            The Feel
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
-            Fake out-of-home,{" "}
-            <span className="gradient-text">real impact</span>
+            Cinematic, but{" "}
+            <span className="gradient-text">never overproduced</span>
           </h2>
           <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
             <p>
-              We used VFX to digitally drape massive Betterfly branded banners
-              over six iconic global monuments. Advanced cloth simulation,
-              precise camera tracking, and meticulous compositing made each
-              execution indistinguishable from a real installation, the kind of
-              spectacle that makes people stop scrolling and share.
+              Each session is treated as its own short film. The camera moves
+              with intent, the lighting sets a mood, and the edit follows the
+              music instead of cutting against it. The aim is to put the viewer
+              in the room with the artist, close enough to catch the small
+              moments that make a live take feel alive.
             </p>
             <p>
-              Beyond the hero campaign video, we produced detailed VFX breakdown
-              reels for each monument, showing the transformation from raw
-              footage to final composite. These behind-the-scenes assets became
-              content multipliers, driving additional engagement and showcasing
-              the craft behind the campaign.
+              By keeping the visual language consistent across the series, every
+              session reads as part of the same world. The result is a body of
+              performance films that work individually and stack into a
+              recognizable identity for Unplugged Sessions as a whole.
             </p>
           </div>
         </motion.div>
@@ -423,7 +510,7 @@ export default function BetterflyProject() {
         <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
-      {/* ── Campaign Gallery ────────────────────────────────────── */}
+      {/* ── Gallery ──────────────────────────────────────────────── */}
       <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
         <motion.div
           variants={fadeUp}
@@ -432,11 +519,12 @@ export default function BetterflyProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-16"
         >
-          <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
-            Campaign Gallery
+          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+            Stills
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            Monument <span className="gradient-text">Executions</span>
+            Moments from{" "}
+            <span className="gradient-text">the sessions</span>
           </h2>
         </motion.div>
 
@@ -447,147 +535,137 @@ export default function BetterflyProject() {
           viewport={{ once: true, margin: "-60px" }}
           className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6"
         >
-          {/* Row 1: Wide hero + tall side */}
-          <motion.div variants={galleryItem} className="md:col-span-7">
-            <TiltCard className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
-              <HolographicSheen className="!absolute inset-0">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/afa1b619-7f85-4631-b906-65725f2afb1d_rw_3840.jpg?h=c011327012d82e389e6536546dad732a"
-                  alt="Betterfly FOOH monument execution 1"
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
-              </HolographicSheen>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
-            </TiltCard>
-          </motion.div>
-          <motion.div variants={galleryItem} className="md:col-span-5">
-            <DistortionCard>
-              <div className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/0c4aae34-962c-4708-9e09-10d7c2270b0d_rw_3840.jpg?h=9486e194d38c38c0b70c1ffc7e317fcd"
-                  alt="Betterfly FOOH monument execution 2"
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
-              </div>
-            </DistortionCard>
-          </motion.div>
-
-          {/* Row 2: Three equal columns */}
-          <motion.div variants={galleryItem} className="md:col-span-4">
-            <TiltCard className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
-              <Image
-                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/86e3da3a-6b51-4572-94f5-260d6a761c0f_rw_3840.jpg?h=9b9f844be5ce86bd5089282e90bddbea"
-                alt="Betterfly FOOH monument execution 3"
-                fill
-                className="object-cover"
-                unoptimized
-              />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
-            </TiltCard>
-          </motion.div>
-          <motion.div variants={galleryItem} className="md:col-span-4">
-            <HolographicSheen>
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/700cdcee-cf9b-4414-b54c-82e507d0ed53_rw_3840.jpg?h=ad51ee0c19861e16fffbd807aa14d780"
-                  alt="Betterfly FOOH monument execution 4"
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
-              </div>
-            </HolographicSheen>
-          </motion.div>
-          <motion.div variants={galleryItem} className="md:col-span-4">
-            <DistortionCard>
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/158c693d-d708-434a-8451-47c529b3cc20_rw_3840.jpg?h=a7b17b9dff25de2b80d8d8cdfeb196cc"
-                  alt="Betterfly FOOH monument execution 5"
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
-              </div>
-            </DistortionCard>
-          </motion.div>
-
-          {/* Row 3: Full-width VFX breakdown */}
+          {/* Row 1: Full-width hero */}
           <motion.div variants={galleryItem} className="md:col-span-12">
-            <TiltCard className="aspect-[21/9] rounded-2xl overflow-hidden relative group">
+            <TiltCard maxTilt={6} className="aspect-[21/9] rounded-2xl overflow-hidden relative group">
               <HolographicSheen className="!absolute inset-0">
                 <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/e9307a9f-c204-4722-9a9f-4d5b3113db28_rw_3840.jpg?h=72945d2944442b86cf4ba4dc3f52f58b"
-                  alt="Betterfly FOOH VFX breakdown"
+                  src={galleryImages[0]}
+                  alt="Unplugged Sessions performance still 1"
                   fill
                   className="object-cover"
-                  unoptimized
+                  sizes="100vw"
                 />
               </HolographicSheen>
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
             </TiltCard>
           </motion.div>
 
-          {/* Row 4: Social media assets - 2x2 grid */}
-          <motion.div variants={galleryItem} className="md:col-span-3">
-            <TiltCard className="aspect-square rounded-2xl overflow-hidden relative group">
-              <Image
-                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/d06fd2d0-9618-4b28-a9ca-e2a56de0f9cc_rw_600.png?h=840f98de7ce65d2053f15fc1a332bb28"
-                alt="Betterfly social media asset 1"
-                fill
-                className="object-cover"
-                unoptimized
-              />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
-            </TiltCard>
-          </motion.div>
-          <motion.div variants={galleryItem} className="md:col-span-3">
+          {/* Row 2: Wide + tall */}
+          <motion.div variants={galleryItem} className="md:col-span-7">
             <DistortionCard>
-              <div className="aspect-square rounded-2xl overflow-hidden relative group">
+              <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
                 <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/cccf2a57-e137-49db-b68b-570f7e4fe7bb_rw_600.png?h=c478a37e18d4ff133ffe947f26345c64"
-                  alt="Betterfly social media asset 2"
+                  src={galleryImages[1]}
+                  alt="Unplugged Sessions performance still 2"
                   fill
                   className="object-cover"
-                  unoptimized
+                  sizes="(max-width: 768px) 100vw, 58vw"
                 />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
+                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
               </div>
             </DistortionCard>
           </motion.div>
-          <motion.div variants={galleryItem} className="md:col-span-3">
+          <motion.div variants={galleryItem} className="md:col-span-5">
+            <TiltCard className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
+              <Image
+                src={galleryImages[2]}
+                alt="Unplugged Sessions performance still 3"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 42vw"
+              />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
+            </TiltCard>
+          </motion.div>
+
+          {/* Row 3: Three equal columns */}
+          <motion.div variants={galleryItem} className="md:col-span-4">
             <HolographicSheen>
-              <div className="aspect-square rounded-2xl overflow-hidden relative group">
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
                 <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/e854902b-d6b9-4da5-af46-a70b99f340c9_rw_1200.png?h=e07b0dc8c60685b5d414767e27915bfe"
-                  alt="Betterfly social media asset 3"
+                  src={galleryImages[3]}
+                  alt="Unplugged Sessions performance still 4"
                   fill
                   className="object-cover"
-                  unoptimized
+                  sizes="(max-width: 768px) 100vw, 33vw"
                 />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
+                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
               </div>
             </HolographicSheen>
           </motion.div>
-          <motion.div variants={galleryItem} className="md:col-span-3">
-            <TiltCard className="aspect-square rounded-2xl overflow-hidden relative group">
+          <motion.div variants={galleryItem} className="md:col-span-4">
+            <TiltCard className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
               <Image
-                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/bc6dcbf4-5941-4a5b-9eaf-ec3f35d31163_rw_1200.png?h=60a8aa2806584e03b80f08b765317b22"
-                alt="Betterfly social media asset 4"
+                src={galleryImages[4]}
+                alt="Unplugged Sessions performance still 5"
                 fill
                 className="object-cover"
-                unoptimized
+                sizes="(max-width: 768px) 100vw, 33vw"
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
+            </TiltCard>
+          </motion.div>
+          <motion.div variants={galleryItem} className="md:col-span-4">
+            <DistortionCard>
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+                <Image
+                  src={galleryImages[5]}
+                  alt="Unplugged Sessions performance still 6"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
+              </div>
+            </DistortionCard>
+          </motion.div>
+
+          {/* Row 4: Asymmetric pair */}
+          <motion.div variants={galleryItem} className="md:col-span-5">
+            <TiltCard className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
+              <HolographicSheen className="!absolute inset-0">
+                <Image
+                  src={galleryImages[6]}
+                  alt="Unplugged Sessions performance still 7"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 42vw"
+                />
+              </HolographicSheen>
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
+            </TiltCard>
+          </motion.div>
+          <motion.div variants={galleryItem} className="md:col-span-7">
+            <DistortionCard>
+              <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
+                <Image
+                  src={galleryImages[7]}
+                  alt="Unplugged Sessions performance still 8"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 58vw"
+                />
+                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
+              </div>
+            </DistortionCard>
+          </motion.div>
+
+          {/* Row 5: Full-width closing */}
+          <motion.div variants={galleryItem} className="md:col-span-12">
+            <TiltCard maxTilt={6} className="aspect-[21/9] rounded-2xl overflow-hidden relative group">
+              <HolographicSheen className="!absolute inset-0">
+                <Image
+                  src={galleryImages[8]}
+                  alt="Unplugged Sessions performance closing still"
+                  fill
+                  className="object-cover"
+                  sizes="100vw"
+                />
+              </HolographicSheen>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
             </TiltCard>
           </motion.div>
         </motion.div>
@@ -607,12 +685,12 @@ export default function BetterflyProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             The Result
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            Global presence,{" "}
-            <span className="gradient-text">zero logistics</span>
+            A series that{" "}
+            <span className="gradient-text">feels like the room</span>
           </h2>
         </motion.div>
 
@@ -627,10 +705,10 @@ export default function BetterflyProject() {
             <motion.li
               key={result}
               variants={staggerItem}
-              className="flex items-start gap-4 p-5 rounded-xl border border-white/5 bg-white/[0.02] hover:border-emerald-400/20 hover:bg-emerald-400/[0.03] transition-all duration-500"
+              className="flex items-start gap-4 p-5 rounded-xl border border-white/5 bg-white/[0.02] hover:border-electric-indigo/20 hover:bg-electric-indigo/[0.03] transition-all duration-500"
             >
               <svg
-                className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5"
+                className="w-5 h-5 text-electric-indigo flex-shrink-0 mt-0.5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -664,11 +742,11 @@ export default function BetterflyProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
-            Tools & Technology
+          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+            Capabilities
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            The <span className="gradient-text">production stack</span>
+            The <span className="gradient-text">production toolkit</span>
           </h2>
         </motion.div>
 
@@ -677,15 +755,15 @@ export default function BetterflyProject() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-4"
         >
           {tools.map((tool) => (
             <motion.div
               key={tool.name}
               variants={staggerItem}
-              className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-emerald-400/20 hover:bg-emerald-400/[0.03] transition-all duration-500"
+              className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-electric-indigo/20 hover:bg-electric-indigo/[0.03] transition-all duration-500"
             >
-              <h3 className="font-headline text-lg font-bold text-pure-white mb-2 group-hover:text-emerald-400 transition-colors duration-300">
+              <h3 className="font-headline text-lg font-bold text-pure-white mb-2 group-hover:text-electric-indigo transition-colors duration-300">
                 {tool.name}
               </h3>
               <p className="font-body text-sm text-cool-gray leading-relaxed">
@@ -711,19 +789,19 @@ export default function BetterflyProject() {
           className="text-center max-w-2xl mx-auto"
         >
           <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
-            Ready to make{" "}
-            <span className="gradient-text">a global statement</span>?
+            Have a performance{" "}
+            <span className="gradient-text">worth capturing</span>?
           </h2>
           <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed mb-10">
-            Let&rsquo;s create campaign content that commands attention and
-            breaks through the noise, no logistics required.
+            Let&rsquo;s direct a live music series that feels intimate, looks
+            cinematic, and travels well across every platform.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/#contact" className="btn-primary">
               Book a Call
             </Link>
             <Link
-              href="/projects/new-era-cap"
+              href="/projects/el-secreto"
               className="btn-secondary group inline-flex items-center gap-2"
             >
               View Next Project

@@ -41,7 +41,7 @@ function fibonacciSphere(index: number, total: number, radius: number): THREE.Ve
 }
 
 // ---------------------------------------------------------------------------
-// Mouse tracker — updates a shared ref from pointer events on the Canvas
+// Mouse tracker - updates a shared ref from pointer events on the Canvas
 // ---------------------------------------------------------------------------
 function useMousePosition() {
   const mouse = useRef(new THREE.Vector2(0, 0));
@@ -233,7 +233,7 @@ function NebulaParticles({ mouse }: NebulaParticlesProps) {
 }
 
 // ---------------------------------------------------------------------------
-// Glow Orbs — large, translucent spheres that drift and pulse
+// Glow Orbs - large, translucent spheres that drift and pulse
 // ---------------------------------------------------------------------------
 function GlowOrbs() {
   const orb1 = useRef<THREE.Mesh>(null);
@@ -319,7 +319,7 @@ function Scene({ mouse }: { mouse: React.MutableRefObject<THREE.Vector2> }) {
 }
 
 // ---------------------------------------------------------------------------
-// Exported component — handles SSR, canvas, and pointer tracking
+// Exported component - handles SSR, canvas, and pointer tracking
 // ---------------------------------------------------------------------------
 export default function ParticleNebula() {
   const [mounted, setMounted] = useState(false);

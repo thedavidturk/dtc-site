@@ -31,7 +31,7 @@ const staggerItem = {
 
 const moreArticles = [
   {
-    title: "Why Your Competitors Are Using AI Agents — And You Should Too",
+    title: "Why Your Competitors Are Using AI Agents - And You Should Too",
     category: "AI + BUSINESS",
     href: "/insights/ai-agents-business",
     gradient: "from-indigo-500/30 via-blue-900/50 to-deep-space",
@@ -49,7 +49,7 @@ export default function AIContentFlywheelArticle() {
     <article className="bg-deep-space min-h-screen">
       <ArticleJsonLd
         title="The AI Content Flywheel: How Smart Brands Turn One Idea Into 50 Assets"
-        description="The brands winning the content game aren't producing more — they're producing smarter. Here's how AI-powered content flywheels multiply every creative investment."
+        description="The brands winning the content game aren't producing more - they're producing smarter. Here's how AI-powered content flywheels multiply every creative investment."
         datePublished="2026-04-01"
         url="https://davidturkcreative.com/insights/ai-content-flywheel"
       />

@@ -57,7 +57,7 @@ function generateParticles(count: number, w: number, h: number): StreakParticle[
 
   for (let i = 0; i < count; i++) {
     const color = pickColor();
-    // Random drift direction when idle — very slow
+    // Random drift direction when idle - very slow
     const angle = randomBetween(0, Math.PI * 2);
     const driftSpeed = randomBetween(0.1, 0.3);
 

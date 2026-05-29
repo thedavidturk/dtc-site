@@ -44,13 +44,44 @@ const galleryContainer = {
 };
 
 const galleryItem = {
-  hidden: { opacity: 0, y: 50, scale: 0.96 },
+  hidden: { opacity: 0, y: 50, scale: 0.94 },
   visible: {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
   },
+};
+
+/* ------------------------------------------------------------------ */
+/*  Image Assets (scraped from source portfolio)                       */
+/* ------------------------------------------------------------------ */
+
+const IMG = {
+  hero:
+    "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/064ef118-8ff6-403b-a0e4-51566918af93_rw_1920.png?h=bd78343154890b27219b81afe8e77b41",
+  g1:
+    "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/19d48a10-2986-4a15-a476-1c99707a61a9_rw_1920.png?h=8ff8ca268821df7e4d543d96b2f869f3",
+  g2:
+    "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/2a888a75-4520-498b-979c-aa2055dd9c69_rw_1920.png?h=3c9a6184704774149efc57a4ca36e171",
+  g3:
+    "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/2ef75978-54b0-48e3-8987-e06007432d5f_rw_1920.png?h=87a00194fd493a4dc4c31b64e264972a",
+  g4:
+    "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/3c8e3a05-a6ab-402c-8442-9a7ca628c16c_rw_1920.png?h=8c02bd4fc8375f3307dfd5eb7d6723d4",
+  g5:
+    "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6bb93e9b-31d6-477a-868f-c599c8c6a32e_rw_1920.png?h=643d87e4412545ff4718c9db97fff932",
+  g6:
+    "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/91a8b41a-586c-4e28-bb43-c09a5ea9d45b_rw_1920.png?h=9cde059b21dc897b236f98f67d47cf63",
+  g7:
+    "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/97acbd50-569b-460b-8ece-e3e52a75b24b_rw_1920.png?h=6e68f6606a12c2d5470991488100ab08",
+  g8:
+    "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/cda7ce6b-d551-4675-9adc-aef14c296e9c_rw_1920.png?h=cd9cd1acd1e97e3551619bda8cb0a8a1",
+  g9:
+    "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/d2ad4c33-60ee-4d48-ae00-d1fdf08cab24_rw_1920.png?h=fa7a126a369172d8a44570287d37038a",
+  g10:
+    "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/fcd6b7ac-0ef9-4962-8003-0ef967e0cfd2_rw_1920.png?h=ec383158ba0eef0c8643567574c1cbdd",
+  g11:
+    "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/12fc8df4-1822-4164-8788-0c7fce2e1087_rw_1920.png?h=151b707f3768b2a8fe2b408fc4526d52",
 };
 
 /* ------------------------------------------------------------------ */
@@ -58,79 +89,79 @@ const galleryItem = {
 /* ------------------------------------------------------------------ */
 
 const overview = {
-  client: "Betterfly",
-  industry: "HR Technology / Benefits",
-  timeline: "4 Weeks",
+  client: "Brugal 1888 Rum",
+  industry: "Spirits / Event Content",
+  timeline: "Miami Concours 2023",
   services: [
-    "VFX Compositing",
-    "FOOH (Fake Out-of-Home)",
-    "Campaign Video Production",
-    "VFX Breakdown Reels",
-    "Social Media Content",
+    "Cinematic Videography",
+    "Event Coverage",
+    "4K Capture",
+    "Editorial & Post-Production",
+    "Brand Storytelling",
   ],
 };
 
 const approach = [
   {
     step: "01",
-    title: "Concept & Monument Selection",
+    title: "Understanding the Brief",
     description:
-      "Identified iconic global monuments that would maximize visual impact and cultural resonance. Each location was chosen for its recognizability and the dramatic potential of draping massive branded banners across its architecture.",
+      "Brugal 1888 wanted its presence at the Miami Concours 2023 car show captured in a way that honored the brand. The goal was to fuse Brugal 1888's rich Dominican heritage with the high-end energy of the show floor, telling that story through moving image.",
   },
   {
     step: "02",
-    title: "Footage Acquisition & Camera Matching",
+    title: "Shooting on the Canon C70",
     description:
-      "Sourced high-quality footage of each monument and meticulously matched camera angles, lighting conditions, and perspective to ensure seamless VFX integration. Every frame needed to feel authentically captured.",
+      "Equipped with the Canon C70 Cinema Camera, I moved through the crowd to capture the event from the inside. The camera's wide dynamic range and robust color options made it possible to encapsulate the high-spirited nature of the room in a uniquely creative way.",
   },
   {
     step: "03",
-    title: "VFX Banner Simulation & Compositing",
+    title: "Capturing in 4K",
     description:
-      "Digitally created and animated massive Betterfly banners draped over each monument using advanced cloth simulation and compositing. Shadows, reflections, and environmental interactions were crafted to make each placement indistinguishable from reality.",
+      "The entire shoot was recorded in 4K high-resolution to realize the full potential of the C70. That attention to detail brought out the custom rum bottles and art installations, ensuring every delicate element was captured with the utmost clarity.",
   },
   {
     step: "04",
-    title: "Campaign Video Assembly",
+    title: "Editing the Story",
     description:
-      "Assembled the individual monument executions into a cohesive campaign video with dynamic pacing, branded messaging, and a narrative arc targeting HR administrators worldwide.",
+      "Post-production happened in Adobe Premiere Pro, where raw footage was cut, arranged, and refined frame by frame. The real magic of the edit was transforming live coverage into a cohesive cinematic story of the night Brugal 1888 hosted at the Concours.",
   },
   {
     step: "05",
-    title: "VFX Breakdowns & Social Distribution",
+    title: "Delivering the Narrative",
     description:
-      "Produced detailed VFX breakdown reels showing each monument's transformation stages, from raw footage to final composite. These behind-the-scenes assets amplified engagement and showcased production expertise.",
+      "The finished piece is a visually compelling narrative of the Brugal 1888 event, blending storytelling with the power of visual aesthetics and giving the brand a vibrant, engaging asset to carry forward.",
   },
 ];
 
 const results = [
-  "Six iconic monument executions delivered across social platforms",
-  "Campaign generated measurable social media buzz and engagement",
-  "VFX breakdowns drove additional content virality",
-  "Achieved global out-of-home impact without physical production costs",
-  "Positioned Betterfly as a bold, innovative brand in the HR tech space",
+  "A cinematic narrative of Brugal 1888 at Miami Concours 2023",
+  "4K high-resolution footage that accentuated the custom rum bottles and art installations",
+  "Dominican heritage fused with the vibrant energy of the Miami show floor",
+  "Wide dynamic range and rich color grading captured on the Canon C70",
+  "A polished, engaging brand film delivered through meticulous editing",
 ];
 
-const tools = [
+const capabilities = [
   {
-    name: "Adobe After Effects",
+    name: "Canon C70 Cinema Camera",
     description:
-      "VFX compositing, banner simulation, camera tracking, and final visual effects polish for each monument execution.",
+      "Wide dynamic range and robust color grading captured the high-spirited nature of the event in a uniquely creative manner.",
   },
   {
-    name: "Cinema 4D",
+    name: "4K Capture",
     description:
-      "3D cloth simulation for realistic banner draping, lighting matching, and environmental integration.",
+      "The full shoot recorded in 4K high-resolution, bringing breathtaking clarity to the custom bottles and art installations.",
   },
   {
     name: "Adobe Premiere Pro",
     description:
-      "Campaign video assembly, pacing, and multi-format social media delivery across platforms.",
+      "Cutting, arranging, and refining footage frame by frame to transform raw coverage into a cohesive cinematic story.",
   },
   {
-    name: "Adobe Photoshop",
+    name: "Brand Storytelling",
     description:
-      "Texture creation, matte painting, and detailed compositing work for seamless monument integration.",
+      "Blending the Dominican heritage of Brugal 1888 with the energy of Miami into an engaging, on-brand narrative.",
   },
 ];
 
@@ -138,7 +169,7 @@ const tools = [
 /*  Component                                                          */
 /* ------------------------------------------------------------------ */
 
-export default function BetterflyProject() {
+export default function BrugalRumProject() {
   return (
     <article className="bg-deep-space min-h-screen" style={{ backgroundColor: "#0B0F19" }}>
       {/* ── Back Link ─────────────────────────────────────────────── */}
@@ -171,27 +202,27 @@ export default function BetterflyProject() {
 
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-end overflow-hidden">
-        {/* GIF cover image */}
+        {/* Cover image */}
         <div className="absolute inset-0">
           <Image
-            src="https://media.giphy.com/media/OWRTtgINto81tGKtJi/giphy.gif"
-            alt="Betterfly FOOH campaign VFX scene"
+            src={IMG.hero}
+            alt="Brugal Rum activation at Miami Concours 2023"
             fill
+            sizes="100vw"
             className="object-cover"
-            unoptimized
             priority
           />
         </div>
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-black/45" />
 
         {/* Radial fade at bottom */}
         <div className="absolute inset-0 z-[2] bg-gradient-to-t from-deep-space via-deep-space/40 to-transparent" />
 
         {/* Floating geometric accents */}
-        <div className="absolute top-1/4 left-1/3 w-44 h-44 border border-white/[0.06] rounded-full animate-pulse z-[2]" />
-        <div className="absolute bottom-1/3 right-1/4 w-20 h-20 border border-white/10 rounded-xl rotate-[18deg] z-[2]" />
-        <div className="absolute top-1/3 left-1/5 w-3 h-3 bg-white/20 rounded-full z-[2]" />
-        <div className="absolute bottom-1/4 right-1/3 w-2 h-2 bg-white/10 rounded-full z-[2]" />
+        <div className="absolute top-1/4 left-1/5 w-36 h-36 border border-white/[0.06] rounded-full animate-pulse z-[2]" />
+        <div className="absolute top-1/3 right-1/4 w-20 h-20 border border-white/10 rounded-xl rotate-12 z-[2]" />
+        <div className="absolute bottom-1/3 left-1/3 w-3 h-3 bg-warm-coral/40 rounded-full z-[2]" />
+        <div className="absolute top-1/2 right-1/3 w-2 h-2 bg-white/10 rounded-full z-[2]" />
 
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
           <motion.div
@@ -200,7 +231,7 @@ export default function BetterflyProject() {
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
-              VFX + FOOH Campaign
+              Event Videography
             </span>
           </motion.div>
 
@@ -210,7 +241,7 @@ export default function BetterflyProject() {
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="font-headline text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-4"
           >
-            BETTERFLY
+            BRUGAL RUM
           </motion.h1>
 
           <motion.p
@@ -219,7 +250,7 @@ export default function BetterflyProject() {
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
             className="font-headline text-2xl md:text-3xl lg:text-4xl font-medium text-white/80 tracking-tight"
           >
-            #RecursosMasHumanos FOOH Campaign
+            Miami Concours 2023
           </motion.p>
 
           {/* Animated line */}
@@ -227,7 +258,7 @@ export default function BetterflyProject() {
             initial={{ width: 0 }}
             animate={{ width: "6rem" }}
             transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="h-px bg-gradient-to-r from-emerald-400 to-teal-400 mt-8"
+            className="h-px bg-gradient-to-r from-warm-coral to-amber-400 mt-8"
           />
         </div>
       </section>
@@ -245,7 +276,7 @@ export default function BetterflyProject() {
           >
             <div className="lg:sticky lg:top-28 space-y-8">
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-warm-coral mb-2">
                   Client
                 </p>
                 <p className="font-headline text-lg font-semibold text-pure-white">
@@ -253,23 +284,19 @@ export default function BetterflyProject() {
                 </p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-warm-coral mb-2">
                   Industry
                 </p>
-                <p className="font-body text-cool-gray">
-                  {overview.industry}
-                </p>
+                <p className="font-body text-cool-gray">{overview.industry}</p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-2">
-                  Timeline
+                <p className="font-mono text-xs tracking-widest uppercase text-warm-coral mb-2">
+                  Event
                 </p>
-                <p className="font-body text-cool-gray">
-                  {overview.timeline}
-                </p>
+                <p className="font-body text-cool-gray">{overview.timeline}</p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-warm-coral mb-2">
                   Services
                 </p>
                 <ul className="space-y-2">
@@ -278,7 +305,7 @@ export default function BetterflyProject() {
                       key={service}
                       className="flex items-center gap-3 font-body text-sm text-cool-gray"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-warm-coral flex-shrink-0" />
                       {service}
                     </li>
                   ))}
@@ -295,29 +322,29 @@ export default function BetterflyProject() {
             viewport={{ once: true, margin: "-80px" }}
             className="lg:col-span-8"
           >
-            <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
+            <p className="font-mono text-sm text-warm-coral tracking-widest uppercase mb-4">
               The Challenge
             </p>
             <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
-              Global out-of-home impact{" "}
-              <span className="gradient-text">without the logistics</span>
+              Capturing a Caribbean spirit{" "}
+              <span className="gradient-text">on a luxury show floor</span>
             </h2>
             <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
               <p>
-                Betterfly needed a visually striking campaign to announce
-                &ldquo;a new era of benefits&rdquo; and position their platform
-                in front of HR administrators worldwide. They wanted the impact
-                of a massive global out-of-home campaign (branded banners
-                draped over iconic monuments) without the impossible logistics
-                and budget of physically wrapping world landmarks.
+                Brugal 1888 Rum approached us with a unique opportunity: capture
+                their event held during the Miami Concours 2023 car show, an
+                exhibition known for displaying high-end luxury vehicles and the
+                fervor of automotive enthusiasts. The objective was to highlight
+                the brand's presence and showcase the fusion of Brugal 1888's
+                rich Dominican heritage with the vibrant energy of Miami.
               </p>
               <p>
-                The challenge: make it look completely real. Every banner needed
-                to interact convincingly with the architecture (matching
-                lighting, casting shadows, responding to wind) so viewers
-                would do a double-take before realizing it was VFX. The campaign
-                had to generate social media buzz and position Betterfly as a
-                bold, forward-thinking brand.
+                The challenge was to bring the dynamic essence of a live, fast
+                moving event to life on screen. We needed to move through the
+                crowd, work in changing light, and emphasize the custom rum
+                bottles and art installations, all while producing footage
+                polished enough to match the premium world the brand was standing
+                inside.
               </p>
             </div>
           </motion.div>
@@ -338,12 +365,12 @@ export default function BetterflyProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-16"
         >
-          <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-warm-coral tracking-widest uppercase mb-4">
             Our Approach
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            From monuments to feeds{" "}
-            <span className="gradient-text">in five steps</span>
+            From show floor to{" "}
+            <span className="gradient-text">cinematic cut</span>
           </h2>
         </motion.div>
 
@@ -361,7 +388,7 @@ export default function BetterflyProject() {
               className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 group"
             >
               <div className="md:col-span-1">
-                <span className="font-mono text-3xl md:text-4xl font-bold text-emerald-400/30 group-hover:text-emerald-400 transition-colors duration-500">
+                <span className="font-mono text-3xl md:text-4xl font-bold text-warm-coral/30 group-hover:text-warm-coral transition-colors duration-500">
                   {item.step}
                 </span>
               </div>
@@ -392,27 +419,30 @@ export default function BetterflyProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="max-w-4xl"
         >
-          <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-warm-coral tracking-widest uppercase mb-4">
             The Solution
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
-            Fake out-of-home,{" "}
-            <span className="gradient-text">real impact</span>
+            Storytelling through{" "}
+            <span className="gradient-text">the lens</span>
           </h2>
           <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
             <p>
-              We used VFX to digitally drape massive Betterfly branded banners
-              over six iconic global monuments. Advanced cloth simulation,
-              precise camera tracking, and meticulous compositing made each
-              execution indistinguishable from a real installation, the kind of
-              spectacle that makes people stop scrolling and share.
+              We leaned on cinematography and editing to bring the dynamic essence
+              of the event to life. Shooting on the Canon C70 Cinema Camera, a
+              device renowned for its wide dynamic range and robust color grading,
+              we delved into the crowd and captured the high-spirited nature of
+              the night entirely in 4K high-resolution. That attention to detail
+              emphasized the custom rum bottles and art installations, presenting
+              every element with the utmost clarity.
             </p>
             <p>
-              Beyond the hero campaign video, we produced detailed VFX breakdown
-              reels for each monument, showing the transformation from raw
-              footage to final composite. These behind-the-scenes assets became
-              content multipliers, driving additional engagement and showcasing
-              the craft behind the campaign.
+              The real magic happened in post. Inside Adobe Premiere Pro, raw
+              footage was cut, arranged, and refined frame by frame into a
+              cohesive cinematic story. The finished project is a visually
+              compelling narrative of Brugal 1888 at Miami Concours 2023, blending
+              storytelling with the power of visual aesthetics to showcase the
+              brand in a vibrant, engaging way.
             </p>
           </div>
         </motion.div>
@@ -423,7 +453,7 @@ export default function BetterflyProject() {
         <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
-      {/* ── Campaign Gallery ────────────────────────────────────── */}
+      {/* ── Activation Gallery ──────────────────────────────────── */}
       <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
         <motion.div
           variants={fadeUp}
@@ -432,11 +462,12 @@ export default function BetterflyProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-16"
         >
-          <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
-            Campaign Gallery
+          <p className="font-mono text-sm text-warm-coral tracking-widest uppercase mb-4">
+            Activation Gallery
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            Monument <span className="gradient-text">Executions</span>
+            The bottles, the art &{" "}
+            <span className="gradient-text">the energy</span>
           </h2>
         </motion.div>
 
@@ -447,147 +478,162 @@ export default function BetterflyProject() {
           viewport={{ once: true, margin: "-60px" }}
           className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6"
         >
-          {/* Row 1: Wide hero + tall side */}
-          <motion.div variants={galleryItem} className="md:col-span-7">
-            <TiltCard className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
-              <HolographicSheen className="!absolute inset-0">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/afa1b619-7f85-4631-b906-65725f2afb1d_rw_3840.jpg?h=c011327012d82e389e6536546dad732a"
-                  alt="Betterfly FOOH monument execution 1"
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
-              </HolographicSheen>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
-            </TiltCard>
-          </motion.div>
-          <motion.div variants={galleryItem} className="md:col-span-5">
-            <DistortionCard>
-              <div className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/0c4aae34-962c-4708-9e09-10d7c2270b0d_rw_3840.jpg?h=9486e194d38c38c0b70c1ffc7e317fcd"
-                  alt="Betterfly FOOH monument execution 2"
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
-              </div>
-            </DistortionCard>
-          </motion.div>
-
-          {/* Row 2: Three equal columns */}
-          <motion.div variants={galleryItem} className="md:col-span-4">
-            <TiltCard className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
-              <Image
-                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/86e3da3a-6b51-4572-94f5-260d6a761c0f_rw_3840.jpg?h=9b9f844be5ce86bd5089282e90bddbea"
-                alt="Betterfly FOOH monument execution 3"
-                fill
-                className="object-cover"
-                unoptimized
-              />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
-            </TiltCard>
-          </motion.div>
-          <motion.div variants={galleryItem} className="md:col-span-4">
-            <HolographicSheen>
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/700cdcee-cf9b-4414-b54c-82e507d0ed53_rw_3840.jpg?h=ad51ee0c19861e16fffbd807aa14d780"
-                  alt="Betterfly FOOH monument execution 4"
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
-              </div>
-            </HolographicSheen>
-          </motion.div>
-          <motion.div variants={galleryItem} className="md:col-span-4">
-            <DistortionCard>
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/158c693d-d708-434a-8451-47c529b3cc20_rw_3840.jpg?h=a7b17b9dff25de2b80d8d8cdfeb196cc"
-                  alt="Betterfly FOOH monument execution 5"
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
-              </div>
-            </DistortionCard>
-          </motion.div>
-
-          {/* Row 3: Full-width VFX breakdown */}
+          {/* Row 1 - full-width hero */}
           <motion.div variants={galleryItem} className="md:col-span-12">
-            <TiltCard className="aspect-[21/9] rounded-2xl overflow-hidden relative group">
+            <TiltCard maxTilt={6} className="aspect-[21/9] rounded-2xl overflow-hidden relative group">
               <HolographicSheen className="!absolute inset-0">
                 <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/e9307a9f-c204-4722-9a9f-4d5b3113db28_rw_3840.jpg?h=72945d2944442b86cf4ba4dc3f52f58b"
-                  alt="Betterfly FOOH VFX breakdown"
+                  src={IMG.g1}
+                  alt="Brugal Rum branded lounge at Miami Concours"
                   fill
+                  sizes="100vw"
                   className="object-cover"
-                  unoptimized
                 />
               </HolographicSheen>
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
             </TiltCard>
           </motion.div>
 
-          {/* Row 4: Social media assets - 2x2 grid */}
-          <motion.div variants={galleryItem} className="md:col-span-3">
-            <TiltCard className="aspect-square rounded-2xl overflow-hidden relative group">
-              <Image
-                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/d06fd2d0-9618-4b28-a9ca-e2a56de0f9cc_rw_600.png?h=840f98de7ce65d2053f15fc1a332bb28"
-                alt="Betterfly social media asset 1"
-                fill
-                className="object-cover"
-                unoptimized
-              />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
-            </TiltCard>
-          </motion.div>
-          <motion.div variants={galleryItem} className="md:col-span-3">
+          {/* Row 2 - wide + tall */}
+          <motion.div variants={galleryItem} className="md:col-span-7">
             <DistortionCard>
-              <div className="aspect-square rounded-2xl overflow-hidden relative group">
+              <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
                 <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/cccf2a57-e137-49db-b68b-570f7e4fe7bb_rw_600.png?h=c478a37e18d4ff133ffe947f26345c64"
-                  alt="Betterfly social media asset 2"
+                  src={IMG.g2}
+                  alt="Brugal activation footprint and signage"
                   fill
+                  sizes="(max-width: 768px) 100vw, 58vw"
                   className="object-cover"
-                  unoptimized
                 />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
+                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
               </div>
             </DistortionCard>
           </motion.div>
-          <motion.div variants={galleryItem} className="md:col-span-3">
+          <motion.div variants={galleryItem} className="md:col-span-5">
+            <TiltCard className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
+              <Image
+                src={IMG.g3}
+                alt="Brugal signature cocktail serve"
+                fill
+                sizes="(max-width: 768px) 100vw, 42vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+            </TiltCard>
+          </motion.div>
+
+          {/* Row 3 - three equal columns */}
+          <motion.div variants={galleryItem} className="md:col-span-4">
             <HolographicSheen>
-              <div className="aspect-square rounded-2xl overflow-hidden relative group">
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
                 <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/e854902b-d6b9-4da5-af46-a70b99f340c9_rw_1200.png?h=e07b0dc8c60685b5d414767e27915bfe"
-                  alt="Betterfly social media asset 3"
+                  src={IMG.g4}
+                  alt="Brugal bar program detail"
                   fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover"
-                  unoptimized
                 />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
+                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
               </div>
             </HolographicSheen>
           </motion.div>
-          <motion.div variants={galleryItem} className="md:col-span-3">
-            <TiltCard className="aspect-square rounded-2xl overflow-hidden relative group">
+          <motion.div variants={galleryItem} className="md:col-span-4">
+            <TiltCard className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
               <Image
-                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/bc6dcbf4-5941-4a5b-9eaf-ec3f35d31163_rw_1200.png?h=60a8aa2806584e03b80f08b765317b22"
-                alt="Betterfly social media asset 4"
+                src={IMG.g5}
+                alt="Guests at the Brugal lounge"
                 fill
+                sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover"
-                unoptimized
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+            </TiltCard>
+          </motion.div>
+          <motion.div variants={galleryItem} className="md:col-span-4">
+            <DistortionCard>
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+                <Image
+                  src={IMG.g6}
+                  alt="Brugal brand ambassadors hosting guests"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+              </div>
+            </DistortionCard>
+          </motion.div>
+
+          {/* Row 4 - asymmetric pair */}
+          <motion.div variants={galleryItem} className="md:col-span-5">
+            <TiltCard className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
+              <HolographicSheen className="!absolute inset-0">
+                <Image
+                  src={IMG.g7}
+                  alt="Brugal Rum bottle presentation"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 42vw"
+                  className="object-cover"
+                />
+              </HolographicSheen>
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+            </TiltCard>
+          </motion.div>
+          <motion.div variants={galleryItem} className="md:col-span-7">
+            <DistortionCard>
+              <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
+                <Image
+                  src={IMG.g8}
+                  alt="Brugal activation at golden hour"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 58vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+              </div>
+            </DistortionCard>
+          </motion.div>
+
+          {/* Row 5 - three equal columns */}
+          <motion.div variants={galleryItem} className="md:col-span-4">
+            <DistortionCard>
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+                <Image
+                  src={IMG.g9}
+                  alt="Brugal cocktail detail"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+              </div>
+            </DistortionCard>
+          </motion.div>
+          <motion.div variants={galleryItem} className="md:col-span-4">
+            <HolographicSheen>
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+                <Image
+                  src={IMG.g10}
+                  alt="Brugal lounge atmosphere"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+              </div>
+            </HolographicSheen>
+          </motion.div>
+          <motion.div variants={galleryItem} className="md:col-span-4">
+            <TiltCard className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+              <Image
+                src={IMG.g11}
+                alt="Brugal branding across the show floor"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
             </TiltCard>
           </motion.div>
         </motion.div>
@@ -607,12 +653,12 @@ export default function BetterflyProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-warm-coral tracking-widest uppercase mb-4">
             The Result
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            Global presence,{" "}
-            <span className="gradient-text">zero logistics</span>
+            A story told{" "}
+            <span className="gradient-text">in vivid 4K</span>
           </h2>
         </motion.div>
 
@@ -627,10 +673,10 @@ export default function BetterflyProject() {
             <motion.li
               key={result}
               variants={staggerItem}
-              className="flex items-start gap-4 p-5 rounded-xl border border-white/5 bg-white/[0.02] hover:border-emerald-400/20 hover:bg-emerald-400/[0.03] transition-all duration-500"
+              className="flex items-start gap-4 p-5 rounded-xl border border-white/5 bg-white/[0.02] hover:border-warm-coral/20 hover:bg-warm-coral/[0.03] transition-all duration-500"
             >
               <svg
-                className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5"
+                className="w-5 h-5 text-warm-coral flex-shrink-0 mt-0.5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -655,7 +701,7 @@ export default function BetterflyProject() {
         <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
-      {/* ── Tools & Technology ────────────────────────────────────── */}
+      {/* ── Capabilities ──────────────────────────────────────────── */}
       <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
         <motion.div
           variants={fadeUp}
@@ -664,8 +710,8 @@ export default function BetterflyProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
-            Tools & Technology
+          <p className="font-mono text-sm text-warm-coral tracking-widest uppercase mb-4">
+            Capabilities
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
             The <span className="gradient-text">production stack</span>
@@ -677,15 +723,15 @@ export default function BetterflyProject() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-4"
         >
-          {tools.map((tool) => (
+          {capabilities.map((tool) => (
             <motion.div
               key={tool.name}
               variants={staggerItem}
-              className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-emerald-400/20 hover:bg-emerald-400/[0.03] transition-all duration-500"
+              className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-warm-coral/20 hover:bg-warm-coral/[0.03] transition-all duration-500"
             >
-              <h3 className="font-headline text-lg font-bold text-pure-white mb-2 group-hover:text-emerald-400 transition-colors duration-300">
+              <h3 className="font-headline text-lg font-bold text-pure-white mb-2 group-hover:text-warm-coral transition-colors duration-300">
                 {tool.name}
               </h3>
               <p className="font-body text-sm text-cool-gray leading-relaxed">
@@ -711,19 +757,19 @@ export default function BetterflyProject() {
           className="text-center max-w-2xl mx-auto"
         >
           <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
-            Ready to make{" "}
-            <span className="gradient-text">a global statement</span>?
+            Ready to capture{" "}
+            <span className="gradient-text">your next event</span>?
           </h2>
           <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed mb-10">
-            Let&rsquo;s create campaign content that commands attention and
-            breaks through the noise, no logistics required.
+            Let&rsquo;s turn your event into a cinematic story that captures the
+            energy of the room and keeps working long after the night ends.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/#contact" className="btn-primary">
               Book a Call
             </Link>
             <Link
-              href="/projects/new-era-cap"
+              href="/projects/el-secreto"
               className="btn-secondary group inline-flex items-center gap-2"
             >
               View Next Project

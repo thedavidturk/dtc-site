@@ -1,628 +1,367 @@
 "use client";
 
-import { Fragment, useRef, useState, useCallback, useEffect } from "react";
-import dynamic from "next/dynamic";
-import { motion, useScroll, useTransform } from "framer-motion";
-import MagneticButton from "./MagneticButton";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
-const ParticleNebula = dynamic(() => import("@/components/ParticleNebula"), {
-  ssr: false,
-  loading: () => <div className="absolute inset-0 z-0 bg-deep-space" />,
-});
+/* ------------------------------------------------------------------ */
+/*  Real work - pulled from the featured projects                      */
+/* ------------------------------------------------------------------ */
 
-const scrollIndicatorVariants = {
-  animate: {
-    y: [0, 12, 0],
-    opacity: [0.4, 1, 0.4],
-    transition: {
-      duration: 2,
-      repeat: Infinity,
-      ease: "easeInOut" as const,
-    },
+interface WorkTile {
+  src: string;
+  client: string;
+  tag: string;
+}
+
+const work: WorkTile[] = [
+  {
+    src: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdDBnMzY2M2JzNDFzNms4ejJvZmRyNGo1YmsyYjdlaHZlMXphZG14dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2UeBIRTL9ZA2BvmZD5/giphy.gif",
+    client: "New Era Cap",
+    tag: "3D / VFX",
   },
+  {
+    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/064ef118-8ff6-403b-a0e4-51566918af93_rw_1920.png?h=bd78343154890b27219b81afe8e77b41",
+    client: "Brugal Rum",
+    tag: "Activation",
+  },
+  {
+    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/2b30b8bf-b3fd-43fd-b242-1fc4736e6946_rw_3840.png?h=de0ce295ccfda4a8762ce19708703262",
+    client: "Faena",
+    tag: "Film",
+  },
+  {
+    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/ce534a9b-9d7b-4edd-bce4-c281dd58da7b_rw_1920.png?h=d58ba796f9778a2423288a3ad29e8a38",
+    client: "Ford",
+    tag: "Commercial",
+  },
+  {
+    src: "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExenYxcmUybjVyanNlZjF1b3FxMGZvaDZhZDE0ZTVpYTI0dGdtamFkcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/V9e6dWr3gEjPCoNJ7c/giphy.gif",
+    client: "SeaWorld",
+    tag: "Cinematics",
+  },
+  {
+    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/423a265d-ea56-49bc-8bb9-0b43f67218df_rw_1920.png?h=36ae7127653cc2259f7e19a1241ae691",
+    client: "Miami Dolphins",
+    tag: "Experiential",
+  },
+  {
+    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/5320bf72-8ee0-4db5-baec-efa352e93988_rw_3840.png?h=0a6bf09111cac68772eec801db975fd5",
+    client: "New Era Cap",
+    tag: "Elements",
+  },
+  {
+    src: "https://media.giphy.com/media/OWRTtgINto81tGKtJi/giphy.gif",
+    client: "Betterfly",
+    tag: "FOOH",
+  },
+  {
+    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6e2f254b-92f1-4a9f-b3b8-e685f99b17e2_rw_1920.jpg?h=db4a60a79d74fd97ad1f94cc94151a03",
+    client: "Unplugged Sessions",
+    tag: "Live Music",
+  },
+  {
+    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6a9909de-e004-4637-b305-03c7c3afc105_rw_1920.png?h=0d2513de6a3d5442c9276b98ca32ddb3",
+    client: "New Era Cap",
+    tag: "Cosmic",
+  },
+  {
+    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/66ead1cf-6a1a-4284-908a-a56b5e058937_rw_1200.png?h=3d9f7b1732640485b0971f4afe66b1dd",
+    client: "Runway Health",
+    tag: "Product",
+  },
+  {
+    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/736208c5-f9f4-49ab-9e48-3c862261dc42_rw_1920.jpg?h=0d55bd3b23e10a0b7b506f672a98d2f1",
+    client: "Todes Vejigante",
+    tag: "Story",
+  },
+  {
+    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6c60eb32-ab3d-4440-9760-a51d8972b648_rw_1920.png?h=d4d4979677cb67b029b6a7d91ecdf14d",
+    client: "Perez Art Museum Miami",
+    tag: "Cultural",
+  },
+  {
+    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/24b244e3-b83b-4b7a-baf5-c6b8b65e4475_rw_3840.png?h=99f746c5ced60dde7de6ce105d8562a5",
+    client: "Faena",
+    tag: "Cinematic",
+  },
+  {
+    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/9093a3b0-956b-49e3-a039-06897868e553_rw_1200.png?h=bf736fd7c3636fa8eedc8a44dd910bcd",
+    client: "New Era Cap",
+    tag: "Sprouted",
+  },
+  {
+    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/700cdcee-cf9b-4414-b54c-82e507d0ed53_rw_3840.jpg?h=ad51ee0c19861e16fffbd807aa14d780",
+    client: "Betterfly",
+    tag: "OOH",
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  A single work tile                                                 */
+/* ------------------------------------------------------------------ */
+
+function Tile({ tile }: { tile: WorkTile }) {
+  // GIFs must stay unoptimized so they keep animating; static stills go
+  // through Next's image optimizer (right-sized WebP/AVIF).
+  const isGif = tile.src.toLowerCase().includes(".gif");
+  return (
+    <div className="group relative overflow-hidden rounded-xl border border-white/[0.06] bg-white/[0.02] shadow-xl shadow-black/40">
+      <div className="relative aspect-[4/5] w-full overflow-hidden">
+        <Image
+          src={tile.src}
+          alt={`${tile.client} - ${tile.tag}`}
+          fill
+          sizes="(max-width: 1024px) 45vw, 22vw"
+          className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
+          unoptimized={isGif}
+        />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-t from-deep-space/90 via-transparent to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 flex items-center justify-between p-3">
+        <span className="font-headline text-sm font-semibold text-pure-white">
+          {tile.client}
+        </span>
+        <span className="font-mono text-[10px] uppercase tracking-widest text-warm-coral">
+          {tile.tag}
+        </span>
+      </div>
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  A vertically-scrolling column (seamless loop)                      */
+/* ------------------------------------------------------------------ */
+
+function MarqueeColumn({
+  tiles,
+  direction,
+  duration,
+}: {
+  tiles: WorkTile[];
+  direction: "up" | "down";
+  duration: number;
+}) {
+  // Duplicate the set so the translateY(-50%) loop is seamless.
+  const loop = [...tiles, ...tiles];
+  return (
+    <div className="relative flex-1 overflow-hidden">
+      <div
+        className={`flex flex-col gap-4 ${
+          direction === "up" ? "hero-marquee-up" : "hero-marquee-down"
+        }`}
+        style={{ animationDuration: `${duration}s` }}
+      >
+        {loop.map((tile, i) => (
+          <Tile key={`${tile.client}-${i}`} tile={tile} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  A horizontally-scrolling strip - mobile only                       */
+/* ------------------------------------------------------------------ */
+
+function MarqueeRow({ tiles }: { tiles: WorkTile[] }) {
+  const loop = [...tiles, ...tiles];
+  return (
+    <div className="relative overflow-hidden">
+      <div className="flex w-max gap-4 hero-marquee-left">
+        {loop.map((tile, i) => (
+          <div key={`${tile.client}-${i}`} className="w-44 shrink-0">
+            <Tile tile={tile} />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  Motion presets                                                     */
+/* ------------------------------------------------------------------ */
+
+const ease = [0.22, 1, 0.36, 1] as const;
+
+const container = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.09, delayChildren: 0.1 } },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease } },
 };
 
 /* ------------------------------------------------------------------ */
-/*  Kinetic Typography Helpers                                        */
-/* ------------------------------------------------------------------ */
-
-const wordEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
-
-function AnimatedWord({
-  word,
-  delay,
-  animate,
-  finalLetterSpacing,
-}: {
-  word: string;
-  delay: number;
-  animate: boolean;
-  finalLetterSpacing?: string;
-}) {
-  const startSpacing = finalLetterSpacing
-    ? `${parseFloat(finalLetterSpacing) - 0.08}em`
-    : undefined;
-
-  return (
-    <span className="inline-block overflow-hidden">
-      <motion.span
-        className="inline-block"
-        initial={{
-          y: "100%",
-          rotateX: 40,
-          opacity: 0,
-          ...(startSpacing && { letterSpacing: startSpacing }),
-        }}
-        animate={
-          animate
-            ? {
-                y: 0,
-                rotateX: 0,
-                opacity: 1,
-                ...(finalLetterSpacing && { letterSpacing: finalLetterSpacing }),
-              }
-            : {
-                y: "100%",
-                rotateX: 40,
-                opacity: 0,
-                ...(startSpacing && { letterSpacing: startSpacing }),
-              }
-        }
-        transition={{
-          duration: 0.7,
-          delay: animate ? delay : 0,
-          ease: wordEase,
-          ...(finalLetterSpacing && {
-            letterSpacing: {
-              duration: 1.2,
-              delay: animate ? delay + 0.3 : 0,
-              ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
-            },
-          }),
-        }}
-        style={{ transformOrigin: "bottom" }}
-      >
-        {word}
-      </motion.span>
-    </span>
-  );
-}
-
-function AnimatedLine({
-  text,
-  baseDelay,
-  className,
-  animate,
-  letterSpacing,
-}: {
-  text: string;
-  baseDelay: number;
-  className?: string;
-  animate: boolean;
-  letterSpacing?: string;
-}) {
-  const words = text.split(" ");
-  return (
-    <span className={`block ${className || ""}`}>
-      {words.map((word, i) => (
-        <Fragment key={i}>
-          {i > 0 && <span className="inline-block">&nbsp;</span>}
-          <AnimatedWord
-            word={word}
-            delay={baseDelay + i * 0.12}
-            animate={animate}
-            finalLetterSpacing={letterSpacing}
-          />
-        </Fragment>
-      ))}
-    </span>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  Animated Accent Line                                              */
-/* ------------------------------------------------------------------ */
-
-function AccentLine({ animate }: { animate: boolean }) {
-  return (
-    <motion.div
-      className="relative mx-auto my-8 md:my-10"
-      initial={{ opacity: 0 }}
-      animate={animate ? { opacity: 1 } : { opacity: 0 }}
-      transition={{ duration: 0.6, delay: animate ? REVEAL_OFFSET + 1.2 : 0 }}
-    >
-      {/* The drawn line */}
-      <motion.div
-        className="h-px mx-auto overflow-hidden"
-        initial={{ width: 0 }}
-        animate={animate ? { width: "min(320px, 60%)" } : { width: 0 }}
-        transition={{
-          duration: 1.2,
-          delay: animate ? REVEAL_OFFSET + 1.2 : 0,
-          ease: [0.22, 1, 0.36, 1],
-        }}
-      >
-        <div className="h-full w-full bg-gradient-to-r from-transparent via-electric-indigo to-transparent" />
-      </motion.div>
-
-      {/* Glow behind the line */}
-      <motion.div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-6 pointer-events-none"
-        initial={{ width: 0, opacity: 0 }}
-        animate={
-          animate
-            ? { width: "min(240px, 50%)", opacity: 1 }
-            : { width: 0, opacity: 0 }
-        }
-        transition={{
-          duration: 1.4,
-          delay: animate ? REVEAL_OFFSET + 1.3 : 0,
-          ease: [0.22, 1, 0.36, 1],
-        }}
-      >
-        <div className="h-full w-full bg-gradient-to-r from-transparent via-electric-indigo/20 to-transparent blur-md hero-accent-pulse" />
-      </motion.div>
-
-      {/* Center dot */}
-      <motion.div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-electric-indigo hero-accent-pulse"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={animate ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
-        transition={{
-          duration: 0.4,
-          delay: animate ? REVEAL_OFFSET + 1.6 : 0,
-          ease: [0.22, 1, 0.36, 1],
-        }}
-      />
-    </motion.div>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  Gradient Border Button                                            */
-/* ------------------------------------------------------------------ */
-
-function GradientBorderButton({
-  href,
-  children,
-  variant = "primary",
-}: {
-  href: string;
-  children: React.ReactNode;
-  variant?: "primary" | "secondary";
-}) {
-  const isPrimary = variant === "primary";
-
-  return (
-    <MagneticButton>
-      <motion.a
-        href={href}
-        className="relative group/btn inline-flex"
-        whileTap={{ scale: 0.98 }}
-      >
-        {/* Rotating gradient border */}
-        <span className="absolute -inset-[1px] rounded-lg hero-border-gradient opacity-60 group-hover/btn:opacity-100 transition-opacity duration-500" />
-
-        {/* Hover glow */}
-        <span className="absolute -inset-[1px] rounded-lg hero-border-gradient opacity-0 group-hover/btn:opacity-40 blur-md transition-opacity duration-500" />
-
-        {/* Inner button */}
-        <span
-          className={`relative inline-flex items-center justify-center px-8 py-4 rounded-lg font-headline font-bold transition-all duration-300 ${
-            isPrimary
-              ? "bg-gradient-cta text-white hover:opacity-90"
-              : "bg-deep-space text-pure-white hover:bg-electric-indigo/10"
-          }`}
-        >
-          {children}
-        </span>
-      </motion.a>
-    </MagneticButton>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  Interactive Grid Ripple                                           */
-/* ------------------------------------------------------------------ */
-
-const GRID_SIZE = 80;
-const RIPPLE_MAX_RADIUS = 300;
-const RIPPLE_SPEED = 4; // px per frame
-const RIPPLE_LIFETIME = 80; // frames
-
-interface Ripple {
-  x: number;
-  y: number;
-  radius: number;
-  age: number;
-}
-
-function GridRipple({ mousePos }: { mousePos: { x: number; y: number } }) {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const ripplesRef = useRef<Ripple[]>([]);
-  const lastSpawnRef = useRef(0);
-  const mousePxRef = useRef({ x: 0, y: 0 });
-  const rafRef = useRef<number>(0);
-
-  // Track mouse in pixel coords
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    mousePxRef.current = {
-      x: (mousePos.x / 100) * canvas.width,
-      y: (mousePos.y / 100) * canvas.height,
-    };
-  }, [mousePos]);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    const resizeCanvas = () => {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
-    };
-    resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
-
-    function animate() {
-      if (!ctx || !canvas) return;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      const now = performance.now();
-      const mx = mousePxRef.current.x;
-      const my = mousePxRef.current.y;
-
-      // Spawn new ripple every ~600ms if mouse is inside
-      if (mx > 0 && my > 0 && now - lastSpawnRef.current > 600) {
-        ripplesRef.current.push({ x: mx, y: my, radius: 0, age: 0 });
-        lastSpawnRef.current = now;
-        // Limit active ripples
-        if (ripplesRef.current.length > 5) ripplesRef.current.shift();
-      }
-
-      // Draw grid with ripple distortion
-      const cols = Math.ceil(canvas.width / GRID_SIZE) + 1;
-      const rows = Math.ceil(canvas.height / GRID_SIZE) + 1;
-
-      for (let row = 0; row < rows; row++) {
-        for (let col = 0; col < cols; col++) {
-          const baseX = col * GRID_SIZE;
-          const baseY = row * GRID_SIZE;
-
-          let brightness = 0.03; // base grid brightness
-
-          // Check all active ripples
-          for (const ripple of ripplesRef.current) {
-            const dx = baseX - ripple.x;
-            const dy = baseY - ripple.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-
-            // Ring width
-            const ringWidth = 40;
-            const ringDist = Math.abs(dist - ripple.radius);
-
-            if (ringDist < ringWidth) {
-              const intensity = (1 - ringDist / ringWidth) * (1 - ripple.age / RIPPLE_LIFETIME);
-              brightness += intensity * 0.12;
-            }
-          }
-
-          // Mouse proximity glow
-          const mouseDx = baseX - mx;
-          const mouseDy = baseY - my;
-          const mouseDist = Math.sqrt(mouseDx * mouseDx + mouseDy * mouseDy);
-          if (mouseDist < 200) {
-            brightness += (1 - mouseDist / 200) * 0.06;
-          }
-
-          if (brightness > 0.03) {
-            // Draw intersection dot
-            ctx.beginPath();
-            ctx.arc(baseX, baseY, 1, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(99, 102, 241, ${Math.min(brightness, 0.3)})`;
-            ctx.fill();
-
-            // Draw faint grid lines from this point
-            if (col < cols - 1) {
-              ctx.beginPath();
-              ctx.moveTo(baseX, baseY);
-              ctx.lineTo(baseX + GRID_SIZE, baseY);
-              ctx.strokeStyle = `rgba(99, 102, 241, ${Math.min(brightness * 0.5, 0.12)})`;
-              ctx.lineWidth = 0.5;
-              ctx.stroke();
-            }
-            if (row < rows - 1) {
-              ctx.beginPath();
-              ctx.moveTo(baseX, baseY);
-              ctx.lineTo(baseX, baseY + GRID_SIZE);
-              ctx.strokeStyle = `rgba(99, 102, 241, ${Math.min(brightness * 0.5, 0.12)})`;
-              ctx.lineWidth = 0.5;
-              ctx.stroke();
-            }
-          }
-        }
-      }
-
-      // Update ripples
-      ripplesRef.current = ripplesRef.current.filter((r) => {
-        r.radius += RIPPLE_SPEED;
-        r.age += 1;
-        return r.age < RIPPLE_LIFETIME && r.radius < RIPPLE_MAX_RADIUS;
-      });
-
-      rafRef.current = requestAnimationFrame(animate);
-    }
-
-    rafRef.current = requestAnimationFrame(animate);
-
-    return () => {
-      cancelAnimationFrame(rafRef.current);
-      window.removeEventListener("resize", resizeCanvas);
-    };
-  }, []);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none"
-      aria-hidden="true"
-    />
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  Hero Component                                                    */
+/*  Hero                                                               */
 /* ------------------------------------------------------------------ */
 
 interface HeroProps {
+  /** Kept for compatibility - the opening animation has been removed. */
   introComplete?: boolean;
 }
 
-/** Extra delay added to all hero animations so content fades in
- *  after the cinematic intro overlay has fully dissolved. */
-const REVEAL_OFFSET = 0.4;
-
-export default function Hero({ introComplete = true }: HeroProps) {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"],
-  });
-
-  // Parallax depth layers — headline moves fastest, lower elements slower
-  const line1Y = useTransform(scrollYProgress, [0, 1], [0, -90]);
-  const line2Y = useTransform(scrollYProgress, [0, 1], [0, -75]);
-  const line3Y = useTransform(scrollYProgress, [0, 1], [0, -55]);
-  const line4Y = useTransform(scrollYProgress, [0, 1], [0, -40]);
-  const subY = useTransform(scrollYProgress, [0, 1], [0, -25]);
-  const ctaY = useTransform(scrollYProgress, [0, 1], [0, -10]);
-
-  // Scroll zoom-out — content gently recedes as you scroll past
-  const contentScale = useTransform(scrollYProgress, [0, 0.6], [1, 0.92]);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.5, 0.8], [1, 1, 0]);
-
-  // Mouse-reactive gradient spotlight
-  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    setMousePos({
-      x: ((e.clientX - rect.left) / rect.width) * 100,
-      y: ((e.clientY - rect.top) / rect.height) * 100,
-    });
-  }, []);
+export default function Hero(_props: HeroProps) {
+  const colA = work.filter((_, i) => i % 2 === 0);
+  const colB = work.filter((_, i) => i % 2 === 1);
 
   return (
     <section
-      ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-deep-space pt-20"
+      className="relative min-h-screen overflow-hidden bg-deep-space pt-24 lg:pt-0"
       style={{ backgroundColor: "#0B0F19" }}
-      onMouseMove={handleMouseMove}
     >
-      {/* 3D Particle Nebula background — fades in after intro */}
-      <motion.div
-        className="absolute inset-0 z-0"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: introComplete ? 1 : 0 }}
-        transition={{ duration: 1.8, ease: "easeOut" }}
-      >
-        <ParticleNebula />
-      </motion.div>
-
-      {/* Mouse-reactive gradient spotlight */}
-      <div
-        className="absolute inset-0 z-[1] pointer-events-none transition-opacity duration-1000"
-        style={{
-          opacity: introComplete ? 0.07 : 0,
-          background: `radial-gradient(600px circle at ${mousePos.x}% ${mousePos.y}%, rgba(99,102,241,0.4) 0%, rgba(249,115,22,0.1) 40%, transparent 70%)`,
-        }}
-      />
-
-      {/* Interactive grid ripple overlay */}
-      <div className="absolute inset-0 z-[2] pointer-events-none overflow-hidden">
-        <GridRipple mousePos={mousePos} />
-
-        {/* Top edge gradient fade */}
-        <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-deep-space to-transparent" />
-
-        {/* Bottom edge gradient fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-deep-space to-transparent" />
+      {/* Ambient color wash */}
+      <div className="pointer-events-none absolute inset-0 z-0">
+        <div className="absolute -left-40 top-0 h-[36rem] w-[36rem] rounded-full bg-electric-indigo/15 blur-[140px]" />
+        <div className="absolute -right-20 bottom-0 h-[32rem] w-[32rem] rounded-full bg-warm-coral/10 blur-[140px]" />
+        <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(rgba(255,255,255,0.6)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.6)_1px,transparent_1px)] bg-[size:64px_64px]" />
       </div>
 
-      {/* Cinematic vignette — dark edges like looking through a lens */}
-      <div
-        className="absolute inset-0 z-[3] pointer-events-none"
-        style={{
-          background: "radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.4) 85%, rgba(0,0,0,0.7) 100%)",
-        }}
-      />
-
-      {/* Edge light leaks — anamorphic lens flares */}
-      <div className="absolute inset-0 z-[3] pointer-events-none overflow-hidden">
-        {/* Top-left indigo leak */}
-        <div
-          className="absolute -top-20 -left-20 w-80 h-80 rounded-full hero-light-leak"
-          style={{
-            background: "radial-gradient(ellipse at center, rgba(99,102,241,0.12) 0%, rgba(99,102,241,0.04) 40%, transparent 70%)",
-          }}
-        />
-        {/* Bottom-right coral leak */}
-        <div
-          className="absolute -bottom-20 -right-20 w-96 h-96 rounded-full hero-light-leak"
-          style={{
-            background: "radial-gradient(ellipse at center, rgba(249,115,22,0.1) 0%, rgba(249,115,22,0.03) 40%, transparent 70%)",
-            animationDelay: "-3s",
-          }}
-        />
-        {/* Top-right subtle warm leak */}
-        <div
-          className="absolute -top-10 -right-32 w-72 h-72 rounded-full hero-light-leak"
-          style={{
-            background: "radial-gradient(ellipse at center, rgba(251,191,36,0.06) 0%, transparent 60%)",
-            animationDelay: "-5s",
-          }}
-        />
-        {/* Bottom-left cool leak */}
-        <div
-          className="absolute -bottom-10 -left-24 w-64 h-64 rounded-full hero-light-leak"
-          style={{
-            background: "radial-gradient(ellipse at center, rgba(129,140,248,0.08) 0%, transparent 60%)",
-            animationDelay: "-7s",
-          }}
-        />
-      </div>
-
-      {/* Main content — zoom-out on scroll */}
-      <motion.div
-        className="relative z-10 section-container section-padding text-center max-w-6xl mx-auto"
-        style={{ scale: contentScale, opacity: contentOpacity }}
-      >
-        {/* Headline — editorial asymmetric layout with typographic contrast */}
-        <h1
-          className="font-headline leading-none"
-          style={{ perspective: 400 }}
+      <div className="relative z-10 mx-auto grid min-h-screen max-w-7xl grid-cols-1 items-center gap-12 px-6 md:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:px-12">
+        {/* ---------------------------- Left: message ---------------------------- */}
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="visible"
+          className="py-16 lg:py-0"
         >
-          {/* Line 1: STUDIO-QUALITY — left, light, ultra-wide tracking to match CREATIVE width */}
-          <motion.span style={{ y: line1Y, display: "block" }} className="hero-glow-line text-left">
-            <AnimatedLine
-              text="STUDIO-QUALITY"
-              baseDelay={REVEAL_OFFSET}
-              className="hero-shimmer-white text-lg md:text-2xl lg:text-3xl font-light"
-              letterSpacing="0.38em"
-              animate={introComplete}
-            />
-          </motion.span>
-
-          {/* Line 2: CREATIVE — left, bold, big, gradient */}
-          <motion.span style={{ y: line2Y, display: "block" }} className="hero-glow-line text-left mt-2 md:mt-3">
-            <AnimatedLine
-              text="CREATIVE"
-              baseDelay={REVEAL_OFFSET + 0.2}
-              className="hero-shimmer-gradient text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.9]"
-              letterSpacing="-0.02em"
-              animate={introComplete}
-            />
-          </motion.span>
-
-          {/* Line 3: AT THE SPEED — right, light, wide tracking */}
-          <motion.span style={{ y: line3Y, display: "block" }} className="hero-glow-line text-right mt-6 md:mt-8">
-            <AnimatedLine
-              text="AT THE SPEED"
-              baseDelay={REVEAL_OFFSET + 0.5}
-              className="hero-shimmer-white text-lg md:text-2xl lg:text-3xl font-light"
-              letterSpacing="0.2em"
-              animate={introComplete}
-            />
-          </motion.span>
-
-          {/* Line 4: YOUR BRAND DEMANDS — right, bold, medium-large, gradient */}
-          <motion.span style={{ y: line4Y, display: "block" }} className="hero-glow-line text-right mt-2 md:mt-3">
-            <AnimatedLine
-              text="YOUR BRAND DEMANDS"
-              baseDelay={REVEAL_OFFSET + 0.7}
-              className="hero-shimmer-gradient text-3xl md:text-5xl lg:text-6xl font-bold leading-[0.9]"
-              letterSpacing="-0.01em"
-              animate={introComplete}
-            />
-          </motion.span>
-        </h1>
-
-        {/* Animated accent line divider */}
-        <AccentLine animate={introComplete} />
-
-        {/* Subheadline — blur-in entrance + parallax */}
-        <motion.div style={{ y: subY }}>
-          <motion.p
-            className="font-body text-cool-gray text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-12"
-            initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
-            animate={
-              introComplete
-                ? { opacity: 1, filter: "blur(0px)", y: 0 }
-                : { opacity: 0, filter: "blur(10px)", y: 20 }
-            }
-            transition={{ duration: 0.8, delay: introComplete ? REVEAL_OFFSET + 1.5 : 0, ease: wordEase }}
-          >
-            Launch campaigns in weeks, not months. Virtual cinematography,
-            3D animation, and production pipelines built to move as fast as
-            your business does.
-          </motion.p>
-        </motion.div>
-
-        {/* CTA Buttons + parallax + gradient borders */}
-        <motion.div style={{ y: ctaY }}>
+          {/* Eyebrow */}
           <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={
-              introComplete
-                ? { opacity: 1, y: 0 }
-                : { opacity: 0, y: 20 }
-            }
-            transition={{
-              duration: 0.6,
-              delay: introComplete ? REVEAL_OFFSET + 1.8 : 0,
-              ease: [0.25, 0.46, 0.45, 0.94],
-            }}
+            variants={item}
+            className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 backdrop-blur-sm"
           >
-            <GradientBorderButton href="#projects" variant="primary">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-warm-coral opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-warm-coral" />
+            </span>
+            <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-cool-gray">
+              DT+C - Creative Studio
+            </span>
+          </motion.div>
+
+          {/* Headline */}
+          <h1 className="font-headline font-bold leading-[0.92] tracking-tight text-pure-white">
+            <motion.span variants={item} className="block text-5xl sm:text-6xl lg:text-[5.25rem]">
+              Studio-quality
+            </motion.span>
+            <motion.span variants={item} className="block text-5xl sm:text-6xl lg:text-[5.25rem]">
+              creative,
+            </motion.span>
+            <motion.span
+              variants={item}
+              className="block gradient-text text-5xl sm:text-6xl lg:text-[5.25rem]"
+            >
+              at brand speed.
+            </motion.span>
+          </h1>
+
+          {/* Subhead */}
+          <motion.p
+            variants={item}
+            className="mt-7 max-w-xl font-body text-lg leading-relaxed text-cool-gray"
+          >
+            Virtual cinematography, 3D animation, and AI-driven production
+            pipelines built to launch campaigns in{" "}
+            <span className="text-pure-white">weeks, not months.</span>
+          </motion.p>
+
+          {/* CTAs */}
+          <motion.div
+            variants={item}
+            className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center"
+          >
+            <a
+              href="#projects"
+              className="group inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-cta px-7 py-4 font-headline font-bold text-white transition-all duration-300 hover:scale-[1.02] hover:opacity-95 active:scale-[0.98]"
+            >
               See Our Work
-            </GradientBorderButton>
-            <GradientBorderButton href="/#contact" variant="secondary">
+              <svg
+                className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                strokeWidth={2.5}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+            <a
+              href="/#contact"
+              className="inline-flex items-center justify-center rounded-lg border border-white/15 bg-white/[0.03] px-7 py-4 font-headline font-bold text-pure-white backdrop-blur-sm transition-all duration-300 hover:border-electric-indigo/60 hover:bg-electric-indigo/10"
+            >
               Book a Call
-            </GradientBorderButton>
+            </a>
+          </motion.div>
+
+          {/* Client strip */}
+          <motion.div
+            variants={item}
+            className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/[0.06] pt-6"
+          >
+            <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-cool-gray/50">
+              Trusted by
+            </span>
+            {["New Era", "SeaWorld", "Betterfly", "Faena"].map((name) => (
+              <span
+                key={name}
+                className="font-headline text-sm font-semibold text-cool-gray/80"
+              >
+                {name}
+              </span>
+            ))}
           </motion.div>
         </motion.div>
-      </motion.div>
+
+        {/* ---------------------------- Right: work wall ---------------------------- */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.97 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, ease, delay: 0.2 }}
+          className="relative hidden lg:block lg:h-screen"
+        >
+          {/* Two scrolling columns */}
+          <div className="absolute inset-0 flex gap-4 px-1 py-6">
+            <MarqueeColumn tiles={colA} direction="up" duration={38} />
+            <MarqueeColumn tiles={colB} direction="down" duration={46} />
+          </div>
+
+          {/* Feather edges so the wall melts into the page */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-deep-space to-transparent" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-deep-space to-transparent" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-deep-space to-transparent" />
+        </motion.div>
+
+        {/* ---------------------------- Mobile work strip ---------------------------- */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease, delay: 0.3 }}
+          className="-mx-6 pb-16 md:-mx-8 lg:hidden"
+        >
+          <MarqueeRow tiles={work} />
+        </motion.div>
+      </div>
 
       {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: introComplete ? 1 : 0 }}
-        transition={{ delay: REVEAL_OFFSET + 2.2, duration: 1 }}
-      >
-        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-cool-gray/50">
+      <div className="pointer-events-none absolute bottom-6 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 lg:flex">
+        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-cool-gray/40">
           Scroll
         </span>
-        <motion.div variants={scrollIndicatorVariants} animate="animate">
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="text-cool-gray/50"
-          >
-            <polyline points="6 9 12 15 18 9" />
-          </svg>
-        </motion.div>
-      </motion.div>
+        <svg
+          className="h-4 w-4 text-cool-gray/40 hero-scroll-bob"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </div>
     </section>
   );
 }

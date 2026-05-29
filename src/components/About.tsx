@@ -105,7 +105,7 @@ export default function About() {
 
         {/* Split Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Left — 3D Visual */}
+          {/* Left - 3D Visual */}
           <motion.div className="relative" variants={slideFromLeft}>
             <Lazy3D className="aspect-[3/4] w-full max-w-[480px] mx-auto lg:mx-0 rounded-2xl overflow-hidden relative">
               <AboutVisual3D className="w-full h-full" />
@@ -116,7 +116,7 @@ export default function About() {
             <div className="absolute -bottom-3 -right-3 w-16 h-16 border-b border-r border-warm-coral/20 rounded-br-xl" />
           </motion.div>
 
-          {/* Right — Story */}
+          {/* Right - Story */}
           <motion.div className="space-y-6" variants={slideFromRight}>
             <p className="font-body text-lg text-cool-gray leading-relaxed">
               Most agencies were built for a pace that no longer exists.

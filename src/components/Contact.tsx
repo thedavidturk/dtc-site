@@ -431,7 +431,7 @@ export default function Contact() {
 
           {/* Right side: Contact info */}
           <motion.div className="lg:col-span-2 relative" variants={rightColVariants}>
-            {/* Organic Blob — decorative 3D element behind the card */}
+            {/* Organic Blob - decorative 3D element behind the card */}
             <Lazy3D className="absolute -top-20 -right-20 w-[400px] h-[400px] z-0 opacity-70 pointer-events-auto hidden lg:block">
               <OrganicBlob className="w-full h-full" />
             </Lazy3D>

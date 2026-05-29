@@ -49,7 +49,7 @@ export default function AICreativeBriefArticle() {
     <article className="bg-deep-space min-h-screen">
       <ArticleJsonLd
         title="From Prompt to Production: How AI Is Rewriting the Creative Brief"
-        description="The traditional creative brief was built for a slower world. AI is compressing the gap between idea and execution — and changing what a brief needs to contain."
+        description="The traditional creative brief was built for a slower world. AI is compressing the gap between idea and execution - and changing what a brief needs to contain."
         datePublished="2026-04-01"
         url="https://davidturkcreative.com/insights/ai-creative-brief"
       />

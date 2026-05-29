@@ -31,7 +31,7 @@ const staggerItem = {
 
 const moreArticles = [
   {
-    title: "Why Your Competitors Are Using AI Agents — And You Should Too",
+    title: "Why Your Competitors Are Using AI Agents - And You Should Too",
     category: "AI + BUSINESS",
     href: "/insights/ai-agents-business",
     gradient: "from-indigo-500/30 via-blue-900/50 to-deep-space",

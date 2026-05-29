@@ -112,7 +112,7 @@ export default function RootLayout({
             sameAs: [],
           }}
         />
-        {/* Critical CSS — prevents white flash before Tailwind loads */}
+        {/* Critical CSS - prevents white flash before Tailwind loads */}
         <style dangerouslySetInnerHTML={{ __html: `html,body,main,section,footer{background-color:#0B0F19!important}` }} />
         {/* Google Analytics */}
         <Script

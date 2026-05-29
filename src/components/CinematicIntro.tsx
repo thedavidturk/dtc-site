@@ -466,7 +466,7 @@ function IntroParticles({ startTime }: { startTime: React.MutableRefObject<numbe
         posArr[i3 + 1] = baseY + Math.cos(t_local * 3.5 + phase * 1.3) * shimmer;
         posArr[i3 + 2] = baseZ;
       }
-      // Phase 3 (2.2+ local): gentle dissolve — particles drift slowly outward
+      // Phase 3 (2.2+ local): gentle dissolve - particles drift slowly outward
       else {
         const t = t_local - 2.2;
         const driftSpeed = 0.4;

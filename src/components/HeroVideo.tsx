@@ -215,7 +215,7 @@ export default function HeroVideo() {
                 onClick={togglePlay}
               />
 
-              {/* Scan lines overlay — visible before play */}
+              {/* Scan lines overlay - visible before play */}
               {!hasStarted && (
                 <div
                   ref={scanLineRef}
@@ -227,7 +227,7 @@ export default function HeroVideo() {
                 />
               )}
 
-              {/* Vignette — always present, subtle */}
+              {/* Vignette - always present, subtle */}
               <div
                 className="absolute inset-0 z-[2] pointer-events-none transition-opacity duration-500"
                 style={{
@@ -237,7 +237,7 @@ export default function HeroVideo() {
                 }}
               />
 
-              {/* Big play button — poster state */}
+              {/* Big play button - poster state */}
               <AnimatePresence>
                 {!hasStarted && (
                   <motion.button

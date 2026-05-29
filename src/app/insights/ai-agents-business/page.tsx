@@ -48,8 +48,8 @@ export default function AIAgentsBusinessArticle() {
   return (
     <article className="bg-deep-space min-h-screen">
       <ArticleJsonLd
-        title="Why Your Competitors Are Using AI Agents — And You Should Too"
-        description="Autonomous AI agents are transforming how businesses operate — from customer service to content production. Here's why the companies adopting them now are pulling ahead."
+        title="Why Your Competitors Are Using AI Agents - And You Should Too"
+        description="Autonomous AI agents are transforming how businesses operate - from customer service to content production. Here's why the companies adopting them now are pulling ahead."
         datePublished="2026-04-01"
         url="https://davidturkcreative.com/insights/ai-agents-business"
       />

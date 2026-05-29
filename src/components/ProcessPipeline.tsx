@@ -307,7 +307,7 @@ function EnergyParticles({ from, to, beamIndex, activeStep }: EnergyParticlesPro
 }
 
 // ---------------------------------------------------------------------------
-// Pipeline Scene — assembles nodes, beams, particles, labels
+// Pipeline Scene - assembles nodes, beams, particles, labels
 // ---------------------------------------------------------------------------
 interface PipelineSceneProps {
   activeStep: number;
@@ -315,7 +315,7 @@ interface PipelineSceneProps {
 
 function PipelineScene({ activeStep }: PipelineSceneProps) {
   const { viewport } = useThree();
-  // Scale to fit the viewport — the pipeline is ~9 units wide (-4.5 to 4.5)
+  // Scale to fit the viewport - the pipeline is ~9 units wide (-4.5 to 4.5)
   const scale = Math.min(1, viewport.width / 12);
 
   const labels = ["01", "02", "03", "04"];
@@ -369,7 +369,7 @@ function PipelineScene({ activeStep }: PipelineSceneProps) {
 }
 
 // ---------------------------------------------------------------------------
-// Exported Component — SSR-safe container with Canvas
+// Exported Component - SSR-safe container with Canvas
 // ---------------------------------------------------------------------------
 export default function ProcessPipeline({
   activeStep,

@@ -9,9 +9,9 @@ import { motion } from "framer-motion";
 
 const articles = [
   {
-    title: "Why Your Competitors Are Using AI Agents — And You Should Too",
+    title: "Why Your Competitors Are Using AI Agents - And You Should Too",
     description:
-      "Autonomous AI agents are transforming how businesses operate — from customer service to content production.",
+      "Autonomous AI agents are transforming how businesses operate - from customer service to content production.",
     category: "AI + BUSINESS",
     href: "/insights/ai-agents-business",
     gradient: "from-indigo-500/30 via-blue-900/50 to-deep-space",
@@ -37,7 +37,7 @@ const articles = [
     title:
       "The AI Content Flywheel: How Smart Brands Turn One Idea Into 50 Assets",
     description:
-      "The brands winning the content game aren't producing more — they're producing smarter with AI-powered content flywheels.",
+      "The brands winning the content game aren't producing more - they're producing smarter with AI-powered content flywheels.",
     category: "CONTENT STRATEGY",
     href: "/insights/ai-content-flywheel",
     gradient: "from-violet-500/30 via-purple-900/50 to-deep-space",

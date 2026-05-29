@@ -42,8 +42,8 @@ const projects: Project[] = [
     coverImage: "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExenYxcmUybjVyanNlZjF1b3FxMGZvaDZhZDE0ZTVpYTI0dGdtamFkcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/V9e6dWr3gEjPCoNJ7c/giphy.gif",
   },
   {
-    client: "EL SECRETO",
-    title: "Savoring the Unseen",
+    client: "FAENA",
+    title: "El Secreto: Savoring the Unseen",
     type: "Cinematic Video Production",
     teaser:
       "An intimate omakase experience captured with cinematic storytelling at Faena Miami Beach",
@@ -62,6 +62,72 @@ const projects: Project[] = [
     gradient: "from-emerald-500 via-teal-500 to-cyan-800",
     accentGlow: "group-hover:shadow-emerald-500/30",
     coverImage: "https://media.giphy.com/media/OWRTtgINto81tGKtJi/giphy.gif",
+  },
+  {
+    client: "BRUGAL RUM",
+    title: "Tasting the Island",
+    type: "Brand Activation + Event Production",
+    teaser:
+      "A sensory rum activation that brought the warmth and ritual of the Dominican Republic into a live branded experience",
+    href: "/projects/brugal-rum",
+    gradient: "from-amber-600 via-orange-500 to-yellow-700",
+    accentGlow: "group-hover:shadow-amber-500/30",
+    coverImage: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/064ef118-8ff6-403b-a0e4-51566918af93_rw_1920.png?h=bd78343154890b27219b81afe8e77b41",
+  },
+  {
+    client: "FORD",
+    title: "Mustang Mach-E",
+    type: "Automotive CGI + Commercial",
+    teaser:
+      "Cinematic CGI and commercial production putting Ford's all-electric Mustang Mach-E in motion across charged, dynamic worlds",
+    href: "/projects/ford-mustang-mach-e",
+    gradient: "from-blue-700 via-sky-600 to-indigo-900",
+    accentGlow: "group-hover:shadow-sky-500/30",
+    coverImage: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/ce534a9b-9d7b-4edd-bce4-c281dd58da7b_rw_1920.png?h=d58ba796f9778a2423288a3ad29e8a38",
+  },
+  {
+    client: "MIAMI DOLPHINS",
+    title: "Ford Field Club",
+    type: "Experiential Creative Direction",
+    teaser:
+      "Field-level hospitality at Hard Rock Stadium, directed as one rising moment from arrival to the rail with Ford as the host",
+    href: "/projects/ford-field-club",
+    gradient: "from-cyan-500 via-teal-500 to-emerald-800",
+    accentGlow: "group-hover:shadow-teal-500/30",
+    coverImage: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/423a265d-ea56-49bc-8bb9-0b43f67218df_rw_1920.png?h=36ae7127653cc2259f7e19a1241ae691",
+  },
+  {
+    client: "UNPLUGGED SESSIONS",
+    title: "Live, In One Take",
+    type: "Live Music + Multi-Camera Direction",
+    teaser:
+      "Multi-camera live performance coverage directed to let each cut breathe with the music instead of fighting it",
+    href: "/projects/unplugged-sessions",
+    gradient: "from-rose-600 via-pink-500 to-fuchsia-800",
+    accentGlow: "group-hover:shadow-rose-500/30",
+    coverImage: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6e2f254b-92f1-4a9f-b3b8-e685f99b17e2_rw_1920.jpg?h=db4a60a79d74fd97ad1f94cc94151a03",
+  },
+  {
+    client: "RUNWAY HEALTH",
+    title: "Built From the Ground Up",
+    type: "3D Product Design + CGI Rendering",
+    teaser:
+      "Full 3D product builds and hero rendering crafted to hold up under close inspection across the runwayhealth.com brand",
+    href: "/projects/runway-health",
+    gradient: "from-violet-600 via-purple-500 to-indigo-900",
+    accentGlow: "group-hover:shadow-violet-500/30",
+    coverImage: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/66ead1cf-6a1a-4284-908a-a56b5e058937_rw_1200.png?h=3d9f7b1732640485b0971f4afe66b1dd",
+  },
+  {
+    client: "PEREZ ART MUSEUM MIAMI",
+    title: "A Cultural Identity",
+    type: "Cultural Branding + Art Direction",
+    teaser:
+      "Art direction and visual identity work shaped for one of Miami's defining cultural institutions",
+    href: "/projects/pamm",
+    gradient: "from-slate-500 via-gray-600 to-zinc-900",
+    accentGlow: "group-hover:shadow-slate-400/30",
+    coverImage: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6c60eb32-ab3d-4440-9760-a51d8972b648_rw_1920.png?h=d4d4979677cb67b029b6a7d91ecdf14d",
   },
 ];
 
@@ -140,15 +206,16 @@ export default function FeaturedProjects() {
                 className={`group relative block ${project.accentGlow}`}
               >
                 <TiltCard className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 hover:shadow-2xl">
-                  {/* Background — cover image or gradient */}
+                  {/* Background - cover image or gradient */}
                   {project.coverImage ? (
                     <div className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-105">
                       <Image
                         src={project.coverImage}
                         alt={`${project.client} project`}
                         fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
                         className="object-cover"
-                        unoptimized
+                        unoptimized={project.coverImage.toLowerCase().includes(".gif")}
                       />
                     </div>
                   ) : (
@@ -163,7 +230,7 @@ export default function FeaturedProjects() {
                     </>
                   )}
 
-                  {/* Dark overlay — intensifies on hover */}
+                  {/* Dark overlay - intensifies on hover */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-500 group-hover:from-black/90 group-hover:via-black/40" />
 
                   {/* Top-right arrow indicator */}
@@ -186,12 +253,12 @@ export default function FeaturedProjects() {
                     </svg>
                   </div>
 
-                  {/* Content overlay — depth layers via translateZ */}
+                  {/* Content overlay - depth layers via translateZ */}
                   <div
                     className="absolute inset-x-0 bottom-0 z-10 p-6 md:p-8 translate-y-2 group-hover:translate-y-0 transition-transform duration-500"
                     style={{ transformStyle: "preserve-3d" }}
                   >
-                    {/* Type badge — floats highest */}
+                    {/* Type badge - floats highest */}
                     <span
                       className="inline-block font-mono text-xs text-white/70 tracking-wider uppercase mb-3 px-3 py-1 rounded-full border border-white/10 backdrop-blur-sm bg-white/5"
                       style={{ transform: "translateZ(30px)" }}
@@ -199,7 +266,7 @@ export default function FeaturedProjects() {
                       {project.type}
                     </span>
 
-                    {/* Client name — prominent depth */}
+                    {/* Client name - prominent depth */}
                     <h3
                       className="font-headline text-2xl md:text-3xl font-bold text-pure-white tracking-tight mb-1"
                       style={{ transform: "translateZ(20px)" }}
@@ -215,7 +282,7 @@ export default function FeaturedProjects() {
                       {project.title}
                     </p>
 
-                    {/* Teaser — revealed on hover */}
+                    {/* Teaser - revealed on hover */}
                     <p
                       className="font-body text-sm text-white/50 max-h-0 overflow-hidden opacity-0 group-hover:max-h-20 group-hover:opacity-100 transition-all duration-500 ease-out leading-relaxed"
                       style={{ transform: "translateZ(10px)" }}

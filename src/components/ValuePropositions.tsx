@@ -160,7 +160,7 @@ export default function ValuePropositions() {
                   }}
                 />
 
-                {/* 3D Floating Icon — lazy-mounted to limit WebGL contexts */}
+                {/* 3D Floating Icon - lazy-mounted to limit WebGL contexts */}
                 <Lazy3D className="relative mb-6 w-16 h-16 md:w-20 md:h-20">
                   <FloatingIcon shape={pillar.shape} />
                 </Lazy3D>

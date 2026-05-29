@@ -213,3 +213,62 @@ main > div > div {
 .hero-light-leak {
   animation: light-leak-drift 12s ease-in-out infinite;
 }
+
+/* ------------------------------------------------------------------ */
+/* Hero work-wall marquees                                            */
+/* ------------------------------------------------------------------ */
+
+@keyframes hero-marquee-up {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-50%); }
+}
+
+@keyframes hero-marquee-down {
+  from { transform: translateY(-50%); }
+  to   { transform: translateY(0); }
+}
+
+@keyframes hero-marquee-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.hero-marquee-up {
+  animation: hero-marquee-up linear infinite;
+  will-change: transform;
+}
+
+.hero-marquee-down {
+  animation: hero-marquee-down linear infinite;
+  will-change: transform;
+}
+
+.hero-marquee-left {
+  animation: hero-marquee-left 36s linear infinite;
+  will-change: transform;
+}
+
+/* Pause the wall on hover so visitors can study a piece */
+.hero-marquee-up:hover,
+.hero-marquee-down:hover {
+  animation-play-state: paused;
+}
+
+/* Gentle bob for the scroll indicator */
+@keyframes hero-scroll-bob {
+  0%, 100% { transform: translateY(0); opacity: 0.4; }
+  50%      { transform: translateY(6px); opacity: 1; }
+}
+
+.hero-scroll-bob {
+  animation: hero-scroll-bob 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-marquee-up,
+  .hero-marquee-down,
+  .hero-marquee-left,
+  .hero-scroll-bob {
+    animation: none;
+  }
+}

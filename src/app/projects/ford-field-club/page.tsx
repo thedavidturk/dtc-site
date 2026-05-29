@@ -44,93 +44,109 @@ const galleryContainer = {
 };
 
 const galleryItem = {
-  hidden: { opacity: 0, y: 50, scale: 0.96 },
+  hidden: { opacity: 0, y: 50, scale: 0.94 },
   visible: {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
+
+/* ------------------------------------------------------------------ */
+/*  Media (scraped from live portfolio, exact size + hash pairings)    */
+/* ------------------------------------------------------------------ */
+
+const img = {
+  hero: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/423a265d-ea56-49bc-8bb9-0b43f67218df_rw_1920.png?h=36ae7127653cc2259f7e19a1241ae691",
+  g1: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/00bc8cf7-4b26-4999-a53d-d3f4b5b10892_rw_600.png?h=9d54251d4010db31aad6541626268807",
+  g2: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/37b87f49-b443-42e7-be36-3a45b331995c_rw_600.png?h=84edb0a697233ea06a5e0580ef2945bc",
+  g3: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/a5eb1d67-0ee9-415a-b0d6-72d11f8a6058_rw_600.png?h=ab5d7351f1c8b67de05c2e94dc3c0619",
+  g4: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/ade88f39-e9e0-4f99-b72f-e352f3a2596c_rw_600.png?h=530c73b26a6acf50a0b26d1aaf7d487a",
+  g5: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/b696d37d-504e-47cc-a2c4-70636a6df542_rw_600.png?h=69f3727fbb6766df3ca7750abc1ad6b1",
+};
+
+/* Adobe CCV experience film embed scraped from the live source. */
+const videoId = "8H9NzhRvvtx";
 
 /* ------------------------------------------------------------------ */
 /*  Data                                                               */
 /* ------------------------------------------------------------------ */
 
 const overview = {
-  client: "Betterfly",
-  industry: "HR Technology / Benefits",
-  timeline: "4 Weeks",
+  client: "Miami Dolphins / Ford",
+  industry: "Experiential / Sports Hospitality",
+  role: "Creative Director",
   services: [
-    "VFX Compositing",
-    "FOOH (Fake Out-of-Home)",
-    "Campaign Video Production",
-    "VFX Breakdown Reels",
-    "Social Media Content",
+    "Experiential Creative Direction",
+    "Premium Hospitality Concept",
+    "Spatial & Environmental Design",
+    "Brand Integration",
+    "On-Site Activation",
   ],
 };
 
 const approach = [
   {
     step: "01",
-    title: "Concept & Monument Selection",
+    title: "Reading the Room, and the Stadium",
     description:
-      "Identified iconic global monuments that would maximize visual impact and cultural resonance. Each location was chosen for its recognizability and the dramatic potential of draping massive branded banners across its architecture.",
+      "I started where the fan starts, at the threshold. The Ford Field Club lives at the edge of the field at Hard Rock Stadium, so the brief was never about decorating a lounge. It was about choreographing the moment a guest steps out of the concourse and into the most exclusive vantage point in the building. Every decision flowed from that arrival.",
   },
   {
     step: "02",
-    title: "Footage Acquisition & Camera Matching",
+    title: "A Club That Feels Like Miami",
     description:
-      "Sourced high-quality footage of each monument and meticulously matched camera angles, lighting conditions, and perspective to ensure seamless VFX integration. Every frame needed to feel authentically captured.",
+      "Directing the creative, I pushed the space to feel unmistakably Miami, warm, confident, a little electric, without leaning on cliche. The palette, the materials, and the light were tuned so the club reads as premium and local at once, a place that belongs to the Dolphins and to the city around them.",
   },
   {
     step: "03",
-    title: "VFX Banner Simulation & Compositing",
+    title: "Ford as Host, Not Sponsor",
     description:
-      "Digitally created and animated massive Betterfly banners draped over each monument using advanced cloth simulation and compositing. Shadows, reflections, and environmental interactions were crafted to make each placement indistinguishable from reality.",
+      "The challenge with any brand partner inside a sports venue is presence without intrusion. I directed the Ford integration so the brand behaves like a host rather than a logo, woven into the experience through the design language and the touchpoints guests actually use, so it earns attention instead of demanding it.",
   },
   {
     step: "04",
-    title: "Campaign Video Assembly",
+    title: "Designing the Field-Level Moment",
     description:
-      "Assembled the individual monument executions into a cohesive campaign video with dynamic pacing, branded messaging, and a narrative arc targeting HR administrators worldwide.",
+      "The payoff of the Ford Field Club is proximity. I shaped the sightlines, the flow, and the pacing so the field-level access feels like a reward that builds across the visit, from the welcome to the rail, where the game is close enough to feel in your chest.",
   },
   {
     step: "05",
-    title: "VFX Breakdowns & Social Distribution",
+    title: "Holding the Standard On-Site",
     description:
-      "Produced detailed VFX breakdown reels showing each monument's transformation stages, from raw footage to final composite. These behind-the-scenes assets amplified engagement and showcased production expertise.",
+      "Premium hospitality is won or lost in execution, so I stayed close through activation, making sure the environment, the brand moments, and the service touchpoints all landed at the level the concept promised. The goal was a club that feels effortless to the guest because every detail behind it was deliberate.",
   },
 ];
 
 const results = [
-  "Six iconic monument executions delivered across social platforms",
-  "Campaign generated measurable social media buzz and engagement",
-  "VFX breakdowns drove additional content virality",
-  "Achieved global out-of-home impact without physical production costs",
-  "Positioned Betterfly as a bold, innovative brand in the HR tech space",
+  "A field-level club experience designed as the most exclusive vantage point at Hard Rock Stadium",
+  "A premium hospitality environment tuned to feel distinctly Miami and distinctly Dolphins",
+  "Ford integrated as a host within the experience rather than as overlaid sponsorship",
+  "Arrival, flow, and field access choreographed into a single rising moment",
+  "A repeatable standard for environment, brand, and service held through live game-day activation",
 ];
 
-const tools = [
+const capabilities = [
   {
-    name: "Adobe After Effects",
+    name: "Experiential Direction",
     description:
-      "VFX compositing, banner simulation, camera tracking, and final visual effects polish for each monument execution.",
+      "End-to-end creative direction of the guest journey, from concourse arrival to field-level access, treated as one continuous experience.",
   },
   {
-    name: "Cinema 4D",
+    name: "Environmental Design",
     description:
-      "3D cloth simulation for realistic banner draping, lighting matching, and environmental integration.",
+      "Spatial, material, and lighting direction that gives the club a premium, local point of view inside a large-scale venue.",
   },
   {
-    name: "Adobe Premiere Pro",
+    name: "Brand Integration",
     description:
-      "Campaign video assembly, pacing, and multi-format social media delivery across platforms.",
+      "Direction of the Ford presence so the partnership reads as hospitality, woven into the touchpoints guests use rather than bolted on.",
   },
   {
-    name: "Adobe Photoshop",
+    name: "On-Site Activation",
     description:
-      "Texture creation, matte painting, and detailed compositing work for seamless monument integration.",
+      "Hands-on oversight through game day to hold the environment, brand, and service to the standard the concept set.",
   },
 ];
 
@@ -138,7 +154,7 @@ const tools = [
 /*  Component                                                          */
 /* ------------------------------------------------------------------ */
 
-export default function BetterflyProject() {
+export default function FordFieldClubProject() {
   return (
     <article className="bg-deep-space min-h-screen" style={{ backgroundColor: "#0B0F19" }}>
       {/* ── Back Link ─────────────────────────────────────────────── */}
@@ -171,27 +187,27 @@ export default function BetterflyProject() {
 
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-end overflow-hidden">
-        {/* GIF cover image */}
+        {/* Cover image */}
         <div className="absolute inset-0">
           <Image
-            src="https://media.giphy.com/media/OWRTtgINto81tGKtJi/giphy.gif"
-            alt="Betterfly FOOH campaign VFX scene"
+            src={img.hero}
+            alt="Ford Field Club at Hard Rock Stadium"
             fill
             className="object-cover"
-            unoptimized
+            sizes="100vw"
             priority
           />
         </div>
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-black/45" />
 
         {/* Radial fade at bottom */}
         <div className="absolute inset-0 z-[2] bg-gradient-to-t from-deep-space via-deep-space/40 to-transparent" />
 
         {/* Floating geometric accents */}
-        <div className="absolute top-1/4 left-1/3 w-44 h-44 border border-white/[0.06] rounded-full animate-pulse z-[2]" />
-        <div className="absolute bottom-1/3 right-1/4 w-20 h-20 border border-white/10 rounded-xl rotate-[18deg] z-[2]" />
-        <div className="absolute top-1/3 left-1/5 w-3 h-3 bg-white/20 rounded-full z-[2]" />
-        <div className="absolute bottom-1/4 right-1/3 w-2 h-2 bg-white/10 rounded-full z-[2]" />
+        <div className="absolute top-1/4 left-1/5 w-40 h-40 border border-white/[0.06] rounded-full animate-pulse z-[2]" />
+        <div className="absolute top-1/3 right-1/4 w-20 h-20 border border-white/10 rounded-xl rotate-12 z-[2]" />
+        <div className="absolute bottom-1/3 left-1/3 w-3 h-3 bg-electric-indigo/40 rounded-full z-[2]" />
+        <div className="absolute top-1/2 right-1/3 w-2 h-2 bg-white/10 rounded-full z-[2]" />
 
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
           <motion.div
@@ -200,7 +216,7 @@ export default function BetterflyProject() {
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
-              VFX + FOOH Campaign
+              Experiential Creative Direction
             </span>
           </motion.div>
 
@@ -208,9 +224,9 @@ export default function BetterflyProject() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-4"
+            className="font-headline text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-4"
           >
-            BETTERFLY
+            FORD FIELD CLUB
           </motion.h1>
 
           <motion.p
@@ -219,7 +235,7 @@ export default function BetterflyProject() {
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
             className="font-headline text-2xl md:text-3xl lg:text-4xl font-medium text-white/80 tracking-tight"
           >
-            #RecursosMasHumanos FOOH Campaign
+            Field-Level Hospitality at Hard Rock Stadium
           </motion.p>
 
           {/* Animated line */}
@@ -227,7 +243,7 @@ export default function BetterflyProject() {
             initial={{ width: 0 }}
             animate={{ width: "6rem" }}
             transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="h-px bg-gradient-to-r from-emerald-400 to-teal-400 mt-8"
+            className="h-px bg-gradient-to-r from-electric-indigo to-warm-coral mt-8"
           />
         </div>
       </section>
@@ -245,7 +261,7 @@ export default function BetterflyProject() {
           >
             <div className="lg:sticky lg:top-28 space-y-8">
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-electric-indigo mb-2">
                   Client
                 </p>
                 <p className="font-headline text-lg font-semibold text-pure-white">
@@ -253,23 +269,19 @@ export default function BetterflyProject() {
                 </p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-electric-indigo mb-2">
                   Industry
                 </p>
-                <p className="font-body text-cool-gray">
-                  {overview.industry}
-                </p>
+                <p className="font-body text-cool-gray">{overview.industry}</p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-2">
-                  Timeline
+                <p className="font-mono text-xs tracking-widest uppercase text-electric-indigo mb-2">
+                  Role
                 </p>
-                <p className="font-body text-cool-gray">
-                  {overview.timeline}
-                </p>
+                <p className="font-body text-cool-gray">{overview.role}</p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-electric-indigo mb-2">
                   Services
                 </p>
                 <ul className="space-y-2">
@@ -278,7 +290,7 @@ export default function BetterflyProject() {
                       key={service}
                       className="flex items-center gap-3 font-body text-sm text-cool-gray"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-electric-indigo flex-shrink-0" />
                       {service}
                     </li>
                   ))}
@@ -295,33 +307,87 @@ export default function BetterflyProject() {
             viewport={{ once: true, margin: "-80px" }}
             className="lg:col-span-8"
           >
-            <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
+            <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
               The Challenge
             </p>
             <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
-              Global out-of-home impact{" "}
-              <span className="gradient-text">without the logistics</span>
+              A premium club{" "}
+              <span className="gradient-text">at the edge of the field</span>
             </h2>
             <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
               <p>
-                Betterfly needed a visually striking campaign to announce
-                &ldquo;a new era of benefits&rdquo; and position their platform
-                in front of HR administrators worldwide. They wanted the impact
-                of a massive global out-of-home campaign (branded banners
-                draped over iconic monuments) without the impossible logistics
-                and budget of physically wrapping world landmarks.
+                The Ford Field Club sits in one of the most coveted positions in
+                all of sports, field level at Hard Rock Stadium, home of the
+                Miami Dolphins. A vantage point that exclusive carries its own
+                expectation. The space could not feel like a hospitality area
+                that happened to be near the action. It had to feel like the
+                reason you came.
               </p>
               <p>
-                The challenge: make it look completely real. Every banner needed
-                to interact convincingly with the architecture (matching
-                lighting, casting shadows, responding to wind) so viewers
-                would do a double-take before realizing it was VFX. The campaign
-                had to generate social media buzz and position Betterfly as a
-                bold, forward-thinking brand.
+                As the creative director on the experience, my job was to take a
+                premium club concept and a brand partnership with Ford and turn
+                them into a single, coherent moment, one that felt genuinely
+                Miami, genuinely Dolphins, and genuinely worth the access. The
+                brand had to live inside the experience without ever talking over
+                it, and every part of the journey had to build toward the field.
               </p>
             </div>
           </motion.div>
         </div>
+      </section>
+
+      {/* ── Divider ──────────────────────────────────────────────── */}
+      <div className="section-container">
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      </div>
+
+      {/* ── The Film (Video) ─────────────────────────────────────── */}
+      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="mb-10"
+        >
+          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+            The Film
+          </p>
+          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+            Step inside{" "}
+            <span className="gradient-text">the Ford Field Club</span>
+          </h2>
+        </motion.div>
+
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="relative max-w-5xl mx-auto"
+        >
+          {/* Ambient glow behind the player */}
+          <div className="absolute -inset-4 md:-inset-8 bg-gradient-to-r from-electric-indigo/10 via-white/5 to-warm-coral/10 rounded-3xl blur-2xl opacity-60 pointer-events-none" />
+
+          <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/40">
+            {/* Corner accent brackets */}
+            <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 rounded-tl-2xl z-10 pointer-events-none" style={{ borderColor: "rgba(99,102,241,0.4)" }} />
+            <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 rounded-tr-2xl z-10 pointer-events-none" style={{ borderColor: "rgba(99,102,241,0.4)" }} />
+            <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 rounded-bl-2xl z-10 pointer-events-none" style={{ borderColor: "rgba(249,115,22,0.4)" }} />
+            <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 rounded-br-2xl z-10 pointer-events-none" style={{ borderColor: "rgba(249,115,22,0.4)" }} />
+
+            {/* 16:9 responsive embed (Adobe CCV player from the source case study) */}
+            <div className="relative w-full aspect-video">
+              <iframe
+                src={`https://www-ccv.adobe.io/v1/player/ccv/${videoId}/embed?bgcolor=%230B0F19&lazyLoading=true&api_key=BehancePro2View`}
+                title="Ford Field Club at Hard Rock Stadium"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
+              />
+            </div>
+          </div>
+        </motion.div>
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────── */}
@@ -338,12 +404,12 @@ export default function BetterflyProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-16"
         >
-          <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
-            Our Approach
+          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+            The Approach
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            From monuments to feeds{" "}
-            <span className="gradient-text">in five steps</span>
+            Directing the experience{" "}
+            <span className="gradient-text">end to end</span>
           </h2>
         </motion.div>
 
@@ -361,7 +427,7 @@ export default function BetterflyProject() {
               className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 group"
             >
               <div className="md:col-span-1">
-                <span className="font-mono text-3xl md:text-4xl font-bold text-emerald-400/30 group-hover:text-emerald-400 transition-colors duration-500">
+                <span className="font-mono text-3xl md:text-4xl font-bold text-electric-indigo/30 group-hover:text-electric-indigo transition-colors duration-500">
                   {item.step}
                 </span>
               </div>
@@ -392,27 +458,29 @@ export default function BetterflyProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="max-w-4xl"
         >
-          <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             The Solution
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
-            Fake out-of-home,{" "}
-            <span className="gradient-text">real impact</span>
+            Access as the story,{" "}
+            <span className="gradient-text">Ford as the host</span>
           </h2>
           <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
             <p>
-              We used VFX to digitally drape massive Betterfly branded banners
-              over six iconic global monuments. Advanced cloth simulation,
-              precise camera tracking, and meticulous compositing made each
-              execution indistinguishable from a real installation, the kind of
-              spectacle that makes people stop scrolling and share.
+              I directed the Ford Field Club as one continuous arc rather than a
+              collection of features. The arrival sets the tone, the club holds
+              the guest in a space that feels warm, premium, and unmistakably
+              Miami, and the field-level access pays it all off. The further a
+              guest moves through the experience, the closer the game gets, until
+              the rail puts them right on top of the action.
             </p>
             <p>
-              Beyond the hero campaign video, we produced detailed VFX breakdown
-              reels for each monument, showing the transformation from raw
-              footage to final composite. These behind-the-scenes assets became
-              content multipliers, driving additional engagement and showcasing
-              the craft behind the campaign.
+              Ford runs through the whole thing as a host, not a billboard. I
+              directed the integration so the brand shows up in the design
+              language and the touchpoints guests actually use, present and
+              confident without ever interrupting the moment. The result is a
+              club where the partnership feels like part of the hospitality, and
+              the field feels like the reward you were always headed toward.
             </p>
           </div>
         </motion.div>
@@ -423,7 +491,7 @@ export default function BetterflyProject() {
         <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
-      {/* ── Campaign Gallery ────────────────────────────────────── */}
+      {/* ── Gallery ──────────────────────────────────────────────── */}
       <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
         <motion.div
           variants={fadeUp}
@@ -432,11 +500,12 @@ export default function BetterflyProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-16"
         >
-          <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
-            Campaign Gallery
+          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+            The Club
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            Monument <span className="gradient-text">Executions</span>
+            Inside the{" "}
+            <span className="gradient-text">Ford Field Club</span>
           </h2>
         </motion.div>
 
@@ -447,147 +516,120 @@ export default function BetterflyProject() {
           viewport={{ once: true, margin: "-60px" }}
           className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6"
         >
-          {/* Row 1: Wide hero + tall side */}
-          <motion.div variants={galleryItem} className="md:col-span-7">
-            <TiltCard className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
+          {/* Row 1 - full-width hero */}
+          <motion.div variants={galleryItem} className="md:col-span-12">
+            <TiltCard maxTilt={6} className="aspect-[21/9] rounded-2xl overflow-hidden relative group">
               <HolographicSheen className="!absolute inset-0">
                 <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/afa1b619-7f85-4631-b906-65725f2afb1d_rw_3840.jpg?h=c011327012d82e389e6536546dad732a"
-                  alt="Betterfly FOOH monument execution 1"
+                  src={img.hero}
+                  alt="Ford Field Club environment at Hard Rock Stadium"
                   fill
+                  sizes="100vw"
                   className="object-cover"
-                  unoptimized
                 />
               </HolographicSheen>
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
             </TiltCard>
           </motion.div>
-          <motion.div variants={galleryItem} className="md:col-span-5">
+
+          {/* Row 2 - wide + tall */}
+          <motion.div variants={galleryItem} className="md:col-span-7">
             <DistortionCard>
-              <div className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
+              <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
                 <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/0c4aae34-962c-4708-9e09-10d7c2270b0d_rw_3840.jpg?h=9486e194d38c38c0b70c1ffc7e317fcd"
-                  alt="Betterfly FOOH monument execution 2"
+                  src={img.g1}
+                  alt="Ford Field Club premium hospitality detail"
                   fill
+                  sizes="(max-width: 768px) 100vw, 58vw"
                   className="object-cover"
-                  unoptimized
                 />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
+                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
               </div>
             </DistortionCard>
           </motion.div>
+          <motion.div variants={galleryItem} className="md:col-span-5">
+            <TiltCard className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
+              <HolographicSheen className="!absolute inset-0">
+                <Image
+                  src={img.g2}
+                  alt="Ford brand integration within the club"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 42vw"
+                  className="object-cover"
+                />
+              </HolographicSheen>
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
+            </TiltCard>
+          </motion.div>
 
-          {/* Row 2: Three equal columns */}
+          {/* Row 3 - three equal columns */}
+          <motion.div variants={galleryItem} className="md:col-span-4">
+            <HolographicSheen>
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+                <Image
+                  src={img.g3}
+                  alt="Field-level vantage point at Hard Rock Stadium"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
+              </div>
+            </HolographicSheen>
+          </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-4">
             <TiltCard className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
               <Image
-                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/86e3da3a-6b51-4572-94f5-260d6a761c0f_rw_3840.jpg?h=9b9f844be5ce86bd5089282e90bddbea"
-                alt="Betterfly FOOH monument execution 3"
+                src={img.g4}
+                alt="Spatial and environmental design of the club"
                 fill
+                sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover"
-                unoptimized
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
             </TiltCard>
-          </motion.div>
-          <motion.div variants={galleryItem} className="md:col-span-4">
-            <HolographicSheen>
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/700cdcee-cf9b-4414-b54c-82e507d0ed53_rw_3840.jpg?h=ad51ee0c19861e16fffbd807aa14d780"
-                  alt="Betterfly FOOH monument execution 4"
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
-              </div>
-            </HolographicSheen>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-4">
             <DistortionCard>
               <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
                 <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/158c693d-d708-434a-8451-47c529b3cc20_rw_3840.jpg?h=a7b17b9dff25de2b80d8d8cdfeb196cc"
-                  alt="Betterfly FOOH monument execution 5"
+                  src={img.g5}
+                  alt="Guest hospitality touchpoint at the Ford Field Club"
                   fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover"
-                  unoptimized
                 />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
+                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
               </div>
             </DistortionCard>
           </motion.div>
 
-          {/* Row 3: Full-width VFX breakdown */}
-          <motion.div variants={galleryItem} className="md:col-span-12">
-            <TiltCard className="aspect-[21/9] rounded-2xl overflow-hidden relative group">
-              <HolographicSheen className="!absolute inset-0">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/e9307a9f-c204-4722-9a9f-4d5b3113db28_rw_3840.jpg?h=72945d2944442b86cf4ba4dc3f52f58b"
-                  alt="Betterfly FOOH VFX breakdown"
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
-              </HolographicSheen>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
-            </TiltCard>
-          </motion.div>
-
-          {/* Row 4: Social media assets - 2x2 grid */}
-          <motion.div variants={galleryItem} className="md:col-span-3">
-            <TiltCard className="aspect-square rounded-2xl overflow-hidden relative group">
-              <Image
-                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/d06fd2d0-9618-4b28-a9ca-e2a56de0f9cc_rw_600.png?h=840f98de7ce65d2053f15fc1a332bb28"
-                alt="Betterfly social media asset 1"
-                fill
-                className="object-cover"
-                unoptimized
-              />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
-            </TiltCard>
-          </motion.div>
-          <motion.div variants={galleryItem} className="md:col-span-3">
-            <DistortionCard>
-              <div className="aspect-square rounded-2xl overflow-hidden relative group">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/cccf2a57-e137-49db-b68b-570f7e4fe7bb_rw_600.png?h=c478a37e18d4ff133ffe947f26345c64"
-                  alt="Betterfly social media asset 2"
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
-              </div>
-            </DistortionCard>
-          </motion.div>
-          <motion.div variants={galleryItem} className="md:col-span-3">
+          {/* Row 4 - asymmetric pair */}
+          <motion.div variants={galleryItem} className="md:col-span-6">
             <HolographicSheen>
-              <div className="aspect-square rounded-2xl overflow-hidden relative group">
+              <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
                 <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/e854902b-d6b9-4da5-af46-a70b99f340c9_rw_1200.png?h=e07b0dc8c60685b5d414767e27915bfe"
-                  alt="Betterfly social media asset 3"
+                  src={img.g1}
+                  alt="Club atmosphere on game day"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
-                  unoptimized
                 />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
+                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
               </div>
             </HolographicSheen>
           </motion.div>
-          <motion.div variants={galleryItem} className="md:col-span-3">
-            <TiltCard className="aspect-square rounded-2xl overflow-hidden relative group">
+          <motion.div variants={galleryItem} className="md:col-span-6">
+            <TiltCard maxTilt={10} className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
               <Image
-                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/bc6dcbf4-5941-4a5b-9eaf-ec3f35d31163_rw_1200.png?h=60a8aa2806584e03b80f08b765317b22"
-                alt="Betterfly social media asset 4"
+                src={img.g3}
+                alt="Premium materials and lighting in the club"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
-                unoptimized
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
             </TiltCard>
           </motion.div>
         </motion.div>
@@ -607,12 +649,12 @@ export default function BetterflyProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             The Result
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            Global presence,{" "}
-            <span className="gradient-text">zero logistics</span>
+            A club that{" "}
+            <span className="gradient-text">earns the access</span>
           </h2>
         </motion.div>
 
@@ -627,10 +669,10 @@ export default function BetterflyProject() {
             <motion.li
               key={result}
               variants={staggerItem}
-              className="flex items-start gap-4 p-5 rounded-xl border border-white/5 bg-white/[0.02] hover:border-emerald-400/20 hover:bg-emerald-400/[0.03] transition-all duration-500"
+              className="flex items-start gap-4 p-5 rounded-xl border border-white/5 bg-white/[0.02] hover:border-electric-indigo/20 hover:bg-electric-indigo/[0.03] transition-all duration-500"
             >
               <svg
-                className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5"
+                className="w-5 h-5 text-electric-indigo flex-shrink-0 mt-0.5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -655,7 +697,7 @@ export default function BetterflyProject() {
         <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
-      {/* ── Tools & Technology ────────────────────────────────────── */}
+      {/* ── Capabilities ─────────────────────────────────────────── */}
       <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
         <motion.div
           variants={fadeUp}
@@ -664,11 +706,11 @@ export default function BetterflyProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
-            Tools & Technology
+          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+            Capabilities
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            The <span className="gradient-text">production stack</span>
+            The <span className="gradient-text">direction toolkit</span>
           </h2>
         </motion.div>
 
@@ -677,19 +719,19 @@ export default function BetterflyProject() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-4"
         >
-          {tools.map((tool) => (
+          {capabilities.map((cap) => (
             <motion.div
-              key={tool.name}
+              key={cap.name}
               variants={staggerItem}
-              className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-emerald-400/20 hover:bg-emerald-400/[0.03] transition-all duration-500"
+              className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-electric-indigo/20 hover:bg-electric-indigo/[0.03] transition-all duration-500"
             >
-              <h3 className="font-headline text-lg font-bold text-pure-white mb-2 group-hover:text-emerald-400 transition-colors duration-300">
-                {tool.name}
+              <h3 className="font-headline text-lg font-bold text-pure-white mb-2 group-hover:text-electric-indigo transition-colors duration-300">
+                {cap.name}
               </h3>
               <p className="font-body text-sm text-cool-gray leading-relaxed">
-                {tool.description}
+                {cap.description}
               </p>
             </motion.div>
           ))}
@@ -711,19 +753,19 @@ export default function BetterflyProject() {
           className="text-center max-w-2xl mx-auto"
         >
           <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
-            Ready to make{" "}
-            <span className="gradient-text">a global statement</span>?
+            Building an experience{" "}
+            <span className="gradient-text">worth showing up for</span>?
           </h2>
           <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed mb-10">
-            Let&rsquo;s create campaign content that commands attention and
-            breaks through the noise, no logistics required.
+            Let&rsquo;s direct a premium environment that turns access into a
+            moment people remember, from the threshold to the main event.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/#contact" className="btn-primary">
               Book a Call
             </Link>
             <Link
-              href="/projects/new-era-cap"
+              href="/projects/el-secreto"
               className="btn-secondary group inline-flex items-center gap-2"
             >
               View Next Project

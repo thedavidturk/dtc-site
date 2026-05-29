@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, ReactNode } from "react";
 
 /**
- * Lazy3D — mounts children only when the container is near the viewport.
+ * Lazy3D - mounts children only when the container is near the viewport.
  * Unmounts when scrolled away to release WebGL contexts.
  *
  * This prevents the browser from exceeding its WebGL context limit

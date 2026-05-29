@@ -26,7 +26,7 @@ interface InputState {
 }
 
 // ---------------------------------------------------------------------------
-// Letter shape builders — return ExtrudeGeometry for each character
+// Letter shape builders - return ExtrudeGeometry for each character
 // ---------------------------------------------------------------------------
 function buildLetterD(): THREE.ExtrudeGeometry {
   const s = new THREE.Shape();
@@ -139,7 +139,7 @@ function buildLetterC(): THREE.ExtrudeGeometry {
 }
 
 // ---------------------------------------------------------------------------
-// DTCText — the 3D letters group
+// DTCText - the 3D letters group
 // ---------------------------------------------------------------------------
 function DTCText({ input }: { input: React.MutableRefObject<InputState> }) {
   const groupRef = useRef<THREE.Group>(null);
@@ -178,7 +178,7 @@ function DTCText({ input }: { input: React.MutableRefObject<InputState> }) {
     const my = smoothMouse.current.y;
     const mouseStrength = Math.sqrt(mx * mx + my * my);
 
-    // Group rotation — tilts toward mouse
+    // Group rotation - tilts toward mouse
     groupRef.current.rotation.y = mx * 0.5;
     groupRef.current.rotation.x = -my * 0.35;
 
@@ -225,7 +225,7 @@ function DTCText({ input }: { input: React.MutableRefObject<InputState> }) {
     []
   );
 
-  // Letter positions — spaced for "D T + C"
+  // Letter positions - spaced for "D T + C"
   const positions = useMemo(() => {
     const spacing = 1.15;
     const totalW = spacing * 3;
@@ -389,7 +389,7 @@ function TextOrbitRing({ input }: { input: React.MutableRefObject<InputState> })
 }
 
 // ---------------------------------------------------------------------------
-// Scene — orchestrates everything
+// Scene - orchestrates everything
 // ---------------------------------------------------------------------------
 function Scene({ input }: { input: React.MutableRefObject<InputState> }) {
   const { viewport } = useThree();
@@ -405,7 +405,7 @@ function Scene({ input }: { input: React.MutableRefObject<InputState> }) {
 }
 
 // ---------------------------------------------------------------------------
-// AboutVisual3D — SSR-safe container with mouse + scroll tracking
+// AboutVisual3D - SSR-safe container with mouse + scroll tracking
 // ---------------------------------------------------------------------------
 export default function AboutVisual3D({ className = "" }: AboutVisual3DProps) {
   const [mounted, setMounted] = useState(false);

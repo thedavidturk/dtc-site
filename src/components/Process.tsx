@@ -162,21 +162,21 @@ export default function Process() {
           />
         </motion.div>
 
-        {/* 3D Pipeline — desktop only */}
+        {/* 3D Pipeline - desktop only */}
         <Lazy3D className="hidden lg:block mx-auto max-w-[800px] h-[100px] mb-12">
           <ProcessPipeline activeStep={activeStep} className="w-full h-full" />
         </Lazy3D>
 
         {/* Steps Grid */}
         <div className="relative grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-0">
-          {/* Connecting Line — horizontal on desktop */}
+          {/* Connecting Line - horizontal on desktop */}
           <motion.div
             className="hidden md:block absolute top-[52px] left-[12.5%] right-[12.5%] h-px bg-white/10"
             variants={lineVariants}
             style={{ originX: 0 }}
           />
 
-          {/* Connecting Line — vertical on mobile */}
+          {/* Connecting Line - vertical on mobile */}
           <motion.div
             className="md:hidden absolute top-0 bottom-0 left-8 w-px bg-white/10"
             variants={lineVariants}
@@ -190,10 +190,10 @@ export default function Process() {
               className="relative flex md:flex-col items-start md:items-center text-left md:text-center px-0 md:px-6"
               variants={stepVariants}
             >
-              {/* Step Node Dot — desktop */}
+              {/* Step Node Dot - desktop */}
               <div className="hidden md:block absolute top-[48px] left-1/2 -translate-x-1/2 w-[9px] h-[9px] rounded-full bg-electric-indigo ring-4 ring-deep-space z-10" />
 
-              {/* Step Node Dot — mobile */}
+              {/* Step Node Dot - mobile */}
               <div className="md:hidden absolute top-2 left-[29px] w-[9px] h-[9px] rounded-full bg-electric-indigo ring-4 ring-deep-space z-10" />
 
               {/* Mobile left spacing for the vertical line */}

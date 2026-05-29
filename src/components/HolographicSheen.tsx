@@ -60,7 +60,7 @@ export default function HolographicSheen({
     >
       {children}
 
-      {/* Specular highlight — soft radial light that follows the cursor */}
+      {/* Specular highlight - soft radial light that follows the cursor */}
       <div
         className="absolute inset-0 z-20 pointer-events-none"
         style={{
@@ -74,7 +74,7 @@ export default function HolographicSheen({
         }}
       />
 
-      {/* Iridescent sweep — the holographic rainbow band */}
+      {/* Iridescent sweep - the holographic rainbow band */}
       <div
         className="absolute z-20 pointer-events-none"
         style={{
@@ -97,7 +97,7 @@ export default function HolographicSheen({
         }}
       />
 
-      {/* Edge shimmer — extremely subtle border highlight near cursor */}
+      {/* Edge shimmer - extremely subtle border highlight near cursor */}
       <div
         className="absolute inset-0 z-20 pointer-events-none rounded-[inherit]"
         style={{

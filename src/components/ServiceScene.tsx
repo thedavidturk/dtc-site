@@ -860,25 +860,25 @@ function CaptureCinemaCamera() {
 
   return (
     <group ref={groupRef} position={[0, 0.3, 0]}>
-      {/* Camera body — main housing */}
+      {/* Camera body - main housing */}
       <mesh position={[0, 0, 0]}>
         <boxGeometry args={[1.8, 1.1, 1.0]} />
         <meshBasicMaterial {...wireframeMat} />
       </mesh>
 
-      {/* Lens barrel — primary */}
+      {/* Lens barrel - primary */}
       <mesh position={[0, -0.05, 0.85]} rotation={[Math.PI / 2, 0, 0]}>
         <cylinderGeometry args={[0.38, 0.42, 0.8, 16]} />
         <meshBasicMaterial {...wireframeMat} />
       </mesh>
 
-      {/* Lens hood — front ring */}
+      {/* Lens hood - front ring */}
       <mesh position={[0, -0.05, 1.35]} rotation={[Math.PI / 2, 0, 0]}>
         <cylinderGeometry args={[0.44, 0.38, 0.2, 16]} />
         <meshBasicMaterial {...accentMat} />
       </mesh>
 
-      {/* Lens glass — front element */}
+      {/* Lens glass - front element */}
       <mesh position={[0, -0.05, 1.46]}>
         <circleGeometry args={[0.32, 16]} />
         <meshBasicMaterial
@@ -890,19 +890,19 @@ function CaptureCinemaCamera() {
         />
       </mesh>
 
-      {/* Film magazine — top cylinder (classic cinema look) */}
+      {/* Film magazine - top cylinder (classic cinema look) */}
       <mesh position={[0.3, 0.85, 0]} rotation={[0, 0, Math.PI / 2]}>
         <cylinderGeometry args={[0.45, 0.45, 0.35, 16]} />
         <meshBasicMaterial {...wireframeMat} />
       </mesh>
 
-      {/* Second film magazine — slightly offset */}
+      {/* Second film magazine - slightly offset */}
       <mesh position={[-0.3, 0.85, 0]} rotation={[0, 0, Math.PI / 2]}>
         <cylinderGeometry args={[0.45, 0.45, 0.35, 16]} />
         <meshBasicMaterial {...wireframeMat} />
       </mesh>
 
-      {/* Viewfinder — rear box */}
+      {/* Viewfinder - rear box */}
       <mesh position={[0, 0.25, -0.6]}>
         <boxGeometry args={[0.3, 0.25, 0.25]} />
         <meshBasicMaterial {...accentMat} />
@@ -914,7 +914,7 @@ function CaptureCinemaCamera() {
         <meshBasicMaterial {...wireframeMat} />
       </mesh>
 
-      {/* Handle — top grip bar */}
+      {/* Handle - top grip bar */}
       <mesh position={[0, 0.7, -0.15]}>
         <boxGeometry args={[0.8, 0.08, 0.08]} />
         <meshBasicMaterial {...wireframeMat} />
@@ -929,7 +929,7 @@ function CaptureCinemaCamera() {
         <meshBasicMaterial {...wireframeMat} />
       </mesh>
 
-      {/* Matte box — front of lens */}
+      {/* Matte box - front of lens */}
       <mesh position={[0, -0.05, 1.15]}>
         <boxGeometry args={[0.95, 0.75, 0.15]} />
         <meshBasicMaterial
