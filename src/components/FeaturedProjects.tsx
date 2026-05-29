@@ -140,6 +140,89 @@ const projects: Project[] = [
     coverImage: "/motion/pamm.mp4",
     coverPoster: "/motion/pamm.jpg",
   },
+  {
+    client: "TODES VEJIGANTE",
+    title: "A Story of Resistance",
+    type: "Documentary + Cultural Preservation",
+    teaser:
+      "A documentary and immersive activation centering Afro-Caribbean vejigante tradition and the voices keeping it alive",
+    href: "/projects/todes-vejigante",
+    gradient: "from-amber-600 via-red-500 to-rose-900",
+    accentGlow: "group-hover:shadow-amber-500/30",
+    coverImage: "/motion/todes.mp4",
+    coverPoster: "/motion/todes.jpg",
+  },
+  {
+    client: "JADEN SMITH x CRESPO",
+    title: "Behind the Stage",
+    type: "Documentary Short + Direction",
+    teaser:
+      "A documentary short shot and cut in 24 hours, capturing Jaden Smith and CRESPO behind the show",
+    href: "/projects/crespo-jaden-smith",
+    gradient: "from-fuchsia-600 via-purple-500 to-indigo-900",
+    accentGlow: "group-hover:shadow-fuchsia-500/30",
+    coverImage: "/motion/crespo.mp4",
+    coverPoster: "/motion/crespo.jpg",
+  },
+  {
+    client: "BISCAYNE COFFEE",
+    title: "Launch Campaign",
+    type: "Video + 3D Product Design",
+    teaser:
+      "A brand launch pairing a cinematic film cut with photoreal 3D packaging built in Cinema 4D and Octane",
+    href: "/projects/biscayne-coffee",
+    gradient: "from-amber-700 via-orange-600 to-yellow-800",
+    accentGlow: "group-hover:shadow-amber-600/30",
+    coverImage: "/motion/biscayne.mp4",
+    coverPoster: "/motion/biscayne.jpg",
+  },
+  {
+    client: "FORD x FLORIDA PANTHERS",
+    title: "Go Further",
+    type: "Brand Film + Cause Campaign",
+    teaser:
+      "Turning Ford's Go Further platform into a hurricane relief drive for the Florida Keys with the Florida Panthers",
+    href: "/projects/florida-panthers",
+    gradient: "from-red-600 via-rose-500 to-slate-900",
+    accentGlow: "group-hover:shadow-red-500/30",
+    coverImage: "/motion/panthers.mp4",
+    coverPoster: "/motion/panthers.jpg",
+  },
+  {
+    client: "BARRY'S",
+    title: "In Motion",
+    type: "Social Content + Motion Design",
+    teaser:
+      "A motion system that carries Barry's in-studio energy into the social feed, built to stop the scroll",
+    href: "/projects/barrys-bootcamp",
+    gradient: "from-red-700 via-neutral-700 to-zinc-900",
+    accentGlow: "group-hover:shadow-red-600/30",
+    coverImage: "/motion/barrys.mp4",
+    coverPoster: "/motion/barrys.jpg",
+  },
+  {
+    client: "THE HOSPITALITY MENTOR",
+    title: "Inside the Fontainebleau",
+    type: "TV Episode + Cinematography",
+    teaser:
+      "A TV episode going inside the iconic Fontainebleau Miami Beach, shot in 4K on the Canon C70",
+    href: "/projects/hospitality-mentor",
+    gradient: "from-yellow-600 via-amber-500 to-orange-900",
+    accentGlow: "group-hover:shadow-amber-400/30",
+    coverImage: "/motion/hospitality.mp4",
+    coverPoster: "/motion/hospitality.jpg",
+  },
+  {
+    client: "WEINSTEIN LEGAL",
+    title: "Headshot & Lifestyle Photography",
+    type: "Photography + Art Direction",
+    teaser:
+      "Headshots and lifestyle photography capturing a firm's team with both power and warmth, on location",
+    href: "/projects/headshot-photography",
+    gradient: "from-sky-700 via-blue-600 to-slate-900",
+    accentGlow: "group-hover:shadow-sky-500/30",
+    coverImage: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/1c247dfc-4517-4ffa-8a5d-07480a76ae38_rw_1920.jpg?h=1a066f35508b4b65d958711c6163af65",
+  },
 ];
 
 const containerVariants = {

@@ -109,6 +109,36 @@ const work: WorkTile[] = [
     client: "Betterfly",
     tag: "OOH",
   },
+  {
+    src: "/motion/crespo.mp4",
+    poster: "/motion/crespo.jpg",
+    client: "Jaden Smith x CRESPO",
+    tag: "Documentary",
+  },
+  {
+    src: "/motion/biscayne.mp4",
+    poster: "/motion/biscayne.jpg",
+    client: "Biscayne Coffee",
+    tag: "Launch",
+  },
+  {
+    src: "/motion/panthers.mp4",
+    poster: "/motion/panthers.jpg",
+    client: "Ford x Panthers",
+    tag: "Brand Film",
+  },
+  {
+    src: "/motion/barrys.mp4",
+    poster: "/motion/barrys.jpg",
+    client: "Barry's",
+    tag: "Fitness",
+  },
+  {
+    src: "/motion/hospitality.mp4",
+    poster: "/motion/hospitality.jpg",
+    client: "Fontainebleau",
+    tag: "TV",
+  },
 ];
 
 /* ------------------------------------------------------------------ */
