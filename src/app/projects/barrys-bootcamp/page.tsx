@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import TiltCard from "@/components/TiltCard";
 import HolographicSheen from "@/components/HolographicSheen";
@@ -164,14 +163,18 @@ export default function BarrysBootcampProject() {
 
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-end overflow-hidden">
-        {/* Cover image */}
+        {/* Cover clip */}
         <div className="absolute inset-0">
-          <Image
-            src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/83884fe9-a1f7-4178-a1b0-8b9472ef655d_carw_16x9x1920.png?h=02c075ed8c4e947eee3f847d7062526d"
-            alt="Barry's Bootcamp content"
-            fill
-            className="object-cover"
-            priority
+          <video
+            src="/motion/barrys.mp4"
+            poster="/motion/barrys.jpg"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            aria-label="Barry's Bootcamp content"
+            className="absolute inset-0 h-full w-full object-cover"
           />
         </div>
         <div className="absolute inset-0 bg-black/40" />
