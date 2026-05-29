@@ -10,7 +10,6 @@ import About from "@/components/About";
 import Insights from "@/components/Insights";
 import FAQ from "@/components/FAQ";
 import EmailCapture from "@/components/EmailCapture";
-import TheProblem from "@/components/TheProblem";
 import Contact from "@/components/Contact";
 
 export default function HomeClient() {
@@ -18,7 +17,6 @@ export default function HomeClient() {
     <>
       <Hero />
       <HeroVideo />
-      <TheProblem />
       <ValuePropositions />
       <FeaturedProjects />
       <Services />
