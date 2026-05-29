@@ -85,9 +85,9 @@ export const metadata: Metadata = {
     "GEO optimization",
   ],
   openGraph: {
-    title: "DT+C | Future-Proof Creative",
+    title: "DT+C | Content That Moves at the Speed of Culture",
     description:
-      "AI-native creative studio delivering strategy-led content through 3D pipelines, AI workflows, VFX, video generation, and sound design. Future-proof creative for forward-thinking brands.",
+      "Strategy, content, VFX, and web, under one roof. A creative studio behind work for New Era, Ford, SeaWorld, Betterfly, and more.",
     type: "website",
     url: "https://davidturkcreative.com",
     siteName: "DT+C",
@@ -95,9 +95,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "DT+C | Future-Proof Creative",
+    title: "DT+C | Content That Moves at the Speed of Culture",
     description:
-      "AI-native creative studio delivering strategy-led content through 3D pipelines, AI workflows, VFX, video generation, and sound design. Future-proof creative for forward-thinking brands.",
+      "Strategy, content, VFX, and web, under one roof. A creative studio behind work for New Era, Ford, SeaWorld, Betterfly, and more.",
   },
 };
 
