@@ -40,6 +40,14 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Offset anchor jumps so targets clear the fixed header */
+#projects,
+#services,
+#insights,
+#value-propositions {
+  scroll-margin-top: 6rem;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);

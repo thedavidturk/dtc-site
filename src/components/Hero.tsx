@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import WorkMarquee from "./WorkMarquee";
 
 /* ------------------------------------------------------------------ */
 /*  Real work - pulled from the featured projects                      */
@@ -120,7 +121,12 @@ function Tile({ tile }: { tile: WorkTile }) {
   const isVideo = tile.src.toLowerCase().endsWith(".mp4");
   const isGif = tile.src.toLowerCase().includes(".gif");
   return (
-    <div className="group relative overflow-hidden rounded-xl border border-white/[0.06] bg-white/[0.02] shadow-xl shadow-black/40">
+    <a
+      href="#projects"
+      aria-label={`${tile.client} - ${tile.tag}. View our work.`}
+      className="group relative block overflow-hidden rounded-xl border border-white/[0.06] bg-white/[0.02] shadow-xl shadow-black/40 transition-colors duration-300 hover:border-white/20"
+      draggable={false}
+    >
       <div className="relative aspect-[4/5] w-full overflow-hidden">
         {isVideo ? (
           <video
@@ -132,7 +138,7 @@ function Tile({ tile }: { tile: WorkTile }) {
             playsInline
             preload="metadata"
             aria-label={`${tile.client} - ${tile.tag}`}
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
+            className="pointer-events-none absolute inset-0 h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
           />
         ) : (
           <Image
@@ -140,13 +146,14 @@ function Tile({ tile }: { tile: WorkTile }) {
             alt={`${tile.client} - ${tile.tag}`}
             fill
             sizes="(max-width: 1024px) 45vw, 22vw"
-            className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
+            className="pointer-events-none object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
             unoptimized={isGif}
+            draggable={false}
           />
         )}
       </div>
-      <div className="absolute inset-0 bg-gradient-to-t from-deep-space/90 via-transparent to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 flex items-center justify-between p-3">
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-deep-space/90 via-transparent to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-center justify-between p-3">
         <span className="font-headline text-sm font-semibold text-pure-white">
           {tile.client}
         </span>
@@ -154,57 +161,59 @@ function Tile({ tile }: { tile: WorkTile }) {
           {tile.tag}
         </span>
       </div>
-    </div>
+    </a>
   );
 }
 
 /* ------------------------------------------------------------------ */
-/*  A vertically-scrolling column (seamless loop)                      */
+/*  A vertically-scrolling column (interactive: auto + drag)           */
 /* ------------------------------------------------------------------ */
 
 function MarqueeColumn({
   tiles,
-  direction,
-  duration,
+  reverse,
+  speed,
 }: {
   tiles: WorkTile[];
-  direction: "up" | "down";
-  duration: number;
+  reverse: boolean;
+  speed: number;
 }) {
-  // Duplicate the set so the translateY(-50%) loop is seamless.
+  // Duplicate the set so the wrap-around loop is seamless.
   const loop = [...tiles, ...tiles];
   return (
-    <div className="relative flex-1 overflow-hidden">
-      <div
-        className={`flex flex-col gap-4 ${
-          direction === "up" ? "hero-marquee-up" : "hero-marquee-down"
-        }`}
-        style={{ animationDuration: `${duration}s` }}
-      >
-        {loop.map((tile, i) => (
-          <Tile key={`${tile.client}-${i}`} tile={tile} />
-        ))}
-      </div>
-    </div>
+    <WorkMarquee
+      orientation="vertical"
+      reverse={reverse}
+      speed={speed}
+      className="flex-1"
+      trackClassName="flex flex-col gap-4"
+    >
+      {loop.map((tile, i) => (
+        <Tile key={`${tile.client}-${i}`} tile={tile} />
+      ))}
+    </WorkMarquee>
   );
 }
 
 /* ------------------------------------------------------------------ */
-/*  A horizontally-scrolling strip - mobile only                       */
+/*  A horizontally-scrolling strip - mobile only (interactive)         */
 /* ------------------------------------------------------------------ */
 
 function MarqueeRow({ tiles }: { tiles: WorkTile[] }) {
   const loop = [...tiles, ...tiles];
   return (
-    <div className="relative overflow-hidden">
-      <div className="flex w-max gap-4 hero-marquee-left">
-        {loop.map((tile, i) => (
-          <div key={`${tile.client}-${i}`} className="w-44 shrink-0">
-            <Tile tile={tile} />
-          </div>
-        ))}
-      </div>
-    </div>
+    <WorkMarquee
+      orientation="horizontal"
+      reverse={false}
+      speed={45}
+      trackClassName="flex w-max gap-4"
+    >
+      {loop.map((tile, i) => (
+        <div key={`${tile.client}-${i}`} className="w-44 shrink-0">
+          <Tile tile={tile} />
+        </div>
+      ))}
+    </WorkMarquee>
   );
 }
 
@@ -365,10 +374,10 @@ export default function Hero() {
           transition={{ duration: 1, ease, delay: 0.2 }}
           className="relative hidden lg:block lg:h-screen"
         >
-          {/* Two scrolling columns */}
+          {/* Two scrolling columns (auto-scroll, grab to drag, click to view work) */}
           <div className="absolute inset-0 flex gap-4 px-1 py-6">
-            <MarqueeColumn tiles={colA} direction="up" duration={38} />
-            <MarqueeColumn tiles={colB} direction="down" duration={46} />
+            <MarqueeColumn tiles={colA} reverse={false} speed={34} />
+            <MarqueeColumn tiles={colB} reverse speed={28} />
           </div>
 
           {/* Feather edges so the wall melts into the page */}
