@@ -266,30 +266,40 @@ export default function Hero() {
             </span>
           </motion.div>
 
-          {/* Headline */}
-          <h1 className="font-headline font-bold leading-[0.92] tracking-tight text-pure-white">
-            <motion.span variants={item} className="block text-5xl sm:text-6xl lg:text-[5.25rem]">
-              Content that moves
-            </motion.span>
-            <motion.span variants={item} className="block text-5xl sm:text-6xl lg:text-[5.25rem]">
-              at the speed
-            </motion.span>
+          {/* Headline - editorial mixed-scale display type */}
+          <h1 className="font-display text-pure-white">
+            {/* Line 1: "Content that" - tight, bold, large */}
             <motion.span
               variants={item}
-              className="block gradient-text text-5xl sm:text-6xl lg:text-[5.25rem]"
+              className="block font-bold leading-[0.86] tracking-[-0.03em] text-[2.75rem] sm:text-6xl lg:text-7xl"
             >
-              of culture.
+              Content that
+            </motion.span>
+
+            {/* Line 2: "moves at the speed of" - smaller, lighter, italic, wider tracking */}
+            <motion.span
+              variants={item}
+              className="mt-2 block font-light italic leading-none tracking-[0.01em] text-cool-gray text-2xl sm:text-3xl lg:text-[2.4rem]"
+            >
+              moves at the speed of
+            </motion.span>
+
+            {/* Line 3: "culture." - oversized hero word in gradient */}
+            <motion.span
+              variants={item}
+              className="mt-1 block gradient-text font-extrabold leading-[0.82] tracking-[-0.04em] text-7xl sm:text-8xl lg:text-[8.5rem]"
+            >
+              culture.
             </motion.span>
           </h1>
 
           {/* Subhead */}
           <motion.p
             variants={item}
-            className="mt-7 max-w-xl font-body text-lg leading-relaxed text-cool-gray"
+            className="mt-8 max-w-xl font-body text-lg leading-relaxed text-cool-gray"
           >
-            Research, creative strategy, content production, VFX, and website
-            development under one roof, built to launch campaigns in{" "}
-            <span className="text-pure-white">weeks, not months.</span>
+            Strategy, content, VFX, and web, under one roof and built to launch
+            in <span className="text-pure-white">weeks, not months.</span>
           </motion.p>
 
           {/* CTAs */}

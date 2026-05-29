@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
+import { Space_Grotesk, Inter, JetBrains_Mono, Bricolage_Grotesque } from "next/font/google";
 import dynamic from "next/dynamic";
 import Script from "next/script";
 import "./globals.css";
@@ -43,6 +43,13 @@ const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-space-grotesk",
   weight: ["300", "400", "500", "600", "700"],
+});
+
+// Expressive display face for oversized editorial headlines
+const bricolage = Bricolage_Grotesque({
+  subsets: ["latin"],
+  variable: "--font-bricolage",
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 const inter = Inter({
@@ -129,7 +136,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body
-        className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} font-body antialiased bg-deep-space text-pure-white`}
+        className={`${spaceGrotesk.variable} ${bricolage.variable} ${inter.variable} ${jetbrainsMono.variable} font-body antialiased bg-deep-space text-pure-white`}
         style={{ backgroundColor: "#0B0F19" }}
       >
         <SmoothScroll />

@@ -18,6 +18,7 @@ const config: Config = {
       },
       fontFamily: {
         headline: ['var(--font-space-grotesk)', 'sans-serif'],
+        display: ['var(--font-bricolage)', 'var(--font-space-grotesk)', 'sans-serif'],
         body: ['var(--font-inter)', 'sans-serif'],
         mono: ['var(--font-jetbrains-mono)', 'monospace'],
       },
