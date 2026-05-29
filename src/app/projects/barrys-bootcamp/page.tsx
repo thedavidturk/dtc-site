@@ -454,12 +454,16 @@ export default function BarrysBootcampProject() {
             <DistortionCard>
               <TiltCard className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
                 <div className="relative w-full h-full">
-                  <Image
-                    src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/a0dce0c0-6bff-4f31-8b5f-9976921dc732_rwc_6x0x740x300x4096.gif?h=b75c441bec9961b7a4b71dda17c6c4bc"
-                    alt="Barry's Bootcamp animated social graphic"
-                    fill
-                    className="object-cover"
-                    unoptimized
+                  <video
+                    src="/motion/barrys-1.mp4"
+                    poster="/motion/barrys-1.jpg"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="metadata"
+                    aria-label="Barry's Bootcamp animated social graphic"
+                    className="absolute inset-0 h-full w-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                 </div>
@@ -471,12 +475,16 @@ export default function BarrysBootcampProject() {
             <HolographicSheen>
               <TiltCard className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
                 <div className="relative w-full h-full">
-                  <Image
-                    src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/a2a7cda9-0617-4897-8662-47e6a60c10b2_rwc_0x0x599x338x599.gif?h=5e437c1f000f60d0faa5e91abb1b3acc"
-                    alt="Barry's Bootcamp motion piece"
-                    fill
-                    className="object-cover"
-                    unoptimized
+                  <video
+                    src="/motion/barrys-2.mp4"
+                    poster="/motion/barrys-2.jpg"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="metadata"
+                    aria-label="Barry's Bootcamp motion piece"
+                    className="absolute inset-0 h-full w-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
                 </div>
@@ -484,16 +492,20 @@ export default function BarrysBootcampProject() {
             </HolographicSheen>
           </motion.div>
 
-          {/* Row 2 - offset editorial */}
-          <motion.div variants={galleryItem} className="md:col-span-5 md:col-start-2">
+          {/* Row 2 - asymmetric pair */}
+          <motion.div variants={galleryItem} className="md:col-span-6">
             <TiltCard maxTilt={10} className="aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
               <div className="relative w-full h-full">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6b589c21-677a-4cac-a7d8-8c114de40383_rwc_0x0x638x360x640.gif?h=ea18aac8179a527dddf0936414ffc593"
-                  alt="Barry's Bootcamp animated graphic"
-                  fill
-                  className="object-cover"
-                  unoptimized
+                <video
+                  src="/motion/barrys-3.mp4"
+                  poster="/motion/barrys-3.jpg"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
+                  aria-label="Barry's Bootcamp animated graphic"
+                  className="absolute inset-0 h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
               </div>
@@ -504,12 +516,16 @@ export default function BarrysBootcampProject() {
             <DistortionCard>
               <TiltCard className="aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
                 <div className="relative w-full h-full">
-                  <Image
-                    src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/909ce569-425d-455d-bd8c-44a5467d38ee_rwc_0x0x638x360x640.gif?h=772c9439cae943f424ec3a8615128714"
-                    alt="Barry's Bootcamp social loop"
-                    fill
-                    className="object-cover"
-                    unoptimized
+                  <video
+                    src="/motion/barrys-4.mp4"
+                    poster="/motion/barrys-4.jpg"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="metadata"
+                    aria-label="Barry's Bootcamp social loop"
+                    className="absolute inset-0 h-full w-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                 </div>
@@ -517,100 +533,21 @@ export default function BarrysBootcampProject() {
             </DistortionCard>
           </motion.div>
 
-          {/* Row 3 - three equal columns */}
-          <motion.div variants={galleryItem} className="md:col-span-4">
-            <HolographicSheen>
-              <TiltCard className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-                <div className="relative w-full h-full">
-                  <Image
-                    src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/954aa9d2-b941-4324-b4c8-0ffc1d4300de_rwc_0x0x638x360x640.gif?h=7062c7e2b37d8acd30e83d9fa175103e"
-                    alt="Barry's Bootcamp motion graphic"
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                </div>
-              </TiltCard>
-            </HolographicSheen>
-          </motion.div>
-
-          <motion.div variants={galleryItem} className="md:col-span-4">
-            <TiltCard className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-              <div className="relative w-full h-full">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/97ee6593-f537-4045-a880-910168742d6e_rwc_0x0x638x360x640.gif?h=09ddef7adaacbd75a8bbf7861c20dd27"
-                  alt="Barry's Bootcamp animated content"
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              </div>
-            </TiltCard>
-          </motion.div>
-
-          <motion.div variants={galleryItem} className="md:col-span-4">
-            <DistortionCard>
-              <TiltCard className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-                <div className="relative w-full h-full">
-                  <Image
-                    src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/a555e6f6-ccb6-41e3-a781-d8580c22ba3c_rwc_0x0x638x360x640.gif?h=3d2c50c95548b9d2e0085339e213b093"
-                    alt="Barry's Bootcamp social graphic"
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                </div>
-              </TiltCard>
-            </DistortionCard>
-          </motion.div>
-
-          {/* Row 4 - asymmetric pair */}
-          <motion.div variants={galleryItem} className="md:col-span-6">
-            <HolographicSheen>
-              <TiltCard className="aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-                <div className="relative w-full h-full">
-                  <Image
-                    src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/ac6dd1be-6ab8-4d11-82ab-9182d56bef3b_rwc_0x0x638x360x640.gif?h=b2275818988dbf4459bbb07a9add296f"
-                    alt="Barry's Bootcamp motion loop"
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                </div>
-              </TiltCard>
-            </HolographicSheen>
-          </motion.div>
-
-          <motion.div variants={galleryItem} className="md:col-span-6">
-            <TiltCard maxTilt={10} className="aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-              <div className="relative w-full h-full">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/d5477023-3495-4cf3-a192-5ffc0f87cc31_rwc_0x0x638x360x640.gif?h=adfd2771d2d3858271cdb878ef5dfd01"
-                  alt="Barry's Bootcamp animated graphic"
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              </div>
-            </TiltCard>
-          </motion.div>
-
-          {/* Row 5 - full-width hero loop */}
+          {/* Row 3 - full-width hero loop */}
           <motion.div variants={galleryItem} className="md:col-span-12">
             <DistortionCard>
               <TiltCard maxTilt={6} className="aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
                 <div className="relative w-full h-full">
-                  <Image
-                    src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/f86d0af7-0ec7-43a7-9e06-70e27a45abdf_rwc_0x0x638x360x640.gif?h=d06e93e4be9aeae1e4c69ea5ca3bfc56"
-                    alt="Barry's Bootcamp social motion piece"
-                    fill
-                    className="object-cover"
-                    unoptimized
+                  <video
+                    src="/motion/barrys-5.mp4"
+                    poster="/motion/barrys-5.jpg"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="metadata"
+                    aria-label="Barry's Bootcamp social motion piece"
+                    className="absolute inset-0 h-full w-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
                 </div>
