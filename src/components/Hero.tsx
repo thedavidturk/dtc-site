@@ -115,20 +115,35 @@ const work: WorkTile[] = [
 /* ------------------------------------------------------------------ */
 
 function Tile({ tile }: { tile: WorkTile }) {
-  // GIFs must stay unoptimized so they keep animating; static stills go
-  // through Next's image optimizer (right-sized WebP/AVIF).
+  // Self-hosted MP4 clips render as looping video; remote GIFs stay
+  // unoptimized; static stills go through Next's image optimizer.
+  const isVideo = tile.src.toLowerCase().endsWith(".mp4");
   const isGif = tile.src.toLowerCase().includes(".gif");
   return (
     <div className="group relative overflow-hidden rounded-xl border border-white/[0.06] bg-white/[0.02] shadow-xl shadow-black/40">
       <div className="relative aspect-[4/5] w-full overflow-hidden">
-        <Image
-          src={tile.src}
-          alt={`${tile.client} - ${tile.tag}`}
-          fill
-          sizes="(max-width: 1024px) 45vw, 22vw"
-          className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
-          unoptimized={isGif}
-        />
+        {isVideo ? (
+          <video
+            src={tile.src}
+            poster={tile.poster}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            aria-label={`${tile.client} - ${tile.tag}`}
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
+          />
+        ) : (
+          <Image
+            src={tile.src}
+            alt={`${tile.client} - ${tile.tag}`}
+            fill
+            sizes="(max-width: 1024px) 45vw, 22vw"
+            className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
+            unoptimized={isGif}
+          />
+        )}
       </div>
       <div className="absolute inset-0 bg-gradient-to-t from-deep-space/90 via-transparent to-transparent" />
       <div className="absolute inset-x-0 bottom-0 flex items-center justify-between p-3">
