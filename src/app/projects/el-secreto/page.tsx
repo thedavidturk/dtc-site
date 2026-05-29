@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import TiltCard from "@/components/TiltCard";
 import HolographicSheen from "@/components/HolographicSheen";
 import DistortionCard from "@/components/DistortionCard";
+import ProjectGifBand from "@/components/ProjectGifBand";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -227,6 +228,18 @@ export default function ElSecretoProject() {
           />
         </div>
       </section>
+
+      {/* ── GIF Band ──────────────────────────────────────────────── */}
+      <ProjectGifBand
+        eyebrow="In Motion"
+        heading="A Taste in Motion"
+        gifs={[
+          {
+            src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/fd8a9dd1-08f4-4941-b659-d093fe39df74_rwc_0x0x638x360x640.gif?h=70cef597684afbd92b3388bffc7d067a",
+            label: "El Secreto",
+          },
+        ]}
+      />
 
       {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
       <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>

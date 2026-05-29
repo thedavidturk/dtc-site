@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import TiltCard from "@/components/TiltCard";
 import HolographicSheen from "@/components/HolographicSheen";
 import DistortionCard from "@/components/DistortionCard";
+import ProjectGifBand from "@/components/ProjectGifBand";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -247,6 +248,18 @@ export default function FordFieldClubProject() {
           />
         </div>
       </section>
+
+      {/* ── GIF Band ──────────────────────────────────────────────── */}
+      <ProjectGifBand
+        eyebrow="In Motion"
+        heading="Gameday in Motion"
+        gifs={[
+          {
+            src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/2acdf5c6-6b09-4106-8099-c511b25e5f15_rwc_0x0x958x540x958.gif?h=03e3d8d8cc9211a0bfb2a132e8a3a355",
+            label: "Ford Field Club",
+          },
+        ]}
+      />
 
       {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
       <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>

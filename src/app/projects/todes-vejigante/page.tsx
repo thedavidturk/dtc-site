@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import TiltCard from "@/components/TiltCard";
 import HolographicSheen from "@/components/HolographicSheen";
 import DistortionCard from "@/components/DistortionCard";
+import ProjectGifBand from "@/components/ProjectGifBand";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -231,6 +232,18 @@ export default function TodesVejiganteProject() {
           />
         </div>
       </section>
+
+      {/* ── In Motion GIF Band ────────────────────────────────────── */}
+      <ProjectGifBand
+        eyebrow="In Motion"
+        heading="The Story, Moving"
+        gifs={[
+          {
+            src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/97ee6593-f537-4045-a880-910168742d6e_rwc_0x0x638x360x640.gif?h=09ddef7adaacbd75a8bbf7861c20dd27",
+            label: "Todes Vejigante",
+          },
+        ]}
+      />
 
       {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
       <section className="section-container section-padding">

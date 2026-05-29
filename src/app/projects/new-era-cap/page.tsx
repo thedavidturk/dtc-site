@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import TiltCard from "@/components/TiltCard";
 import HolographicSheen from "@/components/HolographicSheen";
 import DistortionCard from "@/components/DistortionCard";
+import ProjectGifBand from "@/components/ProjectGifBand";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -339,6 +340,21 @@ export default function NewEraCapProject() {
           />
         </div>
       </section>
+
+      <ProjectGifBand
+        eyebrow="In Motion"
+        heading="Campaigns in Motion"
+        gifs={[
+          {
+            src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/ac6dd1be-6ab8-4d11-82ab-9182d56bef3b_rwc_0x0x638x360x640.gif?h=b2275818988dbf4459bbb07a9add296f",
+            label: "Out of This World",
+          },
+          {
+            src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/d5477023-3495-4cf3-a192-5ffc0f87cc31_rwc_0x0x638x360x640.gif?h=adfd2771d2d3858271cdb878ef5dfd01",
+            label: "Elements",
+          },
+        ]}
+      />
 
       {/* ── Overview + Partnership Story ────────────────────────────── */}
       <section className="section-container section-padding">

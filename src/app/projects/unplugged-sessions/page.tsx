@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import TiltCard from "@/components/TiltCard";
 import HolographicSheen from "@/components/HolographicSheen";
 import DistortionCard from "@/components/DistortionCard";
+import ProjectGifBand from "@/components/ProjectGifBand";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -254,6 +255,18 @@ export default function UnpluggedSessionsProject() {
           />
         </div>
       </section>
+
+      {/* ── Animated GIF Band ─────────────────────────────────────── */}
+      <ProjectGifBand
+        eyebrow="In Motion"
+        heading="The Sessions, Moving"
+        gifs={[
+          {
+            src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/22096f95-4fe1-4a87-92a1-d5a5f0c96c31_rwc_0x0x638x360x640.gif?h=0b4dfbb2d9656a6d5c3c2eca4add0431",
+            label: "Unplugged",
+          },
+        ]}
+      />
 
       {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
       <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>

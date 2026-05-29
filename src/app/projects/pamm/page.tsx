@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import TiltCard from "@/components/TiltCard";
 import HolographicSheen from "@/components/HolographicSheen";
 import DistortionCard from "@/components/DistortionCard";
+import ProjectGifBand from "@/components/ProjectGifBand";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -240,6 +241,18 @@ export default function PammProject() {
           />
         </div>
       </section>
+
+      {/* ── In Motion (GIF Band) ─────────────────────────────────── */}
+      <ProjectGifBand
+        eyebrow="In Motion"
+        heading="The Identity, Moving"
+        gifs={[
+          {
+            src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/f86d0af7-0ec7-43a7-9e06-70e27a45abdf_rwc_0x0x638x360x640.gif?h=d06e93e4be9aeae1e4c69ea5ca3bfc56",
+            label: "PAMM",
+          },
+        ]}
+      />
 
       {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
       <section className="section-container section-padding">

@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import TiltCard from "@/components/TiltCard";
 import HolographicSheen from "@/components/HolographicSheen";
 import DistortionCard from "@/components/DistortionCard";
+import ProjectGifBand from "@/components/ProjectGifBand";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -262,6 +263,18 @@ export default function BrugalRumProject() {
           />
         </div>
       </section>
+
+      {/* ── In Motion (GIF Band) ──────────────────────────────────── */}
+      <ProjectGifBand
+        eyebrow="In Motion"
+        heading="The Activation, Moving"
+        gifs={[
+          {
+            src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/afb1e5f0-0ff6-405e-9dc9-80be5fd45d79_rwc_0x0x638x360x640.gif?h=c01da54bd3bb4fcdb0322d6bbd2e1f1f",
+            label: "Miami Concours",
+          },
+        ]}
+      />
 
       {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
       <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>

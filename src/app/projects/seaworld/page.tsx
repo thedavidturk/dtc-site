@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import TiltCard from "@/components/TiltCard";
 import HolographicSheen from "@/components/HolographicSheen";
 import DistortionCard from "@/components/DistortionCard";
+import ProjectGifBand from "@/components/ProjectGifBand";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -238,6 +239,18 @@ export default function SeaWorldProject() {
           />
         </div>
       </section>
+
+      {/* ── In Motion ─────────────────────────────────────────────── */}
+      <ProjectGifBand
+        eyebrow="In Motion"
+        heading="The Campaign, Moving"
+        gifs={[
+          {
+            src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/7d1cb208-574d-4168-8aa1-97b517e6828e_rwc_0x21x480x270x480.gif?h=9852427ab841a315a35deaaf2b871dc2",
+            label: "SeaQuest",
+          },
+        ]}
+      />
 
       {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
       <section className="section-container section-padding">

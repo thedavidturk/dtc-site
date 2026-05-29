@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import ProjectGifBand from "@/components/ProjectGifBand";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -216,6 +217,17 @@ export default function SproutedProject() {
           />
         </div>
       </section>
+
+      <ProjectGifBand
+        eyebrow="In Motion"
+        heading="The Collection, Growing"
+        gifs={[
+          {
+            src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/909ce569-425d-455d-bd8c-44a5467d38ee_rwc_0x0x638x360x640.gif?h=772c9439cae943f424ec3a8615128714",
+            label: "Sprouted",
+          },
+        ]}
+      />
 
       {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
       <section className="section-container section-padding">

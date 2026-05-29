@@ -20,17 +20,17 @@ const work: WorkTile[] = [
     tag: "3D / VFX",
   },
   {
-    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/064ef118-8ff6-403b-a0e4-51566918af93_rw_1920.png?h=bd78343154890b27219b81afe8e77b41",
+    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/afb1e5f0-0ff6-405e-9dc9-80be5fd45d79_rwc_0x0x638x360x640.gif?h=c01da54bd3bb4fcdb0322d6bbd2e1f1f",
     client: "Brugal Rum",
     tag: "Activation",
   },
   {
-    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/2b30b8bf-b3fd-43fd-b242-1fc4736e6946_rw_3840.png?h=de0ce295ccfda4a8762ce19708703262",
+    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/fd8a9dd1-08f4-4941-b659-d093fe39df74_rwc_0x0x638x360x640.gif?h=70cef597684afbd92b3388bffc7d067a",
     client: "Faena",
     tag: "Film",
   },
   {
-    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/ce534a9b-9d7b-4edd-bce4-c281dd58da7b_rw_1920.png?h=d58ba796f9778a2423288a3ad29e8a38",
+    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/fa4da97d-a48d-4552-954c-71963d359e22_rwc_0x0x638x360x640.gif?h=c1ec54a48ffb23c6f9542c94d47fd428",
     client: "Ford",
     tag: "Commercial",
   },
@@ -40,12 +40,12 @@ const work: WorkTile[] = [
     tag: "Cinematics",
   },
   {
-    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/423a265d-ea56-49bc-8bb9-0b43f67218df_rw_1920.png?h=36ae7127653cc2259f7e19a1241ae691",
+    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/2acdf5c6-6b09-4106-8099-c511b25e5f15_rwc_0x0x958x540x958.gif?h=03e3d8d8cc9211a0bfb2a132e8a3a355",
     client: "Miami Dolphins",
     tag: "Experiential",
   },
   {
-    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/5320bf72-8ee0-4db5-baec-efa352e93988_rw_3840.png?h=0a6bf09111cac68772eec801db975fd5",
+    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/d5477023-3495-4cf3-a192-5ffc0f87cc31_rwc_0x0x638x360x640.gif?h=adfd2771d2d3858271cdb878ef5dfd01",
     client: "New Era Cap",
     tag: "Elements",
   },
@@ -55,12 +55,12 @@ const work: WorkTile[] = [
     tag: "FOOH",
   },
   {
-    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6e2f254b-92f1-4a9f-b3b8-e685f99b17e2_rw_1920.jpg?h=db4a60a79d74fd97ad1f94cc94151a03",
+    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/22096f95-4fe1-4a87-92a1-d5a5f0c96c31_rwc_0x0x638x360x640.gif?h=0b4dfbb2d9656a6d5c3c2eca4add0431",
     client: "Unplugged Sessions",
     tag: "Live Music",
   },
   {
-    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6a9909de-e004-4637-b305-03c7c3afc105_rw_1920.png?h=0d2513de6a3d5442c9276b98ca32ddb3",
+    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/ac6dd1be-6ab8-4d11-82ab-9182d56bef3b_rwc_0x0x638x360x640.gif?h=b2275818988dbf4459bbb07a9add296f",
     client: "New Era Cap",
     tag: "Cosmic",
   },
@@ -70,12 +70,12 @@ const work: WorkTile[] = [
     tag: "Product",
   },
   {
-    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/736208c5-f9f4-49ab-9e48-3c862261dc42_rw_1920.jpg?h=0d55bd3b23e10a0b7b506f672a98d2f1",
+    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/97ee6593-f537-4045-a880-910168742d6e_rwc_0x0x638x360x640.gif?h=09ddef7adaacbd75a8bbf7861c20dd27",
     client: "Todes Vejigante",
     tag: "Story",
   },
   {
-    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6c60eb32-ab3d-4440-9760-a51d8972b648_rw_1920.png?h=d4d4979677cb67b029b6a7d91ecdf14d",
+    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/f86d0af7-0ec7-43a7-9e06-70e27a45abdf_rwc_0x0x638x360x640.gif?h=d06e93e4be9aeae1e4c69ea5ca3bfc56",
     client: "Perez Art Museum Miami",
     tag: "Cultural",
   },

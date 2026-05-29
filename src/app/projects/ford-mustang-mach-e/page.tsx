@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import TiltCard from "@/components/TiltCard";
 import HolographicSheen from "@/components/HolographicSheen";
 import DistortionCard from "@/components/DistortionCard";
+import ProjectGifBand from "@/components/ProjectGifBand";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -283,6 +284,18 @@ export default function FordMustangMachEProject() {
           />
         </div>
       </section>
+
+      {/* ── In Motion GIF Band ────────────────────────────────────── */}
+      <ProjectGifBand
+        eyebrow="In Motion"
+        heading="Rebuilt in Motion"
+        gifs={[
+          {
+            src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/fa4da97d-a48d-4552-954c-71963d359e22_rwc_0x0x638x360x640.gif?h=c1ec54a48ffb23c6f9542c94d47fd428",
+            label: "Mustang Mach-E",
+          },
+        ]}
+      />
 
       {/* ── Overview Sidebar + Intro ──────────────────────────────── */}
       <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>

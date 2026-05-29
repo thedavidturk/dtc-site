@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import TiltCard from "@/components/TiltCard";
 import HolographicSheen from "@/components/HolographicSheen";
 import DistortionCard from "@/components/DistortionCard";
+import ProjectGifBand from "@/components/ProjectGifBand";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -231,6 +232,18 @@ export default function BetterflyProject() {
           />
         </div>
       </section>
+
+      {/* ── In Motion (Animated GIF Band) ─────────────────────────── */}
+      <ProjectGifBand
+        eyebrow="In Motion"
+        heading="The Campaign, Moving"
+        gifs={[
+          {
+            src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/bdc405a5-a672-4c9e-b0f1-f4e8d66909d2_rwc_0x0x599x338x599.gif?h=15a30fb33a2a487f7401c8dd93cd02a5",
+            label: "#RecursosMasHumanos",
+          },
+        ]}
+      />
 
       {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
       <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
