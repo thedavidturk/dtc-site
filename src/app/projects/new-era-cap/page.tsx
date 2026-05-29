@@ -346,11 +346,13 @@ export default function NewEraCapProject() {
         heading="Campaigns in Motion"
         gifs={[
           {
-            src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/ac6dd1be-6ab8-4d11-82ab-9182d56bef3b_rwc_0x0x638x360x640.gif?h=b2275818988dbf4459bbb07a9add296f",
+            src: "/motion/new-era-cosmic.mp4",
+            poster: "/motion/new-era-cosmic.jpg",
             label: "Out of This World",
           },
           {
-            src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/d5477023-3495-4cf3-a192-5ffc0f87cc31_rwc_0x0x638x360x640.gif?h=adfd2771d2d3858271cdb878ef5dfd01",
+            src: "/motion/new-era-elements.mp4",
+            poster: "/motion/new-era-elements.jpg",
             label: "Elements",
           },
         ]}

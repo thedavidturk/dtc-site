@@ -16,6 +16,8 @@ interface Project {
   gradient: string;
   accentGlow: string;
   coverImage?: string;
+  /** Poster still for MP4 covers, shown instantly while the clip loads. */
+  coverPoster?: string;
 }
 
 const projects: Project[] = [
@@ -50,7 +52,8 @@ const projects: Project[] = [
     href: "/projects/el-secreto",
     gradient: "from-warm-coral via-amber-500 to-red-700",
     accentGlow: "group-hover:shadow-warm-coral/30",
-    coverImage: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/fd8a9dd1-08f4-4941-b659-d093fe39df74_rwc_0x0x638x360x640.gif?h=70cef597684afbd92b3388bffc7d067a",
+    coverImage: "/motion/faena.mp4",
+    coverPoster: "/motion/faena.jpg",
   },
   {
     client: "BETTERFLY",
@@ -72,7 +75,8 @@ const projects: Project[] = [
     href: "/projects/brugal-rum",
     gradient: "from-amber-600 via-orange-500 to-yellow-700",
     accentGlow: "group-hover:shadow-amber-500/30",
-    coverImage: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/afb1e5f0-0ff6-405e-9dc9-80be5fd45d79_rwc_0x0x638x360x640.gif?h=c01da54bd3bb4fcdb0322d6bbd2e1f1f",
+    coverImage: "/motion/brugal.mp4",
+    coverPoster: "/motion/brugal.jpg",
   },
   {
     client: "FORD",
@@ -83,7 +87,8 @@ const projects: Project[] = [
     href: "/projects/ford-mustang-mach-e",
     gradient: "from-blue-700 via-sky-600 to-indigo-900",
     accentGlow: "group-hover:shadow-sky-500/30",
-    coverImage: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/fa4da97d-a48d-4552-954c-71963d359e22_rwc_0x0x638x360x640.gif?h=c1ec54a48ffb23c6f9542c94d47fd428",
+    coverImage: "/motion/ford-mustang.mp4",
+    coverPoster: "/motion/ford-mustang.jpg",
   },
   {
     client: "MIAMI DOLPHINS",
@@ -94,7 +99,8 @@ const projects: Project[] = [
     href: "/projects/ford-field-club",
     gradient: "from-cyan-500 via-teal-500 to-emerald-800",
     accentGlow: "group-hover:shadow-teal-500/30",
-    coverImage: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/2acdf5c6-6b09-4106-8099-c511b25e5f15_rwc_0x0x958x540x958.gif?h=03e3d8d8cc9211a0bfb2a132e8a3a355",
+    coverImage: "/motion/ford-field-club.mp4",
+    coverPoster: "/motion/ford-field-club.jpg",
   },
   {
     client: "UNPLUGGED SESSIONS",
@@ -105,7 +111,8 @@ const projects: Project[] = [
     href: "/projects/unplugged-sessions",
     gradient: "from-rose-600 via-pink-500 to-fuchsia-800",
     accentGlow: "group-hover:shadow-rose-500/30",
-    coverImage: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/22096f95-4fe1-4a87-92a1-d5a5f0c96c31_rwc_0x0x638x360x640.gif?h=0b4dfbb2d9656a6d5c3c2eca4add0431",
+    coverImage: "/motion/unplugged.mp4",
+    coverPoster: "/motion/unplugged.jpg",
   },
   {
     client: "RUNWAY HEALTH",
@@ -127,7 +134,8 @@ const projects: Project[] = [
     href: "/projects/pamm",
     gradient: "from-slate-500 via-gray-600 to-zinc-900",
     accentGlow: "group-hover:shadow-slate-400/30",
-    coverImage: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/f86d0af7-0ec7-43a7-9e06-70e27a45abdf_rwc_0x0x638x360x640.gif?h=d06e93e4be9aeae1e4c69ea5ca3bfc56",
+    coverImage: "/motion/pamm.mp4",
+    coverPoster: "/motion/pamm.jpg",
   },
 ];
 
@@ -206,8 +214,22 @@ export default function FeaturedProjects() {
                 className={`group relative block ${project.accentGlow}`}
               >
                 <TiltCard className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 hover:shadow-2xl">
-                  {/* Background - cover image or gradient */}
-                  {project.coverImage ? (
+                  {/* Background - cover video, image, or gradient */}
+                  {project.coverImage && project.coverImage.toLowerCase().endsWith(".mp4") ? (
+                    <div className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-105">
+                      <video
+                        src={project.coverImage}
+                        poster={project.coverPoster}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        preload="metadata"
+                        aria-label={`${project.client} project`}
+                        className="absolute inset-0 h-full w-full object-cover"
+                      />
+                    </div>
+                  ) : project.coverImage ? (
                     <div className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-105">
                       <Image
                         src={project.coverImage}

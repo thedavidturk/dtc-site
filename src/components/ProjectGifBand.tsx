@@ -3,12 +3,15 @@
 import { motion } from "framer-motion";
 
 interface GifItem {
+  /** Path to a self-hosted looping MP4, e.g. "/motion/brugal.mp4". */
   src: string;
+  /** Poster still shown instantly while the video loads, e.g. "/motion/brugal.jpg". */
+  poster?: string;
   label?: string;
 }
 
 interface ProjectGifBandProps {
-  /** One or more animated GIFs to feature. 1 renders full-width, 2 renders side by side. */
+  /** One or more looping clips to feature. 1 renders full-width, 2 renders side by side. */
   gifs: GifItem[];
   /** Small eyebrow above the band, e.g. "In Motion". */
   eyebrow?: string;
@@ -26,9 +29,10 @@ const fadeUp = {
 };
 
 /**
- * Animated GIF showcase band for project pages. Drops in just below the hero
- * to give the page immediate motion using the project's real animated work.
- * GIFs are served as plain <img> (unoptimized) so they keep looping.
+ * Animated showcase band for project pages. Drops in just below the hero to
+ * give the page immediate motion using the project's real work. Clips are
+ * self-hosted, muted, looping MP4s (converted from the original GIFs for a
+ * ~95% smaller payload) with a poster still for instant first paint.
  */
 export default function ProjectGifBand({
   gifs,
@@ -73,11 +77,15 @@ export default function ProjectGifBand({
             {/* Ambient glow on hover */}
             <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-electric-indigo/20 via-transparent to-warm-coral/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-sm pointer-events-none" />
 
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <video
               src={gif.src}
-              alt={gif.label || "Project animation"}
-              loading="lazy"
+              poster={gif.poster}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              aria-label={gif.label || "Project animation"}
               className="relative w-full aspect-video object-cover"
             />
 

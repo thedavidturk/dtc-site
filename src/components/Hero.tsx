@@ -9,6 +9,8 @@ import { motion } from "framer-motion";
 
 interface WorkTile {
   src: string;
+  /** Poster still for MP4 tiles, shown instantly while the clip loads. */
+  poster?: string;
   client: string;
   tag: string;
 }
@@ -20,17 +22,20 @@ const work: WorkTile[] = [
     tag: "3D / VFX",
   },
   {
-    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/afb1e5f0-0ff6-405e-9dc9-80be5fd45d79_rwc_0x0x638x360x640.gif?h=c01da54bd3bb4fcdb0322d6bbd2e1f1f",
+    src: "/motion/brugal.mp4",
+    poster: "/motion/brugal.jpg",
     client: "Brugal Rum",
     tag: "Activation",
   },
   {
-    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/fd8a9dd1-08f4-4941-b659-d093fe39df74_rwc_0x0x638x360x640.gif?h=70cef597684afbd92b3388bffc7d067a",
+    src: "/motion/faena.mp4",
+    poster: "/motion/faena.jpg",
     client: "Faena",
     tag: "Film",
   },
   {
-    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/fa4da97d-a48d-4552-954c-71963d359e22_rwc_0x0x638x360x640.gif?h=c1ec54a48ffb23c6f9542c94d47fd428",
+    src: "/motion/ford-mustang.mp4",
+    poster: "/motion/ford-mustang.jpg",
     client: "Ford",
     tag: "Commercial",
   },
@@ -40,12 +45,14 @@ const work: WorkTile[] = [
     tag: "Cinematics",
   },
   {
-    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/2acdf5c6-6b09-4106-8099-c511b25e5f15_rwc_0x0x958x540x958.gif?h=03e3d8d8cc9211a0bfb2a132e8a3a355",
+    src: "/motion/ford-field-club.mp4",
+    poster: "/motion/ford-field-club.jpg",
     client: "Miami Dolphins",
     tag: "Experiential",
   },
   {
-    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/d5477023-3495-4cf3-a192-5ffc0f87cc31_rwc_0x0x638x360x640.gif?h=adfd2771d2d3858271cdb878ef5dfd01",
+    src: "/motion/new-era-elements.mp4",
+    poster: "/motion/new-era-elements.jpg",
     client: "New Era Cap",
     tag: "Elements",
   },
@@ -55,12 +62,14 @@ const work: WorkTile[] = [
     tag: "FOOH",
   },
   {
-    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/22096f95-4fe1-4a87-92a1-d5a5f0c96c31_rwc_0x0x638x360x640.gif?h=0b4dfbb2d9656a6d5c3c2eca4add0431",
+    src: "/motion/unplugged.mp4",
+    poster: "/motion/unplugged.jpg",
     client: "Unplugged Sessions",
     tag: "Live Music",
   },
   {
-    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/ac6dd1be-6ab8-4d11-82ab-9182d56bef3b_rwc_0x0x638x360x640.gif?h=b2275818988dbf4459bbb07a9add296f",
+    src: "/motion/new-era-cosmic.mp4",
+    poster: "/motion/new-era-cosmic.jpg",
     client: "New Era Cap",
     tag: "Cosmic",
   },
@@ -70,12 +79,14 @@ const work: WorkTile[] = [
     tag: "Product",
   },
   {
-    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/97ee6593-f537-4045-a880-910168742d6e_rwc_0x0x638x360x640.gif?h=09ddef7adaacbd75a8bbf7861c20dd27",
+    src: "/motion/todes.mp4",
+    poster: "/motion/todes.jpg",
     client: "Todes Vejigante",
     tag: "Story",
   },
   {
-    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/f86d0af7-0ec7-43a7-9e06-70e27a45abdf_rwc_0x0x638x360x640.gif?h=d06e93e4be9aeae1e4c69ea5ca3bfc56",
+    src: "/motion/pamm.mp4",
+    poster: "/motion/pamm.jpg",
     client: "Perez Art Museum Miami",
     tag: "Cultural",
   },

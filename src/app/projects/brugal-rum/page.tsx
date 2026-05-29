@@ -270,7 +270,8 @@ export default function BrugalRumProject() {
         heading="The Activation, Moving"
         gifs={[
           {
-            src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/afb1e5f0-0ff6-405e-9dc9-80be5fd45d79_rwc_0x0x638x360x640.gif?h=c01da54bd3bb4fcdb0322d6bbd2e1f1f",
+            src: "/motion/brugal.mp4",
+            poster: "/motion/brugal.jpg",
             label: "Miami Concours",
           },
         ]}
