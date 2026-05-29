@@ -338,7 +338,13 @@ export default function Hero() {
             <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-cool-gray/50">
               Trusted by
             </span>
-            {["New Era", "SeaWorld", "Betterfly", "Faena"].map((name) => (
+            {[
+              "New Era Cap",
+              "United Parks (SeaWorld)",
+              "Ford Motors",
+              "Betterfly",
+              "Barry's",
+            ].map((name) => (
               <span
                 key={name}
                 className="font-headline text-sm font-semibold text-cool-gray/80"
@@ -346,6 +352,9 @@ export default function Hero() {
                 {name}
               </span>
             ))}
+            <span className="font-headline text-sm font-semibold text-cool-gray/40">
+              &amp; more
+            </span>
           </motion.div>
         </motion.div>
 
