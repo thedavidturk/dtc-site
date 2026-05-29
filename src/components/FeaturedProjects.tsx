@@ -212,17 +212,6 @@ const projects: Project[] = [
     coverImage: "/motion/hospitality.mp4",
     coverPoster: "/motion/hospitality.jpg",
   },
-  {
-    client: "WEINSTEIN LEGAL",
-    title: "Headshot & Lifestyle Photography",
-    type: "Photography + Art Direction",
-    teaser:
-      "Headshots and lifestyle photography capturing a firm's team with both power and warmth, on location",
-    href: "/projects/headshot-photography",
-    gradient: "from-sky-700 via-blue-600 to-slate-900",
-    accentGlow: "group-hover:shadow-sky-500/30",
-    coverImage: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/1c247dfc-4517-4ffa-8a5d-07480a76ae38_rw_1920.jpg?h=1a066f35508b4b65d958711c6163af65",
-  },
 ];
 
 const containerVariants = {
