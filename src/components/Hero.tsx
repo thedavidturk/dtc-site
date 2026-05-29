@@ -199,12 +199,7 @@ const item = {
 /*  Hero                                                               */
 /* ------------------------------------------------------------------ */
 
-interface HeroProps {
-  /** Kept for compatibility - the opening animation has been removed. */
-  introComplete?: boolean;
-}
-
-export default function Hero(_props: HeroProps) {
+export default function Hero() {
   const colA = work.filter((_, i) => i % 2 === 0);
   const colB = work.filter((_, i) => i % 2 === 1);
 

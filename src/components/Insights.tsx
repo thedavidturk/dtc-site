@@ -62,63 +62,63 @@ interface BlogPost {
 // ---------------------------------------------------------------------------
 const posts: BlogPost[] = [
   {
-    title: "Why Your Competitors Are Using AI Agents - And You Should Too",
+    title: "After Sora: Why the Best Brand Video Now Comes From a Stack, Not a Single Tool",
     subtitle:
-      "Autonomous AI agents are transforming how businesses operate. Here is why the companies adopting them now are pulling ahead.",
-    category: "AI + BUSINESS",
+      "OpenAI shut Sora down in March 2026. The studios making the best brand video now run a stack of tools, not one. Here is how we orchestrate it.",
+    category: "AI + VIDEO",
     gradient: "from-indigo-500/40 via-blue-900/60 to-deep-space",
-    slug: "ai-agents-business",
-    month: "APR 2026",
+    slug: "ai-video-stack",
+    month: "JUN 2026",
     coverComponent: "InsightCoverVirtualWorlds",
   },
   {
-    title: "The Rise of AI-Generated UGC: Authentic Content Without the Creator",
+    title: "Native Audio Changes Everything: The Year AI Learned to Score Its Own Footage",
     subtitle:
-      "AI-generated user content is blurring the line between real and synthetic. Brands that master this format will dominate social feeds.",
-    category: "AI + MARKETING",
-    gradient: "from-rose-500/30 via-pink-900/50 to-deep-space",
-    slug: "ai-generated-ugc",
-    month: "APR 2026",
+      "AI video models now generate matching sound in the same pass as the picture, collapsing a whole post stage. Where it wins, and where human sound direction still does.",
+    category: "AI + PRODUCTION",
+    gradient: "from-cyan-500/30 via-teal-900/50 to-deep-space",
+    slug: "ai-native-audio",
+    month: "JUN 2026",
     coverComponent: "InsightCoverRealTime4K",
   },
   {
-    title: "From Prompt to Production: How AI Is Rewriting the Creative Brief",
+    title: "Zero-Click Is Here: How Brands Get Found When Nobody Visits Your Website",
     subtitle:
-      "The traditional creative brief was built for a slower world. AI is compressing the gap between idea and execution.",
-    category: "AI + CREATIVE",
-    gradient: "from-fuchsia-500/30 via-purple-900/50 to-deep-space",
-    slug: "ai-creative-brief",
-    month: "APR 2026",
+      "Discovery has moved from ranking on Google to being the source an AI cites. How brands stay found in a zero-click world.",
+    category: "AI + DISCOVERY",
+    gradient: "from-emerald-500/30 via-teal-900/50 to-deep-space",
+    slug: "zero-click-visibility",
+    month: "JUN 2026",
     coverComponent: "InsightCoverBuildingWorlds",
   },
   {
-    title: "The AI Content Flywheel: How Smart Brands Turn One Idea Into 50 Assets",
+    title: "The Authenticity Premium: Winning Trust When 57% of People Fear Fake AI Ads",
     subtitle:
-      "The brands winning the content game are not producing more - they are producing smarter with AI-powered content flywheels.",
-    category: "CONTENT STRATEGY",
-    gradient: "from-violet-500/30 via-purple-900/50 to-deep-space",
-    slug: "ai-content-flywheel",
-    month: "APR 2026",
+      "As AI makes infinite content cheap, authenticity becomes the scarce, premium asset. How brands earn trust instead of faking it.",
+    category: "BRAND + TRUST",
+    gradient: "from-rose-500/30 via-pink-900/50 to-deep-space",
+    slug: "ai-authenticity-premium",
+    month: "JUN 2026",
     coverComponent: "InsightCoverProductViz",
   },
   {
-    title: "Why Every Brand Needs a Custom AI Workflow (Not Just Off-the-Shelf Tools)",
+    title: "Virtual Production Without the Volume: AI Pre-Viz and LED-Free Worldbuilding",
     subtitle:
-      "Off-the-shelf AI tools are table stakes. The real competitive advantage comes from custom workflows built around your brand.",
-    category: "AI + OPERATIONS",
-    gradient: "from-sky-500/30 via-cyan-900/50 to-deep-space",
-    slug: "custom-ai-workflows",
-    month: "APR 2026",
+      "LED volumes used to demand a soundstage and a massive budget. AI pre-viz and generative 3D worlds give smaller studios virtual production thinking.",
+    category: "VIRTUAL PRODUCTION",
+    gradient: "from-violet-500/30 via-purple-900/50 to-deep-space",
+    slug: "virtual-production-ai",
+    month: "JUN 2026",
     coverComponent: "InsightCoverShortForm",
   },
   {
-    title: "AI-Powered Advertising: The End of the Generic Campaign",
+    title: "From 13 Days to 27 Minutes: Rebuilding the Content Pipeline Around AI Video",
     subtitle:
-      "Generic one-size-fits-all ad campaigns are dying. AI-powered creative production lets brands run hyper-targeted campaigns that convert.",
-    category: "AI + ADVERTISING",
-    gradient: "from-red-500/30 via-rose-900/50 to-deep-space",
-    slug: "ai-powered-advertising",
-    month: "APR 2026",
+      "A 60-second video that took 13 days now ships in 27 minutes. The bottleneck moved from production to taste. Here is how we rebuilt the pipeline.",
+    category: "PRODUCTION STRATEGY",
+    gradient: "from-amber-500/30 via-orange-900/50 to-deep-space",
+    slug: "ai-content-pipeline",
+    month: "JUN 2026",
     coverComponent: "InsightCoverBrandIdentity",
   },
 ];
@@ -167,13 +167,10 @@ const cardVariants = {
 };
 
 // ---------------------------------------------------------------------------
-// Live date helper
+// Publication date for the current batch of Perspectives
 // ---------------------------------------------------------------------------
 function getLiveDate(): string {
-  const now = new Date();
-  const month = now.toLocaleString("en-US", { month: "long" }).toUpperCase();
-  const year = now.getFullYear();
-  return `${month} ${year}`;
+  return "JUNE 2026";
 }
 
 // ---------------------------------------------------------------------------

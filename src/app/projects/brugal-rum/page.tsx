@@ -335,8 +335,8 @@ export default function BrugalRumProject() {
                 their event held during the Miami Concours 2023 car show, an
                 exhibition known for displaying high-end luxury vehicles and the
                 fervor of automotive enthusiasts. The objective was to highlight
-                the brand's presence and showcase the fusion of Brugal 1888's
-                rich Dominican heritage with the vibrant energy of Miami.
+                the brand&rsquo;s presence and showcase the fusion of Brugal
+                1888&rsquo;s rich Dominican heritage with the vibrant energy of Miami.
               </p>
               <p>
                 The challenge was to bring the dynamic essence of a live, fast

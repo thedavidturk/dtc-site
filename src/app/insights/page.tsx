@@ -9,56 +9,56 @@ import { motion } from "framer-motion";
 
 const articles = [
   {
-    title: "Why Your Competitors Are Using AI Agents - And You Should Too",
+    title: "After Sora: Why the Best Brand Video Now Comes From a Stack, Not a Single Tool",
     description:
-      "Autonomous AI agents are transforming how businesses operate - from customer service to content production.",
-    category: "AI + BUSINESS",
-    href: "/insights/ai-agents-business",
+      "OpenAI shut Sora down in March 2026. The studios making the best brand video now run a stack of tools, not one. Here is how we orchestrate it.",
+    category: "AI + VIDEO",
+    href: "/insights/ai-video-stack",
     gradient: "from-indigo-500/30 via-blue-900/50 to-deep-space",
   },
   {
     title:
-      "The Rise of AI-Generated UGC: Authentic Content Without the Creator",
+      "Native Audio Changes Everything: The Year AI Learned to Score Its Own Footage",
     description:
-      "AI-generated user content is blurring the line between real and synthetic. Brands that master this format will dominate social feeds.",
-    category: "AI + MARKETING",
-    href: "/insights/ai-generated-ugc",
-    gradient: "from-rose-500/30 via-pink-900/50 to-deep-space",
+      "AI video models now generate matching sound in the same pass as the picture, collapsing a whole post stage. Where it wins, and where human sound direction still does.",
+    category: "AI + PRODUCTION",
+    href: "/insights/ai-native-audio",
+    gradient: "from-cyan-500/30 via-teal-900/50 to-deep-space",
   },
   {
-    title: "From Prompt to Production: How AI Is Rewriting the Creative Brief",
+    title: "Zero-Click Is Here: How Brands Get Found When Nobody Visits Your Website",
     description:
-      "The traditional creative brief was built for a slower world. AI is compressing the gap between idea and execution.",
-    category: "AI + CREATIVE",
-    href: "/insights/ai-creative-brief",
-    gradient: "from-fuchsia-500/30 via-purple-900/50 to-deep-space",
+      "Discovery has moved from ranking on Google to being the source an AI cites. How brands stay found in a zero-click world.",
+    category: "AI + DISCOVERY",
+    href: "/insights/zero-click-visibility",
+    gradient: "from-emerald-500/30 via-teal-900/50 to-deep-space",
   },
   {
     title:
-      "The AI Content Flywheel: How Smart Brands Turn One Idea Into 50 Assets",
+      "The Authenticity Premium: Winning Trust When 57% of People Fear Fake AI Ads",
     description:
-      "The brands winning the content game aren't producing more - they're producing smarter with AI-powered content flywheels.",
-    category: "CONTENT STRATEGY",
-    href: "/insights/ai-content-flywheel",
+      "As AI makes infinite content cheap, authenticity becomes the scarce, premium asset. How brands earn trust instead of faking it.",
+    category: "BRAND + TRUST",
+    href: "/insights/ai-authenticity-premium",
+    gradient: "from-rose-500/30 via-pink-900/50 to-deep-space",
+  },
+  {
+    title:
+      "Virtual Production Without the Volume: AI Pre-Viz and LED-Free Worldbuilding",
+    description:
+      "LED volumes used to demand a soundstage and a massive budget. AI pre-viz and generative 3D worlds give smaller studios virtual production thinking.",
+    category: "VIRTUAL PRODUCTION",
+    href: "/insights/virtual-production-ai",
     gradient: "from-violet-500/30 via-purple-900/50 to-deep-space",
   },
   {
     title:
-      "Why Every Brand Needs a Custom AI Workflow (Not Just Off-the-Shelf Tools)",
+      "From 13 Days to 27 Minutes: Rebuilding the Content Pipeline Around AI Video",
     description:
-      "Off-the-shelf AI tools are table stakes. The real competitive advantage comes from custom workflows built around your brand.",
-    category: "AI + OPERATIONS",
-    href: "/insights/custom-ai-workflows",
-    gradient: "from-sky-500/30 via-cyan-900/50 to-deep-space",
-  },
-  {
-    title:
-      "AI-Powered Advertising: The End of the Generic Campaign",
-    description:
-      "Generic one-size-fits-all ad campaigns are dying. AI-powered creative production lets brands run hyper-targeted campaigns that convert.",
-    category: "AI + ADVERTISING",
-    href: "/insights/ai-powered-advertising",
-    gradient: "from-red-500/30 via-rose-900/50 to-deep-space",
+      "A 60-second video that took 13 days now ships in 27 minutes. The bottleneck moved from production to taste. Here is how we rebuilt the pipeline.",
+    category: "PRODUCTION STRATEGY",
+    href: "/insights/ai-content-pipeline",
+    gradient: "from-amber-500/30 via-orange-900/50 to-deep-space",
   },
 ];
 
