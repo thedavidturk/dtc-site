@@ -179,13 +179,16 @@ export default function SeaWorldProject() {
       <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-end overflow-hidden">
         {/* Cover GIF background */}
         <div className="absolute inset-0">
-          <Image
-            src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2FiY2c0M2o5aDlmbHBreWF0OXhteWt0bzBrcnk0dTB3ZGpsOXVlbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/FEKtnv79Ys8a75Q8gG/giphy.gif"
-            alt="SeaWorld SEAQuest underwater scene"
-            fill
-            className="object-cover"
-            unoptimized
-            priority
+          <video
+            src="/motion/seaworld-hero.mp4"
+            poster="/motion/seaworld-hero.jpg"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            aria-label="SeaWorld SEAQuest underwater scene"
+            className="absolute inset-0 h-full w-full object-cover"
           />
         </div>
 

@@ -30,7 +30,8 @@ const projects: Project[] = [
     href: "/projects/new-era-cap",
     gradient: "from-electric-indigo via-purple-600 to-violet-900",
     accentGlow: "group-hover:shadow-electric-indigo/30",
-    coverImage: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdDBnMzY2M2JzNDFzNms4ejJvZmRyNGo1YmsyYjdlaHZlMXphZG14dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2UeBIRTL9ZA2BvmZD5/giphy.gif",
+    coverImage: "/motion/new-era-3d.mp4",
+    coverPoster: "/motion/new-era-3d.jpg",
   },
   {
     client: "SEAWORLD",
@@ -41,7 +42,8 @@ const projects: Project[] = [
     href: "/projects/seaworld",
     gradient: "from-blue-600 via-cyan-500 to-teal-700",
     accentGlow: "group-hover:shadow-cyan-500/30",
-    coverImage: "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExenYxcmUybjVyanNlZjF1b3FxMGZvaDZhZDE0ZTVpYTI0dGdtamFkcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/V9e6dWr3gEjPCoNJ7c/giphy.gif",
+    coverImage: "/motion/seaworld-reel.mp4",
+    coverPoster: "/motion/seaworld-reel.jpg",
   },
   {
     client: "FAENA",
@@ -64,7 +66,8 @@ const projects: Project[] = [
     href: "/projects/betterfly",
     gradient: "from-emerald-500 via-teal-500 to-cyan-800",
     accentGlow: "group-hover:shadow-emerald-500/30",
-    coverImage: "https://media.giphy.com/media/OWRTtgINto81tGKtJi/giphy.gif",
+    coverImage: "/motion/betterfly-fooh.mp4",
+    coverPoster: "/motion/betterfly-fooh.jpg",
   },
   {
     client: "BRUGAL RUM",

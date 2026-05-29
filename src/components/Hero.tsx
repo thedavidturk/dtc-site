@@ -17,7 +17,8 @@ interface WorkTile {
 
 const work: WorkTile[] = [
   {
-    src: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdDBnMzY2M2JzNDFzNms4ejJvZmRyNGo1YmsyYjdlaHZlMXphZG14dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2UeBIRTL9ZA2BvmZD5/giphy.gif",
+    src: "/motion/new-era-3d.mp4",
+    poster: "/motion/new-era-3d.jpg",
     client: "New Era Cap",
     tag: "3D / VFX",
   },
@@ -40,7 +41,8 @@ const work: WorkTile[] = [
     tag: "Commercial",
   },
   {
-    src: "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExenYxcmUybjVyanNlZjF1b3FxMGZvaDZhZDE0ZTVpYTI0dGdtamFkcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/V9e6dWr3gEjPCoNJ7c/giphy.gif",
+    src: "/motion/seaworld-reel.mp4",
+    poster: "/motion/seaworld-reel.jpg",
     client: "SeaWorld",
     tag: "Cinematics",
   },
@@ -57,7 +59,8 @@ const work: WorkTile[] = [
     tag: "Elements",
   },
   {
-    src: "https://media.giphy.com/media/OWRTtgINto81tGKtJi/giphy.gif",
+    src: "/motion/betterfly-fooh.mp4",
+    poster: "/motion/betterfly-fooh.jpg",
     client: "Betterfly",
     tag: "FOOH",
   },

@@ -287,13 +287,16 @@ export default function NewEraCapProject() {
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-end overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdDBnMzY2M2JzNDFzNms4ejJvZmRyNGo1YmsyYjdlaHZlMXphZG14dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2UeBIRTL9ZA2BvmZD5/giphy.gif"
-            alt="New Era Cap campaign visual"
-            fill
-            className="object-cover"
-            unoptimized
-            priority
+          <video
+            src="/motion/new-era-3d.mp4"
+            poster="/motion/new-era-3d.jpg"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            aria-label="New Era Cap campaign visual"
+            className="absolute inset-0 h-full w-full object-cover"
           />
         </div>
         <div className="absolute inset-0 bg-black/30" />

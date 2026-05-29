@@ -174,13 +174,16 @@ export default function BetterflyProject() {
       <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-end overflow-hidden">
         {/* GIF cover image */}
         <div className="absolute inset-0">
-          <Image
-            src="https://media.giphy.com/media/OWRTtgINto81tGKtJi/giphy.gif"
-            alt="Betterfly FOOH campaign VFX scene"
-            fill
-            className="object-cover"
-            unoptimized
-            priority
+          <video
+            src="/motion/betterfly-fooh.mp4"
+            poster="/motion/betterfly-fooh.jpg"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            aria-label="Betterfly FOOH campaign VFX scene"
+            className="absolute inset-0 h-full w-full object-cover"
           />
         </div>
         <div className="absolute inset-0 bg-black/30" />
