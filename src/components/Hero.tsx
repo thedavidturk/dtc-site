@@ -340,7 +340,7 @@ export default function Hero() {
             </span>
             {[
               "New Era Cap",
-              "United Parks (SeaWorld)",
+              "United Parks",
               "Ford Motors",
               "Betterfly",
               "Barry's",
