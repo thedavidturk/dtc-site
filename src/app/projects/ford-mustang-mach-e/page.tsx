@@ -291,7 +291,8 @@ export default function FordMustangMachEProject() {
         heading="Rebuilt in Motion"
         gifs={[
           {
-            src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/fa4da97d-a48d-4552-954c-71963d359e22_rwc_0x0x638x360x640.gif?h=c1ec54a48ffb23c6f9542c94d47fd428",
+            src: "/motion/ford-mustang.mp4",
+            poster: "/motion/ford-mustang.jpg",
             label: "Mustang Mach-E",
           },
         ]}

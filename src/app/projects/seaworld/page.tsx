@@ -246,7 +246,8 @@ export default function SeaWorldProject() {
         heading="The Campaign, Moving"
         gifs={[
           {
-            src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/7d1cb208-574d-4168-8aa1-97b517e6828e_rwc_0x21x480x270x480.gif?h=9852427ab841a315a35deaaf2b871dc2",
+            src: "/motion/seaworld.mp4",
+            poster: "/motion/seaworld.jpg",
             label: "SeaQuest",
           },
         ]}

@@ -239,7 +239,8 @@ export default function TodesVejiganteProject() {
         heading="The Story, Moving"
         gifs={[
           {
-            src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/97ee6593-f537-4045-a880-910168742d6e_rwc_0x0x638x360x640.gif?h=09ddef7adaacbd75a8bbf7861c20dd27",
+            src: "/motion/todes.mp4",
+            poster: "/motion/todes.jpg",
             label: "Todes Vejigante",
           },
         ]}

@@ -223,7 +223,8 @@ export default function SproutedProject() {
         heading="The Collection, Growing"
         gifs={[
           {
-            src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/909ce569-425d-455d-bd8c-44a5467d38ee_rwc_0x0x638x360x640.gif?h=772c9439cae943f424ec3a8615128714",
+            src: "/motion/new-era-sprouted.mp4",
+            poster: "/motion/new-era-sprouted.jpg",
             label: "Sprouted",
           },
         ]}

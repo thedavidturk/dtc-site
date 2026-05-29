@@ -239,7 +239,8 @@ export default function BetterflyProject() {
         heading="The Campaign, Moving"
         gifs={[
           {
-            src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/bdc405a5-a672-4c9e-b0f1-f4e8d66909d2_rwc_0x0x599x338x599.gif?h=15a30fb33a2a487f7401c8dd93cd02a5",
+            src: "/motion/betterfly.mp4",
+            poster: "/motion/betterfly.jpg",
             label: "#RecursosMasHumanos",
           },
         ]}

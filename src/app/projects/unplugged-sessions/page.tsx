@@ -262,7 +262,8 @@ export default function UnpluggedSessionsProject() {
         heading="The Sessions, Moving"
         gifs={[
           {
-            src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/22096f95-4fe1-4a87-92a1-d5a5f0c96c31_rwc_0x0x638x360x640.gif?h=0b4dfbb2d9656a6d5c3c2eca4add0431",
+            src: "/motion/unplugged.mp4",
+            poster: "/motion/unplugged.jpg",
             label: "Unplugged",
           },
         ]}

@@ -255,7 +255,8 @@ export default function FordFieldClubProject() {
         heading="Gameday in Motion"
         gifs={[
           {
-            src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/2acdf5c6-6b09-4106-8099-c511b25e5f15_rwc_0x0x958x540x958.gif?h=03e3d8d8cc9211a0bfb2a132e8a3a355",
+            src: "/motion/ford-field-club.mp4",
+            poster: "/motion/ford-field-club.jpg",
             label: "Ford Field Club",
           },
         ]}

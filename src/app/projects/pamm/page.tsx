@@ -248,7 +248,8 @@ export default function PammProject() {
         heading="The Identity, Moving"
         gifs={[
           {
-            src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/f86d0af7-0ec7-43a7-9e06-70e27a45abdf_rwc_0x0x638x360x640.gif?h=d06e93e4be9aeae1e4c69ea5ca3bfc56",
+            src: "/motion/pamm.mp4",
+            poster: "/motion/pamm.jpg",
             label: "PAMM",
           },
         ]}
