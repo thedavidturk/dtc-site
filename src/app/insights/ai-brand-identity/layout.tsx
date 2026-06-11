@@ -18,10 +18,19 @@ export const metadata: Metadata = {
     description:
       "Static brand guidelines are dead. How AI-native identity systems let brands scale visual consistency across every touchpoint while adapting in real time.",
     type: "article",
+    images: [
+      {
+        url: "/og/ai-brand-identity.gif",
+        width: 1200,
+        height: 630,
+        type: "image/gif",
+      },
+    ],
     authors: ["David Turk"],
   },
   twitter: {
     card: "summary_large_image",
+    images: ["/og/ai-brand-identity.gif"],
     title:
       "AI-Native Brand Identity: Building Visual Systems That Adapt in Real Time",
     description:

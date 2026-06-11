@@ -18,10 +18,19 @@ export const metadata: Metadata = {
     description:
       "AI product visualization is replacing traditional photo shoots at a fraction of the cost. How brands are generating photorealistic product imagery with AI and 3D pipelines.",
     type: "article",
+    images: [
+      {
+        url: "/og/ai-product-visualization.gif",
+        width: 1200,
+        height: 630,
+        type: "image/gif",
+      },
+    ],
     authors: ["David Turk"],
   },
   twitter: {
     card: "summary_large_image",
+    images: ["/og/ai-product-visualization.gif"],
     title:
       "The Death of the Photo Shoot: AI Product Visualization for Modern Brands",
     description:

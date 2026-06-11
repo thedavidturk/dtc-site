@@ -18,10 +18,19 @@ export const metadata: Metadata = {
     description:
       "AI-powered short-form content is dominating social platforms. How brands are using AI to produce TikTok, Reels, and Shorts content at scale without sacrificing quality.",
     type: "article",
+    images: [
+      {
+        url: "/og/ai-short-form-content.gif",
+        width: 1200,
+        height: 630,
+        type: "image/gif",
+      },
+    ],
     authors: ["David Turk"],
   },
   twitter: {
     card: "summary_large_image",
+    images: ["/og/ai-short-form-content.gif"],
     title:
       "Short-Form, High Impact: How AI Is Powering the Next Wave of Social Content",
     description:

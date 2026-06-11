@@ -16,10 +16,19 @@ export const metadata: Metadata = {
     description:
       "How AI video generation tools are reshaping content production, cutting costs by 60-80%, and why creative studios are rebuilding their pipelines around machine-speed workflows.",
     type: "article",
+    images: [
+      {
+        url: "/og/virtual-worlds.gif",
+        width: 1200,
+        height: 630,
+        type: "image/gif",
+      },
+    ],
     authors: ["David Turk"],
   },
   twitter: {
     card: "summary_large_image",
+    images: ["/og/virtual-worlds.gif"],
     title: "AI Video Generation Is Replacing Traditional Production Pipelines",
     description:
       "How AI video generation tools are reshaping content production, cutting costs by 60-80%, and why creative studios are rebuilding their pipelines around machine-speed workflows.",
