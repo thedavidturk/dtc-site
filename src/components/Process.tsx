@@ -4,8 +4,11 @@ import { useRef, useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import TextReveal from "./TextReveal";
-import WireframeTerrain from "./WireframeTerrain";
 import Lazy3D from "./Lazy3D";
+
+const WireframeTerrain = dynamic(() => import("./WireframeTerrain"), {
+  ssr: false,
+});
 
 const ProcessPipeline = dynamic(() => import("./ProcessPipeline"), {
   ssr: false,

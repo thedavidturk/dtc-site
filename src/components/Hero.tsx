@@ -1,8 +1,34 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import WorkMarquee from "./WorkMarquee";
+import useAutoplayInView from "./useAutoplayInView";
+
+/* ------------------------------------------------------------------ */
+/*  Desktop / mobile detection (JS, not CSS)                           */
+/*                                                                     */
+/*  The desktop wall and mobile strip each mount dozens of videos, so  */
+/*  only one variant may render - display:none alone doesn't stop the  */
+/*  hidden copy from downloading and decoding. Pre-mount we default to */
+/*  the mobile strip (its lg:hidden class keeps it invisible on        */
+/*  desktop, so there's no layout flash while the wall swaps in).      */
+/* ------------------------------------------------------------------ */
+
+function useIsDesktop() {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const query = window.matchMedia("(min-width: 1024px)");
+    const update = () => setIsDesktop(query.matches);
+    update();
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
+
+  return isDesktop;
+}
 
 /* ------------------------------------------------------------------ */
 /*  Real work - pulled from the featured projects                      */
@@ -150,6 +176,7 @@ function Tile({ tile }: { tile: WorkTile }) {
   // unoptimized; static stills go through Next's image optimizer.
   const isVideo = tile.src.toLowerCase().endsWith(".mp4");
   const isGif = tile.src.toLowerCase().includes(".gif");
+  const videoRef = useAutoplayInView<HTMLVideoElement>();
   return (
     <a
       href="#projects"
@@ -160,13 +187,13 @@ function Tile({ tile }: { tile: WorkTile }) {
       <div className="relative aspect-[4/5] w-full overflow-hidden">
         {isVideo ? (
           <video
+            ref={videoRef}
             src={tile.src}
             poster={tile.poster}
-            autoPlay
             loop
             muted
             playsInline
-            preload="metadata"
+            preload="none"
             aria-label={`${tile.client} - ${tile.tag}`}
             className="pointer-events-none absolute inset-0 h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
           />
@@ -270,6 +297,7 @@ const item = {
 export default function Hero() {
   const colA = work.filter((_, i) => i % 2 === 0);
   const colB = work.filter((_, i) => i % 2 === 1);
+  const isDesktop = useIsDesktop();
 
   return (
     <section
@@ -398,33 +426,37 @@ export default function Hero() {
         </motion.div>
 
         {/* ---------------------------- Right: work wall ---------------------------- */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.97 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease, delay: 0.2 }}
-          className="relative hidden lg:block lg:h-screen"
-        >
-          {/* Two scrolling columns (auto-scroll, grab to drag, click to view work) */}
-          <div className="absolute inset-0 flex gap-4 px-1 py-6">
-            <MarqueeColumn tiles={colA} reverse={false} speed={34} />
-            <MarqueeColumn tiles={colB} reverse speed={28} />
-          </div>
+        {isDesktop && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.97 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease, delay: 0.2 }}
+            className="relative hidden lg:block lg:h-screen"
+          >
+            {/* Two scrolling columns (auto-scroll, grab to drag, click to view work) */}
+            <div className="absolute inset-0 flex gap-4 px-1 py-6">
+              <MarqueeColumn tiles={colA} reverse={false} speed={34} />
+              <MarqueeColumn tiles={colB} reverse speed={28} />
+            </div>
 
-          {/* Feather edges so the wall melts into the page */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-deep-space to-transparent" />
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-deep-space to-transparent" />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-deep-space to-transparent" />
-        </motion.div>
+            {/* Feather edges so the wall melts into the page */}
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-deep-space to-transparent" />
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-deep-space to-transparent" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-deep-space to-transparent" />
+          </motion.div>
+        )}
 
         {/* ---------------------------- Mobile work strip ---------------------------- */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease, delay: 0.3 }}
-          className="-mx-6 pb-16 md:-mx-8 lg:hidden"
-        >
-          <MarqueeRow tiles={work} />
-        </motion.div>
+        {!isDesktop && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease, delay: 0.3 }}
+            className="-mx-6 pb-16 md:-mx-8 lg:hidden"
+          >
+            <MarqueeRow tiles={work} />
+          </motion.div>
+        )}
       </div>
 
       {/* Scroll indicator */}

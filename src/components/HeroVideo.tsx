@@ -42,10 +42,12 @@ export default function HeroVideo() {
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.92, 1, 0.96]);
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0.3]);
 
-  // Scan line offset
+  // Scan line offset - only animates while the intro overlay is visible;
+  // the loop is cancelled for good once playback starts.
   const scanOffset = useRef(0);
   const scanLineRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
+    if (hasStarted) return;
     let raf: number;
     const animate = () => {
       scanOffset.current = (scanOffset.current + 0.3) % 200;
@@ -56,7 +58,7 @@ export default function HeroVideo() {
     };
     raf = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(raf);
-  }, []);
+  }, [hasStarted]);
 
   // Auto-hide controls after inactivity
   const resetHideTimer = useCallback(() => {
