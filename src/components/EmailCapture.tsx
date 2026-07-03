@@ -56,6 +56,9 @@ export default function EmailCapture() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  // Formspree honeypot: humans never see or fill this; bots that auto-fill
+  // every field trip it and Formspree silently drops the submission.
+  const [gotcha, setGotcha] = useState("");
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -81,6 +84,7 @@ export default function EmailCapture() {
           email,
           _subject: "New Newsletter Signup",
           source: "newsletter",
+          _gotcha: gotcha,
         }),
       });
 
@@ -138,6 +142,18 @@ export default function EmailCapture() {
                 initial={{ opacity: 1 }}
                 exit={{ opacity: 0, y: -10, transition: { duration: 0.2 } }}
               >
+                {/* Honeypot field for Formspree spam filtering (invisible to humans) */}
+                <input
+                  type="text"
+                  name="_gotcha"
+                  value={gotcha}
+                  onChange={(e) => setGotcha(e.target.value)}
+                  style={{ display: "none" }}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                />
+
                 <div className="flex-1">
                   <input
                     type="email"

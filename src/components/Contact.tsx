@@ -113,6 +113,9 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
+  // Formspree honeypot: humans never see or fill this; bots that auto-fill
+  // every field trip it and Formspree silently drops the submission.
+  const [gotcha, setGotcha] = useState("");
 
   function validate(): FormErrors {
     const newErrors: FormErrors = {};
@@ -172,6 +175,7 @@ export default function Contact() {
           email: formData.email,
           projectType: formData.projectType,
           message: formData.message,
+          _gotcha: gotcha,
         }),
       });
 
@@ -230,6 +234,18 @@ export default function Contact() {
                   initial={{ opacity: 1 }}
                   exit={{ opacity: 0, y: -20, transition: { duration: 0.3 } }}
                 >
+                  {/* Honeypot field for Formspree spam filtering (invisible to humans) */}
+                  <input
+                    type="text"
+                    name="_gotcha"
+                    value={gotcha}
+                    onChange={(e) => setGotcha(e.target.value)}
+                    style={{ display: "none" }}
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                  />
+
                   {/* Name & Company row */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
