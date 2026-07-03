@@ -20,17 +20,17 @@ export const metadata: Metadata = {
     type: "article",
     images: [
       {
-        url: "/og/ai-product-visualization.gif",
+        url: "/og/ai-product-visualization.jpg",
         width: 1200,
         height: 630,
-        type: "image/gif",
+        type: "image/jpeg",
       },
     ],
     authors: ["David Turk"],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/og/ai-product-visualization.gif"],
+    images: ["/og/ai-product-visualization.jpg"],
     title:
       "The Death of the Photo Shoot: AI Product Visualization for Modern Brands",
     description:

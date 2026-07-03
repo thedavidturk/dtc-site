@@ -9,17 +9,17 @@ export const metadata: Metadata = {
     type: "article",
     images: [
       {
-        url: "/og/ai-native-audio.gif",
+        url: "/og/ai-native-audio.jpg",
         width: 1200,
         height: 630,
-        type: "image/gif",
+        type: "image/jpeg",
         alt: "Native Audio: The Year AI Learned to Score Its Own Footage",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/og/ai-native-audio.gif"],
+    images: ["/og/ai-native-audio.jpg"],
   },
 };
 

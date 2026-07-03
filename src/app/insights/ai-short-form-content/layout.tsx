@@ -20,17 +20,17 @@ export const metadata: Metadata = {
     type: "article",
     images: [
       {
-        url: "/og/ai-short-form-content.gif",
+        url: "/og/ai-short-form-content.jpg",
         width: 1200,
         height: 630,
-        type: "image/gif",
+        type: "image/jpeg",
       },
     ],
     authors: ["David Turk"],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/og/ai-short-form-content.gif"],
+    images: ["/og/ai-short-form-content.jpg"],
     title:
       "Short-Form, High Impact: How AI Is Powering the Next Wave of Social Content",
     description:

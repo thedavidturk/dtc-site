@@ -20,17 +20,17 @@ export const metadata: Metadata = {
     type: "article",
     images: [
       {
-        url: "/og/real-time-4k.gif",
+        url: "/og/real-time-4k.jpg",
         width: 1200,
         height: 630,
-        type: "image/gif",
+        type: "image/jpeg",
       },
     ],
     authors: ["David Turk"],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/og/real-time-4k.gif"],
+    images: ["/og/real-time-4k.jpg"],
     title:
       "The AI-Powered Creative Pipeline: VFX, Sound Design, and Content at Machine Speed",
     description:

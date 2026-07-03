@@ -18,17 +18,17 @@ export const metadata: Metadata = {
     type: "article",
     images: [
       {
-        url: "/og/building-worlds.gif",
+        url: "/og/building-worlds.jpg",
         width: 1200,
         height: 630,
-        type: "image/gif",
+        type: "image/jpeg",
       },
     ],
     authors: ["David Turk"],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/og/building-worlds.gif"],
+    images: ["/og/building-worlds.jpg"],
     title: "Your Brand in the Age of AI Search: Why GEO Is the New SEO",
     description:
       "Generative Engine Optimization is replacing traditional SEO. Learn why optimizing for AI search engines like ChatGPT and Perplexity is essential for brand visibility in 2026.",

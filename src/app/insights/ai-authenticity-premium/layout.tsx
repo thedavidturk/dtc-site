@@ -9,17 +9,17 @@ export const metadata: Metadata = {
     type: "article",
     images: [
       {
-        url: "/og/ai-authenticity-premium.gif",
+        url: "/og/ai-authenticity-premium.jpg",
         width: 1200,
         height: 630,
-        type: "image/gif",
+        type: "image/jpeg",
         alt: "The Authenticity Premium: Winning Trust in the Age of Fake AI",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/og/ai-authenticity-premium.gif"],
+    images: ["/og/ai-authenticity-premium.jpg"],
   },
 };
 

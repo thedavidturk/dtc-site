@@ -20,17 +20,17 @@ export const metadata: Metadata = {
     type: "article",
     images: [
       {
-        url: "/og/ai-brand-identity.gif",
+        url: "/og/ai-brand-identity.jpg",
         width: 1200,
         height: 630,
-        type: "image/gif",
+        type: "image/jpeg",
       },
     ],
     authors: ["David Turk"],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/og/ai-brand-identity.gif"],
+    images: ["/og/ai-brand-identity.jpg"],
     title:
       "AI-Native Brand Identity: Building Visual Systems That Adapt in Real Time",
     description:

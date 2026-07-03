@@ -9,17 +9,17 @@ export const metadata: Metadata = {
     type: "article",
     images: [
       {
-        url: "/og/virtual-production-ai.gif",
+        url: "/og/virtual-production-ai.jpg",
         width: 1200,
         height: 630,
-        type: "image/gif",
+        type: "image/jpeg",
         alt: "Virtual Production Without the Volume",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/og/virtual-production-ai.gif"],
+    images: ["/og/virtual-production-ai.jpg"],
   },
 };
 

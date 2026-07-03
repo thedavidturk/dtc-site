@@ -9,17 +9,17 @@ export const metadata: Metadata = {
     type: "article",
     images: [
       {
-        url: "/og/ai-content-pipeline.gif",
+        url: "/og/ai-content-pipeline.jpg",
         width: 1200,
         height: 630,
-        type: "image/gif",
+        type: "image/jpeg",
         alt: "From 13 Days to 27 Minutes: Rebuilding the Content Pipeline",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/og/ai-content-pipeline.gif"],
+    images: ["/og/ai-content-pipeline.jpg"],
   },
 };
 

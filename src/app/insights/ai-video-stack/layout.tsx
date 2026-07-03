@@ -9,17 +9,17 @@ export const metadata: Metadata = {
     type: "article",
     images: [
       {
-        url: "/og/ai-video-stack.gif",
+        url: "/og/ai-video-stack.jpg",
         width: 1200,
         height: 630,
-        type: "image/gif",
+        type: "image/jpeg",
         alt: "After Sora: The Best Brand Video Now Comes From a Stack",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/og/ai-video-stack.gif"],
+    images: ["/og/ai-video-stack.jpg"],
   },
 };
 
