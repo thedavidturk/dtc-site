@@ -123,7 +123,7 @@ export default function EmailCapture() {
           </span>
           <h2 className="font-headline text-3xl md:text-4xl font-bold text-pure-white tracking-tight">
             Get Monthly AI Creative{" "}
-            <span className="gradient-text">Insights</span>
+            <span className="text-pure-white">Insights</span>
           </h2>
           <p className="font-body text-cool-gray text-sm md:text-base mt-3 leading-relaxed">
             One email per month. No spam. Unsubscribe anytime.

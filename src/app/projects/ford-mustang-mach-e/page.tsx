@@ -3,9 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import TiltCard from "@/components/TiltCard";
-import HolographicSheen from "@/components/HolographicSheen";
-import DistortionCard from "@/components/DistortionCard";
 import ProjectGifBand from "@/components/ProjectGifBand";
 
 /* ------------------------------------------------------------------ */
@@ -401,7 +398,7 @@ export default function FordMustangMachEProject() {
             The Animation
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            Hi-res imagery, <span className="gradient-text">brought to life in 4K</span>
+            Hi-res imagery, <span className="text-white">brought to life in 4K</span>
           </h2>
         </motion.div>
 
@@ -416,11 +413,6 @@ export default function FordMustangMachEProject() {
           <div className="absolute -inset-4 md:-inset-8 bg-gradient-to-r from-electric-indigo/10 via-white/5 to-warm-coral/10 rounded-3xl blur-2xl opacity-60 pointer-events-none" />
 
           <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/40">
-            {/* Corner accent brackets */}
-            <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-electric-indigo/40 rounded-tl-2xl z-10 pointer-events-none" style={{ borderColor: "rgba(99,102,241,0.4)" }} />
-            <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 rounded-tr-2xl z-10 pointer-events-none" style={{ borderColor: "rgba(99,102,241,0.4)" }} />
-            <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 rounded-bl-2xl z-10 pointer-events-none" style={{ borderColor: "rgba(249,115,22,0.4)" }} />
-            <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 rounded-br-2xl z-10 pointer-events-none" style={{ borderColor: "rgba(249,115,22,0.4)" }} />
 
             {/* 16:9 responsive embed (Adobe CCV player from the source case study) */}
             <div className="relative w-full aspect-video">
@@ -455,7 +447,7 @@ export default function FordMustangMachEProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
             From render to feed{" "}
-            <span className="gradient-text">in four moves</span>
+            <span className="text-white">in four moves</span>
           </h2>
         </motion.div>
 
@@ -508,7 +500,7 @@ export default function FordMustangMachEProject() {
             Key Visuals
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            Every frame, <span className="gradient-text">a finished piece</span>
+            Every frame, <span className="text-white">a finished piece</span>
           </h2>
         </motion.div>
 
@@ -519,7 +511,7 @@ export default function FordMustangMachEProject() {
           viewport={{ once: true, margin: "-60px" }}
           className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6"
         >
-          {galleryImages.map((img, i) => {
+          {galleryImages.map((img) => {
             const spanClass =
               img.span === 12
                 ? "md:col-span-12"
@@ -528,28 +520,25 @@ export default function FordMustangMachEProject() {
                 : img.span === 5
                 ? "md:col-span-5"
                 : "md:col-span-4";
-            const Card = i % 2 === 0 ? TiltCard : DistortionCard;
             return (
               <motion.div key={img.src} variants={galleryItem} className={spanClass}>
-                <Card className="rounded-2xl overflow-hidden relative group">
-                  <HolographicSheen className="!absolute inset-0">
-                    <div
-                      className="relative w-full"
-                      style={{ aspectRatio: img.aspect }}
-                    >
-                      <Image
-                        src={img.src}
-                        alt={img.alt}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 1200px"
-                        className="object-cover"
-                      />
-                    </div>
-                  </HolographicSheen>
+                <div className="rounded-2xl overflow-hidden relative group">
+                  <div
+                    className="relative w-full"
+                    style={{ aspectRatio: img.aspect }}
+                  >
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 1200px"
+                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                    />
+                  </div>
                   <div
                     className="absolute inset-0 rounded-2xl border border-white/0 transition-colors duration-500 pointer-events-none group-hover:border-white/20"
                   />
-                </Card>
+                </div>
               </motion.div>
             );
           })}
@@ -575,7 +564,7 @@ export default function FordMustangMachEProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
             Premium imagery,{" "}
-            <span className="gradient-text">built for social</span>
+            <span className="text-white">built for social</span>
           </h2>
         </motion.div>
 
@@ -631,7 +620,7 @@ export default function FordMustangMachEProject() {
             Tools &amp; Technology
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            The <span className="gradient-text">production stack</span>
+            The <span className="text-white">production stack</span>
           </h2>
         </motion.div>
 
@@ -675,7 +664,7 @@ export default function FordMustangMachEProject() {
         >
           <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
             Have an icon{" "}
-            <span className="gradient-text">to reinvent</span>?
+            <span className="text-white">to reinvent</span>?
           </h2>
           <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s build imagery and motion that makes your brand impossible

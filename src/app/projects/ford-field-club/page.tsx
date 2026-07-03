@@ -3,9 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import TiltCard from "@/components/TiltCard";
-import HolographicSheen from "@/components/HolographicSheen";
-import DistortionCard from "@/components/DistortionCard";
 import ProjectGifBand from "@/components/ProjectGifBand";
 
 /* ------------------------------------------------------------------ */
@@ -204,12 +201,6 @@ export default function FordFieldClubProject() {
         {/* Radial fade at bottom */}
         <div className="absolute inset-0 z-[2] bg-gradient-to-t from-deep-space via-deep-space/40 to-transparent" />
 
-        {/* Floating geometric accents */}
-        <div className="absolute top-1/4 left-1/5 w-40 h-40 border border-white/[0.06] rounded-full animate-pulse z-[2]" />
-        <div className="absolute top-1/3 right-1/4 w-20 h-20 border border-white/10 rounded-xl rotate-12 z-[2]" />
-        <div className="absolute bottom-1/3 left-1/3 w-3 h-3 bg-electric-indigo/40 rounded-full z-[2]" />
-        <div className="absolute top-1/2 right-1/3 w-2 h-2 bg-white/10 rounded-full z-[2]" />
-
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -369,7 +360,7 @@ export default function FordFieldClubProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
             Step inside{" "}
-            <span className="gradient-text">the Ford Field Club</span>
+            <span className="text-white">the Ford Field Club</span>
           </h2>
         </motion.div>
 
@@ -384,11 +375,6 @@ export default function FordFieldClubProject() {
           <div className="absolute -inset-4 md:-inset-8 bg-gradient-to-r from-electric-indigo/10 via-white/5 to-warm-coral/10 rounded-3xl blur-2xl opacity-60 pointer-events-none" />
 
           <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/40">
-            {/* Corner accent brackets */}
-            <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 rounded-tl-2xl z-10 pointer-events-none" style={{ borderColor: "rgba(99,102,241,0.4)" }} />
-            <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 rounded-tr-2xl z-10 pointer-events-none" style={{ borderColor: "rgba(99,102,241,0.4)" }} />
-            <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 rounded-bl-2xl z-10 pointer-events-none" style={{ borderColor: "rgba(249,115,22,0.4)" }} />
-            <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 rounded-br-2xl z-10 pointer-events-none" style={{ borderColor: "rgba(249,115,22,0.4)" }} />
 
             {/* 16:9 responsive embed (Adobe CCV player from the source case study) */}
             <div className="relative w-full aspect-video">
@@ -423,7 +409,7 @@ export default function FordFieldClubProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
             Directing the experience{" "}
-            <span className="gradient-text">end to end</span>
+            <span className="text-white">end to end</span>
           </h2>
         </motion.div>
 
@@ -477,7 +463,7 @@ export default function FordFieldClubProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
             Access as the story,{" "}
-            <span className="gradient-text">Ford as the host</span>
+            <span className="text-white">Ford as the host</span>
           </h2>
           <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
             <p>
@@ -519,7 +505,7 @@ export default function FordFieldClubProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
             Inside the{" "}
-            <span className="gradient-text">Ford Field Club</span>
+            <span className="text-white">Ford Field Club</span>
           </h2>
         </motion.div>
 
@@ -530,121 +516,68 @@ export default function FordFieldClubProject() {
           viewport={{ once: true, margin: "-60px" }}
           className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6"
         >
-          {/* Row 1 - full-width hero */}
-          <motion.div variants={galleryItem} className="md:col-span-12">
-            <TiltCard maxTilt={6} className="aspect-[21/9] rounded-2xl overflow-hidden relative group">
-              <HolographicSheen className="!absolute inset-0">
-                <Image
-                  src={img.hero}
-                  alt="Ford Field Club environment at Hard Rock Stadium"
-                  fill
-                  sizes="100vw"
-                  className="object-cover"
-                />
-              </HolographicSheen>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
-            </TiltCard>
-          </motion.div>
-
-          {/* Row 2 - wide + tall */}
+          {/* Row 1 - wide + tall */}
           <motion.div variants={galleryItem} className="md:col-span-7">
-            <DistortionCard>
-              <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
-                <Image
-                  src={img.g1}
-                  alt="Ford Field Club premium hospitality detail"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 58vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
-              </div>
-            </DistortionCard>
+            <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
+              <Image
+                src={img.g1}
+                alt="Ford Field Club premium hospitality detail"
+                fill
+                sizes="(max-width: 768px) 100vw, 58vw"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
+            </div>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-5">
-            <TiltCard className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
-              <HolographicSheen className="!absolute inset-0">
-                <Image
-                  src={img.g2}
-                  alt="Ford brand integration within the club"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 42vw"
-                  className="object-cover"
-                />
-              </HolographicSheen>
+            <div className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
+              <Image
+                src={img.g2}
+                alt="Ford brand integration within the club"
+                fill
+                sizes="(max-width: 768px) 100vw, 42vw"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              />
               <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
-            </TiltCard>
+            </div>
           </motion.div>
 
-          {/* Row 3 - three equal columns */}
+          {/* Row 2 - three equal columns */}
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <HolographicSheen>
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
-                <Image
-                  src={img.g3}
-                  alt="Field-level vantage point at Hard Rock Stadium"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
-              </div>
-            </HolographicSheen>
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+              <Image
+                src={img.g3}
+                alt="Field-level vantage point at Hard Rock Stadium"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
+            </div>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <TiltCard className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
               <Image
                 src={img.g4}
                 alt="Spatial and environmental design of the club"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
               />
               <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
-            </TiltCard>
+            </div>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <DistortionCard>
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
-                <Image
-                  src={img.g5}
-                  alt="Guest hospitality touchpoint at the Ford Field Club"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
-              </div>
-            </DistortionCard>
-          </motion.div>
-
-          {/* Row 4 - asymmetric pair */}
-          <motion.div variants={galleryItem} className="md:col-span-6">
-            <HolographicSheen>
-              <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
-                <Image
-                  src={img.g1}
-                  alt="Club atmosphere on game day"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
-              </div>
-            </HolographicSheen>
-          </motion.div>
-          <motion.div variants={galleryItem} className="md:col-span-6">
-            <TiltCard maxTilt={10} className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
               <Image
-                src={img.g3}
-                alt="Premium materials and lighting in the club"
+                src={img.g5}
+                alt="Guest hospitality touchpoint at the Ford Field Club"
                 fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
               />
               <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
-            </TiltCard>
+            </div>
           </motion.div>
         </motion.div>
       </section>
@@ -668,7 +601,7 @@ export default function FordFieldClubProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
             A club that{" "}
-            <span className="gradient-text">earns the access</span>
+            <span className="text-white">earns the access</span>
           </h2>
         </motion.div>
 
@@ -724,7 +657,7 @@ export default function FordFieldClubProject() {
             Capabilities
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            The <span className="gradient-text">direction toolkit</span>
+            The <span className="text-white">direction toolkit</span>
           </h2>
         </motion.div>
 
@@ -768,7 +701,7 @@ export default function FordFieldClubProject() {
         >
           <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
             Building an experience{" "}
-            <span className="gradient-text">worth showing up for</span>?
+            <span className="text-white">worth showing up for</span>?
           </h2>
           <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s direct a premium environment that turns access into a

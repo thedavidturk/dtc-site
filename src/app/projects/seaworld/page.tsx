@@ -3,9 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import TiltCard from "@/components/TiltCard";
-import HolographicSheen from "@/components/HolographicSheen";
-import DistortionCard from "@/components/DistortionCard";
 import ProjectGifBand from "@/components/ProjectGifBand";
 
 /* ------------------------------------------------------------------ */
@@ -198,12 +195,6 @@ export default function SeaWorldProject() {
         {/* Radial fade at bottom */}
         <div className="absolute inset-0 z-[2] bg-gradient-to-t from-deep-space via-deep-space/40 to-transparent" />
 
-        {/* Floating geometric accents */}
-        <div className="absolute top-1/4 right-1/4 w-40 h-40 border border-white/[0.06] rounded-full animate-pulse z-[2]" />
-        <div className="absolute bottom-1/3 left-1/4 w-24 h-24 border border-white/10 rounded-xl -rotate-12 z-[2]" />
-        <div className="absolute top-1/2 left-1/3 w-3 h-3 bg-white/20 rounded-full z-[2]" />
-        <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-white/10 rounded-full z-[2]" />
-
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -364,7 +355,7 @@ export default function SeaWorldProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
             Deep-sea storytelling{" "}
-            <span className="gradient-text">at breakneck speed</span>
+            <span className="text-white">at breakneck speed</span>
           </h2>
         </motion.div>
 
@@ -418,7 +409,7 @@ export default function SeaWorldProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
             An immersive underwater world{" "}
-            <span className="gradient-text">ready for every screen</span>
+            <span className="text-white">ready for every screen</span>
           </h2>
           <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
             <p>
@@ -458,7 +449,7 @@ export default function SeaWorldProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
             Deep-sea worlds &{" "}
-            <span className="gradient-text">hero visuals</span>
+            <span className="text-white">hero visuals</span>
           </h2>
         </motion.div>
 
@@ -471,303 +462,281 @@ export default function SeaWorldProject() {
         >
           {/* Row 1 - full-width cinematic hero */}
           <motion.div variants={galleryItem} className="md:col-span-12">
-            <DistortionCard>
-              <TiltCard maxTilt={6} className="aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-                <div className="relative w-full h-full">
-                  <Image
-                    src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/f42a6c83-e2bc-4d2f-afde-e3505ae3a0a9_rw_1920.png?h=170768e389c41ddce65e3137271f173b"
-                    alt="SEAQuest underwater world hero"
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                </div>
-              </TiltCard>
-            </DistortionCard>
+            <div className="aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
+              <div className="relative w-full h-full">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/f42a6c83-e2bc-4d2f-afde-e3505ae3a0a9_rw_1920.png?h=170768e389c41ddce65e3137271f173b"
+                  alt="SEAQuest underwater world hero"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                  unoptimized
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              </div>
+            </div>
           </motion.div>
 
           {/* Row 2 - wide + tall */}
           <motion.div variants={galleryItem} className="md:col-span-7">
-            <TiltCard className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
+            <div className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
               <div className="relative w-full h-full">
                 <Image
                   src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/3c7bc293-4736-41b8-8521-17c11820918f_rw_3840.png?h=f85762d23e378abf6d005270cc55be51"
                   alt="Coral reef environment"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                   unoptimized
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
               </div>
-            </TiltCard>
+            </div>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-5">
-            <HolographicSheen>
-              <TiltCard className="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-                <div className="relative w-full h-full">
-                  <Image
-                    src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/e2ae76f5-6ff8-4000-b921-9efcda85561b_rw_1920.png?h=47ba580be2e46e8961a7055179cca782"
-                    alt="Deep-sea bioluminescent zone"
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                </div>
-              </TiltCard>
-            </HolographicSheen>
+            <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
+              <div className="relative w-full h-full">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/e2ae76f5-6ff8-4000-b921-9efcda85561b_rw_1920.png?h=47ba580be2e46e8961a7055179cca782"
+                  alt="Deep-sea bioluminescent zone"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                  unoptimized
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+              </div>
+            </div>
           </motion.div>
 
           {/* Row 3 - three equal */}
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <DistortionCard>
-              <TiltCard className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-                <div className="relative w-full h-full">
-                  <Image
-                    src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/a0c5a09c-5ae1-4809-8418-d072f7ff38e7_rw_1920.png?h=d1837ce3e9abe99f02954cd7d6f5caa8"
-                    alt="Underwater shipwreck scene"
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                </div>
-              </TiltCard>
-            </DistortionCard>
+            <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
+              <div className="relative w-full h-full">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/a0c5a09c-5ae1-4809-8418-d072f7ff38e7_rw_1920.png?h=d1837ce3e9abe99f02954cd7d6f5caa8"
+                  alt="Underwater shipwreck scene"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                  unoptimized
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+              </div>
+            </div>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <TiltCard maxTilt={10} className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
+            <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
               <div className="relative w-full h-full">
                 <Image
                   src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/99c61769-cc68-4fc9-8ef4-365536e3c58e_rw_3840.png?h=c28e4e9259afbb5e932ec23bb4710f6d"
                   alt="SEAQuest cinematic frame"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                   unoptimized
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
               </div>
-            </TiltCard>
+            </div>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <HolographicSheen>
-              <TiltCard className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-                <div className="relative w-full h-full">
-                  <Image
-                    src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/01dd4666-1311-43dd-823f-87f48aa1b850_rw_3840.png?h=ef9af32f06f1941f72f3c2c1ea3871da"
-                    alt="Deep-sea landscape"
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                </div>
-              </TiltCard>
-            </HolographicSheen>
+            <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
+              <div className="relative w-full h-full">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/01dd4666-1311-43dd-823f-87f48aa1b850_rw_3840.png?h=ef9af32f06f1941f72f3c2c1ea3871da"
+                  alt="Deep-sea landscape"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                  unoptimized
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+              </div>
+            </div>
           </motion.div>
 
           {/* Row 4 - asymmetric pair */}
           <motion.div variants={galleryItem} className="md:col-span-5">
-            <TiltCard className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
               <div className="relative w-full h-full">
                 <Image
                   src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/ee311317-b52f-486c-b7b8-a7ff822d4072_rw_1920.PNG?h=4a424422f10bb668b900397248ed4aa9"
                   alt="Trailer frame - underwater cave"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                   unoptimized
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
               </div>
-            </TiltCard>
+            </div>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-7">
-            <DistortionCard>
-              <TiltCard className="aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-                <div className="relative w-full h-full">
-                  <Image
-                    src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/1cff982c-74b9-4f55-9170-55356266000e_rw_1920.PNG?h=8dfd2224c89e37b93770cb529d694246"
-                    alt="Cinematic ocean depth shot"
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                </div>
-              </TiltCard>
-            </DistortionCard>
+            <div className="aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
+              <div className="relative w-full h-full">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/1cff982c-74b9-4f55-9170-55356266000e_rw_1920.PNG?h=8dfd2224c89e37b93770cb529d694246"
+                  alt="Cinematic ocean depth shot"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                  unoptimized
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              </div>
+            </div>
           </motion.div>
 
           {/* Row 5 - hero visuals & ad formats */}
           <motion.div variants={galleryItem} className="md:col-span-6">
-            <HolographicSheen>
-              <TiltCard className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-                <div className="relative w-full h-full">
-                  <Image
-                    src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/90b4e2ae-8a49-43e4-bf1c-ab699d4be4bd_rw_1920.png?h=5170336821b0fa88310d44d96d9c81f0"
-                    alt="Hero visual - SEAQuest key art"
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                </div>
-              </TiltCard>
-            </HolographicSheen>
+            <div className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
+              <div className="relative w-full h-full">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/90b4e2ae-8a49-43e4-bf1c-ab699d4be4bd_rw_1920.png?h=5170336821b0fa88310d44d96d9c81f0"
+                  alt="Hero visual - SEAQuest key art"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                  unoptimized
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+              </div>
+            </div>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-6">
-            <TiltCard className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
+            <div className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
               <div className="relative w-full h-full">
                 <Image
                   src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/85375b3b-ee17-49bc-a6bd-b0f9c1e8af76_rw_1920.png?h=f33cddbaee960edf0a99219140614530"
                   alt="Digital ad hero placement"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                   unoptimized
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
               </div>
-            </TiltCard>
+            </div>
           </motion.div>
 
           {/* Row 6 - three format variations */}
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <DistortionCard>
-              <TiltCard className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-                <div className="relative w-full h-full">
-                  <Image
-                    src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/22f7b6a7-fa2a-423e-9131-21aa2ca30d30_rw_1200.png?h=951bc97f963a396b893b96b579241f48"
-                    alt="Social media format - square"
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                </div>
-              </TiltCard>
-            </DistortionCard>
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
+              <div className="relative w-full h-full">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/22f7b6a7-fa2a-423e-9131-21aa2ca30d30_rw_1200.png?h=951bc97f963a396b893b96b579241f48"
+                  alt="Social media format - square"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                  unoptimized
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+              </div>
+            </div>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <TiltCard className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
               <div className="relative w-full h-full">
                 <Image
                   src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6e8eaa44-8e9a-4a35-ae02-8d2ad72906a7_rw_1200.png?h=0b699e851567f945902885e75a975a5f"
                   alt="Social media format - vertical"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                   unoptimized
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
               </div>
-            </TiltCard>
+            </div>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <HolographicSheen>
-              <TiltCard className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-                <div className="relative w-full h-full">
-                  <Image
-                    src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/0f64c0a7-a38b-4361-8ebf-024f4ba6f35d_rw_1200.png?h=952e6d7648e23f1064600919f94c2061"
-                    alt="Widescreen display format"
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                </div>
-              </TiltCard>
-            </HolographicSheen>
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
+              <div className="relative w-full h-full">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/0f64c0a7-a38b-4361-8ebf-024f4ba6f35d_rw_1200.png?h=952e6d7648e23f1064600919f94c2061"
+                  alt="Widescreen display format"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                  unoptimized
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+              </div>
+            </div>
           </motion.div>
 
           {/* Row 7 - behind the scenes / production */}
           <motion.div variants={galleryItem} className="md:col-span-6">
-            <TiltCard maxTilt={10} className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
+            <div className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
               <div className="relative w-full h-full">
                 <Image
                   src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/bf9e63f9-1332-4a61-8b37-9e9ff18599d0_rw_1200.png?h=2f6fc056141cc8e5c3d2ea749a0cc8ec"
                   alt="Production environment - UE5 viewport"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                   unoptimized
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
               </div>
-            </TiltCard>
+            </div>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-6">
-            <DistortionCard>
-              <TiltCard className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-                <div className="relative w-full h-full">
-                  <Image
-                    src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/918196cb-2b18-470c-8d58-b4c08ab8f0fd_rw_1920.png?h=cdefda8462349a291b43dc3052b341a7"
-                    alt="SEAQuest campaign final composite"
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                </div>
-              </TiltCard>
-            </DistortionCard>
+            <div className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
+              <div className="relative w-full h-full">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/918196cb-2b18-470c-8d58-b4c08ab8f0fd_rw_1920.png?h=cdefda8462349a291b43dc3052b341a7"
+                  alt="SEAQuest campaign final composite"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                  unoptimized
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+              </div>
+            </div>
           </motion.div>
 
           {/* Row 8 - final two wide shots */}
           <motion.div variants={galleryItem} className="md:col-span-7">
-            <HolographicSheen>
-              <TiltCard className="aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-                <div className="relative w-full h-full">
-                  <Image
-                    src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/00ff6d1a-7447-4034-951e-33fec9cde331_rw_1920.png?h=ef9ae3b1eab3157492a06878707463e7"
-                    alt="Underwater world panoramic"
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                </div>
-              </TiltCard>
-            </HolographicSheen>
+            <div className="aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
+              <div className="relative w-full h-full">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/00ff6d1a-7447-4034-951e-33fec9cde331_rw_1920.png?h=ef9ae3b1eab3157492a06878707463e7"
+                  alt="Underwater world panoramic"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                  unoptimized
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              </div>
+            </div>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-5">
-            <TiltCard className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
               <div className="relative w-full h-full">
                 <Image
                   src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/3b4756c3-fd33-4064-96bb-03dff37bf48d_rw_1920.png?h=143c12ac7b0c1b9fb60eaca4ee74bcb2"
                   alt="Campaign key visual close-up"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                   unoptimized
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
               </div>
-            </TiltCard>
+            </div>
           </motion.div>
 
           {/* Row 9 - closing full-width shot */}
           <motion.div variants={galleryItem} className="md:col-span-12">
-            <DistortionCard>
-              <TiltCard maxTilt={6} className="aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-                <div className="relative w-full h-full">
-                  <Image
-                    src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/7fa1d7c1-4fc0-4460-b5df-1fbd816fd1df_rw_1920.png?h=5e09de0e5d2ebd0a9ca418b01ea12a9b"
-                    alt="SEAQuest final campaign shot"
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                </div>
-              </TiltCard>
-            </DistortionCard>
+            <div className="aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
+              <div className="relative w-full h-full">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/7fa1d7c1-4fc0-4460-b5df-1fbd816fd1df_rw_1920.png?h=5e09de0e5d2ebd0a9ca418b01ea12a9b"
+                  alt="SEAQuest final campaign shot"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                  unoptimized
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+              </div>
+            </div>
           </motion.div>
         </motion.div>
       </section>
@@ -791,7 +760,7 @@ export default function SeaWorldProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
             Speed, scale, and{" "}
-            <span className="gradient-text">cinematic quality</span>
+            <span className="text-white">cinematic quality</span>
           </h2>
         </motion.div>
 
@@ -847,7 +816,7 @@ export default function SeaWorldProject() {
             Tools & Technology
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            The <span className="gradient-text">production stack</span>
+            The <span className="text-white">production stack</span>
           </h2>
         </motion.div>
 
@@ -891,7 +860,7 @@ export default function SeaWorldProject() {
         >
           <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
             Ready to make a{" "}
-            <span className="gradient-text">splash</span>?
+            <span className="text-white">splash</span>?
           </h2>
           <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s build your next campaign with speed, scale, and

@@ -145,7 +145,7 @@ export default function ValuePropositions() {
           <TextReveal
             text="is here"
             as="span"
-            className="font-headline font-bold text-3xl md:text-4xl lg:text-5xl leading-tight gradient-text block"
+            className="font-headline font-bold text-3xl md:text-4xl lg:text-5xl leading-tight text-pure-white block"
             delay={0.2}
           />
         </motion.div>

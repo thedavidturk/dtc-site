@@ -9,28 +9,10 @@ import ClientLayout from "@/components/ClientLayout";
 import JsonLd from "@/components/JsonLd";
 import DesktopFX from "@/components/DesktopFX";
 
-const CursorTrail = dynamic(() => import("@/components/CursorTrail"), {
-  ssr: false,
-});
-
-const ShootingStars = dynamic(
-  () => import("@/components/ShootingStars"),
-  { ssr: false }
-);
-
-const ScrollStreaks = dynamic(
-  () => import("@/components/ScrollStreaks"),
-  { ssr: false }
-);
-
 const ScrollProgressTrail = dynamic(
   () => import("@/components/ScrollProgressTrail"),
   { ssr: false }
 );
-
-const FilmGrain = dynamic(() => import("@/components/FilmGrain"), {
-  ssr: false,
-});
 
 const SmoothScroll = dynamic(() => import("@/components/SmoothScroll"), {
   ssr: false,
@@ -138,12 +120,8 @@ export default function RootLayout({
       >
         <SmoothScroll />
         <Analytics />
-        <CursorTrail />
         <DesktopFX>
-          <ShootingStars />
-          <ScrollStreaks />
           <ScrollProgressTrail />
-          <FilmGrain />
         </DesktopFX>
         <Header />
         <main style={{ backgroundColor: "#0B0F19" }}>

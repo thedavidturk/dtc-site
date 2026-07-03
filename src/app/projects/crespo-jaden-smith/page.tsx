@@ -3,9 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import TiltCard from "@/components/TiltCard";
-import HolographicSheen from "@/components/HolographicSheen";
-import DistortionCard from "@/components/DistortionCard";
 import ProjectGifBand from "@/components/ProjectGifBand";
 
 /* ------------------------------------------------------------------ */
@@ -205,12 +202,6 @@ export default function CrespoJadenSmithProject() {
         {/* Radial fade at bottom */}
         <div className="absolute inset-0 z-[2] bg-gradient-to-t from-deep-space via-deep-space/40 to-transparent" />
 
-        {/* Floating geometric accents */}
-        <div className="absolute top-1/4 left-1/5 w-40 h-40 border border-white/[0.06] rounded-full animate-pulse z-[2]" />
-        <div className="absolute bottom-1/3 right-1/4 w-20 h-20 border border-white/10 rounded-xl rotate-[14deg] z-[2]" />
-        <div className="absolute top-1/3 left-1/3 w-3 h-3 bg-white/20 rounded-full z-[2]" />
-        <div className="absolute bottom-1/4 right-1/3 w-2 h-2 bg-white/10 rounded-full z-[2]" />
-
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -376,7 +367,7 @@ export default function CrespoJadenSmithProject() {
             </p>
             <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
               A documentary short shot and edited in{" "}
-              <span className="gradient-text">24 hours</span>
+              <span className="text-white">24 hours</span>
             </h2>
             <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
               <p>
@@ -415,7 +406,7 @@ export default function CrespoJadenSmithProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
             From the room to the cut{" "}
-            <span className="gradient-text">in five moves</span>
+            <span className="text-white">in five moves</span>
           </h2>
         </motion.div>
 
@@ -469,7 +460,7 @@ export default function CrespoJadenSmithProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
             Cinematic, but{" "}
-            <span className="gradient-text">honest to the moment</span>
+            <span className="text-white">honest to the moment</span>
           </h2>
           <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
             <p>
@@ -507,7 +498,7 @@ export default function CrespoJadenSmithProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
             Moments from{" "}
-            <span className="gradient-text">behind the stage</span>
+            <span className="text-white">behind the stage</span>
           </h2>
         </motion.div>
 
@@ -520,150 +511,134 @@ export default function CrespoJadenSmithProject() {
         >
           {/* Row 1: Full-width hero */}
           <motion.div variants={galleryItem} className="md:col-span-12">
-            <TiltCard maxTilt={6} className="aspect-[21/9] rounded-2xl overflow-hidden relative group">
-              <HolographicSheen className="!absolute inset-0">
-                <Image
-                  src={galleryImages[0]}
-                  alt="Behind the Stage documentary still 1"
-                  fill
-                  className="object-cover"
-                  sizes="100vw"
-                />
-              </HolographicSheen>
+            <div className="aspect-[21/9] rounded-2xl overflow-hidden relative group">
+              <Image
+                src={galleryImages[0]}
+                alt="Behind the Stage documentary still 1"
+                fill
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                sizes="100vw"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
-            </TiltCard>
+            </div>
           </motion.div>
 
           {/* Row 2: Wide + tall */}
           <motion.div variants={galleryItem} className="md:col-span-7">
-            <DistortionCard>
-              <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
-                <Image
-                  src={galleryImages[1]}
-                  alt="Behind the Stage documentary still 2"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 58vw"
-                />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
-              </div>
-            </DistortionCard>
+            <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
+              <Image
+                src={galleryImages[1]}
+                alt="Behind the Stage documentary still 2"
+                fill
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                sizes="(max-width: 768px) 100vw, 58vw"
+              />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
+            </div>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-5">
-            <TiltCard className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
+            <div className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
               <Image
                 src={galleryImages[2]}
                 alt="Behind the Stage documentary still 3"
                 fill
-                className="object-cover"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                 sizes="(max-width: 768px) 100vw, 42vw"
               />
               <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
-            </TiltCard>
+            </div>
           </motion.div>
 
           {/* Row 3: Three equal columns */}
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <HolographicSheen>
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
-                <Image
-                  src={galleryImages[3]}
-                  alt="Behind the Stage documentary still 4"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
-              </div>
-            </HolographicSheen>
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+              <Image
+                src={galleryImages[3]}
+                alt="Behind the Stage documentary still 4"
+                fill
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
+            </div>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <TiltCard className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
               <Image
                 src={galleryImages[4]}
                 alt="Behind the Stage documentary still 5"
                 fill
-                className="object-cover"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
               <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
-            </TiltCard>
+            </div>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <DistortionCard>
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
-                <Image
-                  src={galleryImages[5]}
-                  alt="Behind the Stage documentary still 6"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
-              </div>
-            </DistortionCard>
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+              <Image
+                src={galleryImages[5]}
+                alt="Behind the Stage documentary still 6"
+                fill
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
+            </div>
           </motion.div>
 
           {/* Row 4: Asymmetric pair */}
           <motion.div variants={galleryItem} className="md:col-span-5">
-            <TiltCard className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
-              <HolographicSheen className="!absolute inset-0">
-                <Image
-                  src={galleryImages[6]}
-                  alt="Behind the Stage documentary still 7"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 42vw"
-                />
-              </HolographicSheen>
+            <div className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
+              <Image
+                src={galleryImages[6]}
+                alt="Behind the Stage documentary still 7"
+                fill
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                sizes="(max-width: 768px) 100vw, 42vw"
+              />
               <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
-            </TiltCard>
+            </div>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-7">
-            <DistortionCard>
-              <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
-                <Image
-                  src={galleryImages[7]}
-                  alt="Behind the Stage documentary still 8"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 58vw"
-                />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
-              </div>
-            </DistortionCard>
+            <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
+              <Image
+                src={galleryImages[7]}
+                alt="Behind the Stage documentary still 8"
+                fill
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                sizes="(max-width: 768px) 100vw, 58vw"
+              />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
+            </div>
           </motion.div>
 
           {/* Row 5: Pair */}
           <motion.div variants={galleryItem} className="md:col-span-6">
-            <DistortionCard>
-              <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
-                <Image
-                  src={galleryImages[8]}
-                  alt="Behind the Stage documentary still 9"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
-              </div>
-            </DistortionCard>
+            <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
+              <Image
+                src={galleryImages[8]}
+                alt="Behind the Stage documentary still 9"
+                fill
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
+            </div>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-6">
-            <TiltCard className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
-              <HolographicSheen className="!absolute inset-0">
-                <Image
-                  src={galleryImages[9]}
-                  alt="Behind the Stage documentary closing still"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </HolographicSheen>
+            <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
+              <Image
+                src={galleryImages[9]}
+                alt="Behind the Stage documentary closing still"
+                fill
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
-            </TiltCard>
+            </div>
           </motion.div>
         </motion.div>
       </section>
@@ -687,7 +662,7 @@ export default function CrespoJadenSmithProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
             A short that{" "}
-            <span className="gradient-text">lives in the room</span>
+            <span className="text-white">lives in the room</span>
           </h2>
         </motion.div>
 
@@ -743,7 +718,7 @@ export default function CrespoJadenSmithProject() {
             Capabilities
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            The <span className="gradient-text">production toolkit</span>
+            The <span className="text-white">production toolkit</span>
           </h2>
         </motion.div>
 
@@ -787,7 +762,7 @@ export default function CrespoJadenSmithProject() {
         >
           <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
             Have a moment{" "}
-            <span className="gradient-text">worth documenting</span>?
+            <span className="text-white">worth documenting</span>?
           </h2>
           <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s capture a documentary short that finds the real story in

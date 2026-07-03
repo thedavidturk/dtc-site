@@ -251,7 +251,7 @@ export default function Services() {
 
                     {/* Headline */}
                     <h3 className="font-headline text-3xl md:text-4xl lg:text-[2.75rem] font-bold leading-tight tracking-tight mb-6">
-                      <span className="gradient-text">{service.headline}</span>
+                      <span className="text-pure-white">{service.headline}</span>
                     </h3>
 
                     {/* Old Way / Our Way / Result */}

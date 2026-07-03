@@ -173,12 +173,6 @@ export default function SproutedProject() {
         {/* Radial fade at bottom */}
         <div className="absolute inset-0 z-[2] bg-gradient-to-t from-deep-space via-deep-space/40 to-transparent" />
 
-        {/* Floating geometric accents */}
-        <div className="absolute top-1/4 left-1/5 w-32 h-32 border border-white/[0.06] rounded-full animate-pulse z-[2]" />
-        <div className="absolute top-1/3 right-1/4 w-20 h-20 border border-white/10 rounded-xl rotate-12 z-[2]" />
-        <div className="absolute bottom-1/3 left-1/3 w-3 h-3 bg-white/20 rounded-full z-[2]" />
-        <div className="absolute top-1/2 right-1/3 w-2 h-2 bg-white/10 rounded-full z-[2]" />
-
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -338,7 +332,7 @@ export default function SproutedProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
             From seed to screen{" "}
-            <span className="gradient-text">in five steps</span>
+            <span className="text-white">in five steps</span>
           </h2>
         </motion.div>
 
@@ -392,7 +386,7 @@ export default function SproutedProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
             Strategy-driven content{" "}
-            <span className="gradient-text">rooted in nature</span>
+            <span className="text-white">rooted in nature</span>
           </h2>
           <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
             <p>
@@ -432,7 +426,7 @@ export default function SproutedProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
             Organic impact,{" "}
-            <span className="gradient-text">cultivated content</span>
+            <span className="text-white">cultivated content</span>
           </h2>
         </motion.div>
 
@@ -488,7 +482,7 @@ export default function SproutedProject() {
             Tools & Technology
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            The <span className="gradient-text">production stack</span>
+            The <span className="text-white">production stack</span>
           </h2>
         </motion.div>
 
@@ -532,7 +526,7 @@ export default function SproutedProject() {
         >
           <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
             Ready to grow{" "}
-            <span className="gradient-text">your next campaign</span>?
+            <span className="text-white">your next campaign</span>?
           </h2>
           <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s develop strategy-driven content that connects your

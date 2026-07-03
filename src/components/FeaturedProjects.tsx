@@ -5,7 +5,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import TiltCard from "./TiltCard";
 import TextReveal from "./TextReveal";
-import DistortionCard from "./DistortionCard";
 
 interface Project {
   client: string;
@@ -269,7 +268,7 @@ export default function FeaturedProjects() {
           </p>
           <h2 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold text-pure-white tracking-tight">
             <TextReveal text="WORK THAT PUSHES" as="span" className="block" />
-            <TextReveal text="BOUNDARIES" as="span" className="block gradient-text" delay={0.2} />
+            <TextReveal text="BOUNDARIES" as="span" className="block text-pure-white" delay={0.2} />
           </h2>
         </motion.div>
 
@@ -283,7 +282,6 @@ export default function FeaturedProjects() {
         >
           {projects.map((project) => (
             <motion.div key={project.href} variants={cardVariants}>
-              <DistortionCard>
               <Link
                 href={project.href}
                 className={`group relative block ${project.accentGlow}`}
@@ -399,7 +397,6 @@ export default function FeaturedProjects() {
                   <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none shadow-[inset_0_0_60px_rgba(99,102,241,0.08)]" />
                 </TiltCard>
               </Link>
-              </DistortionCard>
             </motion.div>
           ))}
         </motion.div>

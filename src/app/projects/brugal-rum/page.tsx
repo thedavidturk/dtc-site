@@ -3,9 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import TiltCard from "@/components/TiltCard";
-import HolographicSheen from "@/components/HolographicSheen";
-import DistortionCard from "@/components/DistortionCard";
 import ProjectGifBand from "@/components/ProjectGifBand";
 
 /* ------------------------------------------------------------------ */
@@ -219,12 +216,6 @@ export default function BrugalRumProject() {
         {/* Radial fade at bottom */}
         <div className="absolute inset-0 z-[2] bg-gradient-to-t from-deep-space via-deep-space/40 to-transparent" />
 
-        {/* Floating geometric accents */}
-        <div className="absolute top-1/4 left-1/5 w-36 h-36 border border-white/[0.06] rounded-full animate-pulse z-[2]" />
-        <div className="absolute top-1/3 right-1/4 w-20 h-20 border border-white/10 rounded-xl rotate-12 z-[2]" />
-        <div className="absolute bottom-1/3 left-1/3 w-3 h-3 bg-warm-coral/40 rounded-full z-[2]" />
-        <div className="absolute top-1/2 right-1/3 w-2 h-2 bg-white/10 rounded-full z-[2]" />
-
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -384,7 +375,7 @@ export default function BrugalRumProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
             From show floor to{" "}
-            <span className="gradient-text">cinematic cut</span>
+            <span className="text-white">cinematic cut</span>
           </h2>
         </motion.div>
 
@@ -438,7 +429,7 @@ export default function BrugalRumProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
             Storytelling through{" "}
-            <span className="gradient-text">the lens</span>
+            <span className="text-white">the lens</span>
           </h2>
           <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
             <p>
@@ -481,7 +472,7 @@ export default function BrugalRumProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
             The bottles, the art &{" "}
-            <span className="gradient-text">the energy</span>
+            <span className="text-white">the energy</span>
           </h2>
         </motion.div>
 
@@ -494,161 +485,145 @@ export default function BrugalRumProject() {
         >
           {/* Row 1 - full-width hero */}
           <motion.div variants={galleryItem} className="md:col-span-12">
-            <TiltCard maxTilt={6} className="aspect-[21/9] rounded-2xl overflow-hidden relative group">
-              <HolographicSheen className="!absolute inset-0">
-                <Image
-                  src={IMG.g1}
-                  alt="Brugal Rum branded lounge at Miami Concours"
-                  fill
-                  sizes="100vw"
-                  className="object-cover"
-                />
-              </HolographicSheen>
+            <div className="aspect-[21/9] rounded-2xl overflow-hidden relative group">
+              <Image
+                src={IMG.g1}
+                alt="Brugal Rum branded lounge at Miami Concours"
+                fill
+                sizes="100vw"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </TiltCard>
+            </div>
           </motion.div>
 
           {/* Row 2 - wide + tall */}
           <motion.div variants={galleryItem} className="md:col-span-7">
-            <DistortionCard>
-              <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
-                <Image
-                  src={IMG.g2}
-                  alt="Brugal activation footprint and signage"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 58vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-              </div>
-            </DistortionCard>
+            <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
+              <Image
+                src={IMG.g2}
+                alt="Brugal activation footprint and signage"
+                fill
+                sizes="(max-width: 768px) 100vw, 58vw"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+            </div>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-5">
-            <TiltCard className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
+            <div className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
               <Image
                 src={IMG.g3}
                 alt="Brugal signature cocktail serve"
                 fill
                 sizes="(max-width: 768px) 100vw, 42vw"
-                className="object-cover"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
               />
               <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </TiltCard>
+            </div>
           </motion.div>
 
           {/* Row 3 - three equal columns */}
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <HolographicSheen>
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
-                <Image
-                  src={IMG.g4}
-                  alt="Brugal bar program detail"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-              </div>
-            </HolographicSheen>
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+              <Image
+                src={IMG.g4}
+                alt="Brugal bar program detail"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+            </div>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <TiltCard className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
               <Image
                 src={IMG.g5}
                 alt="Guests at the Brugal lounge"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
               />
               <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </TiltCard>
+            </div>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <DistortionCard>
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
-                <Image
-                  src={IMG.g6}
-                  alt="Brugal brand ambassadors hosting guests"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-              </div>
-            </DistortionCard>
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+              <Image
+                src={IMG.g6}
+                alt="Brugal brand ambassadors hosting guests"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+            </div>
           </motion.div>
 
           {/* Row 4 - asymmetric pair */}
           <motion.div variants={galleryItem} className="md:col-span-5">
-            <TiltCard className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
-              <HolographicSheen className="!absolute inset-0">
-                <Image
-                  src={IMG.g7}
-                  alt="Brugal Rum bottle presentation"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 42vw"
-                  className="object-cover"
-                />
-              </HolographicSheen>
+            <div className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
+              <Image
+                src={IMG.g7}
+                alt="Brugal Rum bottle presentation"
+                fill
+                sizes="(max-width: 768px) 100vw, 42vw"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              />
               <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </TiltCard>
+            </div>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-7">
-            <DistortionCard>
-              <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
-                <Image
-                  src={IMG.g8}
-                  alt="Brugal activation at golden hour"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 58vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-              </div>
-            </DistortionCard>
+            <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
+              <Image
+                src={IMG.g8}
+                alt="Brugal activation at golden hour"
+                fill
+                sizes="(max-width: 768px) 100vw, 58vw"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+            </div>
           </motion.div>
 
           {/* Row 5 - three equal columns */}
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <DistortionCard>
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
-                <Image
-                  src={IMG.g9}
-                  alt="Brugal cocktail detail"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-              </div>
-            </DistortionCard>
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+              <Image
+                src={IMG.g9}
+                alt="Brugal cocktail detail"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+            </div>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <HolographicSheen>
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
-                <Image
-                  src={IMG.g10}
-                  alt="Brugal lounge atmosphere"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-              </div>
-            </HolographicSheen>
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+              <Image
+                src={IMG.g10}
+                alt="Brugal lounge atmosphere"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+            </div>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <TiltCard className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
               <Image
                 src={IMG.g11}
                 alt="Brugal branding across the show floor"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
               />
               <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </TiltCard>
+            </div>
           </motion.div>
         </motion.div>
       </section>
@@ -672,7 +647,7 @@ export default function BrugalRumProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
             A story told{" "}
-            <span className="gradient-text">in vivid 4K</span>
+            <span className="text-white">in vivid 4K</span>
           </h2>
         </motion.div>
 
@@ -728,7 +703,7 @@ export default function BrugalRumProject() {
             Capabilities
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            The <span className="gradient-text">production stack</span>
+            The <span className="text-white">production stack</span>
           </h2>
         </motion.div>
 
@@ -772,7 +747,7 @@ export default function BrugalRumProject() {
         >
           <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
             Ready to capture{" "}
-            <span className="gradient-text">your next event</span>?
+            <span className="text-white">your next event</span>?
           </h2>
           <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s turn your event into a cinematic story that captures the

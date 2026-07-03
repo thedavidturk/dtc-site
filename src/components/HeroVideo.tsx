@@ -175,7 +175,7 @@ export default function HeroVideo() {
             <TextReveal
               text="IN MOTION"
               as="span"
-              className="block gradient-text"
+              className="block text-pure-white"
               delay={0.2}
             />
           </h2>
@@ -370,12 +370,6 @@ export default function HeroVideo() {
                   </div>
                 </motion.div>
               )}
-
-              {/* Corner accents */}
-              <div className="absolute top-3 left-3 w-6 h-6 border-t border-l border-electric-indigo/30 rounded-tl-lg z-[5] pointer-events-none" />
-              <div className="absolute top-3 right-3 w-6 h-6 border-t border-r border-electric-indigo/30 rounded-tr-lg z-[5] pointer-events-none" />
-              <div className="absolute bottom-3 left-3 w-6 h-6 border-b border-l border-warm-coral/30 rounded-bl-lg z-[5] pointer-events-none" />
-              <div className="absolute bottom-3 right-3 w-6 h-6 border-b border-r border-warm-coral/30 rounded-br-lg z-[5] pointer-events-none" />
             </div>
 
             {/* Reflection glow beneath */}

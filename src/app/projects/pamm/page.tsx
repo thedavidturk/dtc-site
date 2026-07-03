@@ -3,9 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import TiltCard from "@/components/TiltCard";
-import HolographicSheen from "@/components/HolographicSheen";
-import DistortionCard from "@/components/DistortionCard";
 import ProjectGifBand from "@/components/ProjectGifBand";
 
 /* ------------------------------------------------------------------ */
@@ -198,12 +195,6 @@ export default function PammProject() {
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 z-[2] bg-gradient-to-t from-deep-space via-deep-space/40 to-transparent" />
 
-        {/* Floating geometric accents */}
-        <div className="absolute top-1/4 left-1/5 w-32 h-32 border border-white/[0.06] rounded-full animate-pulse z-[2]" />
-        <div className="absolute top-1/3 right-1/4 w-20 h-20 border border-white/10 rounded-xl rotate-12 z-[2]" />
-        <div className="absolute bottom-1/3 left-1/3 w-3 h-3 bg-white/20 rounded-full z-[2]" />
-        <div className="absolute top-1/2 right-1/3 w-2 h-2 bg-white/10 rounded-full z-[2]" />
-
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -355,23 +346,18 @@ export default function PammProject() {
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
         >
-          <DistortionCard>
-            <TiltCard
-              maxTilt={6}
-              className="aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/30"
-            >
-              <div className="relative w-full h-full">
-                <Image
-                  src={img.identity}
-                  alt="PAMM brand identity system"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 80vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-              </div>
-            </TiltCard>
-          </DistortionCard>
+          <div className="aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/30 relative group">
+            <div className="relative w-full h-full">
+              <Image
+                src={img.identity}
+                alt="PAMM brand identity system"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 80vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+            </div>
+          </div>
         </motion.div>
       </section>
 
@@ -394,7 +380,7 @@ export default function PammProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
             From the bay to the{" "}
-            <span className="gradient-text">feed</span>
+            <span className="text-white">feed</span>
           </h2>
         </motion.div>
 
@@ -448,7 +434,7 @@ export default function PammProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
             Let the art lead,{" "}
-            <span className="gradient-text">let the city in</span>
+            <span className="text-white">let the city in</span>
           </h2>
           <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
             <p>
@@ -490,7 +476,7 @@ export default function PammProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
             Identity, campaigns &{" "}
-            <span className="gradient-text">content</span>
+            <span className="text-white">content</span>
           </h2>
         </motion.div>
 
@@ -503,37 +489,33 @@ export default function PammProject() {
         >
           {/* Row 1: wide + portrait */}
           <motion.div variants={galleryItem} className="md:col-span-7">
-            <DistortionCard>
-              <TiltCard className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-                <div className="relative w-full h-full">
-                  <Image
-                    src={img.g1}
-                    alt="PAMM exhibition campaign"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 58vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                </div>
-              </TiltCard>
-            </DistortionCard>
+            <div className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
+              <div className="relative w-full h-full">
+                <Image
+                  src={img.g1}
+                  alt="PAMM exhibition campaign"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                  sizes="(max-width: 768px) 100vw, 58vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              </div>
+            </div>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-5">
-            <HolographicSheen>
-              <TiltCard className="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-                <div className="relative w-full h-full">
-                  <Image
-                    src={img.g6}
-                    alt="PAMM campaign key art"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 42vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                </div>
-              </TiltCard>
-            </HolographicSheen>
+            <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
+              <div className="relative w-full h-full">
+                <Image
+                  src={img.g6}
+                  alt="PAMM campaign key art"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                  sizes="(max-width: 768px) 100vw, 42vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+              </div>
+            </div>
           </motion.div>
 
           {/* Row 2: offset editorial */}
@@ -541,145 +523,110 @@ export default function PammProject() {
             variants={galleryItem}
             className="md:col-span-5 md:col-start-2"
           >
-            <TiltCard
-              maxTilt={10}
-              className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-black/20"
-            >
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
               <div className="relative w-full h-full">
                 <Image
                   src={img.g2}
                   alt="PAMM brand application"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                   sizes="(max-width: 768px) 100vw, 42vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
               </div>
-            </TiltCard>
+            </div>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-6">
-            <DistortionCard>
-              <TiltCard className="aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-                <div className="relative w-full h-full">
-                  <Image
-                    src={img.g3}
-                    alt="PAMM social content"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                </div>
-              </TiltCard>
-            </DistortionCard>
+            <div className="aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
+              <div className="relative w-full h-full">
+                <Image
+                  src={img.g3}
+                  alt="PAMM social content"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              </div>
+            </div>
           </motion.div>
 
           {/* Row 3: three equal columns */}
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <HolographicSheen>
-              <TiltCard className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-                <div className="relative w-full h-full">
-                  <Image
-                    src={img.g7}
-                    alt="PAMM content detail"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                </div>
-              </TiltCard>
-            </HolographicSheen>
+            <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
+              <div className="relative w-full h-full">
+                <Image
+                  src={img.g7}
+                  alt="PAMM content detail"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+              </div>
+            </div>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <TiltCard className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
+            <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
               <div className="relative w-full h-full">
                 <Image
                   src={img.g8}
                   alt="PAMM content detail"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
               </div>
-            </TiltCard>
+            </div>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <DistortionCard>
-              <TiltCard className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-                <div className="relative w-full h-full">
-                  <Image
-                    src={img.g9}
-                    alt="PAMM content detail"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                </div>
-              </TiltCard>
-            </DistortionCard>
+            <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
+              <div className="relative w-full h-full">
+                <Image
+                  src={img.g9}
+                  alt="PAMM content detail"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              </div>
+            </div>
           </motion.div>
 
           {/* Row 4: asymmetric pair */}
           <motion.div variants={galleryItem} className="md:col-span-6">
-            <HolographicSheen>
-              <TiltCard className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-                <div className="relative w-full h-full">
-                  <Image
-                    src={img.g4}
-                    alt="PAMM campaign system"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                </div>
-              </TiltCard>
-            </HolographicSheen>
+            <div className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
+              <div className="relative w-full h-full">
+                <Image
+                  src={img.g4}
+                  alt="PAMM campaign system"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+              </div>
+            </div>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-6">
-            <TiltCard
-              maxTilt={10}
-              className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20"
-            >
+            <div className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
               <div className="relative w-full h-full">
                 <Image
                   src={img.g5}
                   alt="PAMM campaign system"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
               </div>
-            </TiltCard>
-          </motion.div>
-
-          {/* Row 5: full-width hero shot */}
-          <motion.div variants={galleryItem} className="md:col-span-12">
-            <DistortionCard>
-              <TiltCard
-                maxTilt={6}
-                className="aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20"
-              >
-                <div className="relative w-full h-full">
-                  <Image
-                    src={img.hero}
-                    alt="PAMM brand campaign on the bay"
-                    fill
-                    className="object-cover"
-                    sizes="100vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                </div>
-              </TiltCard>
-            </DistortionCard>
+            </div>
           </motion.div>
         </motion.div>
       </section>
@@ -702,7 +649,7 @@ export default function PammProject() {
             Capabilities
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            The <span className="gradient-text">creative toolkit</span>
+            The <span className="text-white">creative toolkit</span>
           </h2>
         </motion.div>
 
@@ -746,7 +693,7 @@ export default function PammProject() {
         >
           <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
             Have a brand worth{" "}
-            <span className="gradient-text">showing off</span>?
+            <span className="text-white">showing off</span>?
           </h2>
           <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s build a creative system that frames your work, reaches

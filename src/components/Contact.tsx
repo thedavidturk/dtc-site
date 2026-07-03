@@ -2,10 +2,6 @@
 
 import { useState, FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import dynamic from "next/dynamic";
-import Lazy3D from "./Lazy3D";
-
-const OrganicBlob = dynamic(() => import("./OrganicBlob"), { ssr: false });
 
 const projectTypes = [
   "Virtual Cinematic",
@@ -213,7 +209,7 @@ export default function Contact() {
           <h2 className="font-headline text-4xl md:text-5xl font-bold text-pure-white tracking-tight">
             LET&apos;S BUILD
             <br />
-            <span className="gradient-text">WHAT&apos;S NEXT</span>
+            <span className="text-pure-white">WHAT&apos;S NEXT</span>
           </h2>
           <p className="font-body text-cool-gray text-lg mt-4 max-w-2xl mx-auto leading-relaxed">
             Have a project in mind? Tell us what you&apos;re building and we&apos;ll show you how we&apos;d execute it.
@@ -447,11 +443,6 @@ export default function Contact() {
 
           {/* Right side: Contact info */}
           <motion.div className="lg:col-span-2 relative" variants={rightColVariants}>
-            {/* Organic Blob - decorative 3D element behind the card */}
-            <Lazy3D className="absolute -top-20 -right-20 w-[400px] h-[400px] z-0 opacity-70 pointer-events-auto hidden lg:block">
-              <OrganicBlob className="w-full h-full" />
-            </Lazy3D>
-
             <div className="relative h-full z-10">
               {/* Decorative gradient border element */}
               <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-electric-indigo/20 via-transparent to-warm-coral/20 opacity-60" />

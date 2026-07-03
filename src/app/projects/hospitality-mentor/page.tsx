@@ -3,9 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import TiltCard from "@/components/TiltCard";
-import HolographicSheen from "@/components/HolographicSheen";
-import DistortionCard from "@/components/DistortionCard";
 import ProjectGifBand from "@/components/ProjectGifBand";
 
 /* ------------------------------------------------------------------ */
@@ -190,12 +187,6 @@ export default function HospitalityMentorProject() {
         {/* Radial fade at bottom */}
         <div className="absolute inset-0 z-[2] bg-gradient-to-t from-deep-space via-deep-space/40 to-transparent" />
 
-        {/* Floating geometric accents */}
-        <div className="absolute top-1/4 left-1/3 w-44 h-44 border border-white/[0.06] rounded-full animate-pulse z-[2]" />
-        <div className="absolute bottom-1/3 right-1/4 w-20 h-20 border border-white/10 rounded-xl rotate-[18deg] z-[2]" />
-        <div className="absolute top-1/3 left-1/5 w-3 h-3 bg-white/20 rounded-full z-[2]" />
-        <div className="absolute bottom-1/4 right-1/3 w-2 h-2 bg-white/10 rounded-full z-[2]" />
-
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -356,7 +347,7 @@ export default function HospitalityMentorProject() {
             </p>
             <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
               The people and places{" "}
-              <span className="gradient-text">behind the magic</span>
+              <span className="text-white">behind the magic</span>
             </h2>
             <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
               <p>
@@ -395,7 +386,7 @@ export default function HospitalityMentorProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
             From the lobby to{" "}
-            <span className="gradient-text">the final cut</span>
+            <span className="text-white">the final cut</span>
           </h2>
         </motion.div>
 
@@ -448,7 +439,7 @@ export default function HospitalityMentorProject() {
             Frames
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            Character & <span className="gradient-text">Location Frames</span>
+            Character & <span className="text-white">Location Frames</span>
           </h2>
         </motion.div>
 
@@ -461,136 +452,122 @@ export default function HospitalityMentorProject() {
         >
           {/* Row 1: Full-width hero */}
           <motion.div variants={galleryItem} className="md:col-span-12">
-            <TiltCard className="aspect-[21/9] rounded-2xl overflow-hidden relative group">
-              <HolographicSheen className="!absolute inset-0">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/36260dbf-5542-4beb-8e58-8c29508d31f1_rw_3840.jpg?h=e4c0a60847058ccefbf7b4d46fd543e2"
-                  alt="Fontainebleau Miami Beach cinematic still 1"
-                  fill
-                  sizes="100vw"
-                  className="object-cover"
-                />
-              </HolographicSheen>
+            <div className="aspect-[21/9] rounded-2xl overflow-hidden relative group">
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/36260dbf-5542-4beb-8e58-8c29508d31f1_rw_3840.jpg?h=e4c0a60847058ccefbf7b4d46fd543e2"
+                alt="Fontainebleau Miami Beach cinematic still 1"
+                fill
+                sizes="100vw"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </TiltCard>
+            </div>
           </motion.div>
 
           {/* Row 2: Wide + tall */}
           <motion.div variants={galleryItem} className="md:col-span-7">
-            <DistortionCard>
-              <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/5c769b0c-465e-4b2f-85c6-cc7b98778c49_rw_3840.jpg?h=cdb8228ade21e66f1affc343d0ef322d"
-                  alt="Fontainebleau Miami Beach cinematic still 2"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 58vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-              </div>
-            </DistortionCard>
+            <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/5c769b0c-465e-4b2f-85c6-cc7b98778c49_rw_3840.jpg?h=cdb8228ade21e66f1affc343d0ef322d"
+                alt="Fontainebleau Miami Beach cinematic still 2"
+                fill
+                sizes="(max-width: 768px) 100vw, 58vw"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+            </div>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-5">
-            <TiltCard className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
+            <div className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/691f76f8-a588-432b-ab11-065ec59b0a0b_rw_3840.jpg?h=ae9e2554c37a6c9afe2f55d02d2792cc"
                 alt="Fontainebleau Miami Beach cinematic still 3"
                 fill
                 sizes="(max-width: 768px) 100vw, 42vw"
-                className="object-cover"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
               />
               <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </TiltCard>
+            </div>
           </motion.div>
 
           {/* Row 3: Three equal columns */}
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <HolographicSheen>
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/8c7398dd-4282-4ddc-873d-521dcee46d76_rw_3840.jpg?h=19fe9f7b33bc81864b8810735dc77586"
-                  alt="Fontainebleau Miami Beach cinematic still 4"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-              </div>
-            </HolographicSheen>
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/8c7398dd-4282-4ddc-873d-521dcee46d76_rw_3840.jpg?h=19fe9f7b33bc81864b8810735dc77586"
+                alt="Fontainebleau Miami Beach cinematic still 4"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+            </div>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <TiltCard className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/a320897b-6515-41fc-b406-6c19c703b083_rw_3840.jpg?h=822959a337e879c542ed3a40a347e19c"
                 alt="Fontainebleau Miami Beach cinematic still 5"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
               />
               <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </TiltCard>
+            </div>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <DistortionCard>
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/8564b4c1-291a-41ae-9a83-59135b9956ab_rw_3840.jpg?h=c2fccdb5a76147d85f2609b266b1fd82"
-                  alt="Fontainebleau Miami Beach cinematic still 6"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-              </div>
-            </DistortionCard>
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/8564b4c1-291a-41ae-9a83-59135b9956ab_rw_3840.jpg?h=c2fccdb5a76147d85f2609b266b1fd82"
+                alt="Fontainebleau Miami Beach cinematic still 6"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+            </div>
           </motion.div>
 
           {/* Row 4: Asymmetric pair */}
           <motion.div variants={galleryItem} className="md:col-span-5">
-            <TiltCard className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
-              <HolographicSheen className="!absolute inset-0">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/7c7fb05d-78bb-43a8-82c3-4a1a5cc7f5fb_rw_3840.jpg?h=a392d944f5e60d6642c9185cae426438"
-                  alt="Fontainebleau Miami Beach cinematic still 7"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 42vw"
-                  className="object-cover"
-                />
-              </HolographicSheen>
+            <div className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/7c7fb05d-78bb-43a8-82c3-4a1a5cc7f5fb_rw_3840.jpg?h=a392d944f5e60d6642c9185cae426438"
+                alt="Fontainebleau Miami Beach cinematic still 7"
+                fill
+                sizes="(max-width: 768px) 100vw, 42vw"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              />
               <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </TiltCard>
+            </div>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-7">
-            <DistortionCard>
-              <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/e9c164e4-0e05-4ab3-a9f1-8b183a0b9677_rw_3840.jpg?h=3a6711cbe9f04febe3b9d25c311e64e4"
-                  alt="Fontainebleau Miami Beach cinematic still 8"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 58vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-              </div>
-            </DistortionCard>
+            <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/e9c164e4-0e05-4ab3-a9f1-8b183a0b9677_rw_3840.jpg?h=3a6711cbe9f04febe3b9d25c311e64e4"
+                alt="Fontainebleau Miami Beach cinematic still 8"
+                fill
+                sizes="(max-width: 768px) 100vw, 58vw"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+            </div>
           </motion.div>
 
           {/* Row 5: Full-width closing */}
           <motion.div variants={galleryItem} className="md:col-span-12">
-            <TiltCard className="aspect-[21/9] rounded-2xl overflow-hidden relative group">
-              <HolographicSheen className="!absolute inset-0">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/026b1245-42eb-4ad3-a850-f245624bcd44_rw_3840.jpg?h=a300b5c31fec6bae40aa6a3d7874c3b9"
-                  alt="Fontainebleau Miami Beach cinematic closing still"
-                  fill
-                  sizes="100vw"
-                  className="object-cover"
-                />
-              </HolographicSheen>
+            <div className="aspect-[21/9] rounded-2xl overflow-hidden relative group">
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/026b1245-42eb-4ad3-a850-f245624bcd44_rw_3840.jpg?h=a300b5c31fec6bae40aa6a3d7874c3b9"
+                alt="Fontainebleau Miami Beach cinematic closing still"
+                fill
+                sizes="100vw"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </TiltCard>
+            </div>
           </motion.div>
         </motion.div>
       </section>
@@ -614,7 +591,7 @@ export default function HospitalityMentorProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
             A magical hotel,{" "}
-            <span className="gradient-text">captured in 4K</span>
+            <span className="text-white">captured in 4K</span>
           </h2>
         </motion.div>
 
@@ -670,7 +647,7 @@ export default function HospitalityMentorProject() {
             Tools & Technology
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            The <span className="gradient-text">production stack</span>
+            The <span className="text-white">production stack</span>
           </h2>
         </motion.div>
 
@@ -714,7 +691,7 @@ export default function HospitalityMentorProject() {
         >
           <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
             Ready to tell{" "}
-            <span className="gradient-text">your story cinematically</span>?
+            <span className="text-white">your story cinematically</span>?
           </h2>
           <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s create premium video content that captures the soul of

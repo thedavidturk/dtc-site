@@ -2,9 +2,6 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import TiltCard from "@/components/TiltCard";
-import HolographicSheen from "@/components/HolographicSheen";
-import DistortionCard from "@/components/DistortionCard";
 import ProjectGifBand from "@/components/ProjectGifBand";
 
 /* ------------------------------------------------------------------ */
@@ -182,12 +179,6 @@ export default function BarrysBootcampProject() {
         {/* Radial fade at bottom */}
         <div className="absolute inset-0 z-[2] bg-gradient-to-t from-deep-space via-deep-space/40 to-transparent" />
 
-        {/* Floating geometric accents */}
-        <div className="absolute top-1/4 left-1/5 w-32 h-32 border border-white/[0.06] rounded-full animate-pulse z-[2]" />
-        <div className="absolute top-1/3 right-1/4 w-20 h-20 border border-white/10 rounded-xl rotate-12 z-[2]" />
-        <div className="absolute bottom-1/3 left-1/3 w-3 h-3 bg-white/20 rounded-full z-[2]" />
-        <div className="absolute top-1/2 right-1/3 w-2 h-2 bg-white/10 rounded-full z-[2]" />
-
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -348,7 +339,7 @@ export default function BarrysBootcampProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
             From studio floor to{" "}
-            <span className="gradient-text">feed</span>
+            <span className="text-white">feed</span>
           </h2>
         </motion.div>
 
@@ -402,7 +393,7 @@ export default function BarrysBootcampProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
             A motion system{" "}
-            <span className="gradient-text">that moves like the brand</span>
+            <span className="text-white">that moves like the brand</span>
           </h2>
           <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
             <p>
@@ -441,7 +432,7 @@ export default function BarrysBootcampProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
             Animated graphics &{" "}
-            <span className="gradient-text">social motion</span>
+            <span className="text-white">social motion</span>
           </h2>
         </motion.div>
 
@@ -454,50 +445,46 @@ export default function BarrysBootcampProject() {
         >
           {/* Row 1 - wide + tall */}
           <motion.div variants={galleryItem} className="md:col-span-7">
-            <DistortionCard>
-              <TiltCard className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-                <div className="relative w-full h-full">
-                  <video
-                    src="/motion/barrys-1.mp4"
-                    poster="/motion/barrys-1.jpg"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="metadata"
-                    aria-label="Barry's Bootcamp animated social graphic"
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                </div>
-              </TiltCard>
-            </DistortionCard>
+            <div className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
+              <div className="relative w-full h-full">
+                <video
+                  src="/motion/barrys-1.mp4"
+                  poster="/motion/barrys-1.jpg"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
+                  aria-label="Barry's Bootcamp animated social graphic"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              </div>
+            </div>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-5">
-            <HolographicSheen>
-              <TiltCard className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-                <div className="relative w-full h-full">
-                  <video
-                    src="/motion/barrys-2.mp4"
-                    poster="/motion/barrys-2.jpg"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="metadata"
-                    aria-label="Barry's Bootcamp motion piece"
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                </div>
-              </TiltCard>
-            </HolographicSheen>
+            <div className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
+              <div className="relative w-full h-full">
+                <video
+                  src="/motion/barrys-2.mp4"
+                  poster="/motion/barrys-2.jpg"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
+                  aria-label="Barry's Bootcamp motion piece"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+              </div>
+            </div>
           </motion.div>
 
           {/* Row 2 - asymmetric pair */}
           <motion.div variants={galleryItem} className="md:col-span-6">
-            <TiltCard maxTilt={10} className="aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
+            <div className="aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
               <div className="relative w-full h-full">
                 <video
                   src="/motion/barrys-3.mp4"
@@ -512,50 +499,46 @@ export default function BarrysBootcampProject() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
               </div>
-            </TiltCard>
+            </div>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-6">
-            <DistortionCard>
-              <TiltCard className="aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-                <div className="relative w-full h-full">
-                  <video
-                    src="/motion/barrys-4.mp4"
-                    poster="/motion/barrys-4.jpg"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="metadata"
-                    aria-label="Barry's Bootcamp social loop"
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                </div>
-              </TiltCard>
-            </DistortionCard>
+            <div className="aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
+              <div className="relative w-full h-full">
+                <video
+                  src="/motion/barrys-4.mp4"
+                  poster="/motion/barrys-4.jpg"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
+                  aria-label="Barry's Bootcamp social loop"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              </div>
+            </div>
           </motion.div>
 
           {/* Row 3 - full-width hero loop */}
           <motion.div variants={galleryItem} className="md:col-span-12">
-            <DistortionCard>
-              <TiltCard maxTilt={6} className="aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-                <div className="relative w-full h-full">
-                  <video
-                    src="/motion/barrys-5.mp4"
-                    poster="/motion/barrys-5.jpg"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="metadata"
-                    aria-label="Barry's Bootcamp social motion piece"
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                </div>
-              </TiltCard>
-            </DistortionCard>
+            <div className="aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
+              <div className="relative w-full h-full">
+                <video
+                  src="/motion/barrys-5.mp4"
+                  poster="/motion/barrys-5.jpg"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
+                  aria-label="Barry's Bootcamp social motion piece"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+              </div>
+            </div>
           </motion.div>
         </motion.div>
       </section>
@@ -578,7 +561,7 @@ export default function BarrysBootcampProject() {
             Capabilities
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            The <span className="gradient-text">content toolkit</span>
+            The <span className="text-white">content toolkit</span>
           </h2>
         </motion.div>
 
@@ -622,7 +605,7 @@ export default function BarrysBootcampProject() {
         >
           <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
             Need content that{" "}
-            <span className="gradient-text">moves</span>?
+            <span className="text-white">moves</span>?
           </h2>
           <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s build a motion system that carries your brand&rsquo;s

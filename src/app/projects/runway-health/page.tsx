@@ -3,9 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import TiltCard from "@/components/TiltCard";
-import HolographicSheen from "@/components/HolographicSheen";
-import DistortionCard from "@/components/DistortionCard";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -270,11 +267,6 @@ export default function RunwayHealthProject() {
         <div className="absolute inset-0 bg-gradient-to-tr from-electric-indigo/30 via-transparent to-warm-coral/10 mix-blend-screen" />
         <div className="absolute inset-0 z-[2] bg-gradient-to-t from-deep-space via-deep-space/50 to-deep-space/10" />
 
-        {/* Floating geometric accents */}
-        <div className="absolute top-1/4 left-1/5 w-40 h-40 border border-white/[0.06] rounded-full animate-pulse z-[2]" />
-        <div className="absolute top-1/3 right-1/4 w-20 h-20 border border-white/10 rounded-xl rotate-12 z-[2]" />
-        <div className="absolute bottom-1/3 left-1/3 w-3 h-3 bg-white/20 rounded-full z-[2]" />
-
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -416,7 +408,7 @@ export default function RunwayHealthProject() {
             Interior Product Render Set
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            The line, in <span className="gradient-text">context</span>
+            The line, in <span className="text-white">context</span>
           </h2>
         </motion.div>
 
@@ -428,20 +420,18 @@ export default function RunwayHealthProject() {
           viewport={{ once: true, margin: "-60px" }}
           className="mb-6"
         >
-          <DistortionCard>
-            <TiltCard maxTilt={6} className="aspect-[4/5] sm:aspect-[16/12] rounded-2xl overflow-hidden shadow-2xl shadow-black/30">
-              <div className="relative w-full h-full">
-                <Image
-                  src={INTERIOR_HERO}
-                  alt="Runway Health interior product render set"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 1080px"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              </div>
-            </TiltCard>
-          </DistortionCard>
+          <div className="aspect-[4/5] sm:aspect-[16/12] rounded-2xl overflow-hidden shadow-2xl shadow-black/30 relative group">
+            <div className="relative w-full h-full">
+              <Image
+                src={INTERIOR_HERO}
+                alt="Runway Health interior product render set"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 1080px"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            </div>
+          </div>
         </motion.div>
 
         {/* Five-up interior grid */}
@@ -458,18 +448,18 @@ export default function RunwayHealthProject() {
               variants={galleryItem}
               className={i === 4 ? "col-span-2 md:col-span-1" : ""}
             >
-              <TiltCard className="aspect-[4/5] rounded-xl overflow-hidden shadow-xl shadow-black/20">
+              <div className="aspect-[4/5] rounded-xl overflow-hidden shadow-xl shadow-black/20 relative group">
                 <div className="relative w-full h-full group">
                   <Image
                     src={img.src}
                     alt={img.alt}
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                     sizes="(max-width: 768px) 50vw, 20vw"
                   />
                   <div className="absolute inset-0 rounded-xl border border-white/0 group-hover:border-electric-indigo/30 transition-colors duration-500 pointer-events-none" />
                 </div>
-              </TiltCard>
+              </div>
             </motion.div>
           ))}
         </motion.div>
@@ -494,7 +484,7 @@ export default function RunwayHealthProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
             From geometry to{" "}
-            <span className="gradient-text">finished render</span>
+            <span className="text-white">finished render</span>
           </h2>
         </motion.div>
 
@@ -544,17 +534,15 @@ export default function RunwayHealthProject() {
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
           >
-            <HolographicSheen>
-              <div className="aspect-[16/9] rounded-2xl overflow-hidden relative shadow-2xl shadow-black/30">
-                <Image
-                  src={TEXTURE_IMG}
-                  alt="Runway Health product texture creation in Adobe Substance Painter"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-            </HolographicSheen>
+            <div className="aspect-[16/9] rounded-2xl overflow-hidden relative shadow-2xl shadow-black/30">
+              <Image
+                src={TEXTURE_IMG}
+                alt="Runway Health product texture creation in Adobe Substance Painter"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
             <p className="mt-4 font-mono text-xs tracking-widest uppercase text-cool-gray">
               Product texture creation in Adobe Substance Painter
             </p>
@@ -567,17 +555,15 @@ export default function RunwayHealthProject() {
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
           >
-            <DistortionCard>
-              <div className="aspect-[16/9] rounded-2xl overflow-hidden relative shadow-2xl shadow-black/30">
-                <Image
-                  src={BOX_IMG}
-                  alt="Runway Health custom box design created in Cinema4D"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-            </DistortionCard>
+            <div className="aspect-[16/9] rounded-2xl overflow-hidden relative shadow-2xl shadow-black/30">
+              <Image
+                src={BOX_IMG}
+                alt="Runway Health custom box design created in Cinema4D"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
             <p className="mt-4 font-body text-sm text-cool-gray leading-relaxed">
               Custom box design created in Cinema4D. Volume Builder and modeling
               allowed the box to have custom hold positions for the pill bottles.
@@ -604,7 +590,7 @@ export default function RunwayHealthProject() {
             Hero Imagery
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            Built for the <span className="gradient-text">brand experience</span>
+            Built for the <span className="text-white">brand experience</span>
           </h2>
         </motion.div>
 
@@ -616,33 +602,29 @@ export default function RunwayHealthProject() {
           className="space-y-6"
         >
           <motion.div variants={galleryItem}>
-            <TiltCard maxTilt={5} className="aspect-[21/9] rounded-2xl overflow-hidden relative group">
-              <HolographicSheen className="!absolute inset-0">
-                <Image
-                  src={HERO_WIDE_1}
-                  alt="Runway Health hero product imagery"
-                  fill
-                  className="object-cover"
-                  sizes="100vw"
-                />
-              </HolographicSheen>
+            <div className="aspect-[21/9] rounded-2xl overflow-hidden relative group">
+              <Image
+                src={HERO_WIDE_1}
+                alt="Runway Health hero product imagery"
+                fill
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                sizes="100vw"
+              />
               <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
-            </TiltCard>
+            </div>
           </motion.div>
 
           <motion.div variants={galleryItem}>
-            <DistortionCard>
-              <div className="aspect-[21/9] rounded-2xl overflow-hidden relative group">
-                <Image
-                  src={HERO_WIDE_2}
-                  alt="Runway Health hero product imagery"
-                  fill
-                  className="object-cover"
-                  sizes="100vw"
-                />
-                <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-              </div>
-            </DistortionCard>
+            <div className="aspect-[21/9] rounded-2xl overflow-hidden relative group">
+              <Image
+                src={HERO_WIDE_2}
+                alt="Runway Health hero product imagery"
+                fill
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                sizes="100vw"
+              />
+              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
+            </div>
           </motion.div>
         </motion.div>
       </section>
@@ -665,7 +647,7 @@ export default function RunwayHealthProject() {
             Studio & Outdoor Product Designs
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            One product, <span className="gradient-text">many scenes</span>
+            One product, <span className="text-white">many scenes</span>
           </h2>
         </motion.div>
 
@@ -676,32 +658,22 @@ export default function RunwayHealthProject() {
           viewport={{ once: true, margin: "-60px" }}
           className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6"
         >
-          {studioSet.map((img, i) => {
-            const Wrapper =
-              i % 3 === 0 ? DistortionCard : i % 3 === 1 ? HolographicSheen : null;
-            const inner = (
-              <TiltCard
-                maxTilt={img.span.includes("12") ? 5 : 9}
-                className={`${img.ratio} rounded-2xl overflow-hidden relative group shadow-xl shadow-black/20`}
-              >
+          {studioSet.map((img) => (
+            <motion.div key={img.src} variants={galleryItem} className={img.span}>
+              <div className={`${img.ratio} rounded-2xl overflow-hidden relative group shadow-xl shadow-black/20`}>
                 <div className="relative w-full h-full">
                   <Image
                     src={img.src}
                     alt={img.alt}
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                     sizes={img.span.includes("12") ? "100vw" : "(max-width: 768px) 100vw, 33vw"}
                   />
                   <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
                 </div>
-              </TiltCard>
-            );
-            return (
-              <motion.div key={img.src} variants={galleryItem} className={img.span}>
-                {Wrapper ? <Wrapper>{inner}</Wrapper> : inner}
-              </motion.div>
-            );
-          })}
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
       </section>
 
@@ -723,7 +695,7 @@ export default function RunwayHealthProject() {
             What Was Delivered
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            A complete <span className="gradient-text">3D product world</span>
+            A complete <span className="text-white">3D product world</span>
           </h2>
         </motion.div>
 
@@ -779,7 +751,7 @@ export default function RunwayHealthProject() {
             Tools & Technology
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            The <span className="gradient-text">3D pipeline</span>
+            The <span className="text-white">3D pipeline</span>
           </h2>
         </motion.div>
 
@@ -823,7 +795,7 @@ export default function RunwayHealthProject() {
         >
           <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
             Need product visuals{" "}
-            <span className="gradient-text">built in 3D</span>?
+            <span className="text-white">built in 3D</span>?
           </h2>
           <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s model, texture, and render your product into imagery that

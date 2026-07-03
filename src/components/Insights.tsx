@@ -4,7 +4,6 @@ import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
-import HolographicSheen from "./HolographicSheen";
 import Lazy3D from "./Lazy3D";
 
 // ---------------------------------------------------------------------------
@@ -314,7 +313,7 @@ export default function Insights() {
                 className="group relative flex-shrink-0 w-[85vw] sm:w-[60vw] md:w-[38vw] lg:w-[30vw] xl:w-[26vw] snap-start"
               >
                 <Link href={`/insights/${post.slug}`} className="block h-full bg-white/[0.03] border border-white/5 rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 hover:-translate-y-2 hover:border-white/15 hover:shadow-2xl hover:shadow-black/30">
-                  <HolographicSheen className="rounded-2xl h-full flex flex-col">
+                  <div className="relative rounded-2xl h-full flex flex-col">
                     {/* Cover area */}
                     <div className="relative aspect-[16/10] overflow-hidden">
                       {/* Gradient background */}
@@ -391,7 +390,7 @@ export default function Insights() {
 
                     {/* Hover border glow */}
                     <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none shadow-[inset_0_0_40px_rgba(99,102,241,0.05)]" />
-                  </HolographicSheen>
+                  </div>
                 </Link>
               </motion.article>
               );

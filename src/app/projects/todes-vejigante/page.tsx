@@ -3,9 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import TiltCard from "@/components/TiltCard";
-import HolographicSheen from "@/components/HolographicSheen";
-import DistortionCard from "@/components/DistortionCard";
 import ProjectGifBand from "@/components/ProjectGifBand";
 
 /* ------------------------------------------------------------------ */
@@ -188,12 +185,6 @@ export default function TodesVejiganteProject() {
         {/* Radial fade at bottom */}
         <div className="absolute inset-0 z-[2] bg-gradient-to-t from-deep-space via-deep-space/40 to-transparent" />
 
-        {/* Floating geometric accents */}
-        <div className="absolute top-1/4 left-1/5 w-32 h-32 border border-white/[0.06] rounded-full animate-pulse z-[2]" />
-        <div className="absolute top-1/3 right-1/4 w-20 h-20 border border-white/10 rounded-xl rotate-12 z-[2]" />
-        <div className="absolute bottom-1/3 left-1/3 w-3 h-3 bg-white/20 rounded-full z-[2]" />
-        <div className="absolute top-1/2 right-1/3 w-2 h-2 bg-white/10 rounded-full z-[2]" />
-
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -358,7 +349,7 @@ export default function TodesVejiganteProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
             From research to resistance{" "}
-            <span className="gradient-text">in five phases</span>
+            <span className="text-white">in five phases</span>
           </h2>
         </motion.div>
 
@@ -412,7 +403,7 @@ export default function TodesVejiganteProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
             Culture as the campaign{" "}
-            <span className="gradient-text">itself</span>
+            <span className="text-white">itself</span>
           </h2>
           <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
             <p>
@@ -455,7 +446,7 @@ export default function TodesVejiganteProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
             Portraits, exhibition &{" "}
-            <span className="gradient-text">community</span>
+            <span className="text-white">community</span>
           </h2>
         </motion.div>
 
@@ -468,171 +459,157 @@ export default function TodesVejiganteProject() {
         >
           {/* Row 1 - wide + tall portrait */}
           <motion.div variants={galleryItem} className="md:col-span-7">
-            <DistortionCard>
-              <TiltCard className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-                <div className="relative w-full h-full">
-                  <Image
-                    src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/5c702b8d-e939-46c9-9a51-21f7465d6b67_rw_1920.jpg?h=0d55bd3b23e10a0b7b506f672a98d2f1"
-                    alt="Todes Vejigante community portrait"
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                </div>
-              </TiltCard>
-            </DistortionCard>
+            <div className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
+              <div className="relative w-full h-full">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/5c702b8d-e939-46c9-9a51-21f7465d6b67_rw_1920.jpg?h=0d55bd3b23e10a0b7b506f672a98d2f1"
+                  alt="Todes Vejigante community portrait"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                  unoptimized
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              </div>
+            </div>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-5">
-            <HolographicSheen>
-              <TiltCard className="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-                <div className="relative w-full h-full">
-                  <Image
-                    src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/a0c12513-c551-46dc-834c-7cc8b86565cf_rw_1920.jpg?h=0d55bd3b23e10a0b7b506f672a98d2f1"
-                    alt="Vejigante mask portrait"
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                </div>
-              </TiltCard>
-            </HolographicSheen>
+            <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
+              <div className="relative w-full h-full">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/a0c12513-c551-46dc-834c-7cc8b86565cf_rw_1920.jpg?h=0d55bd3b23e10a0b7b506f672a98d2f1"
+                  alt="Vejigante mask portrait"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                  unoptimized
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+              </div>
+            </div>
           </motion.div>
 
           {/* Row 2 - offset editorial */}
           <motion.div variants={galleryItem} className="md:col-span-5 md:col-start-2">
-            <TiltCard maxTilt={10} className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
               <div className="relative w-full h-full">
                 <Image
                   src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/2366b306-628e-40ef-b957-49ea27e2ca94_rw_1920.png?h=0d55bd3b23e10a0b7b506f672a98d2f1"
                   alt="Campaign identity"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                   unoptimized
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
               </div>
-            </TiltCard>
+            </div>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-6">
-            <DistortionCard>
-              <TiltCard className="aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-                <div className="relative w-full h-full">
-                  <Image
-                    src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6f6775eb-a524-4ee6-921e-55d7dd255f6c_rw_1920.jpg?h=0d55bd3b23e10a0b7b506f672a98d2f1"
-                    alt="Exhibition display"
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                </div>
-              </TiltCard>
-            </DistortionCard>
+            <div className="aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
+              <div className="relative w-full h-full">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6f6775eb-a524-4ee6-921e-55d7dd255f6c_rw_1920.jpg?h=0d55bd3b23e10a0b7b506f672a98d2f1"
+                  alt="Exhibition display"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                  unoptimized
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              </div>
+            </div>
           </motion.div>
 
           {/* Row 3 - three equal columns */}
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <HolographicSheen>
-              <TiltCard className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-                <div className="relative w-full h-full">
-                  <Image
-                    src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/bbc241fe-1029-4a0e-9f4d-d44d4eed7c48_rw_1920.jpg?h=0d55bd3b23e10a0b7b506f672a98d2f1"
-                    alt="Portrait with machete and plants"
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                </div>
-              </TiltCard>
-            </HolographicSheen>
+            <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
+              <div className="relative w-full h-full">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/bbc241fe-1029-4a0e-9f4d-d44d4eed7c48_rw_1920.jpg?h=0d55bd3b23e10a0b7b506f672a98d2f1"
+                  alt="Portrait with machete and plants"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                  unoptimized
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+              </div>
+            </div>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <TiltCard className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
+            <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
               <div className="relative w-full h-full">
                 <Image
                   src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/a7c6289a-1050-405d-a340-a793d92b29cd_rw_1920.png?h=0d55bd3b23e10a0b7b506f672a98d2f1"
                   alt="Event production"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                   unoptimized
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
               </div>
-            </TiltCard>
+            </div>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <DistortionCard>
-              <TiltCard className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-                <div className="relative w-full h-full">
-                  <Image
-                    src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/ec3965ca-86b5-46e9-a8dd-947479c91eeb_rw_1920.png?h=0d55bd3b23e10a0b7b506f672a98d2f1"
-                    alt="Bomba drumming performance"
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                </div>
-              </TiltCard>
-            </DistortionCard>
+            <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
+              <div className="relative w-full h-full">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/ec3965ca-86b5-46e9-a8dd-947479c91eeb_rw_1920.png?h=0d55bd3b23e10a0b7b506f672a98d2f1"
+                  alt="Bomba drumming performance"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                  unoptimized
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              </div>
+            </div>
           </motion.div>
 
           {/* Row 4 - asymmetric pair */}
           <motion.div variants={galleryItem} className="md:col-span-6">
-            <HolographicSheen>
-              <TiltCard className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-                <div className="relative w-full h-full">
-                  <Image
-                    src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/34c014e3-651c-47cb-ae49-3572fc351b0f_rw_1200.png?h=0d55bd3b23e10a0b7b506f672a98d2f1"
-                    alt="Video mapping installation"
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                </div>
-              </TiltCard>
-            </HolographicSheen>
+            <div className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
+              <div className="relative w-full h-full">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/34c014e3-651c-47cb-ae49-3572fc351b0f_rw_1200.png?h=0d55bd3b23e10a0b7b506f672a98d2f1"
+                  alt="Video mapping installation"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                  unoptimized
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+              </div>
+            </div>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-6">
-            <TiltCard maxTilt={10} className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
+            <div className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
               <div className="relative w-full h-full">
                 <Image
                   src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/95bd6c52-fbb1-4b5c-b8f4-f13e8bb8ad05_rw_1920.png?h=0d55bd3b23e10a0b7b506f672a98d2f1"
                   alt="Merchandise and fundraising"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                   unoptimized
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
               </div>
-            </TiltCard>
+            </div>
           </motion.div>
 
           {/* Row 5 - full-width hero shot */}
           <motion.div variants={galleryItem} className="md:col-span-12">
-            <DistortionCard>
-              <TiltCard maxTilt={6} className="aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20">
-                <div className="relative w-full h-full">
-                  <Image
-                    src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/7cf1295f-7c6f-4057-a833-094f979df0d3_rw_1200.png?h=0d55bd3b23e10a0b7b506f672a98d2f1"
-                    alt="Todes Vejigante community gathering"
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                </div>
-              </TiltCard>
-            </DistortionCard>
+            <div className="aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
+              <div className="relative w-full h-full">
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/7cf1295f-7c6f-4057-a833-094f979df0d3_rw_1200.png?h=0d55bd3b23e10a0b7b506f672a98d2f1"
+                  alt="Todes Vejigante community gathering"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                  unoptimized
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+              </div>
+            </div>
           </motion.div>
         </motion.div>
       </section>
@@ -656,7 +633,7 @@ export default function TodesVejiganteProject() {
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
             Real impact,{" "}
-            <span className="gradient-text">lasting support</span>
+            <span className="text-white">lasting support</span>
           </h2>
         </motion.div>
 
@@ -712,7 +689,7 @@ export default function TodesVejiganteProject() {
             Capabilities
           </p>
           <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
-            The <span className="gradient-text">production toolkit</span>
+            The <span className="text-white">production toolkit</span>
           </h2>
         </motion.div>
 
@@ -756,7 +733,7 @@ export default function TodesVejiganteProject() {
         >
           <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
             Have a story{" "}
-            <span className="gradient-text">worth telling</span>?
+            <span className="text-white">worth telling</span>?
           </h2>
           <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s build a campaign that turns your mission into

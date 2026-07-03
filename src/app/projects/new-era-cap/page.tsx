@@ -3,9 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import TiltCard from "@/components/TiltCard";
-import HolographicSheen from "@/components/HolographicSheen";
-import DistortionCard from "@/components/DistortionCard";
 import ProjectGifBand from "@/components/ProjectGifBand";
 
 /* ------------------------------------------------------------------ */
@@ -147,48 +144,6 @@ function CampaignSection({
   campaign: (typeof campaigns)[0];
   index: number;
 }) {
-  // Alternate interactive component per campaign
-  const wrappers = [
-    // Campaign 0: TiltCard + HolographicSheen
-    (children: React.ReactNode, i: number) =>
-      i % 2 === 0 ? (
-        <TiltCard className="rounded-2xl overflow-hidden">
-          <HolographicSheen className="rounded-2xl">{children}</HolographicSheen>
-        </TiltCard>
-      ) : (
-        <DistortionCard className="rounded-2xl overflow-hidden">{children}</DistortionCard>
-      ),
-    // Campaign 1: DistortionCard + TiltCard
-    (children: React.ReactNode, i: number) =>
-      i % 2 === 0 ? (
-        <DistortionCard className="rounded-2xl overflow-hidden">{children}</DistortionCard>
-      ) : (
-        <TiltCard maxTilt={10} className="rounded-2xl overflow-hidden">
-          <HolographicSheen className="rounded-2xl">{children}</HolographicSheen>
-        </TiltCard>
-      ),
-    // Campaign 2: HolographicSheen + TiltCard
-    (children: React.ReactNode, i: number) =>
-      i % 3 === 0 ? (
-        <HolographicSheen className="rounded-2xl">
-          <TiltCard className="rounded-2xl overflow-hidden">{children}</TiltCard>
-        </HolographicSheen>
-      ) : (
-        <TiltCard maxTilt={12} className="rounded-2xl overflow-hidden">{children}</TiltCard>
-      ),
-    // Campaign 3: Mixed
-    (children: React.ReactNode, i: number) =>
-      i === 0 ? (
-        <TiltCard className="rounded-2xl overflow-hidden">
-          <HolographicSheen className="rounded-2xl">{children}</HolographicSheen>
-        </TiltCard>
-      ) : (
-        <DistortionCard className="rounded-2xl overflow-hidden">{children}</DistortionCard>
-      ),
-  ];
-
-  const wrap = wrappers[index % wrappers.length];
-
   return (
     <section id={campaign.id} className="section-container section-padding">
       {/* Campaign header */}
@@ -225,23 +180,20 @@ function CampaignSection({
         viewport={{ once: true, margin: "-60px" }}
         className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-5"
       >
-        {campaign.images.map((img, i) => (
+        {campaign.images.map((img) => (
           <motion.div key={img.src} variants={galleryItem} className={img.span}>
-            {wrap(
-              <div
-                className={`relative ${img.aspect} overflow-hidden rounded-2xl border border-white/5 hover:border-electric-indigo/20 transition-colors duration-500`}
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  className="object-cover"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
-              </div>,
-              i
-            )}
+            <div
+              className={`group relative ${img.aspect} overflow-hidden rounded-2xl border border-white/5 hover:border-electric-indigo/20 transition-colors duration-500`}
+            >
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+            </div>
           </motion.div>
         ))}
       </motion.div>
@@ -301,10 +253,6 @@ export default function NewEraCapProject() {
         </div>
         <div className="absolute inset-0 bg-black/30" />
         <div className="absolute inset-0 z-[2] bg-gradient-to-t from-deep-space via-deep-space/40 to-transparent" />
-
-        {/* Geometric accents */}
-        <div className="absolute top-1/4 left-1/5 w-32 h-32 border border-white/[0.06] rounded-full animate-pulse z-[2]" />
-        <div className="absolute top-1/3 right-1/4 w-20 h-20 border border-white/10 rounded-xl rotate-12 z-[2]" />
 
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
           <motion.div
@@ -501,7 +449,7 @@ export default function NewEraCapProject() {
         >
           <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
             Ready to build your{" "}
-            <span className="gradient-text">next world</span>?
+            <span className="text-white">next world</span>?
           </h2>
           <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s create a campaign with the same cinematic ambition and
