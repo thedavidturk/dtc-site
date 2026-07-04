@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, FormEvent } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 
 // TODO: Create a separate Formspree form for newsletter signups and replace this endpoint.
 // Using the contact form endpoint as a placeholder.
@@ -109,7 +109,7 @@ export default function EmailCapture() {
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(124,92,255,0.04)_0%,transparent_60%)]" />
 
-      <motion.div
+      <m.div
         className="section-container relative z-10 max-w-3xl mx-auto"
         variants={sectionVariants}
         initial="hidden"
@@ -117,7 +117,7 @@ export default function EmailCapture() {
         viewport={{ once: true, margin: "-80px" }}
       >
         {/* Headline */}
-        <motion.div className="text-center mb-8" variants={childVariants}>
+        <m.div className="text-center mb-8" variants={childVariants}>
           <span className="font-mono text-xs tracking-[0.3em] text-electric-indigo uppercase mb-4 block">
             Stay in the Loop
           </span>
@@ -128,13 +128,13 @@ export default function EmailCapture() {
           <p className="font-body text-cool-gray text-sm md:text-base mt-3 leading-relaxed">
             One email per month. No spam. Unsubscribe anytime.
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Form / Success */}
-        <motion.div variants={childVariants}>
+        <m.div variants={childVariants}>
           <AnimatePresence mode="wait">
             {!submitted ? (
-              <motion.form
+              <m.form
                 key="form"
                 onSubmit={handleSubmit}
                 noValidate
@@ -177,7 +177,7 @@ export default function EmailCapture() {
                   )}
                 </div>
 
-                <motion.button
+                <m.button
                   type="submit"
                   disabled={submitting}
                   className="flex-shrink-0 bg-electric-indigo hover:bg-electric-indigo/90 text-pure-white font-body font-medium text-sm px-6 py-3.5 rounded-lg transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
@@ -185,10 +185,10 @@ export default function EmailCapture() {
                   whileTap={submitting ? {} : { scale: 0.98 }}
                 >
                   {submitting ? "Subscribing..." : "Subscribe"}
-                </motion.button>
-              </motion.form>
+                </m.button>
+              </m.form>
             ) : (
-              <motion.div
+              <m.div
                 key="success"
                 variants={successVariants}
                 initial="hidden"
@@ -216,11 +216,11 @@ export default function EmailCapture() {
                     You&apos;re in. Watch your inbox.
                   </span>
                 </div>
-              </motion.div>
+              </m.div>
             )}
           </AnimatePresence>
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
     </section>
   );
 }

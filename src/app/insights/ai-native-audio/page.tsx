@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import ArticleJsonLd from "@/components/ArticleJsonLd";
 
 const fadeUp = {
@@ -53,7 +53,7 @@ export default function AiNativeAudioArticle() {
         datePublished="2026-06-01"
         url="https://davidturkcreative.com/insights/ai-native-audio"
       />
-      <motion.div
+      <m.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
@@ -68,7 +68,7 @@ export default function AiNativeAudioArticle() {
           </svg>
           Back to Home
         </Link>
-      </motion.div>
+      </m.div>
 
       {/* Hero */}
       <section className="relative min-h-[60vh] md:min-h-[70vh] flex items-end overflow-hidden">
@@ -81,34 +81,34 @@ export default function AiNativeAudioArticle() {
         <div className="absolute bottom-1/3 left-1/3 w-3 h-3 bg-white/20 rounded-full" />
 
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}>
+          <m.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}>
             <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
               AI + Production
             </span>
-          </motion.div>
+          </m.div>
 
-          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }} className="font-display text-h1 font-bold mb-4 max-w-4xl">
+          <m.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }} className="font-display text-h1 font-bold mb-4 max-w-4xl">
             Native Audio Changes Everything: The Year AI Learned to Score Its Own Footage
-          </motion.h1>
+          </m.h1>
 
-          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }} className="font-body text-lg md:text-xl text-white/70 max-w-2xl">
+          <m.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }} className="font-body text-lg md:text-xl text-white/70 max-w-2xl">
             In 2026, AI video models started generating matching sound in the same pass as the picture. Here&rsquo;s why native audio collapsed a whole post stage, and where human sound direction still wins.
-          </motion.p>
+          </m.p>
 
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.6 }} className="flex items-center gap-4 mt-6">
+          <m.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.6 }} className="flex items-center gap-4 mt-6">
             <span className="font-mono text-xs text-white/50 tracking-wide">David Turk</span>
             <span className="w-1 h-1 rounded-full bg-white/30" />
             <span className="font-mono text-xs text-white/50 tracking-wide">7 min read</span>
-          </motion.div>
+          </m.div>
 
-          <motion.div initial={{ width: 0 }} animate={{ width: "6rem" }} transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }} className="h-px bg-gradient-to-r from-electric-indigo to-blue-400 mt-8" />
+          <m.div initial={{ width: 0 }} animate={{ width: "6rem" }} transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }} className="h-px bg-gradient-to-r from-electric-indigo to-blue-400 mt-8" />
         </div>
       </section>
 
       {/* Article Body */}
       <section className="section-container section-padding">
-        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} className="max-w-3xl mx-auto">
-          <motion.div variants={fadeUp}>
+        <m.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} className="max-w-3xl mx-auto">
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               Sound Was Always Half the Movie
             </h2>
@@ -121,13 +121,13 @@ export default function AiNativeAudioArticle() {
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               That is the gap that closed in 2026, and it closed faster than almost anyone in production planned for. Native audio is the thing that turned AI video from a striking visual trick into something that can actually carry a story on its own.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.blockquote variants={fadeUp} className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8">
+          <m.blockquote variants={fadeUp} className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8">
             The image got cheaper and faster every quarter. The sound stayed exactly as expensive as it had ever been. Native audio is what finally closed that gap.
-          </motion.blockquote>
+          </m.blockquote>
 
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               What &ldquo;Native Audio&rdquo; Actually Means
             </h2>
@@ -140,9 +140,9 @@ export default function AiNativeAudioArticle() {
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               If you have spent any time in post, you already understand why this is a bigger deal than another resolution bump. The thing the model just did for free is the thing that used to require a sound designer, a foley pass, a composer, and an ADR session. Four crafts, folded into one button.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               A Whole Post Stage Just Collapsed
             </h2>
@@ -152,13 +152,13 @@ export default function AiNativeAudioArticle() {
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               Native audio takes the first draft of all of that and produces it in the same render as the picture. The clip arrives already alive. It already has ambience, a voice, a rough musical bed. For a huge category of work, that is enough to ship, and for everything else it is a far better starting point than silence. The expensive, sequential post stage did not get optimized. For a lot of projects it stopped being a separate stage at all.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.blockquote variants={fadeUp} className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8">
+          <m.blockquote variants={fadeUp} className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8">
             The thing the model just did for free is the thing that used to need a sound designer, a foley pass, a composer, and an ADR session. Four crafts, folded into one button.
-          </motion.blockquote>
+          </m.blockquote>
 
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               It Changed How We Storyboard and Budget
             </h2>
@@ -168,9 +168,9 @@ export default function AiNativeAudioArticle() {
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               The budget math moved with it. The old quote had a fat post line for sound that scaled with runtime. A lot of that line is gone for drafts and social work, which changes what a project costs and what a client expects from a first pass. The conversation is no longer &ldquo;here is the silent cut, sound comes later.&rdquo; It is &ldquo;here is a finished-feeling cut on day one,&rdquo; and that resets expectations about speed in a way you cannot walk back.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               The Last Twenty Percent Is Still Human
             </h2>
@@ -183,9 +183,9 @@ export default function AiNativeAudioArticle() {
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               None of that diminishes the leap. It just relocates the value. The grunt work of building a soundtrack from nothing is gone. The judgment about whether a soundtrack is right has never been more important.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               How We Use It in Our Studio
             </h2>
@@ -195,8 +195,8 @@ export default function AiNativeAudioArticle() {
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               For hero work, the spot that carries the brand, we still bring in human sound design. We will happily start from the model&rsquo;s native track, because eighty percent for free is a gift, but a real sound director takes it the rest of the way. They own the mix, the master, the sonic identity, and the licensing certainty that lets the work run without a footnote. That is the split, and it is a good one. The machine handles the half of film that used to be quietly expensive, and people handle the half that was always going to be hard.
             </p>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </section>
 
       {/* Divider */}
@@ -206,13 +206,13 @@ export default function AiNativeAudioArticle() {
 
       {/* More Perspectives */}
       <section className="section-container section-padding">
-        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} className="mb-12">
+        <m.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} className="mb-12">
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">Continue Reading</p>
           <h2 className="font-headline text-h3 font-bold">More <span className="gradient-text">Perspectives</span></h2>
-        </motion.div>
-        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        </m.div>
+        <m.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {moreArticles.map((article) => (
-            <motion.div key={article.href} variants={staggerItem}>
+            <m.div key={article.href} variants={staggerItem}>
               <Link href={article.href} className="group block rounded-2xl border border-white/5 bg-white/[0.02] overflow-hidden hover:border-white/15 hover:-translate-y-1 transition-all duration-500">
                 <div className="relative h-32 overflow-hidden">
                   <div className={`absolute inset-0 bg-gradient-to-br ${article.gradient} transition-transform duration-700 group-hover:scale-110`} />
@@ -229,9 +229,9 @@ export default function AiNativeAudioArticle() {
                   </span>
                 </div>
               </Link>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </section>
     </article>
   );

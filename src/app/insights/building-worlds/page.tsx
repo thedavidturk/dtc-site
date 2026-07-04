@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import ArticleJsonLd from "@/components/ArticleJsonLd";
 
 /* ------------------------------------------------------------------ */
@@ -66,7 +66,7 @@ export default function BuildingWorldsArticle() {
         url="https://davidturkcreative.com/insights/building-worlds"
       />
       {/* -- Back Link ------------------------------------------------ */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
@@ -91,7 +91,7 @@ export default function BuildingWorldsArticle() {
           </svg>
           Back to Home
         </Link>
-      </motion.div>
+      </m.div>
 
       {/* -- Hero ----------------------------------------------------- */}
       <section className="relative min-h-[60vh] md:min-h-[70vh] flex items-end overflow-hidden">
@@ -113,7 +113,7 @@ export default function BuildingWorldsArticle() {
         <div className="absolute bottom-2/5 left-2/5 w-3 h-3 bg-warm-coral/30 rounded-full" />
 
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
@@ -121,18 +121,18 @@ export default function BuildingWorldsArticle() {
             <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
               AI Strategy
             </span>
-          </motion.div>
+          </m.div>
 
-          <motion.h1
+          <m.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="font-display text-h1 font-bold mb-4 max-w-4xl"
           >
             Your Brand in the Age of AI Search: Why GEO Is the New SEO
-          </motion.h1>
+          </m.h1>
 
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
@@ -141,9 +141,9 @@ export default function BuildingWorldsArticle() {
             Generative Engine Optimization is reshaping how brands get
             discovered. If you&rsquo;re still optimizing only for Google
             rankings, you&rsquo;re optimizing for yesterday.
-          </motion.p>
+          </m.p>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.6 }}
@@ -156,10 +156,10 @@ export default function BuildingWorldsArticle() {
             <span className="font-mono text-xs text-white/50 tracking-wide">
               9 min read
             </span>
-          </motion.div>
+          </m.div>
 
           {/* Animated line */}
-          <motion.div
+          <m.div
             initial={{ width: 0 }}
             animate={{ width: "6rem" }}
             transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
@@ -170,7 +170,7 @@ export default function BuildingWorldsArticle() {
 
       {/* -- Article Body --------------------------------------------- */}
       <section className="section-container section-padding">
-        <motion.div
+        <m.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -178,7 +178,7 @@ export default function BuildingWorldsArticle() {
           className="max-w-3xl mx-auto"
         >
           {/* --- The Shift --- */}
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               The Way People Find Brands Has Fundamentally Changed
             </h2>
@@ -205,20 +205,20 @@ export default function BuildingWorldsArticle() {
               longer guarantees visibility in the AI answers that are
               increasingly where buyer research starts and ends.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* --- Pull Quote --- */}
-          <motion.blockquote
+          <m.blockquote
             variants={fadeUp}
             className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8"
           >
             If your brand doesn&rsquo;t show up in AI-generated
             recommendations, it doesn&rsquo;t matter how well you rank on
             Google. The buyer never sees you.
-          </motion.blockquote>
+          </m.blockquote>
 
           {/* --- What GEO Actually Means --- */}
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               What Generative Engine Optimization Actually Means
             </h2>
@@ -244,10 +244,10 @@ export default function BuildingWorldsArticle() {
               rewards you. If you&rsquo;ve been gaming search rankings with
               low-quality content, the AI era is going to be painful.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* --- Why It Matters for Creative Brands --- */}
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               Why This Matters for Every Brand Producing Content
             </h2>
@@ -267,20 +267,20 @@ export default function BuildingWorldsArticle() {
               depth of your content portfolio directly determines whether AI
               engines consider you an authority worth citing.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* --- Pull Quote --- */}
-          <motion.blockquote
+          <m.blockquote
             variants={fadeUp}
             className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8"
           >
             Your content portfolio is no longer just a marketing asset.
             It&rsquo;s the data that AI engines use to decide whether your
             brand deserves to be recommended.
-          </motion.blockquote>
+          </m.blockquote>
 
           {/* --- How We're Building for GEO --- */}
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               How We Build Content for AI Visibility
             </h2>
@@ -316,10 +316,10 @@ export default function BuildingWorldsArticle() {
               transparent and specific in how we talk about our work, which has
               been good for client relationships too.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* --- The Visibility Gap --- */}
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               The Widening Visibility Gap
             </h2>
@@ -339,20 +339,20 @@ export default function BuildingWorldsArticle() {
               thin content footprints are invisible, regardless of how much
               they spend on traditional advertising.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* --- Pull Quote --- */}
-          <motion.blockquote
+          <m.blockquote
             variants={fadeUp}
             className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8"
           >
             The brands that own their AI narrative now will define their
             category in the minds of AI-assisted buyers. The rest will be
             playing catch-up for years.
-          </motion.blockquote>
+          </m.blockquote>
 
           {/* --- Conclusion --- */}
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               Start Building Your AI Presence Now
             </h2>
@@ -379,8 +379,8 @@ export default function BuildingWorldsArticle() {
               conversation. Everyone else will be competing for whatever
               visibility is left.
             </p>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </section>
 
       {/* -- Divider -------------------------------------------------- */}
@@ -390,7 +390,7 @@ export default function BuildingWorldsArticle() {
 
       {/* -- More Perspectives ---------------------------------------- */}
       <section className="section-container section-padding">
-        <motion.div
+        <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -403,9 +403,9 @@ export default function BuildingWorldsArticle() {
           <h2 className="font-headline text-h3 font-bold">
             More <span className="gradient-text">Perspectives</span>
           </h2>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -413,7 +413,7 @@ export default function BuildingWorldsArticle() {
           className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
           {moreArticles.map((article) => (
-            <motion.div key={article.href} variants={staggerItem}>
+            <m.div key={article.href} variants={staggerItem}>
               <Link
                 href={article.href}
                 className="group block rounded-2xl border border-white/5 bg-white/[0.02] overflow-hidden hover:border-white/15 hover:-translate-y-1 transition-all duration-500"
@@ -450,9 +450,9 @@ export default function BuildingWorldsArticle() {
                   </span>
                 </div>
               </Link>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </section>
     </article>
   );

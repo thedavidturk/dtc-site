@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 /* ------------------------------------------------------------------ */
 /*  Article Data                                                        */
@@ -110,7 +110,7 @@ export default function InsightsIndexPage() {
   return (
     <div className="bg-deep-space min-h-screen">
       {/* -- Back Link ------------------------------------------------ */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
@@ -135,38 +135,38 @@ export default function InsightsIndexPage() {
           </svg>
           Back to Home
         </Link>
-      </motion.div>
+      </m.div>
 
       {/* -- Hero Section ---------------------------------------------- */}
-      <motion.section
+      <m.section
         className="section-container pt-32 pb-16 md:pt-40 md:pb-20 text-center"
         initial="hidden"
         animate="visible"
         variants={containerVariants}
       >
-        <motion.span
+        <m.span
           variants={heroVariants}
           className="font-mono text-xs tracking-[0.3em] text-electric-indigo uppercase mb-4 block"
         >
           Insights
-        </motion.span>
-        <motion.h1
+        </m.span>
+        <m.h1
           variants={heroVariants}
           className="font-display text-h1 font-bold text-pure-white"
         >
           Perspectives
-        </motion.h1>
-        <motion.p
+        </m.h1>
+        <m.p
           variants={heroVariants}
           className="font-body text-cool-gray text-lg md:text-xl mt-6 max-w-2xl mx-auto leading-relaxed"
         >
           Thoughts on AI-driven production, creative technology, and the future
           of brand content.
-        </motion.p>
-      </motion.section>
+        </m.p>
+      </m.section>
 
       {/* -- Article Grid ---------------------------------------------- */}
-      <motion.section
+      <m.section
         className="section-container section-padding pb-24"
         initial="hidden"
         whileInView="visible"
@@ -175,7 +175,7 @@ export default function InsightsIndexPage() {
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {articles.map((article) => (
-            <motion.article key={article.href} variants={cardVariants}>
+            <m.article key={article.href} variants={cardVariants}>
               <Link
                 href={article.href}
                 className="group block h-full bg-white/[0.03] border border-white/5 rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:border-electric-indigo/30 hover:shadow-2xl hover:shadow-electric-indigo/5"
@@ -233,10 +233,10 @@ export default function InsightsIndexPage() {
                   </div>
                 </div>
               </Link>
-            </motion.article>
+            </m.article>
           ))}
         </div>
-      </motion.section>
+      </m.section>
     </div>
   );
 }

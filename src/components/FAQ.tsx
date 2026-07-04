@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import JsonLd from "@/components/JsonLd";
 
 const faqItems = [
@@ -72,17 +72,17 @@ function FAQItem({
         <span className="font-headline text-lg md:text-xl text-pure-white pr-8">
           {question}
         </span>
-        <motion.span
+        <m.span
           animate={{ rotate: isOpen ? 45 : 0 }}
           transition={{ duration: 0.2, ease: "easeInOut" }}
           className="flex-shrink-0 text-electric-indigo text-2xl font-light select-none"
         >
           +
-        </motion.span>
+        </m.span>
       </button>
       <AnimatePresence initial={false}>
         {isOpen && (
-          <motion.div
+          <m.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -92,7 +92,7 @@ function FAQItem({
             <p className="font-body text-cool-gray pb-6 pr-12 leading-relaxed">
               {answer}
             </p>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </div>
@@ -106,7 +106,7 @@ export default function FAQ() {
     <section className="section-container section-padding">
       <JsonLd data={faqSchema} />
       <div className="max-w-3xl mx-auto">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -119,8 +119,8 @@ export default function FAQ() {
           <p className="font-body text-cool-gray text-lg">
             Everything you need to know about working with DT+C.
           </p>
-        </motion.div>
-        <motion.div
+        </m.div>
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -138,7 +138,7 @@ export default function FAQ() {
               }
             />
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

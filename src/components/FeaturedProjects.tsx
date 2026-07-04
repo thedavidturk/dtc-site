@@ -2,7 +2,7 @@
 
 import Link from "./TransitionLink";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import WorkFrame from "./WorkFrame";
 import TextReveal from "./TextReveal";
 import AutoplayVideo from "./AutoplayVideo";
@@ -257,7 +257,7 @@ export default function FeaturedProjects() {
 
       <div className="section-container relative z-10">
         {/* Section header */}
-        <motion.div
+        <m.div
           variants={headingVariants}
           initial="hidden"
           whileInView="visible"
@@ -271,10 +271,10 @@ export default function FeaturedProjects() {
             <TextReveal text="WORK THAT PUSHES" as="span" className="block" />
             <TextReveal text="BOUNDARIES" as="span" className="block text-pure-white" delay={0.2} />
           </h2>
-        </motion.div>
+        </m.div>
 
         {/* Project grid */}
-        <motion.div
+        <m.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -282,7 +282,7 @@ export default function FeaturedProjects() {
           className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8"
         >
           {projects.map((project, i) => (
-            <motion.div key={project.href} variants={cardVariants}>
+            <m.div key={project.href} variants={cardVariants}>
               <Link
                 href={project.href}
                 className={`group relative block ${project.accentGlow}`}
@@ -355,9 +355,9 @@ export default function FeaturedProjects() {
                   <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[inset_0_0_60px_rgba(124,92,255,0.08)]" />
                 </div>
               </Link>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
 
       </div>
     </section>

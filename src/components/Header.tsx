@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "./TransitionLink";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import MagneticButton from "./MagneticButton";
 
 const navLinks = [
@@ -66,15 +66,15 @@ export default function Header() {
           className="lg:hidden flex flex-col gap-1.5 p-2"
           aria-label="Toggle menu"
         >
-          <motion.span
+          <m.span
             animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
             className="block w-6 h-0.5 bg-pure-white"
           />
-          <motion.span
+          <m.span
             animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
             className="block w-6 h-0.5 bg-pure-white"
           />
-          <motion.span
+          <m.span
             animate={mobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
             className="block w-6 h-0.5 bg-pure-white"
           />
@@ -95,7 +95,7 @@ export default function Header() {
       {/* Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
-          <motion.nav
+          <m.nav
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -121,7 +121,7 @@ export default function Header() {
                 Book a Call
               </a>
             </div>
-          </motion.nav>
+          </m.nav>
         )}
       </AnimatePresence>
 

@@ -3,7 +3,7 @@
 import Link from "@/components/TransitionLink";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import ProjectGifBand from "@/components/ProjectGifBand";
 import Lazy3D from "@/components/Lazy3D";
 import PinnedApproach from "@/components/PinnedApproach";
@@ -208,7 +208,7 @@ export default function FordMustangMachEProject() {
   return (
     <article className="bg-deep-space min-h-screen" style={{ backgroundColor: "#120D1A" }}>
       {/* ── Back Link ─────────────────────────────────────────────── */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
@@ -233,7 +233,7 @@ export default function FordMustangMachEProject() {
           </svg>
           Back to Work
         </Link>
-      </motion.div>
+      </m.div>
 
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section className="relative min-h-[78vh] md:min-h-[88vh] flex items-end overflow-hidden">
@@ -271,7 +271,7 @@ export default function FordMustangMachEProject() {
         />
 
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
@@ -279,9 +279,9 @@ export default function FordMustangMachEProject() {
             <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/80 mb-4 px-3 py-1.5 rounded-full border border-white/15 backdrop-blur-sm bg-white/10">
               Automotive / Social Media
             </span>
-          </motion.div>
+          </m.div>
 
-          <motion.h1
+          <m.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
@@ -290,18 +290,18 @@ export default function FordMustangMachEProject() {
             REBUILDING
             <br />
             A CLASSIC
-          </motion.h1>
+          </m.h1>
 
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
             className="font-headline text-2xl md:text-3xl lg:text-4xl font-medium text-white/85 tracking-tight"
           >
             Ford Mustang Mach-E
-          </motion.p>
+          </m.p>
 
-          <motion.div
+          <m.div
             initial={{ width: 0 }}
             animate={{ width: "6rem" }}
             transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
@@ -328,7 +328,7 @@ export default function FordMustangMachEProject() {
       <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Sidebar */}
-          <motion.aside
+          <m.aside
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -373,10 +373,10 @@ export default function FordMustangMachEProject() {
                 </ul>
               </div>
             </div>
-          </motion.aside>
+          </m.aside>
 
           {/* Intro */}
-          <motion.div
+          <m.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -405,7 +405,7 @@ export default function FordMustangMachEProject() {
                 Effects, with one goal at the end of it. A happy client.
               </p>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -416,7 +416,7 @@ export default function FordMustangMachEProject() {
 
       {/* ── The Film / Animation ─────────────────────────────────── */}
       <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
-        <motion.div
+        <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -429,9 +429,9 @@ export default function FordMustangMachEProject() {
           <h2 className="font-headline text-h3 font-bold">
             Hi-res imagery, <span className="text-white">brought to life in 4K</span>
           </h2>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -454,7 +454,7 @@ export default function FordMustangMachEProject() {
               />
             </div>
           </div>
-        </motion.div>
+        </m.div>
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────── */}
@@ -479,7 +479,7 @@ export default function FordMustangMachEProject() {
 
       {/* ── Gallery ──────────────────────────────────────────────── */}
       <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
-        <motion.div
+        <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -492,9 +492,9 @@ export default function FordMustangMachEProject() {
           <h2 className="font-headline text-h3 font-bold">
             Every frame, <span className="text-white">a finished piece</span>
           </h2>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           variants={galleryContainer}
           initial="hidden"
           whileInView="visible"
@@ -511,7 +511,7 @@ export default function FordMustangMachEProject() {
                 ? "md:col-span-5"
                 : "md:col-span-4";
             return (
-              <motion.div key={img.src} variants={galleryItem} className={spanClass}>
+              <m.div key={img.src} variants={galleryItem} className={spanClass}>
                 <WorkFrame
                   client={overview.client}
                   discipline={img.discipline}
@@ -526,10 +526,10 @@ export default function FordMustangMachEProject() {
                     className="object-cover"
                   />
                 </WorkFrame>
-              </motion.div>
+              </m.div>
             );
           })}
-        </motion.div>
+        </m.div>
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────── */}
@@ -539,7 +539,7 @@ export default function FordMustangMachEProject() {
 
       {/* ── The Result ───────────────────────────────────────────── */}
       <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
-        <motion.div
+        <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -553,10 +553,10 @@ export default function FordMustangMachEProject() {
             Premium imagery,{" "}
             <span className="text-white">built for social</span>
           </h2>
-        </motion.div>
+        </m.div>
 
         {/* Lead result statement */}
-        <motion.div
+        <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -579,7 +579,7 @@ export default function FordMustangMachEProject() {
               </li>
             ))}
           </ul>
-        </motion.div>
+        </m.div>
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────── */}
@@ -589,7 +589,7 @@ export default function FordMustangMachEProject() {
 
       {/* ── Tools & Technology ────────────────────────────────────── */}
       <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
-        <motion.div
+        <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -602,9 +602,9 @@ export default function FordMustangMachEProject() {
           <h2 className="font-headline text-h3 font-bold">
             The <span className="text-white">production stack</span>
           </h2>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -612,7 +612,7 @@ export default function FordMustangMachEProject() {
           className="grid grid-cols-1 sm:grid-cols-2 gap-4"
         >
           {tools.map((tool) => (
-            <motion.div
+            <m.div
               key={tool.name}
               variants={staggerItem}
               className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] transition-all duration-500 hover:border-white/15 hover:bg-white/[0.04]"
@@ -623,9 +623,9 @@ export default function FordMustangMachEProject() {
               <p className="font-body text-sm text-cool-gray leading-relaxed">
                 {tool.description}
               </p>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────── */}
@@ -635,7 +635,7 @@ export default function FordMustangMachEProject() {
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
       <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
-        <motion.div
+        <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -674,7 +674,7 @@ export default function FordMustangMachEProject() {
               </svg>
             </Link>
           </div>
-        </motion.div>
+        </m.div>
       </section>
     </article>
   );

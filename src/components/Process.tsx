@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect, useCallback } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import dynamic from "next/dynamic";
 import TextReveal from "./TextReveal";
 import Lazy3D from "./Lazy3D";
@@ -146,7 +146,7 @@ export default function Process() {
         }}
       />
 
-      <motion.div
+      <m.div
         className="relative z-10 section-container section-padding"
         variants={sectionVariants}
         initial="hidden"
@@ -154,7 +154,7 @@ export default function Process() {
         viewport={{ once: true, margin: "-100px" }}
       >
         {/* Section Header */}
-        <motion.div className="text-center mb-20" variants={headerVariants}>
+        <m.div className="text-center mb-20" variants={headerVariants}>
           <span className="font-mono text-xs tracking-[0.3em] text-electric-indigo uppercase mb-4 block">
             Our Process
           </span>
@@ -163,7 +163,7 @@ export default function Process() {
             as="h2"
             className="font-display text-h2 font-bold text-pure-white"
           />
-        </motion.div>
+        </m.div>
 
         {/* 3D Pipeline - desktop only */}
         <Lazy3D className="hidden lg:block mx-auto max-w-[800px] h-[100px] mb-12">
@@ -173,21 +173,21 @@ export default function Process() {
         {/* Steps Grid */}
         <div className="relative grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-0">
           {/* Connecting Line - horizontal on desktop */}
-          <motion.div
+          <m.div
             className="hidden md:block absolute top-[52px] left-[12.5%] right-[12.5%] h-px bg-white/10"
             variants={lineVariants}
             style={{ originX: 0 }}
           />
 
           {/* Connecting Line - vertical on mobile */}
-          <motion.div
+          <m.div
             className="md:hidden absolute top-0 bottom-0 left-8 w-px bg-white/10"
             variants={lineVariants}
             style={{ originY: 0 }}
           />
 
           {steps.map((step, index) => (
-            <motion.div
+            <m.div
               key={step.number}
               ref={setStepRef(index)}
               className="relative flex md:flex-col items-start md:items-center text-left md:text-center px-0 md:px-6"
@@ -223,10 +223,10 @@ export default function Process() {
               {index < steps.length - 1 && (
                 <div className="md:hidden h-8" aria-hidden="true" />
               )}
-            </motion.div>
+            </m.div>
           ))}
         </div>
-      </motion.div>
+      </m.div>
     </section>
   );
 }

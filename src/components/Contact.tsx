@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, FormEvent } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 
 const projectTypes = [
   "Virtual Cinematic",
@@ -194,7 +194,7 @@ export default function Contact() {
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] opacity-[0.03] bg-[radial-gradient(circle,#FF8A5C,transparent_60%)]" />
       <div className="absolute top-0 right-0 w-[400px] h-[400px] opacity-[0.03] bg-[radial-gradient(circle,#7C5CFF,transparent_60%)]" />
 
-      <motion.div
+      <m.div
         className="section-container relative z-10"
         variants={sectionVariants}
         initial="hidden"
@@ -202,7 +202,7 @@ export default function Contact() {
         viewport={{ once: true, margin: "-100px" }}
       >
         {/* Section header */}
-        <motion.div className="text-center mb-16 md:mb-20" variants={headingVariants}>
+        <m.div className="text-center mb-16 md:mb-20" variants={headingVariants}>
           <span className="font-mono text-xs tracking-[0.3em] text-electric-indigo uppercase mb-4 block">
             Get In Touch
           </span>
@@ -214,15 +214,15 @@ export default function Contact() {
           <p className="font-body text-cool-gray text-lg mt-4 max-w-2xl mx-auto leading-relaxed">
             Have a project in mind? Tell us what you&apos;re building and we&apos;ll show you how we&apos;d execute it.
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Split layout */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 max-w-6xl mx-auto">
           {/* Left side: Form */}
-          <motion.div className="lg:col-span-3" variants={leftColVariants}>
+          <m.div className="lg:col-span-3" variants={leftColVariants}>
             <AnimatePresence mode="wait">
               {!submitted ? (
-                <motion.form
+                <m.form
                   key="form"
                   onSubmit={handleSubmit}
                   noValidate
@@ -369,7 +369,7 @@ export default function Contact() {
                   )}
 
                   {/* Submit */}
-                  <motion.button
+                  <m.button
                     type="submit"
                     disabled={submitting}
                     className="btn-primary w-full text-center justify-center disabled:opacity-60 disabled:cursor-not-allowed"
@@ -377,10 +377,10 @@ export default function Contact() {
                     whileTap={submitting ? {} : { scale: 0.98 }}
                   >
                     {submitting ? "Sending..." : "Send Message"}
-                  </motion.button>
-                </motion.form>
+                  </m.button>
+                </m.form>
               ) : (
-                <motion.div
+                <m.div
                   key="success"
                   variants={successVariants}
                   initial="hidden"
@@ -417,7 +417,7 @@ export default function Contact() {
                     get back to you within 24 hours.
                   </p>
 
-                  <motion.button
+                  <m.button
                     type="button"
                     onClick={() => {
                       setSubmitted(false);
@@ -435,14 +435,14 @@ export default function Contact() {
                     whileTap={{ scale: 0.98 }}
                   >
                     Send another message
-                  </motion.button>
-                </motion.div>
+                  </m.button>
+                </m.div>
               )}
             </AnimatePresence>
-          </motion.div>
+          </m.div>
 
           {/* Right side: Contact info */}
-          <motion.div className="lg:col-span-2 relative" variants={rightColVariants}>
+          <m.div className="lg:col-span-2 relative" variants={rightColVariants}>
             <div className="relative h-full z-10">
               {/* Decorative gradient border element */}
               <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-electric-indigo/20 via-transparent to-warm-coral/20 opacity-60" />
@@ -548,9 +548,9 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
-      </motion.div>
+      </m.div>
     </section>
   );
 }

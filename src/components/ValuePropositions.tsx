@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import TextReveal from "./TextReveal";
 // SVG + CSS icons -- SSR-safe, zero WebGL contexts, no lazy-mount needed
 import FloatingIcon from "./FloatingIcon";
@@ -121,19 +121,19 @@ export default function ValuePropositions() {
 
       <div className="section-container section-padding relative z-10">
         {/* Section header */}
-        <motion.div
+        <m.div
           className="text-center max-w-3xl mx-auto mb-16 md:mb-20 lg:mb-24"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={sectionHeaderVariants}
         >
-          <motion.span
+          <m.span
             className="inline-block font-mono text-xs uppercase tracking-[0.3em] text-electric-indigo mb-6"
             variants={sectionHeaderVariants}
           >
             What We Do
-          </motion.span>
+          </m.span>
           <TextReveal
             text="The future of creative production"
             as="h2"
@@ -145,12 +145,12 @@ export default function ValuePropositions() {
             className="font-display font-bold text-h2 text-pure-white block"
             delay={0.2}
           />
-        </motion.div>
+        </m.div>
 
         {/* Pillars grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {pillars.map((pillar, index) => (
-            <motion.div
+            <m.div
               key={pillar.title}
               custom={index}
               initial="hidden"
@@ -158,7 +158,7 @@ export default function ValuePropositions() {
               viewport={{ once: true, margin: "-60px" }}
               variants={cardVariants}
             >
-              <motion.div
+              <m.div
                 className="group relative h-full rounded-2xl border border-white/5 bg-white/[0.02] p-8 lg:p-10 transition-colors duration-500"
                 whileHover={{
                   borderColor: "rgba(124,92,255, 0.3)",
@@ -189,8 +189,8 @@ export default function ValuePropositions() {
                 <p className="relative font-body text-cool-gray text-sm md:text-base leading-relaxed">
                   {pillar.description}
                 </p>
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
           ))}
         </div>
       </div>

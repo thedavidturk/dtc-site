@@ -2,7 +2,7 @@
 
 import Link from "@/components/TransitionLink";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import ProjectGifBand from "@/components/ProjectGifBand";
 import PinnedApproach from "@/components/PinnedApproach";
 import WorkFrame from "@/components/WorkFrame";
@@ -155,7 +155,7 @@ export default function PammProject() {
   return (
     <article className="bg-deep-space min-h-screen">
       {/* ── Back Link ─────────────────────────────────────────────── */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
@@ -180,7 +180,7 @@ export default function PammProject() {
           </svg>
           Back to Work
         </Link>
-      </motion.div>
+      </m.div>
 
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-end overflow-hidden">
@@ -198,7 +198,7 @@ export default function PammProject() {
         <div className="absolute inset-0 z-[2] bg-gradient-to-t from-deep-space via-deep-space/40 to-transparent" />
 
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
@@ -206,27 +206,27 @@ export default function PammProject() {
             <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
               Cultural Branding + Content
             </span>
-          </motion.div>
+          </m.div>
 
-          <motion.h1
+          <m.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="font-display text-h1 font-bold mb-4"
           >
             PÉREZ ART MUSEUM MIAMI
-          </motion.h1>
+          </m.h1>
 
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
             className="font-headline text-2xl md:text-3xl lg:text-4xl font-medium text-white/80 tracking-tight"
           >
             A Museum That Feels Like Miami
-          </motion.p>
+          </m.p>
 
-          <motion.div
+          <m.div
             initial={{ width: 0 }}
             animate={{ width: "6rem" }}
             transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
@@ -252,7 +252,7 @@ export default function PammProject() {
       <section className="section-container section-padding">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Sidebar */}
-          <motion.aside
+          <m.aside
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -297,10 +297,10 @@ export default function PammProject() {
                 </ul>
               </div>
             </div>
-          </motion.aside>
+          </m.aside>
 
           {/* Challenge */}
-          <motion.div
+          <m.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -331,7 +331,7 @@ export default function PammProject() {
                 see it as their museum.
               </p>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -342,7 +342,7 @@ export default function PammProject() {
 
       {/* ── Identity Feature ──────────────────────────────────────── */}
       <section className="section-container section-padding">
-        <motion.div
+        <m.div
           variants={galleryItem}
           initial="hidden"
           whileInView="visible"
@@ -362,7 +362,7 @@ export default function PammProject() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
           </WorkFrame>
-        </motion.div>
+        </m.div>
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────── */}
@@ -387,7 +387,7 @@ export default function PammProject() {
 
       {/* ── The Solution ─────────────────────────────────────────── */}
       <section className="section-container section-padding">
-        <motion.div
+        <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -419,7 +419,7 @@ export default function PammProject() {
               museum started to feel like PAMM was made for them too.
             </p>
           </div>
-        </motion.div>
+        </m.div>
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────── */}
@@ -429,7 +429,7 @@ export default function PammProject() {
 
       {/* ── Gallery ──────────────────────────────────────────────── */}
       <section className="section-container section-padding">
-        <motion.div
+        <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -443,9 +443,9 @@ export default function PammProject() {
             Identity, campaigns &{" "}
             <span className="text-white">content</span>
           </h2>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           variants={galleryContainer}
           initial="hidden"
           whileInView="visible"
@@ -453,7 +453,7 @@ export default function PammProject() {
           className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6"
         >
           {/* Row 1: wide + portrait */}
-          <motion.div variants={galleryItem} className="md:col-span-7">
+          <m.div variants={galleryItem} className="md:col-span-7">
             <WorkFrame
               client={overview.client}
               discipline="Art Direction"
@@ -469,9 +469,9 @@ export default function PammProject() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
             </WorkFrame>
-          </motion.div>
+          </m.div>
 
-          <motion.div variants={galleryItem} className="md:col-span-5">
+          <m.div variants={galleryItem} className="md:col-span-5">
             <WorkFrame
               client={overview.client}
               discipline="Brand & Campaign Creative"
@@ -487,10 +487,10 @@ export default function PammProject() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
             </WorkFrame>
-          </motion.div>
+          </m.div>
 
           {/* Row 2: offset editorial */}
-          <motion.div
+          <m.div
             variants={galleryItem}
             className="md:col-span-5 md:col-start-2"
           >
@@ -509,9 +509,9 @@ export default function PammProject() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
             </WorkFrame>
-          </motion.div>
+          </m.div>
 
-          <motion.div variants={galleryItem} className="md:col-span-6">
+          <m.div variants={galleryItem} className="md:col-span-6">
             <WorkFrame
               client={overview.client}
               discipline="Content & Social"
@@ -527,10 +527,10 @@ export default function PammProject() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
             </WorkFrame>
-          </motion.div>
+          </m.div>
 
           {/* Row 3: three equal columns */}
-          <motion.div variants={galleryItem} className="md:col-span-4">
+          <m.div variants={galleryItem} className="md:col-span-4">
             <WorkFrame
               client={overview.client}
               discipline="Content & Social"
@@ -546,9 +546,9 @@ export default function PammProject() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
             </WorkFrame>
-          </motion.div>
+          </m.div>
 
-          <motion.div variants={galleryItem} className="md:col-span-4">
+          <m.div variants={galleryItem} className="md:col-span-4">
             <WorkFrame
               client={overview.client}
               discipline="Content & Social"
@@ -564,9 +564,9 @@ export default function PammProject() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
             </WorkFrame>
-          </motion.div>
+          </m.div>
 
-          <motion.div variants={galleryItem} className="md:col-span-4">
+          <m.div variants={galleryItem} className="md:col-span-4">
             <WorkFrame
               client={overview.client}
               discipline="Content & Social"
@@ -582,10 +582,10 @@ export default function PammProject() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
             </WorkFrame>
-          </motion.div>
+          </m.div>
 
           {/* Row 4: asymmetric pair */}
-          <motion.div variants={galleryItem} className="md:col-span-6">
+          <m.div variants={galleryItem} className="md:col-span-6">
             <WorkFrame
               client={overview.client}
               discipline="Brand & Campaign Creative"
@@ -601,9 +601,9 @@ export default function PammProject() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
             </WorkFrame>
-          </motion.div>
+          </m.div>
 
-          <motion.div variants={galleryItem} className="md:col-span-6">
+          <m.div variants={galleryItem} className="md:col-span-6">
             <WorkFrame
               client={overview.client}
               discipline="Art Direction"
@@ -619,8 +619,8 @@ export default function PammProject() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
             </WorkFrame>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────── */}
@@ -630,7 +630,7 @@ export default function PammProject() {
 
       {/* ── Capabilities ─────────────────────────────────────────── */}
       <section className="section-container section-padding">
-        <motion.div
+        <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -643,9 +643,9 @@ export default function PammProject() {
           <h2 className="font-headline text-h3 font-bold">
             The <span className="text-white">creative toolkit</span>
           </h2>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -653,7 +653,7 @@ export default function PammProject() {
           className="grid grid-cols-1 sm:grid-cols-2 gap-4"
         >
           {tools.map((tool) => (
-            <motion.div
+            <m.div
               key={tool.name}
               variants={staggerItem}
               className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-electric-indigo/20 hover:bg-electric-indigo/[0.03] transition-all duration-500"
@@ -664,9 +664,9 @@ export default function PammProject() {
               <p className="font-body text-sm text-cool-gray leading-relaxed">
                 {tool.description}
               </p>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────── */}
@@ -676,7 +676,7 @@ export default function PammProject() {
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
       <section className="section-container section-padding">
-        <motion.div
+        <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -715,7 +715,7 @@ export default function PammProject() {
               </svg>
             </Link>
           </div>
-        </motion.div>
+        </m.div>
       </section>
     </article>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import dynamic from "next/dynamic";
 import TextReveal from "./TextReveal";
 import Lazy3D from "./Lazy3D";
@@ -84,7 +84,7 @@ export default function About() {
         }}
       />
 
-      <motion.div
+      <m.div
         className="relative z-10 section-container section-padding"
         variants={containerVariants}
         initial="hidden"
@@ -92,7 +92,7 @@ export default function About() {
         viewport={{ once: true, margin: "-100px" }}
       >
         {/* Section Header */}
-        <motion.div className="text-center mb-16 md:mb-20" variants={fadeUp}>
+        <m.div className="text-center mb-16 md:mb-20" variants={fadeUp}>
           <span className="font-mono text-xs tracking-[0.3em] text-electric-indigo uppercase mb-4 block">
             About
           </span>
@@ -101,12 +101,12 @@ export default function About() {
             as="h2"
             className="font-display text-h2 font-bold text-pure-white"
           />
-        </motion.div>
+        </m.div>
 
         {/* Split Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left - 3D Visual */}
-          <motion.div className="relative" variants={slideFromLeft}>
+          <m.div className="relative" variants={slideFromLeft}>
             <Lazy3D className="aspect-[3/4] w-full max-w-[480px] mx-auto lg:mx-0 rounded-2xl overflow-hidden relative">
               <AboutVisual3D className="w-full h-full" />
             </Lazy3D>
@@ -114,10 +114,10 @@ export default function About() {
             {/* Decorative corner accents */}
             <div className="absolute -top-3 -left-3 w-16 h-16 border-t border-l border-electric-indigo/20 rounded-tl-xl" />
             <div className="absolute -bottom-3 -right-3 w-16 h-16 border-b border-r border-warm-coral/20 rounded-br-xl" />
-          </motion.div>
+          </m.div>
 
           {/* Right - Story */}
-          <motion.div className="space-y-6" variants={slideFromRight}>
+          <m.div className="space-y-6" variants={slideFromRight}>
             <p className="font-body text-lg text-cool-gray leading-relaxed">
               Most agencies were built for a pace that no longer exists.
               Campaigns launch on Monday whether you&apos;re ready or not, and
@@ -143,11 +143,11 @@ export default function About() {
             </p>
 
             {/* CTA Buttons */}
-            <motion.div
+            <m.div
               className="flex flex-col sm:flex-row gap-4 pt-6"
               variants={fadeUp}
             >
-              <motion.a
+              <m.a
                 href="https://www.linkedin.com/in/davidturk"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -164,8 +164,8 @@ export default function About() {
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                 </svg>
                 Connect on LinkedIn
-              </motion.a>
-              <motion.a
+              </m.a>
+              <m.a
                 href="mailto:david@davidturkcreative.com"
                 className="btn-primary"
                 whileHover={{ scale: 1.03 }}
@@ -185,11 +185,11 @@ export default function About() {
                   <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                 </svg>
                 Get in Touch
-              </motion.a>
-            </motion.div>
-          </motion.div>
+              </m.a>
+            </m.div>
+          </m.div>
         </div>
-      </motion.div>
+      </m.div>
     </section>
   );
 }

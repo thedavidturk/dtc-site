@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import ArticleJsonLd from "@/components/ArticleJsonLd";
 
 const fadeUp = {
@@ -59,43 +59,43 @@ export default function AiVideoStackArticle() {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px]" />
 
         <div className="relative max-w-3xl mx-auto">
-          <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
-            <motion.div variants={staggerItem} className="mb-6">
+          <m.div initial="hidden" animate="visible" variants={staggerContainer}>
+            <m.div variants={staggerItem} className="mb-6">
               <span className="inline-block px-3 py-1 text-xs font-medium tracking-wider text-white/80 border border-white/20 rounded-full">
                 AI + VIDEO
               </span>
-            </motion.div>
-            <motion.h1
+            </m.div>
+            <m.h1
               variants={staggerItem}
               className="font-display text-h1 font-bold mb-6"
             >
               After Sora: Why the Best Brand Video Now Comes From a Stack, Not a Single Tool
-            </motion.h1>
-            <motion.p
+            </m.h1>
+            <m.p
               variants={staggerItem}
               className="text-lg md:text-xl text-white/70 leading-relaxed"
             >
               The era of betting your whole pipeline on one model is over. The studios shipping the
               best brand video in 2026 run a stack, choosing the right tool per shot and keeping a
               human creative director on the whole thing.
-            </motion.p>
-            <motion.div
+            </m.p>
+            <m.div
               variants={staggerItem}
               className="mt-8 flex items-center gap-4 text-sm text-white/50"
             >
               <span>David Turk</span>
               <span className="w-1 h-1 rounded-full bg-white/30" />
               <span>8 min read</span>
-            </motion.div>
-            <motion.div variants={staggerItem} className="mt-10 h-px bg-gradient-to-r from-white/40 to-transparent" />
-          </motion.div>
+            </m.div>
+            <m.div variants={staggerItem} className="mt-10 h-px bg-gradient-to-r from-white/40 to-transparent" />
+          </m.div>
         </div>
       </section>
 
       {/* Article body */}
       <article className="relative px-6 pb-24">
         <div className="max-w-2xl mx-auto space-y-10">
-          <motion.div
+          <m.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -118,9 +118,9 @@ export default function AiVideoStackArticle() {
               ended that month. The sustainable-business era started, and it rewards a completely
               different kind of discipline.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -143,9 +143,9 @@ export default function AiVideoStackArticle() {
               efficient right up until the moment it becomes the single point of failure for your
               entire output.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.blockquote
+          <m.blockquote
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -157,9 +157,9 @@ export default function AiVideoStackArticle() {
               company behind it stays solvent, generous, and good. Sora was none of the three by
               March.&rdquo;
             </p>
-          </motion.blockquote>
+          </m.blockquote>
 
-          <motion.div
+          <m.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -188,9 +188,9 @@ export default function AiVideoStackArticle() {
               swapped a name out of a lineup we already trusted. A stack is antifragile by design.
               Lose one tool and the work keeps moving, because the work was never about that tool.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -212,9 +212,9 @@ export default function AiVideoStackArticle() {
               whole route. The output of one becomes the input or the reference for the next. The
               orchestration is the product. The individual clips are just raw stock.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -236,9 +236,9 @@ export default function AiVideoStackArticle() {
               floor drops that far, the differentiator stops being who can make video and becomes
               who can make video worth watching. Volume is free now. Taste is not.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.blockquote
+          <m.blockquote
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -249,9 +249,9 @@ export default function AiVideoStackArticle() {
               &ldquo;When anyone can generate a thousand clips before lunch, the scarce thing is not
               the clip. It is the judgment to know which one is any good.&rdquo;
             </p>
-          </motion.blockquote>
+          </m.blockquote>
 
-          <motion.div
+          <m.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -273,9 +273,9 @@ export default function AiVideoStackArticle() {
               because no one was directing it. The stack gives you leverage. It does not give you a
               point of view. That part is still on us, and frankly it always will be.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -298,10 +298,10 @@ export default function AiVideoStackArticle() {
               who orchestrate the best stack and bring the most taste to it. That is the bet we are
               making in our studio, and Sora going dark only made us more sure of it.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Divider */}
-          <motion.div
+          <m.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -311,7 +311,7 @@ export default function AiVideoStackArticle() {
 
           {/* More articles */}
           <div className="space-y-8">
-            <motion.h3
+            <m.h3
               variants={fadeUp}
               initial="hidden"
               whileInView="visible"
@@ -319,10 +319,10 @@ export default function AiVideoStackArticle() {
               className="text-sm font-medium tracking-wider text-white/50"
             >
               MORE PERSPECTIVES
-            </motion.h3>
+            </m.h3>
             <div className="grid gap-4">
               {moreArticles.map((article) => (
-                <motion.div
+                <m.div
                   key={article.href}
                   variants={fadeUp}
                   initial="hidden"
@@ -341,7 +341,7 @@ export default function AiVideoStackArticle() {
                       </h4>
                     </div>
                   </Link>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>

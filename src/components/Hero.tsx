@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import WorkMarquee from "./WorkMarquee";
 import useAutoplayInView from "./useAutoplayInView";
 
@@ -313,14 +313,14 @@ export default function Hero() {
 
       <div className="relative z-10 mx-auto grid min-h-screen max-w-7xl grid-cols-1 items-center gap-12 px-6 md:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:px-12">
         {/* ---------------------------- Left: message ---------------------------- */}
-        <motion.div
+        <m.div
           variants={container}
           initial="hidden"
           animate="visible"
           className="py-16 lg:py-0"
         >
           {/* Eyebrow */}
-          <motion.div
+          <m.div
             variants={item}
             className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 backdrop-blur-sm"
           >
@@ -331,46 +331,46 @@ export default function Hero() {
             <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-cool-gray">
               DT+C - Creative Studio
             </span>
-          </motion.div>
+          </m.div>
 
           {/* Headline - editorial mixed-scale display type */}
           <h1 className="font-display text-pure-white">
             {/* Line 1: "Content that" - tight, bold, large */}
-            <motion.span
+            <m.span
               variants={item}
               className="block font-bold leading-[0.86] tracking-[-0.03em] text-h1"
             >
               Content that
-            </motion.span>
+            </m.span>
 
             {/* Line 2: "moves at the speed of" - smaller, lighter, italic, wider tracking */}
-            <motion.span
+            <m.span
               variants={item}
               className="mt-2 block font-light italic leading-none tracking-[0.01em] text-cool-gray text-2xl sm:text-3xl lg:text-[2.4rem]"
             >
               moves at the speed of
-            </motion.span>
+            </m.span>
 
             {/* Line 3: "culture." - oversized hero word in gradient */}
-            <motion.span
+            <m.span
               variants={item}
               className="mt-1 block gradient-text font-extrabold leading-[0.82] tracking-[-0.04em] text-display"
             >
               culture.
-            </motion.span>
+            </m.span>
           </h1>
 
           {/* Subhead */}
-          <motion.p
+          <m.p
             variants={item}
             className="mt-8 max-w-xl font-body text-lg leading-relaxed text-cool-gray"
           >
             Strategy, content, VFX, and web, under one roof and built to launch
             in <span className="text-pure-white">weeks, not months.</span>
-          </motion.p>
+          </m.p>
 
           {/* CTAs */}
-          <motion.div
+          <m.div
             variants={item}
             className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center"
           >
@@ -395,10 +395,10 @@ export default function Hero() {
             >
               Book a Call
             </a>
-          </motion.div>
+          </m.div>
 
           {/* Client strip */}
-          <motion.div
+          <m.div
             variants={item}
             className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/[0.06] pt-6"
           >
@@ -422,12 +422,12 @@ export default function Hero() {
             <span className="font-headline text-sm font-semibold text-cool-gray/40">
               &amp; more
             </span>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
 
         {/* ---------------------------- Right: work wall ---------------------------- */}
         {isDesktop && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease, delay: 0.2 }}
@@ -443,19 +443,19 @@ export default function Hero() {
             <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-deep-space to-transparent" />
             <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-deep-space to-transparent" />
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-deep-space to-transparent" />
-          </motion.div>
+          </m.div>
         )}
 
         {/* ---------------------------- Mobile work strip ---------------------------- */}
         {!isDesktop && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease, delay: 0.3 }}
             className="-mx-6 pb-16 md:-mx-8 lg:hidden"
           >
             <MarqueeRow tiles={work} />
-          </motion.div>
+          </m.div>
         )}
       </div>
 

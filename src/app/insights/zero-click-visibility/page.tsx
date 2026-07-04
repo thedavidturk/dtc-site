@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import ArticleJsonLd from "@/components/ArticleJsonLd";
 
 const fadeUp = {
@@ -56,48 +56,48 @@ export default function ZeroClickVisibilityArticle() {
           >
             <span aria-hidden>&larr;</span> Back to home
           </Link>
-          <motion.div
+          <m.div
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
           >
-            <motion.div variants={staggerItem}>
+            <m.div variants={staggerItem}>
               <span className="inline-block text-xs font-semibold tracking-[0.2em] text-white/50 uppercase mb-6">
                 AI + DISCOVERY
               </span>
-            </motion.div>
-            <motion.h1
+            </m.div>
+            <m.h1
               variants={staggerItem}
               className="font-display text-h1 font-bold mb-6"
             >
               Zero-Click Is Here: How Brands Get Found When Nobody Visits Your Website
-            </motion.h1>
-            <motion.p
+            </m.h1>
+            <m.p
               variants={staggerItem}
               className="text-lg md:text-xl text-white/70 leading-relaxed mb-8"
             >
               People ask ChatGPT, Perplexity, and Gemini, get an answer, and never click through. Discovery has stopped being about ranking on Google and started being about whether an AI names you at all.
-            </motion.p>
-            <motion.div
+            </m.p>
+            <m.div
               variants={staggerItem}
               className="flex items-center gap-4 text-sm text-white/50"
             >
               <span>David Turk</span>
               <span aria-hidden>&middot;</span>
               <span>8 min read</span>
-            </motion.div>
-            <motion.div
+            </m.div>
+            <m.div
               variants={staggerItem}
               className="mt-10 h-px w-full bg-gradient-to-r from-white/40 via-white/10 to-transparent"
             />
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* Body */}
       <article className="relative px-6 pb-24">
         <div className="max-w-3xl mx-auto prose-invert">
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
@@ -116,9 +116,9 @@ export default function ZeroClickVisibilityArticle() {
             <p className="text-white/70 leading-relaxed text-lg">
               We have stopped asking clients &ldquo;where do you rank&rdquo; and started asking &ldquo;what does the model say when someone asks about your category.&rdquo; Those are very different questions, and most brands have never tested the second one.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
@@ -137,9 +137,9 @@ export default function ZeroClickVisibilityArticle() {
             <p className="text-white/70 leading-relaxed text-lg">
               That &ldquo;somewhere else&rdquo; is the new battleground. It is the body of structured, quotable, trusted material these models pull from when they assemble an answer. Winning it is a different craft than chasing keywords, and it rewards different work.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.blockquote
+          <m.blockquote
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
@@ -147,9 +147,9 @@ export default function ZeroClickVisibilityArticle() {
             className="my-12 border-l-2 border-white/30 pl-6 text-xl md:text-2xl font-medium italic text-white/90 leading-relaxed"
           >
             &ldquo;The goal is no longer to rank on Google. It is to be the source an AI decides to cite.&rdquo;
-          </motion.blockquote>
+          </m.blockquote>
 
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
@@ -168,9 +168,9 @@ export default function ZeroClickVisibilityArticle() {
             <p className="text-white/70 leading-relaxed text-lg">
               So the work shifts from gaming a ranking algorithm to earning a citation from a reasoning system. You cannot keyword-stuff your way into an answer. You have to be genuinely useful, clearly stated, and easy to verify.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
@@ -189,9 +189,9 @@ export default function ZeroClickVisibilityArticle() {
             <p className="text-white/70 leading-relaxed text-lg">
               The irony is that writing for machines makes the writing better for people too. Clarity, evidence, and a real point of view never went out of style. They were just easy to skip when keyword density paid the bills.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.blockquote
+          <m.blockquote
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
@@ -199,9 +199,9 @@ export default function ZeroClickVisibilityArticle() {
             className="my-12 border-l-2 border-white/30 pl-6 text-xl md:text-2xl font-medium italic text-white/90 leading-relaxed"
           >
             &ldquo;You cannot keyword-stuff your way into an answer. You have to own a point of view worth repeating.&rdquo;
-          </motion.blockquote>
+          </m.blockquote>
 
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
@@ -220,9 +220,9 @@ export default function ZeroClickVisibilityArticle() {
             <p className="text-white/70 leading-relaxed text-lg">
               This is where a creative studio earns its keep. A distinctive, well-defined brand entity is not just a design exercise anymore. It is the thing that makes you legible to the systems deciding who gets mentioned.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
@@ -241,9 +241,9 @@ export default function ZeroClickVisibilityArticle() {
             <p className="text-white/70 leading-relaxed text-lg">
               You are no longer building a single destination and hoping people find it. You are seeding a presence across the sources that get read on your behalf, every time someone asks a question you should be the answer to.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
@@ -262,14 +262,14 @@ export default function ZeroClickVisibilityArticle() {
             <p className="text-white/70 leading-relaxed text-lg">
               If you want help building content worth citing and a brand worth surfacing, that is the work we do. The click may be fading, but being the answer has never been more valuable.
             </p>
-          </motion.div>
+          </m.div>
         </div>
       </article>
 
       {/* More Perspectives */}
       <section className="relative px-6 pb-32">
         <div className="max-w-5xl mx-auto">
-          <motion.h2
+          <m.h2
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
@@ -277,8 +277,8 @@ export default function ZeroClickVisibilityArticle() {
             className="text-2xl md:text-3xl font-bold tracking-tight mb-10"
           >
             More Perspectives
-          </motion.h2>
-          <motion.div
+          </m.h2>
+          <m.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
@@ -286,7 +286,7 @@ export default function ZeroClickVisibilityArticle() {
             className="grid md:grid-cols-2 gap-6"
           >
             {moreArticles.map((article) => (
-              <motion.div key={article.href} variants={staggerItem}>
+              <m.div key={article.href} variants={staggerItem}>
                 <Link
                   href={article.href}
                   className="group block relative overflow-hidden rounded-2xl border border-white/10 p-8 h-full"
@@ -306,9 +306,9 @@ export default function ZeroClickVisibilityArticle() {
                     </span>
                   </div>
                 </Link>
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </main>

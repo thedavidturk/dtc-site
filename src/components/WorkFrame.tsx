@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import {
-  motion,
+  m,
   useReducedMotion,
   useScroll,
   useTransform,
@@ -114,12 +114,12 @@ export default function WorkFrame({
   return (
     <div ref={frameRef} className={`group relative overflow-hidden ${className}`}>
       {/* Media layer with scroll parallax */}
-      <motion.div
+      <m.div
         className={`absolute ${prefersReducedMotion ? "inset-0" : "-inset-[5%]"}`}
         style={{ y: prefersReducedMotion ? 0 : parallaxY }}
       >
         {children}
-      </motion.div>
+      </m.div>
 
       {/* Corner crosshair brackets (2D echo of CinematographyViewportFrame) */}
       {BRACKETS.map((b) => (

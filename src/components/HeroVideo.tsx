@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect, useCallback } from "react";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { m, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import TextReveal from "./TextReveal";
 
 const fadeUp = {
@@ -160,7 +160,7 @@ export default function HeroVideo() {
 
       <div className="section-container relative z-10 py-16 md:py-24">
         {/* Section label */}
-        <motion.div
+        <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -179,14 +179,14 @@ export default function HeroVideo() {
               delay={0.2}
             />
           </h2>
-        </motion.div>
+        </m.div>
 
         {/* Video container */}
-        <motion.div
+        <m.div
           style={{ scale, opacity }}
           className="relative max-w-6xl mx-auto"
         >
-          <motion.div
+          <m.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -242,7 +242,7 @@ export default function HeroVideo() {
               {/* Big play button - poster state */}
               <AnimatePresence>
                 {!hasStarted && (
-                  <motion.button
+                  <m.button
                     initial={{ opacity: 1 }}
                     exit={{ opacity: 0, scale: 1.3 }}
                     transition={{ duration: 0.4 }}
@@ -275,13 +275,13 @@ export default function HeroVideo() {
                         DT+C Agency Reel
                       </span>
                     </div>
-                  </motion.button>
+                  </m.button>
                 )}
               </AnimatePresence>
 
               {/* Custom controls bar */}
               {hasStarted && (
-                <motion.div
+                <m.div
                   initial={false}
                   animate={{ opacity: showControls ? 1 : 0 }}
                   transition={{ duration: 0.3 }}
@@ -368,7 +368,7 @@ export default function HeroVideo() {
                       </button>
                     </div>
                   </div>
-                </motion.div>
+                </m.div>
               )}
             </div>
 
@@ -379,8 +379,8 @@ export default function HeroVideo() {
                 background: "linear-gradient(90deg, #7C5CFF, #FF8A5C)",
               }}
             />
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </div>
 
       {/* Bottom divider */}

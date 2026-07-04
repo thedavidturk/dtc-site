@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import dynamic from "next/dynamic";
 import TextReveal from "./TextReveal";
 import Lazy3D from "./Lazy3D";
@@ -185,7 +185,7 @@ export default function Services() {
 
       {/* Section header */}
       <div className="section-container pt-20 md:pt-28 lg:pt-32 pb-12 md:pb-16 relative z-10">
-        <motion.div
+        <m.div
           variants={sectionHeadingVariants}
           initial="hidden"
           whileInView="visible"
@@ -201,7 +201,7 @@ export default function Services() {
               className="inline"
             />
           </h2>
-        </motion.div>
+        </m.div>
       </div>
 
       {/* Service blocks */}
@@ -221,7 +221,7 @@ export default function Services() {
                   } items-center gap-12 lg:gap-16 xl:gap-20`}
                 >
                   {/* 3D Scene visual */}
-                  <motion.div
+                  <m.div
                     variants={imageVariants}
                     initial="hidden"
                     whileInView="visible"
@@ -234,10 +234,10 @@ export default function Services() {
                         className="w-full h-full"
                       />
                     </Lazy3D>
-                  </motion.div>
+                  </m.div>
 
                   {/* Text content */}
-                  <motion.div
+                  <m.div
                     variants={textBlockVariants}
                     initial="hidden"
                     whileInView="visible"
@@ -273,7 +273,7 @@ export default function Services() {
                     {/* Capabilities grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
                       {service.capabilities.map((cap, capIndex) => (
-                        <motion.div
+                        <m.div
                           key={cap}
                           custom={capIndex}
                           variants={capabilityVariants}
@@ -289,10 +289,10 @@ export default function Services() {
                           <span className="font-body text-sm text-cool-gray group-hover/cap:text-soft-white transition-colors duration-300 leading-relaxed">
                             {cap}
                           </span>
-                        </motion.div>
+                        </m.div>
                       ))}
                     </div>
-                  </motion.div>
+                  </m.div>
                 </div>
               </div>
             </div>

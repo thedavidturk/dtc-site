@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import AutoplayVideo from "./AutoplayVideo";
 
 interface GifItem {
@@ -48,7 +48,7 @@ export default function ProjectGifBand({
       className="section-container py-16 md:py-24"
       style={{ backgroundColor: "#120D1A" }}
     >
-      <motion.div
+      <m.div
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
@@ -61,9 +61,9 @@ export default function ProjectGifBand({
         <h2 className="font-headline text-h3 font-bold text-pure-white">
           {heading}
         </h2>
-      </motion.div>
+      </m.div>
 
-      <motion.div
+      <m.div
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
@@ -98,7 +98,7 @@ export default function ProjectGifBand({
             )}
           </div>
         ))}
-      </motion.div>
+      </m.div>
     </section>
   );
 }

@@ -6,6 +6,7 @@ import { ViewTransitions } from "next-view-transitions";
 import "./globals.css";
 import "./view-transitions.css";
 import Header from "@/components/Header";
+import MotionProvider from "@/components/MotionProvider";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import DesktopFX from "@/components/DesktopFX";
@@ -120,14 +121,16 @@ export default function RootLayout({
         className={`${spaceGrotesk.variable} ${bricolage.variable} ${inter.variable} ${jetbrainsMono.variable} font-body antialiased bg-deep-space text-pure-white`}
         style={{ backgroundColor: "#120D1A" }}
       >
-        <SmoothScroll />
-        <Analytics />
-        <DesktopFX>
-          <ScrollProgressTrail />
-        </DesktopFX>
-        <Header />
-        <main style={{ backgroundColor: "#120D1A" }}>{children}</main>
-        <Footer />
+        <MotionProvider>
+          <SmoothScroll />
+          <Analytics />
+          <DesktopFX>
+            <ScrollProgressTrail />
+          </DesktopFX>
+          <Header />
+          <main style={{ backgroundColor: "#120D1A" }}>{children}</main>
+          <Footer />
+        </MotionProvider>
       </body>
     </html>
     </ViewTransitions>

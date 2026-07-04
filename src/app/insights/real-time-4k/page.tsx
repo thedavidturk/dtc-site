@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import ArticleJsonLd from "@/components/ArticleJsonLd";
 
 /* ------------------------------------------------------------------ */
@@ -66,7 +66,7 @@ export default function RealTime4KArticle() {
         url="https://davidturkcreative.com/insights/real-time-4k"
       />
       {/* -- Back Link ------------------------------------------------ */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
@@ -91,7 +91,7 @@ export default function RealTime4KArticle() {
           </svg>
           Back to Home
         </Link>
-      </motion.div>
+      </m.div>
 
       {/* -- Hero ----------------------------------------------------- */}
       <section className="relative min-h-[60vh] md:min-h-[70vh] flex items-end overflow-hidden">
@@ -113,7 +113,7 @@ export default function RealTime4KArticle() {
         <div className="absolute bottom-1/3 right-1/3 w-3 h-3 bg-cyan-400/20 rounded-full" />
 
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
@@ -121,18 +121,18 @@ export default function RealTime4KArticle() {
             <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
               Creative Technology
             </span>
-          </motion.div>
+          </m.div>
 
-          <motion.h1
+          <m.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="font-display text-h1 font-bold mb-4 max-w-4xl"
           >
             The AI-Powered Creative Pipeline: VFX, Sound Design, and Content at Machine Speed
-          </motion.h1>
+          </m.h1>
 
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
@@ -140,9 +140,9 @@ export default function RealTime4KArticle() {
           >
             How custom AI workflows are collapsing post-production timelines
             from months to days, without sacrificing the craft.
-          </motion.p>
+          </m.p>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.6 }}
@@ -155,10 +155,10 @@ export default function RealTime4KArticle() {
             <span className="font-mono text-xs text-white/50 tracking-wide">
               10 min read
             </span>
-          </motion.div>
+          </m.div>
 
           {/* Animated line */}
-          <motion.div
+          <m.div
             initial={{ width: 0 }}
             animate={{ width: "6rem" }}
             transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
@@ -169,7 +169,7 @@ export default function RealTime4KArticle() {
 
       {/* -- Article Body --------------------------------------------- */}
       <section className="section-container section-padding">
-        <motion.div
+        <m.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -177,7 +177,7 @@ export default function RealTime4KArticle() {
           className="max-w-3xl mx-auto"
         >
           {/* --- The Old Post-Production --- */}
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               Post-Production Used to Be the Bottleneck
             </h2>
@@ -198,19 +198,19 @@ export default function RealTime4KArticle() {
               speed that up. It offered to fundamentally restructure how
               post-production works.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* --- Pull Quote --- */}
-          <motion.blockquote
+          <m.blockquote
             variants={fadeUp}
             className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8"
           >
             We used to spend 80% of post-production time on technical
             execution and 20% on creative decisions. AI flipped that ratio.
-          </motion.blockquote>
+          </m.blockquote>
 
           {/* --- AI VFX --- */}
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               AI-Powered VFX: 40% Cost Reduction, Zero Quality Compromise
             </h2>
@@ -240,10 +240,10 @@ export default function RealTime4KArticle() {
               different applications. One pipeline, one creative direction,
               dramatically faster execution.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* --- AI Sound Design --- */}
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               Sound Design: Where AI Removes Friction Without Removing Soul
             </h2>
@@ -270,20 +270,20 @@ export default function RealTime4KArticle() {
               result is faster production with the same level of sonic craft
               that brands expect from studio-quality content.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* --- Pull Quote --- */}
-          <motion.blockquote
+          <m.blockquote
             variants={fadeUp}
             className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8"
           >
             AI handles the technical foundation. Humans handle the emotion.
             That&rsquo;s the workflow that produces content people actually
             feel.
-          </motion.blockquote>
+          </m.blockquote>
 
           {/* --- Image Generation --- */}
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               AI Image Generation as a Creative Accelerator
             </h2>
@@ -305,10 +305,10 @@ export default function RealTime4KArticle() {
               back-and-forth now happens in a single afternoon session with the
               client.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* --- The Unified Pipeline --- */}
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               The Unified Pipeline: Everything Connects
             </h2>
@@ -328,20 +328,20 @@ export default function RealTime4KArticle() {
               to delivery, with AI handling the throughput and humans handling
               the taste.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* --- Pull Quote --- */}
-          <motion.blockquote
+          <m.blockquote
             variants={fadeUp}
             className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8"
           >
             The competitive advantage isn&rsquo;t the AI tools you use.
             It&rsquo;s how you connect them into a pipeline that moves at the
             speed of creative thought.
-          </motion.blockquote>
+          </m.blockquote>
 
           {/* --- Conclusion --- */}
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               The New Standard for Creative Production
             </h2>
@@ -367,8 +367,8 @@ export default function RealTime4KArticle() {
               the time. That&rsquo;s not a threat. It&rsquo;s an invitation to
               build something better.
             </p>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </section>
 
       {/* -- Divider -------------------------------------------------- */}
@@ -378,7 +378,7 @@ export default function RealTime4KArticle() {
 
       {/* -- More Perspectives ---------------------------------------- */}
       <section className="section-container section-padding">
-        <motion.div
+        <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -391,9 +391,9 @@ export default function RealTime4KArticle() {
           <h2 className="font-headline text-h3 font-bold">
             More <span className="gradient-text">Perspectives</span>
           </h2>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -401,7 +401,7 @@ export default function RealTime4KArticle() {
           className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
           {moreArticles.map((article) => (
-            <motion.div key={article.href} variants={staggerItem}>
+            <m.div key={article.href} variants={staggerItem}>
               <Link
                 href={article.href}
                 className="group block rounded-2xl border border-white/5 bg-white/[0.02] overflow-hidden hover:border-white/15 hover:-translate-y-1 transition-all duration-500"
@@ -438,9 +438,9 @@ export default function RealTime4KArticle() {
                   </span>
                 </div>
               </Link>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </section>
     </article>
   );

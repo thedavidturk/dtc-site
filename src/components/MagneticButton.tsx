@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useCallback, useEffect } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { m, useMotionValue, useSpring } from "framer-motion";
 
 interface MagneticButtonProps {
   children: React.ReactNode;
@@ -86,7 +86,7 @@ export default function MagneticButton({
       // Expand the hit area by using padding + negative margin
       // so the magnetic field extends beyond the visual boundary
     >
-      <motion.div
+      <m.div
         ref={ref}
         style={{
           x: springX,
@@ -101,7 +101,7 @@ export default function MagneticButton({
         }}
       >
         {children}
-      </motion.div>
+      </m.div>
     </div>
   );
 }

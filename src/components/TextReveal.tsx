@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useMemo } from "react";
 
 interface TextRevealProps {
@@ -53,7 +53,7 @@ export default function TextReveal({
 
   return (
     <Tag className={className}>
-      <motion.span
+      <m.span
         className="inline"
         variants={containerVariants}
         initial="hidden"
@@ -65,18 +65,18 @@ export default function TextReveal({
             key={index}
             className="overflow-hidden inline-block"
           >
-            <motion.span
+            <m.span
               className="inline-block"
               variants={segmentVariants}
             >
               {segment}
-            </motion.span>
+            </m.span>
             {mode === "word" && index < segments.length - 1 && (
               <span className="inline-block">&nbsp;</span>
             )}
           </span>
         ))}
-      </motion.span>
+      </m.span>
     </Tag>
   );
 }

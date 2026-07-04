@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import ArticleJsonLd from "@/components/ArticleJsonLd";
 
 const fadeUp = {
@@ -70,39 +70,39 @@ export default function AiAuthenticityPremiumArticle() {
         <div className="absolute inset-0 opacity-20 mix-blend-soft-light [background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%224%22 stitchTiles=%22stitch%22/></filter><rect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/></svg>')]" />
         <div className="absolute inset-0 [background-image:linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] [background-size:40px_40px]" />
         <div className="relative mx-auto max-w-3xl px-6 py-20">
-          <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
-            <motion.div variants={staggerItem} className="mb-6">
+          <m.div initial="hidden" animate="visible" variants={staggerContainer}>
+            <m.div variants={staggerItem} className="mb-6">
               <span className="inline-block rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-white backdrop-blur">
                 BRAND + TRUST
               </span>
-            </motion.div>
-            <motion.h1
+            </m.div>
+            <m.h1
               variants={staggerItem}
               className="font-display text-h1 font-bold"
             >
               The Authenticity Premium: Winning Trust When 57% of People Fear Fake AI Ads
-            </motion.h1>
-            <motion.p
+            </m.h1>
+            <m.p
               variants={staggerItem}
               className="mt-6 text-lg leading-relaxed text-white/70"
             >
               When anyone can fake anything, the real thing becomes the luxury good.
-            </motion.p>
-            <motion.div
+            </m.p>
+            <m.div
               variants={staggerItem}
               className="mt-8 flex items-center gap-3 text-sm text-white/50"
             >
               <span>David Turk</span>
               <span className="h-1 w-1 rounded-full bg-white/30" />
               <span>7 min read</span>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
         </div>
       </header>
 
       {/* Body */}
       <article className="mx-auto max-w-3xl px-6 py-16">
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
@@ -125,9 +125,9 @@ export default function AiAuthenticityPremiumArticle() {
             &ldquo;can you make more&rdquo; but &ldquo;will people believe it.&rdquo; That shift is
             the whole story, and it has a number attached to it.
           </p>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
@@ -150,9 +150,9 @@ export default function AiAuthenticityPremiumArticle() {
             positive, up from 68 percent. People are not afraid of the technology. They are afraid of
             being deceived by it. The fear is specific, and a specific fear can be answered.
           </p>
-        </motion.div>
+        </m.div>
 
-        <motion.blockquote
+        <m.blockquote
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
@@ -161,9 +161,9 @@ export default function AiAuthenticityPremiumArticle() {
         >
           &ldquo;People are not afraid of AI. They are afraid of being lied to by it. Those are very
           different problems, and only one of them is yours to solve.&rdquo;
-        </motion.blockquote>
+        </m.blockquote>
 
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
@@ -187,9 +187,9 @@ export default function AiAuthenticityPremiumArticle() {
             2026. The market is sprinting toward volume while leaving the trust controls unstaffed.
             That gap is not a risk to manage. For the brands that close it, it is an opening.
           </p>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
@@ -212,9 +212,9 @@ export default function AiAuthenticityPremiumArticle() {
             we could never physically build, we say so, and we say it in a way that adds to the
             story rather than apologizing for it. Honesty, framed well, is a brand asset.
           </p>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
@@ -238,9 +238,9 @@ export default function AiAuthenticityPremiumArticle() {
             audience does. Accountability is the part you cannot automate, and that is precisely why
             it is becoming valuable.
           </p>
-        </motion.div>
+        </m.div>
 
-        <motion.blockquote
+        <m.blockquote
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
@@ -249,9 +249,9 @@ export default function AiAuthenticityPremiumArticle() {
         >
           &ldquo;A model has no reputation to lose. A person does. Put a name on the work, and you
           have put trust back into the machine.&rdquo;
-        </motion.blockquote>
+        </m.blockquote>
 
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
@@ -275,9 +275,9 @@ export default function AiAuthenticityPremiumArticle() {
             believable, these do more damage than no ad at all. We would rather show a slightly
             imperfect real person than a flawless fake one, because the imperfection is the proof.
           </p>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
@@ -302,9 +302,9 @@ export default function AiAuthenticityPremiumArticle() {
             ones treating brand integrity as a contract with the audience, not a style guide nobody
             reads.
           </p>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
@@ -327,27 +327,27 @@ export default function AiAuthenticityPremiumArticle() {
             that actually moves people. The human and the real stay at the center. Everything else
             is just production. And production, finally, is cheap.
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Divider */}
         <div className="my-16 h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
         {/* More Perspectives */}
-        <motion.div
+        <m.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
           variants={staggerContainer}
         >
-          <motion.h2
+          <m.h2
             variants={staggerItem}
             className="mb-8 text-2xl font-bold tracking-tight sm:text-3xl"
           >
             More Perspectives
-          </motion.h2>
+          </m.h2>
           <div className="grid gap-6 sm:grid-cols-2">
             {moreArticles.map((article) => (
-              <motion.div key={article.href} variants={staggerItem}>
+              <m.div key={article.href} variants={staggerItem}>
                 <Link
                   href={article.href}
                   className="group relative block overflow-hidden rounded-2xl border border-white/10 p-6 transition hover:border-white/30"
@@ -364,10 +364,10 @@ export default function AiAuthenticityPremiumArticle() {
                     </h3>
                   </div>
                 </Link>
-              </motion.div>
+              </m.div>
             ))}
           </div>
-        </motion.div>
+        </m.div>
       </article>
     </main>
   );

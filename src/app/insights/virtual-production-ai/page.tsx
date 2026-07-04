@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import ArticleJsonLd from "@/components/ArticleJsonLd";
 
 const fadeUp = {
@@ -53,7 +53,7 @@ export default function VirtualProductionAiArticle() {
         datePublished="2026-06-01"
         url="https://davidturkcreative.com/insights/virtual-production-ai"
       />
-      <motion.div
+      <m.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
@@ -68,7 +68,7 @@ export default function VirtualProductionAiArticle() {
           </svg>
           Back to Home
         </Link>
-      </motion.div>
+      </m.div>
 
       {/* Hero */}
       <section className="relative min-h-[60vh] md:min-h-[70vh] flex items-end overflow-hidden">
@@ -81,34 +81,34 @@ export default function VirtualProductionAiArticle() {
         <div className="absolute bottom-1/3 left-1/3 w-3 h-3 bg-white/20 rounded-full" />
 
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}>
+          <m.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}>
             <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
               Virtual Production
             </span>
-          </motion.div>
+          </m.div>
 
-          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }} className="font-display text-h1 font-bold mb-4 max-w-4xl">
+          <m.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }} className="font-display text-h1 font-bold mb-4 max-w-4xl">
             Virtual Production Without the Volume: AI Pre-Viz and LED-Free Worldbuilding
-          </motion.h1>
+          </m.h1>
 
-          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }} className="font-body text-lg md:text-xl text-white/70 max-w-2xl">
+          <m.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }} className="font-body text-lg md:text-xl text-white/70 max-w-2xl">
             LED volumes used to demand a soundstage and a massive budget. AI pre-viz and generative 3D worlds give smaller studios virtual production thinking without the volume.
-          </motion.p>
+          </m.p>
 
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.6 }} className="flex items-center gap-4 mt-6">
+          <m.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.6 }} className="flex items-center gap-4 mt-6">
             <span className="font-mono text-xs text-white/50 tracking-wide">David Turk</span>
             <span className="w-1 h-1 rounded-full bg-white/30" />
             <span className="font-mono text-xs text-white/50 tracking-wide">8 min read</span>
-          </motion.div>
+          </m.div>
 
-          <motion.div initial={{ width: 0 }} animate={{ width: "6rem" }} transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }} className="h-px bg-gradient-to-r from-electric-indigo to-blue-400 mt-8" />
+          <m.div initial={{ width: 0 }} animate={{ width: "6rem" }} transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }} className="h-px bg-gradient-to-r from-electric-indigo to-blue-400 mt-8" />
         </div>
       </section>
 
       {/* Article Body */}
       <section className="section-container section-padding">
-        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} className="max-w-3xl mx-auto">
-          <motion.div variants={fadeUp}>
+        <m.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} className="max-w-3xl mx-auto">
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               The Volume Was Never the Point
             </h2>
@@ -118,13 +118,13 @@ export default function VirtualProductionAiArticle() {
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               Here is the thing we kept noticing on every job: the volume was the most visible part of virtual production, but it was never the actual value. The value was the way of thinking. Decide the world before you build it. See the shot before you light it. Iterate the environment, the blocking, and the camera while changes still cost nothing. The LED wall was just the delivery mechanism for that mindset. And in 2026, the mindset finally got separated from the hardware.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.blockquote variants={fadeUp} className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8">
+          <m.blockquote variants={fadeUp} className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8">
             The LED wall was always the most expensive part of virtual production and the least important. What mattered was deciding the world before you built it.
-          </motion.blockquote>
+          </m.blockquote>
 
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               Generative 3D Collapsed the Asset Pipeline
             </h2>
@@ -134,9 +134,9 @@ export default function VirtualProductionAiArticle() {
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               That speed changes the economics of exploration, not just production. When generating a new environment is nearly free, you stop committing to the first decent idea because you already paid for it. You generate ten worlds, you walk away from nine, and the one you keep is the one you actually wanted instead of the one you could afford. For brand work, where the look is the message, that difference shows up on screen.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               The Real 2026 Shift: Pre-Viz You Can Walk Into
             </h2>
@@ -146,13 +146,13 @@ export default function VirtualProductionAiArticle() {
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               This is the part that feels like a soundstage volume without the soundstage. The whole promise of the LED wall was real-time feedback on creative decisions. AI pre-viz delivers that feedback earlier, when it is cheaper to act on, and it does it on a laptop and a headset instead of a leased stage. The shoot stops being the place you discover problems and becomes the place you execute a plan you already pressure-tested.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.blockquote variants={fadeUp} className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8">
+          <m.blockquote variants={fadeUp} className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8">
             When you can walk into the set in VR before it exists, the shoot stops being where you discover problems. It becomes where you execute a plan you already stress-tested.
-          </motion.blockquote>
+          </m.blockquote>
 
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               How This Plays Out on Our Brand Campaigns
             </h2>
@@ -162,9 +162,9 @@ export default function VirtualProductionAiArticle() {
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               On set, that front-loaded work pays off as calm. The camera positions are decided. The lighting intent is decided. The blocking is decided. We are not burning a half-day figuring out where the hero shot lives, because we already stood in it. The crew moves faster, the talent gets more takes that matter, and the client sees fewer surprises. Virtual production thinking, applied to a job that never went near an LED volume.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               Democratization Is the Quiet Headline
             </h2>
@@ -174,9 +174,9 @@ export default function VirtualProductionAiArticle() {
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               And it is spilling well past film and advertising. The same pipeline that pre-vizzes a brand spot drives an automotive reveal, a live show backdrop, and an interactive learning environment. Once you can generate a world and walk into it cheaply, every industry that needs to show people a place that does not exist yet becomes a customer for this thinking.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               The Honest Caveat: Taste Still Carries the Film
             </h2>
@@ -186,9 +186,9 @@ export default function VirtualProductionAiArticle() {
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               We treat these tools the way we treat every other tool in the building. They remove the friction between an idea and seeing it, which is enormous. They do not supply the idea, and they do not supply the judgment about what is good. The studios that win with this will be the ones who use the saved time to push harder on craft, not the ones who use it to ship more, faster, with less thought behind it.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               Start Thinking in Worlds
             </h2>
@@ -198,8 +198,8 @@ export default function VirtualProductionAiArticle() {
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               That is the whole move. Virtual production was never really about the wall. It was about collapsing pre-production and de-risking the shoot, and in 2026 you can do both without the stage, the hardware, or the budget that used to gate it. We are building this way now on brand campaigns that will never see an LED panel, and the work is better for it. The question is not whether the tools are ready. They are. The question is whether you start thinking in worlds before the next shoot or after.
             </p>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </section>
 
       {/* Divider */}
@@ -209,13 +209,13 @@ export default function VirtualProductionAiArticle() {
 
       {/* More Perspectives */}
       <section className="section-container section-padding">
-        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} className="mb-12">
+        <m.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} className="mb-12">
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">Continue Reading</p>
           <h2 className="font-headline text-h3 font-bold">More <span className="gradient-text">Perspectives</span></h2>
-        </motion.div>
-        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        </m.div>
+        <m.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {moreArticles.map((article) => (
-            <motion.div key={article.href} variants={staggerItem}>
+            <m.div key={article.href} variants={staggerItem}>
               <Link href={article.href} className="group block rounded-2xl border border-white/5 bg-white/[0.02] overflow-hidden hover:border-white/15 hover:-translate-y-1 transition-all duration-500">
                 <div className="relative h-32 overflow-hidden">
                   <div className={`absolute inset-0 bg-gradient-to-br ${article.gradient} transition-transform duration-700 group-hover:scale-110`} />
@@ -232,9 +232,9 @@ export default function VirtualProductionAiArticle() {
                   </span>
                 </div>
               </Link>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </section>
     </article>
   );

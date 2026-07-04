@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useId, useRef, useState } from "react";
-import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
+import { m, MotionValue, useScroll, useTransform } from "framer-motion";
 
 /**
  * PinnedApproach -- the scroll-scrubbed "Approach" section for case studies.
@@ -128,7 +128,7 @@ function StepLayer({ step, index, count, progress }: StepLayerProps) {
   return (
     <div className="pointer-events-none absolute inset-0 grid grid-cols-12 items-center gap-8">
       {/* Oversized step numeral -- purely decorative */}
-      <motion.div
+      <m.div
         aria-hidden
         style={{ opacity, y: numeralY }}
         className="col-span-5 flex items-center gap-6"
@@ -137,10 +137,10 @@ function StepLayer({ step, index, count, progress }: StepLayerProps) {
         <span className="font-display text-display font-bold text-pure-white/90 select-none">
           {pad2(index + 1)}
         </span>
-      </motion.div>
+      </m.div>
 
       {/* Step readout + copy */}
-      <motion.div
+      <m.div
         style={{ opacity, y: textY }}
         className="col-span-6 col-start-7 max-w-xl"
       >
@@ -154,7 +154,7 @@ function StepLayer({ step, index, count, progress }: StepLayerProps) {
         <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed">
           {step.body}
         </p>
-      </motion.div>
+      </m.div>
     </div>
   );
 }
@@ -218,7 +218,7 @@ function PinnedStage({ steps, eyebrow, heading, headingId }: PinnedStageProps) {
             aria-hidden
             className="pointer-events-none absolute right-0 top-[12%] bottom-[12%] w-px bg-white/10"
           >
-            <motion.div
+            <m.div
               className="absolute inset-x-0 top-0 h-full origin-top bg-electric-indigo"
               style={{ scaleY: scrollYProgress }}
             />

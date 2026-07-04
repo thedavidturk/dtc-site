@@ -2,7 +2,7 @@
 
 import Link from "@/components/TransitionLink";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import ProjectGifBand from "@/components/ProjectGifBand";
 import PinnedApproach from "@/components/PinnedApproach";
 
@@ -129,7 +129,7 @@ export default function SproutedProject() {
   return (
     <article className="bg-deep-space min-h-screen">
       {/* ── Back Link ─────────────────────────────────────────────── */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
@@ -154,7 +154,7 @@ export default function SproutedProject() {
           </svg>
           Back to Work
         </Link>
-      </motion.div>
+      </m.div>
 
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-end overflow-hidden">
@@ -175,7 +175,7 @@ export default function SproutedProject() {
         <div className="absolute inset-0 z-[2] bg-gradient-to-t from-deep-space via-deep-space/40 to-transparent" />
 
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
@@ -183,28 +183,28 @@ export default function SproutedProject() {
             <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
               Strategy + Content Development
             </span>
-          </motion.div>
+          </m.div>
 
-          <motion.h1
+          <m.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="font-display text-h1 font-bold mb-4"
           >
             NEW ERA CAP
-          </motion.h1>
+          </m.h1>
 
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
             className="font-headline text-2xl md:text-3xl lg:text-4xl font-medium text-white/80 tracking-tight"
           >
             &ldquo;Sprouted&rdquo; Collection
-          </motion.p>
+          </m.p>
 
           {/* Animated line */}
-          <motion.div
+          <m.div
             initial={{ width: 0 }}
             animate={{ width: "6rem" }}
             transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
@@ -229,7 +229,7 @@ export default function SproutedProject() {
       <section className="section-container section-padding">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Sidebar */}
-          <motion.aside
+          <m.aside
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -278,10 +278,10 @@ export default function SproutedProject() {
                 </ul>
               </div>
             </div>
-          </motion.aside>
+          </m.aside>
 
           {/* Challenge */}
-          <motion.div
+          <m.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -310,7 +310,7 @@ export default function SproutedProject() {
                 without physical sets or location shoots.
               </p>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -336,7 +336,7 @@ export default function SproutedProject() {
 
       {/* ── The Solution ─────────────────────────────────────────── */}
       <section className="section-container section-padding">
-        <motion.div
+        <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -366,7 +366,7 @@ export default function SproutedProject() {
               something first and notice the product second.
             </p>
           </div>
-        </motion.div>
+        </m.div>
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────── */}
@@ -376,7 +376,7 @@ export default function SproutedProject() {
 
       {/* ── The Result ───────────────────────────────────────────── */}
       <section className="section-container section-padding">
-        <motion.div
+        <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -390,10 +390,10 @@ export default function SproutedProject() {
             Organic impact,{" "}
             <span className="text-white">cultivated content</span>
           </h2>
-        </motion.div>
+        </m.div>
 
         {/* Lead result statement */}
-        <motion.div
+        <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -416,7 +416,7 @@ export default function SproutedProject() {
               </li>
             ))}
           </ul>
-        </motion.div>
+        </m.div>
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────── */}
@@ -426,7 +426,7 @@ export default function SproutedProject() {
 
       {/* ── Tools & Technology ────────────────────────────────────── */}
       <section className="section-container section-padding">
-        <motion.div
+        <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -439,9 +439,9 @@ export default function SproutedProject() {
           <h2 className="font-headline text-h3 font-bold">
             The <span className="text-white">production stack</span>
           </h2>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -449,7 +449,7 @@ export default function SproutedProject() {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
         >
           {tools.map((tool) => (
-            <motion.div
+            <m.div
               key={tool.name}
               variants={staggerItem}
               className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-emerald-400/20 hover:bg-emerald-400/[0.03] transition-all duration-500"
@@ -460,9 +460,9 @@ export default function SproutedProject() {
               <p className="font-body text-sm text-cool-gray leading-relaxed">
                 {tool.description}
               </p>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────── */}
@@ -472,7 +472,7 @@ export default function SproutedProject() {
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
       <section className="section-container section-padding">
-        <motion.div
+        <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -511,7 +511,7 @@ export default function SproutedProject() {
               </svg>
             </Link>
           </div>
-        </motion.div>
+        </m.div>
       </section>
     </article>
   );

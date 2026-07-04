@@ -3,7 +3,7 @@
 import Link from "@/components/TransitionLink";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import ProjectGifBand from "@/components/ProjectGifBand";
 import Lazy3D from "@/components/Lazy3D";
 import WorkFrame from "@/components/WorkFrame";
@@ -160,7 +160,7 @@ function CampaignSection({
   return (
     <section id={campaign.id} className="section-container section-padding">
       {/* Campaign header */}
-      <motion.div
+      <m.div
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
@@ -183,10 +183,10 @@ function CampaignSection({
         <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed max-w-4xl">
           {campaign.description}
         </p>
-      </motion.div>
+      </m.div>
 
       {/* Image gallery */}
-      <motion.div
+      <m.div
         variants={galleryContainer}
         initial="hidden"
         whileInView="visible"
@@ -194,7 +194,7 @@ function CampaignSection({
         className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-5"
       >
         {campaign.images.map((img, imgIndex) => (
-          <motion.div key={img.src} variants={galleryItem} className={img.span}>
+          <m.div key={img.src} variants={galleryItem} className={img.span}>
             <WorkFrame
               client={overview.client}
               discipline={campaign.discipline}
@@ -210,9 +210,9 @@ function CampaignSection({
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
             </WorkFrame>
-          </motion.div>
+          </m.div>
         ))}
-      </motion.div>
+      </m.div>
     </section>
   );
 }
@@ -225,7 +225,7 @@ export default function NewEraCapProject() {
   return (
     <article className="bg-deep-space min-h-screen">
       {/* ── Back Link ─────────────────────────────────────────────── */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
@@ -250,7 +250,7 @@ export default function NewEraCapProject() {
           </svg>
           Back to Work
         </Link>
-      </motion.div>
+      </m.div>
 
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-end overflow-hidden">
@@ -270,7 +270,7 @@ export default function NewEraCapProject() {
         <div className="absolute inset-0 z-[2] bg-gradient-to-t from-deep-space via-deep-space/40 to-transparent" />
 
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
@@ -278,27 +278,27 @@ export default function NewEraCapProject() {
             <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
               Strategy + 3D Animation + VFX
             </span>
-          </motion.div>
+          </m.div>
 
-          <motion.h1
+          <m.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="font-display text-h1 font-bold mb-4"
           >
             NEW ERA CAP
-          </motion.h1>
+          </m.h1>
 
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
             className="font-headline text-2xl md:text-3xl lg:text-4xl font-medium text-white/80 tracking-tight"
           >
             4 Campaigns. One Vision.
-          </motion.p>
+          </m.p>
 
-          <motion.div
+          <m.div
             initial={{ width: 0 }}
             animate={{ width: "6rem" }}
             transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
@@ -328,7 +328,7 @@ export default function NewEraCapProject() {
       <section className="section-container section-padding">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Sidebar */}
-          <motion.aside
+          <m.aside
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -373,10 +373,10 @@ export default function NewEraCapProject() {
                 </ul>
               </div>
             </div>
-          </motion.aside>
+          </m.aside>
 
           {/* Partnership overview */}
-          <motion.div
+          <m.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -408,7 +408,7 @@ export default function NewEraCapProject() {
             </div>
 
             {/* Campaign quick nav */}
-            <motion.div
+            <m.div
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
@@ -416,7 +416,7 @@ export default function NewEraCapProject() {
               className="mt-10 grid grid-cols-2 gap-3"
             >
               {campaigns.map((c, i) => (
-                <motion.a
+                <m.a
                   key={c.id}
                   href={`#${c.id}`}
                   variants={staggerItem}
@@ -431,10 +431,10 @@ export default function NewEraCapProject() {
                   <p className="font-body text-xs text-cool-gray mt-0.5">
                     {c.subtitle}
                   </p>
-                </motion.a>
+                </m.a>
               ))}
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
         </div>
       </section>
 
@@ -455,7 +455,7 @@ export default function NewEraCapProject() {
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
       <section className="section-container section-padding">
-        <motion.div
+        <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -494,7 +494,7 @@ export default function NewEraCapProject() {
               </svg>
             </Link>
           </div>
-        </motion.div>
+        </m.div>
       </section>
     </article>
   );

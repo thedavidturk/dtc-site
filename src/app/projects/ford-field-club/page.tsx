@@ -2,7 +2,7 @@
 
 import Link from "@/components/TransitionLink";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import ProjectGifBand from "@/components/ProjectGifBand";
 import PinnedApproach from "@/components/PinnedApproach";
 import WorkFrame from "@/components/WorkFrame";
@@ -158,7 +158,7 @@ export default function FordFieldClubProject() {
   return (
     <article className="bg-deep-space min-h-screen" style={{ backgroundColor: "#120D1A" }}>
       {/* ── Back Link ─────────────────────────────────────────────── */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
@@ -183,7 +183,7 @@ export default function FordFieldClubProject() {
           </svg>
           Back to Work
         </Link>
-      </motion.div>
+      </m.div>
 
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-end overflow-hidden">
@@ -204,7 +204,7 @@ export default function FordFieldClubProject() {
         <div className="absolute inset-0 z-[2] bg-gradient-to-t from-deep-space via-deep-space/40 to-transparent" />
 
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
@@ -212,28 +212,28 @@ export default function FordFieldClubProject() {
             <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
               Experiential Creative Direction
             </span>
-          </motion.div>
+          </m.div>
 
-          <motion.h1
+          <m.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="font-display text-h1 font-bold mb-4"
           >
             FORD FIELD CLUB
-          </motion.h1>
+          </m.h1>
 
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
             className="font-headline text-2xl md:text-3xl lg:text-4xl font-medium text-white/80 tracking-tight"
           >
             Field-Level Hospitality at Hard Rock Stadium
-          </motion.p>
+          </m.p>
 
           {/* Animated line */}
-          <motion.div
+          <m.div
             initial={{ width: 0 }}
             animate={{ width: "6rem" }}
             transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
@@ -259,7 +259,7 @@ export default function FordFieldClubProject() {
       <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Sidebar */}
-          <motion.aside
+          <m.aside
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -304,10 +304,10 @@ export default function FordFieldClubProject() {
                 </ul>
               </div>
             </div>
-          </motion.aside>
+          </m.aside>
 
           {/* Challenge */}
-          <motion.div
+          <m.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -339,7 +339,7 @@ export default function FordFieldClubProject() {
                 it, and every part of the journey had to build toward the field.
               </p>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -350,7 +350,7 @@ export default function FordFieldClubProject() {
 
       {/* ── The Film (Video) ─────────────────────────────────────── */}
       <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
-        <motion.div
+        <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -364,9 +364,9 @@ export default function FordFieldClubProject() {
             Step inside{" "}
             <span className="text-white">the Ford Field Club</span>
           </h2>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -389,7 +389,7 @@ export default function FordFieldClubProject() {
               />
             </div>
           </div>
-        </motion.div>
+        </m.div>
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────── */}
@@ -414,7 +414,7 @@ export default function FordFieldClubProject() {
 
       {/* ── The Solution ─────────────────────────────────────────── */}
       <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
-        <motion.div
+        <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -446,7 +446,7 @@ export default function FordFieldClubProject() {
               the field feels like the reward you were always headed toward.
             </p>
           </div>
-        </motion.div>
+        </m.div>
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────── */}
@@ -456,7 +456,7 @@ export default function FordFieldClubProject() {
 
       {/* ── Gallery ──────────────────────────────────────────────── */}
       <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
-        <motion.div
+        <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -470,9 +470,9 @@ export default function FordFieldClubProject() {
             Inside the{" "}
             <span className="text-white">Ford Field Club</span>
           </h2>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           variants={galleryContainer}
           initial="hidden"
           whileInView="visible"
@@ -480,7 +480,7 @@ export default function FordFieldClubProject() {
           className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6"
         >
           {/* Row 1 - wide + tall */}
-          <motion.div variants={galleryItem} className="md:col-span-7">
+          <m.div variants={galleryItem} className="md:col-span-7">
             <WorkFrame
               client={overview.client}
               discipline="Experiential Direction"
@@ -495,8 +495,8 @@ export default function FordFieldClubProject() {
                 className="object-cover"
               />
             </WorkFrame>
-          </motion.div>
-          <motion.div variants={galleryItem} className="md:col-span-5">
+          </m.div>
+          <m.div variants={galleryItem} className="md:col-span-5">
             <WorkFrame
               client={overview.client}
               discipline="Brand Integration"
@@ -511,10 +511,10 @@ export default function FordFieldClubProject() {
                 className="object-cover"
               />
             </WorkFrame>
-          </motion.div>
+          </m.div>
 
           {/* Row 2 - three equal columns */}
-          <motion.div variants={galleryItem} className="md:col-span-4">
+          <m.div variants={galleryItem} className="md:col-span-4">
             <WorkFrame
               client={overview.client}
               discipline="Environmental Design"
@@ -529,8 +529,8 @@ export default function FordFieldClubProject() {
                 className="object-cover"
               />
             </WorkFrame>
-          </motion.div>
-          <motion.div variants={galleryItem} className="md:col-span-4">
+          </m.div>
+          <m.div variants={galleryItem} className="md:col-span-4">
             <WorkFrame
               client={overview.client}
               discipline="Environmental Design"
@@ -545,8 +545,8 @@ export default function FordFieldClubProject() {
                 className="object-cover"
               />
             </WorkFrame>
-          </motion.div>
-          <motion.div variants={galleryItem} className="md:col-span-4">
+          </m.div>
+          <m.div variants={galleryItem} className="md:col-span-4">
             <WorkFrame
               client={overview.client}
               discipline="On-Site Activation"
@@ -561,8 +561,8 @@ export default function FordFieldClubProject() {
                 className="object-cover"
               />
             </WorkFrame>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────── */}
@@ -572,7 +572,7 @@ export default function FordFieldClubProject() {
 
       {/* ── The Result ───────────────────────────────────────────── */}
       <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
-        <motion.div
+        <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -586,10 +586,10 @@ export default function FordFieldClubProject() {
             A club that{" "}
             <span className="text-white">earns the access</span>
           </h2>
-        </motion.div>
+        </m.div>
 
         {/* Lead result statement */}
-        <motion.div
+        <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -612,7 +612,7 @@ export default function FordFieldClubProject() {
               </li>
             ))}
           </ul>
-        </motion.div>
+        </m.div>
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────── */}
@@ -622,7 +622,7 @@ export default function FordFieldClubProject() {
 
       {/* ── Capabilities ─────────────────────────────────────────── */}
       <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
-        <motion.div
+        <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -635,9 +635,9 @@ export default function FordFieldClubProject() {
           <h2 className="font-headline text-h3 font-bold">
             The <span className="text-white">direction toolkit</span>
           </h2>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -645,7 +645,7 @@ export default function FordFieldClubProject() {
           className="grid grid-cols-1 sm:grid-cols-2 gap-4"
         >
           {capabilities.map((cap) => (
-            <motion.div
+            <m.div
               key={cap.name}
               variants={staggerItem}
               className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-electric-indigo/20 hover:bg-electric-indigo/[0.03] transition-all duration-500"
@@ -656,9 +656,9 @@ export default function FordFieldClubProject() {
               <p className="font-body text-sm text-cool-gray leading-relaxed">
                 {cap.description}
               </p>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────── */}
@@ -668,7 +668,7 @@ export default function FordFieldClubProject() {
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
       <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
-        <motion.div
+        <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -707,7 +707,7 @@ export default function FordFieldClubProject() {
               </svg>
             </Link>
           </div>
-        </motion.div>
+        </m.div>
       </section>
     </article>
   );

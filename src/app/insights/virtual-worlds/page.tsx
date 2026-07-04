@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import ArticleJsonLd from "@/components/ArticleJsonLd";
 
 /* ------------------------------------------------------------------ */
@@ -66,7 +66,7 @@ export default function VirtualWorldsArticle() {
         url="https://davidturkcreative.com/insights/virtual-worlds"
       />
       {/* -- Back Link ------------------------------------------------ */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
@@ -91,7 +91,7 @@ export default function VirtualWorldsArticle() {
           </svg>
           Back to Home
         </Link>
-      </motion.div>
+      </m.div>
 
       {/* -- Hero ----------------------------------------------------- */}
       <section className="relative min-h-[60vh] md:min-h-[70vh] flex items-end overflow-hidden">
@@ -113,7 +113,7 @@ export default function VirtualWorldsArticle() {
         <div className="absolute bottom-1/3 left-1/3 w-3 h-3 bg-white/20 rounded-full" />
 
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
@@ -121,18 +121,18 @@ export default function VirtualWorldsArticle() {
             <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
               AI Production
             </span>
-          </motion.div>
+          </m.div>
 
-          <motion.h1
+          <m.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="font-display text-h1 font-bold mb-4 max-w-4xl"
           >
             AI Video Generation Is Replacing Traditional Production Pipelines
-          </motion.h1>
+          </m.h1>
 
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
@@ -141,9 +141,9 @@ export default function VirtualWorldsArticle() {
             75% of marketing videos will be AI-generated or AI-assisted by the
             end of 2026. Here&rsquo;s how we&rsquo;re building for that shift,
             and why it matters for every brand producing content today.
-          </motion.p>
+          </m.p>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.6 }}
@@ -156,10 +156,10 @@ export default function VirtualWorldsArticle() {
             <span className="font-mono text-xs text-white/50 tracking-wide">
               8 min read
             </span>
-          </motion.div>
+          </m.div>
 
           {/* Animated line */}
-          <motion.div
+          <m.div
             initial={{ width: 0 }}
             animate={{ width: "6rem" }}
             transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
@@ -170,7 +170,7 @@ export default function VirtualWorldsArticle() {
 
       {/* -- Article Body --------------------------------------------- */}
       <section className="section-container section-padding">
-        <motion.div
+        <m.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -178,7 +178,7 @@ export default function VirtualWorldsArticle() {
           className="max-w-3xl mx-auto"
         >
           {/* --- The Shift --- */}
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               The Numbers Are Already Here
             </h2>
@@ -199,20 +199,20 @@ export default function VirtualWorldsArticle() {
               Instagram Reels, YouTube Shorts, and LinkedIn, that efficiency
               gap is existential.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* --- Pull Quote --- */}
-          <motion.blockquote
+          <m.blockquote
             variants={fadeUp}
             className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8"
           >
             The brands still debating whether to adopt AI video are already
             losing ground to the ones that built it into their pipeline six
             months ago.
-          </motion.blockquote>
+          </m.blockquote>
 
           {/* --- How We Use It --- */}
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               How We Actually Use AI Video Generation
             </h2>
@@ -239,20 +239,20 @@ export default function VirtualWorldsArticle() {
               They&rsquo;re the ones with strong creative directors who know
               exactly where to deploy AI for maximum leverage.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* --- Pull Quote --- */}
-          <motion.blockquote
+          <m.blockquote
             variants={fadeUp}
             className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8"
           >
             AI doesn&rsquo;t replace the creative eye. It gives the creative
             eye more tools to work with, faster iterations, and fewer
             compromises.
-          </motion.blockquote>
+          </m.blockquote>
 
           {/* --- Personalization --- */}
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               Hyper-Personalized Video at Scale
             </h2>
@@ -279,10 +279,10 @@ export default function VirtualWorldsArticle() {
               executions, while their competitor is still finishing one generic
               spot, wins the attention game every time.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* --- Transparency --- */}
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               Transparency Builds Trust
             </h2>
@@ -301,20 +301,20 @@ export default function VirtualWorldsArticle() {
               elevated the output. That transparency has consistently
               strengthened client relationships, not weakened them.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* --- Pull Quote --- */}
-          <motion.blockquote
+          <m.blockquote
             variants={fadeUp}
             className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8"
           >
             The brands that openly share how they use AI in production are
             building more trust than the ones pretending it doesn&rsquo;t exist
             in their workflow.
-          </motion.blockquote>
+          </m.blockquote>
 
           {/* --- The Pipeline --- */}
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               Building the Pipeline That Scales
             </h2>
@@ -334,10 +334,10 @@ export default function VirtualWorldsArticle() {
               to be a six-week pipeline is now a six-day pipeline, with higher
               output quality because we have more room for creative iteration.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* --- Conclusion --- */}
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               Adapt Now or Fall Behind
             </h2>
@@ -355,8 +355,8 @@ export default function VirtualWorldsArticle() {
               you&rsquo;re a brand thinking about where your content strategy
               goes from here, the answer starts with the pipeline.
             </p>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </section>
 
       {/* -- Divider -------------------------------------------------- */}
@@ -366,7 +366,7 @@ export default function VirtualWorldsArticle() {
 
       {/* -- More Perspectives ---------------------------------------- */}
       <section className="section-container section-padding">
-        <motion.div
+        <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -379,9 +379,9 @@ export default function VirtualWorldsArticle() {
           <h2 className="font-headline text-h3 font-bold">
             More <span className="gradient-text">Perspectives</span>
           </h2>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -389,7 +389,7 @@ export default function VirtualWorldsArticle() {
           className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
           {moreArticles.map((article) => (
-            <motion.div key={article.href} variants={staggerItem}>
+            <m.div key={article.href} variants={staggerItem}>
               <Link
                 href={article.href}
                 className="group block rounded-2xl border border-white/5 bg-white/[0.02] overflow-hidden hover:border-white/15 hover:-translate-y-1 transition-all duration-500"
@@ -426,9 +426,9 @@ export default function VirtualWorldsArticle() {
                   </span>
                 </div>
               </Link>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </section>
     </article>
   );

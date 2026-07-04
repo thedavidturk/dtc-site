@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import Link from "./TransitionLink";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import dynamic from "next/dynamic";
 import Lazy3D from "./Lazy3D";
 import WorkFrame from "./WorkFrame";
@@ -222,7 +222,7 @@ export default function Insights() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(255,138,92,0.04)_0%,transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(124,92,255,0.04)_0%,transparent_50%)]" />
 
-      <motion.div
+      <m.div
         className="relative z-10"
         variants={sectionVariants}
         initial="hidden"
@@ -230,7 +230,7 @@ export default function Insights() {
         viewport={{ once: true, margin: "-100px" }}
       >
         {/* Section header */}
-        <motion.div className="section-container text-center mb-12 md:mb-16" variants={headingVariants}>
+        <m.div className="section-container text-center mb-12 md:mb-16" variants={headingVariants}>
           <span className="font-mono text-xs tracking-[0.3em] text-electric-indigo uppercase mb-4 block">
             Insights
           </span>
@@ -248,7 +248,7 @@ export default function Insights() {
           <p className="font-body text-cool-gray text-lg mt-4 max-w-2xl mx-auto leading-relaxed">
             Thoughts on AI-driven production, creative technology, and the future of brand content. New perspectives every month.
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Scroll controls */}
         <div className="section-container flex items-center justify-end gap-3 mb-6">
@@ -308,7 +308,7 @@ export default function Insights() {
             {posts.map((post, i) => {
               const CoverScene = coverComponents[post.coverComponent];
               return (
-              <motion.article
+              <m.article
                 key={post.slug}
                 variants={cardVariants}
                 className="group relative flex-shrink-0 w-[85vw] sm:w-[60vw] md:w-[38vw] lg:w-[30vw] xl:w-[26vw] snap-start"
@@ -391,7 +391,7 @@ export default function Insights() {
                     <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none shadow-[inset_0_0_40px_rgba(124,92,255,0.05)]" />
                   </div>
                 </Link>
-              </motion.article>
+              </m.article>
               );
             })}
           </div>
@@ -415,7 +415,7 @@ export default function Insights() {
             />
           ))}
         </div>
-      </motion.div>
+      </m.div>
     </section>
   );
 }

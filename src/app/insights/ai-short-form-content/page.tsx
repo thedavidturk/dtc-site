@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import ArticleJsonLd from "@/components/ArticleJsonLd";
 
 const fadeUp = {
@@ -53,7 +53,7 @@ export default function AIShortFormContentArticle() {
         datePublished="2026-02-15"
         url="https://davidturkcreative.com/insights/ai-short-form-content"
       />
-      <motion.div
+      <m.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
@@ -68,7 +68,7 @@ export default function AIShortFormContentArticle() {
           </svg>
           Back to Home
         </Link>
-      </motion.div>
+      </m.div>
 
       {/* Hero */}
       <section className="relative min-h-[60vh] md:min-h-[70vh] flex items-end overflow-hidden">
@@ -80,36 +80,36 @@ export default function AIShortFormContentArticle() {
         <div className="absolute top-1/3 right-[15%] w-20 h-20 border border-white/10 rounded-xl rotate-12" />
 
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}>
+          <m.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}>
             <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
               Social + AI
             </span>
-          </motion.div>
+          </m.div>
 
-          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }} className="font-display text-h1 font-bold mb-4 max-w-4xl">
+          <m.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }} className="font-display text-h1 font-bold mb-4 max-w-4xl">
             Short-Form, High Impact: How AI Is Powering the Next Wave of Social Content
-          </motion.h1>
+          </m.h1>
 
-          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }} className="font-body text-lg md:text-xl text-white/70 max-w-2xl">
+          <m.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }} className="font-body text-lg md:text-xl text-white/70 max-w-2xl">
             The playbook for producing scroll-stopping Reels, Shorts, and
             TikToks at scale with AI workflows, without losing the human
             edge that makes content connect.
-          </motion.p>
+          </m.p>
 
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.6 }} className="flex items-center gap-4 mt-6">
+          <m.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.6 }} className="flex items-center gap-4 mt-6">
             <span className="font-mono text-xs text-white/50 tracking-wide">David Turk</span>
             <span className="w-1 h-1 rounded-full bg-white/30" />
             <span className="font-mono text-xs text-white/50 tracking-wide">9 min read</span>
-          </motion.div>
+          </m.div>
 
-          <motion.div initial={{ width: 0 }} animate={{ width: "6rem" }} transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }} className="h-px bg-gradient-to-r from-pink-400 to-rose-500 mt-8" />
+          <m.div initial={{ width: 0 }} animate={{ width: "6rem" }} transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }} className="h-px bg-gradient-to-r from-pink-400 to-rose-500 mt-8" />
         </div>
       </section>
 
       {/* Article Body */}
       <section className="section-container section-padding">
-        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} className="max-w-3xl mx-auto">
-          <motion.div variants={fadeUp}>
+        <m.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} className="max-w-3xl mx-auto">
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               The Volume Problem Every Brand Faces
             </h2>
@@ -119,13 +119,13 @@ export default function AIShortFormContentArticle() {
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               This is the tension every brand faces in 2026. You need to publish three to five short-form videos per week across multiple platforms, each optimized for different aspect ratios, different audience behaviors, and different algorithmic preferences. Traditional production workflows cannot keep up with that demand. A single professionally produced video takes days to conceive, shoot, edit, and deliver. The math doesn&rsquo;t work.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.blockquote variants={fadeUp} className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8">
+          <m.blockquote variants={fadeUp} className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8">
             The platforms reward brands that show up every day. AI is how you show up every day without burning out your team or your budget.
-          </motion.blockquote>
+          </m.blockquote>
 
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               AI as the Content Multiplier
             </h2>
@@ -138,9 +138,9 @@ export default function AIShortFormContentArticle() {
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               One shoot day becomes a week of content. One creative concept becomes a full multi-platform rollout. The human investment stays focused on the work that matters: the idea, the story, the creative direction. AI handles the multiplication.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               Platform-Native Is Non-Negotiable
             </h2>
@@ -150,13 +150,13 @@ export default function AIShortFormContentArticle() {
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               AI tools now handle platform-specific optimization automatically. They reframe content for different aspect ratios, adjust pacing and cut rhythm for each platform&rsquo;s engagement patterns, generate platform-native text overlays and captions, and even suggest optimal posting times based on audience data. The creative core stays the same, but the delivery is tailored for each platform&rsquo;s native language.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.blockquote variants={fadeUp} className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8">
+          <m.blockquote variants={fadeUp} className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8">
             The best short-form content feels like it was born on the platform, not adapted from something else. AI makes native formatting scalable.
-          </motion.blockquote>
+          </m.blockquote>
 
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               The Hook Economy
             </h2>
@@ -166,9 +166,9 @@ export default function AIShortFormContentArticle() {
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               We use AI to generate ten to fifteen hook options for every piece of content, then test the top three across platforms. The data comes back within 48 hours, and we know exactly which creative direction resonates. This level of systematic testing was impossible when every variation required manual production. With AI, it&rsquo;s standard practice.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               Sound and Music: The Secret Weapon
             </h2>
@@ -178,13 +178,13 @@ export default function AIShortFormContentArticle() {
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               We generate custom sound beds, trending audio adaptations, and branded audio signatures using AI tools, then layer them with human-directed mixing and refinement. Every piece of content ships with audio that feels intentional and premium, not like it was pulled from a stock library five minutes before posting.
             </p>
-          </motion.div>
+          </m.div>
 
-          <motion.blockquote variants={fadeUp} className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8">
+          <m.blockquote variants={fadeUp} className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8">
             Sound is where most brand content falls apart. AI sound design closes the gap between what brands can afford and what audiences expect.
-          </motion.blockquote>
+          </m.blockquote>
 
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               The Brands Winning the Short-Form Game
             </h2>
@@ -194,8 +194,8 @@ export default function AIShortFormContentArticle() {
             <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
               If your brand is posting the same 16:9 video cropped to 9:16 across every platform, you&rsquo;re leaving reach on the table. If you&rsquo;re publishing twice a week because your production team can&rsquo;t keep up, you&rsquo;re invisible to the algorithms. AI-powered short-form workflows solve both problems simultaneously: more content, better adapted, at a pace that keeps your brand in the feed and in the conversation.
             </p>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </section>
 
       {/* Divider */}
@@ -205,13 +205,13 @@ export default function AIShortFormContentArticle() {
 
       {/* More Perspectives */}
       <section className="section-container section-padding">
-        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} className="mb-12">
+        <m.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} className="mb-12">
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">Continue Reading</p>
           <h2 className="font-headline text-h3 font-bold">More <span className="gradient-text">Perspectives</span></h2>
-        </motion.div>
-        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        </m.div>
+        <m.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {moreArticles.map((article) => (
-            <motion.div key={article.href} variants={staggerItem}>
+            <m.div key={article.href} variants={staggerItem}>
               <Link href={article.href} className="group block rounded-2xl border border-white/5 bg-white/[0.02] overflow-hidden hover:border-white/15 hover:-translate-y-1 transition-all duration-500">
                 <div className="relative h-32 overflow-hidden">
                   <div className={`absolute inset-0 bg-gradient-to-br ${article.gradient} transition-transform duration-700 group-hover:scale-110`} />
@@ -228,9 +228,9 @@ export default function AIShortFormContentArticle() {
                   </span>
                 </div>
               </Link>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </section>
     </article>
   );
