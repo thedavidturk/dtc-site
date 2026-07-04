@@ -200,7 +200,7 @@ export default function TodesVejiganteProject() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-4"
+            className="font-display text-h1 font-bold mb-4"
           >
             TODES VEJIGANTE
           </motion.h1>
@@ -303,7 +303,7 @@ export default function TodesVejiganteProject() {
             <p className="font-mono text-sm text-amber-400 tracking-widest uppercase mb-4">
               The Challenge
             </p>
-            <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
+            <h2 className="font-headline text-h3 font-bold mb-8">
               Cultural preservation{" "}
               <span className="gradient-text">against erasure</span>
             </h2>
@@ -347,7 +347,7 @@ export default function TodesVejiganteProject() {
           <p className="font-mono text-sm text-amber-400 tracking-widest uppercase mb-4">
             Our Approach
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             From research to resistance{" "}
             <span className="text-white">in five phases</span>
           </h2>
@@ -401,7 +401,7 @@ export default function TodesVejiganteProject() {
           <p className="font-mono text-sm text-amber-400 tracking-widest uppercase mb-4">
             The Solution
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
+          <h2 className="font-headline text-h3 font-bold mb-8">
             Culture as the campaign{" "}
             <span className="text-white">itself</span>
           </h2>
@@ -444,7 +444,7 @@ export default function TodesVejiganteProject() {
           <p className="font-mono text-sm text-amber-400 tracking-widest uppercase mb-4">
             Campaign Gallery
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             Portraits, exhibition &{" "}
             <span className="text-white">community</span>
           </h2>
@@ -631,7 +631,7 @@ export default function TodesVejiganteProject() {
           <p className="font-mono text-sm text-amber-400 tracking-widest uppercase mb-4">
             The Result
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             Real impact,{" "}
             <span className="text-white">lasting support</span>
           </h2>
@@ -688,7 +688,7 @@ export default function TodesVejiganteProject() {
           <p className="font-mono text-sm text-amber-400 tracking-widest uppercase mb-4">
             Capabilities
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             The <span className="text-white">production toolkit</span>
           </h2>
         </motion.div>
@@ -731,7 +731,7 @@ export default function TodesVejiganteProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="text-center max-w-2xl mx-auto"
         >
-          <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+          <h2 className="font-headline text-h2 font-bold mb-6">
             Have a story{" "}
             <span className="text-white">worth telling</span>?
           </h2>

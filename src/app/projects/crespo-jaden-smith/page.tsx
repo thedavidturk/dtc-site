@@ -152,7 +152,7 @@ const galleryImages = [
 
 export default function CrespoJadenSmithProject() {
   return (
-    <article className="bg-deep-space min-h-screen" style={{ backgroundColor: "#0B0F19" }}>
+    <article className="bg-deep-space min-h-screen" style={{ backgroundColor: "#120D1A" }}>
       {/* ── Back Link ─────────────────────────────────────────────── */}
       <motion.div
         initial={{ opacity: 0, x: -20 }}
@@ -217,7 +217,7 @@ export default function CrespoJadenSmithProject() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-4"
+            className="font-display text-h1 font-bold mb-4"
           >
             BEHIND THE STAGE
           </motion.h1>
@@ -255,7 +255,7 @@ export default function CrespoJadenSmithProject() {
       />
 
       {/* ── The Film (Video) ──────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -266,7 +266,7 @@ export default function CrespoJadenSmithProject() {
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             The Film
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             Press play on{" "}
             <span className="gradient-text">the documentary short</span>
           </h2>
@@ -284,7 +284,7 @@ export default function CrespoJadenSmithProject() {
 
           <div className="relative w-full overflow-hidden rounded-2xl border border-white/10 bg-black aspect-video shadow-2xl shadow-black/40">
             <iframe
-              src="https://www-ccv.adobe.io/v1/player/ccv/Tevy7Apn4ss/embed?bgcolor=%230B0F19&lazyLoading=true&api_key=BehancePro2View"
+              src="https://www-ccv.adobe.io/v1/player/ccv/Tevy7Apn4ss/embed?bgcolor=%23120D1A&lazyLoading=true&api_key=BehancePro2View"
               className="absolute inset-0 h-full w-full"
               allow="autoplay; fullscreen; picture-in-picture"
               allowFullScreen
@@ -300,7 +300,7 @@ export default function CrespoJadenSmithProject() {
       </div>
 
       {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Sidebar */}
           <motion.aside
@@ -365,7 +365,7 @@ export default function CrespoJadenSmithProject() {
             <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
               The Idea
             </p>
-            <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
+            <h2 className="font-headline text-h3 font-bold mb-8">
               A documentary short shot and edited in{" "}
               <span className="text-white">24 hours</span>
             </h2>
@@ -393,7 +393,7 @@ export default function CrespoJadenSmithProject() {
       </div>
 
       {/* ── Our Approach ─────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -404,7 +404,7 @@ export default function CrespoJadenSmithProject() {
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             The Direction
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             From the room to the cut{" "}
             <span className="text-white">in five moves</span>
           </h2>
@@ -447,7 +447,7 @@ export default function CrespoJadenSmithProject() {
       </div>
 
       {/* ── The Approach Narrative ───────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -458,7 +458,7 @@ export default function CrespoJadenSmithProject() {
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             The Feel
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
+          <h2 className="font-headline text-h3 font-bold mb-8">
             Cinematic, but{" "}
             <span className="text-white">honest to the moment</span>
           </h2>
@@ -485,7 +485,7 @@ export default function CrespoJadenSmithProject() {
       </div>
 
       {/* ── Gallery ──────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -496,7 +496,7 @@ export default function CrespoJadenSmithProject() {
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             Stills
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             Moments from{" "}
             <span className="text-white">behind the stage</span>
           </h2>
@@ -649,7 +649,7 @@ export default function CrespoJadenSmithProject() {
       </div>
 
       {/* ── The Result ───────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -660,7 +660,7 @@ export default function CrespoJadenSmithProject() {
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             The Result
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             A short that{" "}
             <span className="text-white">lives in the room</span>
           </h2>
@@ -706,7 +706,7 @@ export default function CrespoJadenSmithProject() {
       </div>
 
       {/* ── Tools & Technology ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -717,7 +717,7 @@ export default function CrespoJadenSmithProject() {
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             Capabilities
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             The <span className="text-white">production toolkit</span>
           </h2>
         </motion.div>
@@ -752,7 +752,7 @@ export default function CrespoJadenSmithProject() {
       </div>
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -760,7 +760,7 @@ export default function CrespoJadenSmithProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="text-center max-w-2xl mx-auto"
         >
-          <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+          <h2 className="font-headline text-h2 font-bold mb-6">
             Have a moment{" "}
             <span className="text-white">worth documenting</span>?
           </h2>

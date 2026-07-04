@@ -154,7 +154,7 @@ const capabilities = [
 
 export default function FordFieldClubProject() {
   return (
-    <article className="bg-deep-space min-h-screen" style={{ backgroundColor: "#0B0F19" }}>
+    <article className="bg-deep-space min-h-screen" style={{ backgroundColor: "#120D1A" }}>
       {/* ── Back Link ─────────────────────────────────────────────── */}
       <motion.div
         initial={{ opacity: 0, x: -20 }}
@@ -216,7 +216,7 @@ export default function FordFieldClubProject() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-4"
+            className="font-display text-h1 font-bold mb-4"
           >
             FORD FIELD CLUB
           </motion.h1>
@@ -254,7 +254,7 @@ export default function FordFieldClubProject() {
       />
 
       {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Sidebar */}
           <motion.aside
@@ -315,7 +315,7 @@ export default function FordFieldClubProject() {
             <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
               The Challenge
             </p>
-            <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
+            <h2 className="font-headline text-h3 font-bold mb-8">
               A premium club{" "}
               <span className="gradient-text">at the edge of the field</span>
             </h2>
@@ -347,7 +347,7 @@ export default function FordFieldClubProject() {
       </div>
 
       {/* ── The Film (Video) ─────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -358,7 +358,7 @@ export default function FordFieldClubProject() {
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             The Film
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             Step inside{" "}
             <span className="text-white">the Ford Field Club</span>
           </h2>
@@ -379,7 +379,7 @@ export default function FordFieldClubProject() {
             {/* 16:9 responsive embed (Adobe CCV player from the source case study) */}
             <div className="relative w-full aspect-video">
               <iframe
-                src={`https://www-ccv.adobe.io/v1/player/ccv/${videoId}/embed?bgcolor=%230B0F19&lazyLoading=true&api_key=BehancePro2View`}
+                src={`https://www-ccv.adobe.io/v1/player/ccv/${videoId}/embed?bgcolor=%23120D1A&lazyLoading=true&api_key=BehancePro2View`}
                 title="Ford Field Club at Hard Rock Stadium"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -396,7 +396,7 @@ export default function FordFieldClubProject() {
       </div>
 
       {/* ── Our Approach ─────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -407,7 +407,7 @@ export default function FordFieldClubProject() {
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             The Approach
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             Directing the experience{" "}
             <span className="text-white">end to end</span>
           </h2>
@@ -450,7 +450,7 @@ export default function FordFieldClubProject() {
       </div>
 
       {/* ── The Solution ─────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -461,7 +461,7 @@ export default function FordFieldClubProject() {
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             The Solution
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
+          <h2 className="font-headline text-h3 font-bold mb-8">
             Access as the story,{" "}
             <span className="text-white">Ford as the host</span>
           </h2>
@@ -492,7 +492,7 @@ export default function FordFieldClubProject() {
       </div>
 
       {/* ── Gallery ──────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -503,7 +503,7 @@ export default function FordFieldClubProject() {
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             The Club
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             Inside the{" "}
             <span className="text-white">Ford Field Club</span>
           </h2>
@@ -588,7 +588,7 @@ export default function FordFieldClubProject() {
       </div>
 
       {/* ── The Result ───────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -599,7 +599,7 @@ export default function FordFieldClubProject() {
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             The Result
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             A club that{" "}
             <span className="text-white">earns the access</span>
           </h2>
@@ -645,7 +645,7 @@ export default function FordFieldClubProject() {
       </div>
 
       {/* ── Capabilities ─────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -656,7 +656,7 @@ export default function FordFieldClubProject() {
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             Capabilities
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             The <span className="text-white">direction toolkit</span>
           </h2>
         </motion.div>
@@ -691,7 +691,7 @@ export default function FordFieldClubProject() {
       </div>
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -699,7 +699,7 @@ export default function FordFieldClubProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="text-center max-w-2xl mx-auto"
         >
-          <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+          <h2 className="font-headline text-h2 font-bold mb-6">
             Building an experience{" "}
             <span className="text-white">worth showing up for</span>?
           </h2>

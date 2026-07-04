@@ -188,11 +188,11 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="bg-deep-space section-padding relative overflow-hidden" style={{ backgroundColor: "#0B0F19" }}>
+    <section id="contact" className="bg-deep-space section-padding relative overflow-hidden" style={{ backgroundColor: "#120D1A" }}>
       {/* Background decorative elements */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.06)_0%,transparent_50%)]" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] opacity-[0.03] bg-[radial-gradient(circle,#F97316,transparent_60%)]" />
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] opacity-[0.03] bg-[radial-gradient(circle,#6366F1,transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(124,92,255,0.06)_0%,transparent_50%)]" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] opacity-[0.03] bg-[radial-gradient(circle,#FF8A5C,transparent_60%)]" />
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] opacity-[0.03] bg-[radial-gradient(circle,#7C5CFF,transparent_60%)]" />
 
       <motion.div
         className="section-container relative z-10"
@@ -206,7 +206,7 @@ export default function Contact() {
           <span className="font-mono text-xs tracking-[0.3em] text-electric-indigo uppercase mb-4 block">
             Get In Touch
           </span>
-          <h2 className="font-headline text-4xl md:text-5xl font-bold text-pure-white tracking-tight">
+          <h2 className="font-display text-h2 font-bold text-pure-white">
             LET&apos;S BUILD
             <br />
             <span className="text-pure-white">WHAT&apos;S NEXT</span>
@@ -448,8 +448,8 @@ export default function Contact() {
               <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-electric-indigo/20 via-transparent to-warm-coral/20 opacity-60" />
               <div className="relative bg-white/[0.02] backdrop-blur-sm border border-white/5 rounded-2xl p-8 lg:p-10 h-full">
                 {/* Decorative corner accent */}
-                <div className="absolute top-0 right-0 w-40 h-40 bg-[radial-gradient(circle_at_top_right,rgba(99,102,241,0.08),transparent_70%)] rounded-tr-2xl" />
-                <div className="absolute bottom-0 left-0 w-40 h-40 bg-[radial-gradient(circle_at_bottom_left,rgba(249,115,22,0.06),transparent_70%)] rounded-bl-2xl" />
+                <div className="absolute top-0 right-0 w-40 h-40 bg-[radial-gradient(circle_at_top_right,rgba(124,92,255,0.08),transparent_70%)] rounded-tr-2xl" />
+                <div className="absolute bottom-0 left-0 w-40 h-40 bg-[radial-gradient(circle_at_bottom_left,rgba(255,138,92,0.06),transparent_70%)] rounded-bl-2xl" />
 
                 <div className="relative z-10">
                   <h3 className="font-headline text-xl font-bold text-pure-white mb-8">

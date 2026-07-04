@@ -45,7 +45,7 @@ export default function ProjectGifBand({
   return (
     <section
       className="section-container py-16 md:py-24"
-      style={{ backgroundColor: "#0B0F19" }}
+      style={{ backgroundColor: "#120D1A" }}
     >
       <motion.div
         variants={fadeUp}
@@ -57,7 +57,7 @@ export default function ProjectGifBand({
         <p className="font-mono text-sm text-warm-coral tracking-widest uppercase mb-4">
           {eyebrow}
         </p>
-        <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight text-pure-white">
+        <h2 className="font-headline text-h3 font-bold text-pure-white">
           {heading}
         </h2>
       </motion.div>

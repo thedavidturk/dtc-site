@@ -302,7 +302,7 @@ export default function Hero() {
   return (
     <section
       className="relative min-h-screen overflow-hidden bg-deep-space pt-24 lg:pt-0"
-      style={{ backgroundColor: "#0B0F19" }}
+      style={{ backgroundColor: "#120D1A" }}
     >
       {/* Ambient color wash */}
       <div className="pointer-events-none absolute inset-0 z-0">
@@ -338,7 +338,7 @@ export default function Hero() {
             {/* Line 1: "Content that" - tight, bold, large */}
             <motion.span
               variants={item}
-              className="block font-bold leading-[0.86] tracking-[-0.03em] text-[2.75rem] sm:text-6xl lg:text-7xl"
+              className="block font-bold leading-[0.86] tracking-[-0.03em] text-h1"
             >
               Content that
             </motion.span>
@@ -354,7 +354,7 @@ export default function Hero() {
             {/* Line 3: "culture." - oversized hero word in gradient */}
             <motion.span
               variants={item}
-              className="mt-1 block gradient-text font-extrabold leading-[0.82] tracking-[-0.04em] text-7xl sm:text-8xl lg:text-[8.5rem]"
+              className="mt-1 block gradient-text font-extrabold leading-[0.82] tracking-[-0.04em] text-display"
             >
               culture.
             </motion.span>

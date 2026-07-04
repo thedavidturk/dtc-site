@@ -101,13 +101,13 @@ export default function EmailCapture() {
   }
 
   return (
-    <section className="bg-deep-space section-padding relative overflow-hidden" style={{ backgroundColor: "#0B0F19" }}>
+    <section className="bg-deep-space section-padding relative overflow-hidden" style={{ backgroundColor: "#120D1A" }}>
       {/* Subtle top/bottom border lines */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 
       {/* Background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.04)_0%,transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(124,92,255,0.04)_0%,transparent_60%)]" />
 
       <motion.div
         className="section-container relative z-10 max-w-3xl mx-auto"
@@ -121,7 +121,7 @@ export default function EmailCapture() {
           <span className="font-mono text-xs tracking-[0.3em] text-electric-indigo uppercase mb-4 block">
             Stay in the Loop
           </span>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold text-pure-white tracking-tight">
+          <h2 className="font-display text-h3 font-bold text-pure-white">
             Get Monthly AI Creative{" "}
             <span className="text-pure-white">Insights</span>
           </h2>

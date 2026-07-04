@@ -12,7 +12,7 @@ const AboutVisual3D = dynamic(() => import("./AboutVisual3D"), {
       className="aspect-[3/4] w-full max-w-[480px] mx-auto lg:mx-0 rounded-2xl"
       style={{
         background:
-          "linear-gradient(160deg, #131A2B 0%, #1a1f35 30%, #0B0F19 70%, #1a1535 100%)",
+          "linear-gradient(160deg, #1E152E 0%, #201736 30%, #120D1A 70%, #1a1535 100%)",
       }}
     />
   ),
@@ -67,20 +67,20 @@ const fadeUp = {
 
 export default function About() {
   return (
-    <section id="about" className="relative bg-deep-space overflow-hidden" style={{ backgroundColor: "#0B0F19" }}>
+    <section id="about" className="relative bg-deep-space overflow-hidden" style={{ backgroundColor: "#120D1A" }}>
       {/* Background accents */}
       <div
         className="absolute top-0 right-0 w-[600px] h-[600px] opacity-[0.04]"
         style={{
           background:
-            "radial-gradient(circle at center, #F97316 0%, transparent 70%)",
+            "radial-gradient(circle at center, #FF8A5C 0%, transparent 70%)",
         }}
       />
       <div
         className="absolute bottom-0 left-0 w-[500px] h-[500px] opacity-[0.04]"
         style={{
           background:
-            "radial-gradient(circle at center, #6366F1 0%, transparent 70%)",
+            "radial-gradient(circle at center, #7C5CFF 0%, transparent 70%)",
         }}
       />
 
@@ -99,7 +99,7 @@ export default function About() {
           <TextReveal
             text="BUILT FOR WHAT'S NEXT"
             as="h2"
-            className="font-headline text-4xl md:text-5xl font-bold text-pure-white tracking-tight"
+            className="font-display text-h2 font-bold text-pure-white"
           />
         </motion.div>
 

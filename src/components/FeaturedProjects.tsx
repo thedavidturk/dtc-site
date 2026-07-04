@@ -250,9 +250,9 @@ const headingVariants = {
 
 export default function FeaturedProjects() {
   return (
-    <section id="projects" className="bg-deep-space section-padding relative overflow-hidden" style={{ backgroundColor: "#0B0F19" }}>
+    <section id="projects" className="bg-deep-space section-padding relative overflow-hidden" style={{ backgroundColor: "#120D1A" }}>
       {/* Subtle background texture */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(99,102,241,0.05)_0%,transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(124,92,255,0.05)_0%,transparent_60%)]" />
 
       <div className="section-container relative z-10">
         {/* Section header */}
@@ -266,7 +266,7 @@ export default function FeaturedProjects() {
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             Selected Work
           </p>
-          <h2 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold text-pure-white tracking-tight">
+          <h2 className="font-display text-h2 font-bold text-pure-white">
             <TextReveal text="WORK THAT PUSHES" as="span" className="block" />
             <TextReveal text="BOUNDARIES" as="span" className="block text-pure-white" delay={0.2} />
           </h2>
@@ -394,7 +394,7 @@ export default function FeaturedProjects() {
 
                   {/* Border glow on hover */}
                   <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-white/10 transition-colors duration-500 pointer-events-none" />
-                  <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none shadow-[inset_0_0_60px_rgba(99,102,241,0.08)]" />
+                  <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none shadow-[inset_0_0_60px_rgba(124,92,255,0.08)]" />
                 </TiltCard>
               </Link>
             </motion.div>

@@ -194,7 +194,7 @@ export default function BarrysBootcampProject() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-4"
+            className="font-display text-h1 font-bold mb-4"
           >
             BARRY&rsquo;S BOOTCAMP
           </motion.h1>
@@ -297,7 +297,7 @@ export default function BarrysBootcampProject() {
             <p className="font-mono text-sm text-amber-400 tracking-widest uppercase mb-4">
               The Challenge
             </p>
-            <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
+            <h2 className="font-headline text-h3 font-bold mb-8">
               Studio intensity,{" "}
               <span className="gradient-text">on a small screen</span>
             </h2>
@@ -337,7 +337,7 @@ export default function BarrysBootcampProject() {
           <p className="font-mono text-sm text-amber-400 tracking-widest uppercase mb-4">
             Our Approach
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             From studio floor to{" "}
             <span className="text-white">feed</span>
           </h2>
@@ -391,7 +391,7 @@ export default function BarrysBootcampProject() {
           <p className="font-mono text-sm text-amber-400 tracking-widest uppercase mb-4">
             The Solution
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
+          <h2 className="font-headline text-h3 font-bold mb-8">
             A motion system{" "}
             <span className="text-white">that moves like the brand</span>
           </h2>
@@ -430,7 +430,7 @@ export default function BarrysBootcampProject() {
           <p className="font-mono text-sm text-amber-400 tracking-widest uppercase mb-4">
             Content Gallery
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             Animated graphics &{" "}
             <span className="text-white">social motion</span>
           </h2>
@@ -560,7 +560,7 @@ export default function BarrysBootcampProject() {
           <p className="font-mono text-sm text-amber-400 tracking-widest uppercase mb-4">
             Capabilities
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             The <span className="text-white">content toolkit</span>
           </h2>
         </motion.div>
@@ -603,7 +603,7 @@ export default function BarrysBootcampProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="text-center max-w-2xl mx-auto"
         >
-          <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+          <h2 className="font-headline text-h2 font-bold mb-6">
             Need content that{" "}
             <span className="text-white">moves</span>?
           </h2>

@@ -68,7 +68,7 @@ export default function ZeroClickVisibilityArticle() {
             </motion.div>
             <motion.h1
               variants={staggerItem}
-              className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05] mb-6"
+              className="font-display text-h1 font-bold mb-6"
             >
               Zero-Click Is Here: How Brands Get Found When Nobody Visits Your Website
             </motion.h1>

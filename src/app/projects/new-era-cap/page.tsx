@@ -162,7 +162,7 @@ function CampaignSection({
             <p className="font-mono text-xs tracking-widest uppercase text-electric-indigo mb-1">
               {campaign.subtitle}
             </p>
-            <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight text-pure-white">
+            <h2 className="font-headline text-h3 font-bold text-pure-white">
               {campaign.title}
             </h2>
           </div>
@@ -269,7 +269,7 @@ export default function NewEraCapProject() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-4"
+            className="font-display text-h1 font-bold mb-4"
           >
             NEW ERA CAP
           </motion.h1>
@@ -371,7 +371,7 @@ export default function NewEraCapProject() {
             <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
               The Partnership
             </p>
-            <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
+            <h2 className="font-headline text-h3 font-bold mb-8">
               Building worlds for{" "}
               <span className="gradient-text">an iconic brand</span>
             </h2>
@@ -447,7 +447,7 @@ export default function NewEraCapProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="text-center max-w-2xl mx-auto"
         >
-          <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+          <h2 className="font-headline text-h2 font-bold mb-6">
             Ready to build your{" "}
             <span className="text-white">next world</span>?
           </h2>

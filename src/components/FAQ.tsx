@@ -113,7 +113,7 @@ export default function FAQ() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="font-headline text-3xl md:text-5xl text-pure-white mb-4">
+          <h2 className="font-display text-h2 text-pure-white mb-4">
             Frequently Asked Questions
           </h2>
           <p className="font-body text-cool-gray text-lg">

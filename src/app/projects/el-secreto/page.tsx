@@ -138,7 +138,7 @@ const tools = [
 
 export default function ElSecretoProject() {
   return (
-    <article className="bg-deep-space min-h-screen" style={{ backgroundColor: "#0B0F19" }}>
+    <article className="bg-deep-space min-h-screen" style={{ backgroundColor: "#120D1A" }}>
       {/* ── Back Link ─────────────────────────────────────────────── */}
       <motion.div
         initial={{ opacity: 0, x: -20 }}
@@ -196,7 +196,7 @@ export default function ElSecretoProject() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-4"
+            className="font-display text-h1 font-bold mb-4"
           >
             EL SECRETO
           </motion.h1>
@@ -234,7 +234,7 @@ export default function ElSecretoProject() {
       />
 
       {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Sidebar */}
           <motion.aside
@@ -299,7 +299,7 @@ export default function ElSecretoProject() {
             <p className="font-mono text-sm text-warm-coral tracking-widest uppercase mb-4">
               The Challenge
             </p>
-            <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
+            <h2 className="font-headline text-h3 font-bold mb-8">
               Capturing culinary artistry{" "}
               <span className="gradient-text">in a live environment</span>
             </h2>
@@ -330,7 +330,7 @@ export default function ElSecretoProject() {
       </div>
 
       {/* ── Our Approach ─────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -341,7 +341,7 @@ export default function ElSecretoProject() {
           <p className="font-mono text-sm text-warm-coral tracking-widest uppercase mb-4">
             Our Approach
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             From kitchen to screen{" "}
             <span className="text-white">in five steps</span>
           </h2>
@@ -384,7 +384,7 @@ export default function ElSecretoProject() {
       </div>
 
       {/* ── The Solution ─────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -395,7 +395,7 @@ export default function ElSecretoProject() {
           <p className="font-mono text-sm text-warm-coral tracking-widest uppercase mb-4">
             The Solution
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
+          <h2 className="font-headline text-h3 font-bold mb-8">
             Documentary soul,{" "}
             <span className="text-white">cinematic craft</span>
           </h2>
@@ -427,7 +427,7 @@ export default function ElSecretoProject() {
       </div>
 
       {/* ── Video ───────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -438,7 +438,7 @@ export default function ElSecretoProject() {
           <p className="font-mono text-sm text-warm-coral tracking-widest uppercase mb-4">
             The Film
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             Savoring the Unseen: <span className="text-white">Full Episode</span>
           </h2>
         </motion.div>
@@ -485,7 +485,7 @@ export default function ElSecretoProject() {
       </div>
 
       {/* ── Campaign Gallery ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -496,7 +496,7 @@ export default function ElSecretoProject() {
           <p className="font-mono text-sm text-warm-coral tracking-widest uppercase mb-4">
             Campaign Gallery
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             Savoring <span className="text-white">Every Detail</span>
           </h2>
         </motion.div>
@@ -764,7 +764,7 @@ export default function ElSecretoProject() {
       </div>
 
       {/* ── The Result ───────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -775,7 +775,7 @@ export default function ElSecretoProject() {
           <p className="font-mono text-sm text-warm-coral tracking-widest uppercase mb-4">
             The Result
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             An immersive experience,{" "}
             <span className="text-white">captured in 4K</span>
           </h2>
@@ -821,7 +821,7 @@ export default function ElSecretoProject() {
       </div>
 
       {/* ── Tools & Technology ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -832,7 +832,7 @@ export default function ElSecretoProject() {
           <p className="font-mono text-sm text-warm-coral tracking-widest uppercase mb-4">
             Tools & Technology
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             The <span className="text-white">production stack</span>
           </h2>
         </motion.div>
@@ -867,7 +867,7 @@ export default function ElSecretoProject() {
       </div>
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -875,7 +875,7 @@ export default function ElSecretoProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="text-center max-w-2xl mx-auto"
         >
-          <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+          <h2 className="font-headline text-h2 font-bold mb-6">
             Ready to tell{" "}
             <span className="text-white">your story cinematically</span>?
           </h2>

@@ -86,7 +86,7 @@ export default function Header() {
         className="absolute bottom-0 left-0 right-0 h-px"
         style={{
           background:
-            "linear-gradient(90deg, transparent, rgba(99,102,241,0.3), rgba(249,115,22,0.2), transparent)",
+            "linear-gradient(90deg, transparent, rgba(124,92,255,0.3), rgba(255,138,92,0.2), transparent)",
           backgroundSize: "200% 100%",
           animation: "shimmer-border 3.5s linear infinite",
         }}

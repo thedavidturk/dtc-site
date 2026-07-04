@@ -145,7 +145,7 @@ export default function HeroVideo() {
     <section
       ref={sectionRef}
       className="relative bg-deep-space overflow-hidden"
-      style={{ backgroundColor: "#0B0F19" }}
+      style={{ backgroundColor: "#120D1A" }}
     >
       {/* Ambient glow behind video */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -153,7 +153,7 @@ export default function HeroVideo() {
           className="w-[80%] h-[60%] opacity-[0.06] blur-[120px]"
           style={{
             background:
-              "radial-gradient(ellipse at center, #6366F1 0%, #F97316 40%, transparent 70%)",
+              "radial-gradient(ellipse at center, #7C5CFF 0%, #FF8A5C 40%, transparent 70%)",
           }}
         />
       </div>
@@ -376,7 +376,7 @@ export default function HeroVideo() {
             <div
               className="absolute -bottom-8 left-[10%] right-[10%] h-16 opacity-[0.08] blur-2xl rounded-full"
               style={{
-                background: "linear-gradient(90deg, #6366F1, #F97316)",
+                background: "linear-gradient(90deg, #7C5CFF, #FF8A5C)",
               }}
             />
           </motion.div>

@@ -216,10 +216,10 @@ export default function Insights() {
   };
 
   return (
-    <section id="insights" className="bg-deep-space section-padding relative overflow-hidden" style={{ backgroundColor: "#0B0F19" }}>
+    <section id="insights" className="bg-deep-space section-padding relative overflow-hidden" style={{ backgroundColor: "#120D1A" }}>
       {/* Background texture */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(249,115,22,0.04)_0%,transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(99,102,241,0.04)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(255,138,92,0.04)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(124,92,255,0.04)_0%,transparent_50%)]" />
 
       <motion.div
         className="relative z-10"
@@ -233,7 +233,7 @@ export default function Insights() {
           <span className="font-mono text-xs tracking-[0.3em] text-electric-indigo uppercase mb-4 block">
             Insights
           </span>
-          <h2 className="font-headline text-4xl md:text-5xl font-bold text-pure-white tracking-tight">
+          <h2 className="font-display text-h2 font-bold text-pure-white">
             PERSPECTIVES
           </h2>
           {liveDate && (
@@ -288,13 +288,13 @@ export default function Insights() {
         <div className="relative">
           {/* Left fade */}
           <div
-            className={`absolute left-0 top-0 bottom-0 w-16 md:w-24 z-10 bg-gradient-to-r from-[#0B0F19] to-transparent pointer-events-none transition-opacity duration-300 ${
+            className={`absolute left-0 top-0 bottom-0 w-16 md:w-24 z-10 bg-gradient-to-r from-[#120D1A] to-transparent pointer-events-none transition-opacity duration-300 ${
               canScrollLeft ? "opacity-100" : "opacity-0"
             }`}
           />
           {/* Right fade */}
           <div
-            className={`absolute right-0 top-0 bottom-0 w-16 md:w-24 z-10 bg-gradient-to-l from-[#0B0F19] to-transparent pointer-events-none transition-opacity duration-300 ${
+            className={`absolute right-0 top-0 bottom-0 w-16 md:w-24 z-10 bg-gradient-to-l from-[#120D1A] to-transparent pointer-events-none transition-opacity duration-300 ${
               canScrollRight ? "opacity-100" : "opacity-0"
             }`}
           />
@@ -335,7 +335,7 @@ export default function Insights() {
                       <div className="absolute inset-0 z-20 opacity-[0.06] bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:40px_40px]" />
 
                       {/* Bottom fade */}
-                      <div className="absolute inset-x-0 bottom-0 h-1/3 z-20 bg-gradient-to-t from-[#0B0F19]/80 to-transparent" />
+                      <div className="absolute inset-x-0 bottom-0 h-1/3 z-20 bg-gradient-to-t from-[#120D1A]/80 to-transparent" />
 
                       {/* Month badge */}
                       <div className="absolute top-4 right-4 z-30">
@@ -345,7 +345,7 @@ export default function Insights() {
                       </div>
 
                       {/* Corner accent glow on hover */}
-                      <div className="absolute top-0 right-0 w-32 h-32 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-[radial-gradient(circle_at_top_right,rgba(99,102,241,0.15),transparent_70%)]" />
+                      <div className="absolute top-0 right-0 w-32 h-32 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-[radial-gradient(circle_at_top_right,rgba(124,92,255,0.15),transparent_70%)]" />
                     </div>
 
                     {/* Card content */}
@@ -389,7 +389,7 @@ export default function Insights() {
                     </div>
 
                     {/* Hover border glow */}
-                    <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none shadow-[inset_0_0_40px_rgba(99,102,241,0.05)]" />
+                    <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none shadow-[inset_0_0_40px_rgba(124,92,255,0.05)]" />
                   </div>
                 </Link>
               </motion.article>

@@ -109,7 +109,7 @@ export default function ValuePropositions() {
     <section
       id="value-propositions"
       className="relative bg-deep-space py-16 md:py-20 lg:py-24 overflow-hidden"
-      style={{ backgroundColor: "#0B0F19" }}
+      style={{ backgroundColor: "#120D1A" }}
     >
       {/* Subtle background accent */}
       <div className="absolute inset-0 pointer-events-none">
@@ -117,7 +117,7 @@ export default function ValuePropositions() {
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] opacity-[0.03]"
           style={{
             background:
-              "radial-gradient(ellipse at center, #6366F1 0%, transparent 70%)",
+              "radial-gradient(ellipse at center, #7C5CFF 0%, transparent 70%)",
           }}
         />
       </div>
@@ -140,12 +140,12 @@ export default function ValuePropositions() {
           <TextReveal
             text="The future of creative production"
             as="h2"
-            className="font-headline font-bold text-3xl md:text-4xl lg:text-5xl text-pure-white leading-tight"
+            className="font-display font-bold text-h2 text-pure-white"
           />
           <TextReveal
             text="is here"
             as="span"
-            className="font-headline font-bold text-3xl md:text-4xl lg:text-5xl leading-tight text-pure-white block"
+            className="font-display font-bold text-h2 text-pure-white block"
             delay={0.2}
           />
         </motion.div>
@@ -164,7 +164,7 @@ export default function ValuePropositions() {
               <motion.div
                 className="group relative h-full rounded-2xl border border-white/5 bg-white/[0.02] p-8 lg:p-10 transition-colors duration-500"
                 whileHover={{
-                  borderColor: "rgba(99, 102, 241, 0.3)",
+                  borderColor: "rgba(124,92,255, 0.3)",
                   scale: 1.02,
                   transition: { duration: 0.3, ease: "easeOut" },
                 }}
@@ -174,7 +174,7 @@ export default function ValuePropositions() {
                   className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                   style={{
                     background:
-                      "radial-gradient(ellipse at 50% 0%, rgba(99, 102, 241, 0.08) 0%, transparent 70%)",
+                      "radial-gradient(ellipse at 50% 0%, rgba(124,92,255, 0.08) 0%, transparent 70%)",
                   }}
                 />
 

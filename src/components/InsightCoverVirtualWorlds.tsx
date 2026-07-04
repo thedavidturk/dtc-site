@@ -10,7 +10,7 @@ import * as THREE from "three";
 const GRID_SEG = 24;
 const GRID_SIZE = 4;
 const PARTICLE_COUNT = 18;
-const ACCENT = new THREE.Color("#6366F1");
+const ACCENT = new THREE.Color("#7C5CFF");
 
 // ---------------------------------------------------------------------------
 // Terrain mesh – half solid / half wireframe with animated divide
@@ -176,7 +176,7 @@ function Particles() {
         />
       </bufferGeometry>
       <pointsMaterial
-        color="#6366F1"
+        color="#7C5CFF"
         size={0.04}
         transparent
         opacity={0.7}

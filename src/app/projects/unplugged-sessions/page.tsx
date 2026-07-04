@@ -158,7 +158,7 @@ const videos = [
 
 export default function UnpluggedSessionsProject() {
   return (
-    <article className="bg-deep-space min-h-screen" style={{ backgroundColor: "#0B0F19" }}>
+    <article className="bg-deep-space min-h-screen" style={{ backgroundColor: "#120D1A" }}>
       {/* ── Back Link ─────────────────────────────────────────────── */}
       <motion.div
         initial={{ opacity: 0, x: -20 }}
@@ -223,7 +223,7 @@ export default function UnpluggedSessionsProject() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-4"
+            className="font-display text-h1 font-bold mb-4"
           >
             UNPLUGGED SESSIONS
           </motion.h1>
@@ -261,7 +261,7 @@ export default function UnpluggedSessionsProject() {
       />
 
       {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Sidebar */}
           <motion.aside
@@ -326,7 +326,7 @@ export default function UnpluggedSessionsProject() {
             <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
               The Idea
             </p>
-            <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
+            <h2 className="font-headline text-h3 font-bold mb-8">
               A live series built around{" "}
               <span className="gradient-text">the song itself</span>
             </h2>
@@ -354,7 +354,7 @@ export default function UnpluggedSessionsProject() {
       </div>
 
       {/* ── The Sessions (Video) ─────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -365,7 +365,7 @@ export default function UnpluggedSessionsProject() {
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             The Sessions
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             Press play on{" "}
             <span className="text-white">the performances</span>
           </h2>
@@ -395,7 +395,7 @@ export default function UnpluggedSessionsProject() {
                 {/* 16:9 aspect ratio wrapper */}
                 <div className="relative w-full aspect-video">
                   <iframe
-                    src={`https://www-ccv.adobe.io/v1/player/ccv/${video.id}/embed?bgcolor=%230B0F19&lazyLoading=true&api_key=BehancePro2View`}
+                    src={`https://www-ccv.adobe.io/v1/player/ccv/${video.id}/embed?bgcolor=%23120D1A&lazyLoading=true&api_key=BehancePro2View`}
                     title={`Unplugged Sessions: ${video.label}`}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
@@ -418,7 +418,7 @@ export default function UnpluggedSessionsProject() {
       </div>
 
       {/* ── Our Approach ─────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -429,7 +429,7 @@ export default function UnpluggedSessionsProject() {
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             The Direction
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             From the room to the cut{" "}
             <span className="text-white">in five moves</span>
           </h2>
@@ -472,7 +472,7 @@ export default function UnpluggedSessionsProject() {
       </div>
 
       {/* ── The Approach Narrative ───────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -483,7 +483,7 @@ export default function UnpluggedSessionsProject() {
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             The Feel
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
+          <h2 className="font-headline text-h3 font-bold mb-8">
             Cinematic, but{" "}
             <span className="text-white">never overproduced</span>
           </h2>
@@ -511,7 +511,7 @@ export default function UnpluggedSessionsProject() {
       </div>
 
       {/* ── Gallery ──────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -522,7 +522,7 @@ export default function UnpluggedSessionsProject() {
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             Stills
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             Moments from{" "}
             <span className="text-white">the sessions</span>
           </h2>
@@ -663,7 +663,7 @@ export default function UnpluggedSessionsProject() {
       </div>
 
       {/* ── The Result ───────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -674,7 +674,7 @@ export default function UnpluggedSessionsProject() {
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             The Result
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             A series that{" "}
             <span className="text-white">feels like the room</span>
           </h2>
@@ -720,7 +720,7 @@ export default function UnpluggedSessionsProject() {
       </div>
 
       {/* ── Tools & Technology ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -731,7 +731,7 @@ export default function UnpluggedSessionsProject() {
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             Capabilities
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             The <span className="text-white">production toolkit</span>
           </h2>
         </motion.div>
@@ -766,7 +766,7 @@ export default function UnpluggedSessionsProject() {
       </div>
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -774,7 +774,7 @@ export default function UnpluggedSessionsProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="text-center max-w-2xl mx-auto"
         >
-          <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+          <h2 className="font-headline text-h2 font-bold mb-6">
             Have a performance{" "}
             <span className="text-white">worth capturing</span>?
           </h2>

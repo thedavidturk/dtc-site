@@ -286,10 +286,10 @@ function TorusKnotShape({ color, size }: { color: string; size: number }) {
 /* -------------------------------------------------------------------------- */
 
 const DEFAULT_COLORS: Record<FloatingIconProps["shape"], string> = {
-  globe: "#6366F1",
-  icosahedron: "#818CF8",
-  camera: "#F97316",
-  aperture: "#FB923C",
+  globe: "#7C5CFF",
+  icosahedron: "#9D85FF",
+  camera: "#FF8A5C",
+  aperture: "#FFA57E",
   nodes: "#A78BFA",
   torusKnot: "#34D399",
 };

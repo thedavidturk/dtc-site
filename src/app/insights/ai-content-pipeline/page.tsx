@@ -89,7 +89,7 @@ export default function AiContentPipelineArticle() {
             </span>
           </motion.div>
 
-          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }} className="font-headline text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight mb-4 max-w-4xl">
+          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }} className="font-display text-h1 font-bold mb-4 max-w-4xl">
             From 13 Days to 27 Minutes: Rebuilding the Content Pipeline Around AI Video
           </motion.h1>
 
@@ -228,7 +228,7 @@ export default function AiContentPipelineArticle() {
       <section className="section-container section-padding">
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} className="mb-12">
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">Continue Reading</p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">More <span className="gradient-text">Perspectives</span></h2>
+          <h2 className="font-headline text-h3 font-bold">More <span className="gradient-text">Perspectives</span></h2>
         </motion.div>
         <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {moreArticles.map((article) => (

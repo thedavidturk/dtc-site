@@ -210,7 +210,7 @@ export default function PammProject() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-4"
+            className="font-display text-h1 font-bold mb-4"
           >
             PÉREZ ART MUSEUM MIAMI
           </motion.h1>
@@ -308,7 +308,7 @@ export default function PammProject() {
             <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
               The Challenge
             </p>
-            <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
+            <h2 className="font-headline text-h3 font-bold mb-8">
               Make a world-class museum feel{" "}
               <span className="gradient-text">like it belongs to Miami</span>
             </h2>
@@ -378,7 +378,7 @@ export default function PammProject() {
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             Our Approach
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             From the bay to the{" "}
             <span className="text-white">feed</span>
           </h2>
@@ -432,7 +432,7 @@ export default function PammProject() {
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             The Solution
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
+          <h2 className="font-headline text-h3 font-bold mb-8">
             Let the art lead,{" "}
             <span className="text-white">let the city in</span>
           </h2>
@@ -474,7 +474,7 @@ export default function PammProject() {
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             Selected Work
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             Identity, campaigns &{" "}
             <span className="text-white">content</span>
           </h2>
@@ -648,7 +648,7 @@ export default function PammProject() {
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             Capabilities
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             The <span className="text-white">creative toolkit</span>
           </h2>
         </motion.div>
@@ -691,7 +691,7 @@ export default function PammProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="text-center max-w-2xl mx-auto"
         >
-          <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+          <h2 className="font-headline text-h2 font-bold mb-6">
             Have a brand worth{" "}
             <span className="text-white">showing off</span>?
           </h2>

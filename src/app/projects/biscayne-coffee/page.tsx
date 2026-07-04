@@ -151,7 +151,7 @@ const galleryImages = [
 
 export default function BiscayneCoffeeProject() {
   return (
-    <article className="bg-deep-space min-h-screen" style={{ backgroundColor: "#0B0F19" }}>
+    <article className="bg-deep-space min-h-screen" style={{ backgroundColor: "#120D1A" }}>
       {/* ── Back Link ─────────────────────────────────────────────── */}
       <motion.div
         initial={{ opacity: 0, x: -20 }}
@@ -216,7 +216,7 @@ export default function BiscayneCoffeeProject() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-4"
+            className="font-display text-h1 font-bold mb-4"
           >
             BISCAYNE COFFEE
           </motion.h1>
@@ -254,7 +254,7 @@ export default function BiscayneCoffeeProject() {
       />
 
       {/* ── The Film (Video) ─────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -265,7 +265,7 @@ export default function BiscayneCoffeeProject() {
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             The Film
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             Watch the{" "}
             <span className="gradient-text">launch video</span>
           </h2>
@@ -283,7 +283,7 @@ export default function BiscayneCoffeeProject() {
 
           <div className="relative w-full overflow-hidden rounded-2xl border border-white/10 bg-black aspect-video shadow-2xl shadow-black/40">
             <iframe
-              src="https://www-ccv.adobe.io/v1/player/ccv/HNQhk4YtxBY/embed?bgcolor=%230B0F19&lazyLoading=true&api_key=BehancePro2View"
+              src="https://www-ccv.adobe.io/v1/player/ccv/HNQhk4YtxBY/embed?bgcolor=%23120D1A&lazyLoading=true&api_key=BehancePro2View"
               className="absolute inset-0 h-full w-full"
               allow="autoplay; fullscreen; picture-in-picture"
               allowFullScreen
@@ -299,7 +299,7 @@ export default function BiscayneCoffeeProject() {
       </div>
 
       {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Sidebar */}
           <motion.aside
@@ -364,7 +364,7 @@ export default function BiscayneCoffeeProject() {
             <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
               The Idea
             </p>
-            <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
+            <h2 className="font-headline text-h3 font-bold mb-8">
               A launch campaign built on{" "}
               <span className="text-white">film and 3D</span>
             </h2>
@@ -393,7 +393,7 @@ export default function BiscayneCoffeeProject() {
       </div>
 
       {/* ── Our Approach ─────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -404,7 +404,7 @@ export default function BiscayneCoffeeProject() {
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             The Process
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             From the shoot to the render{" "}
             <span className="text-white">in five moves</span>
           </h2>
@@ -447,7 +447,7 @@ export default function BiscayneCoffeeProject() {
       </div>
 
       {/* ── The Approach Narrative ───────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -458,7 +458,7 @@ export default function BiscayneCoffeeProject() {
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             The Craft
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
+          <h2 className="font-headline text-h3 font-bold mb-8">
             Real footage, meet{" "}
             <span className="text-white">photoreal 3D</span>
           </h2>
@@ -486,7 +486,7 @@ export default function BiscayneCoffeeProject() {
       </div>
 
       {/* ── Gallery ──────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -497,7 +497,7 @@ export default function BiscayneCoffeeProject() {
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             Stills
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             Frames from{" "}
             <span className="text-white">the campaign</span>
           </h2>
@@ -638,7 +638,7 @@ export default function BiscayneCoffeeProject() {
       </div>
 
       {/* ── The Result ───────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -649,7 +649,7 @@ export default function BiscayneCoffeeProject() {
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             The Result
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             A launch that{" "}
             <span className="text-white">looks like the brand</span>
           </h2>
@@ -695,7 +695,7 @@ export default function BiscayneCoffeeProject() {
       </div>
 
       {/* ── Tools & Technology ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -706,7 +706,7 @@ export default function BiscayneCoffeeProject() {
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             Capabilities
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             The <span className="text-white">production toolkit</span>
           </h2>
         </motion.div>
@@ -741,7 +741,7 @@ export default function BiscayneCoffeeProject() {
       </div>
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -749,7 +749,7 @@ export default function BiscayneCoffeeProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="text-center max-w-2xl mx-auto"
         >
-          <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+          <h2 className="font-headline text-h2 font-bold mb-6">
             Have a product worth{" "}
             <span className="text-white">launching</span>?
           </h2>

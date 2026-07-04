@@ -85,7 +85,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" style={{ backgroundColor: "#0B0F19" }}>
+    <html lang="en" className="dark" style={{ backgroundColor: "#120D1A" }}>
       <head>
         <JsonLd
           data={{
@@ -99,7 +99,7 @@ export default function RootLayout({
           }}
         />
         {/* Critical CSS - prevents white flash before Tailwind loads */}
-        <style dangerouslySetInnerHTML={{ __html: `html,body,main,section,footer{background-color:#0B0F19!important}` }} />
+        <style dangerouslySetInnerHTML={{ __html: `html,body,main,section,footer{background-color:#120D1A!important}` }} />
         {/* Google Analytics */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
@@ -116,7 +116,7 @@ export default function RootLayout({
       </head>
       <body
         className={`${spaceGrotesk.variable} ${bricolage.variable} ${inter.variable} ${jetbrainsMono.variable} font-body antialiased bg-deep-space text-pure-white`}
-        style={{ backgroundColor: "#0B0F19" }}
+        style={{ backgroundColor: "#120D1A" }}
       >
         <SmoothScroll />
         <Analytics />
@@ -124,7 +124,7 @@ export default function RootLayout({
           <ScrollProgressTrail />
         </DesktopFX>
         <Header />
-        <main style={{ backgroundColor: "#0B0F19" }}>
+        <main style={{ backgroundColor: "#120D1A" }}>
           <ClientLayout>{children}</ClientLayout>
         </main>
         <Footer />

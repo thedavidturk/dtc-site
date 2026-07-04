@@ -127,7 +127,7 @@ export default function RealTime4KArticle() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight mb-4 max-w-4xl"
+            className="font-display text-h1 font-bold mb-4 max-w-4xl"
           >
             The AI-Powered Creative Pipeline: VFX, Sound Design, and Content at Machine Speed
           </motion.h1>
@@ -388,7 +388,7 @@ export default function RealTime4KArticle() {
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             Continue Reading
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             More <span className="gradient-text">Perspectives</span>
           </h2>
         </motion.div>

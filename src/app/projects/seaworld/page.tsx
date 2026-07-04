@@ -210,7 +210,7 @@ export default function SeaWorldProject() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-4"
+            className="font-display text-h1 font-bold mb-4"
           >
             SEAWORLD
           </motion.h1>
@@ -313,7 +313,7 @@ export default function SeaWorldProject() {
             <p className="font-mono text-sm text-cyan-400 tracking-widest uppercase mb-4">
               The Challenge
             </p>
-            <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
+            <h2 className="font-headline text-h3 font-bold mb-8">
               Generating massive excitement{" "}
               <span className="gradient-text">in 30 days flat</span>
             </h2>
@@ -353,7 +353,7 @@ export default function SeaWorldProject() {
           <p className="font-mono text-sm text-cyan-400 tracking-widest uppercase mb-4">
             Our Approach
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             Deep-sea storytelling{" "}
             <span className="text-white">at breakneck speed</span>
           </h2>
@@ -407,7 +407,7 @@ export default function SeaWorldProject() {
           <p className="font-mono text-sm text-cyan-400 tracking-widest uppercase mb-4">
             The Solution
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
+          <h2 className="font-headline text-h3 font-bold mb-8">
             An immersive underwater world{" "}
             <span className="text-white">ready for every screen</span>
           </h2>
@@ -447,7 +447,7 @@ export default function SeaWorldProject() {
           <p className="font-mono text-sm text-cyan-400 tracking-widest uppercase mb-4">
             Campaign Gallery
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             Deep-sea worlds &{" "}
             <span className="text-white">hero visuals</span>
           </h2>
@@ -758,7 +758,7 @@ export default function SeaWorldProject() {
           <p className="font-mono text-sm text-cyan-400 tracking-widest uppercase mb-4">
             The Result
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             Speed, scale, and{" "}
             <span className="text-white">cinematic quality</span>
           </h2>
@@ -815,7 +815,7 @@ export default function SeaWorldProject() {
           <p className="font-mono text-sm text-cyan-400 tracking-widest uppercase mb-4">
             Tools & Technology
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             The <span className="text-white">production stack</span>
           </h2>
         </motion.div>
@@ -858,7 +858,7 @@ export default function SeaWorldProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="text-center max-w-2xl mx-auto"
         >
-          <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+          <h2 className="font-headline text-h2 font-bold mb-6">
             Ready to make a{" "}
             <span className="text-white">splash</span>?
           </h2>

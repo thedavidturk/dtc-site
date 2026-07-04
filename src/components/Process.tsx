@@ -126,12 +126,12 @@ export default function Process() {
   }, []);
 
   return (
-    <section id="process" className="relative bg-deep-space overflow-hidden" style={{ backgroundColor: "#0B0F19" }}>
+    <section id="process" className="relative bg-deep-space overflow-hidden" style={{ backgroundColor: "#120D1A" }}>
       {/* Wireframe terrain background */}
       <Lazy3D className="absolute inset-0 z-0">
         <WireframeTerrain
           className="absolute inset-0"
-          color="#6366F1"
+          color="#7C5CFF"
           opacity={0.07}
           speed={1}
         />
@@ -142,7 +142,7 @@ export default function Process() {
         className="absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 50% 50%, #6366F1 0%, transparent 60%)",
+            "radial-gradient(circle at 50% 50%, #7C5CFF 0%, transparent 60%)",
         }}
       />
 
@@ -161,7 +161,7 @@ export default function Process() {
           <TextReveal
             text="HOW WE PARTNER"
             as="h2"
-            className="font-headline text-4xl md:text-5xl font-bold text-pure-white tracking-tight"
+            className="font-display text-h2 font-bold text-pure-white"
           />
         </motion.div>
 

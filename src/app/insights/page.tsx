@@ -152,7 +152,7 @@ export default function InsightsIndexPage() {
         </motion.span>
         <motion.h1
           variants={heroVariants}
-          className="font-headline text-5xl md:text-6xl lg:text-7xl font-bold text-pure-white tracking-tight"
+          className="font-display text-h1 font-bold text-pure-white"
         >
           Perspectives
         </motion.h1>
@@ -188,9 +188,9 @@ export default function InsightsIndexPage() {
                   {/* Grid pattern */}
                   <div className="absolute inset-0 opacity-[0.06] bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:40px_40px]" />
                   {/* Bottom fade */}
-                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#0B0F19]/80 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#120D1A]/80 to-transparent" />
                   {/* Corner accent glow on hover */}
-                  <div className="absolute top-0 right-0 w-32 h-32 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-[radial-gradient(circle_at_top_right,rgba(99,102,241,0.15),transparent_70%)]" />
+                  <div className="absolute top-0 right-0 w-32 h-32 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-[radial-gradient(circle_at_top_right,rgba(124,92,255,0.15),transparent_70%)]" />
                 </div>
 
                 {/* Card content */}

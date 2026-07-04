@@ -78,7 +78,7 @@ export default function AiAuthenticityPremiumArticle() {
             </motion.div>
             <motion.h1
               variants={staggerItem}
-              className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl"
+              className="font-display text-h1 font-bold"
             >
               The Authenticity Premium: Winning Trust When 57% of People Fear Fake AI Ads
             </motion.h1>

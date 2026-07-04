@@ -12,7 +12,7 @@ export default function PageTransition({ children }: PageTransitionProps) {
       {/* Content wrapper with fade + slide animation */}
       <motion.div
         className="bg-deep-space"
-        style={{ backgroundColor: "#0B0F19" }}
+        style={{ backgroundColor: "#120D1A" }}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
@@ -30,7 +30,7 @@ export default function PageTransition({ children }: PageTransitionProps) {
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       >
         {/* Subtle electric-indigo glow line at the leading edge */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-electric-indigo shadow-[0_0_8px_rgba(99,102,241,0.6),0_0_20px_rgba(99,102,241,0.3)]" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-electric-indigo shadow-[0_0_8px_rgba(124,92,255,0.6),0_0_20px_rgba(124,92,255,0.3)]" />
       </motion.div>
     </>
   );

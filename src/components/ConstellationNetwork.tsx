@@ -18,9 +18,9 @@ interface Node {
 }
 
 // Electric-indigo RGB components for canvas drawing
-const NODE_R = 99;
-const NODE_G = 102;
-const NODE_B = 241;
+const NODE_R = 124;
+const NODE_G = 92;
+const NODE_B = 255;
 
 const CONNECTION_DISTANCE = 150;
 const MOUSE_INFLUENCE_RADIUS = 120;

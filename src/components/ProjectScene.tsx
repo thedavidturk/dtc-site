@@ -109,8 +109,8 @@ function SpacePlanet() {
     <mesh ref={meshRef} rotation-z={0.3}>
       <sphereGeometry ref={geoRef} args={[1.5, 32, 32]} />
       <meshStandardMaterial
-        color="#1a1a4e"
-        emissive="#1a1a4e"
+        color="#241A54"
+        emissive="#241A54"
         emissiveIntensity={0.15}
         roughness={0.8}
       />
@@ -125,7 +125,7 @@ function SpaceRing() {
   const { positions, colors } = useMemo(() => {
     const pos = new Float32Array(count * 3);
     const col = new Float32Array(count * 3);
-    const indigoColor = new THREE.Color("#6366F1");
+    const indigoColor = new THREE.Color("#7C5CFF");
     const whiteColor = new THREE.Color("#ffffff");
 
     for (let i = 0; i < count; i++) {
@@ -447,8 +447,8 @@ function EnergyCore() {
     <mesh ref={meshRef}>
       <sphereGeometry args={[0.3, 24, 24]} />
       <meshStandardMaterial
-        color="#F97316"
-        emissive="#F97316"
+        color="#FF8A5C"
+        emissive="#FF8A5C"
         emissiveIntensity={0.8}
         toneMapped={false}
       />
@@ -477,7 +477,7 @@ function EnergyRadiatingRings() {
     const total = ringCount * particlesPerRing;
     const pos = new Float32Array(total * 3);
     const col = new Float32Array(total * 3);
-    const coralColor = new THREE.Color("#F97316");
+    const coralColor = new THREE.Color("#FF8A5C");
 
     for (let i = 0; i < total; i++) {
       col[i * 3] = coralColor.r;
@@ -498,7 +498,7 @@ function EnergyRadiatingRings() {
     const colArr = colAttr.array as Float32Array;
     const t = clock.elapsedTime;
 
-    const coralColor = new THREE.Color("#F97316");
+    const coralColor = new THREE.Color("#FF8A5C");
     const amberColor = new THREE.Color("#F59E0B");
 
     for (let r = 0; r < ringCount; r++) {
@@ -566,7 +566,7 @@ function EnergyParticles() {
   const { positions, colors } = useMemo(() => {
     const pos = new Float32Array(count * 3);
     const col = new Float32Array(count * 3);
-    const coralColor = new THREE.Color("#F97316");
+    const coralColor = new THREE.Color("#FF8A5C");
     const amberColor = new THREE.Color("#F59E0B");
     const whiteColor = new THREE.Color("#ffffff");
 
@@ -666,7 +666,7 @@ function EnergyScene() {
   return (
     <>
       <ambientLight intensity={0.2} />
-      <pointLight position={[0, 0, 0]} intensity={1.0} color="#F97316" />
+      <pointLight position={[0, 0, 0]} intensity={1.0} color="#FF8A5C" />
       <MouseParallaxGroup>
         <EnergyCore />
         <EnergyRadiatingRings />

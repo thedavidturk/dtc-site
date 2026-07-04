@@ -135,7 +135,7 @@ const tools = [
 
 export default function HospitalityMentorProject() {
   return (
-    <article className="bg-deep-space min-h-screen" style={{ backgroundColor: "#0B0F19" }}>
+    <article className="bg-deep-space min-h-screen" style={{ backgroundColor: "#120D1A" }}>
       {/* ── Back Link ─────────────────────────────────────────────── */}
       <motion.div
         initial={{ opacity: 0, x: -20 }}
@@ -202,7 +202,7 @@ export default function HospitalityMentorProject() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight mb-4"
+            className="font-display text-h1 font-bold mb-4"
           >
             THE FONTAINEBLEAU
           </motion.h1>
@@ -240,7 +240,7 @@ export default function HospitalityMentorProject() {
       />
 
       {/* ── The Episode (Video) ───────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -251,7 +251,7 @@ export default function HospitalityMentorProject() {
           <p className="font-mono text-sm text-warm-coral tracking-widest uppercase mb-4">
             The Episode
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             A Look Inside the{" "}
             <span className="gradient-text">Iconic Fontainebleau</span>
           </h2>
@@ -280,7 +280,7 @@ export default function HospitalityMentorProject() {
       </div>
 
       {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Sidebar */}
           <motion.aside
@@ -345,7 +345,7 @@ export default function HospitalityMentorProject() {
             <p className="font-mono text-sm text-warm-coral tracking-widest uppercase mb-4">
               The Story
             </p>
-            <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-8">
+            <h2 className="font-headline text-h3 font-bold mb-8">
               The people and places{" "}
               <span className="text-white">behind the magic</span>
             </h2>
@@ -373,7 +373,7 @@ export default function HospitalityMentorProject() {
       </div>
 
       {/* ── Our Approach ─────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -384,7 +384,7 @@ export default function HospitalityMentorProject() {
           <p className="font-mono text-sm text-warm-coral tracking-widest uppercase mb-4">
             Our Approach
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             From the lobby to{" "}
             <span className="text-white">the final cut</span>
           </h2>
@@ -427,7 +427,7 @@ export default function HospitalityMentorProject() {
       </div>
 
       {/* ── Campaign Gallery ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -438,7 +438,7 @@ export default function HospitalityMentorProject() {
           <p className="font-mono text-sm text-warm-coral tracking-widest uppercase mb-4">
             Frames
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             Character & <span className="text-white">Location Frames</span>
           </h2>
         </motion.div>
@@ -578,7 +578,7 @@ export default function HospitalityMentorProject() {
       </div>
 
       {/* ── The Result ───────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -589,7 +589,7 @@ export default function HospitalityMentorProject() {
           <p className="font-mono text-sm text-warm-coral tracking-widest uppercase mb-4">
             The Result
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             A magical hotel,{" "}
             <span className="text-white">captured in 4K</span>
           </h2>
@@ -635,7 +635,7 @@ export default function HospitalityMentorProject() {
       </div>
 
       {/* ── Tools & Technology ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -646,7 +646,7 @@ export default function HospitalityMentorProject() {
           <p className="font-mono text-sm text-warm-coral tracking-widest uppercase mb-4">
             Tools & Technology
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="font-headline text-h3 font-bold">
             The <span className="text-white">production stack</span>
           </h2>
         </motion.div>
@@ -681,7 +681,7 @@ export default function HospitalityMentorProject() {
       </div>
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#0B0F19" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -689,7 +689,7 @@ export default function HospitalityMentorProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="text-center max-w-2xl mx-auto"
         >
-          <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+          <h2 className="font-headline text-h2 font-bold mb-6">
             Ready to tell{" "}
             <span className="text-white">your story cinematically</span>?
           </h2>

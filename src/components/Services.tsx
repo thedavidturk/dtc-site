@@ -179,9 +179,9 @@ const capabilityVariants = {
 
 export default function Services() {
   return (
-    <section id="services" className="bg-deep-space relative overflow-hidden" style={{ backgroundColor: "#0B0F19" }}>
+    <section id="services" className="bg-deep-space relative overflow-hidden" style={{ backgroundColor: "#120D1A" }}>
       {/* Background accent */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(99,102,241,0.04)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(124,92,255,0.04)_0%,transparent_50%)]" />
 
       {/* Section header */}
       <div className="section-container pt-20 md:pt-28 lg:pt-32 pb-12 md:pb-16 relative z-10">
@@ -194,7 +194,7 @@ export default function Services() {
           <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
             Capabilities
           </p>
-          <h2 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold text-pure-white tracking-tight">
+          <h2 className="font-display text-h2 font-bold text-pure-white">
             <TextReveal
               text="WHAT WE DO"
               as="span"
@@ -250,7 +250,7 @@ export default function Services() {
                     </span>
 
                     {/* Headline */}
-                    <h3 className="font-headline text-3xl md:text-4xl lg:text-[2.75rem] font-bold leading-tight tracking-tight mb-6">
+                    <h3 className="font-headline text-h3 font-bold leading-tight mb-6">
                       <span className="text-pure-white">{service.headline}</span>
                     </h3>
 
