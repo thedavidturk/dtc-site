@@ -1,291 +1,46 @@
-"use client";
+/**
+ * FloatingIcon -- decorative wireframe icons rendered as static SVG line art
+ * with CSS-only motion (slow 3D sway + vertical float).
+ *
+ * This replaces the previous react-three-fiber implementation, which mounted
+ * one WebGL <Canvas> per icon (six-plus contexts on the home page -- a browser
+ * context-budget problem). The path data below is an orthographic projection
+ * of the exact same three.js wireframe geometry (same radii, segment counts,
+ * and palette), captured at a pleasing mid-spin angle, so the silhouettes are
+ * unchanged at icon size. Zero WebGL contexts, zero rAF loops, zero JS
+ * animation -- all motion is compositor-driven CSS transforms and is disabled
+ * under prefers-reduced-motion.
+ *
+ * Geometry generator (for regeneration if shapes ever change):
+ * orthographic projection of the original scene at ~39 px per world unit
+ * into a 100x100 viewBox.
+ */
 
-import { useRef, useMemo } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Sphere, Icosahedron, Torus, TorusKnot, Line } from "@react-three/drei";
-import * as THREE from "three";
+import type { CSSProperties } from "react";
+
+export type FloatingIconShape =
+  | "globe"
+  | "icosahedron"
+  | "camera"
+  | "aperture"
+  | "nodes"
+  | "torusKnot";
 
 interface FloatingIconProps {
-  shape: "globe" | "icosahedron" | "camera" | "aperture" | "nodes" | "torusKnot";
+  shape: FloatingIconShape;
   color?: string;
-  size?: number;
 }
 
-/* -------------------------------------------------------------------------- */
-/*  Shared animation hook                                                      */
-/* -------------------------------------------------------------------------- */
-
-function useFloatAnimation(
-  ref: React.RefObject<THREE.Group | THREE.Mesh | null>,
-  speed = 1,
-) {
-  const clock = useRef(0);
-  useFrame((_, delta) => {
-    if (!ref.current) return;
-    clock.current += delta * speed;
-    // Slow Y rotation
-    ref.current.rotation.y += 0.005;
-    // Subtle X wobble
-    ref.current.rotation.x = Math.sin(clock.current * 0.7) * 0.08;
-    // Gentle float up/down
-    ref.current.position.y = Math.sin(clock.current * 0.5) * 0.1;
-  });
+interface ShapeArt {
+  /** Stroked wireframe path data, grouped by opacity. */
+  groups: { opacity: number; d: string }[];
+  /** Optional stroked circles (e.g. globe silhouette shell). */
+  strokeCircles?: { cx: number; cy: number; r: number; opacity: number }[];
+  /** Optional filled circles (e.g. network node spheres). */
+  fillCircles?: { cx: number; cy: number; r: number; opacity: number }[];
 }
 
-/* -------------------------------------------------------------------------- */
-/*  Globe  (Virtual Cinematography)                                            */
-/* -------------------------------------------------------------------------- */
-
-function GlobeShape({ color, size }: { color: string; size: number }) {
-  const groupRef = useRef<THREE.Group>(null);
-  useFloatAnimation(groupRef);
-
-  // Build latitude and longitude line points
-  const { latLines, lonLines } = useMemo(() => {
-    const lats: THREE.Vector3[][] = [];
-    const lons: THREE.Vector3[][] = [];
-    const r = size;
-    const segments = 48;
-
-    // Latitude lines at -60, -30, 0, 30, 60 degrees
-    for (const deg of [-60, -30, 0, 30, 60]) {
-      const phi = (90 - deg) * (Math.PI / 180);
-      const ring: THREE.Vector3[] = [];
-      for (let i = 0; i <= segments; i++) {
-        const theta = (i / segments) * Math.PI * 2;
-        ring.push(
-          new THREE.Vector3(
-            r * Math.sin(phi) * Math.cos(theta),
-            r * Math.cos(phi),
-            r * Math.sin(phi) * Math.sin(theta),
-          ),
-        );
-      }
-      lats.push(ring);
-    }
-
-    // Longitude lines every 30 degrees (6 lines, each a full half-circle)
-    for (let j = 0; j < 6; j++) {
-      const theta = (j / 6) * Math.PI;
-      const arc: THREE.Vector3[] = [];
-      for (let i = 0; i <= segments; i++) {
-        const phi = (i / segments) * Math.PI;
-        arc.push(
-          new THREE.Vector3(
-            r * Math.sin(phi) * Math.cos(theta),
-            r * Math.cos(phi),
-            r * Math.sin(phi) * Math.sin(theta),
-          ),
-        );
-      }
-      lons.push(arc);
-    }
-
-    return { latLines: lats, lonLines: lons };
-  }, [size]);
-
-  return (
-    <group ref={groupRef}>
-      {/* Wireframe sphere shell */}
-      <Sphere args={[size, 16, 12]}>
-        <meshBasicMaterial
-          color={color}
-          wireframe
-          transparent
-          opacity={0.3}
-        />
-      </Sphere>
-      {/* Latitude rings */}
-      {latLines.map((pts, i) => (
-        <Line
-          key={`lat-${i}`}
-          points={pts}
-          color={color}
-          lineWidth={1}
-          transparent
-          opacity={0.8}
-        />
-      ))}
-      {/* Longitude arcs */}
-      {lonLines.map((pts, i) => (
-        <Line
-          key={`lon-${i}`}
-          points={pts}
-          color={color}
-          lineWidth={1}
-          transparent
-          opacity={0.8}
-        />
-      ))}
-    </group>
-  );
-}
-
-/* -------------------------------------------------------------------------- */
-/*  Icosahedron  (3D Animation)                                                */
-/* -------------------------------------------------------------------------- */
-
-function IcosahedronShape({ color, size }: { color: string; size: number }) {
-  const ref = useRef<THREE.Mesh>(null);
-  useFloatAnimation(ref);
-
-  return (
-    <Icosahedron ref={ref} args={[size, 0]}>
-      <meshBasicMaterial
-        color={color}
-        wireframe
-        transparent
-        opacity={0.85}
-      />
-    </Icosahedron>
-  );
-}
-
-/* -------------------------------------------------------------------------- */
-/*  Camera  (Videography)                                                      */
-/* -------------------------------------------------------------------------- */
-
-function CameraShape({ color, size }: { color: string; size: number }) {
-  const groupRef = useRef<THREE.Group>(null);
-  useFloatAnimation(groupRef);
-
-  const s = size;
-  return (
-    <group ref={groupRef}>
-      {/* Camera body */}
-      <mesh position={[0, 0, 0]}>
-        <boxGeometry args={[s * 1.4, s * 0.9, s * 0.8]} />
-        <meshBasicMaterial
-          color={color}
-          wireframe
-          transparent
-          opacity={0.85}
-        />
-      </mesh>
-      {/* Lens cylinder */}
-      <mesh position={[0, 0, s * 0.65]} rotation={[Math.PI / 2, 0, 0]}>
-        <cylinderGeometry args={[s * 0.28, s * 0.35, s * 0.5, 12]} />
-        <meshBasicMaterial
-          color={color}
-          wireframe
-          transparent
-          opacity={0.85}
-        />
-      </mesh>
-      {/* Viewfinder bump */}
-      <mesh position={[-s * 0.35, s * 0.55, -s * 0.1]}>
-        <boxGeometry args={[s * 0.35, s * 0.25, s * 0.3]} />
-        <meshBasicMaterial
-          color={color}
-          wireframe
-          transparent
-          opacity={0.7}
-        />
-      </mesh>
-    </group>
-  );
-}
-
-/* -------------------------------------------------------------------------- */
-/*  Aperture  (Photography)  -- wireframe torus                                */
-/* -------------------------------------------------------------------------- */
-
-function ApertureShape({ color, size }: { color: string; size: number }) {
-  const ref = useRef<THREE.Mesh>(null);
-  useFloatAnimation(ref);
-
-  return (
-    <Torus ref={ref} args={[size * 0.7, size * 0.25, 12, 24]}>
-      <meshBasicMaterial
-        color={color}
-        wireframe
-        transparent
-        opacity={0.85}
-      />
-    </Torus>
-  );
-}
-
-/* -------------------------------------------------------------------------- */
-/*  Nodes  (Intelligent Workflows) -- small spheres + lines                    */
-/* -------------------------------------------------------------------------- */
-
-function NodesShape({ color, size }: { color: string; size: number }) {
-  const groupRef = useRef<THREE.Group>(null);
-  useFloatAnimation(groupRef);
-
-  const { positions, edges } = useMemo(() => {
-    const s = size * 0.7;
-    const pos: [number, number, number][] = [
-      [0, s * 0.8, 0],
-      [-s * 0.9, 0.05, s * 0.3],
-      [s * 0.9, 0.1, s * 0.3],
-      [s * 0.5, -s * 0.7, -s * 0.3],
-      [-s * 0.5, -s * 0.7, -s * 0.3],
-    ];
-    // Connect in a network pattern
-    const edg: [number, number][] = [
-      [0, 1],
-      [0, 2],
-      [0, 3],
-      [0, 4],
-      [1, 4],
-      [2, 3],
-      [1, 2],
-      [3, 4],
-    ];
-    return { positions: pos, edges: edg };
-  }, [size]);
-
-  return (
-    <group ref={groupRef}>
-      {/* Node spheres */}
-      {positions.map((pos, i) => (
-        <mesh key={`node-${i}`} position={pos}>
-          <sphereGeometry args={[size * 0.1, 8, 6]} />
-          <meshBasicMaterial color={color} transparent opacity={0.9} />
-        </mesh>
-      ))}
-      {/* Edge lines */}
-      {edges.map(([a, b], i) => (
-        <Line
-          key={`edge-${i}`}
-          points={[positions[a], positions[b]]}
-          color={color}
-          lineWidth={1.2}
-          transparent
-          opacity={0.6}
-        />
-      ))}
-    </group>
-  );
-}
-
-/* -------------------------------------------------------------------------- */
-/*  Torus Knot  (Audience-First Craft)                                         */
-/* -------------------------------------------------------------------------- */
-
-function TorusKnotShape({ color, size }: { color: string; size: number }) {
-  const ref = useRef<THREE.Mesh>(null);
-  useFloatAnimation(ref);
-
-  return (
-    <TorusKnot ref={ref} args={[size * 0.55, size * 0.15, 64, 8]}>
-      <meshBasicMaterial
-        color={color}
-        wireframe
-        transparent
-        opacity={0.85}
-      />
-    </TorusKnot>
-  );
-}
-
-/* -------------------------------------------------------------------------- */
-/*  Shape resolver                                                             */
-/* -------------------------------------------------------------------------- */
-
-const DEFAULT_COLORS: Record<FloatingIconProps["shape"], string> = {
+const DEFAULT_COLORS: Record<FloatingIconShape, string> = {
   globe: "#7C5CFF",
   icosahedron: "#9D85FF",
   camera: "#FF8A5C",
@@ -294,53 +49,122 @@ const DEFAULT_COLORS: Record<FloatingIconProps["shape"], string> = {
   torusKnot: "#34D399",
 };
 
-function SceneContent({
-  shape,
-  color,
-  size,
-}: {
-  shape: FloatingIconProps["shape"];
-  color: string;
-  size: number;
-}) {
-  switch (shape) {
-    case "globe":
-      return <GlobeShape color={color} size={size} />;
-    case "icosahedron":
-      return <IcosahedronShape color={color} size={size} />;
-    case "camera":
-      return <CameraShape color={color} size={size} />;
-    case "aperture":
-      return <ApertureShape color={color} size={size} />;
-    case "nodes":
-      return <NodesShape color={color} size={size} />;
-    case "torusKnot":
-      return <TorusKnotShape color={color} size={size} />;
-    default:
-      return null;
-  }
-}
+/* Stagger animation phase per shape so a grid of icons doesn't rock in
+   lockstep. Negative delays start each animation mid-cycle. */
+const PHASE_OFFSETS: Record<FloatingIconShape, string> = {
+  globe: "0s",
+  icosahedron: "-2.7s",
+  camera: "-5.3s",
+  aperture: "-8.1s",
+  nodes: "-10.6s",
+  torusKnot: "-13.2s",
+};
 
-/* -------------------------------------------------------------------------- */
-/*  Main exported component                                                    */
-/* -------------------------------------------------------------------------- */
+const SHAPE_ART: Record<FloatingIconShape, ShapeArt> = {
+  globe: {
+    groups: [
+      { opacity: 0.8, d: "M68 84.3L68.8 83.5L69.3 82.6L69.5 81.8L69.4 80.9L68.9 80L68.1 79.2L67 78.4L65.6 77.7L63.9 77L62 76.5L59.9 76L57.6 75.6L55.2 75.3L52.7 75.1L50.1 75L47.6 75.1L45.1 75.3L42.7 75.5L40.4 75.9L38.2 76.4L36.3 77L34.6 77.6L33.2 78.3L32 79.1L31.2 79.9L30.7 80.8L30.5 81.7L30.6 82.6L31.1 83.4L31.9 84.2L33 85L34.4 85.8L36.1 86.4L38 87L40.1 87.5L42.4 87.9L44.8 88.2L47.3 88.4L49.9 88.4L52.4 88.4L54.9 88.2L57.3 87.9L59.6 87.5L61.8 87.1L63.7 86.5L65.4 85.8L66.8 85.1L68 84.3M81.1 72.8L82.6 71.4L83.5 69.9L83.8 68.4L83.5 66.9L82.7 65.4L81.3 64L79.4 62.6L76.9 61.3L74.1 60.2L70.8 59.2L67.1 58.3L63.2 57.7L59 57.2L54.7 56.8L50.2 56.7L45.8 56.8L41.5 57.1L37.3 57.6L33.3 58.2L29.6 59.1L26.3 60.1L23.4 61.2L20.9 62.5L18.9 63.8L17.4 65.2L16.5 66.7L16.2 68.2L16.5 69.7L17.3 71.2L18.7 72.7L20.6 74L23.1 75.3L25.9 76.4L29.2 77.5L32.9 78.3L36.8 79L41 79.5L45.3 79.8L49.8 79.9L54.2 79.8L58.5 79.5L62.7 79L66.7 78.4L70.4 77.6L73.7 76.6L76.6 75.4L79.1 74.2L81.1 72.8M85.9 55.2L87.6 53.6L88.6 51.8L89 50.1L88.7 48.4L87.7 46.6L86.1 45L83.9 43.4L81.1 41.9L77.8 40.6L74 39.5L69.7 38.5L65.2 37.7L60.4 37.1L55.4 36.8L50.3 36.6L45.2 36.7L40.2 37.1L35.3 37.6L30.7 38.4L26.5 39.3L22.6 40.5L19.2 41.8L16.4 43.2L14.1 44.8L12.4 46.4L11.4 48.2L11 49.9L11.3 51.6L12.3 53.4L13.9 55L16.1 56.6L18.9 58.1L22.2 59.4L26 60.5L30.3 61.5L34.8 62.3L39.6 62.9L44.6 63.2L49.7 63.4L54.8 63.3L59.8 62.9L64.7 62.4L69.3 61.6L73.5 60.7L77.4 59.5L80.8 58.2L83.6 56.8L85.9 55.2M81.1 36.2L82.6 34.8L83.5 33.3L83.8 31.8L83.5 30.3L82.7 28.8L81.3 27.3L79.4 26L76.9 24.7L74.1 23.6L70.8 22.5L67.1 21.7L63.2 21L59 20.5L54.7 20.2L50.2 20.1L45.8 20.2L41.5 20.5L37.3 21L33.3 21.6L29.6 22.4L26.3 23.4L23.4 24.6L20.9 25.8L18.9 27.2L17.4 28.6L16.5 30.1L16.2 31.6L16.5 33.1L17.3 34.6L18.7 36L20.6 37.4L23.1 38.7L25.9 39.8L29.2 40.8L32.9 41.7L36.8 42.3L41 42.8L45.3 43.2L49.8 43.3L54.2 43.2L58.5 42.9L62.7 42.4L66.7 41.8L70.4 40.9L73.7 39.9L76.6 38.8L79.1 37.5L81.1 36.2M68 20.9L68.8 20.1L69.3 19.2L69.5 18.3L69.4 17.4L68.9 16.6L68.1 15.8L67 15L65.6 14.2L63.9 13.6L62 13L59.9 12.5L57.6 12.1L55.2 11.8L52.7 11.6L50.1 11.6L47.6 11.6L45.1 11.8L42.7 12.1L40.4 12.5L38.2 12.9L36.3 13.5L34.6 14.2L33.2 14.9L32 15.7L31.2 16.5L30.7 17.4L30.5 18.2L30.6 19.1L31.1 20L31.9 20.8L33 21.6L34.4 22.3L36.1 23L38 23.5L40.1 24L42.4 24.4L44.8 24.7L47.3 24.9L49.9 25L52.4 24.9L54.9 24.7L57.3 24.5L59.6 24.1L61.8 23.6L63.7 23L65.4 22.4L66.8 21.7L68 20.9M50 13.4L52.3 13.8L54.7 14.4L57 15.1L59.3 16L61.5 17L63.7 18.1L65.9 19.4L68 20.9L70 22.4L71.9 24.1L73.7 25.9L75.4 27.8L77 29.8L78.5 31.8L79.9 34L81.1 36.2L82.2 38.5L83.2 40.8L84 43.2L84.7 45.5L85.2 48L85.6 50.4L85.8 52.8L85.9 55.2L85.8 57.6L85.6 59.9L85.2 62.3L84.7 64.5L84 66.7L83.2 68.8L82.2 70.9L81.1 72.8L79.9 74.7L78.5 76.4L77 78.1L75.4 79.6L73.7 81L71.9 82.2L70 83.4L68 84.3L65.9 85.2L63.7 85.8L61.5 86.4L59.3 86.7L57 86.9L54.7 87L52.3 86.9L50 86.6M50 13.4L52.5 13.3L55.1 13.5L57.6 13.7L60 14.2L62.4 14.8L64.8 15.5L67.1 16.4L69.4 17.4L71.5 18.6L73.6 19.9L75.5 21.4L77.4 22.9L79.1 24.6L80.7 26.4L82.2 28.3L83.5 30.3L84.7 32.3L85.8 34.5L86.6 36.7L87.4 38.9L88 41.2L88.4 43.6L88.6 46L88.7 48.4L88.6 50.8L88.4 53.1L88 55.5L87.4 57.9L86.6 60.2L85.8 62.5L84.7 64.7L83.5 66.9L82.2 69L80.7 71L79.1 72.9L77.4 74.7L75.5 76.5L73.6 78.1L71.5 79.5L69.4 80.9L67.1 82.1L64.8 83.2L62.4 84.2L60 85L57.6 85.6L55.1 86.1L52.5 86.4L50 86.6M50 13.4L52 12.9L54.1 12.6L56.1 12.5L58.1 12.5L60 12.7L61.9 13.1L63.8 13.6L65.6 14.2L67.3 15.1L68.9 16L70.5 17.1L72 18.4L73.4 19.8L74.7 21.3L75.9 22.9L76.9 24.7L77.9 26.6L78.7 28.5L79.5 30.6L80.1 32.7L80.5 34.9L80.8 37.2L81 39.6L81.1 41.9L81 44.4L80.8 46.8L80.5 49.2L80.1 51.7L79.5 54.1L78.7 56.6L77.9 59L76.9 61.3L75.9 63.6L74.7 65.9L73.4 68.1L72 70.2L70.5 72.2L68.9 74.2L67.3 76L65.6 77.7L63.8 79.3L61.9 80.8L60 82.1L58.1 83.3L56.1 84.4L54.1 85.3L52 86L50 86.6M50 13.4L51 12.6L52 12.1L53 11.7L53.9 11.4L54.9 11.3L55.8 11.4L56.7 11.7L57.6 12.1L58.4 12.7L59.2 13.4L60 14.3L60.7 15.4L61.4 16.6L62 17.9L62.6 19.4L63.2 21L63.6 22.7L64 24.6L64.4 26.6L64.7 28.6L64.9 30.8L65.1 33L65.2 35.3L65.2 37.7L65.2 40.1L65.1 42.6L64.9 45.1L64.7 47.6L64.4 50.1L64 52.6L63.6 55.2L63.2 57.7L62.6 60.1L62 62.5L61.4 64.9L60.7 67.2L60 69.4L59.2 71.6L58.4 73.6L57.6 75.6L56.7 77.4L55.8 79.1L54.9 80.7L53.9 82.2L53 83.5L52 84.7L51 85.8L50 86.6M50 13.4L49.7 12.6L49.4 11.9L49.1 11.5L48.8 11.2L48.5 11L48.2 11.1L47.9 11.3L47.6 11.6L47.3 12.2L47.1 12.9L46.8 13.7L46.6 14.7L46.4 15.9L46.2 17.2L46 18.6L45.8 20.2L45.7 21.9L45.6 23.7L45.4 25.7L45.4 27.7L45.3 29.8L45.2 32.1L45.2 34.4L45.2 36.7L45.2 39.2L45.2 41.6L45.3 44.1L45.4 46.7L45.4 49.2L45.6 51.8L45.7 54.3L45.8 56.8L46 59.3L46.2 61.8L46.4 64.2L46.6 66.5L46.8 68.8L47.1 71L47.3 73.1L47.6 75.1L47.9 77L48.2 78.8L48.5 80.4L48.8 82L49.1 83.3L49.4 84.6L49.7 85.7L50 86.6M50 13.4L48.5 12.7L46.9 12.3L45.4 12L43.9 11.9L42.4 11.9L41 12.1L39.6 12.4L38.2 12.9L36.9 13.6L35.7 14.4L34.5 15.4L33.4 16.6L32.3 17.8L31.3 19.2L30.4 20.8L29.6 22.4L28.9 24.2L28.3 26.1L27.7 28.1L27.3 30.2L26.9 32.4L26.7 34.6L26.5 37L26.5 39.3L26.5 41.8L26.7 44.2L26.9 46.7L27.3 49.2L27.7 51.7L28.3 54.2L28.9 56.6L29.6 59.1L30.4 61.5L31.3 63.8L32.3 66.1L33.4 68.4L34.5 70.5L35.7 72.6L36.9 74.5L38.2 76.4L39.6 78.1L41 79.8L42.4 81.3L43.9 82.6L45.4 83.9L46.9 84.9L48.5 85.9L50 86.6" },
+    ],
+    strokeCircles: [
+      { cx: 50, cy: 50, r: 39, opacity: 0.3 },
+    ],
+  },
+  icosahedron: {
+    groups: [
+      { opacity: 0.85, d: "M32 15.4L30.7 40M30.7 40L65.9 21.8M65.9 21.8L32 15.4M65.9 21.8L68 21.2M68 21.2L32 15.4M68 21.2L34.1 39M34.1 39L32 15.4M34.1 39L11.1 50.6M11.1 50.6L32 15.4M11.1 50.6L30.7 40M65.9 21.8L88.9 49.4M88.9 49.4L68 21.2M30.7 40L65.9 61M65.9 61L65.9 21.8M11.1 50.6L32 78.8M32 78.8L30.7 40M34.1 39L34.1 78.2M34.1 78.2L11.1 50.6M68 21.2L69.3 60M69.3 60L34.1 39M68 84.6L88.9 49.4M88.9 49.4L65.9 61M65.9 61L68 84.6M65.9 61L32 78.8M32 78.8L68 84.6M32 78.8L34.1 78.2M34.1 78.2L68 84.6M34.1 78.2L69.3 60M69.3 60L68 84.6M69.3 60L88.9 49.4" },
+    ],
+  },
+  camera: {
+    groups: [
+      { opacity: 0.85, d: "M18.6 66.8L65.1 73.8M65.1 73.8L65.1 39.8M65.1 39.8L18.6 32.8M18.6 32.8L18.6 66.8M34.9 60.2L81.4 67.2M81.4 67.2L81.4 33.2M81.4 33.2L34.9 26.2M34.9 26.2L34.9 60.2M18.6 66.8L34.9 60.2M65.1 73.8L81.4 67.2M65.1 39.8L81.4 33.2M18.6 32.8L34.9 26.2M77.7 44L76.4 38.5L73 34.1L68.3 32L63.7 32.7L60.3 36.1L59 41.2L60.3 46.7L63.7 51.1L68.3 53.2L73 52.5L76.4 49.1L77.7 44M69.8 48.5L68.2 41.6L64 36.1L58.2 33.5L52.3 34.4L48.1 38.6L46.5 44.9L48.1 51.8L52.3 57.3L58.2 59.9L64 59L68.2 54.9L69.8 48.5M77.7 44L69.8 48.5M76.4 38.5L68.2 41.6M73 34.1L64 36.1M68.3 32L58.2 33.5M63.7 32.7L52.3 34.4M60.3 36.1L48.1 38.6M59 41.2L46.5 44.9M60.3 46.7L48.1 51.8M63.7 51.1L52.3 57.3M68.3 53.2L58.2 59.9M73 52.5L64 59M76.4 49.1L68.2 54.9" },
+      { opacity: 0.7, d: "M27.4 33.3L39.1 35.1M39.1 35.1L39.1 25.7M39.1 25.7L27.4 23.9M27.4 23.9L27.4 33.3M33.6 30.9L45.2 32.6M45.2 32.6L45.2 23.2M45.2 23.2L33.6 21.4M33.6 21.4L33.6 30.9M27.4 33.3L33.6 30.9M39.1 35.1L45.2 32.6M39.1 25.7L45.2 23.2M27.4 23.9L33.6 21.4" },
+    ],
+  },
+  aperture: {
+    groups: [
+      { opacity: 0.85, d: "M84.8 60.3L85.2 56.2L83.1 52.5L79 50.2L74 49.8L69.4 51.5L66.5 54.9L66 59L68.2 62.7L72.3 65.1L77.3 65.4L81.9 63.7L84.8 60.3M80.1 48.2L80.7 44.5L79.1 42L75.6 41.2L71.1 42.4L67 45.3L64.3 49.1L63.7 52.8L65.3 55.3L68.9 56.1L73.3 54.9L77.4 52L80.1 48.2M67.4 36.5L68.5 33.3L68 31.8L66.2 32.6L63.4 35.4L60.5 39.4L58.2 43.6L57.2 46.9L57.6 48.3L59.5 47.5L62.2 44.7L65.1 40.7L67.4 36.5M50 28.4L51.7 25.5L52.9 24.8L53.3 26.7L52.9 30.5L51.7 35.3L50 39.8L48.3 42.8L47.1 43.4L46.7 41.6L47.1 37.7L48.3 32.9L50 28.4M32.6 26.2L34.9 23.3L37.8 22.9L40.5 25L42.4 29.1L42.8 34.1L41.8 38.7L39.5 41.6L36.6 42L33.8 39.9L32 35.8L31.5 30.7L32.6 26.2M19.9 30.3L22.6 27.2L26.7 26.4L31.1 28L34.7 31.6L36.3 36.2L35.7 40.7L33 43.7L28.9 44.5L24.4 42.9L20.9 39.3L19.3 34.7L19.9 30.3M15.2 39.7L18.1 36.3L22.7 34.6L27.7 34.9L31.8 37.3L34 41L33.5 45.1L30.6 48.5L26 50.2L21 49.8L16.9 47.5L14.8 43.8L15.2 39.7M19.9 51.8L22.6 48L26.7 45.1L31.1 43.9L34.7 44.7L36.3 47.2L35.7 50.9L33 54.7L28.9 57.6L24.4 58.8L20.9 58L19.3 55.5L19.9 51.8M32.6 63.5L34.9 59.3L37.8 55.3L40.5 52.5L42.4 51.7L42.8 53.1L41.8 56.4L39.5 60.6L36.6 64.6L33.8 67.4L32 68.2L31.5 66.7L32.6 63.5M50 71.6L51.7 67.1L52.9 62.3L53.3 58.4L52.9 56.6L51.7 57.2L50 60.2L48.3 64.7L47.1 69.5L46.7 73.3L47.1 75.2L48.3 74.5L50 71.6M67.4 73.8L68.5 69.3L68 64.2L66.2 60.1L63.4 58L60.5 58.4L58.2 61.3L57.2 65.9L57.6 70.9L59.5 75L62.2 77.1L65.1 76.7L67.4 73.8M80.1 69.7L80.7 65.3L79.1 60.7L75.6 57.1L71.1 55.5L67 56.3L64.3 59.3L63.7 63.8L65.3 68.4L68.9 72L73.3 73.6L77.4 72.8L80.1 69.7M84.8 60.3L83.6 54.4L80.1 48.2L74.6 42.1L67.4 36.5L59 31.9L50 28.4L41 26.5L32.6 26.2L25.4 27.5L19.9 30.3L16.4 34.4L15.2 39.7L16.4 45.6L19.9 51.8L25.4 57.9L32.6 63.5L41 68.1L50 71.6L59 73.5L67.4 73.8L74.6 72.5L80.1 69.7L83.6 65.6L84.8 60.3M83.1 52.5L82.1 47.4L79.1 42L74.3 36.7L68 31.8L60.7 27.8L52.9 24.8L45.1 23.1L37.8 22.9L31.5 24L26.7 26.4L23.7 30L22.7 34.6L23.7 39.7L26.7 45.1L31.5 50.4L37.8 55.3L45.1 59.3L52.9 62.3L60.7 63.9L68 64.2L74.3 63.1L79.1 60.7L82.1 57.1L83.1 52.5M74 49.8L73.2 46.2L71.1 42.4L67.8 38.7L63.4 35.4L58.3 32.6L52.9 30.5L47.4 29.3L42.4 29.1L38 29.9L34.7 31.6L32.5 34.1L31.8 37.3L32.5 40.9L34.7 44.7L38 48.3L42.4 51.7L47.4 54.5L52.9 56.6L58.3 57.8L63.4 58L67.8 57.2L71.1 55.5L73.2 53L74 49.8M66.5 54.9L65.9 52.1L64.3 49.1L61.7 46.2L58.2 43.6L54.3 41.4L50 39.8L45.7 38.9L41.8 38.7L38.3 39.3L35.7 40.7L34.1 42.6L33.5 45.1L34.1 47.9L35.7 50.9L38.3 53.8L41.8 56.4L45.7 58.6L50 60.2L54.3 61.1L58.2 61.3L61.7 60.7L64.3 59.3L65.9 57.4L66.5 54.9M68.2 62.7L67.5 59.1L65.3 55.3L62 51.7L57.6 48.3L52.6 45.5L47.1 43.4L41.7 42.2L36.6 42L32.2 42.8L28.9 44.5L26.8 47L26 50.2L26.8 53.8L28.9 57.6L32.2 61.3L36.6 64.6L41.7 67.4L47.1 69.5L52.6 70.7L57.6 70.9L62 70.1L65.3 68.4L67.5 65.9L68.2 62.7M77.3 65.4L76.3 60.3L73.3 54.9L68.5 49.6L62.2 44.7L54.9 40.7L47.1 37.7L39.3 36.1L32 35.8L25.7 36.9L20.9 39.3L17.9 42.9L16.9 47.5L17.9 52.6L20.9 58L25.7 63.3L32 68.2L39.3 72.2L47.1 75.2L54.9 76.9L62.2 77.1L68.5 76L73.3 73.6L76.3 70L77.3 65.4" },
+    ],
+  },
+  nodes: {
+    groups: [
+      { opacity: 0.6, d: "M50 28.6L29.7 44.9M50 28.6L75.9 46.3M50 28.6L60 71.2M50 28.6L34.4 69.3M29.7 44.9L34.4 69.3M75.9 46.3L60 71.2M29.7 44.9L75.9 46.3M60 71.2L34.4 69.3" },
+    ],
+    fillCircles: [
+      { cx: 50, cy: 28.6, r: 3.9, opacity: 0.9 },
+      { cx: 29.7, cy: 44.9, r: 3.9, opacity: 0.9 },
+      { cx: 75.9, cy: 46.3, r: 3.9, opacity: 0.9 },
+      { cx: 60, cy: 71.2, r: 3.9, opacity: 0.9 },
+      { cx: 34.4, cy: 69.3, r: 3.9, opacity: 0.9 },
+    ],
+  },
+  torusKnot: {
+    groups: [
+      { opacity: 0.85, d: "M84.8 54.7L85.3 49.6L84.8 44L83.3 38.7L80.8 34L77.4 30.2L73.4 27.3L69 25.5L64.4 24.9L60.1 25.3L56.2 26.5L52.9 28.1L50 29.9L47.6 31.6L45.6 33.2L43.9 34.4L42.4 35.3L40.8 36L39 36.7L36.7 37.5L33.9 38.3L30.9 39.5L27.6 41.2L24.4 43.5L21.4 46.5L19.1 50.3L17.7 54.8L17.5 59.6L18.5 64.5L20.7 69.2L24 73.5L28.2 77.1L33.1 79.9L38.5 81.8L44.1 82.6L49.7 82.5L55.1 81.3L60 79.1L64.1 76.2L67.4 72.6L69.7 68.6L70.9 64.4L71.2 60.4L70.6 56.7L69.3 53.5L67.6 50.9L65.9 49L64.4 47.7L63.5 47L63.4 46.9L63.5 47.1L63.5 47L63.3 45.9L62.9 43.9L62.5 41.3L61.7 38L60.4 34.4L58.8 30.5L56.5 26.7L53.7 23L50.4 19.8L46.6 17.2L42.4 15.5L37.9 14.9L33.3 15.9L29.3 18.5L26.6 22.2L25.2 26.5L24.8 31L25.3 35.5L26.6 39.8L28.3 43.9L30.4 47.5L32.6 50.7L34.8 53.3L36.7 55.4L38.1 57L39 57.9L39.3 58.4L39.3 58.5L39.4 59L39.5 60.3L39.8 62.3L40.3 64.9L41.5 67.9L43.3 70.9L45.9 73.7L49.4 76L53.5 77.6L58.1 78.3L63 78L68 76.5L72.7 73.9L76.9 70.4L80.4 65.9L83.1 60.8L84.6 55.8ZM73.2 53.5L73.6 49.5L73.3 46.1L72.4 43.1L71.1 40.6L69.5 38.8L67.8 37.6L66 36.9L64.2 36.6L62.4 36.8L60.5 37.4L58.5 38.3L56.6 39.6L54.6 41L52.6 42.6L50.3 44.2L47.9 45.6L45.4 46.8L42.8 47.8L40.2 48.6L37.8 49.4L35.6 50.2L33.6 51.2L31.9 52.4L30.6 53.7L29.7 55.1L29.2 56.8L29.1 58.6L29.6 60.8L30.7 63.1L32.5 65.4L34.9 67.5L37.9 69.2L41.3 70.4L44.8 71L48.3 70.9L51.5 70.2L54.2 69L56.4 67.4L58 65.7L59 63.9L59.4 62.3L59.5 60.9L59.3 59.8L58.9 58.8L58.4 58.1L57.7 57.4L56.9 56.7L55.8 55.8L54.3 54.3L53 52.2L52.2 50L51.8 48L51.4 46L51 43.7L50.4 41.3L49.5 38.6L48.3 35.8L46.8 33.1L44.9 30.7L43 28.8L41 27.4L39.4 26.8L38.3 26.6L37.8 26.7L37.4 26.9L37 27.5L36.6 28.8L36.5 30.7L36.8 33.2L37.6 35.9L38.8 38.6L40.3 41.3L42 43.6L43.7 45.7L45.3 47.5L46.9 49.2L48.3 50.9L49.6 52.9L50.5 55.2L51 57.3L51.1 59L51.3 60.4L51.5 61.6L51.9 62.7L52.6 63.7L53.5 64.8L54.8 65.7L56.5 66.3L58.5 66.6L60.9 66.5L63.4 65.7L66 64.3L68.5 62.2L70.6 59.6L72.2 56.4L73.4 52.5Z" },
+      { opacity: 0.5, d: "M84.8 54.7L73.2 53.5M64.4 24.9L64.2 36.6M42.4 35.3L47.9 45.6M21.4 46.5L30.6 53.7M33.1 79.9L37.9 69.2M69.7 68.6L59 63.9M63.5 47L55.8 55.8M60.4 34.4L49.5 38.6M33.3 15.9L37.8 26.7M30.4 47.5L40.3 41.3M39.4 59L51 57.3M53.5 77.6L56.5 66.3" },
+    ],
+  },
+};
 
-export default function FloatingIcon({
-  shape,
-  color,
-  size = 1,
-}: FloatingIconProps) {
-  const resolvedColor = color ?? DEFAULT_COLORS[shape];
+/* CSS-only motion, mirroring the old useFrame animation: slow rotation,
+   subtle tilt wobble, gentle vertical float. The sway oscillates instead of
+   spinning a full 360deg so the flat projection never turns edge-on. */
+const FLOATING_ICON_CSS = `
+.fi-wrap{width:100%;height:100%;perspective:320px}
+.fi-float{width:100%;height:100%;animation:fi-float 12s ease-in-out infinite;animation-delay:var(--fi-delay,0s)}
+.fi-sway{display:block;animation:fi-sway 16s ease-in-out infinite;animation-delay:var(--fi-delay,0s);will-change:transform}
+@keyframes fi-float{0%,100%{transform:translateY(4%)}50%{transform:translateY(-4%)}}
+@keyframes fi-sway{0%,100%{transform:rotateY(-24deg) rotateX(5deg)}50%{transform:rotateY(24deg) rotateX(-5deg)}}
+@media (prefers-reduced-motion:reduce){.fi-float,.fi-sway{animation:none}}
+`;
+
+export default function FloatingIcon({ shape, color }: FloatingIconProps) {
+  const stroke = color ?? DEFAULT_COLORS[shape];
+  const art = SHAPE_ART[shape];
 
   return (
-    <Canvas
-      dpr={[1, 1.5]}
-      gl={{ alpha: true, antialias: true, powerPreference: "low-power" }}
-      camera={{ position: [0, 0, 3.5], fov: 40 }}
-      frameloop="always"
-      style={{ background: "transparent" }}
+    <div
+      className="fi-wrap"
+      aria-hidden="true"
+      style={{ "--fi-delay": PHASE_OFFSETS[shape] } as CSSProperties}
     >
-      <SceneContent shape={shape} color={resolvedColor} size={size} />
-    </Canvas>
+      <style>{FLOATING_ICON_CSS}</style>
+      <div className="fi-float">
+        <svg
+          className="fi-sway"
+          viewBox="0 0 100 100"
+          width="100%"
+          height="100%"
+          fill="none"
+          stroke={stroke}
+          strokeWidth={1.6}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          {art.groups.map((group, i) => (
+            <path key={`g-${i}`} d={group.d} opacity={group.opacity} />
+          ))}
+          {art.strokeCircles?.map((c, i) => (
+            <circle
+              key={`sc-${i}`}
+              cx={c.cx}
+              cy={c.cy}
+              r={c.r}
+              opacity={c.opacity}
+            />
+          ))}
+          {art.fillCircles?.map((c, i) => (
+            <circle
+              key={`fc-${i}`}
+              cx={c.cx}
+              cy={c.cy}
+              r={c.r}
+              fill={stroke}
+              stroke="none"
+              opacity={c.opacity}
+            />
+          ))}
+        </svg>
+      </div>
+    </div>
   );
 }

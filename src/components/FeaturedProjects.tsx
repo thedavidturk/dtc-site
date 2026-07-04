@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import WorkFrame from "./WorkFrame";
 import TextReveal from "./TextReveal";
+import AutoplayVideo from "./AutoplayVideo";
 
 interface Project {
   client: string;
@@ -295,14 +296,9 @@ export default function FeaturedProjects() {
                   {/* Background - cover video, image, or gradient */}
                   {project.coverImage && project.coverImage.toLowerCase().endsWith(".mp4") ? (
                     <div className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-105">
-                      <video
+                      <AutoplayVideo
                         src={project.coverImage}
                         poster={project.coverPoster}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        preload="metadata"
                         aria-label={`${project.client} project`}
                         className="absolute inset-0 h-full w-full object-cover"
                       />

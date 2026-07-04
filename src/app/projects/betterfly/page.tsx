@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import ProjectGifBand from "@/components/ProjectGifBand";
 import PinnedApproach from "@/components/PinnedApproach";
 import WorkFrame from "@/components/WorkFrame";
+import AutoplayVideo from "@/components/AutoplayVideo";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -173,14 +174,9 @@ export default function BetterflyProject() {
       <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-end overflow-hidden">
         {/* GIF cover image */}
         <div className="absolute inset-0">
-          <video
+          <AutoplayVideo
             src="/motion/betterfly-fooh.mp4"
             poster="/motion/betterfly-fooh.jpg"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="metadata"
             aria-label="Betterfly FOOH campaign VFX scene"
             className="absolute inset-0 h-full w-full object-cover"
           />

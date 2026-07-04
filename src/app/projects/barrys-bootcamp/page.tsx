@@ -7,6 +7,7 @@ import ProjectGifBand from "@/components/ProjectGifBand";
 import Lazy3D from "@/components/Lazy3D";
 import PinnedApproach from "@/components/PinnedApproach";
 import WorkFrame from "@/components/WorkFrame";
+import AutoplayVideo from "@/components/AutoplayVideo";
 
 // Three.js needs the DOM — load client-side only
 const ProjectScene = dynamic(() => import("@/components/ProjectScene"), {
@@ -182,14 +183,9 @@ export default function BarrysBootcampProject() {
       <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-end overflow-hidden">
         {/* Cover clip */}
         <div className="absolute inset-0">
-          <video
+          <AutoplayVideo
             src="/motion/barrys.mp4"
             poster="/motion/barrys.jpg"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="metadata"
             aria-label="Barry's Bootcamp content"
             className="absolute inset-0 h-full w-full object-cover"
           />
@@ -438,14 +434,9 @@ export default function BarrysBootcampProject() {
               className="aspect-[16/10] rounded-2xl shadow-2xl shadow-black/20"
             >
               <div className="relative w-full h-full">
-                <video
+                <AutoplayVideo
                   src="/motion/barrys-1.mp4"
                   poster="/motion/barrys-1.jpg"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="metadata"
                   aria-label="Barry's Bootcamp animated social graphic"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
@@ -462,14 +453,9 @@ export default function BarrysBootcampProject() {
               className="aspect-[16/10] rounded-2xl shadow-2xl shadow-black/20"
             >
               <div className="relative w-full h-full">
-                <video
+                <AutoplayVideo
                   src="/motion/barrys-2.mp4"
                   poster="/motion/barrys-2.jpg"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="metadata"
                   aria-label="Barry's Bootcamp motion piece"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
@@ -487,14 +473,9 @@ export default function BarrysBootcampProject() {
               className="aspect-[16/9] rounded-2xl shadow-2xl shadow-black/20"
             >
               <div className="relative w-full h-full">
-                <video
+                <AutoplayVideo
                   src="/motion/barrys-3.mp4"
                   poster="/motion/barrys-3.jpg"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="metadata"
                   aria-label="Barry's Bootcamp animated graphic"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
@@ -511,14 +492,9 @@ export default function BarrysBootcampProject() {
               className="aspect-[16/9] rounded-2xl shadow-2xl shadow-black/20"
             >
               <div className="relative w-full h-full">
-                <video
+                <AutoplayVideo
                   src="/motion/barrys-4.mp4"
                   poster="/motion/barrys-4.jpg"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="metadata"
                   aria-label="Barry's Bootcamp social loop"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
@@ -536,14 +512,9 @@ export default function BarrysBootcampProject() {
               className="aspect-[21/9] rounded-2xl shadow-2xl shadow-black/20"
             >
               <div className="relative w-full h-full">
-                <video
+                <AutoplayVideo
                   src="/motion/barrys-5.mp4"
                   poster="/motion/barrys-5.jpg"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="metadata"
                   aria-label="Barry's Bootcamp social motion piece"
                   className="absolute inset-0 h-full w-full object-cover"
                 />

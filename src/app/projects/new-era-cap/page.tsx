@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import ProjectGifBand from "@/components/ProjectGifBand";
 import Lazy3D from "@/components/Lazy3D";
 import WorkFrame from "@/components/WorkFrame";
+import AutoplayVideo from "@/components/AutoplayVideo";
 
 // Three.js needs the DOM — load client-side only
 const ProjectScene = dynamic(() => import("@/components/ProjectScene"), {
@@ -254,14 +255,9 @@ export default function NewEraCapProject() {
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-end overflow-hidden">
         <div className="absolute inset-0">
-          <video
+          <AutoplayVideo
             src="/motion/new-era-3d.mp4"
             poster="/motion/new-era-3d.jpg"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="metadata"
             aria-label="New Era Cap campaign visual"
             className="absolute inset-0 h-full w-full object-cover"
           />

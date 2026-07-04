@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import AutoplayVideo from "./AutoplayVideo";
 
 interface GifItem {
   /** Path to a self-hosted looping MP4, e.g. "/motion/brugal.mp4". */
@@ -77,14 +78,9 @@ export default function ProjectGifBand({
             {/* Ambient glow on hover */}
             <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-electric-indigo/20 via-transparent to-warm-coral/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-sm pointer-events-none" />
 
-            <video
+            <AutoplayVideo
               src={gif.src}
               poster={gif.poster}
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="metadata"
               aria-label={gif.label || "Project animation"}
               className="relative w-full aspect-video object-cover"
             />
