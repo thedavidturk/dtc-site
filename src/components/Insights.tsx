@@ -1,10 +1,11 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import Link from "next/link";
+import Link from "./TransitionLink";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import Lazy3D from "./Lazy3D";
+import WorkFrame from "./WorkFrame";
 
 // ---------------------------------------------------------------------------
 // Dynamic imports for Three.js cover scenes (SSR disabled)
@@ -304,7 +305,7 @@ export default function Insights() {
             className="flex gap-6 overflow-x-auto scrollbar-hide px-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))] pb-4 snap-x snap-mandatory"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
-            {posts.map((post) => {
+            {posts.map((post, i) => {
               const CoverScene = coverComponents[post.coverComponent];
               return (
               <motion.article
@@ -315,10 +316,15 @@ export default function Insights() {
                 <Link href={`/insights/${post.slug}`} className="block h-full bg-white/[0.03] border border-white/5 rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 hover:-translate-y-2 hover:border-white/15 hover:shadow-2xl hover:shadow-black/30">
                   <div className="relative rounded-2xl h-full flex flex-col">
                     {/* Cover area */}
-                    <div className="relative aspect-[16/10] overflow-hidden">
+                    <WorkFrame
+                      year={post.month.split(" ").pop()}
+                      discipline={post.category}
+                      index={i + 1}
+                      className="aspect-[16/10]"
+                    >
                       {/* Gradient background */}
                       <div
-                        className={`absolute inset-0 bg-gradient-to-br ${post.gradient} transition-transform duration-700 ease-out group-hover:scale-110`}
+                        className={`absolute inset-0 bg-gradient-to-br ${post.gradient}`}
                       />
 
                       {/* Three.js cover scene */}
@@ -337,16 +343,9 @@ export default function Insights() {
                       {/* Bottom fade */}
                       <div className="absolute inset-x-0 bottom-0 h-1/3 z-20 bg-gradient-to-t from-[#120D1A]/80 to-transparent" />
 
-                      {/* Month badge */}
-                      <div className="absolute top-4 right-4 z-30">
-                        <span className="font-mono text-[10px] tracking-widest text-white/50 bg-black/30 backdrop-blur-sm px-2.5 py-1 rounded-full border border-white/10">
-                          {post.month}
-                        </span>
-                      </div>
-
                       {/* Corner accent glow on hover */}
                       <div className="absolute top-0 right-0 w-32 h-32 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-[radial-gradient(circle_at_top_right,rgba(124,92,255,0.15),transparent_70%)]" />
-                    </div>
+                    </WorkFrame>
 
                     {/* Card content */}
                     <div className="p-6 flex flex-col flex-1">

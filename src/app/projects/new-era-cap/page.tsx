@@ -2,8 +2,15 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import ProjectGifBand from "@/components/ProjectGifBand";
+import Lazy3D from "@/components/Lazy3D";
+
+// Three.js needs the DOM — load client-side only
+const ProjectScene = dynamic(() => import("@/components/ProjectScene"), {
+  ssr: false,
+});
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -252,6 +259,10 @@ export default function NewEraCapProject() {
           />
         </div>
         <div className="absolute inset-0 bg-black/30" />
+        {/* Themed 3D atmosphere — desktop only, unmounts off-screen */}
+        <Lazy3D className="pointer-events-none absolute inset-0 z-[1] hidden lg:block opacity-30">
+          <ProjectScene theme="space" className="h-full w-full" />
+        </Lazy3D>
         <div className="absolute inset-0 z-[2] bg-gradient-to-t from-deep-space via-deep-space/40 to-transparent" />
 
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">

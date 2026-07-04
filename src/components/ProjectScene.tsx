@@ -256,7 +256,7 @@ function OceanCausticRays() {
       x: (i - count / 2) * 1.8 + (Math.random() - 0.5) * 1.5,
       height: 8 + Math.random() * 2,
       width: 0.02 + Math.random() * 0.03,
-      color: Math.random() > 0.5 ? "#22D3EE" : "#14B8A6",
+      color: Math.random() > 0.5 ? "#5B8CFF" : "#7C5CFF",
       opacity: 0.06 + Math.random() * 0.06,
       phase: Math.random() * Math.PI * 2,
       speed: 0.3 + Math.random() * 0.4,
@@ -300,9 +300,9 @@ function OceanBubbles() {
   const { positions, colors } = useMemo(() => {
     const pos = new Float32Array(count * 3);
     const col = new Float32Array(count * 3);
-    const cyanColor = new THREE.Color("#22D3EE");
-    const tealColor = new THREE.Color("#14B8A6");
-    const whiteColor = new THREE.Color("#e0f7fa");
+    const blueColor = new THREE.Color("#5B8CFF");
+    const indigoColor = new THREE.Color("#7C5CFF");
+    const whiteColor = new THREE.Color("#E8EDFF");
 
     for (let i = 0; i < count; i++) {
       pos[i * 3] = (Math.random() - 0.5) * 12;
@@ -312,7 +312,7 @@ function OceanBubbles() {
       phasesRef.current[i] = Math.random() * Math.PI * 2;
 
       const pick = Math.random();
-      const c = pick < 0.4 ? cyanColor : pick < 0.7 ? tealColor : whiteColor;
+      const c = pick < 0.4 ? blueColor : pick < 0.7 ? indigoColor : whiteColor;
       col[i * 3] = c.r;
       col[i * 3 + 1] = c.g;
       col[i * 3 + 2] = c.b;
@@ -402,7 +402,7 @@ function OceanSurface() {
     <mesh ref={meshRef} position={[0, 4, 0]} rotation-x={-Math.PI / 2}>
       <planeGeometry ref={geoRef} args={[16, 12, 20, 20]} />
       <meshBasicMaterial
-        color="#22D3EE"
+        color="#5B8CFF"
         wireframe
         transparent
         opacity={0.05}
@@ -419,7 +419,7 @@ function OceanScene() {
       <directionalLight
         position={[0, 5, 2]}
         intensity={0.4}
-        color="#22D3EE"
+        color="#5B8CFF"
       />
       <MouseParallaxGroup>
         <OceanCausticRays />
@@ -748,7 +748,7 @@ function AutomotiveWireframeCar() {
       {/* Right side profile */}
       <Line
         points={carProfileRight}
-        color="#34D399"
+        color="#7C5CFF"
         lineWidth={2}
         transparent
         opacity={0.9}
@@ -756,7 +756,7 @@ function AutomotiveWireframeCar() {
       {/* Left side profile */}
       <Line
         points={carProfileLeft}
-        color="#34D399"
+        color="#7C5CFF"
         lineWidth={2}
         transparent
         opacity={0.9}
@@ -766,7 +766,7 @@ function AutomotiveWireframeCar() {
         <Line
           key={i}
           points={line}
-          color="#34D399"
+          color="#7C5CFF"
           lineWidth={1.5}
           transparent
           opacity={0.6}
@@ -784,8 +784,8 @@ function AutomotiveSpeedParticles() {
   const { positions, colors } = useMemo(() => {
     const pos = new Float32Array(count * 3);
     const col = new Float32Array(count * 3);
-    const emeraldColor = new THREE.Color("#34D399");
-    const tealColor = new THREE.Color("#14B8A6");
+    const indigoColor = new THREE.Color("#7C5CFF");
+    const coralColor = new THREE.Color("#FF8A5C");
 
     for (let i = 0; i < count; i++) {
       pos[i * 3] = (Math.random() - 0.5) * 10;
@@ -793,7 +793,7 @@ function AutomotiveSpeedParticles() {
       pos[i * 3 + 2] = (Math.random() - 0.5) * 4;
       speedsRef.current[i] = 0.03 + Math.random() * 0.06;
 
-      const c = Math.random() > 0.5 ? emeraldColor : tealColor;
+      const c = Math.random() > 0.5 ? indigoColor : coralColor;
       col[i * 3] = c.r;
       col[i * 3 + 1] = c.g;
       col[i * 3 + 2] = c.b;
@@ -850,7 +850,7 @@ function AutomotiveGridFloor() {
     <mesh position={[0, -0.5, 0]} rotation-x={-Math.PI / 2}>
       <planeGeometry args={[8, 8, 20, 20]} />
       <meshBasicMaterial
-        color="#34D399"
+        color="#7C5CFF"
         wireframe
         transparent
         opacity={0.05}
@@ -887,20 +887,30 @@ const themeScenes: Record<ProjectSceneProps["theme"], React.FC> = {
 
 export default function ProjectScene({ theme, className }: ProjectSceneProps) {
   const [mounted, setMounted] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
     setMounted(true);
+    // Respect prefers-reduced-motion: these scenes are purely decorative,
+    // so skip the WebGL context entirely rather than rendering static.
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
   }, []);
 
-  if (!mounted) return null;
+  if (!mounted || reducedMotion) {
+    return <div className={className} aria-hidden="true" />;
+  }
 
   const SceneComponent = themeScenes[theme];
 
   return (
-    <div className={className}>
+    <div className={className} aria-hidden="true">
       <Canvas
-        camera={{ fov: 60, position: [0, 0, 8] }}
-        gl={{ alpha: true, antialias: true }}
+        camera={{ fov: 60, position: [0, 0, 8], near: 0.1, far: 100 }}
+        gl={{ alpha: true, antialias: false, powerPreference: "low-power" }}
         dpr={[1, 1.5]}
         frameloop="always"
         style={{ background: "transparent" }}

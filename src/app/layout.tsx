@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Inter, JetBrains_Mono, Bricolage_Grotesque } from "next/font/google";
 import dynamic from "next/dynamic";
 import Script from "next/script";
+import { ViewTransitions } from "next-view-transitions";
 import "./globals.css";
+import "./view-transitions.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ClientLayout from "@/components/ClientLayout";
 import JsonLd from "@/components/JsonLd";
 import DesktopFX from "@/components/DesktopFX";
 
@@ -85,6 +86,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <ViewTransitions>
     <html lang="en" className="dark" style={{ backgroundColor: "#120D1A" }}>
       <head>
         <JsonLd
@@ -124,11 +126,10 @@ export default function RootLayout({
           <ScrollProgressTrail />
         </DesktopFX>
         <Header />
-        <main style={{ backgroundColor: "#120D1A" }}>
-          <ClientLayout>{children}</ClientLayout>
-        </main>
+        <main style={{ backgroundColor: "#120D1A" }}>{children}</main>
         <Footer />
       </body>
     </html>
+    </ViewTransitions>
   );
 }

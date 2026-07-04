@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
+import Link from "./TransitionLink";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import TiltCard from "./TiltCard";
+import WorkFrame from "./WorkFrame";
 import TextReveal from "./TextReveal";
 
 interface Project {
@@ -280,13 +280,18 @@ export default function FeaturedProjects() {
           viewport={{ once: true, margin: "-60px" }}
           className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8"
         >
-          {projects.map((project) => (
+          {projects.map((project, i) => (
             <motion.div key={project.href} variants={cardVariants}>
               <Link
                 href={project.href}
                 className={`group relative block ${project.accentGlow}`}
               >
-                <TiltCard className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 hover:shadow-2xl">
+                <WorkFrame
+                  client={project.client}
+                  discipline={project.type}
+                  index={i + 1}
+                  className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-black/20"
+                >
                   {/* Background - cover video, image, or gradient */}
                   {project.coverImage && project.coverImage.toLowerCase().endsWith(".mp4") ? (
                     <div className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-105">
@@ -324,78 +329,35 @@ export default function FeaturedProjects() {
                       <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:60px_60px]" />
                     </>
                   )}
+                </WorkFrame>
 
+                {/* Editorial overlay - sits above the framed media, never parallaxes */}
+                <div className="pointer-events-none absolute inset-0 rounded-2xl overflow-hidden">
                   {/* Dark overlay - intensifies on hover */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-500 group-hover:from-black/90 group-hover:via-black/40" />
 
-                  {/* Top-right arrow indicator */}
-                  <div
-                    className="absolute top-5 right-5 z-20 w-10 h-10 rounded-full border border-white/20 flex items-center justify-center opacity-0 translate-x-2 -translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-500"
-                    style={{ transform: "translateZ(40px)" }}
-                  >
-                    <svg
-                      className="w-4 h-4 text-pure-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      strokeWidth={2}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
-                      />
-                    </svg>
-                  </div>
-
-                  {/* Content overlay - depth layers via translateZ */}
-                  <div
-                    className="absolute inset-x-0 bottom-0 z-10 p-6 md:p-8 translate-y-2 group-hover:translate-y-0 transition-transform duration-500"
-                    style={{ transformStyle: "preserve-3d" }}
-                  >
-                    {/* Type badge - floats highest */}
-                    <span
-                      className="inline-block font-mono text-xs text-white/70 tracking-wider uppercase mb-3 px-3 py-1 rounded-full border border-white/10 backdrop-blur-sm bg-white/5"
-                      style={{ transform: "translateZ(30px)" }}
-                    >
-                      {project.type}
-                    </span>
-
-                    {/* Client name - prominent depth */}
-                    <h3
-                      className="font-headline text-2xl md:text-3xl font-bold text-pure-white tracking-tight mb-1"
-                      style={{ transform: "translateZ(20px)" }}
-                    >
+                  {/* Content overlay */}
+                  <div className="absolute inset-x-0 bottom-0 z-10 p-6 pb-14 md:p-8 md:pb-16 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                    {/* Client name */}
+                    <h3 className="font-headline text-2xl md:text-3xl font-bold text-pure-white tracking-tight mb-1">
                       {project.client}
                     </h3>
 
                     {/* Project name */}
-                    <p
-                      className="font-body text-base md:text-lg text-white/80 mb-3"
-                      style={{ transform: "translateZ(15px)" }}
-                    >
+                    <p className="font-body text-base md:text-lg text-white/80 mb-3">
                       {project.title}
                     </p>
 
                     {/* Teaser - revealed on hover */}
-                    <p
-                      className="font-body text-sm text-white/50 max-h-0 overflow-hidden opacity-0 group-hover:max-h-20 group-hover:opacity-100 transition-all duration-500 ease-out leading-relaxed"
-                      style={{ transform: "translateZ(10px)" }}
-                    >
+                    <p className="font-body text-sm text-white/50 max-h-0 overflow-hidden opacity-0 group-hover:max-h-20 group-hover:opacity-100 transition-all duration-500 ease-out leading-relaxed">
                       {project.teaser}
                     </p>
-
-                    {/* Underline accent */}
-                    <div
-                      className="mt-4 h-px w-0 group-hover:w-full bg-gradient-to-r from-electric-indigo to-warm-coral transition-all duration-700 ease-out"
-                      style={{ transform: "translateZ(5px)" }}
-                    />
                   </div>
 
                   {/* Border glow on hover */}
-                  <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-white/10 transition-colors duration-500 pointer-events-none" />
-                  <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none shadow-[inset_0_0_60px_rgba(124,92,255,0.08)]" />
-                </TiltCard>
+                  <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-white/10 transition-colors duration-500" />
+                  <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[inset_0_0_60px_rgba(124,92,255,0.08)]" />
+                </div>
               </Link>
             </motion.div>
           ))}

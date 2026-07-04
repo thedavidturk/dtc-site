@@ -2,8 +2,15 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import ProjectGifBand from "@/components/ProjectGifBand";
+import Lazy3D from "@/components/Lazy3D";
+
+// Three.js needs the DOM — load client-side only
+const ProjectScene = dynamic(() => import("@/components/ProjectScene"), {
+  ssr: false,
+});
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -224,6 +231,11 @@ export default function FordMustangMachEProject() {
             className="object-cover"
           />
         </div>
+
+        {/* Themed 3D atmosphere — desktop only, unmounts off-screen */}
+        <Lazy3D className="pointer-events-none absolute inset-0 z-[1] hidden lg:block opacity-[0.35]">
+          <ProjectScene theme="automotive" className="h-full w-full" />
+        </Lazy3D>
 
         {/* Tonal wash to seat the headline */}
         <div
