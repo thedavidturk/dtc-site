@@ -1,11 +1,12 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/TransitionLink";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import ProjectGifBand from "@/components/ProjectGifBand";
 import Lazy3D from "@/components/Lazy3D";
+import WorkFrame from "@/components/WorkFrame";
 
 // Three.js needs the DOM — load client-side only
 const ProjectScene = dynamic(() => import("@/components/ProjectScene"), {
@@ -83,6 +84,7 @@ const campaigns = [
     description:
       "A cinematic campaign that placed New Era's space-themed caps inside immersive cosmic environments. We built entire planets, star fields, and galaxies in 3D, then wove the product into each world so the audience could feel the wonder of space exploration, not just see a hat in front of it.",
     accent: "electric-indigo",
+    discipline: "3D Animation & Sequencing",
     images: [
       { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6a9909de-e004-4637-b305-03c7c3afc105_rw_1920.png?h=0d2513de6a3d5442c9276b98ca32ddb3", alt: "Cosmic hero shot", aspect: "aspect-[16/10]", span: "md:col-span-7" },
       { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/9ec30c8f-1df0-44b6-beb6-4574f6a913b4_rw_1920.png?h=eeb922659707c7884cabc10a61293320", alt: "Planet environment", aspect: "aspect-[3/4]", span: "md:col-span-5" },
@@ -99,6 +101,7 @@ const campaigns = [
     description:
       "A nature-inspired campaign bringing New Era's foliage-themed hat collection to life through immersive 3D environments. We built lush forests, mushroom hilltops, and overgrown cityscapes, grounding each cap in a world that felt as organic and alive as the designs themselves.",
     accent: "emerald-400",
+    discipline: "3D Animation & Sequencing",
     images: [
       { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/9093a3b0-956b-49e3-a039-06897868e553_rw_1200.png?h=bf736fd7c3636fa8eedc8a44dd910bcd", alt: "Forest environment hero", aspect: "aspect-[16/10]", span: "md:col-span-6" },
       { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/81c15846-3edc-43b1-bd8c-21a7cae08637_rw_1200.png?h=c8ff17d05d3e9612c76960bd7b9a7f4c", alt: "Mushroom hilltop scene", aspect: "aspect-[16/10]", span: "md:col-span-6" },
@@ -114,6 +117,7 @@ const campaigns = [
     description:
       "Immersive elemental environments built to showcase New Era's Elements collection. Each hat was reconstructed through photogrammetry and placed inside its own world: volcanic landscapes for Fire, underwater caverns for Water, windswept peaks for Air, and ancient forests for Earth.",
     accent: "amber-400",
+    discipline: "3D Animation & Sequencing",
     images: [
       { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/bc84ed39-2bc9-411a-8290-6f0cc5b43df2_rw_3840.png?h=ccf4884ee6b1129fa7a3eecd9ddb11f9", alt: "Elements hero shot", aspect: "aspect-[21/9]", span: "md:col-span-12" },
       { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/5320bf72-8ee0-4db5-baec-efa352e93988_rw_3840.png?h=0a6bf09111cac68772eec801db975fd5", alt: "Fire element world", aspect: "aspect-[4/3]", span: "md:col-span-6" },
@@ -130,6 +134,7 @@ const campaigns = [
     description:
       "A festive opening sequence featuring a single brownstone on a snowy city block, built entirely in 3D. We captured the essence of a cozy holiday night with warm glowing windows, falling snow, and dynamic camera movement, delivering high-end production value without a single location shoot.",
     accent: "red-400",
+    discipline: "Post-Production & VFX",
     images: [
       { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/f5254e37-7c30-48ac-9a2c-cf4191fa8719_rw_3840.png?h=6bcd777da7c646bb14244acd5c429f4d", alt: "Holiday brownstone hero", aspect: "aspect-[16/10]", span: "md:col-span-7" },
       { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/bc9ba708-0c5a-4b56-ae4a-269322f2a34b_rw_3840.png?h=3cc752b80414e61c042eed64e1b8eeaa", alt: "Snowy street scene", aspect: "aspect-[3/4]", span: "md:col-span-5" },
@@ -187,20 +192,23 @@ function CampaignSection({
         viewport={{ once: true, margin: "-60px" }}
         className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-5"
       >
-        {campaign.images.map((img) => (
+        {campaign.images.map((img, imgIndex) => (
           <motion.div key={img.src} variants={galleryItem} className={img.span}>
-            <div
-              className={`group relative ${img.aspect} overflow-hidden rounded-2xl border border-white/5 hover:border-electric-indigo/20 transition-colors duration-500`}
+            <WorkFrame
+              client={overview.client}
+              discipline={campaign.discipline}
+              index={imgIndex + 1}
+              className={`${img.aspect} rounded-2xl`}
             >
               <Image
                 src={img.src}
                 alt={img.alt}
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
                 unoptimized
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
         ))}
       </motion.div>

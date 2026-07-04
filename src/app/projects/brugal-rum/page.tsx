@@ -1,9 +1,11 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/TransitionLink";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import ProjectGifBand from "@/components/ProjectGifBand";
+import PinnedApproach from "@/components/PinnedApproach";
+import WorkFrame from "@/components/WorkFrame";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -361,54 +363,15 @@ export default function BrugalRumProject() {
         <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
-      {/* ── Our Approach ─────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mb-16"
-        >
-          <p className="font-mono text-sm text-warm-coral tracking-widest uppercase mb-4">
-            Our Approach
-          </p>
-          <h2 className="font-headline text-h3 font-bold">
-            From show floor to{" "}
-            <span className="text-white">cinematic cut</span>
-          </h2>
-        </motion.div>
-
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="space-y-12"
-        >
-          {approach.map((item) => (
-            <motion.div
-              key={item.step}
-              variants={staggerItem}
-              className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 group"
-            >
-              <div className="md:col-span-1">
-                <span className="font-mono text-3xl md:text-4xl font-bold text-warm-coral/30 group-hover:text-warm-coral transition-colors duration-500">
-                  {item.step}
-                </span>
-              </div>
-              <div className="md:col-span-11">
-                <h3 className="font-headline text-xl md:text-2xl font-bold text-pure-white mb-3 group-hover:text-soft-white transition-colors duration-300">
-                  {item.title}
-                </h3>
-                <p className="font-body text-cool-gray leading-relaxed max-w-3xl">
-                  {item.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
+      {/* ── Our Approach (scroll-scrubbed pinned section) ────────── */}
+      <PinnedApproach
+        eyebrow="Our Approach"
+        heading="From show floor to cinematic cut"
+        steps={approach.map(({ title, description }) => ({
+          title,
+          body: description,
+        }))}
+      />
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
@@ -485,145 +448,188 @@ export default function BrugalRumProject() {
         >
           {/* Row 1 - full-width hero */}
           <motion.div variants={galleryItem} className="md:col-span-12">
-            <div className="aspect-[21/9] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Event Coverage"
+              index={1}
+              className="aspect-[21/9] rounded-2xl"
+            >
               <Image
                 src={IMG.g1}
                 alt="Brugal Rum branded lounge at Miami Concours"
                 fill
                 sizes="100vw"
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
 
           {/* Row 2 - wide + tall */}
           <motion.div variants={galleryItem} className="md:col-span-7">
-            <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Brand Storytelling"
+              index={2}
+              className="aspect-[16/10] rounded-2xl"
+            >
               <Image
                 src={IMG.g2}
                 alt="Brugal activation footprint and signage"
                 fill
                 sizes="(max-width: 768px) 100vw, 58vw"
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-5">
-            <div className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Cinematic Videography"
+              index={3}
+              className="aspect-[3/4] rounded-2xl"
+            >
               <Image
                 src={IMG.g3}
                 alt="Brugal signature cocktail serve"
                 fill
                 sizes="(max-width: 768px) 100vw, 42vw"
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
 
           {/* Row 3 - three equal columns */}
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="4K Capture"
+              index={4}
+              className="aspect-[4/3] rounded-2xl"
+            >
               <Image
                 src={IMG.g4}
                 alt="Brugal bar program detail"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Event Coverage"
+              index={5}
+              className="aspect-[4/3] rounded-2xl"
+            >
               <Image
                 src={IMG.g5}
                 alt="Guests at the Brugal lounge"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Event Coverage"
+              index={6}
+              className="aspect-[4/3] rounded-2xl"
+            >
               <Image
                 src={IMG.g6}
                 alt="Brugal brand ambassadors hosting guests"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
 
           {/* Row 4 - asymmetric pair */}
           <motion.div variants={galleryItem} className="md:col-span-5">
-            <div className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="4K Capture"
+              index={7}
+              className="aspect-[3/4] rounded-2xl"
+            >
               <Image
                 src={IMG.g7}
                 alt="Brugal Rum bottle presentation"
                 fill
                 sizes="(max-width: 768px) 100vw, 42vw"
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-7">
-            <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Cinematic Videography"
+              index={8}
+              className="aspect-[16/10] rounded-2xl"
+            >
               <Image
                 src={IMG.g8}
                 alt="Brugal activation at golden hour"
                 fill
                 sizes="(max-width: 768px) 100vw, 58vw"
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
 
           {/* Row 5 - three equal columns */}
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="4K Capture"
+              index={9}
+              className="aspect-[4/3] rounded-2xl"
+            >
               <Image
                 src={IMG.g9}
                 alt="Brugal cocktail detail"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Event Coverage"
+              index={10}
+              className="aspect-[4/3] rounded-2xl"
+            >
               <Image
                 src={IMG.g10}
                 alt="Brugal lounge atmosphere"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Brand Storytelling"
+              index={11}
+              className="aspect-[4/3] rounded-2xl"
+            >
               <Image
                 src={IMG.g11}
                 alt="Brugal branding across the show floor"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
         </motion.div>
       </section>
@@ -651,38 +657,31 @@ export default function BrugalRumProject() {
           </h2>
         </motion.div>
 
-        <motion.ul
-          variants={staggerContainer}
+        {/* Lead result statement */}
+        <motion.div
+          variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-4"
+          className="max-w-4xl"
         >
-          {results.map((result) => (
-            <motion.li
-              key={result}
-              variants={staggerItem}
-              className="flex items-start gap-4 p-5 rounded-xl border border-white/5 bg-white/[0.02] hover:border-warm-coral/20 hover:bg-warm-coral/[0.03] transition-all duration-500"
-            >
-              <svg
-                className="w-5 h-5 text-warm-coral flex-shrink-0 mt-0.5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
+          <p className="font-display text-h2 font-bold text-pure-white mb-10">
+            {results[0]}
+          </p>
+
+          {/* TODO(David): add quantified result or client quote here */}
+
+          <ul className="space-y-4 border-l border-warm-coral/30 pl-6">
+            {results.slice(1).map((result) => (
+              <li
+                key={result}
+                className="font-body text-cool-gray text-base md:text-lg leading-relaxed"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <span className="font-body text-soft-white text-sm md:text-base leading-relaxed">
                 {result}
-              </span>
-            </motion.li>
-          ))}
-        </motion.ul>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────── */}

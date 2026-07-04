@@ -1,9 +1,11 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/TransitionLink";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import ProjectGifBand from "@/components/ProjectGifBand";
+import PinnedApproach from "@/components/PinnedApproach";
+import WorkFrame from "@/components/WorkFrame";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -337,54 +339,15 @@ export default function BetterflyProject() {
         <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
-      {/* ── Our Approach ─────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mb-16"
-        >
-          <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
-            Our Approach
-          </p>
-          <h2 className="font-headline text-h3 font-bold">
-            From monuments to feeds{" "}
-            <span className="text-white">in five steps</span>
-          </h2>
-        </motion.div>
-
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="space-y-12"
-        >
-          {approach.map((item) => (
-            <motion.div
-              key={item.step}
-              variants={staggerItem}
-              className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 group"
-            >
-              <div className="md:col-span-1">
-                <span className="font-mono text-3xl md:text-4xl font-bold text-emerald-400/30 group-hover:text-emerald-400 transition-colors duration-500">
-                  {item.step}
-                </span>
-              </div>
-              <div className="md:col-span-11">
-                <h3 className="font-headline text-xl md:text-2xl font-bold text-pure-white mb-3 group-hover:text-soft-white transition-colors duration-300">
-                  {item.title}
-                </h3>
-                <p className="font-body text-cool-gray leading-relaxed max-w-3xl">
-                  {item.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
+      {/* ── Our Approach (scroll-scrubbed pinned section) ────────── */}
+      <PinnedApproach
+        eyebrow="Our Approach"
+        heading="From monuments to feeds in five steps"
+        steps={approach.map(({ title, description }) => ({
+          title,
+          body: description,
+        }))}
+      />
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
@@ -457,132 +420,170 @@ export default function BetterflyProject() {
         >
           {/* Row 1: Wide hero + tall side */}
           <motion.div variants={galleryItem} className="md:col-span-7">
-            <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="FOOH (Fake Out-of-Home)"
+              index={1}
+              className="aspect-[16/10] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/afa1b619-7f85-4631-b906-65725f2afb1d_rw_3840.jpg?h=c011327012d82e389e6536546dad732a"
                 alt="Betterfly FOOH monument execution 1"
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
                 unoptimized
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-5">
-            <div className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="VFX Compositing"
+              index={2}
+              className="aspect-[3/4] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/0c4aae34-962c-4708-9e09-10d7c2270b0d_rw_3840.jpg?h=9486e194d38c38c0b70c1ffc7e317fcd"
                 alt="Betterfly FOOH monument execution 2"
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
                 unoptimized
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
 
           {/* Row 2: Three equal columns */}
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="FOOH (Fake Out-of-Home)"
+              index={3}
+              className="aspect-[4/3] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/86e3da3a-6b51-4572-94f5-260d6a761c0f_rw_3840.jpg?h=9b9f844be5ce86bd5089282e90bddbea"
                 alt="Betterfly FOOH monument execution 3"
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
                 unoptimized
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="VFX Compositing"
+              index={4}
+              className="aspect-[4/3] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/700cdcee-cf9b-4414-b54c-82e507d0ed53_rw_3840.jpg?h=ad51ee0c19861e16fffbd807aa14d780"
                 alt="Betterfly FOOH monument execution 4"
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
                 unoptimized
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="FOOH (Fake Out-of-Home)"
+              index={5}
+              className="aspect-[4/3] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/158c693d-d708-434a-8451-47c529b3cc20_rw_3840.jpg?h=a7b17b9dff25de2b80d8d8cdfeb196cc"
                 alt="Betterfly FOOH monument execution 5"
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
                 unoptimized
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
 
           {/* Row 3: Full-width VFX breakdown */}
           <motion.div variants={galleryItem} className="md:col-span-12">
-            <div className="aspect-[21/9] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="VFX Breakdown Reels"
+              index={6}
+              className="aspect-[21/9] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/e9307a9f-c204-4722-9a9f-4d5b3113db28_rw_3840.jpg?h=72945d2944442b86cf4ba4dc3f52f58b"
                 alt="Betterfly FOOH VFX breakdown"
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
                 unoptimized
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
 
           {/* Row 4: Social media assets - 2x2 grid */}
           <motion.div variants={galleryItem} className="md:col-span-3">
-            <div className="aspect-square rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Social Media Content"
+              index={7}
+              className="aspect-square rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/d06fd2d0-9618-4b28-a9ca-e2a56de0f9cc_rw_600.png?h=840f98de7ce65d2053f15fc1a332bb28"
                 alt="Betterfly social media asset 1"
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
                 unoptimized
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-3">
-            <div className="aspect-square rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Social Media Content"
+              index={8}
+              className="aspect-square rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/cccf2a57-e137-49db-b68b-570f7e4fe7bb_rw_600.png?h=c478a37e18d4ff133ffe947f26345c64"
                 alt="Betterfly social media asset 2"
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
                 unoptimized
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-3">
-            <div className="aspect-square rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Social Media Content"
+              index={9}
+              className="aspect-square rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/e854902b-d6b9-4da5-af46-a70b99f340c9_rw_1200.png?h=e07b0dc8c60685b5d414767e27915bfe"
                 alt="Betterfly social media asset 3"
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
                 unoptimized
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-3">
-            <div className="aspect-square rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Social Media Content"
+              index={10}
+              className="aspect-square rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/bc6dcbf4-5941-4a5b-9eaf-ec3f35d31163_rw_1200.png?h=60a8aa2806584e03b80f08b765317b22"
                 alt="Betterfly social media asset 4"
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
                 unoptimized
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-emerald-400/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
         </motion.div>
       </section>
@@ -610,38 +611,31 @@ export default function BetterflyProject() {
           </h2>
         </motion.div>
 
-        <motion.ul
-          variants={staggerContainer}
+        {/* Lead result statement */}
+        <motion.div
+          variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-4"
+          className="max-w-4xl"
         >
-          {results.map((result) => (
-            <motion.li
-              key={result}
-              variants={staggerItem}
-              className="flex items-start gap-4 p-5 rounded-xl border border-white/5 bg-white/[0.02] hover:border-emerald-400/20 hover:bg-emerald-400/[0.03] transition-all duration-500"
-            >
-              <svg
-                className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
+          <p className="font-display text-h2 font-bold text-pure-white mb-10">
+            {results[0]}
+          </p>
+
+          {/* TODO(David): add quantified result or client quote here */}
+
+          <ul className="space-y-4 border-l border-emerald-400/30 pl-6">
+            {results.slice(1).map((result) => (
+              <li
+                key={result}
+                className="font-body text-cool-gray text-base md:text-lg leading-relaxed"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <span className="font-body text-soft-white text-sm md:text-base leading-relaxed">
                 {result}
-              </span>
-            </motion.li>
-          ))}
-        </motion.ul>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────── */}

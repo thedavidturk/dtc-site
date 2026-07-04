@@ -1,9 +1,11 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/TransitionLink";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import ProjectGifBand from "@/components/ProjectGifBand";
+import PinnedApproach from "@/components/PinnedApproach";
+import WorkFrame from "@/components/WorkFrame";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -329,54 +331,15 @@ export default function ElSecretoProject() {
         <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
-      {/* ── Our Approach ─────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mb-16"
-        >
-          <p className="font-mono text-sm text-warm-coral tracking-widest uppercase mb-4">
-            Our Approach
-          </p>
-          <h2 className="font-headline text-h3 font-bold">
-            From kitchen to screen{" "}
-            <span className="text-white">in five steps</span>
-          </h2>
-        </motion.div>
-
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="space-y-12"
-        >
-          {approach.map((item) => (
-            <motion.div
-              key={item.step}
-              variants={staggerItem}
-              className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 group"
-            >
-              <div className="md:col-span-1">
-                <span className="font-mono text-3xl md:text-4xl font-bold text-warm-coral/30 group-hover:text-warm-coral transition-colors duration-500">
-                  {item.step}
-                </span>
-              </div>
-              <div className="md:col-span-11">
-                <h3 className="font-headline text-xl md:text-2xl font-bold text-pure-white mb-3 group-hover:text-soft-white transition-colors duration-300">
-                  {item.title}
-                </h3>
-                <p className="font-body text-cool-gray leading-relaxed max-w-3xl">
-                  {item.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
+      {/* ── Our Approach (scroll-scrubbed pinned section) ────────── */}
+      <PinnedApproach
+        eyebrow="Our Approach"
+        heading="From kitchen to screen in five steps"
+        steps={approach.map(({ title, description }) => ({
+          title,
+          body: description,
+        }))}
+      />
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
@@ -510,250 +473,324 @@ export default function ElSecretoProject() {
         >
           {/* Row 1: Full-width hero */}
           <motion.div variants={galleryItem} className="md:col-span-12">
-            <div className="aspect-[21/9] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Cinematic Video Production"
+              index={1}
+              className="aspect-[21/9] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/2b30b8bf-b3fd-43fd-b242-1fc4736e6946_rw_3840.png?h=de0ce295ccfda4a8762ce19708703262"
                 alt="El Secreto omakase cinematic still 1"
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
                 unoptimized
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
 
           {/* Row 2: Wide + tall */}
           <motion.div variants={galleryItem} className="md:col-span-7">
-            <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Food Cinematography"
+              index={2}
+              className="aspect-[16/10] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/24b244e3-b83b-4b7a-baf5-c6b8b65e4475_rw_3840.png?h=99f746c5ced60dde7de6ce105d8562a5"
                 alt="El Secreto omakase cinematic still 2"
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
                 unoptimized
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-5">
-            <div className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Documentary-Style Direction"
+              index={3}
+              className="aspect-[3/4] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/30be6f9c-e1f9-47e2-86a9-6e7c05d3461d_rw_3840.png?h=202bc393101a46898c0ebd5c84062caa"
                 alt="El Secreto omakase cinematic still 3"
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
                 unoptimized
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
 
           {/* Row 3: Three equal columns */}
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Food Cinematography"
+              index={4}
+              className="aspect-[4/3] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/bdd74e73-998e-4882-8a91-8c3ce1487e32_rw_3840.png?h=4a6b1eb3c72cd77ed660dd55224c5899"
                 alt="El Secreto omakase cinematic still 4"
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
                 unoptimized
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Food Cinematography"
+              index={5}
+              className="aspect-[4/3] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6b90fc91-2a17-4373-a58a-4dc68aacbfff_rw_3840.png?h=eb8e89cc54173ba379375ea0788697b0"
                 alt="El Secreto omakase cinematic still 5"
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
                 unoptimized
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Documentary-Style Direction"
+              index={6}
+              className="aspect-[4/3] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/72f388ff-6ed0-4b8e-8088-1d696ef1bf15_rw_3840.png?h=56fde8ff61d535628929d86d9c1c353e"
                 alt="El Secreto omakase cinematic still 6"
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
                 unoptimized
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
 
           {/* Row 4: Asymmetric pair */}
           <motion.div variants={galleryItem} className="md:col-span-5">
-            <div className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Documentary-Style Direction"
+              index={7}
+              className="aspect-[3/4] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/fb88a0b8-75ef-49b6-90b8-2c12f7dc6318_rw_3840.png?h=7368e43c6bb7ee0e6895275a50d7f0bf"
                 alt="El Secreto omakase cinematic still 7"
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
                 unoptimized
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-7">
-            <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Cinematic Video Production"
+              index={8}
+              className="aspect-[16/10] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/afb6b9e1-83e4-454f-9101-4d6dfc55a1ed_rw_3840.png?h=3d167587d6ac1952d9ad386620d9459c"
                 alt="El Secreto omakase cinematic still 8"
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
                 unoptimized
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
 
           {/* Row 5: Three equal columns */}
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Food Cinematography"
+              index={9}
+              className="aspect-[4/3] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/f05ee96a-032f-4dff-9495-61defe3508c4_rw_3840.png?h=c9b6cc64c72f7eb987304990567a9d2b"
                 alt="El Secreto omakase cinematic still 9"
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
                 unoptimized
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Food Cinematography"
+              index={10}
+              className="aspect-[4/3] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/684bd88c-a12a-43f0-8c86-42513107abef_rw_3840.png?h=6cc869a96a4b5566dde315e9d9d0cc25"
                 alt="El Secreto omakase cinematic still 10"
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
                 unoptimized
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Documentary-Style Direction"
+              index={11}
+              className="aspect-[4/3] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6e5a427f-3801-426f-838a-f97c0467e240_rw_3840.png?h=2a531adc8de1e7c1047d3fac08665657"
                 alt="El Secreto omakase cinematic still 11"
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
                 unoptimized
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
 
           {/* Row 6: Wide cinematic + narrow */}
           <motion.div variants={galleryItem} className="md:col-span-8">
-            <div className="aspect-[16/9] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Cinematic Video Production"
+              index={12}
+              className="aspect-[16/9] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/b07529cf-7338-4033-b7f3-ed2338735f32_rw_3840.png?h=d7969ee36bbfa2b38d252720de936370"
                 alt="El Secreto omakase cinematic still 12"
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
                 unoptimized
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Documentary-Style Direction"
+              index={13}
+              className="aspect-[3/4] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/10da8fa1-c7ba-479a-94d7-ffe48c5a98b1_rw_3840.png?h=0ab7636ad107a1b53fd3cda3df1b19d9"
                 alt="El Secreto omakase cinematic still 13"
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
                 unoptimized
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
 
           {/* Row 7: Three equal columns */}
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Food Cinematography"
+              index={14}
+              className="aspect-[4/3] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/5250cabf-bb36-4d03-8c07-0392c092b569_rw_3840.png?h=e383294d59703110b6434dc6a2fadef7"
                 alt="El Secreto omakase cinematic still 14"
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
                 unoptimized
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Food Cinematography"
+              index={15}
+              className="aspect-[4/3] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/2aa570be-ae99-42bd-940b-e71d8e921690_rw_3840.png?h=83ea0ac28d55d1476ef4923c6e0caa70"
                 alt="El Secreto omakase cinematic still 15"
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
                 unoptimized
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Documentary-Style Direction"
+              index={16}
+              className="aspect-[4/3] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/f97d5232-2ffd-435a-a5b9-aff188149226_rw_3840.png?h=db99a24a6e8d32a253917d9b386fe2d3"
                 alt="El Secreto omakase cinematic still 16"
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
                 unoptimized
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
 
           {/* Row 8: Asymmetric pair */}
           <motion.div variants={galleryItem} className="md:col-span-6">
-            <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Cinematic Video Production"
+              index={17}
+              className="aspect-[16/10] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/413be7b5-9592-43c1-8aa5-ccd1b202a4e7_rw_3840.png?h=09567a03c34e0ddb4f946ab2437980c5"
                 alt="El Secreto omakase cinematic still 17"
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
                 unoptimized
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-6">
-            <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Post-Production & VFX"
+              index={18}
+              className="aspect-[16/10] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/a803fc78-3105-40fe-9681-ac2082b581bd_rw_3840.png?h=46f1734c03714d3e082846c2daf6c057"
                 alt="El Secreto omakase cinematic still 18"
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
                 unoptimized
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
 
           {/* Row 9: Full-width closing */}
           <motion.div variants={galleryItem} className="md:col-span-12">
-            <div className="aspect-[21/9] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="4K Delivery"
+              index={19}
+              className="aspect-[21/9] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/8476057e-bafc-4c8d-9ce2-c66a58a59c00_rw_3840.png?h=50d3ee6ea0b7a45dbd5e35bcfb45ee14"
                 alt="El Secreto omakase cinematic closing still"
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
                 unoptimized
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
         </motion.div>
       </section>
@@ -781,38 +818,31 @@ export default function ElSecretoProject() {
           </h2>
         </motion.div>
 
-        <motion.ul
-          variants={staggerContainer}
+        {/* Lead result statement */}
+        <motion.div
+          variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-4"
+          className="max-w-4xl"
         >
-          {results.map((result) => (
-            <motion.li
-              key={result}
-              variants={staggerItem}
-              className="flex items-start gap-4 p-5 rounded-xl border border-white/5 bg-white/[0.02] hover:border-warm-coral/20 hover:bg-warm-coral/[0.03] transition-all duration-500"
-            >
-              <svg
-                className="w-5 h-5 text-warm-coral flex-shrink-0 mt-0.5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
+          <p className="font-display text-h2 font-bold text-pure-white mb-10">
+            {results[0]}
+          </p>
+
+          {/* TODO(David): add quantified result or client quote here */}
+
+          <ul className="space-y-4 border-l border-warm-coral/30 pl-6">
+            {results.slice(1).map((result) => (
+              <li
+                key={result}
+                className="font-body text-cool-gray text-base md:text-lg leading-relaxed"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <span className="font-body text-soft-white text-sm md:text-base leading-relaxed">
                 {result}
-              </span>
-            </motion.li>
-          ))}
-        </motion.ul>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────── */}

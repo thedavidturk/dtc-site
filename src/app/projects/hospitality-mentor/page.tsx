@@ -1,9 +1,11 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/TransitionLink";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import ProjectGifBand from "@/components/ProjectGifBand";
+import PinnedApproach from "@/components/PinnedApproach";
+import WorkFrame from "@/components/WorkFrame";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -372,54 +374,15 @@ export default function HospitalityMentorProject() {
         <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
-      {/* ── Our Approach ─────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mb-16"
-        >
-          <p className="font-mono text-sm text-warm-coral tracking-widest uppercase mb-4">
-            Our Approach
-          </p>
-          <h2 className="font-headline text-h3 font-bold">
-            From the lobby to{" "}
-            <span className="text-white">the final cut</span>
-          </h2>
-        </motion.div>
-
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="space-y-12"
-        >
-          {approach.map((item) => (
-            <motion.div
-              key={item.step}
-              variants={staggerItem}
-              className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 group"
-            >
-              <div className="md:col-span-1">
-                <span className="font-mono text-3xl md:text-4xl font-bold text-warm-coral/30 group-hover:text-warm-coral transition-colors duration-500">
-                  {item.step}
-                </span>
-              </div>
-              <div className="md:col-span-11">
-                <h3 className="font-headline text-xl md:text-2xl font-bold text-pure-white mb-3 group-hover:text-soft-white transition-colors duration-300">
-                  {item.title}
-                </h3>
-                <p className="font-body text-cool-gray leading-relaxed max-w-3xl">
-                  {item.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
+      {/* ── Our Approach (scroll-scrubbed pinned section) ────────── */}
+      <PinnedApproach
+        eyebrow="Our Approach"
+        heading="From the lobby to the final cut"
+        steps={approach.map(({ title, description }) => ({
+          title,
+          body: description,
+        }))}
+      />
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
@@ -452,122 +415,156 @@ export default function HospitalityMentorProject() {
         >
           {/* Row 1: Full-width hero */}
           <motion.div variants={galleryItem} className="md:col-span-12">
-            <div className="aspect-[21/9] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Cinematic Video Production"
+              index={1}
+              className="aspect-[21/9] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/36260dbf-5542-4beb-8e58-8c29508d31f1_rw_3840.jpg?h=e4c0a60847058ccefbf7b4d46fd543e2"
                 alt="Fontainebleau Miami Beach cinematic still 1"
                 fill
                 sizes="100vw"
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
 
           {/* Row 2: Wide + tall */}
           <motion.div variants={galleryItem} className="md:col-span-7">
-            <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Shot on Canon C70 in 4K"
+              index={2}
+              className="aspect-[16/10] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/5c769b0c-465e-4b2f-85c6-cc7b98778c49_rw_3840.jpg?h=cdb8228ade21e66f1affc343d0ef322d"
                 alt="Fontainebleau Miami Beach cinematic still 2"
                 fill
                 sizes="(max-width: 768px) 100vw, 58vw"
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-5">
-            <div className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Documentary-Style Direction"
+              index={3}
+              className="aspect-[3/4] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/691f76f8-a588-432b-ab11-065ec59b0a0b_rw_3840.jpg?h=ae9e2554c37a6c9afe2f55d02d2792cc"
                 alt="Fontainebleau Miami Beach cinematic still 3"
                 fill
                 sizes="(max-width: 768px) 100vw, 42vw"
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
 
           {/* Row 3: Three equal columns */}
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Cinematic Video Production"
+              index={4}
+              className="aspect-[4/3] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/8c7398dd-4282-4ddc-873d-521dcee46d76_rw_3840.jpg?h=19fe9f7b33bc81864b8810735dc77586"
                 alt="Fontainebleau Miami Beach cinematic still 4"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Documentary-Style Direction"
+              index={5}
+              className="aspect-[4/3] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/a320897b-6515-41fc-b406-6c19c703b083_rw_3840.jpg?h=822959a337e879c542ed3a40a347e19c"
                 alt="Fontainebleau Miami Beach cinematic still 5"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Shot on Canon C70 in 4K"
+              index={6}
+              className="aspect-[4/3] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/8564b4c1-291a-41ae-9a83-59135b9956ab_rw_3840.jpg?h=c2fccdb5a76147d85f2609b266b1fd82"
                 alt="Fontainebleau Miami Beach cinematic still 6"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
 
           {/* Row 4: Asymmetric pair */}
           <motion.div variants={galleryItem} className="md:col-span-5">
-            <div className="aspect-[3/4] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Documentary-Style Direction"
+              index={7}
+              className="aspect-[3/4] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/7c7fb05d-78bb-43a8-82c3-4a1a5cc7f5fb_rw_3840.jpg?h=a392d944f5e60d6642c9185cae426438"
                 alt="Fontainebleau Miami Beach cinematic still 7"
                 fill
                 sizes="(max-width: 768px) 100vw, 42vw"
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
           <motion.div variants={galleryItem} className="md:col-span-7">
-            <div className="aspect-[16/10] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Editorial in Premiere Pro"
+              index={8}
+              className="aspect-[16/10] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/e9c164e4-0e05-4ab3-a9f1-8b183a0b9677_rw_3840.jpg?h=3a6711cbe9f04febe3b9d25c311e64e4"
                 alt="Fontainebleau Miami Beach cinematic still 8"
                 fill
                 sizes="(max-width: 768px) 100vw, 58vw"
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
 
           {/* Row 5: Full-width closing */}
           <motion.div variants={galleryItem} className="md:col-span-12">
-            <div className="aspect-[21/9] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Cinematic Video Production"
+              index={9}
+              className="aspect-[21/9] rounded-2xl"
+            >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/026b1245-42eb-4ad3-a850-f245624bcd44_rw_3840.jpg?h=a300b5c31fec6bae40aa6a3d7874c3b9"
                 alt="Fontainebleau Miami Beach cinematic closing still"
                 fill
                 sizes="100vw"
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
         </motion.div>
       </section>
@@ -595,38 +592,31 @@ export default function HospitalityMentorProject() {
           </h2>
         </motion.div>
 
-        <motion.ul
-          variants={staggerContainer}
+        {/* Lead result statement */}
+        <motion.div
+          variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-4"
+          className="max-w-4xl"
         >
-          {results.map((result) => (
-            <motion.li
-              key={result}
-              variants={staggerItem}
-              className="flex items-start gap-4 p-5 rounded-xl border border-white/5 bg-white/[0.02] hover:border-warm-coral/20 hover:bg-warm-coral/[0.03] transition-all duration-500"
-            >
-              <svg
-                className="w-5 h-5 text-warm-coral flex-shrink-0 mt-0.5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
+          <p className="font-display text-h2 font-bold text-pure-white mb-10">
+            {results[0]}
+          </p>
+
+          {/* TODO(David): add quantified result or client quote here */}
+
+          <ul className="space-y-4 border-l border-warm-coral/30 pl-6">
+            {results.slice(1).map((result) => (
+              <li
+                key={result}
+                className="font-body text-cool-gray text-base md:text-lg leading-relaxed"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <span className="font-body text-soft-white text-sm md:text-base leading-relaxed">
                 {result}
-              </span>
-            </motion.li>
-          ))}
-        </motion.ul>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────── */}

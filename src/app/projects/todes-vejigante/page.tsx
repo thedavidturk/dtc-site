@@ -1,9 +1,11 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/TransitionLink";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import ProjectGifBand from "@/components/ProjectGifBand";
+import PinnedApproach from "@/components/PinnedApproach";
+import WorkFrame from "@/components/WorkFrame";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -335,54 +337,15 @@ export default function TodesVejiganteProject() {
         <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
-      {/* ── Our Approach ─────────────────────────────────────────── */}
-      <section className="section-container section-padding">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mb-16"
-        >
-          <p className="font-mono text-sm text-amber-400 tracking-widest uppercase mb-4">
-            Our Approach
-          </p>
-          <h2 className="font-headline text-h3 font-bold">
-            From research to resistance{" "}
-            <span className="text-white">in five phases</span>
-          </h2>
-        </motion.div>
-
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="space-y-12"
-        >
-          {approach.map((item) => (
-            <motion.div
-              key={item.step}
-              variants={staggerItem}
-              className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 group"
-            >
-              <div className="md:col-span-1">
-                <span className="font-mono text-3xl md:text-4xl font-bold text-amber-400/30 group-hover:text-amber-400 transition-colors duration-500">
-                  {item.step}
-                </span>
-              </div>
-              <div className="md:col-span-11">
-                <h3 className="font-headline text-xl md:text-2xl font-bold text-pure-white mb-3 group-hover:text-soft-white transition-colors duration-300">
-                  {item.title}
-                </h3>
-                <p className="font-body text-cool-gray leading-relaxed max-w-3xl">
-                  {item.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
+      {/* ── Our Approach (scroll-scrubbed pinned section) ────────── */}
+      <PinnedApproach
+        eyebrow="Our Approach"
+        heading="From research to resistance in five phases"
+        steps={approach.map(({ title, description }) => ({
+          title,
+          body: description,
+        }))}
+      />
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
@@ -459,157 +422,187 @@ export default function TodesVejiganteProject() {
         >
           {/* Row 1 - wide + tall portrait */}
           <motion.div variants={galleryItem} className="md:col-span-7">
-            <div className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/5c702b8d-e939-46c9-9a51-21f7465d6b67_rw_1920.jpg?h=0d55bd3b23e10a0b7b506f672a98d2f1"
-                  alt="Todes Vejigante community portrait"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Photography & Exhibition"
+              index={1}
+              className="aspect-[16/10] rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/5c702b8d-e939-46c9-9a51-21f7465d6b67_rw_1920.jpg?h=0d55bd3b23e10a0b7b506f672a98d2f1"
+                alt="Todes Vejigante community portrait"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-5">
-            <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/a0c12513-c551-46dc-834c-7cc8b86565cf_rw_1920.jpg?h=0d55bd3b23e10a0b7b506f672a98d2f1"
-                  alt="Vejigante mask portrait"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Photography & Exhibition"
+              index={2}
+              className="aspect-[3/4] rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/a0c12513-c551-46dc-834c-7cc8b86565cf_rw_1920.jpg?h=0d55bd3b23e10a0b7b506f672a98d2f1"
+                alt="Vejigante mask portrait"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           {/* Row 2 - offset editorial */}
           <motion.div variants={galleryItem} className="md:col-span-5 md:col-start-2">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/2366b306-628e-40ef-b957-49ea27e2ca94_rw_1920.png?h=0d55bd3b23e10a0b7b506f672a98d2f1"
-                  alt="Campaign identity"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Campaign Strategy"
+              index={3}
+              className="aspect-[4/3] rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/2366b306-628e-40ef-b957-49ea27e2ca94_rw_1920.png?h=0d55bd3b23e10a0b7b506f672a98d2f1"
+                alt="Campaign identity"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-6">
-            <div className="aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6f6775eb-a524-4ee6-921e-55d7dd255f6c_rw_1920.jpg?h=0d55bd3b23e10a0b7b506f672a98d2f1"
-                  alt="Exhibition display"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Photography & Exhibition"
+              index={4}
+              className="aspect-[16/9] rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6f6775eb-a524-4ee6-921e-55d7dd255f6c_rw_1920.jpg?h=0d55bd3b23e10a0b7b506f672a98d2f1"
+                alt="Exhibition display"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           {/* Row 3 - three equal columns */}
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/bbc241fe-1029-4a0e-9f4d-d44d4eed7c48_rw_1920.jpg?h=0d55bd3b23e10a0b7b506f672a98d2f1"
-                  alt="Portrait with machete and plants"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Photography & Exhibition"
+              index={5}
+              className="aspect-square rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/bbc241fe-1029-4a0e-9f4d-d44d4eed7c48_rw_1920.jpg?h=0d55bd3b23e10a0b7b506f672a98d2f1"
+                alt="Portrait with machete and plants"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/a7c6289a-1050-405d-a340-a793d92b29cd_rw_1920.png?h=0d55bd3b23e10a0b7b506f672a98d2f1"
-                  alt="Event production"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Immersive Event Production"
+              index={6}
+              className="aspect-square rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/a7c6289a-1050-405d-a340-a793d92b29cd_rw_1920.png?h=0d55bd3b23e10a0b7b506f672a98d2f1"
+                alt="Event production"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/ec3965ca-86b5-46e9-a8dd-947479c91eeb_rw_1920.png?h=0d55bd3b23e10a0b7b506f672a98d2f1"
-                  alt="Bomba drumming performance"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Immersive Event Production"
+              index={7}
+              className="aspect-square rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/ec3965ca-86b5-46e9-a8dd-947479c91eeb_rw_1920.png?h=0d55bd3b23e10a0b7b506f672a98d2f1"
+                alt="Bomba drumming performance"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           {/* Row 4 - asymmetric pair */}
           <motion.div variants={galleryItem} className="md:col-span-6">
-            <div className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/34c014e3-651c-47cb-ae49-3572fc351b0f_rw_1200.png?h=0d55bd3b23e10a0b7b506f672a98d2f1"
-                  alt="Video mapping installation"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Immersive Event Production"
+              index={8}
+              className="aspect-[16/10] rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/34c014e3-651c-47cb-ae49-3572fc351b0f_rw_1200.png?h=0d55bd3b23e10a0b7b506f672a98d2f1"
+                alt="Video mapping installation"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-6">
-            <div className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/95bd6c52-fbb1-4b5c-b8f4-f13e8bb8ad05_rw_1920.png?h=0d55bd3b23e10a0b7b506f672a98d2f1"
-                  alt="Merchandise and fundraising"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Campaign Strategy"
+              index={9}
+              className="aspect-[16/10] rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/95bd6c52-fbb1-4b5c-b8f4-f13e8bb8ad05_rw_1920.png?h=0d55bd3b23e10a0b7b506f672a98d2f1"
+                alt="Merchandise and fundraising"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           {/* Row 5 - full-width hero shot */}
           <motion.div variants={galleryItem} className="md:col-span-12">
-            <div className="aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/7cf1295f-7c6f-4057-a833-094f979df0d3_rw_1200.png?h=0d55bd3b23e10a0b7b506f672a98d2f1"
-                  alt="Todes Vejigante community gathering"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Documentary Production"
+              index={10}
+              className="aspect-[21/9] rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/7cf1295f-7c6f-4057-a833-094f979df0d3_rw_1200.png?h=0d55bd3b23e10a0b7b506f672a98d2f1"
+                alt="Todes Vejigante community gathering"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
         </motion.div>
       </section>
@@ -637,38 +630,31 @@ export default function TodesVejiganteProject() {
           </h2>
         </motion.div>
 
-        <motion.ul
-          variants={staggerContainer}
+        {/* Lead result statement */}
+        <motion.div
+          variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-4"
+          className="max-w-4xl"
         >
-          {results.map((result) => (
-            <motion.li
-              key={result}
-              variants={staggerItem}
-              className="flex items-start gap-4 p-5 rounded-xl border border-white/5 bg-white/[0.02] hover:border-amber-400/20 hover:bg-amber-400/[0.03] transition-all duration-500"
-            >
-              <svg
-                className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
+          <p className="font-display text-h2 font-bold text-pure-white mb-10">
+            {results[0]}
+          </p>
+
+          {/* TODO(David): add quantified result or client quote here */}
+
+          <ul className="space-y-4 border-l border-amber-400/30 pl-6">
+            {results.slice(1).map((result) => (
+              <li
+                key={result}
+                className="font-body text-cool-gray text-base md:text-lg leading-relaxed"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <span className="font-body text-soft-white text-sm md:text-base leading-relaxed">
                 {result}
-              </span>
-            </motion.li>
-          ))}
-        </motion.ul>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────── */}

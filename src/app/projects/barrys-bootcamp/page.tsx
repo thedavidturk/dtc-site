@@ -1,10 +1,12 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/TransitionLink";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import ProjectGifBand from "@/components/ProjectGifBand";
 import Lazy3D from "@/components/Lazy3D";
+import PinnedApproach from "@/components/PinnedApproach";
+import WorkFrame from "@/components/WorkFrame";
 
 // Three.js needs the DOM — load client-side only
 const ProjectScene = dynamic(() => import("@/components/ProjectScene"), {
@@ -106,6 +108,17 @@ const approach = [
       "Packaged the assets for fast rollout across the brand's social channels, sized and formatted for the platforms where the audience actually shows up.",
   },
 ];
+
+/* Result statement assembled verbatim from the Solution copy above --
+   no new claims. Lead line reads large; supporting lines back it up. */
+const results = {
+  lead: "The content carried the studio feeling into the places where the audience lives.",
+  supporting: [
+    "A system of animated graphics and motion templates, built to flex across promotions, class formats, and seasonal moments while staying unmistakably Barry's",
+    "A first frame that stops the scroll, and motion that keeps the energy going",
+    "Packaged for fast rollout and sized for every platform",
+  ],
+};
 
 const tools = [
   {
@@ -337,54 +350,15 @@ export default function BarrysBootcampProject() {
         <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
-      {/* ── Our Approach ─────────────────────────────────────────── */}
-      <section className="section-container section-padding">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mb-16"
-        >
-          <p className="font-mono text-sm text-amber-400 tracking-widest uppercase mb-4">
-            Our Approach
-          </p>
-          <h2 className="font-headline text-h3 font-bold">
-            From studio floor to{" "}
-            <span className="text-white">feed</span>
-          </h2>
-        </motion.div>
-
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="space-y-12"
-        >
-          {approach.map((item) => (
-            <motion.div
-              key={item.step}
-              variants={staggerItem}
-              className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 group"
-            >
-              <div className="md:col-span-1">
-                <span className="font-mono text-3xl md:text-4xl font-bold text-amber-400/30 group-hover:text-amber-400 transition-colors duration-500">
-                  {item.step}
-                </span>
-              </div>
-              <div className="md:col-span-11">
-                <h3 className="font-headline text-xl md:text-2xl font-bold text-pure-white mb-3 group-hover:text-soft-white transition-colors duration-300">
-                  {item.title}
-                </h3>
-                <p className="font-body text-cool-gray leading-relaxed max-w-3xl">
-                  {item.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
+      {/* ── Our Approach (scroll-scrubbed pinned section) ────────── */}
+      <PinnedApproach
+        eyebrow="Our Approach"
+        heading="From studio floor to feed"
+        steps={approach.map(({ title, description }) => ({
+          title,
+          body: description,
+        }))}
+      />
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
@@ -457,7 +431,12 @@ export default function BarrysBootcampProject() {
         >
           {/* Row 1 - wide + tall */}
           <motion.div variants={galleryItem} className="md:col-span-7">
-            <div className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Animated Graphics"
+              index={1}
+              className="aspect-[16/10] rounded-2xl shadow-2xl shadow-black/20"
+            >
               <div className="relative w-full h-full">
                 <video
                   src="/motion/barrys-1.mp4"
@@ -472,11 +451,16 @@ export default function BarrysBootcampProject() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
               </div>
-            </div>
+            </WorkFrame>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-5">
-            <div className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Motion Design"
+              index={2}
+              className="aspect-[16/10] rounded-2xl shadow-2xl shadow-black/20"
+            >
               <div className="relative w-full h-full">
                 <video
                   src="/motion/barrys-2.mp4"
@@ -491,12 +475,17 @@ export default function BarrysBootcampProject() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
               </div>
-            </div>
+            </WorkFrame>
           </motion.div>
 
           {/* Row 2 - asymmetric pair */}
           <motion.div variants={galleryItem} className="md:col-span-6">
-            <div className="aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Animated Graphics"
+              index={3}
+              className="aspect-[16/9] rounded-2xl shadow-2xl shadow-black/20"
+            >
               <div className="relative w-full h-full">
                 <video
                   src="/motion/barrys-3.mp4"
@@ -511,11 +500,16 @@ export default function BarrysBootcampProject() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
               </div>
-            </div>
+            </WorkFrame>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-6">
-            <div className="aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Social Content"
+              index={4}
+              className="aspect-[16/9] rounded-2xl shadow-2xl shadow-black/20"
+            >
               <div className="relative w-full h-full">
                 <video
                   src="/motion/barrys-4.mp4"
@@ -530,12 +524,17 @@ export default function BarrysBootcampProject() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
               </div>
-            </div>
+            </WorkFrame>
           </motion.div>
 
           {/* Row 3 - full-width hero loop */}
           <motion.div variants={galleryItem} className="md:col-span-12">
-            <div className="aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Motion Design"
+              index={5}
+              className="aspect-[21/9] rounded-2xl shadow-2xl shadow-black/20"
+            >
               <div className="relative w-full h-full">
                 <video
                   src="/motion/barrys-5.mp4"
@@ -550,8 +549,57 @@ export default function BarrysBootcampProject() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
               </div>
-            </div>
+            </WorkFrame>
           </motion.div>
+        </motion.div>
+      </section>
+
+      {/* ── Divider ──────────────────────────────────────────────── */}
+      <div className="section-container">
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      </div>
+
+      {/* ── The Result ───────────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="mb-12"
+        >
+          <p className="font-mono text-sm text-amber-400 tracking-widest uppercase mb-4">
+            The Result
+          </p>
+          <h2 className="font-headline text-h3 font-bold">
+            Studio energy, <span className="text-white">built for the feed</span>
+          </h2>
+        </motion.div>
+
+        {/* Lead result statement */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="max-w-4xl"
+        >
+          <p className="font-display text-h2 font-bold text-pure-white mb-10">
+            {results.lead}
+          </p>
+
+          {/* TODO(David): add quantified result or client quote here */}
+
+          <ul className="space-y-4 border-l border-amber-400/30 pl-6">
+            {results.supporting.map((result) => (
+              <li
+                key={result}
+                className="font-body text-cool-gray text-base md:text-lg leading-relaxed"
+              >
+                {result}
+              </li>
+            ))}
+          </ul>
         </motion.div>
       </section>
 

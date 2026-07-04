@@ -1,9 +1,11 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/TransitionLink";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import ProjectGifBand from "@/components/ProjectGifBand";
+import PinnedApproach from "@/components/PinnedApproach";
+import WorkFrame from "@/components/WorkFrame";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -346,18 +348,20 @@ export default function PammProject() {
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
         >
-          <div className="aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/30 relative group">
-            <div className="relative w-full h-full">
-              <Image
-                src={img.identity}
-                alt="PAMM brand identity system"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 80vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-            </div>
-          </div>
+          <WorkFrame
+            client={overview.client}
+            discipline="Brand & Campaign Creative"
+            className="aspect-[16/9] rounded-2xl shadow-2xl shadow-black/30"
+          >
+            <Image
+              src={img.identity}
+              alt="PAMM brand identity system"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 80vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+          </WorkFrame>
         </motion.div>
       </section>
 
@@ -366,54 +370,15 @@ export default function PammProject() {
         <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
-      {/* ── Our Approach ─────────────────────────────────────────── */}
-      <section className="section-container section-padding">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mb-16"
-        >
-          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
-            Our Approach
-          </p>
-          <h2 className="font-headline text-h3 font-bold">
-            From the bay to the{" "}
-            <span className="text-white">feed</span>
-          </h2>
-        </motion.div>
-
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="space-y-12"
-        >
-          {approach.map((item) => (
-            <motion.div
-              key={item.step}
-              variants={staggerItem}
-              className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 group"
-            >
-              <div className="md:col-span-1">
-                <span className="font-mono text-3xl md:text-4xl font-bold text-electric-indigo/30 group-hover:text-electric-indigo transition-colors duration-500">
-                  {item.step}
-                </span>
-              </div>
-              <div className="md:col-span-11">
-                <h3 className="font-headline text-xl md:text-2xl font-bold text-pure-white mb-3 group-hover:text-soft-white transition-colors duration-300">
-                  {item.title}
-                </h3>
-                <p className="font-body text-cool-gray leading-relaxed max-w-3xl">
-                  {item.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
+      {/* ── Our Approach (scroll-scrubbed pinned section) ────────── */}
+      <PinnedApproach
+        eyebrow="Our Approach"
+        heading="From the bay to the feed"
+        steps={approach.map(({ title, description }) => ({
+          title,
+          body: description,
+        }))}
+      />
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
@@ -489,33 +454,39 @@ export default function PammProject() {
         >
           {/* Row 1: wide + portrait */}
           <motion.div variants={galleryItem} className="md:col-span-7">
-            <div className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src={img.g1}
-                  alt="PAMM exhibition campaign"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  sizes="(max-width: 768px) 100vw, 58vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Art Direction"
+              index={1}
+              className="aspect-[16/10] rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src={img.g1}
+                alt="PAMM exhibition campaign"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 58vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-5">
-            <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src={img.g6}
-                  alt="PAMM campaign key art"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  sizes="(max-width: 768px) 100vw, 42vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Brand & Campaign Creative"
+              index={2}
+              className="aspect-[3/4] rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src={img.g6}
+                alt="PAMM campaign key art"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 42vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           {/* Row 2: offset editorial */}
@@ -523,110 +494,131 @@ export default function PammProject() {
             variants={galleryItem}
             className="md:col-span-5 md:col-start-2"
           >
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src={img.g2}
-                  alt="PAMM brand application"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  sizes="(max-width: 768px) 100vw, 42vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Brand & Campaign Creative"
+              index={3}
+              className="aspect-[4/3] rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src={img.g2}
+                alt="PAMM brand application"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 42vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-6">
-            <div className="aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src={img.g3}
-                  alt="PAMM social content"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Content & Social"
+              index={4}
+              className="aspect-[16/9] rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src={img.g3}
+                alt="PAMM social content"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           {/* Row 3: three equal columns */}
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src={img.g7}
-                  alt="PAMM content detail"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Content & Social"
+              index={5}
+              className="aspect-square rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src={img.g7}
+                alt="PAMM content detail"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src={img.g8}
-                  alt="PAMM content detail"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Content & Social"
+              index={6}
+              className="aspect-square rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src={img.g8}
+                alt="PAMM content detail"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src={img.g9}
-                  alt="PAMM content detail"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Content & Social"
+              index={7}
+              className="aspect-square rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src={img.g9}
+                alt="PAMM content detail"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           {/* Row 4: asymmetric pair */}
           <motion.div variants={galleryItem} className="md:col-span-6">
-            <div className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src={img.g4}
-                  alt="PAMM campaign system"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Brand & Campaign Creative"
+              index={8}
+              className="aspect-[16/10] rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src={img.g4}
+                alt="PAMM campaign system"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-6">
-            <div className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src={img.g5}
-                  alt="PAMM campaign system"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Art Direction"
+              index={9}
+              className="aspect-[16/10] rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src={img.g5}
+                alt="PAMM campaign system"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
         </motion.div>
       </section>

@@ -1,8 +1,10 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/TransitionLink";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import PinnedApproach from "@/components/PinnedApproach";
+import WorkFrame from "@/components/WorkFrame";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -420,18 +422,21 @@ export default function RunwayHealthProject() {
           viewport={{ once: true, margin: "-60px" }}
           className="mb-6"
         >
-          <div className="aspect-[4/5] sm:aspect-[16/12] rounded-2xl overflow-hidden shadow-2xl shadow-black/30 relative group">
-            <div className="relative w-full h-full">
-              <Image
-                src={INTERIOR_HERO}
-                alt="Runway Health interior product render set"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 1080px"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-            </div>
-          </div>
+          <WorkFrame
+            client={overview.client}
+            discipline="Scene Design"
+            index={1}
+            className="aspect-[4/5] sm:aspect-[16/12] rounded-2xl shadow-2xl shadow-black/30"
+          >
+            <Image
+              src={INTERIOR_HERO}
+              alt="Runway Health interior product render set"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 1080px"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+          </WorkFrame>
         </motion.div>
 
         {/* Five-up interior grid */}
@@ -448,18 +453,20 @@ export default function RunwayHealthProject() {
               variants={galleryItem}
               className={i === 4 ? "col-span-2 md:col-span-1" : ""}
             >
-              <div className="aspect-[4/5] rounded-xl overflow-hidden shadow-xl shadow-black/20 relative group">
-                <div className="relative w-full h-full group">
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                    sizes="(max-width: 768px) 50vw, 20vw"
-                  />
-                  <div className="absolute inset-0 rounded-xl border border-white/0 group-hover:border-electric-indigo/30 transition-colors duration-500 pointer-events-none" />
-                </div>
-              </div>
+              <WorkFrame
+                client={overview.client}
+                discipline="Scene Design"
+                index={i + 2}
+                className="aspect-[4/5] rounded-xl shadow-xl shadow-black/20"
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 50vw, 20vw"
+                />
+              </WorkFrame>
             </motion.div>
           ))}
         </motion.div>
@@ -470,54 +477,15 @@ export default function RunwayHealthProject() {
         <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
-      {/* ── Process / Approach ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mb-16"
-        >
-          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
-            The Process
-          </p>
-          <h2 className="font-headline text-h3 font-bold">
-            From geometry to{" "}
-            <span className="text-white">finished render</span>
-          </h2>
-        </motion.div>
-
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="space-y-12"
-        >
-          {approach.map((item) => (
-            <motion.div
-              key={item.step}
-              variants={staggerItem}
-              className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 group"
-            >
-              <div className="md:col-span-1">
-                <span className="font-mono text-3xl md:text-4xl font-bold text-electric-indigo/30 group-hover:text-electric-indigo transition-colors duration-500">
-                  {item.step}
-                </span>
-              </div>
-              <div className="md:col-span-11">
-                <h3 className="font-headline text-xl md:text-2xl font-bold text-pure-white mb-3">
-                  {item.title}
-                </h3>
-                <p className="font-body text-cool-gray leading-relaxed max-w-3xl">
-                  {item.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
+      {/* ── Process / Approach (scroll-scrubbed pinned section) ──── */}
+      <PinnedApproach
+        eyebrow="The Process"
+        heading="From geometry to finished render"
+        steps={approach.map(({ title, description }) => ({
+          title,
+          body: description,
+        }))}
+      />
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
@@ -602,29 +570,37 @@ export default function RunwayHealthProject() {
           className="space-y-6"
         >
           <motion.div variants={galleryItem}>
-            <div className="aspect-[21/9] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Rendering"
+              index={7}
+              className="aspect-[21/9] rounded-2xl"
+            >
               <Image
                 src={HERO_WIDE_1}
                 alt="Runway Health hero product imagery"
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
                 sizes="100vw"
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
 
           <motion.div variants={galleryItem}>
-            <div className="aspect-[21/9] rounded-2xl overflow-hidden relative group">
+            <WorkFrame
+              client={overview.client}
+              discipline="Rendering"
+              index={8}
+              className="aspect-[21/9] rounded-2xl"
+            >
               <Image
                 src={HERO_WIDE_2}
                 alt="Runway Health hero product imagery"
                 fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                className="object-cover"
                 sizes="100vw"
               />
-              <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-warm-coral/20 transition-colors duration-500 pointer-events-none" />
-            </div>
+            </WorkFrame>
           </motion.div>
         </motion.div>
       </section>
@@ -658,20 +634,22 @@ export default function RunwayHealthProject() {
           viewport={{ once: true, margin: "-60px" }}
           className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6"
         >
-          {studioSet.map((img) => (
+          {studioSet.map((img, i) => (
             <motion.div key={img.src} variants={galleryItem} className={img.span}>
-              <div className={`${img.ratio} rounded-2xl overflow-hidden relative group shadow-xl shadow-black/20`}>
-                <div className="relative w-full h-full">
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                    sizes={img.span.includes("12") ? "100vw" : "(max-width: 768px) 100vw, 33vw"}
-                  />
-                  <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-electric-indigo/20 transition-colors duration-500 pointer-events-none" />
-                </div>
-              </div>
+              <WorkFrame
+                client={overview.client}
+                discipline="Rendering"
+                index={i + 9}
+                className={`${img.ratio} rounded-2xl shadow-xl shadow-black/20`}
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover"
+                  sizes={img.span.includes("12") ? "100vw" : "(max-width: 768px) 100vw, 33vw"}
+                />
+              </WorkFrame>
             </motion.div>
           ))}
         </motion.div>
@@ -699,38 +677,31 @@ export default function RunwayHealthProject() {
           </h2>
         </motion.div>
 
-        <motion.ul
-          variants={staggerContainer}
+        {/* Lead result statement */}
+        <motion.div
+          variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-4"
+          className="max-w-4xl"
         >
-          {results.map((result) => (
-            <motion.li
-              key={result}
-              variants={staggerItem}
-              className="flex items-start gap-4 p-5 rounded-xl border border-white/5 bg-white/[0.02] hover:border-electric-indigo/20 hover:bg-electric-indigo/[0.03] transition-all duration-500"
-            >
-              <svg
-                className="w-5 h-5 text-electric-indigo flex-shrink-0 mt-0.5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
+          <p className="font-display text-h2 font-bold text-pure-white mb-10">
+            {results[0]}
+          </p>
+
+          {/* TODO(David): add quantified result or client quote here */}
+
+          <ul className="space-y-4 border-l border-electric-indigo/30 pl-6">
+            {results.slice(1).map((result) => (
+              <li
+                key={result}
+                className="font-body text-cool-gray text-base md:text-lg leading-relaxed"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <span className="font-body text-soft-white text-sm md:text-base leading-relaxed">
                 {result}
-              </span>
-            </motion.li>
-          ))}
-        </motion.ul>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────── */}

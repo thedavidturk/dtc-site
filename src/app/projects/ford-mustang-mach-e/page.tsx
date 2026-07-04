@@ -1,11 +1,13 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/TransitionLink";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import ProjectGifBand from "@/components/ProjectGifBand";
 import Lazy3D from "@/components/Lazy3D";
+import PinnedApproach from "@/components/PinnedApproach";
+import WorkFrame from "@/components/WorkFrame";
 
 // Three.js needs the DOM — load client-side only
 const ProjectScene = dynamic(() => import("@/components/ProjectScene"), {
@@ -86,44 +88,59 @@ const galleryImages = [
     alt: "Ford Mustang Mach-E hero key visual",
     aspect: "21/9",
     span: 12,
+    discipline: "Hi-Res Key Visuals",
   },
   {
     src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/fcf6296b-216c-429f-b8fc-4ada80f68dfc_rw_3840.jpg?h=9d25b37ccabacab16672b34557c312a4",
     alt: "Ford Mustang Mach-E rendered three quarter view",
     aspect: "16/10",
     span: 7,
+    discipline: "3D Design (Cinema 4D)",
   },
   {
     src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/b9902159-050d-4e1f-a691-35165cf456ba_rw_3840.jpg?h=ea86ac1cce2b7d16732f4aea590402e7",
     alt: "Ford Mustang Mach-E detail composition",
     aspect: "3/4",
     span: 5,
+    discipline: "Concept & Art Direction",
   },
   {
     src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/143dcbf7-583c-47b6-92d4-bdd1bbf8173d_rw_3840.jpg?h=eb89949a5d83ab26d8665d77524d50e7",
     alt: "Ford Mustang Mach-E lighting study",
     aspect: "4/3",
     span: 4,
+    discipline: "3D Design (Cinema 4D)",
   },
   {
     src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/2c0d78b8-991d-46ca-8dfd-7cc0a4b0e7aa_rw_3840.jpg?h=4defce8940261e93c0bdfd9f8d010291",
     alt: "Ford Mustang Mach-E rendered profile",
     aspect: "4/3",
     span: 4,
+    discipline: "Hi-Res Key Visuals",
   },
   {
     src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/bbf6a1f7-2b68-4bd1-a519-4fef713a2cbf_rw_1920.png?h=60f9bbfa8172959bd001998034ef16e2",
     alt: "Ford Mustang Mach-E social frame",
     aspect: "4/3",
     span: 4,
+    discipline: "Social Media Delivery",
   },
   {
     src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/da3d77ca-1e4b-4f7e-b3cb-7b0e58cf2210_rw_1920.png?h=4f041b47252b875962082d62685b2730",
     alt: "Ford Mustang Mach-E animation still",
     aspect: "21/9",
     span: 12,
+    discipline: "4K Motion Animation",
   },
 ];
+
+/* Static class lookup so Tailwind sees the literal aspect utilities.  */
+const aspectClass: Record<string, string> = {
+  "21/9": "aspect-[21/9]",
+  "16/10": "aspect-[16/10]",
+  "3/4": "aspect-[3/4]",
+  "4/3": "aspect-[4/3]",
+};
 
 const approach = [
   {
@@ -445,54 +462,15 @@ export default function FordMustangMachEProject() {
         <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
-      {/* ── Our Approach ─────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mb-16"
-        >
-          <p className="font-mono text-sm text-warm-coral tracking-widest uppercase mb-4">
-            Our Approach
-          </p>
-          <h2 className="font-headline text-h3 font-bold">
-            From render to feed{" "}
-            <span className="text-white">in four moves</span>
-          </h2>
-        </motion.div>
-
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="space-y-12"
-        >
-          {approach.map((item) => (
-            <motion.div
-              key={item.step}
-              variants={staggerItem}
-              className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 group"
-            >
-              <div className="md:col-span-1">
-                <span className="font-mono text-3xl md:text-4xl font-bold text-warm-coral/30 group-hover:text-warm-coral transition-colors duration-500">
-                  {item.step}
-                </span>
-              </div>
-              <div className="md:col-span-11">
-                <h3 className="font-headline text-xl md:text-2xl font-bold text-pure-white mb-3 transition-colors duration-300">
-                  {item.title}
-                </h3>
-                <p className="font-body text-cool-gray leading-relaxed max-w-3xl">
-                  {item.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
+      {/* ── Our Approach (scroll-scrubbed pinned section) ────────── */}
+      <PinnedApproach
+        eyebrow="Our Approach"
+        heading="From render to feed in four moves"
+        steps={approach.map(({ title, description }) => ({
+          title,
+          body: description,
+        }))}
+      />
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
@@ -523,7 +501,7 @@ export default function FordMustangMachEProject() {
           viewport={{ once: true, margin: "-60px" }}
           className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6"
         >
-          {galleryImages.map((img) => {
+          {galleryImages.map((img, i) => {
             const spanClass =
               img.span === 12
                 ? "md:col-span-12"
@@ -534,23 +512,20 @@ export default function FordMustangMachEProject() {
                 : "md:col-span-4";
             return (
               <motion.div key={img.src} variants={galleryItem} className={spanClass}>
-                <div className="rounded-2xl overflow-hidden relative group">
-                  <div
-                    className="relative w-full"
-                    style={{ aspectRatio: img.aspect }}
-                  >
-                    <Image
-                      src={img.src}
-                      alt={img.alt}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 1200px"
-                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                    />
-                  </div>
-                  <div
-                    className="absolute inset-0 rounded-2xl border border-white/0 transition-colors duration-500 pointer-events-none group-hover:border-white/20"
+                <WorkFrame
+                  client={overview.client}
+                  discipline={img.discipline}
+                  index={i + 1}
+                  className={`${aspectClass[img.aspect]} rounded-2xl`}
+                >
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 1200px"
+                    className="object-cover"
                   />
-                </div>
+                </WorkFrame>
               </motion.div>
             );
           })}
@@ -580,38 +555,31 @@ export default function FordMustangMachEProject() {
           </h2>
         </motion.div>
 
-        <motion.ul
-          variants={staggerContainer}
+        {/* Lead result statement */}
+        <motion.div
+          variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-4"
+          className="max-w-4xl"
         >
-          {results.map((result) => (
-            <motion.li
-              key={result}
-              variants={staggerItem}
-              className="flex items-start gap-4 p-5 rounded-xl border border-white/5 bg-white/[0.02] transition-all duration-500 hover:border-white/15 hover:bg-white/[0.04]"
-            >
-              <svg
-                className="w-5 h-5 text-warm-coral flex-shrink-0 mt-0.5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
+          <p className="font-display text-h2 font-bold text-pure-white mb-10">
+            {results[0]}
+          </p>
+
+          {/* TODO(David): add quantified result or client quote here */}
+
+          <ul className="space-y-4 border-l border-warm-coral/30 pl-6">
+            {results.slice(1).map((result) => (
+              <li
+                key={result}
+                className="font-body text-cool-gray text-base md:text-lg leading-relaxed"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <span className="font-body text-soft-white text-sm md:text-base leading-relaxed">
                 {result}
-              </span>
-            </motion.li>
-          ))}
-        </motion.ul>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────── */}

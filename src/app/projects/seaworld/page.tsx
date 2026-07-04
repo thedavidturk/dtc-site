@@ -1,11 +1,13 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/TransitionLink";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import ProjectGifBand from "@/components/ProjectGifBand";
 import Lazy3D from "@/components/Lazy3D";
+import PinnedApproach from "@/components/PinnedApproach";
+import WorkFrame from "@/components/WorkFrame";
 
 // Three.js needs the DOM — load client-side only
 const ProjectScene = dynamic(() => import("@/components/ProjectScene"), {
@@ -353,54 +355,15 @@ export default function SeaWorldProject() {
         <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
-      {/* ── Our Approach ─────────────────────────────────────────── */}
-      <section className="section-container section-padding">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mb-16"
-        >
-          <p className="font-mono text-sm text-cyan-400 tracking-widest uppercase mb-4">
-            Our Approach
-          </p>
-          <h2 className="font-headline text-h3 font-bold">
-            Deep-sea storytelling{" "}
-            <span className="text-white">at breakneck speed</span>
-          </h2>
-        </motion.div>
-
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="space-y-12"
-        >
-          {approach.map((item) => (
-            <motion.div
-              key={item.step}
-              variants={staggerItem}
-              className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 group"
-            >
-              <div className="md:col-span-1">
-                <span className="font-mono text-3xl md:text-4xl font-bold text-cyan-400/30 group-hover:text-cyan-400 transition-colors duration-500">
-                  {item.step}
-                </span>
-              </div>
-              <div className="md:col-span-11">
-                <h3 className="font-headline text-xl md:text-2xl font-bold text-pure-white mb-3 group-hover:text-soft-white transition-colors duration-300">
-                  {item.title}
-                </h3>
-                <p className="font-body text-cool-gray leading-relaxed max-w-3xl">
-                  {item.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
+      {/* ── Our Approach (scroll-scrubbed pinned section) ────────── */}
+      <PinnedApproach
+        eyebrow="Our Approach"
+        heading="Deep-sea storytelling at breakneck speed"
+        steps={approach.map(({ title, description }) => ({
+          title,
+          body: description,
+        }))}
+      />
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
@@ -474,281 +437,335 @@ export default function SeaWorldProject() {
         >
           {/* Row 1 - full-width cinematic hero */}
           <motion.div variants={galleryItem} className="md:col-span-12">
-            <div className="aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/f42a6c83-e2bc-4d2f-afde-e3505ae3a0a9_rw_1920.png?h=170768e389c41ddce65e3137271f173b"
-                  alt="SEAQuest underwater world hero"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Virtual World Cinematic"
+              index={1}
+              className="aspect-[21/9] rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/f42a6c83-e2bc-4d2f-afde-e3505ae3a0a9_rw_1920.png?h=170768e389c41ddce65e3137271f173b"
+                alt="SEAQuest underwater world hero"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           {/* Row 2 - wide + tall */}
           <motion.div variants={galleryItem} className="md:col-span-7">
-            <div className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/3c7bc293-4736-41b8-8521-17c11820918f_rw_3840.png?h=f85762d23e378abf6d005270cc55be51"
-                  alt="Coral reef environment"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Virtual World Cinematic"
+              index={2}
+              className="aspect-[16/10] rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/3c7bc293-4736-41b8-8521-17c11820918f_rw_3840.png?h=f85762d23e378abf6d005270cc55be51"
+                alt="Coral reef environment"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-5">
-            <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/e2ae76f5-6ff8-4000-b921-9efcda85561b_rw_1920.png?h=47ba580be2e46e8961a7055179cca782"
-                  alt="Deep-sea bioluminescent zone"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="3D Animation"
+              index={3}
+              className="aspect-[3/4] rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/e2ae76f5-6ff8-4000-b921-9efcda85561b_rw_1920.png?h=47ba580be2e46e8961a7055179cca782"
+                alt="Deep-sea bioluminescent zone"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           {/* Row 3 - three equal */}
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/a0c5a09c-5ae1-4809-8418-d072f7ff38e7_rw_1920.png?h=d1837ce3e9abe99f02954cd7d6f5caa8"
-                  alt="Underwater shipwreck scene"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Virtual World Cinematic"
+              index={4}
+              className="aspect-square rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/a0c5a09c-5ae1-4809-8418-d072f7ff38e7_rw_1920.png?h=d1837ce3e9abe99f02954cd7d6f5caa8"
+                alt="Underwater shipwreck scene"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/99c61769-cc68-4fc9-8ef4-365536e3c58e_rw_3840.png?h=c28e4e9259afbb5e932ec23bb4710f6d"
-                  alt="SEAQuest cinematic frame"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Cinematic Trailer Production"
+              index={5}
+              className="aspect-square rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/99c61769-cc68-4fc9-8ef4-365536e3c58e_rw_3840.png?h=c28e4e9259afbb5e932ec23bb4710f6d"
+                alt="SEAQuest cinematic frame"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/01dd4666-1311-43dd-823f-87f48aa1b850_rw_3840.png?h=ef9af32f06f1941f72f3c2c1ea3871da"
-                  alt="Deep-sea landscape"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="3D Animation"
+              index={6}
+              className="aspect-square rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/01dd4666-1311-43dd-823f-87f48aa1b850_rw_3840.png?h=ef9af32f06f1941f72f3c2c1ea3871da"
+                alt="Deep-sea landscape"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           {/* Row 4 - asymmetric pair */}
           <motion.div variants={galleryItem} className="md:col-span-5">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/ee311317-b52f-486c-b7b8-a7ff822d4072_rw_1920.PNG?h=4a424422f10bb668b900397248ed4aa9"
-                  alt="Trailer frame - underwater cave"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Cinematic Trailer Production"
+              index={7}
+              className="aspect-[4/3] rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/ee311317-b52f-486c-b7b8-a7ff822d4072_rw_1920.PNG?h=4a424422f10bb668b900397248ed4aa9"
+                alt="Trailer frame - underwater cave"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-7">
-            <div className="aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/1cff982c-74b9-4f55-9170-55356266000e_rw_1920.PNG?h=8dfd2224c89e37b93770cb529d694246"
-                  alt="Cinematic ocean depth shot"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Cinematic Trailer Production"
+              index={8}
+              className="aspect-[16/9] rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/1cff982c-74b9-4f55-9170-55356266000e_rw_1920.PNG?h=8dfd2224c89e37b93770cb529d694246"
+                alt="Cinematic ocean depth shot"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           {/* Row 5 - hero visuals & ad formats */}
           <motion.div variants={galleryItem} className="md:col-span-6">
-            <div className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/90b4e2ae-8a49-43e4-bf1c-ab699d4be4bd_rw_1920.png?h=5170336821b0fa88310d44d96d9c81f0"
-                  alt="Hero visual - SEAQuest key art"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Hero Visual Development"
+              index={9}
+              className="aspect-[16/10] rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/90b4e2ae-8a49-43e4-bf1c-ab699d4be4bd_rw_1920.png?h=5170336821b0fa88310d44d96d9c81f0"
+                alt="Hero visual - SEAQuest key art"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-6">
-            <div className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/85375b3b-ee17-49bc-a6bd-b0f9c1e8af76_rw_1920.png?h=f33cddbaee960edf0a99219140614530"
-                  alt="Digital ad hero placement"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Hero Visual Development"
+              index={10}
+              className="aspect-[16/10] rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/85375b3b-ee17-49bc-a6bd-b0f9c1e8af76_rw_1920.png?h=f33cddbaee960edf0a99219140614530"
+                alt="Digital ad hero placement"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           {/* Row 6 - three format variations */}
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/22f7b6a7-fa2a-423e-9131-21aa2ca30d30_rw_1200.png?h=951bc97f963a396b893b96b579241f48"
-                  alt="Social media format - square"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Multi-Platform Delivery"
+              index={11}
+              className="aspect-[4/3] rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/22f7b6a7-fa2a-423e-9131-21aa2ca30d30_rw_1200.png?h=951bc97f963a396b893b96b579241f48"
+                alt="Social media format - square"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6e8eaa44-8e9a-4a35-ae02-8d2ad72906a7_rw_1200.png?h=0b699e851567f945902885e75a975a5f"
-                  alt="Social media format - vertical"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Multi-Platform Delivery"
+              index={12}
+              className="aspect-[4/3] rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6e8eaa44-8e9a-4a35-ae02-8d2ad72906a7_rw_1200.png?h=0b699e851567f945902885e75a975a5f"
+                alt="Social media format - vertical"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-4">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/0f64c0a7-a38b-4361-8ebf-024f4ba6f35d_rw_1200.png?h=952e6d7648e23f1064600919f94c2061"
-                  alt="Widescreen display format"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Multi-Platform Delivery"
+              index={13}
+              className="aspect-[4/3] rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/0f64c0a7-a38b-4361-8ebf-024f4ba6f35d_rw_1200.png?h=952e6d7648e23f1064600919f94c2061"
+                alt="Widescreen display format"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           {/* Row 7 - behind the scenes / production */}
           <motion.div variants={galleryItem} className="md:col-span-6">
-            <div className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/bf9e63f9-1332-4a61-8b37-9e9ff18599d0_rw_1200.png?h=2f6fc056141cc8e5c3d2ea749a0cc8ec"
-                  alt="Production environment - UE5 viewport"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="3D Animation"
+              index={14}
+              className="aspect-[16/10] rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/bf9e63f9-1332-4a61-8b37-9e9ff18599d0_rw_1200.png?h=2f6fc056141cc8e5c3d2ea749a0cc8ec"
+                alt="Production environment - UE5 viewport"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-6">
-            <div className="aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/918196cb-2b18-470c-8d58-b4c08ab8f0fd_rw_1920.png?h=cdefda8462349a291b43dc3052b341a7"
-                  alt="SEAQuest campaign final composite"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Hero Visual Development"
+              index={15}
+              className="aspect-[16/10] rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/918196cb-2b18-470c-8d58-b4c08ab8f0fd_rw_1920.png?h=cdefda8462349a291b43dc3052b341a7"
+                alt="SEAQuest campaign final composite"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           {/* Row 8 - final two wide shots */}
           <motion.div variants={galleryItem} className="md:col-span-7">
-            <div className="aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/00ff6d1a-7447-4034-951e-33fec9cde331_rw_1920.png?h=ef9ae3b1eab3157492a06878707463e7"
-                  alt="Underwater world panoramic"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Virtual World Cinematic"
+              index={16}
+              className="aspect-[16/9] rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/00ff6d1a-7447-4034-951e-33fec9cde331_rw_1920.png?h=ef9ae3b1eab3157492a06878707463e7"
+                alt="Underwater world panoramic"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           <motion.div variants={galleryItem} className="md:col-span-5">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/3b4756c3-fd33-4064-96bb-03dff37bf48d_rw_1920.png?h=143c12ac7b0c1b9fb60eaca4ee74bcb2"
-                  alt="Campaign key visual close-up"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Hero Visual Development"
+              index={17}
+              className="aspect-[4/3] rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/3b4756c3-fd33-4064-96bb-03dff37bf48d_rw_1920.png?h=143c12ac7b0c1b9fb60eaca4ee74bcb2"
+                alt="Campaign key visual close-up"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
 
           {/* Row 9 - closing full-width shot */}
           <motion.div variants={galleryItem} className="md:col-span-12">
-            <div className="aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl shadow-black/20 relative group">
-              <div className="relative w-full h-full">
-                <Image
-                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/7fa1d7c1-4fc0-4460-b5df-1fbd816fd1df_rw_1920.png?h=5e09de0e5d2ebd0a9ca418b01ea12a9b"
-                  alt="SEAQuest final campaign shot"
-                  fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-              </div>
-            </div>
+            <WorkFrame
+              client={overview.client}
+              discipline="Cinematic Trailer Production"
+              index={18}
+              className="aspect-[21/9] rounded-2xl shadow-2xl shadow-black/20"
+            >
+              <Image
+                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/7fa1d7c1-4fc0-4460-b5df-1fbd816fd1df_rw_1920.png?h=5e09de0e5d2ebd0a9ca418b01ea12a9b"
+                alt="SEAQuest final campaign shot"
+                fill
+                className="object-cover"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+            </WorkFrame>
           </motion.div>
         </motion.div>
       </section>
@@ -776,38 +793,31 @@ export default function SeaWorldProject() {
           </h2>
         </motion.div>
 
-        <motion.ul
-          variants={staggerContainer}
+        {/* Lead result statement */}
+        <motion.div
+          variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-4"
+          className="max-w-4xl"
         >
-          {results.map((result) => (
-            <motion.li
-              key={result}
-              variants={staggerItem}
-              className="flex items-start gap-4 p-5 rounded-xl border border-white/5 bg-white/[0.02] hover:border-cyan-400/20 hover:bg-cyan-400/[0.03] transition-all duration-500"
-            >
-              <svg
-                className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
+          <p className="font-display text-h2 font-bold text-pure-white mb-10">
+            {results[0]}
+          </p>
+
+          {/* TODO(David): add quantified result or client quote here */}
+
+          <ul className="space-y-4 border-l border-cyan-400/30 pl-6">
+            {results.slice(1).map((result) => (
+              <li
+                key={result}
+                className="font-body text-cool-gray text-base md:text-lg leading-relaxed"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <span className="font-body text-soft-white text-sm md:text-base leading-relaxed">
                 {result}
-              </span>
-            </motion.li>
-          ))}
-        </motion.ul>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────── */}
