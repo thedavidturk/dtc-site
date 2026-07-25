@@ -8,7 +8,7 @@ import { m, MotionValue, useScroll, useTransform } from "framer-motion";
  *
  * Replaces the static numbered 01-05 list on project pages with the site's
  * one earned scroll moment, in the director's-viewport language (Bricolage
- * display numerals, JetBrains Mono HUD readouts, terracotta ticks --
+ * display numerals, JetBrains Mono HUD readouts, marigold ticks --
  * see WorkFrame.tsx for the 2D vocabulary this extends).
  *
  * Mechanics (desktop, motion-safe):
@@ -133,8 +133,8 @@ function StepLayer({ step, index, count, progress }: StepLayerProps) {
         style={{ opacity, y: numeralY }}
         className="col-span-5 flex items-center gap-6"
       >
-        <span className="h-16 w-px shrink-0 bg-terracotta" />
-        <span className="font-display text-display font-bold text-pure-white/90 select-none">
+        <span className="h-16 w-px shrink-0 bg-marigold" />
+        <span className="font-display text-display font-bold text-ink/90 select-none">
           {pad2(index + 1)}
         </span>
       </m.div>
@@ -144,14 +144,14 @@ function StepLayer({ step, index, count, progress }: StepLayerProps) {
         style={{ opacity, y: textY }}
         className="col-span-6 col-start-7 max-w-xl"
       >
-        <p className="font-mono text-xs tracking-[0.25em] uppercase text-clay-gray mb-5">
-          <span className="text-terracotta">Step</span> {pad2(index + 1)}{" "}
-          <span className="text-white/30">/</span> {pad2(count)}
+        <p className="font-mono text-xs tracking-[0.25em] uppercase text-driftwood mb-5">
+          <span className="text-marigold">Step</span> {pad2(index + 1)}{" "}
+          <span className="text-ink/30">/</span> {pad2(count)}
         </p>
-        <h3 className="font-headline text-h3 font-bold text-pure-white mb-4">
+        <h3 className="font-headline text-h3 font-bold text-ink mb-4">
           {step.title}
         </h3>
-        <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed">
+        <p className="font-body text-driftwood text-base md:text-lg leading-relaxed">
           {step.body}
         </p>
       </m.div>
@@ -189,7 +189,7 @@ function PinnedStage({ steps, eyebrow, heading, headingId }: PinnedStageProps) {
         {/* Section header, pinned at the top of the stage */}
         <div className="section-container pt-28 pb-4">
           {eyebrow && (
-            <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
+            <p className="font-mono text-sm text-marigold tracking-widest uppercase mb-4">
               {eyebrow}
             </p>
           )}
@@ -216,16 +216,16 @@ function PinnedStage({ steps, eyebrow, heading, headingId }: PinnedStageProps) {
               boundaries so the pin reads as wayfinding. */}
           <div
             aria-hidden
-            className="pointer-events-none absolute right-0 top-[12%] bottom-[12%] w-px bg-white/10"
+            className="pointer-events-none absolute right-0 top-[12%] bottom-[12%] w-px bg-ink/10"
           >
             <m.div
-              className="absolute inset-x-0 top-0 h-full origin-top bg-terracotta"
+              className="absolute inset-x-0 top-0 h-full origin-top bg-marigold"
               style={{ scaleY: scrollYProgress }}
             />
             {Array.from({ length: count + 1 }, (_, i) => (
               <span
                 key={i}
-                className="absolute right-0 h-px w-3 bg-white/25"
+                className="absolute right-0 h-px w-3 bg-ink/25"
                 style={{ top: `${(i / count) * 100}%` }}
               />
             ))}
@@ -253,7 +253,7 @@ function StaticList({ steps, eyebrow, heading, headingId }: StaticListProps) {
     <div className="section-container section-padding">
       <div className="mb-16">
         {eyebrow && (
-          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-marigold tracking-widest uppercase mb-4">
             {eyebrow}
           </p>
         )}
@@ -271,15 +271,15 @@ function StaticList({ steps, eyebrow, heading, headingId }: StaticListProps) {
             className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 group"
           >
             <div className="md:col-span-1">
-              <span className="font-mono text-3xl md:text-4xl font-bold text-terracotta/30 group-hover:text-terracotta transition-colors duration-500">
+              <span className="font-mono text-3xl md:text-4xl font-bold text-marigold/30 group-hover:text-marigold transition-colors duration-500">
                 {pad2(i + 1)}
               </span>
             </div>
             <div className="md:col-span-11">
-              <h3 className="font-headline text-xl md:text-2xl font-bold text-pure-white mb-3 group-hover:text-cream transition-colors duration-300">
+              <h3 className="font-headline text-xl md:text-2xl font-bold text-ink mb-3 group-hover:text-ink transition-colors duration-300">
                 {step.title}
               </h3>
-              <p className="font-body text-clay-gray leading-relaxed max-w-3xl">
+              <p className="font-body text-driftwood leading-relaxed max-w-3xl">
                 {step.body}
               </p>
             </div>

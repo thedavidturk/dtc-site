@@ -63,19 +63,19 @@ function FAQItem({
   onToggle: () => void;
 }) {
   return (
-    <div className="border-b border-white/10">
+    <div className="border-b border-ink/10">
       <button
         onClick={onToggle}
         className="flex w-full items-center justify-between py-6 text-left cursor-pointer"
         aria-expanded={isOpen}
       >
-        <span className="font-headline text-lg md:text-xl text-pure-white pr-8">
+        <span className="font-headline text-lg md:text-xl text-ink pr-8">
           {question}
         </span>
         <m.span
           animate={{ rotate: isOpen ? 45 : 0 }}
           transition={{ duration: 0.2, ease: "easeInOut" }}
-          className="flex-shrink-0 text-terracotta text-2xl font-light select-none"
+          className="flex-shrink-0 text-marigold text-2xl font-light select-none"
         >
           +
         </m.span>
@@ -89,7 +89,7 @@ function FAQItem({
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <p className="font-body text-clay-gray pb-6 pr-12 leading-relaxed">
+            <p className="font-body text-driftwood pb-6 pr-12 leading-relaxed">
               {answer}
             </p>
           </m.div>
@@ -113,10 +113,10 @@ export default function FAQ() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="font-display text-h2 text-pure-white mb-4">
+          <h2 className="font-display text-h2 text-ink mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="font-body text-clay-gray text-lg">
+          <p className="font-body text-driftwood text-lg">
             Everything you need to know about working with DT+C.
           </p>
         </m.div>
@@ -125,7 +125,7 @@ export default function FAQ() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="border-t border-white/10"
+          className="border-t border-ink/10"
         >
           {faqItems.map((item, index) => (
             <FAQItem

@@ -37,7 +37,7 @@ const services: Service[] = [
       "Competitive and cultural insight",
       "Creative briefs that actually direct",
     ],
-    accentColor: "bg-sun-gold",
+    accentColor: "bg-regatta",
     scene: "direction",
   },
   {
@@ -75,7 +75,7 @@ const services: Service[] = [
       "Look development and automated camera testing",
       "Multi-format delivery (16:9, 9:16, 4:5)",
     ],
-    accentColor: "bg-terracotta",
+    accentColor: "bg-marigold",
     scene: "cinematography",
   },
   {
@@ -131,7 +131,7 @@ const services: Service[] = [
       "Brand storytelling",
       "Multi-channel execution",
     ],
-    accentColor: "bg-sun-gold",
+    accentColor: "bg-regatta",
     scene: "direction",
   },
 ];
@@ -179,9 +179,9 @@ const capabilityVariants = {
 
 export default function Services() {
   return (
-    <section id="services" className="bg-espresso relative overflow-hidden" style={{ backgroundColor: "#1A120D" }}>
+    <section id="services" className="bg-sand relative overflow-hidden" style={{ backgroundColor: "#F5F1E7" }}>
       {/* Background accent */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(217,108,71,0.04)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(232,160,32,0.04)_0%,transparent_50%)]" />
 
       {/* Section header */}
       <div className="section-container pt-20 md:pt-28 lg:pt-32 pb-12 md:pb-16 relative z-10">
@@ -191,10 +191,10 @@ export default function Services() {
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
         >
-          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-marigold tracking-widest uppercase mb-4">
             Capabilities
           </p>
-          <h2 className="font-display text-h2 font-bold text-pure-white">
+          <h2 className="font-display text-h2 font-bold text-ink">
             <TextReveal
               text="WHAT WE DO"
               as="span"
@@ -212,7 +212,7 @@ export default function Services() {
           return (
             <div
               key={service.label}
-              className="border-t border-white/5 last:border-b"
+              className="border-t border-ink/5 last:border-b"
             >
               <div className="section-container section-padding">
                 <div
@@ -245,26 +245,26 @@ export default function Services() {
                     className="w-full lg:w-1/2"
                   >
                     {/* Service label */}
-                    <span className="inline-block font-mono text-xs tracking-widest uppercase text-terracotta mb-6 px-3 py-1.5 rounded-full border border-terracotta/20 bg-terracotta/5">
+                    <span className="inline-block font-mono text-xs tracking-widest uppercase text-marigold mb-6 px-3 py-1.5 rounded-full border border-marigold/20 bg-marigold/5">
                       {service.label}
                     </span>
 
                     {/* Headline */}
                     <h3 className="font-headline text-h3 font-bold leading-tight mb-6">
-                      <span className="text-pure-white">{service.headline}</span>
+                      <span className="text-ink">{service.headline}</span>
                     </h3>
 
                     {/* Old Way / Our Way / Result */}
                     <div className="space-y-4 mb-10">
-                      <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed">
-                        <span className="font-bold text-cream">The old way:</span>{" "}
+                      <p className="font-body text-driftwood text-base md:text-lg leading-relaxed">
+                        <span className="font-bold text-ink">The old way:</span>{" "}
                         {service.oldWay}
                       </p>
-                      <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed">
-                        <span className="font-bold text-cream">Our way:</span>{" "}
+                      <p className="font-body text-driftwood text-base md:text-lg leading-relaxed">
+                        <span className="font-bold text-ink">Our way:</span>{" "}
                         {service.ourWay}
                       </p>
-                      <p className="font-body text-base md:text-lg leading-relaxed text-terracotta">
+                      <p className="font-body text-base md:text-lg leading-relaxed text-marigold">
                         <span className="font-bold">Result:</span>{" "}
                         {service.result}
                       </p>
@@ -286,7 +286,7 @@ export default function Services() {
                           <span
                             className={`mt-2 w-1.5 h-1.5 rounded-full ${service.accentColor} flex-shrink-0 group-hover/cap:scale-150 transition-transform duration-300`}
                           />
-                          <span className="font-body text-sm text-clay-gray group-hover/cap:text-cream transition-colors duration-300 leading-relaxed">
+                          <span className="font-body text-sm text-driftwood group-hover/cap:text-ink transition-colors duration-300 leading-relaxed">
                             {cap}
                           </span>
                         </m.div>

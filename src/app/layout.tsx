@@ -88,7 +88,7 @@ export default function RootLayout({
 }>) {
   return (
     <ViewTransitions>
-    <html lang="en" className="dark" style={{ backgroundColor: "#1A120D" }}>
+    <html lang="en" className="dark" style={{ backgroundColor: "#F5F1E7" }}>
       <head>
         <JsonLd
           data={{
@@ -102,7 +102,7 @@ export default function RootLayout({
           }}
         />
         {/* Critical CSS - prevents white flash before Tailwind loads */}
-        <style dangerouslySetInnerHTML={{ __html: `html,body,main,section,footer{background-color:#1A120D!important}` }} />
+        <style dangerouslySetInnerHTML={{ __html: `html,body,main,section,footer{background-color:#F5F1E7!important}` }} />
         {/* Google Analytics */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
@@ -118,8 +118,8 @@ export default function RootLayout({
         </Script>
       </head>
       <body
-        className={`${spaceGrotesk.variable} ${bricolage.variable} ${inter.variable} ${jetbrainsMono.variable} font-body antialiased bg-espresso text-pure-white`}
-        style={{ backgroundColor: "#1A120D" }}
+        className={`${spaceGrotesk.variable} ${bricolage.variable} ${inter.variable} ${jetbrainsMono.variable} font-body antialiased bg-sand text-ink`}
+        style={{ backgroundColor: "#F5F1E7" }}
       >
         <MotionProvider>
           <SmoothScroll />
@@ -128,7 +128,7 @@ export default function RootLayout({
             <ScrollProgressTrail />
           </DesktopFX>
           <Header />
-          <main style={{ backgroundColor: "#1A120D" }}>{children}</main>
+          <main style={{ backgroundColor: "#F5F1E7" }}>{children}</main>
           <Footer />
         </MotionProvider>
       </body>

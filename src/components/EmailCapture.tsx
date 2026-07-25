@@ -101,13 +101,13 @@ export default function EmailCapture() {
   }
 
   return (
-    <section className="bg-espresso section-padding relative overflow-hidden" style={{ backgroundColor: "#1A120D" }}>
+    <section className="bg-sand section-padding relative overflow-hidden" style={{ backgroundColor: "#F5F1E7" }}>
       {/* Subtle top/bottom border lines */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-ink/[0.06] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-ink/[0.06] to-transparent" />
 
       {/* Background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(217,108,71,0.04)_0%,transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(232,160,32,0.04)_0%,transparent_60%)]" />
 
       <m.div
         className="section-container relative z-10 max-w-3xl mx-auto"
@@ -118,14 +118,14 @@ export default function EmailCapture() {
       >
         {/* Headline */}
         <m.div className="text-center mb-8" variants={childVariants}>
-          <span className="font-mono text-xs tracking-[0.3em] text-terracotta uppercase mb-4 block">
+          <span className="font-mono text-xs tracking-[0.3em] text-marigold uppercase mb-4 block">
             Stay in the Loop
           </span>
-          <h2 className="font-display text-h3 font-bold text-pure-white">
+          <h2 className="font-display text-h3 font-bold text-ink">
             Get Monthly AI Creative{" "}
-            <span className="text-pure-white">Insights</span>
+            <span className="text-ink">Insights</span>
           </h2>
-          <p className="font-body text-clay-gray text-sm md:text-base mt-3 leading-relaxed">
+          <p className="font-body text-driftwood text-sm md:text-base mt-3 leading-relaxed">
             One email per month. No spam. Unsubscribe anytime.
           </p>
         </m.div>
@@ -164,14 +164,14 @@ export default function EmailCapture() {
                     }}
                     placeholder="your@email.com"
                     aria-label="Email address"
-                    className={`w-full bg-white/[0.05] border rounded-lg px-4 py-3.5 text-pure-white font-body text-sm placeholder:text-clay-gray/50 focus:ring-1 outline-none transition-all duration-300 ${
+                    className={`w-full bg-ink/[0.05] border rounded-lg px-4 py-3.5 text-ink font-body text-sm placeholder:text-driftwood/50 focus:ring-1 outline-none transition-all duration-300 ${
                       error
-                        ? "border-sun-gold/60 focus:border-sun-gold focus:ring-sun-gold/50"
-                        : "border-white/10 focus:border-terracotta focus:ring-terracotta/50"
+                        ? "border-regatta/60 focus:border-regatta focus:ring-regatta/50"
+                        : "border-ink/10 focus:border-marigold focus:ring-marigold/50"
                     }`}
                   />
                   {error && (
-                    <p className="mt-1.5 text-xs text-sun-gold font-body">
+                    <p className="mt-1.5 text-xs text-regatta font-body">
                       {error}
                     </p>
                   )}
@@ -180,7 +180,7 @@ export default function EmailCapture() {
                 <m.button
                   type="submit"
                   disabled={submitting}
-                  className="flex-shrink-0 bg-terracotta hover:bg-terracotta/90 text-pure-white font-body font-medium text-sm px-6 py-3.5 rounded-lg transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="flex-shrink-0 bg-marigold hover:bg-marigold/90 text-ink font-body font-medium text-sm px-6 py-3.5 rounded-lg transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
                   whileHover={submitting ? {} : { scale: 1.02 }}
                   whileTap={submitting ? {} : { scale: 0.98 }}
                 >
@@ -196,10 +196,10 @@ export default function EmailCapture() {
                 exit="exit"
                 className="text-center py-6"
               >
-                <div className="inline-flex items-center gap-2.5 bg-white/[0.04] border border-white/[0.08] rounded-full px-6 py-3">
-                  <div className="w-5 h-5 rounded-full bg-gradient-to-br from-terracotta to-sun-gold flex items-center justify-center flex-shrink-0">
+                <div className="inline-flex items-center gap-2.5 bg-ink/[0.04] border border-ink/[0.08] rounded-full px-6 py-3">
+                  <div className="w-5 h-5 rounded-full bg-gradient-to-br from-marigold to-regatta flex items-center justify-center flex-shrink-0">
                     <svg
-                      className="w-3 h-3 text-pure-white"
+                      className="w-3 h-3 text-ink"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -212,7 +212,7 @@ export default function EmailCapture() {
                       />
                     </svg>
                   </div>
-                  <span className="font-body text-sm text-pure-white">
+                  <span className="font-body text-sm text-ink">
                     You&apos;re in. Watch your inbox.
                   </span>
                 </div>

@@ -41,7 +41,7 @@ export default async function OgImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          backgroundColor: "#171009",
+          backgroundColor: "#F0EADB",
           position: "relative",
           overflow: "hidden",
           fontFamily: "sans-serif",
@@ -55,7 +55,7 @@ export default async function OgImage() {
             left: 0,
             right: 0,
             height: 8,
-            background: "linear-gradient(to right, #D96C47, #E9B368)",
+            background: "linear-gradient(to right, #E8A020, #26428B)",
           }}
         />
 
@@ -69,7 +69,7 @@ export default async function OgImage() {
             height: 620,
             borderRadius: "50%",
             background:
-              "radial-gradient(circle, rgba(217,108,71,0.22) 0%, transparent 70%)",
+              "radial-gradient(circle, rgba(232,160,32,0.22) 0%, transparent 70%)",
           }}
         />
         <div
@@ -81,7 +81,7 @@ export default async function OgImage() {
             height: 560,
             borderRadius: "50%",
             background:
-              "radial-gradient(circle, rgba(233,179,104,0.16) 0%, transparent 70%)",
+              "radial-gradient(circle, rgba(38,66,139,0.16) 0%, transparent 70%)",
           }}
         />
 
@@ -109,7 +109,7 @@ export default async function OgImage() {
             style={{
               display: "flex",
               fontSize: 18,
-              color: "#B5A99A",
+              color: "#7A7264",
               letterSpacing: "0.28em",
               textTransform: "uppercase",
             }}
@@ -146,7 +146,7 @@ export default async function OgImage() {
               lineHeight: 1.04,
               letterSpacing: "-0.02em",
               marginTop: 4,
-              background: "linear-gradient(to right, #E28E6A, #E9B368)",
+              background: "linear-gradient(to right, #F2B84B, #26428B)",
               backgroundClip: "text",
               color: "transparent",
             }}
@@ -157,7 +157,7 @@ export default async function OgImage() {
             style={{
               display: "flex",
               fontSize: 24,
-              color: "#B5A99A",
+              color: "#7A7264",
               marginTop: 22,
             }}
           >
@@ -183,7 +183,7 @@ export default async function OgImage() {
                 height: 132,
                 borderRadius: 14,
                 overflow: "hidden",
-                border: "1px solid rgba(255,255,255,0.08)",
+                border: "1px solid rgba(30,36,51,0.08)",
               }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}

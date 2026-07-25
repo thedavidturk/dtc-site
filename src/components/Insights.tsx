@@ -66,7 +66,7 @@ const posts: BlogPost[] = [
     subtitle:
       "OpenAI shut Sora down in March 2026. The studios making the best brand video now run a stack of tools, not one. Here is how we orchestrate it.",
     category: "AI + VIDEO",
-    gradient: "from-indigo-500/40 via-blue-900/60 to-espresso",
+    gradient: "from-indigo-500/40 via-blue-900/60 to-sand",
     slug: "ai-video-stack",
     month: "JUN 2026",
     coverComponent: "InsightCoverVirtualWorlds",
@@ -76,7 +76,7 @@ const posts: BlogPost[] = [
     subtitle:
       "AI video models now generate matching sound in the same pass as the picture, collapsing a whole post stage. Where it wins, and where human sound direction still does.",
     category: "AI + PRODUCTION",
-    gradient: "from-cyan-500/30 via-teal-900/50 to-espresso",
+    gradient: "from-cyan-500/30 via-teal-900/50 to-sand",
     slug: "ai-native-audio",
     month: "JUN 2026",
     coverComponent: "InsightCoverRealTime4K",
@@ -86,7 +86,7 @@ const posts: BlogPost[] = [
     subtitle:
       "Discovery has moved from ranking on Google to being the source an AI cites. How brands stay found in a zero-click world.",
     category: "AI + DISCOVERY",
-    gradient: "from-emerald-500/30 via-teal-900/50 to-espresso",
+    gradient: "from-emerald-500/30 via-teal-900/50 to-sand",
     slug: "zero-click-visibility",
     month: "JUN 2026",
     coverComponent: "InsightCoverBuildingWorlds",
@@ -96,7 +96,7 @@ const posts: BlogPost[] = [
     subtitle:
       "As AI makes infinite content cheap, authenticity becomes the scarce, premium asset. How brands earn trust instead of faking it.",
     category: "BRAND + TRUST",
-    gradient: "from-rose-500/30 via-pink-900/50 to-espresso",
+    gradient: "from-rose-500/30 via-pink-900/50 to-sand",
     slug: "ai-authenticity-premium",
     month: "JUN 2026",
     coverComponent: "InsightCoverProductViz",
@@ -106,7 +106,7 @@ const posts: BlogPost[] = [
     subtitle:
       "LED volumes used to demand a soundstage and a massive budget. AI pre-viz and generative 3D worlds give smaller studios virtual production thinking.",
     category: "VIRTUAL PRODUCTION",
-    gradient: "from-violet-500/30 via-purple-900/50 to-espresso",
+    gradient: "from-rose-500/30 via-rose-900/50 to-sand",
     slug: "virtual-production-ai",
     month: "JUN 2026",
     coverComponent: "InsightCoverShortForm",
@@ -116,7 +116,7 @@ const posts: BlogPost[] = [
     subtitle:
       "A 60-second video that took 13 days now ships in 27 minutes. The bottleneck moved from production to taste. Here is how we rebuilt the pipeline.",
     category: "PRODUCTION STRATEGY",
-    gradient: "from-amber-500/30 via-orange-900/50 to-espresso",
+    gradient: "from-amber-500/30 via-orange-900/50 to-sand",
     slug: "ai-content-pipeline",
     month: "JUN 2026",
     coverComponent: "InsightCoverBrandIdentity",
@@ -217,10 +217,10 @@ export default function Insights() {
   };
 
   return (
-    <section id="insights" className="bg-espresso section-padding relative overflow-hidden" style={{ backgroundColor: "#1A120D" }}>
+    <section id="insights" className="bg-sand section-padding relative overflow-hidden" style={{ backgroundColor: "#F5F1E7" }}>
       {/* Background texture */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(233,179,104,0.04)_0%,transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(217,108,71,0.04)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(38,66,139,0.04)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(232,160,32,0.04)_0%,transparent_50%)]" />
 
       <m.div
         className="relative z-10"
@@ -231,10 +231,10 @@ export default function Insights() {
       >
         {/* Section header */}
         <m.div className="section-container text-center mb-12 md:mb-16" variants={headingVariants}>
-          <span className="font-mono text-xs tracking-[0.3em] text-terracotta uppercase mb-4 block">
+          <span className="font-mono text-xs tracking-[0.3em] text-marigold uppercase mb-4 block">
             Insights
           </span>
-          <h2 className="font-display text-h2 font-bold text-pure-white">
+          <h2 className="font-display text-h2 font-bold text-ink">
             PERSPECTIVES
           </h2>
           {liveDate && (
@@ -245,22 +245,22 @@ export default function Insights() {
               </span>
             </div>
           )}
-          <p className="font-body text-clay-gray text-lg mt-4 max-w-2xl mx-auto leading-relaxed">
+          <p className="font-body text-driftwood text-lg mt-4 max-w-2xl mx-auto leading-relaxed">
             Thoughts on AI-driven production, creative technology, and the future of brand content. New perspectives every month.
           </p>
         </m.div>
 
         {/* Scroll controls */}
         <div className="section-container flex items-center justify-end gap-3 mb-6">
-          <span className="font-mono text-xs text-clay-gray tracking-wider mr-auto">
+          <span className="font-mono text-xs text-driftwood tracking-wider mr-auto">
             {posts.length} ARTICLES
           </span>
           <button
             onClick={() => scroll("left")}
             className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 ${
               canScrollLeft
-                ? "border-white/20 text-pure-white hover:bg-white/10 hover:border-white/40"
-                : "border-white/5 text-white/20 cursor-not-allowed"
+                ? "border-ink/20 text-ink hover:bg-ink/10 hover:border-ink/40"
+                : "border-ink/5 text-ink/20 cursor-not-allowed"
             }`}
             disabled={!canScrollLeft}
             aria-label="Scroll left"
@@ -273,8 +273,8 @@ export default function Insights() {
             onClick={() => scroll("right")}
             className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 ${
               canScrollRight
-                ? "border-white/20 text-pure-white hover:bg-white/10 hover:border-white/40"
-                : "border-white/5 text-white/20 cursor-not-allowed"
+                ? "border-ink/20 text-ink hover:bg-ink/10 hover:border-ink/40"
+                : "border-ink/5 text-ink/20 cursor-not-allowed"
             }`}
             disabled={!canScrollRight}
             aria-label="Scroll right"
@@ -289,13 +289,13 @@ export default function Insights() {
         <div className="relative">
           {/* Left fade */}
           <div
-            className={`absolute left-0 top-0 bottom-0 w-16 md:w-24 z-10 bg-gradient-to-r from-[#1A120D] to-transparent pointer-events-none transition-opacity duration-300 ${
+            className={`absolute left-0 top-0 bottom-0 w-16 md:w-24 z-10 bg-gradient-to-r from-[#F5F1E7] to-transparent pointer-events-none transition-opacity duration-300 ${
               canScrollLeft ? "opacity-100" : "opacity-0"
             }`}
           />
           {/* Right fade */}
           <div
-            className={`absolute right-0 top-0 bottom-0 w-16 md:w-24 z-10 bg-gradient-to-l from-[#1A120D] to-transparent pointer-events-none transition-opacity duration-300 ${
+            className={`absolute right-0 top-0 bottom-0 w-16 md:w-24 z-10 bg-gradient-to-l from-[#F5F1E7] to-transparent pointer-events-none transition-opacity duration-300 ${
               canScrollRight ? "opacity-100" : "opacity-0"
             }`}
           />
@@ -313,7 +313,7 @@ export default function Insights() {
                 variants={cardVariants}
                 className="group relative flex-shrink-0 w-[85vw] sm:w-[60vw] md:w-[38vw] lg:w-[30vw] xl:w-[26vw] snap-start"
               >
-                <Link href={`/insights/${post.slug}`} className="block h-full bg-white/[0.03] border border-white/5 rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 hover:-translate-y-2 hover:border-white/15 hover:shadow-2xl hover:shadow-black/30">
+                <Link href={`/insights/${post.slug}`} className="block h-full bg-ink/[0.03] border border-ink/5 rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 hover:-translate-y-2 hover:border-ink/15 hover:shadow-2xl hover:shadow-black/30">
                   <div className="relative rounded-2xl h-full flex flex-col">
                     {/* Cover area */}
                     <WorkFrame
@@ -338,37 +338,37 @@ export default function Insights() {
                       <div className="absolute inset-0 z-20 opacity-[0.04] mix-blend-overlay bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIxIi8+PC9zdmc+')]" />
 
                       {/* Grid pattern */}
-                      <div className="absolute inset-0 z-20 opacity-[0.06] bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:40px_40px]" />
+                      <div className="absolute inset-0 z-20 opacity-[0.06] bg-[linear-gradient(rgba(30,36,51,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(30,36,51,0.1)_1px,transparent_1px)] bg-[size:40px_40px]" />
 
                       {/* Bottom fade */}
-                      <div className="absolute inset-x-0 bottom-0 h-1/3 z-20 bg-gradient-to-t from-[#1A120D]/80 to-transparent" />
+                      <div className="absolute inset-x-0 bottom-0 h-1/3 z-20 bg-gradient-to-t from-[#F5F1E7]/80 to-transparent" />
 
                       {/* Corner accent glow on hover */}
-                      <div className="absolute top-0 right-0 w-32 h-32 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-[radial-gradient(circle_at_top_right,rgba(217,108,71,0.15),transparent_70%)]" />
+                      <div className="absolute top-0 right-0 w-32 h-32 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-[radial-gradient(circle_at_top_right,rgba(232,160,32,0.15),transparent_70%)]" />
                     </WorkFrame>
 
                     {/* Card content */}
                     <div className="p-6 flex flex-col flex-1">
                       {/* Category label */}
-                      <div className="border-l-2 border-terracotta pl-3">
-                        <span className="font-mono text-xs text-terracotta uppercase tracking-wider">
+                      <div className="border-l-2 border-marigold pl-3">
+                        <span className="font-mono text-xs text-marigold uppercase tracking-wider">
                           {post.category}
                         </span>
                       </div>
 
                       {/* Title */}
-                      <h3 className="font-headline font-bold text-lg text-pure-white mt-3 leading-snug group-hover:text-cream transition-colors duration-300">
+                      <h3 className="font-headline font-bold text-lg text-ink mt-3 leading-snug group-hover:text-ink transition-colors duration-300">
                         {post.title}
                       </h3>
 
                       {/* Subtitle */}
-                      <p className="text-clay-gray text-sm mt-2 leading-relaxed flex-1">
+                      <p className="text-driftwood text-sm mt-2 leading-relaxed flex-1">
                         {post.subtitle}
                       </p>
 
                       {/* Read Article link */}
-                      <div className="mt-5 pt-4 border-t border-white/5">
-                        <span className="inline-flex items-center gap-2 text-sun-gold text-sm font-medium group-hover:gap-3 transition-all duration-300">
+                      <div className="mt-5 pt-4 border-t border-ink/5">
+                        <span className="inline-flex items-center gap-2 text-regatta text-sm font-medium group-hover:gap-3 transition-all duration-300">
                           Read Article
                           <svg
                             className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
@@ -388,7 +388,7 @@ export default function Insights() {
                     </div>
 
                     {/* Hover border glow */}
-                    <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none shadow-[inset_0_0_40px_rgba(217,108,71,0.05)]" />
+                    <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none shadow-[inset_0_0_40px_rgba(232,160,32,0.05)]" />
                   </div>
                 </Link>
               </m.article>
@@ -410,7 +410,7 @@ export default function Insights() {
                   card.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
                 }
               }}
-              className="w-1.5 h-1.5 rounded-full bg-white/20 hover:bg-white/50 transition-colors duration-300"
+              className="w-1.5 h-1.5 rounded-full bg-ink/20 hover:bg-ink/50 transition-colors duration-300"
               aria-label={`Go to article ${i + 1}`}
             />
           ))}

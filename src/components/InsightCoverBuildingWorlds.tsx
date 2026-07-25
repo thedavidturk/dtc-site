@@ -100,7 +100,7 @@ function BlockInner({ data, wireframe }: { data: BlockData; wireframe: boolean }
       <boxGeometry args={[data.scaleX, data.scaleY, data.scaleZ]} />
       <meshBasicMaterial
         ref={matRef}
-        color="#E9B368"
+        color="#26428B"
         transparent
         opacity={0}
         wireframe={wireframe}
@@ -186,7 +186,7 @@ function Dust() {
         />
       </bufferGeometry>
       <pointsMaterial
-        color="#E9B368"
+        color="#26428B"
         size={0.03}
         transparent
         opacity={0.5}

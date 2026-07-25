@@ -181,7 +181,7 @@ function Tile({ tile }: { tile: WorkTile }) {
     <a
       href="#projects"
       aria-label={`${tile.client} - ${tile.tag}. View our work.`}
-      className="group relative block overflow-hidden rounded-xl border border-white/[0.06] bg-white/[0.02] shadow-xl shadow-black/40 transition-colors duration-300 hover:border-white/20"
+      className="group relative block overflow-hidden rounded-xl border border-ink/[0.06] bg-ink/[0.02] shadow-xl shadow-black/40 transition-colors duration-300 hover:border-ink/20"
       draggable={false}
     >
       <div className="relative aspect-[4/5] w-full overflow-hidden">
@@ -209,12 +209,12 @@ function Tile({ tile }: { tile: WorkTile }) {
           />
         )}
       </div>
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-espresso/90 via-transparent to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-sand/90 via-transparent to-transparent" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-center justify-between p-3">
-        <span className="font-headline text-sm font-semibold text-pure-white">
+        <span className="font-headline text-sm font-semibold text-ink">
           {tile.client}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-widest text-sun-gold">
+        <span className="font-mono text-[10px] uppercase tracking-widest text-regatta">
           {tile.tag}
         </span>
       </div>
@@ -301,14 +301,14 @@ export default function Hero() {
 
   return (
     <section
-      className="relative min-h-screen overflow-hidden bg-espresso pt-24 lg:pt-0"
-      style={{ backgroundColor: "#1A120D" }}
+      className="relative min-h-screen overflow-hidden bg-sand pt-24 lg:pt-0"
+      style={{ backgroundColor: "#F5F1E7" }}
     >
       {/* Ambient color wash */}
       <div className="pointer-events-none absolute inset-0 z-0">
-        <div className="absolute -left-40 top-0 h-[36rem] w-[36rem] rounded-full bg-terracotta/15 blur-[140px]" />
-        <div className="absolute -right-20 bottom-0 h-[32rem] w-[32rem] rounded-full bg-sun-gold/10 blur-[140px]" />
-        <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(rgba(255,255,255,0.6)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.6)_1px,transparent_1px)] bg-[size:64px_64px]" />
+        <div className="absolute -left-40 top-0 h-[36rem] w-[36rem] rounded-full bg-marigold/15 blur-[140px]" />
+        <div className="absolute -right-20 bottom-0 h-[32rem] w-[32rem] rounded-full bg-regatta/10 blur-[140px]" />
+        <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(rgba(30,36,51,0.6)_1px,transparent_1px),linear-gradient(90deg,rgba(30,36,51,0.6)_1px,transparent_1px)] bg-[size:64px_64px]" />
       </div>
 
       <div className="relative z-10 mx-auto grid min-h-screen max-w-7xl grid-cols-1 items-center gap-12 px-6 md:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:px-12">
@@ -322,19 +322,19 @@ export default function Hero() {
           {/* Eyebrow */}
           <m.div
             variants={item}
-            className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 backdrop-blur-sm"
+            className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-ink/10 bg-ink/[0.03] px-4 py-1.5 backdrop-blur-sm"
           >
             <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sun-gold opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-sun-gold" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-regatta opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-regatta" />
             </span>
-            <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-clay-gray">
+            <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-driftwood">
               DT+C - Creative Studio
             </span>
           </m.div>
 
           {/* Headline - editorial mixed-scale display type */}
-          <h1 className="font-display text-pure-white">
+          <h1 className="font-display text-ink">
             {/* Line 1: "Content that" - tight, bold, large */}
             <m.span
               variants={item}
@@ -346,7 +346,7 @@ export default function Hero() {
             {/* Line 2: "moves at the speed of" - smaller, lighter, italic, wider tracking */}
             <m.span
               variants={item}
-              className="mt-2 block font-light italic leading-none tracking-[0.01em] text-clay-gray text-2xl sm:text-3xl lg:text-[2.4rem]"
+              className="mt-2 block font-light italic leading-none tracking-[0.01em] text-driftwood text-2xl sm:text-3xl lg:text-[2.4rem]"
             >
               moves at the speed of
             </m.span>
@@ -363,10 +363,10 @@ export default function Hero() {
           {/* Subhead */}
           <m.p
             variants={item}
-            className="mt-8 max-w-xl font-body text-lg leading-relaxed text-clay-gray"
+            className="mt-8 max-w-xl font-body text-lg leading-relaxed text-driftwood"
           >
             Strategy, content, VFX, and web, under one roof and built to launch
-            in <span className="text-pure-white">weeks, not months.</span>
+            in <span className="text-ink">weeks, not months.</span>
           </m.p>
 
           {/* CTAs */}
@@ -376,7 +376,7 @@ export default function Hero() {
           >
             <a
               href="#projects"
-              className="group inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-cta px-7 py-4 font-headline font-bold text-white transition-all duration-300 hover:scale-[1.02] hover:opacity-95 active:scale-[0.98]"
+              className="group inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-cta px-7 py-4 font-headline font-bold text-ink transition-all duration-300 hover:scale-[1.02] hover:opacity-95 active:scale-[0.98]"
             >
               See Our Work
               <svg
@@ -391,7 +391,7 @@ export default function Hero() {
             </a>
             <a
               href="/#contact"
-              className="inline-flex items-center justify-center rounded-lg border border-white/15 bg-white/[0.03] px-7 py-4 font-headline font-bold text-pure-white backdrop-blur-sm transition-all duration-300 hover:border-terracotta/60 hover:bg-terracotta/10"
+              className="inline-flex items-center justify-center rounded-lg border border-ink/15 bg-ink/[0.03] px-7 py-4 font-headline font-bold text-ink backdrop-blur-sm transition-all duration-300 hover:border-marigold/60 hover:bg-marigold/10"
             >
               Book a Call
             </a>
@@ -400,9 +400,9 @@ export default function Hero() {
           {/* Client strip */}
           <m.div
             variants={item}
-            className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/[0.06] pt-6"
+            className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-ink/[0.06] pt-6"
           >
-            <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-clay-gray/50">
+            <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-driftwood/50">
               Trusted by
             </span>
             {[
@@ -414,12 +414,12 @@ export default function Hero() {
             ].map((name) => (
               <span
                 key={name}
-                className="font-headline text-sm font-semibold text-clay-gray/80"
+                className="font-headline text-sm font-semibold text-driftwood/80"
               >
                 {name}
               </span>
             ))}
-            <span className="font-headline text-sm font-semibold text-clay-gray/40">
+            <span className="font-headline text-sm font-semibold text-driftwood/40">
               &amp; more
             </span>
           </m.div>
@@ -440,9 +440,9 @@ export default function Hero() {
             </div>
 
             {/* Feather edges so the wall melts into the page */}
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-espresso to-transparent" />
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-espresso to-transparent" />
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-espresso to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-sand to-transparent" />
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-sand to-transparent" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-sand to-transparent" />
           </m.div>
         )}
 
@@ -461,11 +461,11 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <div className="pointer-events-none absolute bottom-6 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 lg:flex">
-        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-clay-gray/40">
+        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-driftwood/40">
           Scroll
         </span>
         <svg
-          className="h-4 w-4 text-clay-gray/40 hero-scroll-bob"
+          className="h-4 w-4 text-driftwood/40 hero-scroll-bob"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"

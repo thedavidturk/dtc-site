@@ -28,7 +28,7 @@ export default async function OgImage() {
           height: "100%",
           position: "relative",
           overflow: "hidden",
-          backgroundColor: "#171009",
+          backgroundColor: "#F0EADB",
           fontFamily: "sans-serif",
           display: "flex",
           flexDirection: "column",
@@ -63,7 +63,7 @@ export default async function OgImage() {
             right: 0,
             bottom: 0,
             background:
-              "linear-gradient(to top, rgba(23,16,9,0.95) 0%, rgba(23,16,9,0.65) 45%, rgba(23,16,9,0.3) 100%)",
+              "linear-gradient(to top, rgba(240,234,219,0.95) 0%, rgba(240,234,219,0.65) 45%, rgba(240,234,219,0.3) 100%)",
           }}
         />
 
@@ -75,7 +75,7 @@ export default async function OgImage() {
             left: 0,
             right: 0,
             height: 8,
-            background: "linear-gradient(to right, #D96C47, #E9B368)",
+            background: "linear-gradient(to right, #E8A020, #26428B)",
           }}
         />
 
@@ -108,7 +108,7 @@ export default async function OgImage() {
               fontSize: 22,
               letterSpacing: "0.22em",
               textTransform: "uppercase",
-              color: "#E9B368",
+              color: "#26428B",
             }}
           >
             MIAMI DOLPHINS

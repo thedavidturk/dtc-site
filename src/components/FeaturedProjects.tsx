@@ -28,8 +28,8 @@ const projects: Project[] = [
     teaser:
       "An ongoing partnership delivering immersive 3D campaigns, from cosmic worlds to elemental landscapes to holiday storytelling",
     href: "/projects/new-era-cap",
-    gradient: "from-terracotta via-purple-600 to-violet-900",
-    accentGlow: "group-hover:shadow-terracotta/30",
+    gradient: "from-marigold via-purple-600 to-violet-900",
+    accentGlow: "group-hover:shadow-marigold/30",
     coverImage: "/motion/new-era-3d.mp4",
     coverPoster: "/motion/new-era-3d.jpg",
   },
@@ -52,8 +52,8 @@ const projects: Project[] = [
     teaser:
       "An intimate omakase experience captured with cinematic storytelling at Faena Miami Beach",
     href: "/projects/el-secreto",
-    gradient: "from-sun-gold via-amber-500 to-red-700",
-    accentGlow: "group-hover:shadow-sun-gold/30",
+    gradient: "from-regatta via-amber-500 to-red-700",
+    accentGlow: "group-hover:shadow-regatta/30",
     coverImage: "/motion/faena.mp4",
     coverPoster: "/motion/faena.jpg",
   },
@@ -251,9 +251,9 @@ const headingVariants = {
 
 export default function FeaturedProjects() {
   return (
-    <section id="projects" className="bg-espresso section-padding relative overflow-hidden" style={{ backgroundColor: "#1A120D" }}>
+    <section id="projects" className="bg-sand section-padding relative overflow-hidden" style={{ backgroundColor: "#F5F1E7" }}>
       {/* Subtle background texture */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(217,108,71,0.05)_0%,transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(232,160,32,0.05)_0%,transparent_60%)]" />
 
       <div className="section-container relative z-10">
         {/* Section header */}
@@ -264,12 +264,12 @@ export default function FeaturedProjects() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-16 md:mb-20"
         >
-          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-marigold tracking-widest uppercase mb-4">
             Selected Work
           </p>
-          <h2 className="font-display text-h2 font-bold text-pure-white">
+          <h2 className="font-display text-h2 font-bold text-ink">
             <TextReveal text="WORK THAT PUSHES" as="span" className="block" />
-            <TextReveal text="BOUNDARIES" as="span" className="block text-pure-white" delay={0.2} />
+            <TextReveal text="BOUNDARIES" as="span" className="block text-ink" delay={0.2} />
           </h2>
         </m.div>
 
@@ -322,7 +322,7 @@ export default function FeaturedProjects() {
                       {/* Noise / grain overlay for cinematic feel */}
                       <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIxIi8+PC9zdmc+')]" />
                       {/* Subtle grid pattern */}
-                      <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:60px_60px]" />
+                      <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(rgba(30,36,51,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(30,36,51,0.1)_1px,transparent_1px)] bg-[size:60px_60px]" />
                     </>
                   )}
                 </WorkFrame>
@@ -335,7 +335,7 @@ export default function FeaturedProjects() {
                   {/* Content overlay */}
                   <div className="absolute inset-x-0 bottom-0 z-10 p-6 pb-14 md:p-8 md:pb-16 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
                     {/* Client name */}
-                    <h3 className="font-headline text-2xl md:text-3xl font-bold text-pure-white tracking-tight mb-1">
+                    <h3 className="font-headline text-2xl md:text-3xl font-bold text-white tracking-tight mb-1">
                       {project.client}
                     </h3>
 
@@ -345,14 +345,14 @@ export default function FeaturedProjects() {
                     </p>
 
                     {/* Teaser - revealed on hover */}
-                    <p className="font-body text-sm text-white/50 max-h-0 overflow-hidden opacity-0 group-hover:max-h-20 group-hover:opacity-100 transition-all duration-500 ease-out leading-relaxed">
+                    <p className="font-body text-sm text-white/60 max-h-0 overflow-hidden opacity-0 group-hover:max-h-20 group-hover:opacity-100 transition-all duration-500 ease-out leading-relaxed">
                       {project.teaser}
                     </p>
                   </div>
 
                   {/* Border glow on hover */}
-                  <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-white/10 transition-colors duration-500" />
-                  <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[inset_0_0_60px_rgba(217,108,71,0.08)]" />
+                  <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-white/15 transition-colors duration-500" />
+                  <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[inset_0_0_60px_rgba(232,160,32,0.08)]" />
                 </div>
               </Link>
             </m.div>

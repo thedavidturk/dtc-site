@@ -9,13 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Authored palette - Miami Terracotta (2026 refresh):
-        // warm espresso night base, terracotta clay, sun-faded gold.
-        'espresso': '#1A120D',
-        'terracotta': '#D96C47',
-        'sun-gold': '#E9B368',
-        'clay-gray': '#B5A99A',
-        'cream': '#F6F0E6',
+        // Authored palette - Cabana (from David's beach photo):
+        // sun-washed sand, marigold + regatta-navy towel stripes, ink text.
+        'sand': '#F5F1E7',
+        'marigold': '#E8A020',
+        'regatta': '#26428B',
+        'driftwood': '#7A7264',
+        'ink': '#1E2433',
         'pure-white': '#FFFFFF',
       },
       fontFamily: {
@@ -36,8 +36,8 @@ const config: Config = {
         caption: ['0.875rem', { lineHeight: '1.6' }],
       },
       backgroundImage: {
-        'gradient-cta': 'linear-gradient(135deg, #D96C47, #E9B368)',
-        'gradient-dark': 'linear-gradient(180deg, #1A120D 0%, #2A1D14 100%)',
+        'gradient-cta': 'linear-gradient(135deg, #E8A020, #F0B948)',
+        'gradient-dark': 'linear-gradient(180deg, #F5F1E7 0%, #ECE4D2 100%)',
       },
     },
   },

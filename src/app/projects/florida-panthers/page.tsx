@@ -154,7 +154,7 @@ const galleryImages = [
 
 export default function FloridaPanthersProject() {
   return (
-    <article className="bg-espresso min-h-screen" style={{ backgroundColor: "#1A120D" }}>
+    <article className="bg-sand min-h-screen" style={{ backgroundColor: "#F5F1E7" }}>
       {/* ── Back Link ─────────────────────────────────────────────── */}
       <m.div
         initial={{ opacity: 0, x: -20 }}
@@ -164,7 +164,7 @@ export default function FloridaPanthersProject() {
       >
         <Link
           href="/#projects"
-          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-clay-gray hover:text-pure-white transition-colors duration-300"
+          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-driftwood hover:text-ink transition-colors duration-300"
         >
           <svg
             className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
@@ -199,10 +199,10 @@ export default function FloridaPanthersProject() {
         <div className="absolute inset-0 bg-black/50" />
 
         {/* Indigo wash */}
-        <div className="absolute inset-0 bg-gradient-to-br from-terracotta/30 via-transparent to-black/40 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-br from-marigold/30 via-transparent to-black/40 mix-blend-multiply" />
 
         {/* Radial fade at bottom */}
-        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-espresso via-espresso/40 to-transparent" />
+        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-sand via-sand/40 to-transparent" />
 
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
           <m.div
@@ -210,7 +210,7 @@ export default function FloridaPanthersProject() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
+            <span className="inline-block font-mono text-xs tracking-widest uppercase text-ink/70 mb-4 px-3 py-1.5 rounded-full border border-ink/10 backdrop-blur-sm bg-ink/5">
               Brand Film / Cause
             </span>
           </m.div>
@@ -228,7 +228,7 @@ export default function FloridaPanthersProject() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-2xl md:text-3xl lg:text-4xl font-medium text-white/80 tracking-tight"
+            className="font-headline text-2xl md:text-3xl lg:text-4xl font-medium text-ink/80 tracking-tight"
           >
             Florida Panthers, Keys Hurricane Relief Drive
           </m.p>
@@ -238,7 +238,7 @@ export default function FloridaPanthersProject() {
             initial={{ width: 0 }}
             animate={{ width: "6rem" }}
             transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="h-px bg-gradient-to-r from-terracotta to-violet-400 mt-8"
+            className="h-px bg-gradient-to-r from-marigold to-violet-400 mt-8"
           />
         </div>
       </section>
@@ -257,7 +257,7 @@ export default function FloridaPanthersProject() {
       />
 
       {/* ── The Film (Video) ─────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#F5F1E7" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -265,7 +265,7 @@ export default function FloridaPanthersProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-10"
         >
-          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-marigold tracking-widest uppercase mb-4">
             The Film
           </p>
           <h2 className="font-headline text-h3 font-bold">
@@ -282,9 +282,9 @@ export default function FloridaPanthersProject() {
           className="relative"
         >
           {/* Ambient glow behind the video */}
-          <div className="absolute -inset-3 md:-inset-5 bg-gradient-to-r from-terracotta/10 via-violet-500/5 to-terracotta/10 rounded-3xl blur-2xl opacity-60 pointer-events-none" />
+          <div className="absolute -inset-3 md:-inset-5 bg-gradient-to-r from-marigold/10 via-violet-500/5 to-marigold/10 rounded-3xl blur-2xl opacity-60 pointer-events-none" />
 
-          <div className="relative w-full overflow-hidden rounded-2xl border border-white/10 bg-black aspect-video shadow-2xl shadow-black/40">
+          <div className="relative w-full overflow-hidden rounded-2xl border border-ink/10 bg-black aspect-video shadow-2xl shadow-black/40">
             <iframe
               src="https://www-ccv.adobe.io/v1/player/ccv/7bxcHMYo5Xg/embed?bgcolor=%23120D1A&lazyLoading=true&api_key=BehancePro2View"
               className="absolute inset-0 h-full w-full"
@@ -298,11 +298,11 @@ export default function FloridaPanthersProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
       </div>
 
       {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#F5F1E7" }}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Sidebar */}
           <m.aside
@@ -314,40 +314,40 @@ export default function FloridaPanthersProject() {
           >
             <div className="lg:sticky lg:top-28 space-y-8">
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-marigold mb-2">
                   Project
                 </p>
-                <p className="font-headline text-lg font-semibold text-pure-white">
+                <p className="font-headline text-lg font-semibold text-ink">
                   {overview.client}
                 </p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-marigold mb-2">
                   Discipline
                 </p>
-                <p className="font-body text-clay-gray">
+                <p className="font-body text-driftwood">
                   {overview.industry}
                 </p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-marigold mb-2">
                   Format
                 </p>
-                <p className="font-body text-clay-gray">
+                <p className="font-body text-driftwood">
                   {overview.timeline}
                 </p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-marigold mb-2">
                   Services
                 </p>
                 <ul className="space-y-2">
                   {overview.services.map((service) => (
                     <li
                       key={service}
-                      className="flex items-center gap-3 font-body text-sm text-clay-gray"
+                      className="flex items-center gap-3 font-body text-sm text-driftwood"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-terracotta flex-shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-marigold flex-shrink-0" />
                       {service}
                     </li>
                   ))}
@@ -364,14 +364,14 @@ export default function FloridaPanthersProject() {
             viewport={{ once: true, margin: "-80px" }}
             className="lg:col-span-8"
           >
-            <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
+            <p className="font-mono text-sm text-marigold tracking-widest uppercase mb-4">
               The Idea
             </p>
             <h2 className="font-headline text-h3 font-bold mb-8">
               A partnership built to{" "}
-              <span className="text-white">go further for the Keys</span>
+              <span className="text-ink">go further for the Keys</span>
             </h2>
-            <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
+            <div className="font-body text-driftwood text-base md:text-lg leading-relaxed space-y-6">
               <p>
                 When the Florida Keys were hit hard, Ford and the Florida
                 Panthers came together to turn the Go Further platform into a
@@ -391,7 +391,7 @@ export default function FloridaPanthersProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
       </div>
 
       {/* ── Our Approach (scroll-scrubbed pinned section) ────────── */}
@@ -406,11 +406,11 @@ export default function FloridaPanthersProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
       </div>
 
       {/* ── The Approach Narrative ───────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#F5F1E7" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -418,14 +418,14 @@ export default function FloridaPanthersProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="max-w-4xl"
         >
-          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-marigold tracking-widest uppercase mb-4">
             The Feel
           </p>
           <h2 className="font-headline text-h3 font-bold mb-8">
             Big brands, but{" "}
-            <span className="text-white">a human mission</span>
+            <span className="text-ink">a human mission</span>
           </h2>
-          <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
+          <div className="font-body text-driftwood text-base md:text-lg leading-relaxed space-y-6">
             <p>
               The film treats the relief drive as the hero. The camera stays
               with the work of collecting and moving supplies, and the cut
@@ -445,11 +445,11 @@ export default function FloridaPanthersProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
       </div>
 
       {/* ── Gallery ──────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#F5F1E7" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -457,12 +457,12 @@ export default function FloridaPanthersProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-16"
         >
-          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-marigold tracking-widest uppercase mb-4">
             Stills
           </p>
           <h2 className="font-headline text-h3 font-bold">
             Frames from{" "}
-            <span className="text-white">the campaign</span>
+            <span className="text-ink">the campaign</span>
           </h2>
         </m.div>
 
@@ -647,11 +647,11 @@ export default function FloridaPanthersProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
       </div>
 
       {/* ── The Result ───────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#F5F1E7" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -659,12 +659,12 @@ export default function FloridaPanthersProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-marigold tracking-widest uppercase mb-4">
             The Result
           </p>
           <h2 className="font-headline text-h3 font-bold">
             A campaign that{" "}
-            <span className="text-white">put reach behind relief</span>
+            <span className="text-ink">put reach behind relief</span>
           </h2>
         </m.div>
 
@@ -676,17 +676,17 @@ export default function FloridaPanthersProject() {
           viewport={{ once: true, margin: "-60px" }}
           className="max-w-4xl"
         >
-          <p className="font-display text-h2 font-bold text-pure-white mb-10">
+          <p className="font-display text-h2 font-bold text-ink mb-10">
             {results[0]}
           </p>
 
           {/* TODO(David): add quantified result or client quote here */}
 
-          <ul className="space-y-4 border-l border-terracotta/30 pl-6">
+          <ul className="space-y-4 border-l border-marigold/30 pl-6">
             {results.slice(1).map((result) => (
               <li
                 key={result}
-                className="font-body text-clay-gray text-base md:text-lg leading-relaxed"
+                className="font-body text-driftwood text-base md:text-lg leading-relaxed"
               >
                 {result}
               </li>
@@ -697,11 +697,11 @@ export default function FloridaPanthersProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
       </div>
 
       {/* ── Tools & Technology ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#F5F1E7" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -709,11 +709,11 @@ export default function FloridaPanthersProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-marigold tracking-widest uppercase mb-4">
             Capabilities
           </p>
           <h2 className="font-headline text-h3 font-bold">
-            The <span className="text-white">production toolkit</span>
+            The <span className="text-ink">production toolkit</span>
           </h2>
         </m.div>
 
@@ -728,12 +728,12 @@ export default function FloridaPanthersProject() {
             <m.div
               key={tool.name}
               variants={staggerItem}
-              className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-terracotta/20 hover:bg-terracotta/[0.03] transition-all duration-500"
+              className="group p-6 rounded-xl border border-ink/5 bg-ink/[0.02] hover:border-marigold/20 hover:bg-marigold/[0.03] transition-all duration-500"
             >
-              <h3 className="font-headline text-lg font-bold text-pure-white mb-2 group-hover:text-terracotta transition-colors duration-300">
+              <h3 className="font-headline text-lg font-bold text-ink mb-2 group-hover:text-marigold transition-colors duration-300">
                 {tool.name}
               </h3>
-              <p className="font-body text-sm text-clay-gray leading-relaxed">
+              <p className="font-body text-sm text-driftwood leading-relaxed">
                 {tool.description}
               </p>
             </m.div>
@@ -743,11 +743,11 @@ export default function FloridaPanthersProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
       </div>
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#F5F1E7" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -757,9 +757,9 @@ export default function FloridaPanthersProject() {
         >
           <h2 className="font-headline text-h2 font-bold mb-6">
             Have a cause{" "}
-            <span className="text-white">worth rallying behind</span>?
+            <span className="text-ink">worth rallying behind</span>?
           </h2>
-          <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed mb-10">
+          <p className="font-body text-driftwood text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s build a campaign that turns a brand partnership into real
             momentum for the people it serves.
           </p>
