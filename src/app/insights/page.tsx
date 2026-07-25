@@ -14,7 +14,7 @@ const articles = [
       "OpenAI shut Sora down in March 2026. The studios making the best brand video now run a stack of tools, not one. Here is how we orchestrate it.",
     category: "AI + VIDEO",
     href: "/insights/ai-video-stack",
-    gradient: "from-blue-500/30 via-blue-900/50 to-sand",
+    gradient: "from-indigo-500/30 via-blue-900/50 to-espresso",
   },
   {
     title:
@@ -23,7 +23,7 @@ const articles = [
       "AI video models now generate matching sound in the same pass as the picture, collapsing a whole post stage. Where it wins, and where human sound direction still does.",
     category: "AI + PRODUCTION",
     href: "/insights/ai-native-audio",
-    gradient: "from-cyan-500/30 via-teal-900/50 to-sand",
+    gradient: "from-cyan-500/30 via-teal-900/50 to-espresso",
   },
   {
     title: "Zero-Click Is Here: How Brands Get Found When Nobody Visits Your Website",
@@ -31,7 +31,7 @@ const articles = [
       "Discovery has moved from ranking on Google to being the source an AI cites. How brands stay found in a zero-click world.",
     category: "AI + DISCOVERY",
     href: "/insights/zero-click-visibility",
-    gradient: "from-emerald-500/30 via-teal-900/50 to-sand",
+    gradient: "from-emerald-500/30 via-teal-900/50 to-espresso",
   },
   {
     title:
@@ -40,7 +40,7 @@ const articles = [
       "As AI makes infinite content cheap, authenticity becomes the scarce, premium asset. How brands earn trust instead of faking it.",
     category: "BRAND + TRUST",
     href: "/insights/ai-authenticity-premium",
-    gradient: "from-rose-500/30 via-pink-900/50 to-sand",
+    gradient: "from-rose-500/30 via-pink-900/50 to-espresso",
   },
   {
     title:
@@ -49,7 +49,7 @@ const articles = [
       "LED volumes used to demand a soundstage and a massive budget. AI pre-viz and generative 3D worlds give smaller studios virtual production thinking.",
     category: "VIRTUAL PRODUCTION",
     href: "/insights/virtual-production-ai",
-    gradient: "from-rose-500/30 via-rose-900/50 to-sand",
+    gradient: "from-violet-500/30 via-purple-900/50 to-espresso",
   },
   {
     title:
@@ -58,7 +58,7 @@ const articles = [
       "A 60-second video that took 13 days now ships in 27 minutes. The bottleneck moved from production to taste. Here is how we rebuilt the pipeline.",
     category: "PRODUCTION STRATEGY",
     href: "/insights/ai-content-pipeline",
-    gradient: "from-amber-500/30 via-orange-900/50 to-sand",
+    gradient: "from-amber-500/30 via-orange-900/50 to-espresso",
   },
 ];
 
@@ -108,7 +108,7 @@ const cardVariants = {
 
 export default function InsightsIndexPage() {
   return (
-    <div className="bg-sand min-h-screen">
+    <div className="bg-espresso min-h-screen">
       {/* -- Back Link ------------------------------------------------ */}
       <m.div
         initial={{ opacity: 0, x: -20 }}
@@ -118,7 +118,7 @@ export default function InsightsIndexPage() {
       >
         <Link
           href="/"
-          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-driftwood hover:text-ink transition-colors duration-300"
+          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-clay-gray hover:text-pure-white transition-colors duration-300"
         >
           <svg
             className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
@@ -146,19 +146,19 @@ export default function InsightsIndexPage() {
       >
         <m.span
           variants={heroVariants}
-          className="font-mono text-xs tracking-[0.3em] text-marigold uppercase mb-4 block"
+          className="font-mono text-xs tracking-[0.3em] text-terracotta uppercase mb-4 block"
         >
           Insights
         </m.span>
         <m.h1
           variants={heroVariants}
-          className="font-display text-h1 font-bold text-ink"
+          className="font-display text-h1 font-bold text-pure-white"
         >
           Perspectives
         </m.h1>
         <m.p
           variants={heroVariants}
-          className="font-body text-driftwood text-lg md:text-xl mt-6 max-w-2xl mx-auto leading-relaxed"
+          className="font-body text-clay-gray text-lg md:text-xl mt-6 max-w-2xl mx-auto leading-relaxed"
         >
           Thoughts on AI-driven production, creative technology, and the future
           of brand content.
@@ -178,7 +178,7 @@ export default function InsightsIndexPage() {
             <m.article key={article.href} variants={cardVariants}>
               <Link
                 href={article.href}
-                className="group block h-full bg-ink/[0.03] border border-ink/5 rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:border-marigold/30 hover:shadow-2xl hover:shadow-marigold/5"
+                className="group block h-full bg-white/[0.03] border border-white/5 rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:border-terracotta/30 hover:shadow-2xl hover:shadow-terracotta/5"
               >
                 {/* Gradient header */}
                 <div className="relative h-40 overflow-hidden">
@@ -186,35 +186,35 @@ export default function InsightsIndexPage() {
                     className={`absolute inset-0 bg-gradient-to-br ${article.gradient} transition-transform duration-700 ease-out group-hover:scale-110`}
                   />
                   {/* Grid pattern */}
-                  <div className="absolute inset-0 opacity-[0.06] bg-[linear-gradient(rgba(30,36,51,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(30,36,51,0.1)_1px,transparent_1px)] bg-[size:40px_40px]" />
+                  <div className="absolute inset-0 opacity-[0.06] bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:40px_40px]" />
                   {/* Bottom fade */}
-                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#F5F1E7]/80 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#1A120D]/80 to-transparent" />
                   {/* Corner accent glow on hover */}
-                  <div className="absolute top-0 right-0 w-32 h-32 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-[radial-gradient(circle_at_top_right,rgba(232,160,32,0.15),transparent_70%)]" />
+                  <div className="absolute top-0 right-0 w-32 h-32 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-[radial-gradient(circle_at_top_right,rgba(217,108,71,0.15),transparent_70%)]" />
                 </div>
 
                 {/* Card content */}
                 <div className="p-6 flex flex-col">
                   {/* Category badge */}
-                  <div className="border-l-2 border-marigold pl-3">
-                    <span className="font-mono text-xs text-marigold uppercase tracking-wider">
+                  <div className="border-l-2 border-terracotta pl-3">
+                    <span className="font-mono text-xs text-terracotta uppercase tracking-wider">
                       {article.category}
                     </span>
                   </div>
 
                   {/* Title */}
-                  <h2 className="font-headline font-bold text-lg text-ink mt-3 leading-snug group-hover:text-ink transition-colors duration-300">
+                  <h2 className="font-headline font-bold text-lg text-pure-white mt-3 leading-snug group-hover:text-cream transition-colors duration-300">
                     {article.title}
                   </h2>
 
                   {/* Description */}
-                  <p className="text-driftwood text-sm mt-2 leading-relaxed">
+                  <p className="text-clay-gray text-sm mt-2 leading-relaxed">
                     {article.description}
                   </p>
 
                   {/* Read Article link */}
-                  <div className="mt-5 pt-4 border-t border-ink/5">
-                    <span className="inline-flex items-center gap-2 text-regatta text-sm font-medium group-hover:gap-3 transition-all duration-300">
+                  <div className="mt-5 pt-4 border-t border-white/5">
+                    <span className="inline-flex items-center gap-2 text-sun-gold text-sm font-medium group-hover:gap-3 transition-all duration-300">
                       Read Article
                       <svg
                         className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"

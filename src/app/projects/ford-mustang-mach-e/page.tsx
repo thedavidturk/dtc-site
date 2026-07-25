@@ -206,7 +206,7 @@ const tools = [
 
 export default function FordMustangMachEProject() {
   return (
-    <article className="bg-sand min-h-screen" style={{ backgroundColor: "#F5F1E7" }}>
+    <article className="bg-espresso min-h-screen" style={{ backgroundColor: "#1A120D" }}>
       {/* ── Back Link ─────────────────────────────────────────────── */}
       <m.div
         initial={{ opacity: 0, x: -20 }}
@@ -216,7 +216,7 @@ export default function FordMustangMachEProject() {
       >
         <Link
           href="/#projects"
-          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-driftwood hover:text-ink transition-colors duration-300"
+          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-clay-gray hover:text-pure-white transition-colors duration-300"
         >
           <svg
             className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
@@ -259,14 +259,14 @@ export default function FordMustangMachEProject() {
           className="absolute inset-0 z-[1]"
           style={{
             background:
-              "linear-gradient(180deg, rgba(245,241,231,0.55) 0%, rgba(245,241,231,0.2) 35%, rgba(245,241,231,0.75) 80%, #F5F1E7 100%)",
+              "linear-gradient(180deg, rgba(26,18,13,0.55) 0%, rgba(26,18,13,0.2) 35%, rgba(26,18,13,0.75) 80%, #1A120D 100%)",
           }}
         />
         <div
           className="absolute inset-0 z-[1]"
           style={{
             background:
-              "radial-gradient(120% 90% at 80% 10%, rgba(232,160,32,0.28) 0%, rgba(245,241,231,0) 55%)",
+              "radial-gradient(120% 90% at 80% 10%, rgba(217,108,71,0.28) 0%, rgba(26,18,13,0) 55%)",
           }}
         />
 
@@ -276,7 +276,7 @@ export default function FordMustangMachEProject() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="inline-block font-mono text-xs tracking-widest uppercase text-ink/80 mb-4 px-3 py-1.5 rounded-full border border-ink/15 backdrop-blur-sm bg-ink/10">
+            <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/80 mb-4 px-3 py-1.5 rounded-full border border-white/15 backdrop-blur-sm bg-white/10">
               Automotive / Social Media
             </span>
           </m.div>
@@ -296,7 +296,7 @@ export default function FordMustangMachEProject() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-2xl md:text-3xl lg:text-4xl font-medium text-ink/85 tracking-tight"
+            className="font-headline text-2xl md:text-3xl lg:text-4xl font-medium text-white/85 tracking-tight"
           >
             Ford Mustang Mach-E
           </m.p>
@@ -305,8 +305,8 @@ export default function FordMustangMachEProject() {
             initial={{ width: 0 }}
             animate={{ width: "6rem" }}
             transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="h-px bg-gradient-to-r from-marigold to-regatta mt-8"
-            style={{ backgroundImage: "linear-gradient(to right, #E8A020, #26428B)" }}
+            className="h-px bg-gradient-to-r from-terracotta to-sun-gold mt-8"
+            style={{ backgroundImage: "linear-gradient(to right, #D96C47, #E9B368)" }}
           />
         </div>
       </section>
@@ -325,7 +325,7 @@ export default function FordMustangMachEProject() {
       />
 
       {/* ── Overview Sidebar + Intro ──────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#F5F1E7" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Sidebar */}
           <m.aside
@@ -337,36 +337,36 @@ export default function FordMustangMachEProject() {
           >
             <div className="lg:sticky lg:top-28 space-y-8">
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-regatta mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-sun-gold mb-2">
                   Client
                 </p>
-                <p className="font-headline text-lg font-semibold text-ink">
+                <p className="font-headline text-lg font-semibold text-pure-white">
                   {overview.client}
                 </p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-regatta mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-sun-gold mb-2">
                   Industry
                 </p>
-                <p className="font-body text-driftwood">{overview.industry}</p>
+                <p className="font-body text-clay-gray">{overview.industry}</p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-regatta mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-sun-gold mb-2">
                   Role
                 </p>
-                <p className="font-body text-driftwood">{overview.role}</p>
+                <p className="font-body text-clay-gray">{overview.role}</p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-regatta mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-sun-gold mb-2">
                   Services
                 </p>
                 <ul className="space-y-2">
                   {overview.services.map((service) => (
                     <li
                       key={service}
-                      className="flex items-center gap-3 font-body text-sm text-driftwood"
+                      className="flex items-center gap-3 font-body text-sm text-clay-gray"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-regatta flex-shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-sun-gold flex-shrink-0" />
                       {service}
                     </li>
                   ))}
@@ -383,14 +383,14 @@ export default function FordMustangMachEProject() {
             viewport={{ once: true, margin: "-80px" }}
             className="lg:col-span-8"
           >
-            <p className="font-mono text-sm text-regatta tracking-widest uppercase mb-4">
+            <p className="font-mono text-sm text-sun-gold tracking-widest uppercase mb-4">
               The Brief
             </p>
             <h2 className="font-headline text-h3 font-bold mb-8">
               A muscle-car icon,{" "}
               <span className="gradient-text">reborn for the feed</span>
             </h2>
-            <div className="font-body text-driftwood text-base md:text-lg leading-relaxed space-y-6">
+            <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
               <p>
                 The Mustang Mach-E is Ford taking the most loaded name in its
                 history and putting it on something electric. For social, that
@@ -411,11 +411,11 @@ export default function FordMustangMachEProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* ── The Film / Animation ─────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#F5F1E7" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -423,11 +423,11 @@ export default function FordMustangMachEProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-10"
         >
-          <p className="font-mono text-sm text-regatta tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-sun-gold tracking-widest uppercase mb-4">
             The Animation
           </p>
           <h2 className="font-headline text-h3 font-bold">
-            Hi-res imagery, <span className="text-ink">brought to life in 4K</span>
+            Hi-res imagery, <span className="text-white">brought to life in 4K</span>
           </h2>
         </m.div>
 
@@ -439,9 +439,9 @@ export default function FordMustangMachEProject() {
           className="relative max-w-5xl mx-auto"
         >
           {/* Ambient glow behind the player */}
-          <div className="absolute -inset-4 md:-inset-8 bg-gradient-to-r from-marigold/10 via-ink/5 to-regatta/10 rounded-3xl blur-2xl opacity-60 pointer-events-none" />
+          <div className="absolute -inset-4 md:-inset-8 bg-gradient-to-r from-terracotta/10 via-white/5 to-sun-gold/10 rounded-3xl blur-2xl opacity-60 pointer-events-none" />
 
-          <div className="relative rounded-2xl overflow-hidden border border-ink/10 shadow-2xl shadow-black/40">
+          <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/40">
 
             {/* 16:9 responsive embed (Adobe CCV player from the source case study) */}
             <div className="relative w-full aspect-video">
@@ -459,7 +459,7 @@ export default function FordMustangMachEProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* ── Our Approach (scroll-scrubbed pinned section) ────────── */}
@@ -474,11 +474,11 @@ export default function FordMustangMachEProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* ── Gallery ──────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#F5F1E7" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -486,11 +486,11 @@ export default function FordMustangMachEProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-16"
         >
-          <p className="font-mono text-sm text-regatta tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-sun-gold tracking-widest uppercase mb-4">
             Key Visuals
           </p>
           <h2 className="font-headline text-h3 font-bold">
-            Every frame, <span className="text-ink">a finished piece</span>
+            Every frame, <span className="text-white">a finished piece</span>
           </h2>
         </m.div>
 
@@ -534,11 +534,11 @@ export default function FordMustangMachEProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* ── The Result ───────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#F5F1E7" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -546,12 +546,12 @@ export default function FordMustangMachEProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-regatta tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-sun-gold tracking-widest uppercase mb-4">
             The Result
           </p>
           <h2 className="font-headline text-h3 font-bold">
             Premium imagery,{" "}
-            <span className="text-ink">built for social</span>
+            <span className="text-white">built for social</span>
           </h2>
         </m.div>
 
@@ -563,17 +563,17 @@ export default function FordMustangMachEProject() {
           viewport={{ once: true, margin: "-60px" }}
           className="max-w-4xl"
         >
-          <p className="font-display text-h2 font-bold text-ink mb-10">
+          <p className="font-display text-h2 font-bold text-pure-white mb-10">
             {results[0]}
           </p>
 
           {/* TODO(David): add quantified result or client quote here */}
 
-          <ul className="space-y-4 border-l border-regatta/30 pl-6">
+          <ul className="space-y-4 border-l border-sun-gold/30 pl-6">
             {results.slice(1).map((result) => (
               <li
                 key={result}
-                className="font-body text-driftwood text-base md:text-lg leading-relaxed"
+                className="font-body text-clay-gray text-base md:text-lg leading-relaxed"
               >
                 {result}
               </li>
@@ -584,11 +584,11 @@ export default function FordMustangMachEProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* ── Tools & Technology ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#F5F1E7" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -596,11 +596,11 @@ export default function FordMustangMachEProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-regatta tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-sun-gold tracking-widest uppercase mb-4">
             Tools &amp; Technology
           </p>
           <h2 className="font-headline text-h3 font-bold">
-            The <span className="text-ink">production stack</span>
+            The <span className="text-white">production stack</span>
           </h2>
         </m.div>
 
@@ -615,12 +615,12 @@ export default function FordMustangMachEProject() {
             <m.div
               key={tool.name}
               variants={staggerItem}
-              className="group p-6 rounded-xl border border-ink/5 bg-ink/[0.02] transition-all duration-500 hover:border-ink/15 hover:bg-ink/[0.04]"
+              className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] transition-all duration-500 hover:border-white/15 hover:bg-white/[0.04]"
             >
-              <h3 className="font-headline text-lg font-bold text-ink mb-2 group-hover:text-regatta transition-colors duration-300">
+              <h3 className="font-headline text-lg font-bold text-pure-white mb-2 group-hover:text-sun-gold transition-colors duration-300">
                 {tool.name}
               </h3>
-              <p className="font-body text-sm text-driftwood leading-relaxed">
+              <p className="font-body text-sm text-clay-gray leading-relaxed">
                 {tool.description}
               </p>
             </m.div>
@@ -630,11 +630,11 @@ export default function FordMustangMachEProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#F5F1E7" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -644,9 +644,9 @@ export default function FordMustangMachEProject() {
         >
           <h2 className="font-headline text-h2 font-bold mb-6">
             Have an icon{" "}
-            <span className="text-ink">to reinvent</span>?
+            <span className="text-white">to reinvent</span>?
           </h2>
-          <p className="font-body text-driftwood text-base md:text-lg leading-relaxed mb-10">
+          <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s build imagery and motion that makes your brand impossible
             to scroll past.
           </p>

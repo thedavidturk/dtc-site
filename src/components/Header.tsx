@@ -28,10 +28,10 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-ink/[0.06] shadow-[inset_0_1px_0_0_rgba(30,36,51,0.06)] ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-white/[0.06] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)] ${
         scrolled
-          ? "bg-sand/80 backdrop-blur-2xl backdrop-saturate-[1.8]"
-          : "bg-sand/60 backdrop-blur-xl backdrop-saturate-[1.8]"
+          ? "bg-white/[0.06] backdrop-blur-2xl backdrop-saturate-[1.8]"
+          : "bg-white/[0.03] backdrop-blur-xl backdrop-saturate-[1.8]"
       }`}
     >
       <div className="section-container flex items-center justify-between h-16 md:h-20">
@@ -48,7 +48,7 @@ export default function Header() {
             <a
               key={link.label}
               href={link.href}
-              className="text-sm font-body text-driftwood hover:text-ink transition-colors duration-200"
+              className="text-sm font-body text-clay-gray hover:text-pure-white transition-colors duration-200"
             >
               {link.label}
             </a>
@@ -68,15 +68,15 @@ export default function Header() {
         >
           <m.span
             animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-            className="block w-6 h-0.5 bg-ink"
+            className="block w-6 h-0.5 bg-pure-white"
           />
           <m.span
             animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
-            className="block w-6 h-0.5 bg-ink"
+            className="block w-6 h-0.5 bg-pure-white"
           />
           <m.span
             animate={mobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-            className="block w-6 h-0.5 bg-ink"
+            className="block w-6 h-0.5 bg-pure-white"
           />
         </button>
       </div>
@@ -86,7 +86,7 @@ export default function Header() {
         className="absolute bottom-0 left-0 right-0 h-px"
         style={{
           background:
-            "linear-gradient(90deg, transparent, rgba(232,160,32,0.3), rgba(38,66,139,0.2), transparent)",
+            "linear-gradient(90deg, transparent, rgba(217,108,71,0.3), rgba(233,179,104,0.2), transparent)",
           backgroundSize: "200% 100%",
           animation: "shimmer-border 3.5s linear infinite",
         }}
@@ -100,7 +100,7 @@ export default function Header() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden overflow-hidden bg-sand/90 backdrop-blur-2xl backdrop-saturate-[1.8] border-b border-ink/[0.06]"
+            className="lg:hidden overflow-hidden bg-white/[0.04] backdrop-blur-2xl backdrop-saturate-[1.8] border-b border-white/[0.06]"
           >
             <div className="section-container py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
@@ -108,7 +108,7 @@ export default function Header() {
                   key={link.label}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="text-lg font-body text-driftwood hover:text-ink transition-colors"
+                  className="text-lg font-body text-clay-gray hover:text-pure-white transition-colors"
                 >
                   {link.label}
                 </a>

@@ -42,13 +42,13 @@ const moreArticles = [
     title: "AI Video Generation Is Replacing Traditional Production Pipelines",
     category: "AI PRODUCTION",
     href: "/insights/virtual-worlds",
-    gradient: "from-marigold/40 via-blue-900/60 to-sand",
+    gradient: "from-terracotta/40 via-purple-900/60 to-espresso",
   },
   {
     title: "The AI-Powered Creative Pipeline: VFX, Sound Design, and Content at Machine Speed",
     category: "CREATIVE TECHNOLOGY",
     href: "/insights/real-time-4k",
-    gradient: "from-cyan-500/30 via-blue-900/50 to-sand",
+    gradient: "from-cyan-500/30 via-blue-900/50 to-espresso",
   },
 ];
 
@@ -58,7 +58,7 @@ const moreArticles = [
 
 export default function BuildingWorldsArticle() {
   return (
-    <article className="bg-sand min-h-screen">
+    <article className="bg-espresso min-h-screen">
       <ArticleJsonLd
         title="Your Brand in the Age of AI Search: Why GEO Is the New SEO"
         description="Generative Engine Optimization is reshaping how brands get discovered. If you're still optimizing only for Google rankings, you're optimizing for yesterday."
@@ -74,7 +74,7 @@ export default function BuildingWorldsArticle() {
       >
         <Link
           href="/"
-          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-driftwood hover:text-ink transition-colors duration-300"
+          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-clay-gray hover:text-pure-white transition-colors duration-300"
         >
           <svg
             className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
@@ -96,21 +96,21 @@ export default function BuildingWorldsArticle() {
       {/* -- Hero ----------------------------------------------------- */}
       <section className="relative min-h-[60vh] md:min-h-[70vh] flex items-end overflow-hidden">
         {/* Gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-regatta via-amber-700 to-amber-950" />
+        <div className="absolute inset-0 bg-gradient-to-br from-sun-gold via-amber-700 to-amber-950" />
 
         {/* Noise overlay */}
         <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIxIi8+PC9zdmc+')]" />
 
         {/* Grid pattern */}
-        <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(rgba(30,36,51,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(30,36,51,0.1)_1px,transparent_1px)] bg-[size:60px_60px]" />
+        <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:60px_60px]" />
 
         {/* Radial fade at bottom */}
-        <div className="absolute inset-0 bg-gradient-to-t from-sand via-sand/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-espresso via-espresso/40 to-transparent" />
 
         {/* Floating geometric accents */}
-        <div className="absolute top-1/4 left-[15%] w-28 h-28 border border-ink/[0.06] rounded-full animate-pulse" />
-        <div className="absolute top-1/3 right-[18%] w-24 h-24 border border-ink/10 rounded-xl -rotate-12" />
-        <div className="absolute bottom-2/5 left-2/5 w-3 h-3 bg-regatta/30 rounded-full" />
+        <div className="absolute top-1/4 left-[15%] w-28 h-28 border border-white/[0.06] rounded-full animate-pulse" />
+        <div className="absolute top-1/3 right-[18%] w-24 h-24 border border-white/10 rounded-xl -rotate-12" />
+        <div className="absolute bottom-2/5 left-2/5 w-3 h-3 bg-sun-gold/30 rounded-full" />
 
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
           <m.div
@@ -118,7 +118,7 @@ export default function BuildingWorldsArticle() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="inline-block font-mono text-xs tracking-widest uppercase text-ink/70 mb-4 px-3 py-1.5 rounded-full border border-ink/10 backdrop-blur-sm bg-ink/5">
+            <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
               AI Strategy
             </span>
           </m.div>
@@ -136,7 +136,7 @@ export default function BuildingWorldsArticle() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="font-body text-lg md:text-xl text-ink/70 max-w-2xl"
+            className="font-body text-lg md:text-xl text-white/70 max-w-2xl"
           >
             Generative Engine Optimization is reshaping how brands get
             discovered. If you&rsquo;re still optimizing only for Google
@@ -149,11 +149,11 @@ export default function BuildingWorldsArticle() {
             transition={{ duration: 0.5, delay: 0.6 }}
             className="flex items-center gap-4 mt-6"
           >
-            <span className="font-mono text-xs text-ink/50 tracking-wide">
+            <span className="font-mono text-xs text-white/50 tracking-wide">
               David Turk
             </span>
-            <span className="w-1 h-1 rounded-full bg-ink/30" />
-            <span className="font-mono text-xs text-ink/50 tracking-wide">
+            <span className="w-1 h-1 rounded-full bg-white/30" />
+            <span className="font-mono text-xs text-white/50 tracking-wide">
               9 min read
             </span>
           </m.div>
@@ -163,7 +163,7 @@ export default function BuildingWorldsArticle() {
             initial={{ width: 0 }}
             animate={{ width: "6rem" }}
             transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="h-px bg-gradient-to-r from-regatta to-amber-500 mt-8"
+            className="h-px bg-gradient-to-r from-sun-gold to-amber-500 mt-8"
           />
         </div>
       </section>
@@ -179,10 +179,10 @@ export default function BuildingWorldsArticle() {
         >
           {/* --- The Shift --- */}
           <m.div variants={fadeUp}>
-            <h2 className="text-2xl font-headline font-bold text-ink mt-12 mb-4">
+            <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               The Way People Find Brands Has Fundamentally Changed
             </h2>
-            <p className="font-body text-driftwood text-lg leading-relaxed mb-6">
+            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
               Nearly 800 million people a week now use ChatGPT alone to answer
               questions, compare options, and plan purchases. 35% of Gen Z uses
               AI chatbots as their primary search tool. When someone asks an AI
@@ -191,7 +191,7 @@ export default function BuildingWorldsArticle() {
               It returns a direct recommendation. If your brand isn&rsquo;t in
               that recommendation, you don&rsquo;t exist for that buyer.
             </p>
-            <p className="font-body text-driftwood text-lg leading-relaxed mb-6">
+            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
               This is the shift from SEO (Search Engine Optimization) to GEO
               (Generative Engine Optimization). Traditional SEO optimized for
               rankings, traffic, and clicks on Google. GEO optimizes for being
@@ -199,7 +199,7 @@ export default function BuildingWorldsArticle() {
               platforms like ChatGPT, Google AI Overviews, Perplexity, and
               Gemini.
             </p>
-            <p className="font-body text-driftwood text-lg leading-relaxed mb-6">
+            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
               The overlap between top Google links and AI-cited sources has
               dropped from 70% to below 20%. Ranking on page one of Google no
               longer guarantees visibility in the AI answers that are
@@ -210,7 +210,7 @@ export default function BuildingWorldsArticle() {
           {/* --- Pull Quote --- */}
           <m.blockquote
             variants={fadeUp}
-            className="pl-6 border-l-2 border-marigold text-ink italic text-xl my-8"
+            className="pl-6 border-l-2 border-terracotta text-cream italic text-xl my-8"
           >
             If your brand doesn&rsquo;t show up in AI-generated
             recommendations, it doesn&rsquo;t matter how well you rank on
@@ -219,10 +219,10 @@ export default function BuildingWorldsArticle() {
 
           {/* --- What GEO Actually Means --- */}
           <m.div variants={fadeUp}>
-            <h2 className="text-2xl font-headline font-bold text-ink mt-12 mb-4">
+            <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               What Generative Engine Optimization Actually Means
             </h2>
-            <p className="font-body text-driftwood text-lg leading-relaxed mb-6">
+            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
               GEO is not a rebrand of SEO. It requires a fundamentally
               different approach to content strategy. AI systems don&rsquo;t
               crawl and rank pages the way Google does. They understand the
@@ -230,7 +230,7 @@ export default function BuildingWorldsArticle() {
               relationships between them. They favor authoritative,
               evidence-backed content over keyword-stuffed pages.
             </p>
-            <p className="font-body text-driftwood text-lg leading-relaxed mb-6">
+            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
               Where traditional SEO rewarded publishing frequency and keyword
               volume, GEO rewards expertise, credibility, and topical depth.
               AI engines pull from sources they trust, and trust is built
@@ -238,7 +238,7 @@ export default function BuildingWorldsArticle() {
               knowledge, not content farms churning out thin articles optimized
               for search crawlers.
             </p>
-            <p className="font-body text-driftwood text-lg leading-relaxed mb-6">
+            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
               This is actually good news for brands that do legitimate work.
               If you have genuine expertise and you articulate it clearly, GEO
               rewards you. If you&rsquo;ve been gaming search rankings with
@@ -248,10 +248,10 @@ export default function BuildingWorldsArticle() {
 
           {/* --- Why It Matters for Creative Brands --- */}
           <m.div variants={fadeUp}>
-            <h2 className="text-2xl font-headline font-bold text-ink mt-12 mb-4">
+            <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               Why This Matters for Every Brand Producing Content
             </h2>
-            <p className="font-body text-driftwood text-lg leading-relaxed mb-6">
+            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
               Here&rsquo;s where this connects directly to what we do at DT+C.
               The content you produce (videos, visuals, written insights,
               case studies) is now the primary signal that AI engines use to
@@ -259,7 +259,7 @@ export default function BuildingWorldsArticle() {
               content isn&rsquo;t just marketing collateral anymore.
               It&rsquo;s your AI visibility strategy.
             </p>
-            <p className="font-body text-driftwood text-lg leading-relaxed mb-6">
+            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
               A brand with a rich library of well-produced video content,
               detailed case studies, and substantive thought leadership will
               show up in AI recommendations. A brand with a thin website and a
@@ -272,7 +272,7 @@ export default function BuildingWorldsArticle() {
           {/* --- Pull Quote --- */}
           <m.blockquote
             variants={fadeUp}
-            className="pl-6 border-l-2 border-marigold text-ink italic text-xl my-8"
+            className="pl-6 border-l-2 border-terracotta text-cream italic text-xl my-8"
           >
             Your content portfolio is no longer just a marketing asset.
             It&rsquo;s the data that AI engines use to decide whether your
@@ -281,16 +281,16 @@ export default function BuildingWorldsArticle() {
 
           {/* --- How We're Building for GEO --- */}
           <m.div variants={fadeUp}>
-            <h2 className="text-2xl font-headline font-bold text-ink mt-12 mb-4">
+            <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               How We Build Content for AI Visibility
             </h2>
-            <p className="font-body text-driftwood text-lg leading-relaxed mb-6">
+            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
               We&rsquo;ve restructured our content approach around GEO
               principles, both for our own brand and for our clients. The
               strategy centers on three pillars.
             </p>
-            <p className="font-body text-driftwood text-lg leading-relaxed mb-6">
-              <strong className="text-ink">Topical authority over keyword targeting.</strong>{" "}
+            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
+              <strong className="text-pure-white">Topical authority over keyword targeting.</strong>{" "}
               Instead of chasing individual keywords, we build comprehensive
               content around topics we genuinely own. For us, that&rsquo;s
               AI-powered creative production, 3D pipelines, and brand content
@@ -298,8 +298,8 @@ export default function BuildingWorldsArticle() {
               authority in these areas, making it more likely that AI engines
               cite us when users ask about these subjects.
             </p>
-            <p className="font-body text-driftwood text-lg leading-relaxed mb-6">
-              <strong className="text-ink">Entity-first thinking.</strong>{" "}
+            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
+              <strong className="text-pure-white">Entity-first thinking.</strong>{" "}
               AI engines understand brands as entities with attributes and
               relationships. We ensure our brand identity is clearly
               articulated across every touchpoint: who we are, what we do, who
@@ -307,8 +307,8 @@ export default function BuildingWorldsArticle() {
               messaging, and clear positioning all feed into how AI systems
               categorize and recommend us.
             </p>
-            <p className="font-body text-driftwood text-lg leading-relaxed mb-6">
-              <strong className="text-ink">Evidence over assertions.</strong>{" "}
+            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
+              <strong className="text-pure-white">Evidence over assertions.</strong>{" "}
               AI engines heavily favor content that provides evidence: case
               studies with real results, specific methodologies, concrete
               examples. Vague marketing language gets filtered out. Substantive,
@@ -320,10 +320,10 @@ export default function BuildingWorldsArticle() {
 
           {/* --- The Visibility Gap --- */}
           <m.div variants={fadeUp}>
-            <h2 className="text-2xl font-headline font-bold text-ink mt-12 mb-4">
+            <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               The Widening Visibility Gap
             </h2>
-            <p className="font-body text-driftwood text-lg leading-relaxed mb-6">
+            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
               By the end of 2026, the gap between brands that proactively
               manage AI visibility and those that don&rsquo;t will be
               impossible to ignore. The brands investing in GEO now will
@@ -332,7 +332,7 @@ export default function BuildingWorldsArticle() {
               mentioned less often, lose market share, and watch revenue
               growth slow without understanding why.
             </p>
-            <p className="font-body text-driftwood text-lg leading-relaxed mb-6">
+            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
               This isn&rsquo;t speculation. We&rsquo;re already seeing it play
               out. Brands with deep, authoritative content libraries are
               showing up in AI responses for commercial queries. Brands with
@@ -344,7 +344,7 @@ export default function BuildingWorldsArticle() {
           {/* --- Pull Quote --- */}
           <m.blockquote
             variants={fadeUp}
-            className="pl-6 border-l-2 border-marigold text-ink italic text-xl my-8"
+            className="pl-6 border-l-2 border-terracotta text-cream italic text-xl my-8"
           >
             The brands that own their AI narrative now will define their
             category in the minds of AI-assisted buyers. The rest will be
@@ -353,17 +353,17 @@ export default function BuildingWorldsArticle() {
 
           {/* --- Conclusion --- */}
           <m.div variants={fadeUp}>
-            <h2 className="text-2xl font-headline font-bold text-ink mt-12 mb-4">
+            <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               Start Building Your AI Presence Now
             </h2>
-            <p className="font-body text-driftwood text-lg leading-relaxed mb-6">
+            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
               GEO is not optional for brands that want to stay visible. It
               requires a content strategy built on genuine expertise, topical
               depth, and evidence-backed storytelling. It rewards the brands
               that do real work and talk about it substantively. It punishes
               the ones that relied on gaming search algorithms.
             </p>
-            <p className="font-body text-driftwood text-lg leading-relaxed mb-6">
+            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
               At DT+C, we&rsquo;re building content that works across both
               paradigms: traditional search and AI-generated discovery. Our
               production pipeline (AI video generation, 3D pipelines, VFX,
@@ -371,7 +371,7 @@ export default function BuildingWorldsArticle() {
               content that GEO demands, at a pace that keeps brands relevant
               in both search engines and AI recommendations.
             </p>
-            <p className="font-body text-driftwood text-lg leading-relaxed mb-6">
+            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
               The question for every brand is simple: when someone asks an AI
               assistant about your category, does your name come up? If the
               answer is no, or if you don&rsquo;t know, that&rsquo;s the
@@ -385,7 +385,7 @@ export default function BuildingWorldsArticle() {
 
       {/* -- Divider -------------------------------------------------- */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* -- More Perspectives ---------------------------------------- */}
@@ -397,7 +397,7 @@ export default function BuildingWorldsArticle() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-marigold tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
             Continue Reading
           </p>
           <h2 className="font-headline text-h3 font-bold">
@@ -416,23 +416,23 @@ export default function BuildingWorldsArticle() {
             <m.div key={article.href} variants={staggerItem}>
               <Link
                 href={article.href}
-                className="group block rounded-2xl border border-ink/5 bg-ink/[0.02] overflow-hidden hover:border-ink/15 hover:-translate-y-1 transition-all duration-500"
+                className="group block rounded-2xl border border-white/5 bg-white/[0.02] overflow-hidden hover:border-white/15 hover:-translate-y-1 transition-all duration-500"
               >
                 {/* Gradient header */}
                 <div className="relative h-32 overflow-hidden">
                   <div
                     className={`absolute inset-0 bg-gradient-to-br ${article.gradient} transition-transform duration-700 group-hover:scale-110`}
                   />
-                  <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(rgba(30,36,51,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(30,36,51,0.1)_1px,transparent_1px)] bg-[size:40px_40px]" />
+                  <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:40px_40px]" />
                 </div>
                 <div className="p-6">
-                  <span className="font-mono text-xs text-marigold uppercase tracking-wider">
+                  <span className="font-mono text-xs text-terracotta uppercase tracking-wider">
                     {article.category}
                   </span>
-                  <h3 className="font-headline font-bold text-lg text-ink mt-2 leading-snug group-hover:text-ink transition-colors duration-300">
+                  <h3 className="font-headline font-bold text-lg text-pure-white mt-2 leading-snug group-hover:text-cream transition-colors duration-300">
                     {article.title}
                   </h3>
-                  <span className="inline-flex items-center gap-2 text-regatta text-sm font-medium mt-4 group-hover:gap-3 transition-all duration-300">
+                  <span className="inline-flex items-center gap-2 text-sun-gold text-sm font-medium mt-4 group-hover:gap-3 transition-all duration-300">
                     Read Article
                     <svg
                       className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"

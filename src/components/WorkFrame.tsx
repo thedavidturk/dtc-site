@@ -126,7 +126,7 @@ export default function WorkFrame({
         <span
           key={b.key}
           aria-hidden
-          className={`pointer-events-none absolute z-30 h-4 w-4 border-marigold ${b.pos} ${b.edges} ${b.origin} ${
+          className={`pointer-events-none absolute z-30 h-4 w-4 border-terracotta ${b.pos} ${b.edges} ${b.origin} ${
             canHover
               ? `scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 group-focus-within:scale-100 group-focus-within:opacity-100 transition-[transform,opacity] duration-200 ${b.delay} ${EASE} motion-reduce:transition-none motion-reduce:delay-0`
               : "hidden"
@@ -137,9 +137,9 @@ export default function WorkFrame({
       {/* Frame counter, top-right */}
       {typeof index === "number" && (
         <span
-          className={`pointer-events-none absolute top-3 right-4 z-30 font-mono text-[10px] uppercase tracking-[0.25em] text-driftwood ${hudReveal}`}
+          className={`pointer-events-none absolute top-3 right-4 z-30 font-mono text-[10px] uppercase tracking-[0.25em] text-clay-gray ${hudReveal}`}
         >
-          <span className="text-marigold">FR</span>{" "}
+          <span className="text-terracotta">FR</span>{" "}
           {String(index).padStart(2, "0")}
         </span>
       )}
@@ -152,9 +152,9 @@ export default function WorkFrame({
           <div className="flex items-center gap-2.5 bg-gradient-to-t from-black/70 via-black/25 to-transparent px-5 pb-3.5 pt-8">
             <span
               aria-hidden
-              className="h-3 w-[2px] shrink-0 bg-marigold"
+              className="h-3 w-[2px] shrink-0 bg-terracotta"
             />
-            <p className="truncate font-mono text-caption uppercase tracking-[0.18em] text-white/70">
+            <p className="truncate font-mono text-caption uppercase tracking-[0.18em] text-clay-gray">
               {metaParts.join(" · ")}
             </p>
           </div>

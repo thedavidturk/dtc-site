@@ -6,7 +6,7 @@ import * as THREE from "three";
 
 // A rotating 3D product-like object (gem/crystal) with orbiting particles
 const ORBIT_COUNT = 20;
-const ACCENT = new THREE.Color("#45A26B");
+const ACCENT = new THREE.Color("#8FA86B");
 
 function Crystal() {
   const meshRef = useRef<THREE.Mesh>(null);
@@ -75,7 +75,7 @@ function OrbitRing() {
       <bufferGeometry>
         <bufferAttribute attach="attributes-position" count={ORBIT_COUNT} array={positions} itemSize={3} />
       </bufferGeometry>
-      <pointsMaterial color="#45A26B" size={0.04} transparent opacity={0.7} sizeAttenuation />
+      <pointsMaterial color="#8FA86B" size={0.04} transparent opacity={0.7} sizeAttenuation />
     </points>
   );
 }
@@ -93,7 +93,7 @@ function ScanLines() {
       {[0, 1, 2].map((i) => (
         <mesh key={i} position={[0, -0.5 + i * 0.5, 0]} rotation={[Math.PI / 2, 0, 0]}>
           <ringGeometry args={[0.9 + i * 0.15, 0.92 + i * 0.15, 48]} />
-          <meshBasicMaterial color="#45A26B" transparent opacity={0.12} side={THREE.DoubleSide} />
+          <meshBasicMaterial color="#8FA86B" transparent opacity={0.12} side={THREE.DoubleSide} />
         </mesh>
       ))}
     </group>

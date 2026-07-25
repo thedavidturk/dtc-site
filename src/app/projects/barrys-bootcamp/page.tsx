@@ -150,7 +150,7 @@ const tools = [
 
 export default function BarrysBootcampProject() {
   return (
-    <article className="bg-sand min-h-screen">
+    <article className="bg-espresso min-h-screen">
       {/* ── Back Link ─────────────────────────────────────────────── */}
       <m.div
         initial={{ opacity: 0, x: -20 }}
@@ -160,7 +160,7 @@ export default function BarrysBootcampProject() {
       >
         <Link
           href="/#projects"
-          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-driftwood hover:text-ink transition-colors duration-300"
+          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-clay-gray hover:text-pure-white transition-colors duration-300"
         >
           <svg
             className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
@@ -198,7 +198,7 @@ export default function BarrysBootcampProject() {
         </Lazy3D>
 
         {/* Radial fade at bottom */}
-        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-sand via-sand/40 to-transparent" />
+        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-espresso via-espresso/40 to-transparent" />
 
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
           <m.div
@@ -206,7 +206,7 @@ export default function BarrysBootcampProject() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="inline-block font-mono text-xs tracking-widest uppercase text-ink/70 mb-4 px-3 py-1.5 rounded-full border border-ink/10 backdrop-blur-sm bg-ink/5">
+            <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
               Fitness + Content
             </span>
           </m.div>
@@ -224,7 +224,7 @@ export default function BarrysBootcampProject() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-2xl md:text-3xl lg:text-4xl font-medium text-ink/80 tracking-tight"
+            className="font-headline text-2xl md:text-3xl lg:text-4xl font-medium text-white/80 tracking-tight"
           >
             Studio Energy, Built for the Feed
           </m.p>
@@ -268,7 +268,7 @@ export default function BarrysBootcampProject() {
                 <p className="font-mono text-xs tracking-widest uppercase text-amber-400 mb-2">
                   Client
                 </p>
-                <p className="font-headline text-lg font-semibold text-ink">
+                <p className="font-headline text-lg font-semibold text-pure-white">
                   {overview.client}
                 </p>
               </div>
@@ -276,7 +276,7 @@ export default function BarrysBootcampProject() {
                 <p className="font-mono text-xs tracking-widest uppercase text-amber-400 mb-2">
                   Industry
                 </p>
-                <p className="font-body text-driftwood">
+                <p className="font-body text-clay-gray">
                   {overview.industry}
                 </p>
               </div>
@@ -284,7 +284,7 @@ export default function BarrysBootcampProject() {
                 <p className="font-mono text-xs tracking-widest uppercase text-amber-400 mb-2">
                   Timeline
                 </p>
-                <p className="font-body text-driftwood">
+                <p className="font-body text-clay-gray">
                   {overview.timeline}
                 </p>
               </div>
@@ -296,7 +296,7 @@ export default function BarrysBootcampProject() {
                   {overview.services.map((service) => (
                     <li
                       key={service}
-                      className="flex items-center gap-3 font-body text-sm text-driftwood"
+                      className="flex items-center gap-3 font-body text-sm text-clay-gray"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-amber-400 flex-shrink-0" />
                       {service}
@@ -322,7 +322,7 @@ export default function BarrysBootcampProject() {
               Studio intensity,{" "}
               <span className="gradient-text">on a small screen</span>
             </h2>
-            <div className="font-body text-driftwood text-base md:text-lg leading-relaxed space-y-6">
+            <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
               <p>
                 Barry&rsquo;s built its name on a feeling: the Red Room, the
                 intervals, the music, and a community that keeps coming back. The
@@ -343,7 +343,7 @@ export default function BarrysBootcampProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* ── Our Approach (scroll-scrubbed pinned section) ────────── */}
@@ -358,7 +358,7 @@ export default function BarrysBootcampProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* ── The Solution ─────────────────────────────────────────── */}
@@ -375,9 +375,9 @@ export default function BarrysBootcampProject() {
           </p>
           <h2 className="font-headline text-h3 font-bold mb-8">
             A motion system{" "}
-            <span className="text-ink">that moves like the brand</span>
+            <span className="text-white">that moves like the brand</span>
           </h2>
-          <div className="font-body text-driftwood text-base md:text-lg leading-relaxed space-y-6">
+          <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
             <p>
               The answer was a system of animated graphics and motion templates,
               built to flex across promotions, class formats, and seasonal
@@ -397,7 +397,7 @@ export default function BarrysBootcampProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* ── Campaign Gallery ────────────────────────────────────── */}
@@ -414,7 +414,7 @@ export default function BarrysBootcampProject() {
           </p>
           <h2 className="font-headline text-h3 font-bold">
             Animated graphics &{" "}
-            <span className="text-ink">social motion</span>
+            <span className="text-white">social motion</span>
           </h2>
         </m.div>
 
@@ -527,7 +527,7 @@ export default function BarrysBootcampProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* ── The Result ───────────────────────────────────────────── */}
@@ -543,7 +543,7 @@ export default function BarrysBootcampProject() {
             The Result
           </p>
           <h2 className="font-headline text-h3 font-bold">
-            Studio energy, <span className="text-ink">built for the feed</span>
+            Studio energy, <span className="text-white">built for the feed</span>
           </h2>
         </m.div>
 
@@ -555,7 +555,7 @@ export default function BarrysBootcampProject() {
           viewport={{ once: true, margin: "-60px" }}
           className="max-w-4xl"
         >
-          <p className="font-display text-h2 font-bold text-ink mb-10">
+          <p className="font-display text-h2 font-bold text-pure-white mb-10">
             {results.lead}
           </p>
 
@@ -565,7 +565,7 @@ export default function BarrysBootcampProject() {
             {results.supporting.map((result) => (
               <li
                 key={result}
-                className="font-body text-driftwood text-base md:text-lg leading-relaxed"
+                className="font-body text-clay-gray text-base md:text-lg leading-relaxed"
               >
                 {result}
               </li>
@@ -576,7 +576,7 @@ export default function BarrysBootcampProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* ── Capabilities ──────────────────────────────────────────── */}
@@ -592,7 +592,7 @@ export default function BarrysBootcampProject() {
             Capabilities
           </p>
           <h2 className="font-headline text-h3 font-bold">
-            The <span className="text-ink">content toolkit</span>
+            The <span className="text-white">content toolkit</span>
           </h2>
         </m.div>
 
@@ -607,12 +607,12 @@ export default function BarrysBootcampProject() {
             <m.div
               key={tool.name}
               variants={staggerItem}
-              className="group p-6 rounded-xl border border-ink/5 bg-ink/[0.02] hover:border-amber-400/20 hover:bg-amber-400/[0.03] transition-all duration-500"
+              className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-amber-400/20 hover:bg-amber-400/[0.03] transition-all duration-500"
             >
-              <h3 className="font-headline text-lg font-bold text-ink mb-2 group-hover:text-amber-400 transition-colors duration-300">
+              <h3 className="font-headline text-lg font-bold text-pure-white mb-2 group-hover:text-amber-400 transition-colors duration-300">
                 {tool.name}
               </h3>
-              <p className="font-body text-sm text-driftwood leading-relaxed">
+              <p className="font-body text-sm text-clay-gray leading-relaxed">
                 {tool.description}
               </p>
             </m.div>
@@ -622,7 +622,7 @@ export default function BarrysBootcampProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
@@ -636,9 +636,9 @@ export default function BarrysBootcampProject() {
         >
           <h2 className="font-headline text-h2 font-bold mb-6">
             Need content that{" "}
-            <span className="text-ink">moves</span>?
+            <span className="text-white">moves</span>?
           </h2>
-          <p className="font-body text-driftwood text-base md:text-lg leading-relaxed mb-10">
+          <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s build a motion system that carries your brand&rsquo;s
             energy into every feed, sized for the platforms where your audience
             lives.

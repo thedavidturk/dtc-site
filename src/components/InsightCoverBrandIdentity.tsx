@@ -5,7 +5,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
 // Morphing geometric shapes representing adaptive brand identity
-const ACCENT = new THREE.Color("#F0B948");
+const ACCENT = new THREE.Color("#D9A441");
 const PARTICLE_COUNT = 16;
 
 function MorphShape() {
@@ -135,7 +135,7 @@ function FloatingDots() {
       <bufferGeometry>
         <bufferAttribute attach="attributes-position" count={PARTICLE_COUNT} array={positions} itemSize={3} />
       </bufferGeometry>
-      <pointsMaterial color="#F0B948" size={0.03} transparent opacity={0.5} sizeAttenuation />
+      <pointsMaterial color="#D9A441" size={0.03} transparent opacity={0.5} sizeAttenuation />
     </points>
   );
 }

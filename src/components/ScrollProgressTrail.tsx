@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 
 // --- Design system colors ---
-const MARIGOLD = { r: 232, g: 160, b: 32 }; // #E8A020
-const REGATTA = { r: 38, g: 66, b: 139 }; // #26428B
+const ELECTRIC_INDIGO = { r: 99, g: 102, b: 241 }; // #D96C47
+const WARM_CORAL = { r: 249, g: 115, b: 22 }; // #E9B368
 
 const NODE_COUNT = 9;
 const PARTICLE_COUNT = 6;
@@ -151,9 +151,9 @@ export default function ScrollProgressTrail() {
 
         const safeEnd = Math.max(trailEndY, 1);
         const glowGrad = ctx.createLinearGradient(0, 0, 0, safeEnd);
-        glowGrad.addColorStop(0, rgba(MARIGOLD, 0));
+        glowGrad.addColorStop(0, rgba(ELECTRIC_INDIGO, 0));
         const fadeTopStop = Math.min(FADE_EDGE_PX / safeEnd, 0.99);
-        glowGrad.addColorStop(fadeTopStop, rgba(MARIGOLD, 0.08));
+        glowGrad.addColorStop(fadeTopStop, rgba(ELECTRIC_INDIGO, 0.08));
         if (trailEndY > canvasH - FADE_EDGE_PX) {
           const fadeBotStart = Math.max(
             (canvasH - FADE_EDGE_PX) / safeEnd,
@@ -161,11 +161,11 @@ export default function ScrollProgressTrail() {
           );
           glowGrad.addColorStop(
             Math.min(fadeBotStart, 0.999),
-            rgba(MARIGOLD, 0.08)
+            rgba(ELECTRIC_INDIGO, 0.08)
           );
-          glowGrad.addColorStop(1, rgba(MARIGOLD, 0));
+          glowGrad.addColorStop(1, rgba(ELECTRIC_INDIGO, 0));
         } else {
-          glowGrad.addColorStop(1, rgba(MARIGOLD, 0.08));
+          glowGrad.addColorStop(1, rgba(ELECTRIC_INDIGO, 0.08));
         }
         ctx.strokeStyle = glowGrad;
         ctx.stroke();
@@ -183,9 +183,9 @@ export default function ScrollProgressTrail() {
 
         const safeEnd = Math.max(trailEndY, 1);
         const coreGrad = ctx.createLinearGradient(0, 0, 0, safeEnd);
-        coreGrad.addColorStop(0, rgba(MARIGOLD, 0));
+        coreGrad.addColorStop(0, rgba(ELECTRIC_INDIGO, 0));
         const fadeTopStop = Math.min(FADE_EDGE_PX / safeEnd, 0.99);
-        coreGrad.addColorStop(fadeTopStop, rgba(MARIGOLD, 0.4));
+        coreGrad.addColorStop(fadeTopStop, rgba(ELECTRIC_INDIGO, 0.4));
         if (trailEndY > canvasH - FADE_EDGE_PX) {
           const fadeBotStart = Math.max(
             (canvasH - FADE_EDGE_PX) / safeEnd,
@@ -193,11 +193,11 @@ export default function ScrollProgressTrail() {
           );
           coreGrad.addColorStop(
             Math.min(fadeBotStart, 0.999),
-            rgba(MARIGOLD, 0.4)
+            rgba(ELECTRIC_INDIGO, 0.4)
           );
-          coreGrad.addColorStop(1, rgba(MARIGOLD, 0));
+          coreGrad.addColorStop(1, rgba(ELECTRIC_INDIGO, 0));
         } else {
-          coreGrad.addColorStop(1, rgba(MARIGOLD, 0.4));
+          coreGrad.addColorStop(1, rgba(ELECTRIC_INDIGO, 0.4));
         }
         ctx.strokeStyle = coreGrad;
         ctx.stroke();
@@ -234,8 +234,8 @@ export default function ScrollProgressTrail() {
         ctx.beginPath();
         ctx.arc(lineX, nodeY, 2, 0, Math.PI * 2);
         ctx.fillStyle = passed
-          ? rgba(MARIGOLD, opacity)
-          : `rgba(30,36,51,${opacity})`;
+          ? rgba(ELECTRIC_INDIGO, opacity)
+          : `rgba(255,255,255,${opacity})`;
         ctx.fill();
       }
 
@@ -258,8 +258,8 @@ export default function ScrollProgressTrail() {
           trailEndY,
           12 * pulseScale
         );
-        glowRad.addColorStop(0, rgba(MARIGOLD, 0.15 * fade));
-        glowRad.addColorStop(1, rgba(MARIGOLD, 0));
+        glowRad.addColorStop(0, rgba(ELECTRIC_INDIGO, 0.15 * fade));
+        glowRad.addColorStop(1, rgba(ELECTRIC_INDIGO, 0));
         ctx.beginPath();
         ctx.arc(lineX, trailEndY, 12 * pulseScale, 0, Math.PI * 2);
         ctx.fillStyle = glowRad;
@@ -267,7 +267,7 @@ export default function ScrollProgressTrail() {
 
         ctx.beginPath();
         ctx.arc(lineX, trailEndY, 3 * pulseScale, 0, Math.PI * 2);
-        ctx.fillStyle = rgba(MARIGOLD, 0.8 * fade);
+        ctx.fillStyle = rgba(ELECTRIC_INDIGO, 0.8 * fade);
         ctx.fill();
       }
 
@@ -289,7 +289,7 @@ export default function ScrollProgressTrail() {
 
           ctx.beginPath();
           ctx.arc(lineX, particleAbsY, 1, 0, Math.PI * 2);
-          ctx.fillStyle = rgba(REGATTA, p.opacity * pFade);
+          ctx.fillStyle = rgba(WARM_CORAL, p.opacity * pFade);
           ctx.fill();
         }
       }

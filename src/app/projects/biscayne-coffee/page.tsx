@@ -153,7 +153,7 @@ const galleryImages = [
 
 export default function BiscayneCoffeeProject() {
   return (
-    <article className="bg-sand min-h-screen" style={{ backgroundColor: "#F5F1E7" }}>
+    <article className="bg-espresso min-h-screen" style={{ backgroundColor: "#1A120D" }}>
       {/* ── Back Link ─────────────────────────────────────────────── */}
       <m.div
         initial={{ opacity: 0, x: -20 }}
@@ -163,7 +163,7 @@ export default function BiscayneCoffeeProject() {
       >
         <Link
           href="/#projects"
-          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-driftwood hover:text-ink transition-colors duration-300"
+          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-clay-gray hover:text-pure-white transition-colors duration-300"
         >
           <svg
             className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
@@ -198,10 +198,10 @@ export default function BiscayneCoffeeProject() {
         <div className="absolute inset-0 bg-black/50" />
 
         {/* Indigo wash */}
-        <div className="absolute inset-0 bg-gradient-to-br from-marigold/30 via-transparent to-black/40 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-br from-terracotta/30 via-transparent to-black/40 mix-blend-multiply" />
 
         {/* Radial fade at bottom */}
-        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-sand via-sand/40 to-transparent" />
+        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-espresso via-espresso/40 to-transparent" />
 
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
           <m.div
@@ -209,7 +209,7 @@ export default function BiscayneCoffeeProject() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="inline-block font-mono text-xs tracking-widest uppercase text-ink/70 mb-4 px-3 py-1.5 rounded-full border border-ink/10 backdrop-blur-sm bg-ink/5">
+            <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
               Product Launch / 3D + Video
             </span>
           </m.div>
@@ -227,7 +227,7 @@ export default function BiscayneCoffeeProject() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-2xl md:text-3xl lg:text-4xl font-medium text-ink/80 tracking-tight"
+            className="font-headline text-2xl md:text-3xl lg:text-4xl font-medium text-white/80 tracking-tight"
           >
             Launch Campaign, Video and 3D Design
           </m.p>
@@ -237,7 +237,7 @@ export default function BiscayneCoffeeProject() {
             initial={{ width: 0 }}
             animate={{ width: "6rem" }}
             transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="h-px bg-gradient-to-r from-marigold to-violet-400 mt-8"
+            className="h-px bg-gradient-to-r from-terracotta to-violet-400 mt-8"
           />
         </div>
       </section>
@@ -256,7 +256,7 @@ export default function BiscayneCoffeeProject() {
       />
 
       {/* ── The Film (Video) ─────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#F5F1E7" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -264,7 +264,7 @@ export default function BiscayneCoffeeProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-10"
         >
-          <p className="font-mono text-sm text-marigold tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
             The Film
           </p>
           <h2 className="font-headline text-h3 font-bold">
@@ -281,9 +281,9 @@ export default function BiscayneCoffeeProject() {
           className="relative"
         >
           {/* Ambient glow behind the video */}
-          <div className="absolute -inset-3 md:-inset-5 bg-gradient-to-r from-marigold/10 via-violet-500/5 to-marigold/10 rounded-3xl blur-2xl opacity-60 pointer-events-none" />
+          <div className="absolute -inset-3 md:-inset-5 bg-gradient-to-r from-terracotta/10 via-violet-500/5 to-terracotta/10 rounded-3xl blur-2xl opacity-60 pointer-events-none" />
 
-          <div className="relative w-full overflow-hidden rounded-2xl border border-ink/10 bg-black aspect-video shadow-2xl shadow-black/40">
+          <div className="relative w-full overflow-hidden rounded-2xl border border-white/10 bg-black aspect-video shadow-2xl shadow-black/40">
             <iframe
               src="https://www-ccv.adobe.io/v1/player/ccv/HNQhk4YtxBY/embed?bgcolor=%23120D1A&lazyLoading=true&api_key=BehancePro2View"
               className="absolute inset-0 h-full w-full"
@@ -297,11 +297,11 @@ export default function BiscayneCoffeeProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#F5F1E7" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Sidebar */}
           <m.aside
@@ -313,40 +313,40 @@ export default function BiscayneCoffeeProject() {
           >
             <div className="lg:sticky lg:top-28 space-y-8">
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-marigold mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
                   Project
                 </p>
-                <p className="font-headline text-lg font-semibold text-ink">
+                <p className="font-headline text-lg font-semibold text-pure-white">
                   {overview.client}
                 </p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-marigold mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
                   Discipline
                 </p>
-                <p className="font-body text-driftwood">
+                <p className="font-body text-clay-gray">
                   {overview.industry}
                 </p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-marigold mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
                   Format
                 </p>
-                <p className="font-body text-driftwood">
+                <p className="font-body text-clay-gray">
                   {overview.timeline}
                 </p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-marigold mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
                   Services
                 </p>
                 <ul className="space-y-2">
                   {overview.services.map((service) => (
                     <li
                       key={service}
-                      className="flex items-center gap-3 font-body text-sm text-driftwood"
+                      className="flex items-center gap-3 font-body text-sm text-clay-gray"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-marigold flex-shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-terracotta flex-shrink-0" />
                       {service}
                     </li>
                   ))}
@@ -363,14 +363,14 @@ export default function BiscayneCoffeeProject() {
             viewport={{ once: true, margin: "-80px" }}
             className="lg:col-span-8"
           >
-            <p className="font-mono text-sm text-marigold tracking-widest uppercase mb-4">
+            <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
               The Idea
             </p>
             <h2 className="font-headline text-h3 font-bold mb-8">
               A launch campaign built on{" "}
-              <span className="text-ink">film and 3D</span>
+              <span className="text-white">film and 3D</span>
             </h2>
-            <div className="font-body text-driftwood text-base md:text-lg leading-relaxed space-y-6">
+            <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
               <p>
                 Biscayne Coffee needed a campaign launch for
                 www.BiscayneCoffee.com that could introduce the brand with both a
@@ -391,7 +391,7 @@ export default function BiscayneCoffeeProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* ── Our Approach (scroll-scrubbed pinned section) ────────── */}
@@ -406,11 +406,11 @@ export default function BiscayneCoffeeProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* ── The Approach Narrative ───────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#F5F1E7" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -418,14 +418,14 @@ export default function BiscayneCoffeeProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="max-w-4xl"
         >
-          <p className="font-mono text-sm text-marigold tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
             The Craft
           </p>
           <h2 className="font-headline text-h3 font-bold mb-8">
             Real footage, meet{" "}
-            <span className="text-ink">photoreal 3D</span>
+            <span className="text-white">photoreal 3D</span>
           </h2>
-          <div className="font-body text-driftwood text-base md:text-lg leading-relaxed space-y-6">
+          <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
             <p>
               The launch video was shot on the Canon C70 in Raw LT, then edited in
               Adobe Premiere Pro and After Effects with color correction handled in
@@ -445,11 +445,11 @@ export default function BiscayneCoffeeProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* ── Gallery ──────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#F5F1E7" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -457,12 +457,12 @@ export default function BiscayneCoffeeProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-16"
         >
-          <p className="font-mono text-sm text-marigold tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
             Stills
           </p>
           <h2 className="font-headline text-h3 font-bold">
             Frames from{" "}
-            <span className="text-ink">the campaign</span>
+            <span className="text-white">the campaign</span>
           </h2>
         </m.div>
 
@@ -631,11 +631,11 @@ export default function BiscayneCoffeeProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* ── The Result ───────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#F5F1E7" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -643,12 +643,12 @@ export default function BiscayneCoffeeProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-marigold tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
             The Result
           </p>
           <h2 className="font-headline text-h3 font-bold">
             A launch that{" "}
-            <span className="text-ink">looks like the brand</span>
+            <span className="text-white">looks like the brand</span>
           </h2>
         </m.div>
 
@@ -660,17 +660,17 @@ export default function BiscayneCoffeeProject() {
           viewport={{ once: true, margin: "-60px" }}
           className="max-w-4xl"
         >
-          <p className="font-display text-h2 font-bold text-ink mb-10">
+          <p className="font-display text-h2 font-bold text-pure-white mb-10">
             {results[0]}
           </p>
 
           {/* TODO(David): add quantified result or client quote here */}
 
-          <ul className="space-y-4 border-l border-marigold/30 pl-6">
+          <ul className="space-y-4 border-l border-terracotta/30 pl-6">
             {results.slice(1).map((result) => (
               <li
                 key={result}
-                className="font-body text-driftwood text-base md:text-lg leading-relaxed"
+                className="font-body text-clay-gray text-base md:text-lg leading-relaxed"
               >
                 {result}
               </li>
@@ -681,11 +681,11 @@ export default function BiscayneCoffeeProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* ── Tools & Technology ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#F5F1E7" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -693,11 +693,11 @@ export default function BiscayneCoffeeProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-marigold tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
             Capabilities
           </p>
           <h2 className="font-headline text-h3 font-bold">
-            The <span className="text-ink">production toolkit</span>
+            The <span className="text-white">production toolkit</span>
           </h2>
         </m.div>
 
@@ -712,12 +712,12 @@ export default function BiscayneCoffeeProject() {
             <m.div
               key={tool.name}
               variants={staggerItem}
-              className="group p-6 rounded-xl border border-ink/5 bg-ink/[0.02] hover:border-marigold/20 hover:bg-marigold/[0.03] transition-all duration-500"
+              className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-terracotta/20 hover:bg-terracotta/[0.03] transition-all duration-500"
             >
-              <h3 className="font-headline text-lg font-bold text-ink mb-2 group-hover:text-marigold transition-colors duration-300">
+              <h3 className="font-headline text-lg font-bold text-pure-white mb-2 group-hover:text-terracotta transition-colors duration-300">
                 {tool.name}
               </h3>
-              <p className="font-body text-sm text-driftwood leading-relaxed">
+              <p className="font-body text-sm text-clay-gray leading-relaxed">
                 {tool.description}
               </p>
             </m.div>
@@ -727,11 +727,11 @@ export default function BiscayneCoffeeProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#F5F1E7" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -741,9 +741,9 @@ export default function BiscayneCoffeeProject() {
         >
           <h2 className="font-headline text-h2 font-bold mb-6">
             Have a product worth{" "}
-            <span className="text-ink">launching</span>?
+            <span className="text-white">launching</span>?
           </h2>
-          <p className="font-body text-driftwood text-base md:text-lg leading-relaxed mb-10">
+          <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s build a launch that pairs a directed film with photoreal 3D
             so the brand looks consistent everywhere it shows up.
           </p>

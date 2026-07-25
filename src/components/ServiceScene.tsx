@@ -96,7 +96,7 @@ function CinematographyTerrain() {
   return (
     <mesh ref={meshRef} geometry={geometry} position={[0, -2, 0]}>
       <meshBasicMaterial
-        color="#E8A020"
+        color="#D96C47"
         wireframe
         transparent
         opacity={0.25}
@@ -146,7 +146,7 @@ function CinematographyCameraPath() {
     <>
       <Line
         points={pathPoints}
-        color="#26428B"
+        color="#E9B368"
         lineWidth={1.5}
         transparent
         opacity={0.8}
@@ -155,7 +155,7 @@ function CinematographyCameraPath() {
       <mesh ref={sphereRef}>
         <sphereGeometry args={[0.08, 12, 12]} />
         <meshBasicMaterial
-          color="#26428B"
+          color="#E9B368"
           toneMapped={false}
         />
       </mesh>
@@ -199,7 +199,7 @@ function CinematographyGlowTrail() {
     <mesh ref={meshRef}>
       <sphereGeometry args={[0.2, 8, 8]} />
       <meshBasicMaterial
-        color="#26428B"
+        color="#E9B368"
         transparent
         opacity={0.15}
         blending={THREE.AdditiveBlending}
@@ -338,7 +338,7 @@ function AnimationProduct() {
       <mesh position={[0, 0, 0]}>
         <boxGeometry args={[1.2, 1.8, 0.8]} />
         <meshBasicMaterial
-          color="#E8A020"
+          color="#D96C47"
           wireframe
           transparent
           opacity={0.6}
@@ -349,7 +349,7 @@ function AnimationProduct() {
       <mesh position={[0, 1.15, 0]}>
         <cylinderGeometry args={[0.25, 0.35, 0.5, 12]} />
         <meshBasicMaterial
-          color="#E8A020"
+          color="#D96C47"
           wireframe
           transparent
           opacity={0.6}
@@ -398,12 +398,12 @@ function AnimationMeasurementLines() {
 
   return (
     <>
-      <Line points={verticalLine} color="#26428B" lineWidth={1} transparent opacity={0.4} />
-      <Line points={vertTickTop} color="#26428B" lineWidth={1} transparent opacity={0.4} />
-      <Line points={vertTickBottom} color="#26428B" lineWidth={1} transparent opacity={0.4} />
-      <Line points={horizontalLine} color="#26428B" lineWidth={1} transparent opacity={0.4} />
-      <Line points={horizTickLeft} color="#26428B" lineWidth={1} transparent opacity={0.4} />
-      <Line points={horizTickRight} color="#26428B" lineWidth={1} transparent opacity={0.4} />
+      <Line points={verticalLine} color="#E9B368" lineWidth={1} transparent opacity={0.4} />
+      <Line points={vertTickTop} color="#E9B368" lineWidth={1} transparent opacity={0.4} />
+      <Line points={vertTickBottom} color="#E9B368" lineWidth={1} transparent opacity={0.4} />
+      <Line points={horizontalLine} color="#E9B368" lineWidth={1} transparent opacity={0.4} />
+      <Line points={horizTickLeft} color="#E9B368" lineWidth={1} transparent opacity={0.4} />
+      <Line points={horizTickRight} color="#E9B368" lineWidth={1} transparent opacity={0.4} />
     </>
   );
 }
@@ -413,7 +413,7 @@ function AnimationOrbitRing() {
     <mesh position={[0, 0.4, 0]} rotation={[Math.PI * 0.35, 0, Math.PI * 0.1]}>
       <torusGeometry args={[2.2, 0.005, 8, 64]} />
       <meshBasicMaterial
-        color="#E8A020"
+        color="#D96C47"
         wireframe
         transparent
         opacity={0.15}
@@ -450,8 +450,8 @@ function AnimationFloatingPoints() {
     const spd = new Float32Array(count);
     const yOff = new Float32Array(count);
 
-    const indigoColor = new THREE.Color("#E8A020");
-    const coralColor = new THREE.Color("#26428B");
+    const indigoColor = new THREE.Color("#D96C47");
+    const coralColor = new THREE.Color("#E9B368");
 
     for (let i = 0; i < count; i++) {
       ang[i] = Math.random() * Math.PI * 2;
@@ -544,7 +544,7 @@ function DirectionCentralFrame() {
     <group position={[-1.5, 0, 0]}>
       <Line
         points={framePoints}
-        color="#E8A020"
+        color="#D96C47"
         lineWidth={2.5}
         transparent
         opacity={0.9}
@@ -553,7 +553,7 @@ function DirectionCentralFrame() {
       <mesh>
         <planeGeometry args={[1.5, 1.0]} />
         <meshBasicMaterial
-          color="#E8A020"
+          color="#D96C47"
           transparent
           opacity={0.04}
           depthWrite={false}
@@ -640,7 +640,7 @@ function DirectionParticleStreams() {
   const { positions, colors } = useMemo(() => {
     const pos = new Float32Array(count * 3);
     const col = new Float32Array(count * 3);
-    const indigoColor = new THREE.Color("#E8A020");
+    const indigoColor = new THREE.Color("#D96C47");
 
     for (let i = 0; i < count; i++) {
       // Random initial progress
@@ -661,8 +661,8 @@ function DirectionParticleStreams() {
     const colAttr = pointsRef.current.geometry.attributes.color as THREE.BufferAttribute;
     const colArr = colAttr.array as Float32Array;
 
-    const indigoColor = new THREE.Color("#E8A020");
-    const coralColor = new THREE.Color("#26428B");
+    const indigoColor = new THREE.Color("#D96C47");
+    const coralColor = new THREE.Color("#E9B368");
 
     for (let s = 0; s < streamCount; s++) {
       const target = targets[s];
@@ -778,7 +778,7 @@ function DirectionAmbientParticles() {
       </bufferGeometry>
       <pointsMaterial
         size={0.02}
-        color="#E8A020"
+        color="#D96C47"
         transparent
         opacity={0.3}
         blending={THREE.AdditiveBlending}
@@ -800,21 +800,21 @@ function DirectionScene() {
           position={[2.0, 1.2, 0]}
           width={0.56}
           height={1.0}
-          color="#E8A020"
+          color="#D96C47"
           phaseOffset={0}
         />
         <DirectionOutputFrame
           position={[2.2, 0.0, 0]}
           width={0.7}
           height={0.7}
-          color="#F2B84B"
+          color="#E28E6A"
           phaseOffset={2.0}
         />
         <DirectionOutputFrame
           position={[2.0, -1.2, 0]}
           width={1.2}
           height={0.675}
-          color="#26428B"
+          color="#E9B368"
           phaseOffset={4.0}
         />
         <DirectionParticleStreams />
@@ -838,7 +838,7 @@ function CaptureCinemaCamera() {
 
   const wireframeMat = useMemo(
     () => ({
-      color: "#E8A020",
+      color: "#D96C47",
       wireframe: true,
       transparent: true,
       opacity: 0.55,
@@ -849,7 +849,7 @@ function CaptureCinemaCamera() {
 
   const accentMat = useMemo(
     () => ({
-      color: "#26428B",
+      color: "#E9B368",
       wireframe: true,
       transparent: true,
       opacity: 0.5,
@@ -882,7 +882,7 @@ function CaptureCinemaCamera() {
       <mesh position={[0, -0.05, 1.46]}>
         <circleGeometry args={[0.32, 16]} />
         <meshBasicMaterial
-          color="#E8A020"
+          color="#D96C47"
           transparent
           opacity={0.08}
           depthWrite={false}
@@ -933,7 +933,7 @@ function CaptureCinemaCamera() {
       <mesh position={[0, -0.05, 1.15]}>
         <boxGeometry args={[0.95, 0.75, 0.15]} />
         <meshBasicMaterial
-          color="#E8A020"
+          color="#D96C47"
           wireframe
           transparent
           opacity={0.2}
@@ -955,7 +955,7 @@ function CaptureOrbitRing() {
     <mesh position={[0, 0.3, 0]} rotation={[Math.PI * 0.4, 0, Math.PI * 0.08]}>
       <torusGeometry args={[2.5, 0.005, 8, 64]} />
       <meshBasicMaterial
-        color="#E8A020"
+        color="#D96C47"
         transparent
         opacity={0.12}
         depthWrite={false}
@@ -991,8 +991,8 @@ function CaptureFloatingPoints() {
     const spd = new Float32Array(count);
     const yOff = new Float32Array(count);
 
-    const indigoColor = new THREE.Color("#E8A020");
-    const coralColor = new THREE.Color("#26428B");
+    const indigoColor = new THREE.Color("#D96C47");
+    const coralColor = new THREE.Color("#E9B368");
 
     for (let i = 0; i < count; i++) {
       ang[i] = Math.random() * Math.PI * 2;

@@ -46,7 +46,7 @@ export default function ProjectGifBand({
   return (
     <section
       className="section-container py-16 md:py-24"
-      style={{ backgroundColor: "#F5F1E7" }}
+      style={{ backgroundColor: "#1A120D" }}
     >
       <m.div
         variants={fadeUp}
@@ -55,10 +55,10 @@ export default function ProjectGifBand({
         viewport={{ once: true, margin: "-80px" }}
         className="mb-10"
       >
-        <p className="font-mono text-sm text-regatta tracking-widest uppercase mb-4">
+        <p className="font-mono text-sm text-sun-gold tracking-widest uppercase mb-4">
           {eyebrow}
         </p>
-        <h2 className="font-headline text-h3 font-bold text-ink">
+        <h2 className="font-headline text-h3 font-bold text-pure-white">
           {heading}
         </h2>
       </m.div>
@@ -73,10 +73,10 @@ export default function ProjectGifBand({
         {gifs.slice(0, 2).map((gif, i) => (
           <div
             key={i}
-            className="group relative overflow-hidden rounded-2xl border border-ink/10 bg-black shadow-2xl shadow-black/40"
+            className="group relative overflow-hidden rounded-2xl border border-white/10 bg-black shadow-2xl shadow-black/40"
           >
             {/* Ambient glow on hover */}
-            <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-marigold/20 via-transparent to-regatta/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-sm pointer-events-none" />
+            <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-terracotta/20 via-transparent to-sun-gold/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-sm pointer-events-none" />
 
             <AutoplayVideo
               src={gif.src}
@@ -86,12 +86,12 @@ export default function ProjectGifBand({
             />
 
             {/* Corner accents */}
-            <div className="absolute top-3 left-3 w-6 h-6 border-t border-l border-marigold/40 rounded-tl-lg z-10 pointer-events-none" />
-            <div className="absolute bottom-3 right-3 w-6 h-6 border-b border-r border-regatta/40 rounded-br-lg z-10 pointer-events-none" />
+            <div className="absolute top-3 left-3 w-6 h-6 border-t border-l border-terracotta/40 rounded-tl-lg z-10 pointer-events-none" />
+            <div className="absolute bottom-3 right-3 w-6 h-6 border-b border-r border-sun-gold/40 rounded-br-lg z-10 pointer-events-none" />
 
             {gif.label && (
               <div className="absolute bottom-4 left-4 z-10">
-                <span className="inline-block font-mono text-xs text-white/80 tracking-wider uppercase px-3 py-1 rounded-full border border-white/15 backdrop-blur-sm bg-black/30">
+                <span className="inline-block font-mono text-xs text-white/70 tracking-wider uppercase px-3 py-1 rounded-full border border-white/10 backdrop-blur-sm bg-black/30">
                   {gif.label}
                 </span>
               </div>

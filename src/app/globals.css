@@ -23,8 +23,8 @@ html.lenis, html.lenis body {
 }
 
 :root {
-  --background: #F5F1E7;
-  --foreground: #1E2433;
+  --background: #1A120D;
+  --foreground: #FFFFFF;
 }
 
 * {
@@ -33,7 +33,7 @@ html.lenis, html.lenis body {
 
 html,
 body {
-  background-color: #F5F1E7 !important;
+  background-color: #1A120D !important;
 }
 
 html {
@@ -56,18 +56,18 @@ body {
 main,
 section,
 footer {
-  background-color: #F5F1E7;
+  background-color: #1A120D;
 }
 
-/* Ensure all motion.div wrappers inherit the page background */
+/* Ensure all motion.div wrappers inherit the dark background */
 main > div,
 main > div > div {
-  background-color: #F5F1E7;
+  background-color: #1A120D;
 }
 
 ::selection {
-  background: rgba(232,160,32, 0.4);
-  color: #1E2433;
+  background: rgba(217,108,71, 0.4);
+  color: #FFFFFF;
 }
 
 @layer utilities {
@@ -86,16 +86,15 @@ main > div > div {
   }
 
   .gradient-text {
-    /* Hard stop keeps the towel-stripe two-tone crisp - yellow into navy blends muddy */
-    @apply bg-clip-text text-transparent bg-[linear-gradient(100deg,#E8A020_0%,#E8A020_54%,#26428B_60%,#26428B_100%)];
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-terracotta to-sun-gold;
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center px-8 py-4 bg-gradient-cta text-ink font-headline font-bold rounded-lg transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98];
+    @apply inline-flex items-center justify-center px-8 py-4 bg-gradient-cta text-white font-headline font-bold rounded-lg transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98];
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-8 py-4 border border-driftwood/30 text-ink font-headline font-bold rounded-lg transition-all duration-300 hover:border-marigold hover:bg-marigold/10;
+    @apply inline-flex items-center justify-center px-8 py-4 border border-clay-gray/30 text-pure-white font-headline font-bold rounded-lg transition-all duration-300 hover:border-terracotta hover:bg-terracotta/10;
   }
 }
 
@@ -110,26 +109,26 @@ main > div > div {
 
 @keyframes glow-pulse {
   0%, 100% {
-    filter: drop-shadow(0 0 15px rgba(232,160,32,0))
-            drop-shadow(0 0 35px rgba(232,160,32,0));
+    filter: drop-shadow(0 0 15px rgba(217,108,71,0))
+            drop-shadow(0 0 35px rgba(217,108,71,0));
   }
   50% {
-    filter: drop-shadow(0 0 15px rgba(232,160,32,0.15))
-            drop-shadow(0 0 40px rgba(232,160,32,0.06));
+    filter: drop-shadow(0 0 15px rgba(217,108,71,0.15))
+            drop-shadow(0 0 40px rgba(217,108,71,0.06));
   }
 }
 
-/* Ink text with subtle marigold glint sweep */
+/* White text with subtle warm-cream highlight sweep */
 .hero-shimmer-white {
   background: linear-gradient(
     105deg,
-    #1E2433 0%,
-    #1E2433 40%,
-    #6B5A2E 49%,
-    #E8A020 50%,
-    #6B5A2E 51%,
-    #1E2433 60%,
-    #1E2433 100%
+    #ffffff 0%,
+    #ffffff 40%,
+    #EFDFC7 49%,
+    #E5C79A 50%,
+    #EFDFC7 51%,
+    #ffffff 60%,
+    #ffffff 100%
   );
   background-size: 250% 100%;
   -webkit-background-clip: text;
@@ -142,15 +141,15 @@ main > div > div {
 .hero-shimmer-gradient {
   background: linear-gradient(
     105deg,
-    #E8A020 0%,
-    #F0B948 20%,
-    #E8A020 40%,
-    #F6D07E 49%,
-    #F2B84B 50%,
-    #F6D07E 51%,
-    #E8A020 60%,
-    #30509F 80%,
-    #26428B 100%
+    #D96C47 0%,
+    #E28E6A 15%,
+    #E9B368 40%,
+    #fef3c7 49%,
+    #ffffff 50%,
+    #fef3c7 51%,
+    #D96C47 60%,
+    #E28E6A 80%,
+    #E9B368 100%
   );
   background-size: 250% 100%;
   -webkit-background-clip: text;
@@ -190,11 +189,11 @@ main > div > div {
 .hero-border-gradient {
   background: conic-gradient(
     from var(--border-angle),
-    #E8A020 0%,
-    #F2B84B 25%,
-    #26428B 50%,
-    #F6D07E 75%,
-    #E8A020 100%
+    #D96C47 0%,
+    #E28E6A 25%,
+    #E9B368 50%,
+    #F0C68A 75%,
+    #D96C47 100%
   );
   animation: border-rotate 4s linear infinite;
 }

@@ -140,7 +140,7 @@ const tools = [
 
 export default function TodesVejiganteProject() {
   return (
-    <article className="bg-sand min-h-screen">
+    <article className="bg-espresso min-h-screen">
       {/* ── Back Link ─────────────────────────────────────────────── */}
       <m.div
         initial={{ opacity: 0, x: -20 }}
@@ -150,7 +150,7 @@ export default function TodesVejiganteProject() {
       >
         <Link
           href="/#projects"
-          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-driftwood hover:text-ink transition-colors duration-300"
+          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-clay-gray hover:text-pure-white transition-colors duration-300"
         >
           <svg
             className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
@@ -185,7 +185,7 @@ export default function TodesVejiganteProject() {
         <div className="absolute inset-0 bg-black/40" />
 
         {/* Radial fade at bottom */}
-        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-sand via-sand/40 to-transparent" />
+        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-espresso via-espresso/40 to-transparent" />
 
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
           <m.div
@@ -193,7 +193,7 @@ export default function TodesVejiganteProject() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="inline-block font-mono text-xs tracking-widest uppercase text-ink/70 mb-4 px-3 py-1.5 rounded-full border border-ink/10 backdrop-blur-sm bg-ink/5">
+            <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
               Strategy + Campaign Production
             </span>
           </m.div>
@@ -211,7 +211,7 @@ export default function TodesVejiganteProject() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-2xl md:text-3xl lg:text-4xl font-medium text-ink/80 tracking-tight"
+            className="font-headline text-2xl md:text-3xl lg:text-4xl font-medium text-white/80 tracking-tight"
           >
             Preserving Heritage Through Story
           </m.p>
@@ -255,7 +255,7 @@ export default function TodesVejiganteProject() {
                 <p className="font-mono text-xs tracking-widest uppercase text-amber-400 mb-2">
                   Client
                 </p>
-                <p className="font-headline text-lg font-semibold text-ink">
+                <p className="font-headline text-lg font-semibold text-pure-white">
                   {overview.client}
                 </p>
               </div>
@@ -263,7 +263,7 @@ export default function TodesVejiganteProject() {
                 <p className="font-mono text-xs tracking-widest uppercase text-amber-400 mb-2">
                   Industry
                 </p>
-                <p className="font-body text-driftwood">
+                <p className="font-body text-clay-gray">
                   {overview.industry}
                 </p>
               </div>
@@ -271,7 +271,7 @@ export default function TodesVejiganteProject() {
                 <p className="font-mono text-xs tracking-widest uppercase text-amber-400 mb-2">
                   Timeline
                 </p>
-                <p className="font-body text-driftwood">
+                <p className="font-body text-clay-gray">
                   {overview.timeline}
                 </p>
               </div>
@@ -283,7 +283,7 @@ export default function TodesVejiganteProject() {
                   {overview.services.map((service) => (
                     <li
                       key={service}
-                      className="flex items-center gap-3 font-body text-sm text-driftwood"
+                      className="flex items-center gap-3 font-body text-sm text-clay-gray"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-amber-400 flex-shrink-0" />
                       {service}
@@ -309,7 +309,7 @@ export default function TodesVejiganteProject() {
               Cultural preservation{" "}
               <span className="gradient-text">against erasure</span>
             </h2>
-            <div className="font-body text-driftwood text-base md:text-lg leading-relaxed space-y-6">
+            <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
               <p>
                 In the wake of Hurricane Maria, the community of Loiza, Puerto
                 Rico faced a dual threat: the physical devastation of the storm
@@ -334,7 +334,7 @@ export default function TodesVejiganteProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* ── Our Approach (scroll-scrubbed pinned section) ────────── */}
@@ -349,7 +349,7 @@ export default function TodesVejiganteProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* ── The Solution ─────────────────────────────────────────── */}
@@ -366,9 +366,9 @@ export default function TodesVejiganteProject() {
           </p>
           <h2 className="font-headline text-h3 font-bold mb-8">
             Culture as the campaign{" "}
-            <span className="text-ink">itself</span>
+            <span className="text-white">itself</span>
           </h2>
-          <div className="font-body text-driftwood text-base md:text-lg leading-relaxed space-y-6">
+          <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
             <p>
               Rather than producing traditional fundraising content, we made the
               culture the centerpiece. The documentary gave voice to the
@@ -392,7 +392,7 @@ export default function TodesVejiganteProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* ── Campaign Gallery ────────────────────────────────────── */}
@@ -409,7 +409,7 @@ export default function TodesVejiganteProject() {
           </p>
           <h2 className="font-headline text-h3 font-bold">
             Portraits, exhibition &{" "}
-            <span className="text-ink">community</span>
+            <span className="text-white">community</span>
           </h2>
         </m.div>
 
@@ -609,7 +609,7 @@ export default function TodesVejiganteProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* ── The Result ───────────────────────────────────────────── */}
@@ -626,7 +626,7 @@ export default function TodesVejiganteProject() {
           </p>
           <h2 className="font-headline text-h3 font-bold">
             Real impact,{" "}
-            <span className="text-ink">lasting support</span>
+            <span className="text-white">lasting support</span>
           </h2>
         </m.div>
 
@@ -638,7 +638,7 @@ export default function TodesVejiganteProject() {
           viewport={{ once: true, margin: "-60px" }}
           className="max-w-4xl"
         >
-          <p className="font-display text-h2 font-bold text-ink mb-10">
+          <p className="font-display text-h2 font-bold text-pure-white mb-10">
             {results[0]}
           </p>
 
@@ -648,7 +648,7 @@ export default function TodesVejiganteProject() {
             {results.slice(1).map((result) => (
               <li
                 key={result}
-                className="font-body text-driftwood text-base md:text-lg leading-relaxed"
+                className="font-body text-clay-gray text-base md:text-lg leading-relaxed"
               >
                 {result}
               </li>
@@ -659,7 +659,7 @@ export default function TodesVejiganteProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* ── Tools & Technology ────────────────────────────────────── */}
@@ -675,7 +675,7 @@ export default function TodesVejiganteProject() {
             Capabilities
           </p>
           <h2 className="font-headline text-h3 font-bold">
-            The <span className="text-ink">production toolkit</span>
+            The <span className="text-white">production toolkit</span>
           </h2>
         </m.div>
 
@@ -690,12 +690,12 @@ export default function TodesVejiganteProject() {
             <m.div
               key={tool.name}
               variants={staggerItem}
-              className="group p-6 rounded-xl border border-ink/5 bg-ink/[0.02] hover:border-amber-400/20 hover:bg-amber-400/[0.03] transition-all duration-500"
+              className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-amber-400/20 hover:bg-amber-400/[0.03] transition-all duration-500"
             >
-              <h3 className="font-headline text-lg font-bold text-ink mb-2 group-hover:text-amber-400 transition-colors duration-300">
+              <h3 className="font-headline text-lg font-bold text-pure-white mb-2 group-hover:text-amber-400 transition-colors duration-300">
                 {tool.name}
               </h3>
-              <p className="font-body text-sm text-driftwood leading-relaxed">
+              <p className="font-body text-sm text-clay-gray leading-relaxed">
                 {tool.description}
               </p>
             </m.div>
@@ -705,7 +705,7 @@ export default function TodesVejiganteProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
@@ -719,9 +719,9 @@ export default function TodesVejiganteProject() {
         >
           <h2 className="font-headline text-h2 font-bold mb-6">
             Have a story{" "}
-            <span className="text-ink">worth telling</span>?
+            <span className="text-white">worth telling</span>?
           </h2>
-          <p className="font-body text-driftwood text-base md:text-lg leading-relaxed mb-10">
+          <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s build a campaign that turns your mission into
             movement through research, strategy, and powerful content.
           </p>

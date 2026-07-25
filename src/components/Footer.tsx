@@ -14,7 +14,7 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-sand border-t border-ink/5" style={{ backgroundColor: "#F5F1E7" }}>
+    <footer className="relative overflow-hidden bg-espresso border-t border-white/5" style={{ backgroundColor: "#1A120D" }}>
       <ConstellationNetwork className="absolute inset-0 z-0" />
       <div className="relative z-10 section-container py-12 md:py-16">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
@@ -23,7 +23,7 @@ export default function Footer() {
             <Link href="/" className="font-headline font-bold text-2xl tracking-tight">
               DT+C
             </Link>
-            <p className="text-driftwood text-sm mt-2 max-w-xs">
+            <p className="text-clay-gray text-sm mt-2 max-w-xs">
               Future-proof creative for forward-thinking brands.
             </p>
           </div>
@@ -34,7 +34,7 @@ export default function Footer() {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm text-driftwood hover:text-ink transition-colors"
+                className="text-sm text-clay-gray hover:text-pure-white transition-colors"
               >
                 {link.label}
               </a>
@@ -47,7 +47,7 @@ export default function Footer() {
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-driftwood hover:text-marigold transition-colors"
+              className="text-clay-gray hover:text-terracotta transition-colors"
               aria-label="LinkedIn"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -56,7 +56,7 @@ export default function Footer() {
             </a>
             <a
               href="mailto:david@davidturkcreative.com"
-              className="text-driftwood hover:text-regatta transition-colors"
+              className="text-clay-gray hover:text-sun-gold transition-colors"
               aria-label="Email"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
@@ -67,8 +67,8 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-12 pt-8 border-t border-ink/5 text-center">
-          <p className="text-driftwood text-sm">
+        <div className="mt-12 pt-8 border-t border-white/5 text-center">
+          <p className="text-clay-gray text-sm">
             &copy; 2026 DT+C. All rights reserved.
           </p>
         </div>

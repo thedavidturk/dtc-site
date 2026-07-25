@@ -140,7 +140,7 @@ const tools = [
 
 export default function ElSecretoProject() {
   return (
-    <article className="bg-sand min-h-screen" style={{ backgroundColor: "#F5F1E7" }}>
+    <article className="bg-espresso min-h-screen" style={{ backgroundColor: "#1A120D" }}>
       {/* ── Back Link ─────────────────────────────────────────────── */}
       <m.div
         initial={{ opacity: 0, x: -20 }}
@@ -150,7 +150,7 @@ export default function ElSecretoProject() {
       >
         <Link
           href="/#projects"
-          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-driftwood hover:text-ink transition-colors duration-300"
+          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-clay-gray hover:text-pure-white transition-colors duration-300"
         >
           <svg
             className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
@@ -172,16 +172,16 @@ export default function ElSecretoProject() {
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-end overflow-hidden">
         {/* Gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-regatta via-amber-500 to-red-700" />
+        <div className="absolute inset-0 bg-gradient-to-br from-sun-gold via-amber-500 to-red-700" />
 
         {/* Noise overlay */}
         <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIxIi8+PC9zdmc+')]" />
 
         {/* Grid pattern */}
-        <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(rgba(30,36,51,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(30,36,51,0.1)_1px,transparent_1px)] bg-[size:60px_60px]" />
+        <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:60px_60px]" />
 
         {/* Radial fade at bottom */}
-        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-sand via-sand/40 to-transparent" />
+        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-espresso via-espresso/40 to-transparent" />
 
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
           <m.div
@@ -189,7 +189,7 @@ export default function ElSecretoProject() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="inline-block font-mono text-xs tracking-widest uppercase text-ink/70 mb-4 px-3 py-1.5 rounded-full border border-ink/10 backdrop-blur-sm bg-ink/5">
+            <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
               Cinematic Video Production
             </span>
           </m.div>
@@ -207,7 +207,7 @@ export default function ElSecretoProject() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-2xl md:text-3xl lg:text-4xl font-medium text-ink/80 tracking-tight"
+            className="font-headline text-2xl md:text-3xl lg:text-4xl font-medium text-white/80 tracking-tight"
           >
             Savoring the Unseen
           </m.p>
@@ -217,7 +217,7 @@ export default function ElSecretoProject() {
             initial={{ width: 0 }}
             animate={{ width: "6rem" }}
             transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="h-px bg-gradient-to-r from-regatta to-amber-400 mt-8"
+            className="h-px bg-gradient-to-r from-sun-gold to-amber-400 mt-8"
           />
         </div>
       </section>
@@ -236,7 +236,7 @@ export default function ElSecretoProject() {
       />
 
       {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#F5F1E7" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Sidebar */}
           <m.aside
@@ -248,40 +248,40 @@ export default function ElSecretoProject() {
           >
             <div className="lg:sticky lg:top-28 space-y-8">
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-regatta mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-sun-gold mb-2">
                   Client
                 </p>
-                <p className="font-headline text-lg font-semibold text-ink">
+                <p className="font-headline text-lg font-semibold text-pure-white">
                   {overview.client}
                 </p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-regatta mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-sun-gold mb-2">
                   Industry
                 </p>
-                <p className="font-body text-driftwood">
+                <p className="font-body text-clay-gray">
                   {overview.industry}
                 </p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-regatta mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-sun-gold mb-2">
                   Timeline
                 </p>
-                <p className="font-body text-driftwood">
+                <p className="font-body text-clay-gray">
                   {overview.timeline}
                 </p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-regatta mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-sun-gold mb-2">
                   Services
                 </p>
                 <ul className="space-y-2">
                   {overview.services.map((service) => (
                     <li
                       key={service}
-                      className="flex items-center gap-3 font-body text-sm text-driftwood"
+                      className="flex items-center gap-3 font-body text-sm text-clay-gray"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-regatta flex-shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-sun-gold flex-shrink-0" />
                       {service}
                     </li>
                   ))}
@@ -298,14 +298,14 @@ export default function ElSecretoProject() {
             viewport={{ once: true, margin: "-80px" }}
             className="lg:col-span-8"
           >
-            <p className="font-mono text-sm text-regatta tracking-widest uppercase mb-4">
+            <p className="font-mono text-sm text-sun-gold tracking-widest uppercase mb-4">
               The Challenge
             </p>
             <h2 className="font-headline text-h3 font-bold mb-8">
               Capturing culinary artistry{" "}
               <span className="gradient-text">in a live environment</span>
             </h2>
-            <div className="font-body text-driftwood text-base md:text-lg leading-relaxed space-y-6">
+            <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
               <p>
                 The Hospitality Mentor needed a cinematic episode documenting an
                 exclusive omakase dining experience at Faena Miami Beach, one of
@@ -328,7 +328,7 @@ export default function ElSecretoProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* ── Our Approach (scroll-scrubbed pinned section) ────────── */}
@@ -343,11 +343,11 @@ export default function ElSecretoProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* ── The Solution ─────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#F5F1E7" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -355,14 +355,14 @@ export default function ElSecretoProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="max-w-4xl"
         >
-          <p className="font-mono text-sm text-regatta tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-sun-gold tracking-widest uppercase mb-4">
             The Solution
           </p>
           <h2 className="font-headline text-h3 font-bold mb-8">
             Documentary soul,{" "}
-            <span className="text-ink">cinematic craft</span>
+            <span className="text-white">cinematic craft</span>
           </h2>
-          <div className="font-body text-driftwood text-base md:text-lg leading-relaxed space-y-6">
+          <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
             <p>
               Using the Canon C70 cinema camera, we captured every moment of the
               omakase experience with documentary intimacy and cinematic
@@ -386,11 +386,11 @@ export default function ElSecretoProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* ── Video ───────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#F5F1E7" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -398,11 +398,11 @@ export default function ElSecretoProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-10"
         >
-          <p className="font-mono text-sm text-regatta tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-sun-gold tracking-widest uppercase mb-4">
             The Film
           </p>
           <h2 className="font-headline text-h3 font-bold">
-            Savoring the Unseen: <span className="text-ink">Full Episode</span>
+            Savoring the Unseen: <span className="text-white">Full Episode</span>
           </h2>
         </m.div>
 
@@ -414,10 +414,10 @@ export default function ElSecretoProject() {
           className="relative max-w-5xl mx-auto"
         >
           {/* Ambient glow behind the video */}
-          <div className="absolute -inset-4 md:-inset-8 bg-gradient-to-r from-regatta/10 via-amber-500/5 to-red-700/10 rounded-3xl blur-2xl opacity-60 pointer-events-none" />
+          <div className="absolute -inset-4 md:-inset-8 bg-gradient-to-r from-sun-gold/10 via-amber-500/5 to-red-700/10 rounded-3xl blur-2xl opacity-60 pointer-events-none" />
 
           {/* Video container */}
-          <div className="relative rounded-2xl overflow-hidden border border-ink/10 shadow-2xl shadow-black/40">
+          <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/40">
 
             {/* 16:9 aspect ratio wrapper */}
             <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
@@ -444,11 +444,11 @@ export default function ElSecretoProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* ── Campaign Gallery ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#F5F1E7" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -456,11 +456,11 @@ export default function ElSecretoProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-16"
         >
-          <p className="font-mono text-sm text-regatta tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-sun-gold tracking-widest uppercase mb-4">
             Campaign Gallery
           </p>
           <h2 className="font-headline text-h3 font-bold">
-            Savoring <span className="text-ink">Every Detail</span>
+            Savoring <span className="text-white">Every Detail</span>
           </h2>
         </m.div>
 
@@ -797,11 +797,11 @@ export default function ElSecretoProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* ── The Result ───────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#F5F1E7" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -809,12 +809,12 @@ export default function ElSecretoProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-regatta tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-sun-gold tracking-widest uppercase mb-4">
             The Result
           </p>
           <h2 className="font-headline text-h3 font-bold">
             An immersive experience,{" "}
-            <span className="text-ink">captured in 4K</span>
+            <span className="text-white">captured in 4K</span>
           </h2>
         </m.div>
 
@@ -826,17 +826,17 @@ export default function ElSecretoProject() {
           viewport={{ once: true, margin: "-60px" }}
           className="max-w-4xl"
         >
-          <p className="font-display text-h2 font-bold text-ink mb-10">
+          <p className="font-display text-h2 font-bold text-pure-white mb-10">
             {results[0]}
           </p>
 
           {/* TODO(David): add quantified result or client quote here */}
 
-          <ul className="space-y-4 border-l border-regatta/30 pl-6">
+          <ul className="space-y-4 border-l border-sun-gold/30 pl-6">
             {results.slice(1).map((result) => (
               <li
                 key={result}
-                className="font-body text-driftwood text-base md:text-lg leading-relaxed"
+                className="font-body text-clay-gray text-base md:text-lg leading-relaxed"
               >
                 {result}
               </li>
@@ -847,11 +847,11 @@ export default function ElSecretoProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* ── Tools & Technology ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#F5F1E7" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -859,11 +859,11 @@ export default function ElSecretoProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-regatta tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-sun-gold tracking-widest uppercase mb-4">
             Tools & Technology
           </p>
           <h2 className="font-headline text-h3 font-bold">
-            The <span className="text-ink">production stack</span>
+            The <span className="text-white">production stack</span>
           </h2>
         </m.div>
 
@@ -878,12 +878,12 @@ export default function ElSecretoProject() {
             <m.div
               key={tool.name}
               variants={staggerItem}
-              className="group p-6 rounded-xl border border-ink/5 bg-ink/[0.02] hover:border-regatta/20 hover:bg-regatta/[0.03] transition-all duration-500"
+              className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-sun-gold/20 hover:bg-sun-gold/[0.03] transition-all duration-500"
             >
-              <h3 className="font-headline text-lg font-bold text-ink mb-2 group-hover:text-regatta transition-colors duration-300">
+              <h3 className="font-headline text-lg font-bold text-pure-white mb-2 group-hover:text-sun-gold transition-colors duration-300">
                 {tool.name}
               </h3>
-              <p className="font-body text-sm text-driftwood leading-relaxed">
+              <p className="font-body text-sm text-clay-gray leading-relaxed">
                 {tool.description}
               </p>
             </m.div>
@@ -893,11 +893,11 @@ export default function ElSecretoProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-ink/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#F5F1E7" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -907,9 +907,9 @@ export default function ElSecretoProject() {
         >
           <h2 className="font-headline text-h2 font-bold mb-6">
             Ready to tell{" "}
-            <span className="text-ink">your story cinematically</span>?
+            <span className="text-white">your story cinematically</span>?
           </h2>
-          <p className="font-body text-driftwood text-base md:text-lg leading-relaxed mb-10">
+          <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s create premium video content that captures the soul of
             your brand and commands attention.
           </p>
