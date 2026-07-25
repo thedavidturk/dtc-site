@@ -206,7 +206,7 @@ const tools = [
 
 export default function FordMustangMachEProject() {
   return (
-    <article className="bg-deep-space min-h-screen" style={{ backgroundColor: "#120D1A" }}>
+    <article className="bg-espresso min-h-screen" style={{ backgroundColor: "#1A120D" }}>
       {/* ── Back Link ─────────────────────────────────────────────── */}
       <m.div
         initial={{ opacity: 0, x: -20 }}
@@ -216,7 +216,7 @@ export default function FordMustangMachEProject() {
       >
         <Link
           href="/#projects"
-          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-cool-gray hover:text-pure-white transition-colors duration-300"
+          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-clay-gray hover:text-pure-white transition-colors duration-300"
         >
           <svg
             className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
@@ -259,14 +259,14 @@ export default function FordMustangMachEProject() {
           className="absolute inset-0 z-[1]"
           style={{
             background:
-              "linear-gradient(180deg, rgba(18,13,26,0.55) 0%, rgba(18,13,26,0.2) 35%, rgba(18,13,26,0.75) 80%, #120D1A 100%)",
+              "linear-gradient(180deg, rgba(26,18,13,0.55) 0%, rgba(26,18,13,0.2) 35%, rgba(26,18,13,0.75) 80%, #1A120D 100%)",
           }}
         />
         <div
           className="absolute inset-0 z-[1]"
           style={{
             background:
-              "radial-gradient(120% 90% at 80% 10%, rgba(124,92,255,0.28) 0%, rgba(18,13,26,0) 55%)",
+              "radial-gradient(120% 90% at 80% 10%, rgba(217,108,71,0.28) 0%, rgba(26,18,13,0) 55%)",
           }}
         />
 
@@ -305,8 +305,8 @@ export default function FordMustangMachEProject() {
             initial={{ width: 0 }}
             animate={{ width: "6rem" }}
             transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="h-px bg-gradient-to-r from-electric-indigo to-warm-coral mt-8"
-            style={{ backgroundImage: "linear-gradient(to right, #7C5CFF, #FF8A5C)" }}
+            className="h-px bg-gradient-to-r from-terracotta to-sun-gold mt-8"
+            style={{ backgroundImage: "linear-gradient(to right, #D96C47, #E9B368)" }}
           />
         </div>
       </section>
@@ -325,7 +325,7 @@ export default function FordMustangMachEProject() {
       />
 
       {/* ── Overview Sidebar + Intro ──────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Sidebar */}
           <m.aside
@@ -337,7 +337,7 @@ export default function FordMustangMachEProject() {
           >
             <div className="lg:sticky lg:top-28 space-y-8">
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-warm-coral mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-sun-gold mb-2">
                   Client
                 </p>
                 <p className="font-headline text-lg font-semibold text-pure-white">
@@ -345,28 +345,28 @@ export default function FordMustangMachEProject() {
                 </p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-warm-coral mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-sun-gold mb-2">
                   Industry
                 </p>
-                <p className="font-body text-cool-gray">{overview.industry}</p>
+                <p className="font-body text-clay-gray">{overview.industry}</p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-warm-coral mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-sun-gold mb-2">
                   Role
                 </p>
-                <p className="font-body text-cool-gray">{overview.role}</p>
+                <p className="font-body text-clay-gray">{overview.role}</p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-warm-coral mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-sun-gold mb-2">
                   Services
                 </p>
                 <ul className="space-y-2">
                   {overview.services.map((service) => (
                     <li
                       key={service}
-                      className="flex items-center gap-3 font-body text-sm text-cool-gray"
+                      className="flex items-center gap-3 font-body text-sm text-clay-gray"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-warm-coral flex-shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-sun-gold flex-shrink-0" />
                       {service}
                     </li>
                   ))}
@@ -383,14 +383,14 @@ export default function FordMustangMachEProject() {
             viewport={{ once: true, margin: "-80px" }}
             className="lg:col-span-8"
           >
-            <p className="font-mono text-sm text-warm-coral tracking-widest uppercase mb-4">
+            <p className="font-mono text-sm text-sun-gold tracking-widest uppercase mb-4">
               The Brief
             </p>
             <h2 className="font-headline text-h3 font-bold mb-8">
               A muscle-car icon,{" "}
               <span className="gradient-text">reborn for the feed</span>
             </h2>
-            <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
+            <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
               <p>
                 The Mustang Mach-E is Ford taking the most loaded name in its
                 history and putting it on something electric. For social, that
@@ -415,7 +415,7 @@ export default function FordMustangMachEProject() {
       </div>
 
       {/* ── The Film / Animation ─────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -423,7 +423,7 @@ export default function FordMustangMachEProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-10"
         >
-          <p className="font-mono text-sm text-warm-coral tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-sun-gold tracking-widest uppercase mb-4">
             The Animation
           </p>
           <h2 className="font-headline text-h3 font-bold">
@@ -439,7 +439,7 @@ export default function FordMustangMachEProject() {
           className="relative max-w-5xl mx-auto"
         >
           {/* Ambient glow behind the player */}
-          <div className="absolute -inset-4 md:-inset-8 bg-gradient-to-r from-electric-indigo/10 via-white/5 to-warm-coral/10 rounded-3xl blur-2xl opacity-60 pointer-events-none" />
+          <div className="absolute -inset-4 md:-inset-8 bg-gradient-to-r from-terracotta/10 via-white/5 to-sun-gold/10 rounded-3xl blur-2xl opacity-60 pointer-events-none" />
 
           <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/40">
 
@@ -478,7 +478,7 @@ export default function FordMustangMachEProject() {
       </div>
 
       {/* ── Gallery ──────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -486,7 +486,7 @@ export default function FordMustangMachEProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-16"
         >
-          <p className="font-mono text-sm text-warm-coral tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-sun-gold tracking-widest uppercase mb-4">
             Key Visuals
           </p>
           <h2 className="font-headline text-h3 font-bold">
@@ -538,7 +538,7 @@ export default function FordMustangMachEProject() {
       </div>
 
       {/* ── The Result ───────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -546,7 +546,7 @@ export default function FordMustangMachEProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-warm-coral tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-sun-gold tracking-widest uppercase mb-4">
             The Result
           </p>
           <h2 className="font-headline text-h3 font-bold">
@@ -569,11 +569,11 @@ export default function FordMustangMachEProject() {
 
           {/* TODO(David): add quantified result or client quote here */}
 
-          <ul className="space-y-4 border-l border-warm-coral/30 pl-6">
+          <ul className="space-y-4 border-l border-sun-gold/30 pl-6">
             {results.slice(1).map((result) => (
               <li
                 key={result}
-                className="font-body text-cool-gray text-base md:text-lg leading-relaxed"
+                className="font-body text-clay-gray text-base md:text-lg leading-relaxed"
               >
                 {result}
               </li>
@@ -588,7 +588,7 @@ export default function FordMustangMachEProject() {
       </div>
 
       {/* ── Tools & Technology ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -596,7 +596,7 @@ export default function FordMustangMachEProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-warm-coral tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-sun-gold tracking-widest uppercase mb-4">
             Tools &amp; Technology
           </p>
           <h2 className="font-headline text-h3 font-bold">
@@ -617,10 +617,10 @@ export default function FordMustangMachEProject() {
               variants={staggerItem}
               className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] transition-all duration-500 hover:border-white/15 hover:bg-white/[0.04]"
             >
-              <h3 className="font-headline text-lg font-bold text-pure-white mb-2 group-hover:text-warm-coral transition-colors duration-300">
+              <h3 className="font-headline text-lg font-bold text-pure-white mb-2 group-hover:text-sun-gold transition-colors duration-300">
                 {tool.name}
               </h3>
-              <p className="font-body text-sm text-cool-gray leading-relaxed">
+              <p className="font-body text-sm text-clay-gray leading-relaxed">
                 {tool.description}
               </p>
             </m.div>
@@ -634,7 +634,7 @@ export default function FordMustangMachEProject() {
       </div>
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -646,7 +646,7 @@ export default function FordMustangMachEProject() {
             Have an icon{" "}
             <span className="text-white">to reinvent</span>?
           </h2>
-          <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed mb-10">
+          <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s build imagery and motion that makes your brand impossible
             to scroll past.
           </p>

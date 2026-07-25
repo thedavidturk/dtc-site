@@ -4,7 +4,7 @@ import { useRef, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
-const ACCENT = new THREE.Color("#EC4899");
+const ACCENT = new THREE.Color("#C96F5E");
 const PARTICLE_COUNT = 15;
 
 function PhoneFrame({ position, delay }: { position: [number, number, number]; delay: number }) {
@@ -44,7 +44,7 @@ function PhoneFrame({ position, delay }: { position: [number, number, number]; d
       </mesh>
       {/* Phone border */}
       <lineSegments geometry={edgeGeo}>
-        <lineBasicMaterial color="#EC4899" transparent opacity={0.35} />
+        <lineBasicMaterial color="#C96F5E" transparent opacity={0.35} />
       </lineSegments>
       {/* Scrolling bars */}
       <mesh ref={bar0} position={[0, 0, 0.01]}>
@@ -66,7 +66,7 @@ function PhoneFrame({ position, delay }: { position: [number, number, number]; d
       {/* Play triangle */}
       <mesh position={[0, 0, 0.02]}>
         <circleGeometry args={[0.08, 3]} />
-        <meshBasicMaterial color="#EC4899" transparent opacity={0.4} />
+        <meshBasicMaterial color="#C96F5E" transparent opacity={0.4} />
       </mesh>
     </group>
   );
@@ -103,7 +103,7 @@ function Sparkles() {
       <bufferGeometry>
         <bufferAttribute attach="attributes-position" count={PARTICLE_COUNT} array={positions} itemSize={3} />
       </bufferGeometry>
-      <pointsMaterial color="#EC4899" size={0.03} transparent opacity={0.6} sizeAttenuation />
+      <pointsMaterial color="#C96F5E" size={0.03} transparent opacity={0.6} sizeAttenuation />
     </points>
   );
 }

@@ -156,7 +156,7 @@ const capabilities = [
 
 export default function FordFieldClubProject() {
   return (
-    <article className="bg-deep-space min-h-screen" style={{ backgroundColor: "#120D1A" }}>
+    <article className="bg-espresso min-h-screen" style={{ backgroundColor: "#1A120D" }}>
       {/* ── Back Link ─────────────────────────────────────────────── */}
       <m.div
         initial={{ opacity: 0, x: -20 }}
@@ -166,7 +166,7 @@ export default function FordFieldClubProject() {
       >
         <Link
           href="/#projects"
-          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-cool-gray hover:text-pure-white transition-colors duration-300"
+          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-clay-gray hover:text-pure-white transition-colors duration-300"
         >
           <svg
             className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
@@ -201,7 +201,7 @@ export default function FordFieldClubProject() {
         <div className="absolute inset-0 bg-black/45" />
 
         {/* Radial fade at bottom */}
-        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-deep-space via-deep-space/40 to-transparent" />
+        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-espresso via-espresso/40 to-transparent" />
 
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
           <m.div
@@ -237,7 +237,7 @@ export default function FordFieldClubProject() {
             initial={{ width: 0 }}
             animate={{ width: "6rem" }}
             transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="h-px bg-gradient-to-r from-electric-indigo to-warm-coral mt-8"
+            className="h-px bg-gradient-to-r from-terracotta to-sun-gold mt-8"
           />
         </div>
       </section>
@@ -256,7 +256,7 @@ export default function FordFieldClubProject() {
       />
 
       {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Sidebar */}
           <m.aside
@@ -268,7 +268,7 @@ export default function FordFieldClubProject() {
           >
             <div className="lg:sticky lg:top-28 space-y-8">
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-electric-indigo mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
                   Client
                 </p>
                 <p className="font-headline text-lg font-semibold text-pure-white">
@@ -276,28 +276,28 @@ export default function FordFieldClubProject() {
                 </p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-electric-indigo mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
                   Industry
                 </p>
-                <p className="font-body text-cool-gray">{overview.industry}</p>
+                <p className="font-body text-clay-gray">{overview.industry}</p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-electric-indigo mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
                   Role
                 </p>
-                <p className="font-body text-cool-gray">{overview.role}</p>
+                <p className="font-body text-clay-gray">{overview.role}</p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-electric-indigo mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
                   Services
                 </p>
                 <ul className="space-y-2">
                   {overview.services.map((service) => (
                     <li
                       key={service}
-                      className="flex items-center gap-3 font-body text-sm text-cool-gray"
+                      className="flex items-center gap-3 font-body text-sm text-clay-gray"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-electric-indigo flex-shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-terracotta flex-shrink-0" />
                       {service}
                     </li>
                   ))}
@@ -314,14 +314,14 @@ export default function FordFieldClubProject() {
             viewport={{ once: true, margin: "-80px" }}
             className="lg:col-span-8"
           >
-            <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+            <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
               The Challenge
             </p>
             <h2 className="font-headline text-h3 font-bold mb-8">
               A premium club{" "}
               <span className="gradient-text">at the edge of the field</span>
             </h2>
-            <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
+            <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
               <p>
                 The Ford Field Club sits in one of the most coveted positions in
                 all of sports, field level at Hard Rock Stadium, home of the
@@ -349,7 +349,7 @@ export default function FordFieldClubProject() {
       </div>
 
       {/* ── The Film (Video) ─────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -357,7 +357,7 @@ export default function FordFieldClubProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-10"
         >
-          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
             The Film
           </p>
           <h2 className="font-headline text-h3 font-bold">
@@ -374,7 +374,7 @@ export default function FordFieldClubProject() {
           className="relative max-w-5xl mx-auto"
         >
           {/* Ambient glow behind the player */}
-          <div className="absolute -inset-4 md:-inset-8 bg-gradient-to-r from-electric-indigo/10 via-white/5 to-warm-coral/10 rounded-3xl blur-2xl opacity-60 pointer-events-none" />
+          <div className="absolute -inset-4 md:-inset-8 bg-gradient-to-r from-terracotta/10 via-white/5 to-sun-gold/10 rounded-3xl blur-2xl opacity-60 pointer-events-none" />
 
           <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/40">
 
@@ -413,7 +413,7 @@ export default function FordFieldClubProject() {
       </div>
 
       {/* ── The Solution ─────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -421,14 +421,14 @@ export default function FordFieldClubProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="max-w-4xl"
         >
-          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
             The Solution
           </p>
           <h2 className="font-headline text-h3 font-bold mb-8">
             Access as the story,{" "}
             <span className="text-white">Ford as the host</span>
           </h2>
-          <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
+          <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
             <p>
               I directed the Ford Field Club as one continuous arc rather than a
               collection of features. The arrival sets the tone, the club holds
@@ -455,7 +455,7 @@ export default function FordFieldClubProject() {
       </div>
 
       {/* ── Gallery ──────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -463,7 +463,7 @@ export default function FordFieldClubProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-16"
         >
-          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
             The Club
           </p>
           <h2 className="font-headline text-h3 font-bold">
@@ -571,7 +571,7 @@ export default function FordFieldClubProject() {
       </div>
 
       {/* ── The Result ───────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -579,7 +579,7 @@ export default function FordFieldClubProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
             The Result
           </p>
           <h2 className="font-headline text-h3 font-bold">
@@ -602,11 +602,11 @@ export default function FordFieldClubProject() {
 
           {/* TODO(David): add quantified result or client quote here */}
 
-          <ul className="space-y-4 border-l border-electric-indigo/30 pl-6">
+          <ul className="space-y-4 border-l border-terracotta/30 pl-6">
             {results.slice(1).map((result) => (
               <li
                 key={result}
-                className="font-body text-cool-gray text-base md:text-lg leading-relaxed"
+                className="font-body text-clay-gray text-base md:text-lg leading-relaxed"
               >
                 {result}
               </li>
@@ -621,7 +621,7 @@ export default function FordFieldClubProject() {
       </div>
 
       {/* ── Capabilities ─────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -629,7 +629,7 @@ export default function FordFieldClubProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
             Capabilities
           </p>
           <h2 className="font-headline text-h3 font-bold">
@@ -648,12 +648,12 @@ export default function FordFieldClubProject() {
             <m.div
               key={cap.name}
               variants={staggerItem}
-              className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-electric-indigo/20 hover:bg-electric-indigo/[0.03] transition-all duration-500"
+              className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-terracotta/20 hover:bg-terracotta/[0.03] transition-all duration-500"
             >
-              <h3 className="font-headline text-lg font-bold text-pure-white mb-2 group-hover:text-electric-indigo transition-colors duration-300">
+              <h3 className="font-headline text-lg font-bold text-pure-white mb-2 group-hover:text-terracotta transition-colors duration-300">
                 {cap.name}
               </h3>
-              <p className="font-body text-sm text-cool-gray leading-relaxed">
+              <p className="font-body text-sm text-clay-gray leading-relaxed">
                 {cap.description}
               </p>
             </m.div>
@@ -667,7 +667,7 @@ export default function FordFieldClubProject() {
       </div>
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -679,7 +679,7 @@ export default function FordFieldClubProject() {
             Building an experience{" "}
             <span className="text-white">worth showing up for</span>?
           </h2>
-          <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed mb-10">
+          <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s direct a premium environment that turns access into a
             moment people remember, from the threshold to the main event.
           </p>

@@ -37,7 +37,7 @@ const services: Service[] = [
       "Competitive and cultural insight",
       "Creative briefs that actually direct",
     ],
-    accentColor: "bg-warm-coral",
+    accentColor: "bg-sun-gold",
     scene: "direction",
   },
   {
@@ -75,7 +75,7 @@ const services: Service[] = [
       "Look development and automated camera testing",
       "Multi-format delivery (16:9, 9:16, 4:5)",
     ],
-    accentColor: "bg-electric-indigo",
+    accentColor: "bg-terracotta",
     scene: "cinematography",
   },
   {
@@ -131,7 +131,7 @@ const services: Service[] = [
       "Brand storytelling",
       "Multi-channel execution",
     ],
-    accentColor: "bg-warm-coral",
+    accentColor: "bg-sun-gold",
     scene: "direction",
   },
 ];
@@ -179,9 +179,9 @@ const capabilityVariants = {
 
 export default function Services() {
   return (
-    <section id="services" className="bg-deep-space relative overflow-hidden" style={{ backgroundColor: "#120D1A" }}>
+    <section id="services" className="bg-espresso relative overflow-hidden" style={{ backgroundColor: "#1A120D" }}>
       {/* Background accent */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(124,92,255,0.04)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(217,108,71,0.04)_0%,transparent_50%)]" />
 
       {/* Section header */}
       <div className="section-container pt-20 md:pt-28 lg:pt-32 pb-12 md:pb-16 relative z-10">
@@ -191,7 +191,7 @@ export default function Services() {
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
         >
-          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
             Capabilities
           </p>
           <h2 className="font-display text-h2 font-bold text-pure-white">
@@ -245,7 +245,7 @@ export default function Services() {
                     className="w-full lg:w-1/2"
                   >
                     {/* Service label */}
-                    <span className="inline-block font-mono text-xs tracking-widest uppercase text-electric-indigo mb-6 px-3 py-1.5 rounded-full border border-electric-indigo/20 bg-electric-indigo/5">
+                    <span className="inline-block font-mono text-xs tracking-widest uppercase text-terracotta mb-6 px-3 py-1.5 rounded-full border border-terracotta/20 bg-terracotta/5">
                       {service.label}
                     </span>
 
@@ -256,15 +256,15 @@ export default function Services() {
 
                     {/* Old Way / Our Way / Result */}
                     <div className="space-y-4 mb-10">
-                      <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed">
-                        <span className="font-bold text-soft-white">The old way:</span>{" "}
+                      <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed">
+                        <span className="font-bold text-cream">The old way:</span>{" "}
                         {service.oldWay}
                       </p>
-                      <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed">
-                        <span className="font-bold text-soft-white">Our way:</span>{" "}
+                      <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed">
+                        <span className="font-bold text-cream">Our way:</span>{" "}
                         {service.ourWay}
                       </p>
-                      <p className="font-body text-base md:text-lg leading-relaxed text-electric-indigo">
+                      <p className="font-body text-base md:text-lg leading-relaxed text-terracotta">
                         <span className="font-bold">Result:</span>{" "}
                         {service.result}
                       </p>
@@ -286,7 +286,7 @@ export default function Services() {
                           <span
                             className={`mt-2 w-1.5 h-1.5 rounded-full ${service.accentColor} flex-shrink-0 group-hover/cap:scale-150 transition-transform duration-300`}
                           />
-                          <span className="font-body text-sm text-cool-gray group-hover/cap:text-soft-white transition-colors duration-300 leading-relaxed">
+                          <span className="font-body text-sm text-clay-gray group-hover/cap:text-cream transition-colors duration-300 leading-relaxed">
                             {cap}
                           </span>
                         </m.div>

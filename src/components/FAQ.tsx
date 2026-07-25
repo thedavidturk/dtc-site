@@ -75,7 +75,7 @@ function FAQItem({
         <m.span
           animate={{ rotate: isOpen ? 45 : 0 }}
           transition={{ duration: 0.2, ease: "easeInOut" }}
-          className="flex-shrink-0 text-electric-indigo text-2xl font-light select-none"
+          className="flex-shrink-0 text-terracotta text-2xl font-light select-none"
         >
           +
         </m.span>
@@ -89,7 +89,7 @@ function FAQItem({
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <p className="font-body text-cool-gray pb-6 pr-12 leading-relaxed">
+            <p className="font-body text-clay-gray pb-6 pr-12 leading-relaxed">
               {answer}
             </p>
           </m.div>
@@ -116,7 +116,7 @@ export default function FAQ() {
           <h2 className="font-display text-h2 text-pure-white mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="font-body text-cool-gray text-lg">
+          <p className="font-body text-clay-gray text-lg">
             Everything you need to know about working with DT+C.
           </p>
         </m.div>

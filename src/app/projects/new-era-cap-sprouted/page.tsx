@@ -127,7 +127,7 @@ const tools = [
 
 export default function SproutedProject() {
   return (
-    <article className="bg-deep-space min-h-screen">
+    <article className="bg-espresso min-h-screen">
       {/* ── Back Link ─────────────────────────────────────────────── */}
       <m.div
         initial={{ opacity: 0, x: -20 }}
@@ -137,7 +137,7 @@ export default function SproutedProject() {
       >
         <Link
           href="/#projects"
-          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-cool-gray hover:text-pure-white transition-colors duration-300"
+          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-clay-gray hover:text-pure-white transition-colors duration-300"
         >
           <svg
             className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
@@ -172,7 +172,7 @@ export default function SproutedProject() {
         <div className="absolute inset-0 bg-black/30" />
 
         {/* Radial fade at bottom */}
-        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-deep-space via-deep-space/40 to-transparent" />
+        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-espresso via-espresso/40 to-transparent" />
 
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
           <m.div
@@ -249,7 +249,7 @@ export default function SproutedProject() {
                 <p className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-2">
                   Industry
                 </p>
-                <p className="font-body text-cool-gray">
+                <p className="font-body text-clay-gray">
                   {overview.industry}
                 </p>
               </div>
@@ -257,7 +257,7 @@ export default function SproutedProject() {
                 <p className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-2">
                   Timeline
                 </p>
-                <p className="font-body text-cool-gray">
+                <p className="font-body text-clay-gray">
                   {overview.timeline}
                 </p>
               </div>
@@ -269,7 +269,7 @@ export default function SproutedProject() {
                   {overview.services.map((service) => (
                     <li
                       key={service}
-                      className="flex items-center gap-3 font-body text-sm text-cool-gray"
+                      className="flex items-center gap-3 font-body text-sm text-clay-gray"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
                       {service}
@@ -295,7 +295,7 @@ export default function SproutedProject() {
               Bringing a nature-inspired collection{" "}
               <span className="gradient-text">to life digitally</span>
             </h2>
-            <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
+            <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
               <p>
                 New Era Cap launched the &ldquo;Sprouted&rdquo; collection, a
                 line of hats built around botanical motifs, earthy textures, and
@@ -350,7 +350,7 @@ export default function SproutedProject() {
             Strategy-driven content{" "}
             <span className="text-white">rooted in nature</span>
           </h2>
-          <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
+          <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
             <p>
               Our research revealed that the audience didn&rsquo;t just want to
               see hats; they wanted to feel the world behind the collection.
@@ -410,7 +410,7 @@ export default function SproutedProject() {
             {results.slice(1).map((result) => (
               <li
                 key={result}
-                className="font-body text-cool-gray text-base md:text-lg leading-relaxed"
+                className="font-body text-clay-gray text-base md:text-lg leading-relaxed"
               >
                 {result}
               </li>
@@ -457,7 +457,7 @@ export default function SproutedProject() {
               <h3 className="font-headline text-lg font-bold text-pure-white mb-2 group-hover:text-emerald-400 transition-colors duration-300">
                 {tool.name}
               </h3>
-              <p className="font-body text-sm text-cool-gray leading-relaxed">
+              <p className="font-body text-sm text-clay-gray leading-relaxed">
                 {tool.description}
               </p>
             </m.div>
@@ -483,7 +483,7 @@ export default function SproutedProject() {
             Ready to grow{" "}
             <span className="text-white">your next campaign</span>?
           </h2>
-          <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed mb-10">
+          <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s develop strategy-driven content that connects your
             product to the world your audience lives in.
           </p>

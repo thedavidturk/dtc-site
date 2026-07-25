@@ -154,7 +154,7 @@ const galleryImages = [
 
 export default function CrespoJadenSmithProject() {
   return (
-    <article className="bg-deep-space min-h-screen" style={{ backgroundColor: "#120D1A" }}>
+    <article className="bg-espresso min-h-screen" style={{ backgroundColor: "#1A120D" }}>
       {/* ── Back Link ─────────────────────────────────────────────── */}
       <m.div
         initial={{ opacity: 0, x: -20 }}
@@ -164,7 +164,7 @@ export default function CrespoJadenSmithProject() {
       >
         <Link
           href="/#projects"
-          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-cool-gray hover:text-pure-white transition-colors duration-300"
+          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-clay-gray hover:text-pure-white transition-colors duration-300"
         >
           <svg
             className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
@@ -199,10 +199,10 @@ export default function CrespoJadenSmithProject() {
         <div className="absolute inset-0 bg-black/50" />
 
         {/* Indigo wash */}
-        <div className="absolute inset-0 bg-gradient-to-br from-electric-indigo/30 via-transparent to-black/40 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-br from-terracotta/30 via-transparent to-black/40 mix-blend-multiply" />
 
         {/* Radial fade at bottom */}
-        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-deep-space via-deep-space/40 to-transparent" />
+        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-espresso via-espresso/40 to-transparent" />
 
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
           <m.div
@@ -238,7 +238,7 @@ export default function CrespoJadenSmithProject() {
             initial={{ width: 0 }}
             animate={{ width: "6rem" }}
             transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="h-px bg-gradient-to-r from-electric-indigo to-violet-400 mt-8"
+            className="h-px bg-gradient-to-r from-terracotta to-violet-400 mt-8"
           />
         </div>
       </section>
@@ -257,7 +257,7 @@ export default function CrespoJadenSmithProject() {
       />
 
       {/* ── The Film (Video) ──────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -265,7 +265,7 @@ export default function CrespoJadenSmithProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-10"
         >
-          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
             The Film
           </p>
           <h2 className="font-headline text-h3 font-bold">
@@ -282,7 +282,7 @@ export default function CrespoJadenSmithProject() {
           className="relative"
         >
           {/* Ambient glow behind the video */}
-          <div className="absolute -inset-3 md:-inset-5 bg-gradient-to-r from-electric-indigo/10 via-violet-500/5 to-electric-indigo/10 rounded-3xl blur-2xl opacity-60 pointer-events-none" />
+          <div className="absolute -inset-3 md:-inset-5 bg-gradient-to-r from-terracotta/10 via-violet-500/5 to-terracotta/10 rounded-3xl blur-2xl opacity-60 pointer-events-none" />
 
           <div className="relative w-full overflow-hidden rounded-2xl border border-white/10 bg-black aspect-video shadow-2xl shadow-black/40">
             <iframe
@@ -302,7 +302,7 @@ export default function CrespoJadenSmithProject() {
       </div>
 
       {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Sidebar */}
           <m.aside
@@ -314,7 +314,7 @@ export default function CrespoJadenSmithProject() {
           >
             <div className="lg:sticky lg:top-28 space-y-8">
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-electric-indigo mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
                   Project
                 </p>
                 <p className="font-headline text-lg font-semibold text-pure-white">
@@ -322,32 +322,32 @@ export default function CrespoJadenSmithProject() {
                 </p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-electric-indigo mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
                   Discipline
                 </p>
-                <p className="font-body text-cool-gray">
+                <p className="font-body text-clay-gray">
                   {overview.industry}
                 </p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-electric-indigo mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
                   Format
                 </p>
-                <p className="font-body text-cool-gray">
+                <p className="font-body text-clay-gray">
                   {overview.timeline}
                 </p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-electric-indigo mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
                   Services
                 </p>
                 <ul className="space-y-2">
                   {overview.services.map((service) => (
                     <li
                       key={service}
-                      className="flex items-center gap-3 font-body text-sm text-cool-gray"
+                      className="flex items-center gap-3 font-body text-sm text-clay-gray"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-electric-indigo flex-shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-terracotta flex-shrink-0" />
                       {service}
                     </li>
                   ))}
@@ -364,14 +364,14 @@ export default function CrespoJadenSmithProject() {
             viewport={{ once: true, margin: "-80px" }}
             className="lg:col-span-8"
           >
-            <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+            <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
               The Idea
             </p>
             <h2 className="font-headline text-h3 font-bold mb-8">
               A documentary short shot and edited in{" "}
               <span className="text-white">24 hours</span>
             </h2>
-            <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
+            <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
               <p>
                 Behind the Stage follows Jaden Smith and CRESPO away from the
                 show, in the quiet space most people never see. The idea was to
@@ -410,7 +410,7 @@ export default function CrespoJadenSmithProject() {
       </div>
 
       {/* ── The Approach Narrative ───────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -418,14 +418,14 @@ export default function CrespoJadenSmithProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="max-w-4xl"
         >
-          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
             The Feel
           </p>
           <h2 className="font-headline text-h3 font-bold mb-8">
             Cinematic, but{" "}
             <span className="text-white">honest to the moment</span>
           </h2>
-          <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
+          <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
             <p>
               The short is built around presence. The camera stays close to the
               people in the room, catching the small, unguarded moments that a
@@ -448,7 +448,7 @@ export default function CrespoJadenSmithProject() {
       </div>
 
       {/* ── Gallery ──────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -456,7 +456,7 @@ export default function CrespoJadenSmithProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-16"
         >
-          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
             Stills
           </p>
           <h2 className="font-headline text-h3 font-bold">
@@ -650,7 +650,7 @@ export default function CrespoJadenSmithProject() {
       </div>
 
       {/* ── The Result ───────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -658,7 +658,7 @@ export default function CrespoJadenSmithProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
             The Result
           </p>
           <h2 className="font-headline text-h3 font-bold">
@@ -681,11 +681,11 @@ export default function CrespoJadenSmithProject() {
 
           {/* TODO(David): add quantified result or client quote here */}
 
-          <ul className="space-y-4 border-l border-electric-indigo/30 pl-6">
+          <ul className="space-y-4 border-l border-terracotta/30 pl-6">
             {results.slice(1).map((result) => (
               <li
                 key={result}
-                className="font-body text-cool-gray text-base md:text-lg leading-relaxed"
+                className="font-body text-clay-gray text-base md:text-lg leading-relaxed"
               >
                 {result}
               </li>
@@ -700,7 +700,7 @@ export default function CrespoJadenSmithProject() {
       </div>
 
       {/* ── Tools & Technology ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -708,7 +708,7 @@ export default function CrespoJadenSmithProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
             Capabilities
           </p>
           <h2 className="font-headline text-h3 font-bold">
@@ -727,12 +727,12 @@ export default function CrespoJadenSmithProject() {
             <m.div
               key={tool.name}
               variants={staggerItem}
-              className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-electric-indigo/20 hover:bg-electric-indigo/[0.03] transition-all duration-500"
+              className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-terracotta/20 hover:bg-terracotta/[0.03] transition-all duration-500"
             >
-              <h3 className="font-headline text-lg font-bold text-pure-white mb-2 group-hover:text-electric-indigo transition-colors duration-300">
+              <h3 className="font-headline text-lg font-bold text-pure-white mb-2 group-hover:text-terracotta transition-colors duration-300">
                 {tool.name}
               </h3>
-              <p className="font-body text-sm text-cool-gray leading-relaxed">
+              <p className="font-body text-sm text-clay-gray leading-relaxed">
                 {tool.description}
               </p>
             </m.div>
@@ -746,7 +746,7 @@ export default function CrespoJadenSmithProject() {
       </div>
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -758,7 +758,7 @@ export default function CrespoJadenSmithProject() {
             Have a moment{" "}
             <span className="text-white">worth documenting</span>?
           </h2>
-          <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed mb-10">
+          <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s capture a documentary short that finds the real story in
             the room and finishes with a cinematic, intentional feel.
           </p>

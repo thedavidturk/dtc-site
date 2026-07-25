@@ -34,19 +34,19 @@ const moreArticles = [
     title: "Zero-Click Is Here: How Brands Get Found When Nobody Visits Your Website",
     category: "AI + DISCOVERY",
     href: "/insights/zero-click-visibility",
-    gradient: "from-emerald-500/30 via-teal-900/50 to-deep-space",
+    gradient: "from-emerald-500/30 via-teal-900/50 to-espresso",
   },
   {
     title: "From 13 Days to 27 Minutes: Rebuilding the Content Pipeline Around AI Video",
     category: "PRODUCTION STRATEGY",
     href: "/insights/ai-content-pipeline",
-    gradient: "from-amber-500/30 via-orange-900/50 to-deep-space",
+    gradient: "from-amber-500/30 via-orange-900/50 to-espresso",
   },
 ];
 
 export default function AiAuthenticityPremiumArticle() {
   return (
-    <main className="relative min-h-screen bg-deep-space text-white">
+    <main className="relative min-h-screen bg-espresso text-white">
       <ArticleJsonLd
         title="The Authenticity Premium: Winning Trust When 57% of People Fear Fake AI Ads"
         description="As AI makes infinite content cheap, authenticity becomes the scarce, premium asset. Here is how brands earn trust instead of faking it."

@@ -28,8 +28,8 @@ const projects: Project[] = [
     teaser:
       "An ongoing partnership delivering immersive 3D campaigns, from cosmic worlds to elemental landscapes to holiday storytelling",
     href: "/projects/new-era-cap",
-    gradient: "from-electric-indigo via-purple-600 to-violet-900",
-    accentGlow: "group-hover:shadow-electric-indigo/30",
+    gradient: "from-terracotta via-purple-600 to-violet-900",
+    accentGlow: "group-hover:shadow-terracotta/30",
     coverImage: "/motion/new-era-3d.mp4",
     coverPoster: "/motion/new-era-3d.jpg",
   },
@@ -52,8 +52,8 @@ const projects: Project[] = [
     teaser:
       "An intimate omakase experience captured with cinematic storytelling at Faena Miami Beach",
     href: "/projects/el-secreto",
-    gradient: "from-warm-coral via-amber-500 to-red-700",
-    accentGlow: "group-hover:shadow-warm-coral/30",
+    gradient: "from-sun-gold via-amber-500 to-red-700",
+    accentGlow: "group-hover:shadow-sun-gold/30",
     coverImage: "/motion/faena.mp4",
     coverPoster: "/motion/faena.jpg",
   },
@@ -251,9 +251,9 @@ const headingVariants = {
 
 export default function FeaturedProjects() {
   return (
-    <section id="projects" className="bg-deep-space section-padding relative overflow-hidden" style={{ backgroundColor: "#120D1A" }}>
+    <section id="projects" className="bg-espresso section-padding relative overflow-hidden" style={{ backgroundColor: "#1A120D" }}>
       {/* Subtle background texture */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(124,92,255,0.05)_0%,transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(217,108,71,0.05)_0%,transparent_60%)]" />
 
       <div className="section-container relative z-10">
         {/* Section header */}
@@ -264,7 +264,7 @@ export default function FeaturedProjects() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-16 md:mb-20"
         >
-          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
             Selected Work
           </p>
           <h2 className="font-display text-h2 font-bold text-pure-white">
@@ -352,7 +352,7 @@ export default function FeaturedProjects() {
 
                   {/* Border glow on hover */}
                   <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-white/10 transition-colors duration-500" />
-                  <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[inset_0_0_60px_rgba(124,92,255,0.08)]" />
+                  <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[inset_0_0_60px_rgba(217,108,71,0.08)]" />
                 </div>
               </Link>
             </m.div>

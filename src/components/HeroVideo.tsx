@@ -144,8 +144,8 @@ export default function HeroVideo() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-deep-space overflow-hidden"
-      style={{ backgroundColor: "#120D1A" }}
+      className="relative bg-espresso overflow-hidden"
+      style={{ backgroundColor: "#1A120D" }}
     >
       {/* Ambient glow behind video */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -153,7 +153,7 @@ export default function HeroVideo() {
           className="w-[80%] h-[60%] opacity-[0.06] blur-[120px]"
           style={{
             background:
-              "radial-gradient(ellipse at center, #7C5CFF 0%, #FF8A5C 40%, transparent 70%)",
+              "radial-gradient(ellipse at center, #D96C47 0%, #E9B368 40%, transparent 70%)",
           }}
         />
       </div>
@@ -167,7 +167,7 @@ export default function HeroVideo() {
           viewport={{ once: true, margin: "-80px" }}
           className="text-center mb-10 md:mb-14"
         >
-          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
             Agency Reel
           </p>
           <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-bold text-pure-white tracking-tight">
@@ -194,7 +194,7 @@ export default function HeroVideo() {
             className="relative group"
           >
             {/* Outer glow ring */}
-            <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-electric-indigo/20 via-transparent to-warm-coral/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-sm" />
+            <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-terracotta/20 via-transparent to-sun-gold/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-sm" />
 
             {/* Main video frame */}
             <div
@@ -255,10 +255,10 @@ export default function HeroVideo() {
 
                     <div className="relative">
                       {/* Pulsing ring */}
-                      <div className="absolute inset-0 rounded-full bg-electric-indigo/20 animate-ping" />
+                      <div className="absolute inset-0 rounded-full bg-terracotta/20 animate-ping" />
 
                       {/* Button circle */}
-                      <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-white/30 bg-black/40 backdrop-blur-md flex items-center justify-center group-hover/play:border-electric-indigo/60 group-hover/play:bg-electric-indigo/10 transition-all duration-500">
+                      <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-white/30 bg-black/40 backdrop-blur-md flex items-center justify-center group-hover/play:border-terracotta/60 group-hover/play:bg-terracotta/10 transition-all duration-500">
                         <svg
                           className="w-8 h-8 md:w-10 md:h-10 text-pure-white ml-1 group-hover/play:scale-110 transition-transform duration-300"
                           fill="currentColor"
@@ -299,7 +299,7 @@ export default function HeroVideo() {
                     >
                       {/* Buffered / played */}
                       <div
-                        className="h-full rounded-full bg-gradient-to-r from-electric-indigo to-warm-coral relative"
+                        className="h-full rounded-full bg-gradient-to-r from-terracotta to-sun-gold relative"
                         style={{ width: `${progress}%` }}
                       >
                         {/* Scrub handle */}
@@ -313,7 +313,7 @@ export default function HeroVideo() {
                         {/* Play / Pause */}
                         <button
                           onClick={togglePlay}
-                          className="text-pure-white hover:text-electric-indigo transition-colors"
+                          className="text-pure-white hover:text-terracotta transition-colors"
                           aria-label={isPlaying ? "Pause" : "Play"}
                         >
                           {isPlaying ? (
@@ -330,7 +330,7 @@ export default function HeroVideo() {
                         {/* Mute / Unmute */}
                         <button
                           onClick={toggleMute}
-                          className="text-pure-white hover:text-electric-indigo transition-colors"
+                          className="text-pure-white hover:text-terracotta transition-colors"
                           aria-label={isMuted ? "Unmute" : "Mute"}
                         >
                           {isMuted ? (
@@ -353,7 +353,7 @@ export default function HeroVideo() {
                       {/* Fullscreen */}
                       <button
                         onClick={toggleFullscreen}
-                        className="text-pure-white hover:text-electric-indigo transition-colors"
+                        className="text-pure-white hover:text-terracotta transition-colors"
                         aria-label={isFullscreen ? "Exit fullscreen" : "Fullscreen"}
                       >
                         {isFullscreen ? (
@@ -376,7 +376,7 @@ export default function HeroVideo() {
             <div
               className="absolute -bottom-8 left-[10%] right-[10%] h-16 opacity-[0.08] blur-2xl rounded-full"
               style={{
-                background: "linear-gradient(90deg, #7C5CFF, #FF8A5C)",
+                background: "linear-gradient(90deg, #D96C47, #E9B368)",
               }}
             />
           </m.div>

@@ -9,13 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Authored palette - grounded in the reel's Miami light:
-        // violet-charcoal night base, neon blue-violet, sunset coral.
-        'deep-space': '#120D1A',
-        'electric-indigo': '#7C5CFF',
-        'warm-coral': '#FF8A5C',
-        'cool-gray': '#ABA3B4',
-        'soft-white': '#F8FAFC',
+        // Authored palette - Miami Terracotta (2026 refresh):
+        // warm espresso night base, terracotta clay, sun-faded gold.
+        'espresso': '#1A120D',
+        'terracotta': '#D96C47',
+        'sun-gold': '#E9B368',
+        'clay-gray': '#B5A99A',
+        'cream': '#F6F0E6',
         'pure-white': '#FFFFFF',
       },
       fontFamily: {
@@ -36,8 +36,8 @@ const config: Config = {
         caption: ['0.875rem', { lineHeight: '1.6' }],
       },
       backgroundImage: {
-        'gradient-cta': 'linear-gradient(135deg, #7C5CFF, #FF8A5C)',
-        'gradient-dark': 'linear-gradient(180deg, #120D1A 0%, #1E152E 100%)',
+        'gradient-cta': 'linear-gradient(135deg, #D96C47, #E9B368)',
+        'gradient-dark': 'linear-gradient(180deg, #1A120D 0%, #2A1D14 100%)',
       },
     },
   },

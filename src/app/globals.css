@@ -23,7 +23,7 @@ html.lenis, html.lenis body {
 }
 
 :root {
-  --background: #120D1A;
+  --background: #1A120D;
   --foreground: #FFFFFF;
 }
 
@@ -33,7 +33,7 @@ html.lenis, html.lenis body {
 
 html,
 body {
-  background-color: #120D1A !important;
+  background-color: #1A120D !important;
 }
 
 html {
@@ -56,17 +56,17 @@ body {
 main,
 section,
 footer {
-  background-color: #120D1A;
+  background-color: #1A120D;
 }
 
 /* Ensure all motion.div wrappers inherit the dark background */
 main > div,
 main > div > div {
-  background-color: #120D1A;
+  background-color: #1A120D;
 }
 
 ::selection {
-  background: rgba(124,92,255, 0.4);
+  background: rgba(217,108,71, 0.4);
   color: #FFFFFF;
 }
 
@@ -86,7 +86,7 @@ main > div > div {
   }
 
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-electric-indigo to-warm-coral;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-terracotta to-sun-gold;
   }
 
   .btn-primary {
@@ -94,7 +94,7 @@ main > div > div {
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-8 py-4 border border-cool-gray/30 text-pure-white font-headline font-bold rounded-lg transition-all duration-300 hover:border-electric-indigo hover:bg-electric-indigo/10;
+    @apply inline-flex items-center justify-center px-8 py-4 border border-clay-gray/30 text-pure-white font-headline font-bold rounded-lg transition-all duration-300 hover:border-terracotta hover:bg-terracotta/10;
   }
 }
 
@@ -109,24 +109,24 @@ main > div > div {
 
 @keyframes glow-pulse {
   0%, 100% {
-    filter: drop-shadow(0 0 15px rgba(124,92,255,0))
-            drop-shadow(0 0 35px rgba(124,92,255,0));
+    filter: drop-shadow(0 0 15px rgba(217,108,71,0))
+            drop-shadow(0 0 35px rgba(217,108,71,0));
   }
   50% {
-    filter: drop-shadow(0 0 15px rgba(124,92,255,0.15))
-            drop-shadow(0 0 40px rgba(124,92,255,0.06));
+    filter: drop-shadow(0 0 15px rgba(217,108,71,0.15))
+            drop-shadow(0 0 40px rgba(217,108,71,0.06));
   }
 }
 
-/* White text with subtle indigo highlight sweep */
+/* White text with subtle warm-cream highlight sweep */
 .hero-shimmer-white {
   background: linear-gradient(
     105deg,
     #ffffff 0%,
     #ffffff 40%,
-    #D6CCFF 49%,
-    #B7A6FF 50%,
-    #D6CCFF 51%,
+    #EFDFC7 49%,
+    #E5C79A 50%,
+    #EFDFC7 51%,
     #ffffff 60%,
     #ffffff 100%
   );
@@ -141,15 +141,15 @@ main > div > div {
 .hero-shimmer-gradient {
   background: linear-gradient(
     105deg,
-    #7C5CFF 0%,
-    #9D85FF 15%,
-    #FF8A5C 40%,
+    #D96C47 0%,
+    #E28E6A 15%,
+    #E9B368 40%,
     #fef3c7 49%,
     #ffffff 50%,
     #fef3c7 51%,
-    #7C5CFF 60%,
-    #9D85FF 80%,
-    #FF8A5C 100%
+    #D96C47 60%,
+    #E28E6A 80%,
+    #E9B368 100%
   );
   background-size: 250% 100%;
   -webkit-background-clip: text;
@@ -189,11 +189,11 @@ main > div > div {
 .hero-border-gradient {
   background: conic-gradient(
     from var(--border-angle),
-    #7C5CFF 0%,
-    #9D85FF 25%,
-    #FF8A5C 50%,
-    #FFA57E 75%,
-    #7C5CFF 100%
+    #D96C47 0%,
+    #E28E6A 25%,
+    #E9B368 50%,
+    #F0C68A 75%,
+    #D96C47 100%
   );
   animation: border-rotate 4s linear infinite;
 }

@@ -12,7 +12,7 @@ const AboutVisual3D = dynamic(() => import("./AboutVisual3D"), {
       className="aspect-[3/4] w-full max-w-[480px] mx-auto lg:mx-0 rounded-2xl"
       style={{
         background:
-          "linear-gradient(160deg, #1E152E 0%, #201736 30%, #120D1A 70%, #1a1535 100%)",
+          "linear-gradient(160deg, #2A1D14 0%, #251811 30%, #1A120D 70%, #231710 100%)",
       }}
     />
   ),
@@ -67,20 +67,20 @@ const fadeUp = {
 
 export default function About() {
   return (
-    <section id="about" className="relative bg-deep-space overflow-hidden" style={{ backgroundColor: "#120D1A" }}>
+    <section id="about" className="relative bg-espresso overflow-hidden" style={{ backgroundColor: "#1A120D" }}>
       {/* Background accents */}
       <div
         className="absolute top-0 right-0 w-[600px] h-[600px] opacity-[0.04]"
         style={{
           background:
-            "radial-gradient(circle at center, #FF8A5C 0%, transparent 70%)",
+            "radial-gradient(circle at center, #E9B368 0%, transparent 70%)",
         }}
       />
       <div
         className="absolute bottom-0 left-0 w-[500px] h-[500px] opacity-[0.04]"
         style={{
           background:
-            "radial-gradient(circle at center, #7C5CFF 0%, transparent 70%)",
+            "radial-gradient(circle at center, #D96C47 0%, transparent 70%)",
         }}
       />
 
@@ -93,7 +93,7 @@ export default function About() {
       >
         {/* Section Header */}
         <m.div className="text-center mb-16 md:mb-20" variants={fadeUp}>
-          <span className="font-mono text-xs tracking-[0.3em] text-electric-indigo uppercase mb-4 block">
+          <span className="font-mono text-xs tracking-[0.3em] text-terracotta uppercase mb-4 block">
             About
           </span>
           <TextReveal
@@ -112,13 +112,13 @@ export default function About() {
             </Lazy3D>
 
             {/* Decorative corner accents */}
-            <div className="absolute -top-3 -left-3 w-16 h-16 border-t border-l border-electric-indigo/20 rounded-tl-xl" />
-            <div className="absolute -bottom-3 -right-3 w-16 h-16 border-b border-r border-warm-coral/20 rounded-br-xl" />
+            <div className="absolute -top-3 -left-3 w-16 h-16 border-t border-l border-terracotta/20 rounded-tl-xl" />
+            <div className="absolute -bottom-3 -right-3 w-16 h-16 border-b border-r border-sun-gold/20 rounded-br-xl" />
           </m.div>
 
           {/* Right - Story */}
           <m.div className="space-y-6" variants={slideFromRight}>
-            <p className="font-body text-lg text-cool-gray leading-relaxed">
+            <p className="font-body text-lg text-clay-gray leading-relaxed">
               Most agencies were built for a pace that no longer exists.
               Campaigns launch on Monday whether you&apos;re ready or not, and
               trends move faster than any traditional production timeline can
@@ -129,7 +129,7 @@ export default function About() {
               DT+C was built for the pace of right now.
             </p>
 
-            <p className="font-body text-lg text-cool-gray leading-relaxed">
+            <p className="font-body text-lg text-clay-gray leading-relaxed">
               Our stack: 3D pipelines, AI workflows, VFX, video gen, and
               sound design, powered by a team that thinks in systems, not
               silos. We handle the full creative lifecycle, from strategy and
@@ -137,7 +137,7 @@ export default function About() {
               your brand never falls behind.
             </p>
 
-            <p className="font-body text-lg text-cool-gray leading-relaxed">
+            <p className="font-body text-lg text-clay-gray leading-relaxed">
               The future belongs to brands that adapt. We make sure
               you&apos;re one of them.
             </p>

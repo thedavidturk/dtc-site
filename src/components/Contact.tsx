@@ -92,9 +92,9 @@ interface FormErrors {
 }
 
 const inputClasses =
-  "w-full bg-white/[0.05] border border-white/10 rounded-lg p-4 text-pure-white font-body text-sm placeholder:text-cool-gray/50 focus:border-electric-indigo focus:ring-1 focus:ring-electric-indigo/50 outline-none transition-all duration-300";
+  "w-full bg-white/[0.05] border border-white/10 rounded-lg p-4 text-pure-white font-body text-sm placeholder:text-clay-gray/50 focus:border-terracotta focus:ring-1 focus:ring-terracotta/50 outline-none transition-all duration-300";
 
-const labelClasses = "block text-sm font-body text-cool-gray mb-2";
+const labelClasses = "block text-sm font-body text-clay-gray mb-2";
 
 export default function Contact() {
   const [formData, setFormData] = useState<FormData>({
@@ -188,11 +188,11 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="bg-deep-space section-padding relative overflow-hidden" style={{ backgroundColor: "#120D1A" }}>
+    <section id="contact" className="bg-espresso section-padding relative overflow-hidden" style={{ backgroundColor: "#1A120D" }}>
       {/* Background decorative elements */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(124,92,255,0.06)_0%,transparent_50%)]" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] opacity-[0.03] bg-[radial-gradient(circle,#FF8A5C,transparent_60%)]" />
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] opacity-[0.03] bg-[radial-gradient(circle,#7C5CFF,transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(217,108,71,0.06)_0%,transparent_50%)]" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] opacity-[0.03] bg-[radial-gradient(circle,#E9B368,transparent_60%)]" />
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] opacity-[0.03] bg-[radial-gradient(circle,#D96C47,transparent_60%)]" />
 
       <m.div
         className="section-container relative z-10"
@@ -203,7 +203,7 @@ export default function Contact() {
       >
         {/* Section header */}
         <m.div className="text-center mb-16 md:mb-20" variants={headingVariants}>
-          <span className="font-mono text-xs tracking-[0.3em] text-electric-indigo uppercase mb-4 block">
+          <span className="font-mono text-xs tracking-[0.3em] text-terracotta uppercase mb-4 block">
             Get In Touch
           </span>
           <h2 className="font-display text-h2 font-bold text-pure-white">
@@ -211,7 +211,7 @@ export default function Contact() {
             <br />
             <span className="text-pure-white">WHAT&apos;S NEXT</span>
           </h2>
-          <p className="font-body text-cool-gray text-lg mt-4 max-w-2xl mx-auto leading-relaxed">
+          <p className="font-body text-clay-gray text-lg mt-4 max-w-2xl mx-auto leading-relaxed">
             Have a project in mind? Tell us what you&apos;re building and we&apos;ll show you how we&apos;d execute it.
           </p>
         </m.div>
@@ -246,7 +246,7 @@ export default function Contact() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className={labelClasses}>
-                        Name <span className="text-warm-coral">*</span>
+                        Name <span className="text-sun-gold">*</span>
                       </label>
                       <input
                         type="text"
@@ -256,11 +256,11 @@ export default function Contact() {
                         onChange={handleChange}
                         placeholder="Your name"
                         className={`${inputClasses} ${
-                          errors.name ? "border-warm-coral/60 focus:border-warm-coral focus:ring-warm-coral/50" : ""
+                          errors.name ? "border-sun-gold/60 focus:border-sun-gold focus:ring-sun-gold/50" : ""
                         }`}
                       />
                       {errors.name && (
-                        <p className="mt-1.5 text-xs text-warm-coral font-body">
+                        <p className="mt-1.5 text-xs text-sun-gold font-body">
                           {errors.name}
                         </p>
                       )}
@@ -284,7 +284,7 @@ export default function Contact() {
                   {/* Email */}
                   <div>
                     <label htmlFor="email" className={labelClasses}>
-                      Email <span className="text-warm-coral">*</span>
+                      Email <span className="text-sun-gold">*</span>
                     </label>
                     <input
                       type="email"
@@ -294,11 +294,11 @@ export default function Contact() {
                       onChange={handleChange}
                       placeholder="your@email.com"
                       className={`${inputClasses} ${
-                        errors.email ? "border-warm-coral/60 focus:border-warm-coral focus:ring-warm-coral/50" : ""
+                        errors.email ? "border-sun-gold/60 focus:border-sun-gold focus:ring-sun-gold/50" : ""
                       }`}
                     />
                     {errors.email && (
-                      <p className="mt-1.5 text-xs text-warm-coral font-body">
+                      <p className="mt-1.5 text-xs text-sun-gold font-body">
                         {errors.email}
                       </p>
                     )}
@@ -307,7 +307,7 @@ export default function Contact() {
                   {/* Project Type */}
                   <div>
                     <label htmlFor="projectType" className={labelClasses}>
-                      Project Type <span className="text-warm-coral">*</span>
+                      Project Type <span className="text-sun-gold">*</span>
                     </label>
                     <select
                       id="projectType"
@@ -316,21 +316,21 @@ export default function Contact() {
                       onChange={handleChange}
                       className={`${inputClasses} appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2394A3B8%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%2F%3E%3C%2Fsvg%3E')] bg-[length:16px] bg-[right_16px_center] bg-no-repeat ${
                         errors.projectType
-                          ? "border-warm-coral/60 focus:border-warm-coral focus:ring-warm-coral/50"
+                          ? "border-sun-gold/60 focus:border-sun-gold focus:ring-sun-gold/50"
                           : ""
-                      } ${!formData.projectType ? "text-cool-gray/50" : ""}`}
+                      } ${!formData.projectType ? "text-clay-gray/50" : ""}`}
                     >
                       <option value="" disabled>
                         Select a project type
                       </option>
                       {projectTypes.map((type) => (
-                        <option key={type} value={type} className="bg-deep-space text-pure-white">
+                        <option key={type} value={type} className="bg-espresso text-pure-white">
                           {type}
                         </option>
                       ))}
                     </select>
                     {errors.projectType && (
-                      <p className="mt-1.5 text-xs text-warm-coral font-body">
+                      <p className="mt-1.5 text-xs text-sun-gold font-body">
                         {errors.projectType}
                       </p>
                     )}
@@ -339,7 +339,7 @@ export default function Contact() {
                   {/* Message */}
                   <div>
                     <label htmlFor="message" className={labelClasses}>
-                      Tell us about your project <span className="text-warm-coral">*</span>
+                      Tell us about your project <span className="text-sun-gold">*</span>
                     </label>
                     <textarea
                       id="message"
@@ -350,12 +350,12 @@ export default function Contact() {
                       placeholder="Describe your vision, timeline, and goals..."
                       className={`${inputClasses} resize-none ${
                         errors.message
-                          ? "border-warm-coral/60 focus:border-warm-coral focus:ring-warm-coral/50"
+                          ? "border-sun-gold/60 focus:border-sun-gold focus:ring-sun-gold/50"
                           : ""
                       }`}
                     />
                     {errors.message && (
-                      <p className="mt-1.5 text-xs text-warm-coral font-body">
+                      <p className="mt-1.5 text-xs text-sun-gold font-body">
                         {errors.message}
                       </p>
                     )}
@@ -363,7 +363,7 @@ export default function Contact() {
 
                   {/* Submit error */}
                   {submitError && (
-                    <p className="text-sm text-warm-coral font-body text-center">
+                    <p className="text-sm text-sun-gold font-body text-center">
                       {submitError}
                     </p>
                   )}
@@ -390,7 +390,7 @@ export default function Contact() {
                 >
                   {/* Success checkmark */}
                   <div className="relative mb-6">
-                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-electric-indigo to-warm-coral flex items-center justify-center">
+                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-terracotta to-sun-gold flex items-center justify-center">
                       <svg
                         className="w-10 h-10 text-pure-white"
                         fill="none"
@@ -406,13 +406,13 @@ export default function Contact() {
                       </svg>
                     </div>
                     {/* Glow ring */}
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-electric-indigo to-warm-coral opacity-20 blur-xl" />
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-terracotta to-sun-gold opacity-20 blur-xl" />
                   </div>
 
                   <h3 className="font-headline text-2xl font-bold text-pure-white mb-3">
                     Message Sent
                   </h3>
-                  <p className="font-body text-cool-gray text-sm max-w-sm leading-relaxed">
+                  <p className="font-body text-clay-gray text-sm max-w-sm leading-relaxed">
                     Thank you for reaching out. We&apos;ll review your project details and
                     get back to you within 24 hours.
                   </p>
@@ -430,7 +430,7 @@ export default function Contact() {
                       });
                       setErrors({});
                     }}
-                    className="mt-8 font-mono text-xs text-electric-indigo tracking-wider uppercase hover:text-warm-coral transition-colors duration-300"
+                    className="mt-8 font-mono text-xs text-terracotta tracking-wider uppercase hover:text-sun-gold transition-colors duration-300"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -445,11 +445,11 @@ export default function Contact() {
           <m.div className="lg:col-span-2 relative" variants={rightColVariants}>
             <div className="relative h-full z-10">
               {/* Decorative gradient border element */}
-              <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-electric-indigo/20 via-transparent to-warm-coral/20 opacity-60" />
+              <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-terracotta/20 via-transparent to-sun-gold/20 opacity-60" />
               <div className="relative bg-white/[0.02] backdrop-blur-sm border border-white/5 rounded-2xl p-8 lg:p-10 h-full">
                 {/* Decorative corner accent */}
-                <div className="absolute top-0 right-0 w-40 h-40 bg-[radial-gradient(circle_at_top_right,rgba(124,92,255,0.08),transparent_70%)] rounded-tr-2xl" />
-                <div className="absolute bottom-0 left-0 w-40 h-40 bg-[radial-gradient(circle_at_bottom_left,rgba(255,138,92,0.06),transparent_70%)] rounded-bl-2xl" />
+                <div className="absolute top-0 right-0 w-40 h-40 bg-[radial-gradient(circle_at_top_right,rgba(217,108,71,0.08),transparent_70%)] rounded-tr-2xl" />
+                <div className="absolute bottom-0 left-0 w-40 h-40 bg-[radial-gradient(circle_at_bottom_left,rgba(233,179,104,0.06),transparent_70%)] rounded-bl-2xl" />
 
                 <div className="relative z-10">
                   <h3 className="font-headline text-xl font-bold text-pure-white mb-8">
@@ -461,7 +461,7 @@ export default function Contact() {
                     <div className="flex items-start gap-4">
                       <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-white/[0.05] border border-white/10 flex items-center justify-center">
                         <svg
-                          className="w-5 h-5 text-warm-coral"
+                          className="w-5 h-5 text-sun-gold"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -475,12 +475,12 @@ export default function Contact() {
                         </svg>
                       </div>
                       <div>
-                        <p className="text-xs font-mono text-cool-gray/60 uppercase tracking-wider mb-1">
+                        <p className="text-xs font-mono text-clay-gray/60 uppercase tracking-wider mb-1">
                           Email
                         </p>
                         <a
                           href="mailto:david@davidturkcreative.com"
-                          className="text-warm-coral font-body text-sm hover:text-warm-coral/80 transition-colors duration-300 break-all"
+                          className="text-sun-gold font-body text-sm hover:text-sun-gold/80 transition-colors duration-300 break-all"
                         >
                           david@davidturkcreative.com
                         </a>
@@ -493,7 +493,7 @@ export default function Contact() {
                     <div className="flex items-start gap-4">
                       <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-white/[0.05] border border-white/10 flex items-center justify-center">
                         <svg
-                          className="w-5 h-5 text-cool-gray"
+                          className="w-5 h-5 text-clay-gray"
                           fill="currentColor"
                           viewBox="0 0 24 24"
                         >
@@ -501,14 +501,14 @@ export default function Contact() {
                         </svg>
                       </div>
                       <div>
-                        <p className="text-xs font-mono text-cool-gray/60 uppercase tracking-wider mb-1">
+                        <p className="text-xs font-mono text-clay-gray/60 uppercase tracking-wider mb-1">
                           LinkedIn
                         </p>
                         <a
                           href="https://linkedin.com/in/davidturk"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-cool-gray font-body text-sm hover:text-pure-white transition-colors duration-300 inline-flex items-center gap-1.5"
+                          className="text-clay-gray font-body text-sm hover:text-pure-white transition-colors duration-300 inline-flex items-center gap-1.5"
                         >
                           Connect on LinkedIn
                           <svg
@@ -538,13 +538,13 @@ export default function Contact() {
                       <div className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
                       <div className="absolute inset-0 w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping opacity-40" />
                     </div>
-                    <p className="font-mono text-sm text-cool-gray">
+                    <p className="font-mono text-sm text-clay-gray">
                       We respond within 24 hours.
                     </p>
                   </div>
 
                   {/* Bottom decorative gradient line */}
-                  <div className="mt-10 h-px w-full bg-gradient-to-r from-electric-indigo via-warm-coral to-electric-indigo opacity-20" />
+                  <div className="mt-10 h-px w-full bg-gradient-to-r from-terracotta via-sun-gold to-terracotta opacity-20" />
                 </div>
               </div>
             </div>

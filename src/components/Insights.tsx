@@ -66,7 +66,7 @@ const posts: BlogPost[] = [
     subtitle:
       "OpenAI shut Sora down in March 2026. The studios making the best brand video now run a stack of tools, not one. Here is how we orchestrate it.",
     category: "AI + VIDEO",
-    gradient: "from-indigo-500/40 via-blue-900/60 to-deep-space",
+    gradient: "from-indigo-500/40 via-blue-900/60 to-espresso",
     slug: "ai-video-stack",
     month: "JUN 2026",
     coverComponent: "InsightCoverVirtualWorlds",
@@ -76,7 +76,7 @@ const posts: BlogPost[] = [
     subtitle:
       "AI video models now generate matching sound in the same pass as the picture, collapsing a whole post stage. Where it wins, and where human sound direction still does.",
     category: "AI + PRODUCTION",
-    gradient: "from-cyan-500/30 via-teal-900/50 to-deep-space",
+    gradient: "from-cyan-500/30 via-teal-900/50 to-espresso",
     slug: "ai-native-audio",
     month: "JUN 2026",
     coverComponent: "InsightCoverRealTime4K",
@@ -86,7 +86,7 @@ const posts: BlogPost[] = [
     subtitle:
       "Discovery has moved from ranking on Google to being the source an AI cites. How brands stay found in a zero-click world.",
     category: "AI + DISCOVERY",
-    gradient: "from-emerald-500/30 via-teal-900/50 to-deep-space",
+    gradient: "from-emerald-500/30 via-teal-900/50 to-espresso",
     slug: "zero-click-visibility",
     month: "JUN 2026",
     coverComponent: "InsightCoverBuildingWorlds",
@@ -96,7 +96,7 @@ const posts: BlogPost[] = [
     subtitle:
       "As AI makes infinite content cheap, authenticity becomes the scarce, premium asset. How brands earn trust instead of faking it.",
     category: "BRAND + TRUST",
-    gradient: "from-rose-500/30 via-pink-900/50 to-deep-space",
+    gradient: "from-rose-500/30 via-pink-900/50 to-espresso",
     slug: "ai-authenticity-premium",
     month: "JUN 2026",
     coverComponent: "InsightCoverProductViz",
@@ -106,7 +106,7 @@ const posts: BlogPost[] = [
     subtitle:
       "LED volumes used to demand a soundstage and a massive budget. AI pre-viz and generative 3D worlds give smaller studios virtual production thinking.",
     category: "VIRTUAL PRODUCTION",
-    gradient: "from-violet-500/30 via-purple-900/50 to-deep-space",
+    gradient: "from-violet-500/30 via-purple-900/50 to-espresso",
     slug: "virtual-production-ai",
     month: "JUN 2026",
     coverComponent: "InsightCoverShortForm",
@@ -116,7 +116,7 @@ const posts: BlogPost[] = [
     subtitle:
       "A 60-second video that took 13 days now ships in 27 minutes. The bottleneck moved from production to taste. Here is how we rebuilt the pipeline.",
     category: "PRODUCTION STRATEGY",
-    gradient: "from-amber-500/30 via-orange-900/50 to-deep-space",
+    gradient: "from-amber-500/30 via-orange-900/50 to-espresso",
     slug: "ai-content-pipeline",
     month: "JUN 2026",
     coverComponent: "InsightCoverBrandIdentity",
@@ -217,10 +217,10 @@ export default function Insights() {
   };
 
   return (
-    <section id="insights" className="bg-deep-space section-padding relative overflow-hidden" style={{ backgroundColor: "#120D1A" }}>
+    <section id="insights" className="bg-espresso section-padding relative overflow-hidden" style={{ backgroundColor: "#1A120D" }}>
       {/* Background texture */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(255,138,92,0.04)_0%,transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(124,92,255,0.04)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(233,179,104,0.04)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(217,108,71,0.04)_0%,transparent_50%)]" />
 
       <m.div
         className="relative z-10"
@@ -231,7 +231,7 @@ export default function Insights() {
       >
         {/* Section header */}
         <m.div className="section-container text-center mb-12 md:mb-16" variants={headingVariants}>
-          <span className="font-mono text-xs tracking-[0.3em] text-electric-indigo uppercase mb-4 block">
+          <span className="font-mono text-xs tracking-[0.3em] text-terracotta uppercase mb-4 block">
             Insights
           </span>
           <h2 className="font-display text-h2 font-bold text-pure-white">
@@ -245,14 +245,14 @@ export default function Insights() {
               </span>
             </div>
           )}
-          <p className="font-body text-cool-gray text-lg mt-4 max-w-2xl mx-auto leading-relaxed">
+          <p className="font-body text-clay-gray text-lg mt-4 max-w-2xl mx-auto leading-relaxed">
             Thoughts on AI-driven production, creative technology, and the future of brand content. New perspectives every month.
           </p>
         </m.div>
 
         {/* Scroll controls */}
         <div className="section-container flex items-center justify-end gap-3 mb-6">
-          <span className="font-mono text-xs text-cool-gray tracking-wider mr-auto">
+          <span className="font-mono text-xs text-clay-gray tracking-wider mr-auto">
             {posts.length} ARTICLES
           </span>
           <button
@@ -289,13 +289,13 @@ export default function Insights() {
         <div className="relative">
           {/* Left fade */}
           <div
-            className={`absolute left-0 top-0 bottom-0 w-16 md:w-24 z-10 bg-gradient-to-r from-[#120D1A] to-transparent pointer-events-none transition-opacity duration-300 ${
+            className={`absolute left-0 top-0 bottom-0 w-16 md:w-24 z-10 bg-gradient-to-r from-[#1A120D] to-transparent pointer-events-none transition-opacity duration-300 ${
               canScrollLeft ? "opacity-100" : "opacity-0"
             }`}
           />
           {/* Right fade */}
           <div
-            className={`absolute right-0 top-0 bottom-0 w-16 md:w-24 z-10 bg-gradient-to-l from-[#120D1A] to-transparent pointer-events-none transition-opacity duration-300 ${
+            className={`absolute right-0 top-0 bottom-0 w-16 md:w-24 z-10 bg-gradient-to-l from-[#1A120D] to-transparent pointer-events-none transition-opacity duration-300 ${
               canScrollRight ? "opacity-100" : "opacity-0"
             }`}
           />
@@ -341,34 +341,34 @@ export default function Insights() {
                       <div className="absolute inset-0 z-20 opacity-[0.06] bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:40px_40px]" />
 
                       {/* Bottom fade */}
-                      <div className="absolute inset-x-0 bottom-0 h-1/3 z-20 bg-gradient-to-t from-[#120D1A]/80 to-transparent" />
+                      <div className="absolute inset-x-0 bottom-0 h-1/3 z-20 bg-gradient-to-t from-[#1A120D]/80 to-transparent" />
 
                       {/* Corner accent glow on hover */}
-                      <div className="absolute top-0 right-0 w-32 h-32 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-[radial-gradient(circle_at_top_right,rgba(124,92,255,0.15),transparent_70%)]" />
+                      <div className="absolute top-0 right-0 w-32 h-32 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-[radial-gradient(circle_at_top_right,rgba(217,108,71,0.15),transparent_70%)]" />
                     </WorkFrame>
 
                     {/* Card content */}
                     <div className="p-6 flex flex-col flex-1">
                       {/* Category label */}
-                      <div className="border-l-2 border-electric-indigo pl-3">
-                        <span className="font-mono text-xs text-electric-indigo uppercase tracking-wider">
+                      <div className="border-l-2 border-terracotta pl-3">
+                        <span className="font-mono text-xs text-terracotta uppercase tracking-wider">
                           {post.category}
                         </span>
                       </div>
 
                       {/* Title */}
-                      <h3 className="font-headline font-bold text-lg text-pure-white mt-3 leading-snug group-hover:text-soft-white transition-colors duration-300">
+                      <h3 className="font-headline font-bold text-lg text-pure-white mt-3 leading-snug group-hover:text-cream transition-colors duration-300">
                         {post.title}
                       </h3>
 
                       {/* Subtitle */}
-                      <p className="text-cool-gray text-sm mt-2 leading-relaxed flex-1">
+                      <p className="text-clay-gray text-sm mt-2 leading-relaxed flex-1">
                         {post.subtitle}
                       </p>
 
                       {/* Read Article link */}
                       <div className="mt-5 pt-4 border-t border-white/5">
-                        <span className="inline-flex items-center gap-2 text-warm-coral text-sm font-medium group-hover:gap-3 transition-all duration-300">
+                        <span className="inline-flex items-center gap-2 text-sun-gold text-sm font-medium group-hover:gap-3 transition-all duration-300">
                           Read Article
                           <svg
                             className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
@@ -388,7 +388,7 @@ export default function Insights() {
                     </div>
 
                     {/* Hover border glow */}
-                    <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none shadow-[inset_0_0_40px_rgba(124,92,255,0.05)]" />
+                    <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none shadow-[inset_0_0_40px_rgba(217,108,71,0.05)]" />
                   </div>
                 </Link>
               </m.article>

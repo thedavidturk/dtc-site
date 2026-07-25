@@ -10,7 +10,7 @@ import * as THREE from "three";
 // ---------------------------------------------------------------------------
 interface WireframeTerrainProps {
   className?: string;
-  color?: string; // default electric-indigo
+  color?: string; // default terracotta
   opacity?: number; // default 0.08
   speed?: number; // animation speed multiplier, default 1
 }
@@ -62,7 +62,7 @@ function FloatingPoints() {
       {/* Electric-indigo point */}
       <Sphere ref={point1} args={[1, 8, 8]}>
         <meshBasicMaterial
-          color="#7C5CFF"
+          color="#D96C47"
           transparent
           opacity={0.6}
           blending={THREE.AdditiveBlending}
@@ -73,7 +73,7 @@ function FloatingPoints() {
       {/* Warm-coral point */}
       <Sphere ref={point2} args={[1, 8, 8]}>
         <meshBasicMaterial
-          color="#FF8A5C"
+          color="#E9B368"
           transparent
           opacity={0.5}
           blending={THREE.AdditiveBlending}
@@ -84,7 +84,7 @@ function FloatingPoints() {
       {/* Mixed indigo-coral point */}
       <Sphere ref={point3} args={[1, 8, 8]}>
         <meshBasicMaterial
-          color="#9B6AF0"
+          color="#D96C47"
           transparent
           opacity={0.45}
           blending={THREE.AdditiveBlending}
@@ -209,7 +209,7 @@ function Scene({ color, opacity, speed }: SceneProps) {
 // ---------------------------------------------------------------------------
 export default function WireframeTerrain({
   className = "",
-  color = "#7C5CFF",
+  color = "#D96C47",
   opacity = 0.08,
   speed = 1,
 }: WireframeTerrainProps) {
@@ -227,9 +227,9 @@ export default function WireframeTerrain({
   return (
     <div className={className} aria-hidden="true">
       {/* Top fade overlay */}
-      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-deep-space to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-espresso to-transparent z-10 pointer-events-none" />
       {/* Bottom fade overlay */}
-      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-deep-space to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-espresso to-transparent z-10 pointer-events-none" />
 
       <Canvas
         camera={{

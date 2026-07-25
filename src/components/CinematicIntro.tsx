@@ -15,9 +15,9 @@ interface CinematicIntroProps {
 // ---------------------------------------------------------------------------
 // Constants
 // ---------------------------------------------------------------------------
-const DEEP_SPACE = "#120D1A";
-const ELECTRIC_INDIGO = "#7C5CFF";
-const WARM_CORAL = "#FF8A5C";
+const DEEP_SPACE = "#1A120D";
+const ELECTRIC_INDIGO = "#D96C47";
+const WARM_CORAL = "#E9B368";
 
 const PARTICLE_COUNT = 300;
 const AMBIENT_COUNT = 120;
@@ -198,7 +198,7 @@ function WarpTunnel({ startTime }: { startTime: React.MutableRefObject<number> }
       positions[i3 + 1] = Math.sin(angle) * radius;
       positions[i3 + 2] = z;
 
-      // Color: 70% white, 20% electric-indigo, 10% warm-coral
+      // Color: 70% white, 20% terracotta, 10% sun-gold
       const roll = Math.random();
       if (roll < 0.7) {
         tmpColor.copy(colorWhite);

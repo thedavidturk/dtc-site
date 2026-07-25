@@ -41,12 +41,12 @@ interface ShapeArt {
 }
 
 const DEFAULT_COLORS: Record<FloatingIconShape, string> = {
-  globe: "#7C5CFF",
-  icosahedron: "#9D85FF",
-  camera: "#FF8A5C",
-  aperture: "#FFA57E",
-  nodes: "#A78BFA",
-  torusKnot: "#34D399",
+  globe: "#D96C47",
+  icosahedron: "#E28E6A",
+  camera: "#E9B368",
+  aperture: "#F0C68A",
+  nodes: "#E28E6A",
+  torusKnot: "#8FA86B",
 };
 
 /* Stagger animation phase per shape so a grid of icons doesn't rock in

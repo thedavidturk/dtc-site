@@ -48,7 +48,7 @@ export default function Header() {
             <a
               key={link.label}
               href={link.href}
-              className="text-sm font-body text-cool-gray hover:text-pure-white transition-colors duration-200"
+              className="text-sm font-body text-clay-gray hover:text-pure-white transition-colors duration-200"
             >
               {link.label}
             </a>
@@ -86,7 +86,7 @@ export default function Header() {
         className="absolute bottom-0 left-0 right-0 h-px"
         style={{
           background:
-            "linear-gradient(90deg, transparent, rgba(124,92,255,0.3), rgba(255,138,92,0.2), transparent)",
+            "linear-gradient(90deg, transparent, rgba(217,108,71,0.3), rgba(233,179,104,0.2), transparent)",
           backgroundSize: "200% 100%",
           animation: "shimmer-border 3.5s linear infinite",
         }}
@@ -108,7 +108,7 @@ export default function Header() {
                   key={link.label}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="text-lg font-body text-cool-gray hover:text-pure-white transition-colors"
+                  className="text-lg font-body text-clay-gray hover:text-pure-white transition-colors"
                 >
                   {link.label}
                 </a>

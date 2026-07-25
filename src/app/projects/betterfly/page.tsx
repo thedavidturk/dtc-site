@@ -141,7 +141,7 @@ const tools = [
 
 export default function BetterflyProject() {
   return (
-    <article className="bg-deep-space min-h-screen" style={{ backgroundColor: "#120D1A" }}>
+    <article className="bg-espresso min-h-screen" style={{ backgroundColor: "#1A120D" }}>
       {/* ── Back Link ─────────────────────────────────────────────── */}
       <m.div
         initial={{ opacity: 0, x: -20 }}
@@ -151,7 +151,7 @@ export default function BetterflyProject() {
       >
         <Link
           href="/#projects"
-          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-cool-gray hover:text-pure-white transition-colors duration-300"
+          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-clay-gray hover:text-pure-white transition-colors duration-300"
         >
           <svg
             className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
@@ -184,7 +184,7 @@ export default function BetterflyProject() {
         <div className="absolute inset-0 bg-black/30" />
 
         {/* Radial fade at bottom */}
-        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-deep-space via-deep-space/40 to-transparent" />
+        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-espresso via-espresso/40 to-transparent" />
 
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
           <m.div
@@ -239,7 +239,7 @@ export default function BetterflyProject() {
       />
 
       {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Sidebar */}
           <m.aside
@@ -262,7 +262,7 @@ export default function BetterflyProject() {
                 <p className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-2">
                   Industry
                 </p>
-                <p className="font-body text-cool-gray">
+                <p className="font-body text-clay-gray">
                   {overview.industry}
                 </p>
               </div>
@@ -270,7 +270,7 @@ export default function BetterflyProject() {
                 <p className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-2">
                   Timeline
                 </p>
-                <p className="font-body text-cool-gray">
+                <p className="font-body text-clay-gray">
                   {overview.timeline}
                 </p>
               </div>
@@ -282,7 +282,7 @@ export default function BetterflyProject() {
                   {overview.services.map((service) => (
                     <li
                       key={service}
-                      className="flex items-center gap-3 font-body text-sm text-cool-gray"
+                      className="flex items-center gap-3 font-body text-sm text-clay-gray"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
                       {service}
@@ -308,7 +308,7 @@ export default function BetterflyProject() {
               Global out-of-home impact{" "}
               <span className="gradient-text">without the logistics</span>
             </h2>
-            <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
+            <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
               <p>
                 Betterfly needed a visually striking campaign to announce
                 &ldquo;a new era of benefits&rdquo; and position their platform
@@ -351,7 +351,7 @@ export default function BetterflyProject() {
       </div>
 
       {/* ── The Solution ─────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -366,7 +366,7 @@ export default function BetterflyProject() {
             Fake out-of-home,{" "}
             <span className="text-white">real impact</span>
           </h2>
-          <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
+          <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
             <p>
               We used VFX to digitally drape massive Betterfly branded banners
               over six iconic global monuments. Advanced cloth simulation,
@@ -391,7 +391,7 @@ export default function BetterflyProject() {
       </div>
 
       {/* ── Campaign Gallery ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -590,7 +590,7 @@ export default function BetterflyProject() {
       </div>
 
       {/* ── The Result ───────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -625,7 +625,7 @@ export default function BetterflyProject() {
             {results.slice(1).map((result) => (
               <li
                 key={result}
-                className="font-body text-cool-gray text-base md:text-lg leading-relaxed"
+                className="font-body text-clay-gray text-base md:text-lg leading-relaxed"
               >
                 {result}
               </li>
@@ -640,7 +640,7 @@ export default function BetterflyProject() {
       </div>
 
       {/* ── Tools & Technology ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -672,7 +672,7 @@ export default function BetterflyProject() {
               <h3 className="font-headline text-lg font-bold text-pure-white mb-2 group-hover:text-emerald-400 transition-colors duration-300">
                 {tool.name}
               </h3>
-              <p className="font-body text-sm text-cool-gray leading-relaxed">
+              <p className="font-body text-sm text-clay-gray leading-relaxed">
                 {tool.description}
               </p>
             </m.div>
@@ -686,7 +686,7 @@ export default function BetterflyProject() {
       </div>
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -698,7 +698,7 @@ export default function BetterflyProject() {
             Ready to make{" "}
             <span className="text-white">a global statement</span>?
           </h2>
-          <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed mb-10">
+          <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s create campaign content that commands attention and
             breaks through the noise, no logistics required.
           </p>

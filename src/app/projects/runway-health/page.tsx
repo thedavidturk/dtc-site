@@ -222,7 +222,7 @@ const INTERIOR_HERO =
 
 export default function RunwayHealthProject() {
   return (
-    <article className="bg-deep-space min-h-screen" style={{ backgroundColor: "#120D1A" }}>
+    <article className="bg-espresso min-h-screen" style={{ backgroundColor: "#1A120D" }}>
       {/* ── Back Link ─────────────────────────────────────────────── */}
       <m.div
         initial={{ opacity: 0, x: -20 }}
@@ -232,7 +232,7 @@ export default function RunwayHealthProject() {
       >
         <Link
           href="/#projects"
-          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-cool-gray hover:text-pure-white transition-colors duration-300"
+          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-clay-gray hover:text-pure-white transition-colors duration-300"
         >
           <svg
             className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
@@ -266,8 +266,8 @@ export default function RunwayHealthProject() {
         </div>
 
         {/* Ambient color wash + dark fade */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-electric-indigo/30 via-transparent to-warm-coral/10 mix-blend-screen" />
-        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-deep-space via-deep-space/50 to-deep-space/10" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-terracotta/30 via-transparent to-sun-gold/10 mix-blend-screen" />
+        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-espresso via-espresso/50 to-espresso/10" />
 
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
           <m.div
@@ -302,13 +302,13 @@ export default function RunwayHealthProject() {
             initial={{ width: 0 }}
             animate={{ width: "6rem" }}
             transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="h-px bg-gradient-to-r from-electric-indigo to-warm-coral mt-8"
+            className="h-px bg-gradient-to-r from-terracotta to-sun-gold mt-8"
           />
         </div>
       </section>
 
       {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Sidebar */}
           <m.aside
@@ -320,7 +320,7 @@ export default function RunwayHealthProject() {
           >
             <div className="lg:sticky lg:top-28 space-y-8">
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-electric-indigo mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
                   Client
                 </p>
                 <p className="font-headline text-lg font-semibold text-pure-white">
@@ -328,28 +328,28 @@ export default function RunwayHealthProject() {
                 </p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-electric-indigo mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
                   Industry
                 </p>
-                <p className="font-body text-cool-gray">{overview.industry}</p>
+                <p className="font-body text-clay-gray">{overview.industry}</p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-electric-indigo mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
                   Discipline
                 </p>
-                <p className="font-body text-cool-gray">{overview.timeline}</p>
+                <p className="font-body text-clay-gray">{overview.timeline}</p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-electric-indigo mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
                   Services
                 </p>
                 <ul className="space-y-2">
                   {overview.services.map((service) => (
                     <li
                       key={service}
-                      className="flex items-center gap-3 font-body text-sm text-cool-gray"
+                      className="flex items-center gap-3 font-body text-sm text-clay-gray"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-electric-indigo flex-shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-terracotta flex-shrink-0" />
                       {service}
                     </li>
                   ))}
@@ -366,14 +366,14 @@ export default function RunwayHealthProject() {
             viewport={{ once: true, margin: "-80px" }}
             className="lg:col-span-8"
           >
-            <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+            <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
               The Brief
             </p>
             <h2 className="font-headline text-h3 font-bold mb-8">
               Product design for{" "}
               <span className="gradient-text">runwayhealth.com</span>
             </h2>
-            <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
+            <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
               <p>
                 Runway Health needed a complete set of product visuals for its
                 online experience, built entirely in 3D rather than shot on a
@@ -398,7 +398,7 @@ export default function RunwayHealthProject() {
       </div>
 
       {/* ── Interior Product Render Set ───────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -406,7 +406,7 @@ export default function RunwayHealthProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
             Interior Product Render Set
           </p>
           <h2 className="font-headline text-h3 font-bold">
@@ -493,7 +493,7 @@ export default function RunwayHealthProject() {
       </div>
 
       {/* ── Texture + Packaging feature ───────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-10 items-center">
           {/* Substance Painter texture */}
           <m.div
@@ -511,7 +511,7 @@ export default function RunwayHealthProject() {
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
-            <p className="mt-4 font-mono text-xs tracking-widest uppercase text-cool-gray">
+            <p className="mt-4 font-mono text-xs tracking-widest uppercase text-clay-gray">
               Product texture creation in Adobe Substance Painter
             </p>
           </m.div>
@@ -532,7 +532,7 @@ export default function RunwayHealthProject() {
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
-            <p className="mt-4 font-body text-sm text-cool-gray leading-relaxed">
+            <p className="mt-4 font-body text-sm text-clay-gray leading-relaxed">
               Custom box design created in Cinema4D. Volume Builder and modeling
               allowed the box to have custom hold positions for the pill bottles.
             </p>
@@ -546,7 +546,7 @@ export default function RunwayHealthProject() {
       </div>
 
       {/* ── Hero Imagery ──────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -554,7 +554,7 @@ export default function RunwayHealthProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
             Hero Imagery
           </p>
           <h2 className="font-headline text-h3 font-bold">
@@ -611,7 +611,7 @@ export default function RunwayHealthProject() {
       </div>
 
       {/* ── Studio + Outdoor Gallery ──────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -619,7 +619,7 @@ export default function RunwayHealthProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
             Studio & Outdoor Product Designs
           </p>
           <h2 className="font-headline text-h3 font-bold">
@@ -661,7 +661,7 @@ export default function RunwayHealthProject() {
       </div>
 
       {/* ── What Was Delivered ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -669,7 +669,7 @@ export default function RunwayHealthProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
             What Was Delivered
           </p>
           <h2 className="font-headline text-h3 font-bold">
@@ -691,11 +691,11 @@ export default function RunwayHealthProject() {
 
           {/* TODO(David): add quantified result or client quote here */}
 
-          <ul className="space-y-4 border-l border-electric-indigo/30 pl-6">
+          <ul className="space-y-4 border-l border-terracotta/30 pl-6">
             {results.slice(1).map((result) => (
               <li
                 key={result}
-                className="font-body text-cool-gray text-base md:text-lg leading-relaxed"
+                className="font-body text-clay-gray text-base md:text-lg leading-relaxed"
               >
                 {result}
               </li>
@@ -710,7 +710,7 @@ export default function RunwayHealthProject() {
       </div>
 
       {/* ── Tools & Technology ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -718,7 +718,7 @@ export default function RunwayHealthProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
             Tools & Technology
           </p>
           <h2 className="font-headline text-h3 font-bold">
@@ -737,12 +737,12 @@ export default function RunwayHealthProject() {
             <m.div
               key={tool.name}
               variants={staggerItem}
-              className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-electric-indigo/20 hover:bg-electric-indigo/[0.03] transition-all duration-500"
+              className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-terracotta/20 hover:bg-terracotta/[0.03] transition-all duration-500"
             >
-              <h3 className="font-headline text-lg font-bold text-pure-white mb-2 group-hover:text-electric-indigo transition-colors duration-300">
+              <h3 className="font-headline text-lg font-bold text-pure-white mb-2 group-hover:text-terracotta transition-colors duration-300">
                 {tool.name}
               </h3>
-              <p className="font-body text-sm text-cool-gray leading-relaxed">
+              <p className="font-body text-sm text-clay-gray leading-relaxed">
                 {tool.description}
               </p>
             </m.div>
@@ -756,7 +756,7 @@ export default function RunwayHealthProject() {
       </div>
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#120D1A" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -768,7 +768,7 @@ export default function RunwayHealthProject() {
             Need product visuals{" "}
             <span className="text-white">built in 3D</span>?
           </h2>
-          <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed mb-10">
+          <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s model, texture, and render your product into imagery that
             looks like a studio shoot, without the studio.
           </p>

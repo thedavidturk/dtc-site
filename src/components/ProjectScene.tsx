@@ -109,8 +109,8 @@ function SpacePlanet() {
     <mesh ref={meshRef} rotation-z={0.3}>
       <sphereGeometry ref={geoRef} args={[1.5, 32, 32]} />
       <meshStandardMaterial
-        color="#241A54"
-        emissive="#241A54"
+        color="#33200F"
+        emissive="#33200F"
         emissiveIntensity={0.15}
         roughness={0.8}
       />
@@ -125,7 +125,7 @@ function SpaceRing() {
   const { positions, colors } = useMemo(() => {
     const pos = new Float32Array(count * 3);
     const col = new Float32Array(count * 3);
-    const indigoColor = new THREE.Color("#7C5CFF");
+    const indigoColor = new THREE.Color("#D96C47");
     const whiteColor = new THREE.Color("#ffffff");
 
     for (let i = 0; i < count; i++) {
@@ -256,7 +256,7 @@ function OceanCausticRays() {
       x: (i - count / 2) * 1.8 + (Math.random() - 0.5) * 1.5,
       height: 8 + Math.random() * 2,
       width: 0.02 + Math.random() * 0.03,
-      color: Math.random() > 0.5 ? "#5B8CFF" : "#7C5CFF",
+      color: Math.random() > 0.5 ? "#E9B368" : "#D96C47",
       opacity: 0.06 + Math.random() * 0.06,
       phase: Math.random() * Math.PI * 2,
       speed: 0.3 + Math.random() * 0.4,
@@ -300,9 +300,9 @@ function OceanBubbles() {
   const { positions, colors } = useMemo(() => {
     const pos = new Float32Array(count * 3);
     const col = new Float32Array(count * 3);
-    const blueColor = new THREE.Color("#5B8CFF");
-    const indigoColor = new THREE.Color("#7C5CFF");
-    const whiteColor = new THREE.Color("#E8EDFF");
+    const blueColor = new THREE.Color("#E9B368");
+    const indigoColor = new THREE.Color("#D96C47");
+    const whiteColor = new THREE.Color("#F7EBDC");
 
     for (let i = 0; i < count; i++) {
       pos[i * 3] = (Math.random() - 0.5) * 12;
@@ -402,7 +402,7 @@ function OceanSurface() {
     <mesh ref={meshRef} position={[0, 4, 0]} rotation-x={-Math.PI / 2}>
       <planeGeometry ref={geoRef} args={[16, 12, 20, 20]} />
       <meshBasicMaterial
-        color="#5B8CFF"
+        color="#E9B368"
         wireframe
         transparent
         opacity={0.05}
@@ -419,7 +419,7 @@ function OceanScene() {
       <directionalLight
         position={[0, 5, 2]}
         intensity={0.4}
-        color="#5B8CFF"
+        color="#E9B368"
       />
       <MouseParallaxGroup>
         <OceanCausticRays />
@@ -447,8 +447,8 @@ function EnergyCore() {
     <mesh ref={meshRef}>
       <sphereGeometry args={[0.3, 24, 24]} />
       <meshStandardMaterial
-        color="#FF8A5C"
-        emissive="#FF8A5C"
+        color="#E9B368"
+        emissive="#E9B368"
         emissiveIntensity={0.8}
         toneMapped={false}
       />
@@ -477,7 +477,7 @@ function EnergyRadiatingRings() {
     const total = ringCount * particlesPerRing;
     const pos = new Float32Array(total * 3);
     const col = new Float32Array(total * 3);
-    const coralColor = new THREE.Color("#FF8A5C");
+    const coralColor = new THREE.Color("#E9B368");
 
     for (let i = 0; i < total; i++) {
       col[i * 3] = coralColor.r;
@@ -498,8 +498,8 @@ function EnergyRadiatingRings() {
     const colArr = colAttr.array as Float32Array;
     const t = clock.elapsedTime;
 
-    const coralColor = new THREE.Color("#FF8A5C");
-    const amberColor = new THREE.Color("#F59E0B");
+    const coralColor = new THREE.Color("#E9B368");
+    const amberColor = new THREE.Color("#D9A441");
 
     for (let r = 0; r < ringCount; r++) {
       const currentRadius =
@@ -566,8 +566,8 @@ function EnergyParticles() {
   const { positions, colors } = useMemo(() => {
     const pos = new Float32Array(count * 3);
     const col = new Float32Array(count * 3);
-    const coralColor = new THREE.Color("#FF8A5C");
-    const amberColor = new THREE.Color("#F59E0B");
+    const coralColor = new THREE.Color("#E9B368");
+    const amberColor = new THREE.Color("#D9A441");
     const whiteColor = new THREE.Color("#ffffff");
 
     for (let i = 0; i < count; i++) {
@@ -666,7 +666,7 @@ function EnergyScene() {
   return (
     <>
       <ambientLight intensity={0.2} />
-      <pointLight position={[0, 0, 0]} intensity={1.0} color="#FF8A5C" />
+      <pointLight position={[0, 0, 0]} intensity={1.0} color="#E9B368" />
       <MouseParallaxGroup>
         <EnergyCore />
         <EnergyRadiatingRings />
@@ -748,7 +748,7 @@ function AutomotiveWireframeCar() {
       {/* Right side profile */}
       <Line
         points={carProfileRight}
-        color="#7C5CFF"
+        color="#D96C47"
         lineWidth={2}
         transparent
         opacity={0.9}
@@ -756,7 +756,7 @@ function AutomotiveWireframeCar() {
       {/* Left side profile */}
       <Line
         points={carProfileLeft}
-        color="#7C5CFF"
+        color="#D96C47"
         lineWidth={2}
         transparent
         opacity={0.9}
@@ -766,7 +766,7 @@ function AutomotiveWireframeCar() {
         <Line
           key={i}
           points={line}
-          color="#7C5CFF"
+          color="#D96C47"
           lineWidth={1.5}
           transparent
           opacity={0.6}
@@ -784,8 +784,8 @@ function AutomotiveSpeedParticles() {
   const { positions, colors } = useMemo(() => {
     const pos = new Float32Array(count * 3);
     const col = new Float32Array(count * 3);
-    const indigoColor = new THREE.Color("#7C5CFF");
-    const coralColor = new THREE.Color("#FF8A5C");
+    const indigoColor = new THREE.Color("#D96C47");
+    const coralColor = new THREE.Color("#E9B368");
 
     for (let i = 0; i < count; i++) {
       pos[i * 3] = (Math.random() - 0.5) * 10;
@@ -850,7 +850,7 @@ function AutomotiveGridFloor() {
     <mesh position={[0, -0.5, 0]} rotation-x={-Math.PI / 2}>
       <planeGeometry args={[8, 8, 20, 20]} />
       <meshBasicMaterial
-        color="#7C5CFF"
+        color="#D96C47"
         wireframe
         transparent
         opacity={0.05}

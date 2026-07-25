@@ -126,12 +126,12 @@ export default function Process() {
   }, []);
 
   return (
-    <section id="process" className="relative bg-deep-space overflow-hidden" style={{ backgroundColor: "#120D1A" }}>
+    <section id="process" className="relative bg-espresso overflow-hidden" style={{ backgroundColor: "#1A120D" }}>
       {/* Wireframe terrain background */}
       <Lazy3D className="absolute inset-0 z-0">
         <WireframeTerrain
           className="absolute inset-0"
-          color="#7C5CFF"
+          color="#D96C47"
           opacity={0.07}
           speed={1}
         />
@@ -142,7 +142,7 @@ export default function Process() {
         className="absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 50% 50%, #7C5CFF 0%, transparent 60%)",
+            "radial-gradient(circle at 50% 50%, #D96C47 0%, transparent 60%)",
         }}
       />
 
@@ -155,7 +155,7 @@ export default function Process() {
       >
         {/* Section Header */}
         <m.div className="text-center mb-20" variants={headerVariants}>
-          <span className="font-mono text-xs tracking-[0.3em] text-electric-indigo uppercase mb-4 block">
+          <span className="font-mono text-xs tracking-[0.3em] text-terracotta uppercase mb-4 block">
             Our Process
           </span>
           <TextReveal
@@ -194,17 +194,17 @@ export default function Process() {
               variants={stepVariants}
             >
               {/* Step Node Dot - desktop */}
-              <div className="hidden md:block absolute top-[48px] left-1/2 -translate-x-1/2 w-[9px] h-[9px] rounded-full bg-electric-indigo ring-4 ring-deep-space z-10" />
+              <div className="hidden md:block absolute top-[48px] left-1/2 -translate-x-1/2 w-[9px] h-[9px] rounded-full bg-terracotta ring-4 ring-espresso z-10" />
 
               {/* Step Node Dot - mobile */}
-              <div className="md:hidden absolute top-2 left-[29px] w-[9px] h-[9px] rounded-full bg-electric-indigo ring-4 ring-deep-space z-10" />
+              <div className="md:hidden absolute top-2 left-[29px] w-[9px] h-[9px] rounded-full bg-terracotta ring-4 ring-espresso z-10" />
 
               {/* Mobile left spacing for the vertical line */}
               <div className="md:hidden w-20 flex-shrink-0" />
 
               <div className="flex-1 md:flex-initial">
                 {/* Step Number */}
-                <span className="font-mono text-5xl md:text-6xl font-bold text-electric-indigo/20 leading-none block mb-3 md:mb-6">
+                <span className="font-mono text-5xl md:text-6xl font-bold text-terracotta/20 leading-none block mb-3 md:mb-6">
                   {step.number}
                 </span>
 
@@ -214,7 +214,7 @@ export default function Process() {
                 </h3>
 
                 {/* Step Description */}
-                <p className="text-cool-gray text-sm leading-relaxed max-w-[260px] md:mx-auto">
+                <p className="text-clay-gray text-sm leading-relaxed max-w-[260px] md:mx-auto">
                   {step.description}
                 </p>
               </div>

@@ -34,19 +34,19 @@ const moreArticles = [
     title: "Your Brand in the Age of AI Search: Why GEO Is the New SEO",
     category: "AI STRATEGY",
     href: "/insights/building-worlds",
-    gradient: "from-warm-coral/30 via-amber-900/40 to-deep-space",
+    gradient: "from-sun-gold/30 via-amber-900/40 to-espresso",
   },
   {
     title: "AI-Native Brand Identity: Building Visual Systems That Adapt in Real Time",
     category: "BRAND + AI",
     href: "/insights/ai-brand-identity",
-    gradient: "from-amber-500/30 via-orange-900/50 to-deep-space",
+    gradient: "from-amber-500/30 via-orange-900/50 to-espresso",
   },
 ];
 
 export default function AIShortFormContentArticle() {
   return (
-    <article className="bg-deep-space min-h-screen">
+    <article className="bg-espresso min-h-screen">
       <ArticleJsonLd
         title="Short-Form, High Impact: How AI Is Powering the Next Wave of Social Content"
         description="The playbook for producing scroll-stopping Reels, Shorts, and TikToks at scale with AI workflows, without losing the human edge that makes content connect."
@@ -61,7 +61,7 @@ export default function AIShortFormContentArticle() {
       >
         <Link
           href="/"
-          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-cool-gray hover:text-pure-white transition-colors duration-300"
+          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-clay-gray hover:text-pure-white transition-colors duration-300"
         >
           <svg className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
@@ -75,7 +75,7 @@ export default function AIShortFormContentArticle() {
         <div className="absolute inset-0 bg-gradient-to-br from-pink-500 via-rose-700 to-rose-950" />
         <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIxIi8+PC9zdmc+')]" />
         <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:60px_60px]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-deep-space via-deep-space/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-espresso via-espresso/40 to-transparent" />
         <div className="absolute top-1/4 left-[18%] w-28 h-28 border border-white/[0.06] rounded-full animate-pulse" />
         <div className="absolute top-1/3 right-[15%] w-20 h-20 border border-white/10 rounded-xl rotate-12" />
 
@@ -113,15 +113,15 @@ export default function AIShortFormContentArticle() {
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               The Volume Problem Every Brand Faces
             </h2>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
+            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
               The algorithms have spoken: brands that post once a week get buried. TikTok, Instagram Reels, YouTube Shorts, and LinkedIn video all prioritize accounts that publish consistently and frequently. The platforms reward volume. But volume without quality is noise, and quality without volume is invisible.
             </p>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
+            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
               This is the tension every brand faces in 2026. You need to publish three to five short-form videos per week across multiple platforms, each optimized for different aspect ratios, different audience behaviors, and different algorithmic preferences. Traditional production workflows cannot keep up with that demand. A single professionally produced video takes days to conceive, shoot, edit, and deliver. The math doesn&rsquo;t work.
             </p>
           </m.div>
 
-          <m.blockquote variants={fadeUp} className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8">
+          <m.blockquote variants={fadeUp} className="pl-6 border-l-2 border-terracotta text-cream italic text-xl my-8">
             The platforms reward brands that show up every day. AI is how you show up every day without burning out your team or your budget.
           </m.blockquote>
 
@@ -129,13 +129,13 @@ export default function AIShortFormContentArticle() {
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               AI as the Content Multiplier
             </h2>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
+            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
               The solution is not choosing between quality and quantity. It&rsquo;s building a pipeline where AI handles the repetitive production tasks so humans can focus on the creative strategy that makes content connect. Here&rsquo;s how we structure it.
             </p>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
+            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
               We produce one high-quality &ldquo;hero&rdquo; piece per week. Full creative direction, professional production value, strong storytelling. Then AI workflows break that hero piece into five to eight derivative assets: clips, remixes, alternate cuts, platform-specific reformats, text overlay variations, and response hooks. Each derivative is reviewed and refined by a human editor, but the generation and rough assembly happen at machine speed.
             </p>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
+            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
               One shoot day becomes a week of content. One creative concept becomes a full multi-platform rollout. The human investment stays focused on the work that matters: the idea, the story, the creative direction. AI handles the multiplication.
             </p>
           </m.div>
@@ -144,15 +144,15 @@ export default function AIShortFormContentArticle() {
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               Platform-Native Is Non-Negotiable
             </h2>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
+            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
               The biggest mistake brands make with short-form content is treating every platform the same. A TikTok is not a Reel is not a Short. Each platform has different pacing expectations, different safe zones for text, different audience behaviors, and different algorithmic signals that determine reach.
             </p>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
+            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
               AI tools now handle platform-specific optimization automatically. They reframe content for different aspect ratios, adjust pacing and cut rhythm for each platform&rsquo;s engagement patterns, generate platform-native text overlays and captions, and even suggest optimal posting times based on audience data. The creative core stays the same, but the delivery is tailored for each platform&rsquo;s native language.
             </p>
           </m.div>
 
-          <m.blockquote variants={fadeUp} className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8">
+          <m.blockquote variants={fadeUp} className="pl-6 border-l-2 border-terracotta text-cream italic text-xl my-8">
             The best short-form content feels like it was born on the platform, not adapted from something else. AI makes native formatting scalable.
           </m.blockquote>
 
@@ -160,10 +160,10 @@ export default function AIShortFormContentArticle() {
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               The Hook Economy
             </h2>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
+            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
               In short-form content, the first three seconds determine everything. You either stop the scroll or you don&rsquo;t exist. This is where AI has become genuinely useful. AI tools can analyze thousands of high-performing hooks in your category, identify patterns in what captures attention, and generate hook variations for testing.
             </p>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
+            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
               We use AI to generate ten to fifteen hook options for every piece of content, then test the top three across platforms. The data comes back within 48 hours, and we know exactly which creative direction resonates. This level of systematic testing was impossible when every variation required manual production. With AI, it&rsquo;s standard practice.
             </p>
           </m.div>
@@ -172,15 +172,15 @@ export default function AIShortFormContentArticle() {
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               Sound and Music: The Secret Weapon
             </h2>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
+            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
               Sound is the most underrated element in short-form content. The right audio can make a mediocre video go viral. The wrong audio makes even great visuals forgettable. AI sound design tools have made professional audio accessible at the scale short-form content demands.
             </p>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
+            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
               We generate custom sound beds, trending audio adaptations, and branded audio signatures using AI tools, then layer them with human-directed mixing and refinement. Every piece of content ships with audio that feels intentional and premium, not like it was pulled from a stock library five minutes before posting.
             </p>
           </m.div>
 
-          <m.blockquote variants={fadeUp} className="pl-6 border-l-2 border-electric-indigo text-soft-white italic text-xl my-8">
+          <m.blockquote variants={fadeUp} className="pl-6 border-l-2 border-terracotta text-cream italic text-xl my-8">
             Sound is where most brand content falls apart. AI sound design closes the gap between what brands can afford and what audiences expect.
           </m.blockquote>
 
@@ -188,10 +188,10 @@ export default function AIShortFormContentArticle() {
             <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
               The Brands Winning the Short-Form Game
             </h2>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
+            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
               The brands dominating short-form in 2026 share three characteristics. They publish at high volume without sacrificing production quality. They test relentlessly with AI-powered variation. And they treat each platform as a unique creative canvas, not a distribution endpoint for the same content.
             </p>
-            <p className="font-body text-cool-gray text-lg leading-relaxed mb-6">
+            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
               If your brand is posting the same 16:9 video cropped to 9:16 across every platform, you&rsquo;re leaving reach on the table. If you&rsquo;re publishing twice a week because your production team can&rsquo;t keep up, you&rsquo;re invisible to the algorithms. AI-powered short-form workflows solve both problems simultaneously: more content, better adapted, at a pace that keeps your brand in the feed and in the conversation.
             </p>
           </m.div>
@@ -206,7 +206,7 @@ export default function AIShortFormContentArticle() {
       {/* More Perspectives */}
       <section className="section-container section-padding">
         <m.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} className="mb-12">
-          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">Continue Reading</p>
+          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">Continue Reading</p>
           <h2 className="font-headline text-h3 font-bold">More <span className="gradient-text">Perspectives</span></h2>
         </m.div>
         <m.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }} className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -218,9 +218,9 @@ export default function AIShortFormContentArticle() {
                   <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:40px_40px]" />
                 </div>
                 <div className="p-6">
-                  <span className="font-mono text-xs text-electric-indigo uppercase tracking-wider">{article.category}</span>
-                  <h3 className="font-headline font-bold text-lg text-pure-white mt-2 leading-snug group-hover:text-soft-white transition-colors duration-300">{article.title}</h3>
-                  <span className="inline-flex items-center gap-2 text-warm-coral text-sm font-medium mt-4 group-hover:gap-3 transition-all duration-300">
+                  <span className="font-mono text-xs text-terracotta uppercase tracking-wider">{article.category}</span>
+                  <h3 className="font-headline font-bold text-lg text-pure-white mt-2 leading-snug group-hover:text-cream transition-colors duration-300">{article.title}</h3>
+                  <span className="inline-flex items-center gap-2 text-sun-gold text-sm font-medium mt-4 group-hover:gap-3 transition-all duration-300">
                     Read Article
                     <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />

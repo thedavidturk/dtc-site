@@ -46,7 +46,7 @@ export default function ProjectGifBand({
   return (
     <section
       className="section-container py-16 md:py-24"
-      style={{ backgroundColor: "#120D1A" }}
+      style={{ backgroundColor: "#1A120D" }}
     >
       <m.div
         variants={fadeUp}
@@ -55,7 +55,7 @@ export default function ProjectGifBand({
         viewport={{ once: true, margin: "-80px" }}
         className="mb-10"
       >
-        <p className="font-mono text-sm text-warm-coral tracking-widest uppercase mb-4">
+        <p className="font-mono text-sm text-sun-gold tracking-widest uppercase mb-4">
           {eyebrow}
         </p>
         <h2 className="font-headline text-h3 font-bold text-pure-white">
@@ -76,7 +76,7 @@ export default function ProjectGifBand({
             className="group relative overflow-hidden rounded-2xl border border-white/10 bg-black shadow-2xl shadow-black/40"
           >
             {/* Ambient glow on hover */}
-            <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-electric-indigo/20 via-transparent to-warm-coral/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-sm pointer-events-none" />
+            <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-terracotta/20 via-transparent to-sun-gold/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-sm pointer-events-none" />
 
             <AutoplayVideo
               src={gif.src}
@@ -86,8 +86,8 @@ export default function ProjectGifBand({
             />
 
             {/* Corner accents */}
-            <div className="absolute top-3 left-3 w-6 h-6 border-t border-l border-electric-indigo/40 rounded-tl-lg z-10 pointer-events-none" />
-            <div className="absolute bottom-3 right-3 w-6 h-6 border-b border-r border-warm-coral/40 rounded-br-lg z-10 pointer-events-none" />
+            <div className="absolute top-3 left-3 w-6 h-6 border-t border-l border-terracotta/40 rounded-tl-lg z-10 pointer-events-none" />
+            <div className="absolute bottom-3 right-3 w-6 h-6 border-b border-r border-sun-gold/40 rounded-br-lg z-10 pointer-events-none" />
 
             {gif.label && (
               <div className="absolute bottom-4 left-4 z-10">

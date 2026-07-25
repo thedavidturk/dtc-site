@@ -153,7 +153,7 @@ const tools = [
 
 export default function PammProject() {
   return (
-    <article className="bg-deep-space min-h-screen">
+    <article className="bg-espresso min-h-screen">
       {/* ── Back Link ─────────────────────────────────────────────── */}
       <m.div
         initial={{ opacity: 0, x: -20 }}
@@ -163,7 +163,7 @@ export default function PammProject() {
       >
         <Link
           href="/#projects"
-          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-cool-gray hover:text-pure-white transition-colors duration-300"
+          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-clay-gray hover:text-pure-white transition-colors duration-300"
         >
           <svg
             className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
@@ -195,7 +195,7 @@ export default function PammProject() {
           />
         </div>
         <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-deep-space via-deep-space/40 to-transparent" />
+        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-espresso via-espresso/40 to-transparent" />
 
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
           <m.div
@@ -230,7 +230,7 @@ export default function PammProject() {
             initial={{ width: 0 }}
             animate={{ width: "6rem" }}
             transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="h-px bg-gradient-to-r from-electric-indigo to-warm-coral mt-8"
+            className="h-px bg-gradient-to-r from-terracotta to-sun-gold mt-8"
           />
         </div>
       </section>
@@ -261,7 +261,7 @@ export default function PammProject() {
           >
             <div className="lg:sticky lg:top-28 space-y-8">
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-electric-indigo mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
                   Client
                 </p>
                 <p className="font-headline text-lg font-semibold text-pure-white">
@@ -269,28 +269,28 @@ export default function PammProject() {
                 </p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-electric-indigo mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
                   Industry
                 </p>
-                <p className="font-body text-cool-gray">{overview.industry}</p>
+                <p className="font-body text-clay-gray">{overview.industry}</p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-electric-indigo mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
                   Engagement
                 </p>
-                <p className="font-body text-cool-gray">{overview.timeline}</p>
+                <p className="font-body text-clay-gray">{overview.timeline}</p>
               </div>
               <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-electric-indigo mb-2">
+                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
                   Services
                 </p>
                 <ul className="space-y-2">
                   {overview.services.map((service) => (
                     <li
                       key={service}
-                      className="flex items-center gap-3 font-body text-sm text-cool-gray"
+                      className="flex items-center gap-3 font-body text-sm text-clay-gray"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-warm-coral flex-shrink-0" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-sun-gold flex-shrink-0" />
                       {service}
                     </li>
                   ))}
@@ -307,14 +307,14 @@ export default function PammProject() {
             viewport={{ once: true, margin: "-80px" }}
             className="lg:col-span-8"
           >
-            <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+            <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
               The Challenge
             </p>
             <h2 className="font-headline text-h3 font-bold mb-8">
               Make a world-class museum feel{" "}
               <span className="gradient-text">like it belongs to Miami</span>
             </h2>
-            <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
+            <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
               <p>
                 Pérez Art Museum Miami is one of the most architecturally
                 striking contemporary art institutions in the country, perched on
@@ -394,14 +394,14 @@ export default function PammProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="max-w-4xl"
         >
-          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
             The Solution
           </p>
           <h2 className="font-headline text-h3 font-bold mb-8">
             Let the art lead,{" "}
             <span className="text-white">let the city in</span>
           </h2>
-          <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
+          <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
             <p>
               We built a brand system flexible enough to frame a constantly
               changing program of contemporary artists without ever competing
@@ -436,7 +436,7 @@ export default function PammProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-16"
         >
-          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
             Selected Work
           </p>
           <h2 className="font-headline text-h3 font-bold">
@@ -637,7 +637,7 @@ export default function PammProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-electric-indigo tracking-widest uppercase mb-4">
+          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
             Capabilities
           </p>
           <h2 className="font-headline text-h3 font-bold">
@@ -656,12 +656,12 @@ export default function PammProject() {
             <m.div
               key={tool.name}
               variants={staggerItem}
-              className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-electric-indigo/20 hover:bg-electric-indigo/[0.03] transition-all duration-500"
+              className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-terracotta/20 hover:bg-terracotta/[0.03] transition-all duration-500"
             >
-              <h3 className="font-headline text-lg font-bold text-pure-white mb-2 group-hover:text-electric-indigo transition-colors duration-300">
+              <h3 className="font-headline text-lg font-bold text-pure-white mb-2 group-hover:text-terracotta transition-colors duration-300">
                 {tool.name}
               </h3>
-              <p className="font-body text-sm text-cool-gray leading-relaxed">
+              <p className="font-body text-sm text-clay-gray leading-relaxed">
                 {tool.description}
               </p>
             </m.div>
@@ -687,7 +687,7 @@ export default function PammProject() {
             Have a brand worth{" "}
             <span className="text-white">showing off</span>?
           </h2>
-          <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed mb-10">
+          <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s build a creative system that frames your work, reaches
             your city, and still feels like you across every screen and street.
           </p>

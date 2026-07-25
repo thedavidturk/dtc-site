@@ -24,19 +24,19 @@ const moreArticles = [
     title: "Native Audio Changes Everything: The Year AI Learned to Score Its Own Footage",
     category: "AI + PRODUCTION",
     href: "/insights/ai-native-audio",
-    gradient: "from-cyan-500/30 via-teal-900/50 to-deep-space",
+    gradient: "from-cyan-500/30 via-teal-900/50 to-espresso",
   },
   {
     title: "From 13 Days to 27 Minutes: Rebuilding the Content Pipeline Around AI Video",
     category: "PRODUCTION STRATEGY",
     href: "/insights/ai-content-pipeline",
-    gradient: "from-amber-500/30 via-orange-900/50 to-deep-space",
+    gradient: "from-amber-500/30 via-orange-900/50 to-espresso",
   },
 ];
 
 export default function AiVideoStackArticle() {
   return (
-    <main className="relative min-h-screen bg-deep-space text-white overflow-hidden">
+    <main className="relative min-h-screen bg-espresso text-white overflow-hidden">
       <ArticleJsonLd
         title="After Sora: Why the Best Brand Video Now Comes From a Stack, Not a Single Tool"
         description="OpenAI shut Sora down in March 2026. The studios making the best brand video now run a stack of tools, not a single one. Here is how we orchestrate it."

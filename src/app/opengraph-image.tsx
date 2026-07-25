@@ -41,7 +41,7 @@ export default async function OgImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          backgroundColor: "#0B0F19",
+          backgroundColor: "#171009",
           position: "relative",
           overflow: "hidden",
           fontFamily: "sans-serif",
@@ -55,7 +55,7 @@ export default async function OgImage() {
             left: 0,
             right: 0,
             height: 8,
-            background: "linear-gradient(to right, #6366F1, #F97316)",
+            background: "linear-gradient(to right, #D96C47, #E9B368)",
           }}
         />
 
@@ -69,7 +69,7 @@ export default async function OgImage() {
             height: 620,
             borderRadius: "50%",
             background:
-              "radial-gradient(circle, rgba(99,102,241,0.22) 0%, transparent 70%)",
+              "radial-gradient(circle, rgba(217,108,71,0.22) 0%, transparent 70%)",
           }}
         />
         <div
@@ -81,7 +81,7 @@ export default async function OgImage() {
             height: 560,
             borderRadius: "50%",
             background:
-              "radial-gradient(circle, rgba(249,115,22,0.16) 0%, transparent 70%)",
+              "radial-gradient(circle, rgba(233,179,104,0.16) 0%, transparent 70%)",
           }}
         />
 
@@ -109,7 +109,7 @@ export default async function OgImage() {
             style={{
               display: "flex",
               fontSize: 18,
-              color: "#94A3B8",
+              color: "#B5A99A",
               letterSpacing: "0.28em",
               textTransform: "uppercase",
             }}
@@ -146,7 +146,7 @@ export default async function OgImage() {
               lineHeight: 1.04,
               letterSpacing: "-0.02em",
               marginTop: 4,
-              background: "linear-gradient(to right, #818CF8, #F97316)",
+              background: "linear-gradient(to right, #E28E6A, #E9B368)",
               backgroundClip: "text",
               color: "transparent",
             }}
@@ -157,7 +157,7 @@ export default async function OgImage() {
             style={{
               display: "flex",
               fontSize: 24,
-              color: "#94A3B8",
+              color: "#B5A99A",
               marginTop: 22,
             }}
           >

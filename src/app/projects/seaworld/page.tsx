@@ -153,7 +153,7 @@ const tools = [
 
 export default function SeaWorldProject() {
   return (
-    <article className="bg-deep-space min-h-screen">
+    <article className="bg-espresso min-h-screen">
       {/* ── Back Link ─────────────────────────────────────────────── */}
       <m.div
         initial={{ opacity: 0, x: -20 }}
@@ -163,7 +163,7 @@ export default function SeaWorldProject() {
       >
         <Link
           href="/#projects"
-          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-cool-gray hover:text-pure-white transition-colors duration-300"
+          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-clay-gray hover:text-pure-white transition-colors duration-300"
         >
           <svg
             className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
@@ -203,7 +203,7 @@ export default function SeaWorldProject() {
         </Lazy3D>
 
         {/* Radial fade at bottom */}
-        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-deep-space via-deep-space/40 to-transparent" />
+        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-espresso via-espresso/40 to-transparent" />
 
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
           <m.div
@@ -281,7 +281,7 @@ export default function SeaWorldProject() {
                 <p className="font-mono text-xs tracking-widest uppercase text-cyan-400 mb-2">
                   Industry
                 </p>
-                <p className="font-body text-cool-gray">
+                <p className="font-body text-clay-gray">
                   {overview.industry}
                 </p>
               </div>
@@ -289,7 +289,7 @@ export default function SeaWorldProject() {
                 <p className="font-mono text-xs tracking-widest uppercase text-cyan-400 mb-2">
                   Timeline
                 </p>
-                <p className="font-body text-cool-gray">
+                <p className="font-body text-clay-gray">
                   {overview.timeline}
                 </p>
               </div>
@@ -301,7 +301,7 @@ export default function SeaWorldProject() {
                   {overview.services.map((service) => (
                     <li
                       key={service}
-                      className="flex items-center gap-3 font-body text-sm text-cool-gray"
+                      className="flex items-center gap-3 font-body text-sm text-clay-gray"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 flex-shrink-0" />
                       {service}
@@ -327,7 +327,7 @@ export default function SeaWorldProject() {
               Generating massive excitement{" "}
               <span className="gradient-text">in 30 days flat</span>
             </h2>
-            <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
+            <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
               <p>
                 United Parks needed a cinematic teaser trailer and hero visuals
                 for their new dark ride attraction, SEAQuest. The goal: generate
@@ -382,7 +382,7 @@ export default function SeaWorldProject() {
             An immersive underwater world{" "}
             <span className="text-white">ready for every screen</span>
           </h2>
-          <div className="font-body text-cool-gray text-base md:text-lg leading-relaxed space-y-6">
+          <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
             <p>
               We created a full UE5 virtual environment (coral reefs, ancient
               shipwrecks, bioluminescent deep-sea zones) and used it as the
@@ -807,7 +807,7 @@ export default function SeaWorldProject() {
             {results.slice(1).map((result) => (
               <li
                 key={result}
-                className="font-body text-cool-gray text-base md:text-lg leading-relaxed"
+                className="font-body text-clay-gray text-base md:text-lg leading-relaxed"
               >
                 {result}
               </li>
@@ -854,7 +854,7 @@ export default function SeaWorldProject() {
               <h3 className="font-headline text-lg font-bold text-pure-white mb-2 group-hover:text-cyan-400 transition-colors duration-300">
                 {tool.name}
               </h3>
-              <p className="font-body text-sm text-cool-gray leading-relaxed">
+              <p className="font-body text-sm text-clay-gray leading-relaxed">
                 {tool.description}
               </p>
             </m.div>
@@ -880,7 +880,7 @@ export default function SeaWorldProject() {
             Ready to make a{" "}
             <span className="text-white">splash</span>?
           </h2>
-          <p className="font-body text-cool-gray text-base md:text-lg leading-relaxed mb-10">
+          <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s build your next campaign with speed, scale, and
             cinematic impact that stops the scroll.
           </p>

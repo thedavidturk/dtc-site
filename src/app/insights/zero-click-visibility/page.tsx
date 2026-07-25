@@ -24,19 +24,19 @@ const moreArticles = [
     title: "The Authenticity Premium: Winning Trust When 57% of People Fear Fake AI Ads",
     category: "BRAND + TRUST",
     href: "/insights/ai-authenticity-premium",
-    gradient: "from-rose-500/30 via-pink-900/50 to-deep-space",
+    gradient: "from-rose-500/30 via-pink-900/50 to-espresso",
   },
   {
     title: "After Sora: Why the Best Brand Video Now Comes From a Stack, Not a Single Tool",
     category: "AI + VIDEO",
     href: "/insights/ai-video-stack",
-    gradient: "from-indigo-500/30 via-blue-900/50 to-deep-space",
+    gradient: "from-indigo-500/30 via-blue-900/50 to-espresso",
   },
 ];
 
 export default function ZeroClickVisibilityArticle() {
   return (
-    <main className="relative min-h-screen bg-deep-space text-white overflow-hidden">
+    <main className="relative min-h-screen bg-espresso text-white overflow-hidden">
       <ArticleJsonLd
         title="Zero-Click Is Here: How Brands Get Found When Nobody Visits Your Website"
         description="Discovery has moved from ranking on Google to being the source an AI cites. Here is how brands stay found in a zero-click world."
