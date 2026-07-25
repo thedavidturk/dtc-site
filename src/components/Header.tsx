@@ -30,8 +30,8 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-ink/[0.06] shadow-[inset_0_1px_0_0_rgba(30,36,51,0.06)] ${
         scrolled
-          ? "bg-ink/[0.06] backdrop-blur-2xl backdrop-saturate-[1.8]"
-          : "bg-ink/[0.03] backdrop-blur-xl backdrop-saturate-[1.8]"
+          ? "bg-sand/80 backdrop-blur-2xl backdrop-saturate-[1.8]"
+          : "bg-sand/60 backdrop-blur-xl backdrop-saturate-[1.8]"
       }`}
     >
       <div className="section-container flex items-center justify-between h-16 md:h-20">
@@ -100,7 +100,7 @@ export default function Header() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden overflow-hidden bg-ink/[0.04] backdrop-blur-2xl backdrop-saturate-[1.8] border-b border-ink/[0.06]"
+            className="lg:hidden overflow-hidden bg-sand/90 backdrop-blur-2xl backdrop-saturate-[1.8] border-b border-ink/[0.06]"
           >
             <div className="section-container py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
