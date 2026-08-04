@@ -212,7 +212,7 @@ export default function PammProject() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-h1 font-light mb-4"
+            className="font-display text-h1 font-normal mb-4"
           >
             PÉREZ ART MUSEUM MIAMI
           </m.h1>

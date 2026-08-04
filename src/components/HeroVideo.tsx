@@ -144,8 +144,8 @@ export default function HeroVideo() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-espresso overflow-hidden"
-      style={{ backgroundColor: "#fffef7" }}
+      className="relative bg-warm-ink overflow-hidden"
+      style={{ backgroundColor: "#2a2722" }}
     >
       <div className="section-container relative z-10 py-16 md:py-24">
         {/* Section label */}
@@ -156,15 +156,15 @@ export default function HeroVideo() {
           viewport={{ once: true, margin: "-80px" }}
           className="text-left mb-10 md:mb-14"
         >
-          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
+          <p className="text-caption uppercase tracking-[0.08em] text-bone-white/60 mb-4">
             Agency Reel
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-light text-pure-white tracking-tight">
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal text-bone-white">
             <TextReveal text="See the work" as="span" className="block" />
             <TextReveal
               text="in motion"
               as="span"
-              className="block text-pure-white"
+              className="block italic"
               delay={0.2}
             />
           </h2>
@@ -182,12 +182,9 @@ export default function HeroVideo() {
             viewport={{ once: true, margin: "-60px" }}
             className="relative group"
           >
-            {/* Outer glow ring */}
-            <div className="absolute -inset-px rounded-none bg-gradient-to-br from-terracotta/20 via-transparent to-sun-gold/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-sm" />
-
             {/* Main video frame */}
             <div
-              className="video-container relative aspect-video rounded-none overflow-hidden border border-black/[0.08] bg-black   cursor-pointer"
+              className="video-container relative aspect-video rounded-none overflow-hidden border border-bone-white/15 bg-black   cursor-pointer"
               onMouseMove={resetHideTimer}
               onMouseLeave={() => isPlaying && setShowControls(false)}
             >

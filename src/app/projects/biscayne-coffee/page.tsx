@@ -218,7 +218,7 @@ export default function BiscayneCoffeeProject() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-h1 font-light mb-4"
+            className="font-display text-h1 font-normal mb-4"
           >
             BISCAYNE COFFEE
           </m.h1>
@@ -660,7 +660,7 @@ export default function BiscayneCoffeeProject() {
           viewport={{ once: true, margin: "-60px" }}
           className="max-w-4xl"
         >
-          <p className="font-display text-h2 font-light text-pure-white mb-10">
+          <p className="font-display text-h2 font-normal text-pure-white mb-10">
             {results[0]}
           </p>
 

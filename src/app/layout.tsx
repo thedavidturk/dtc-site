@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Fraunces, Antonio } from "next/font/google";
 import dynamic from "next/dynamic";
 import Script from "next/script";
 import { ViewTransitions } from "next-view-transitions";
@@ -32,6 +33,26 @@ const switzer = localFont({
     { path: "../fonts/Switzer-Regular.woff2", weight: "400", style: "normal" },
   ],
   variable: "--font-switzer",
+  display: "swap",
+});
+
+// Editorial display serif (Louize Display substitute): roman + italic
+// mixed inside broadside headlines. Optical sizing keeps the large
+// cuts high-contrast.
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  axes: ["opsz"],
+  variable: "--font-fraunces",
+  display: "swap",
+});
+
+// Ultra-condensed stamp face (Manuka substitute) for edge-to-edge
+// section mastheads. One weight, always uppercase.
+const antonio = Antonio({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-antonio",
   display: "swap",
 });
 
@@ -92,7 +113,8 @@ export default function RootLayout({
           }}
         />
         {/* Critical CSS - prevents flash before Tailwind loads */}
-        <style dangerouslySetInnerHTML={{ __html: `html,body,main,section,footer{background-color:#fffef7!important}` }} />
+        {/* Sections are excluded so full-bleed ink bands can invert */}
+        <style dangerouslySetInnerHTML={{ __html: `html,body,main,footer{background-color:#fffef7!important}` }} />
         {/* Google Analytics */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
@@ -108,7 +130,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body
-        className={`${switzer.variable} font-body antialiased bg-bone-white text-ink-black`}
+        className={`${switzer.variable} ${fraunces.variable} ${antonio.variable} font-body antialiased bg-bone-white text-ink-black`}
         style={{ backgroundColor: "#fffef7" }}
       >
         <MotionProvider>

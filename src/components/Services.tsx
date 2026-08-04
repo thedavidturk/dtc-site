@@ -194,7 +194,7 @@ export default function Services() {
           <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
             Capabilities
           </p>
-          <h2 className="font-display text-h2 font-light text-pure-white">
+          <h2 className="font-display text-h2 font-normal text-pure-white">
             <TextReveal
               text="What we do"
               as="span"

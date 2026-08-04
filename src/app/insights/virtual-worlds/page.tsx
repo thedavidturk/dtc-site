@@ -127,7 +127,7 @@ export default function VirtualWorldsArticle() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-h1 font-light mb-4 max-w-4xl"
+            className="font-display text-h1 font-normal mb-4 max-w-4xl"
           >
             AI Video Generation Is Replacing Traditional Production Pipelines
           </m.h1>

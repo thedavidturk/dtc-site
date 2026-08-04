@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import { m, AnimatePresence } from "framer-motion";
+import SectionMasthead from "./SectionMasthead";
 
 const projectTypes = [
   "Virtual Cinematic",
@@ -194,6 +195,9 @@ export default function Contact() {
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] opacity-[0.03] hidden bg-[radial-gradient(circle,#03624c,transparent_60%)]" />
       <div className="absolute top-0 right-0 w-[400px] h-[400px] opacity-[0.03] hidden bg-[radial-gradient(circle,#8a0467,transparent_60%)]" />
 
+      {/* Stamped masthead - the closing bookend */}
+      <SectionMasthead text="Get In Touch" className="mb-4 md:mb-6" />
+
       <m.div
         className="section-container relative z-10"
         variants={sectionVariants}
@@ -202,14 +206,9 @@ export default function Contact() {
         viewport={{ once: true, margin: "-100px" }}
       >
         {/* Section header */}
-        <m.div className="text-left mb-12 md:mb-16" variants={headingVariants}>
-          <span className="text-caption tracking-[0.08em] text-graphite uppercase mb-4 block">
-            Get In Touch
-          </span>
-          <h2 className="font-display text-h2 font-light text-pure-white">
-            Let&apos;s build
-            <br />
-            <span className="text-pure-white">what&apos;s next</span>
+        <m.div className="text-left mb-12 md:mb-16 border-t border-warm-ink pt-4" variants={headingVariants}>
+          <h2 className="font-serif text-h3 font-normal text-ink-black">
+            Let&apos;s build <span className="italic">what&apos;s next</span>
           </h2>
           <p className="font-body text-clay-gray text-lg mt-4 max-w-2xl leading-relaxed">
             Have a project in mind? Tell us what you&apos;re building and we&apos;ll show you how we&apos;d execute it.

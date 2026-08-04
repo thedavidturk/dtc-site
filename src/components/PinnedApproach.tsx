@@ -134,7 +134,7 @@ function StepLayer({ step, index, count, progress }: StepLayerProps) {
         className="col-span-5 flex items-center gap-6"
       >
         <span className="h-16 w-px shrink-0 bg-terracotta" />
-        <span className="font-display text-display font-light text-pure-white/90 select-none">
+        <span className="font-display text-display font-normal text-pure-white/90 select-none">
           {pad2(index + 1)}
         </span>
       </m.div>

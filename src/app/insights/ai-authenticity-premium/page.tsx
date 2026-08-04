@@ -78,7 +78,7 @@ export default function AiAuthenticityPremiumArticle() {
             </m.div>
             <m.h1
               variants={staggerItem}
-              className="font-display text-h1 font-light"
+              className="font-display text-h1 font-normal"
             >
               The Authenticity Premium: Winning Trust When 57% of People Fear Fake AI Ads
             </m.h1>

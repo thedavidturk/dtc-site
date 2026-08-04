@@ -152,7 +152,7 @@ export default function InsightsIndexPage() {
         </m.span>
         <m.h1
           variants={heroVariants}
-          className="font-display text-h1 font-light text-pure-white"
+          className="font-display text-h1 font-normal text-pure-white"
         >
           Perspectives
         </m.h1>

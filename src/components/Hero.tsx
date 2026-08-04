@@ -1,8 +1,15 @@
 "use client";
 
+import { useRef } from "react";
 import Image from "next/image";
-import { m } from "framer-motion";
+import {
+  m,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import WorkMarquee from "./WorkMarquee";
+import LineReveal from "./LineReveal";
 import useAutoplayInView from "./useAutoplayInView";
 
 /* ------------------------------------------------------------------ */
@@ -242,9 +249,34 @@ const item = {
 /*  Hero - oversized poster headline over a full-bleed work band       */
 /* ------------------------------------------------------------------ */
 
-export default function Hero() {
+/* Hover-reactive headline word: lifts off the baseline and takes the
+   chromatic hit. Transform + color only, so neighbors never reflow. */
+function HeadlineWord({ children }: { children: React.ReactNode }) {
   return (
-    <section className="relative overflow-hidden bg-bone-white pt-28 md:pt-36">
+    <span className="inline-block cursor-default transition-[transform,color] duration-300 ease-out hover:-translate-y-[0.06em] hover:text-magenta-bloom">
+      {children}
+    </span>
+  );
+}
+
+export default function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const prefersReducedMotion = useReducedMotion();
+
+  // As the hero scrolls away, the two headline lines shear apart
+  // horizontally like a broadsheet being folded.
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const line1X = useTransform(scrollYProgress, [0, 1], ["0vw", "-6vw"]);
+  const line2X = useTransform(scrollYProgress, [0, 1], ["0vw", "5vw"]);
+
+  return (
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden bg-bone-white pt-28 md:pt-36"
+    >
       {/* ---------------------------- Poster block ---------------------------- */}
       <m.div
         variants={container}
@@ -260,14 +292,32 @@ export default function Hero() {
           DT+C // AI-Native Creative Studio
         </m.p>
 
-        {/* Poster headline - two lines, weight 300, one chromatic hit */}
-        <h1 className="font-display font-light text-display text-ink-black">
-          <m.span variants={item} className="block">
-            Content that moves
+        {/* Broadside headline - serif roman with an italic interjection,
+            each line rising from its own mask, shearing on scroll,
+            words reacting on hover. One chromatic hit. */}
+        <h1 className="font-serif font-normal text-display-serif text-ink-black">
+          <m.span
+            className="block"
+            style={{ x: prefersReducedMotion ? 0 : line1X }}
+          >
+            <LineReveal delay={0.15}>
+              <HeadlineWord>Content</HeadlineWord>{" "}
+              <HeadlineWord>that</HeadlineWord>{" "}
+              <HeadlineWord>moves</HeadlineWord>
+            </LineReveal>
           </m.span>
-          <m.span variants={item} className="block">
-            at the speed of{" "}
-            <span className="text-magenta-bloom">culture.</span>
+          <m.span
+            className="block"
+            style={{ x: prefersReducedMotion ? 0 : line2X }}
+          >
+            <LineReveal delay={0.3}>
+              <span className="italic text-[0.42em] leading-none text-sepia align-[0.08em] mr-3 md:mr-4">
+                at the speed of
+              </span>
+              <span className="inline-block cursor-default italic text-magenta-bloom transition-transform duration-300 ease-out hover:-translate-y-[0.06em] hover:-skew-x-3">
+                culture.
+              </span>
+            </LineReveal>
           </m.span>
         </h1>
 
@@ -321,33 +371,45 @@ export default function Hero() {
         <WorkBand tiles={work} />
       </m.div>
 
-      {/* Client strip */}
-      <div className="section-container">
-        <m.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex flex-wrap items-baseline gap-x-8 gap-y-2 py-8"
-        >
-          <span className="text-[10px] font-normal uppercase tracking-[0.2em] text-graphite">
-            Trusted by
-          </span>
-          {[
-            "New Era Cap",
-            "United Parks",
-            "Ford Motors",
-            "Betterfly",
-            "Barry's",
-          ].map((name) => (
-            <span key={name} className="text-sm font-normal text-ink-black">
-              {name}
-            </span>
+      {/* Brand ticker - full-bleed ink band, serif wordmarks on cream */}
+      <m.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
+        className="overflow-hidden bg-warm-ink py-5 md:py-6"
+      >
+        <div className="hero-marquee-left flex w-max items-center">
+          {[0, 1].map((copy) => (
+            <div key={copy} className="flex items-center" aria-hidden={copy === 1}>
+              {[
+                "New Era Cap",
+                "United Parks",
+                "Ford Motors",
+                "Betterfly",
+                "Barry's",
+                "Faena",
+                "SeaWorld",
+                "Miami Dolphins",
+                "Brugal Rum",
+                "Perez Art Museum Miami",
+              ].map((name, i) => (
+                <span key={name} className="flex items-center">
+                  <span className="whitespace-nowrap font-serif text-xl md:text-2xl text-bone-white">
+                    {name}
+                  </span>
+                  {i % 3 === 2 ? (
+                    <span className="mx-8 whitespace-nowrap rounded-pill border border-bone-white/40 px-2.5 py-0.5 text-[10px] font-normal uppercase tracking-[0.14em] text-bone-white/70">
+                      Trusted by DT+C
+                    </span>
+                  ) : (
+                    <span className="mx-8 h-1 w-1 rounded-full bg-bone-white/30" />
+                  )}
+                </span>
+              ))}
+            </div>
           ))}
-          <span className="text-sm font-normal text-graphite">
-            &amp; more
-          </span>
-        </m.div>
-      </div>
+        </div>
+      </m.div>
     </section>
   );
 }

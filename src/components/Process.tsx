@@ -161,7 +161,7 @@ export default function Process() {
           <TextReveal
             text="How we partner"
             as="h2"
-            className="font-display text-h2 font-light text-pure-white"
+            className="font-display text-h2 font-normal text-pure-white"
           />
         </m.div>
 

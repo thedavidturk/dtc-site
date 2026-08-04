@@ -5,6 +5,7 @@ import Image from "next/image";
 import { m } from "framer-motion";
 import WorkFrame from "./WorkFrame";
 import TextReveal from "./TextReveal";
+import SectionMasthead from "./SectionMasthead";
 import AutoplayVideo from "./AutoplayVideo";
 
 interface Project {
@@ -258,22 +259,30 @@ const accentSurface: Record<number, string> = {
 export default function FeaturedProjects() {
   return (
     <section id="projects" className="bg-bone-white section-padding relative overflow-hidden">
+      {/* Stamped masthead - edge-to-edge broadside slab */}
+      <SectionMasthead text="Selected Work" className="mb-4 md:mb-6" />
+
       <div className="section-container relative z-10">
-        {/* Section title block - eyebrow + statement, whitespace only */}
+        {/* Statement sub-line under the stamp */}
         <m.div
           variants={headingVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="mb-12 md:mb-16"
+          className="mb-12 md:mb-16 flex items-baseline justify-between gap-8 border-t border-warm-ink pt-4"
         >
-          <p className="text-caption font-normal uppercase tracking-[0.08em] text-graphite mb-6">
-            Selected Work
-          </p>
-          <h2 className="font-display text-h2 font-light text-ink-black">
-            <TextReveal text="Work that pushes" as="span" className="block" />
-            <TextReveal text="boundaries" as="span" className="block" delay={0.2} />
+          <h2 className="font-serif text-h3 font-normal text-ink-black">
+            <TextReveal text="Work that pushes" as="span" className="inline" />{" "}
+            <TextReveal
+              text="boundaries"
+              as="span"
+              className="inline italic"
+              delay={0.2}
+            />
           </h2>
+          <p className="hidden md:block text-caption font-normal uppercase tracking-[0.08em] text-graphite whitespace-nowrap">
+            16 Projects
+          </p>
         </m.div>
 
         {/* Project grid - sharp corners, text below the image */}

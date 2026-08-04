@@ -67,7 +67,7 @@ export default function AiVideoStackArticle() {
             </m.div>
             <m.h1
               variants={staggerItem}
-              className="font-display text-h1 font-light mb-6"
+              className="font-display text-h1 font-normal mb-6"
             >
               After Sora: Why the Best Brand Video Now Comes From a Stack, Not a Single Tool
             </m.h1>

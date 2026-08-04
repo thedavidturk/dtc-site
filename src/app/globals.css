@@ -65,9 +65,9 @@ main > div > div {
   background-color: #fffef7;
 }
 
-/* Headlines never bold - the 300 weight is the brand */
+/* Headlines never bold - serif display sits at 400, never heavier */
 h1, h2, h3 {
-  font-weight: 300;
+  font-weight: 400;
 }
 
 ::selection {

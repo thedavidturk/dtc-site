@@ -68,7 +68,7 @@ export default function ZeroClickVisibilityArticle() {
             </m.div>
             <m.h1
               variants={staggerItem}
-              className="font-display text-h1 font-light mb-6"
+              className="font-display text-h1 font-normal mb-6"
             >
               Zero-Click Is Here: How Brands Get Found When Nobody Visits Your Website
             </m.h1>

@@ -6,6 +6,7 @@ import { m } from "framer-motion";
 import dynamic from "next/dynamic";
 import Lazy3D from "./Lazy3D";
 import WorkFrame from "./WorkFrame";
+import SectionMasthead from "./SectionMasthead";
 
 // ---------------------------------------------------------------------------
 // Dynamic imports for Three.js cover scenes (SSR disabled)
@@ -229,14 +230,11 @@ export default function Insights() {
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
       >
+        {/* Stamped masthead */}
+        <SectionMasthead text="Perspectives" className="mb-4 md:mb-6" />
+
         {/* Section header */}
-        <m.div className="section-container text-left mb-12 md:mb-16" variants={headingVariants}>
-          <span className="text-caption tracking-[0.08em] text-graphite uppercase mb-4 block">
-            Insights
-          </span>
-          <h2 className="font-display text-h2 font-light text-pure-white">
-            Perspectives
-          </h2>
+        <m.div className="section-container text-left mb-12 md:mb-16 border-t border-warm-ink pt-4" variants={headingVariants}>
           {liveDate && (
             <div className="flex items-center gap-3 mt-4">
               <div className="w-2 h-2 rounded-full bg-forest-teal animate-pulse" />

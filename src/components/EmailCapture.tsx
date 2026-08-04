@@ -121,7 +121,7 @@ export default function EmailCapture() {
           <span className="text-caption tracking-[0.08em] text-graphite uppercase mb-4 block">
             Stay in the Loop
           </span>
-          <h2 className="font-display text-h3 font-light text-pure-white">
+          <h2 className="font-display text-h3 font-normal text-pure-white">
             Get Monthly AI Creative{" "}
             <span className="text-pure-white">Insights</span>
           </h2>
