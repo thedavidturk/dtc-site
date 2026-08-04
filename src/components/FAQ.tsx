@@ -63,7 +63,7 @@ function FAQItem({
   onToggle: () => void;
 }) {
   return (
-    <div className="border-b border-white/10">
+    <div className="border-b border-black/10">
       <button
         onClick={onToggle}
         className="flex w-full items-center justify-between py-6 text-left cursor-pointer"
@@ -111,7 +111,7 @@ export default function FAQ() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-left mb-12"
         >
           <h2 className="font-display text-h2 text-pure-white mb-4">
             Frequently Asked Questions
@@ -125,7 +125,7 @@ export default function FAQ() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="border-t border-white/10"
+          className="border-t border-black/10"
         >
           {faqItems.map((item, index) => (
             <FAQItem

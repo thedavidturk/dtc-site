@@ -106,7 +106,7 @@ export default function ValuePropositions() {
     <section
       id="value-propositions"
       className="relative bg-espresso py-16 md:py-20 lg:py-24 overflow-hidden"
-      style={{ backgroundColor: "#1A120D" }}
+      style={{ backgroundColor: "#fffef7" }}
     >
       {/* Subtle background accent */}
       <div className="absolute inset-0 pointer-events-none">
@@ -114,7 +114,7 @@ export default function ValuePropositions() {
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] opacity-[0.03]"
           style={{
             background:
-              "radial-gradient(ellipse at center, #D96C47 0%, transparent 70%)",
+              "radial-gradient(ellipse at center, #8a0467 0%, transparent 70%)",
           }}
         />
       </div>
@@ -137,12 +137,12 @@ export default function ValuePropositions() {
           <TextReveal
             text="The future of creative production"
             as="h2"
-            className="font-display font-bold text-h2 text-pure-white"
+            className="font-display font-light text-h2 text-pure-white"
           />
           <TextReveal
             text="is here"
             as="span"
-            className="font-display font-bold text-h2 text-pure-white block"
+            className="font-display font-light text-h2 text-pure-white block"
             delay={0.2}
           />
         </m.div>
@@ -159,19 +159,19 @@ export default function ValuePropositions() {
               variants={cardVariants}
             >
               <m.div
-                className="group relative h-full rounded-2xl border border-white/5 bg-white/[0.02] p-8 lg:p-10 transition-colors duration-500"
+                className="group relative h-full rounded-none border border-black/5 bg-black/[0.02] p-8 lg:p-10 transition-colors duration-500"
                 whileHover={{
-                  borderColor: "rgba(217,108,71, 0.3)",
+                  borderColor: "rgba(138,4,103, 0.3)",
                   scale: 1.02,
                   transition: { duration: 0.3, ease: "easeOut" },
                 }}
               >
                 {/* Card hover glow */}
                 <div
-                  className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                  className="absolute inset-0 rounded-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                   style={{
                     background:
-                      "radial-gradient(ellipse at 50% 0%, rgba(217,108,71, 0.08) 0%, transparent 70%)",
+                      "radial-gradient(ellipse at 50% 0%, rgba(138,4,103, 0.08) 0%, transparent 70%)",
                   }}
                 />
 
@@ -181,7 +181,7 @@ export default function ValuePropositions() {
                 </div>
 
                 {/* Title */}
-                <h3 className="relative font-headline font-bold text-sm md:text-base tracking-[0.15em] text-pure-white mb-4">
+                <h3 className="relative font-headline font-light text-sm md:text-base tracking-[0.15em] text-pure-white mb-4">
                   {pillar.title}
                 </h3>
 

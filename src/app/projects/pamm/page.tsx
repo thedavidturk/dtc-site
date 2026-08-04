@@ -203,7 +203,7 @@ export default function PammProject() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
+            <span className="inline-block font-mono text-xs tracking-widest uppercase text-bone-white/70 mb-4 px-3 py-1.5 rounded-full border border-black/10 backdrop-blur-sm bg-black/5">
               Cultural Branding + Content
             </span>
           </m.div>
@@ -212,7 +212,7 @@ export default function PammProject() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-h1 font-bold mb-4"
+            className="font-display text-h1 font-light mb-4"
           >
             PÉREZ ART MUSEUM MIAMI
           </m.h1>
@@ -221,7 +221,7 @@ export default function PammProject() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-2xl md:text-3xl lg:text-4xl font-medium text-white/80 tracking-tight"
+            className="font-headline text-2xl md:text-3xl lg:text-4xl font-normal text-bone-white/80 tracking-tight"
           >
             A Museum That Feels Like Miami
           </m.p>
@@ -264,7 +264,7 @@ export default function PammProject() {
                 <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
                   Client
                 </p>
-                <p className="font-headline text-lg font-semibold text-pure-white">
+                <p className="font-headline text-lg font-light text-pure-white">
                   {overview.client}
                 </p>
               </div>
@@ -307,10 +307,10 @@ export default function PammProject() {
             viewport={{ once: true, margin: "-80px" }}
             className="lg:col-span-8"
           >
-            <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
+            <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
               The Challenge
             </p>
-            <h2 className="font-headline text-h3 font-bold mb-8">
+            <h2 className="font-headline text-h3 font-light mb-8">
               Make a world-class museum feel{" "}
               <span className="gradient-text">like it belongs to Miami</span>
             </h2>
@@ -337,7 +337,7 @@ export default function PammProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── Identity Feature ──────────────────────────────────────── */}
@@ -351,7 +351,7 @@ export default function PammProject() {
           <WorkFrame
             client={overview.client}
             discipline="Brand & Campaign Creative"
-            className="aspect-[16/9] rounded-2xl shadow-2xl shadow-black/30"
+            className="aspect-[16/9] rounded-none  "
           >
             <Image
               src={img.identity}
@@ -367,7 +367,7 @@ export default function PammProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── Our Approach (scroll-scrubbed pinned section) ────────── */}
@@ -382,7 +382,7 @@ export default function PammProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── The Solution ─────────────────────────────────────────── */}
@@ -394,12 +394,12 @@ export default function PammProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="max-w-4xl"
         >
-          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
+          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
             The Solution
           </p>
-          <h2 className="font-headline text-h3 font-bold mb-8">
+          <h2 className="font-headline text-h3 font-light mb-8">
             Let the art lead,{" "}
-            <span className="text-white">let the city in</span>
+            <span className="text-bone-white">let the city in</span>
           </h2>
           <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
             <p>
@@ -424,7 +424,7 @@ export default function PammProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── Gallery ──────────────────────────────────────────────── */}
@@ -436,12 +436,12 @@ export default function PammProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-16"
         >
-          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
+          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
             Selected Work
           </p>
-          <h2 className="font-headline text-h3 font-bold">
+          <h2 className="font-headline text-h3 font-light">
             Identity, campaigns &{" "}
-            <span className="text-white">content</span>
+            <span className="text-bone-white">content</span>
           </h2>
         </m.div>
 
@@ -458,7 +458,7 @@ export default function PammProject() {
               client={overview.client}
               discipline="Art Direction"
               index={1}
-              className="aspect-[16/10] rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-[16/10] rounded-none  "
             >
               <Image
                 src={img.g1}
@@ -476,7 +476,7 @@ export default function PammProject() {
               client={overview.client}
               discipline="Brand & Campaign Creative"
               index={2}
-              className="aspect-[3/4] rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-[3/4] rounded-none  "
             >
               <Image
                 src={img.g6}
@@ -498,7 +498,7 @@ export default function PammProject() {
               client={overview.client}
               discipline="Brand & Campaign Creative"
               index={3}
-              className="aspect-[4/3] rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-[4/3] rounded-none  "
             >
               <Image
                 src={img.g2}
@@ -516,7 +516,7 @@ export default function PammProject() {
               client={overview.client}
               discipline="Content & Social"
               index={4}
-              className="aspect-[16/9] rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-[16/9] rounded-none  "
             >
               <Image
                 src={img.g3}
@@ -535,7 +535,7 @@ export default function PammProject() {
               client={overview.client}
               discipline="Content & Social"
               index={5}
-              className="aspect-square rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-square rounded-none  "
             >
               <Image
                 src={img.g7}
@@ -553,7 +553,7 @@ export default function PammProject() {
               client={overview.client}
               discipline="Content & Social"
               index={6}
-              className="aspect-square rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-square rounded-none  "
             >
               <Image
                 src={img.g8}
@@ -571,7 +571,7 @@ export default function PammProject() {
               client={overview.client}
               discipline="Content & Social"
               index={7}
-              className="aspect-square rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-square rounded-none  "
             >
               <Image
                 src={img.g9}
@@ -590,7 +590,7 @@ export default function PammProject() {
               client={overview.client}
               discipline="Brand & Campaign Creative"
               index={8}
-              className="aspect-[16/10] rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-[16/10] rounded-none  "
             >
               <Image
                 src={img.g4}
@@ -608,7 +608,7 @@ export default function PammProject() {
               client={overview.client}
               discipline="Art Direction"
               index={9}
-              className="aspect-[16/10] rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-[16/10] rounded-none  "
             >
               <Image
                 src={img.g5}
@@ -625,7 +625,7 @@ export default function PammProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── Capabilities ─────────────────────────────────────────── */}
@@ -637,11 +637,11 @@ export default function PammProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
+          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
             Capabilities
           </p>
-          <h2 className="font-headline text-h3 font-bold">
-            The <span className="text-white">creative toolkit</span>
+          <h2 className="font-headline text-h3 font-light">
+            The <span className="text-bone-white">creative toolkit</span>
           </h2>
         </m.div>
 
@@ -656,9 +656,9 @@ export default function PammProject() {
             <m.div
               key={tool.name}
               variants={staggerItem}
-              className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-terracotta/20 hover:bg-terracotta/[0.03] transition-all duration-500"
+              className="group p-6 rounded-none border border-black/5 bg-black/[0.02] hover:border-terracotta/20 hover:bg-terracotta/[0.03] transition-all duration-500"
             >
-              <h3 className="font-headline text-lg font-bold text-pure-white mb-2 group-hover:text-terracotta transition-colors duration-300">
+              <h3 className="font-headline text-lg font-light text-pure-white mb-2 group-hover:text-terracotta transition-colors duration-300">
                 {tool.name}
               </h3>
               <p className="font-body text-sm text-clay-gray leading-relaxed">
@@ -671,7 +671,7 @@ export default function PammProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
@@ -683,9 +683,9 @@ export default function PammProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="text-center max-w-2xl mx-auto"
         >
-          <h2 className="font-headline text-h2 font-bold mb-6">
+          <h2 className="font-headline text-h2 font-light mb-6">
             Have a brand worth{" "}
-            <span className="text-white">showing off</span>?
+            <span className="text-bone-white">showing off</span>?
           </h2>
           <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s build a creative system that frames your work, reaches

@@ -140,7 +140,7 @@ const tools = [
 
 export default function ElSecretoProject() {
   return (
-    <article className="bg-espresso min-h-screen" style={{ backgroundColor: "#1A120D" }}>
+    <article className="bg-espresso min-h-screen" style={{ backgroundColor: "#fffef7" }}>
       {/* ── Back Link ─────────────────────────────────────────────── */}
       <m.div
         initial={{ opacity: 0, x: -20 }}
@@ -172,7 +172,7 @@ export default function ElSecretoProject() {
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-end overflow-hidden">
         {/* Gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-sun-gold via-amber-500 to-red-700" />
+        <div className="absolute inset-0 bg-bone-white" />
 
         {/* Noise overlay */}
         <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIxIi8+PC9zdmc+')]" />
@@ -189,7 +189,7 @@ export default function ElSecretoProject() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
+            <span className="inline-block font-mono text-xs tracking-widest uppercase text-bone-white/70 mb-4 px-3 py-1.5 rounded-full border border-black/10 backdrop-blur-sm bg-black/5">
               Cinematic Video Production
             </span>
           </m.div>
@@ -198,7 +198,7 @@ export default function ElSecretoProject() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-h1 font-bold mb-4"
+            className="font-display text-h1 font-light mb-4"
           >
             EL SECRETO
           </m.h1>
@@ -207,7 +207,7 @@ export default function ElSecretoProject() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-2xl md:text-3xl lg:text-4xl font-medium text-white/80 tracking-tight"
+            className="font-headline text-2xl md:text-3xl lg:text-4xl font-normal text-bone-white/80 tracking-tight"
           >
             Savoring the Unseen
           </m.p>
@@ -236,7 +236,7 @@ export default function ElSecretoProject() {
       />
 
       {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Sidebar */}
           <m.aside
@@ -251,7 +251,7 @@ export default function ElSecretoProject() {
                 <p className="font-mono text-xs tracking-widest uppercase text-sun-gold mb-2">
                   Client
                 </p>
-                <p className="font-headline text-lg font-semibold text-pure-white">
+                <p className="font-headline text-lg font-light text-pure-white">
                   {overview.client}
                 </p>
               </div>
@@ -298,10 +298,10 @@ export default function ElSecretoProject() {
             viewport={{ once: true, margin: "-80px" }}
             className="lg:col-span-8"
           >
-            <p className="font-mono text-sm text-sun-gold tracking-widest uppercase mb-4">
+            <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
               The Challenge
             </p>
-            <h2 className="font-headline text-h3 font-bold mb-8">
+            <h2 className="font-headline text-h3 font-light mb-8">
               Capturing culinary artistry{" "}
               <span className="gradient-text">in a live environment</span>
             </h2>
@@ -328,7 +328,7 @@ export default function ElSecretoProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── Our Approach (scroll-scrubbed pinned section) ────────── */}
@@ -343,11 +343,11 @@ export default function ElSecretoProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── The Solution ─────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -355,12 +355,12 @@ export default function ElSecretoProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="max-w-4xl"
         >
-          <p className="font-mono text-sm text-sun-gold tracking-widest uppercase mb-4">
+          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
             The Solution
           </p>
-          <h2 className="font-headline text-h3 font-bold mb-8">
+          <h2 className="font-headline text-h3 font-light mb-8">
             Documentary soul,{" "}
-            <span className="text-white">cinematic craft</span>
+            <span className="text-bone-white">cinematic craft</span>
           </h2>
           <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
             <p>
@@ -386,11 +386,11 @@ export default function ElSecretoProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── Video ───────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -398,11 +398,11 @@ export default function ElSecretoProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-10"
         >
-          <p className="font-mono text-sm text-sun-gold tracking-widest uppercase mb-4">
+          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
             The Film
           </p>
-          <h2 className="font-headline text-h3 font-bold">
-            Savoring the Unseen: <span className="text-white">Full Episode</span>
+          <h2 className="font-headline text-h3 font-light">
+            Savoring the Unseen: <span className="text-bone-white">Full Episode</span>
           </h2>
         </m.div>
 
@@ -414,10 +414,10 @@ export default function ElSecretoProject() {
           className="relative max-w-5xl mx-auto"
         >
           {/* Ambient glow behind the video */}
-          <div className="absolute -inset-4 md:-inset-8 bg-gradient-to-r from-sun-gold/10 via-amber-500/5 to-red-700/10 rounded-3xl blur-2xl opacity-60 pointer-events-none" />
+          <div className="absolute -inset-4 md:-inset-8 bg-gradient-to-r from-sun-gold/10 via-amber-500/5 to-red-700/10 rounded-none blur-2xl opacity-60 pointer-events-none" />
 
           {/* Video container */}
-          <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/40">
+          <div className="relative rounded-none overflow-hidden border border-black/10  ">
 
             {/* 16:9 aspect ratio wrapper */}
             <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
@@ -444,11 +444,11 @@ export default function ElSecretoProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── Campaign Gallery ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -456,11 +456,11 @@ export default function ElSecretoProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-16"
         >
-          <p className="font-mono text-sm text-sun-gold tracking-widest uppercase mb-4">
+          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
             Campaign Gallery
           </p>
-          <h2 className="font-headline text-h3 font-bold">
-            Savoring <span className="text-white">Every Detail</span>
+          <h2 className="font-headline text-h3 font-light">
+            Savoring <span className="text-bone-white">Every Detail</span>
           </h2>
         </m.div>
 
@@ -477,7 +477,7 @@ export default function ElSecretoProject() {
               client={overview.client}
               discipline="Cinematic Video Production"
               index={1}
-              className="aspect-[21/9] rounded-2xl"
+              className="aspect-[21/9] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/2b30b8bf-b3fd-43fd-b242-1fc4736e6946_rw_3840.png?h=de0ce295ccfda4a8762ce19708703262"
@@ -495,7 +495,7 @@ export default function ElSecretoProject() {
               client={overview.client}
               discipline="Food Cinematography"
               index={2}
-              className="aspect-[16/10] rounded-2xl"
+              className="aspect-[16/10] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/24b244e3-b83b-4b7a-baf5-c6b8b65e4475_rw_3840.png?h=99f746c5ced60dde7de6ce105d8562a5"
@@ -511,7 +511,7 @@ export default function ElSecretoProject() {
               client={overview.client}
               discipline="Documentary-Style Direction"
               index={3}
-              className="aspect-[3/4] rounded-2xl"
+              className="aspect-[3/4] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/30be6f9c-e1f9-47e2-86a9-6e7c05d3461d_rw_3840.png?h=202bc393101a46898c0ebd5c84062caa"
@@ -529,7 +529,7 @@ export default function ElSecretoProject() {
               client={overview.client}
               discipline="Food Cinematography"
               index={4}
-              className="aspect-[4/3] rounded-2xl"
+              className="aspect-[4/3] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/bdd74e73-998e-4882-8a91-8c3ce1487e32_rw_3840.png?h=4a6b1eb3c72cd77ed660dd55224c5899"
@@ -545,7 +545,7 @@ export default function ElSecretoProject() {
               client={overview.client}
               discipline="Food Cinematography"
               index={5}
-              className="aspect-[4/3] rounded-2xl"
+              className="aspect-[4/3] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6b90fc91-2a17-4373-a58a-4dc68aacbfff_rw_3840.png?h=eb8e89cc54173ba379375ea0788697b0"
@@ -561,7 +561,7 @@ export default function ElSecretoProject() {
               client={overview.client}
               discipline="Documentary-Style Direction"
               index={6}
-              className="aspect-[4/3] rounded-2xl"
+              className="aspect-[4/3] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/72f388ff-6ed0-4b8e-8088-1d696ef1bf15_rw_3840.png?h=56fde8ff61d535628929d86d9c1c353e"
@@ -579,7 +579,7 @@ export default function ElSecretoProject() {
               client={overview.client}
               discipline="Documentary-Style Direction"
               index={7}
-              className="aspect-[3/4] rounded-2xl"
+              className="aspect-[3/4] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/fb88a0b8-75ef-49b6-90b8-2c12f7dc6318_rw_3840.png?h=7368e43c6bb7ee0e6895275a50d7f0bf"
@@ -595,7 +595,7 @@ export default function ElSecretoProject() {
               client={overview.client}
               discipline="Cinematic Video Production"
               index={8}
-              className="aspect-[16/10] rounded-2xl"
+              className="aspect-[16/10] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/afb6b9e1-83e4-454f-9101-4d6dfc55a1ed_rw_3840.png?h=3d167587d6ac1952d9ad386620d9459c"
@@ -613,7 +613,7 @@ export default function ElSecretoProject() {
               client={overview.client}
               discipline="Food Cinematography"
               index={9}
-              className="aspect-[4/3] rounded-2xl"
+              className="aspect-[4/3] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/f05ee96a-032f-4dff-9495-61defe3508c4_rw_3840.png?h=c9b6cc64c72f7eb987304990567a9d2b"
@@ -629,7 +629,7 @@ export default function ElSecretoProject() {
               client={overview.client}
               discipline="Food Cinematography"
               index={10}
-              className="aspect-[4/3] rounded-2xl"
+              className="aspect-[4/3] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/684bd88c-a12a-43f0-8c86-42513107abef_rw_3840.png?h=6cc869a96a4b5566dde315e9d9d0cc25"
@@ -645,7 +645,7 @@ export default function ElSecretoProject() {
               client={overview.client}
               discipline="Documentary-Style Direction"
               index={11}
-              className="aspect-[4/3] rounded-2xl"
+              className="aspect-[4/3] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6e5a427f-3801-426f-838a-f97c0467e240_rw_3840.png?h=2a531adc8de1e7c1047d3fac08665657"
@@ -663,7 +663,7 @@ export default function ElSecretoProject() {
               client={overview.client}
               discipline="Cinematic Video Production"
               index={12}
-              className="aspect-[16/9] rounded-2xl"
+              className="aspect-[16/9] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/b07529cf-7338-4033-b7f3-ed2338735f32_rw_3840.png?h=d7969ee36bbfa2b38d252720de936370"
@@ -679,7 +679,7 @@ export default function ElSecretoProject() {
               client={overview.client}
               discipline="Documentary-Style Direction"
               index={13}
-              className="aspect-[3/4] rounded-2xl"
+              className="aspect-[3/4] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/10da8fa1-c7ba-479a-94d7-ffe48c5a98b1_rw_3840.png?h=0ab7636ad107a1b53fd3cda3df1b19d9"
@@ -697,7 +697,7 @@ export default function ElSecretoProject() {
               client={overview.client}
               discipline="Food Cinematography"
               index={14}
-              className="aspect-[4/3] rounded-2xl"
+              className="aspect-[4/3] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/5250cabf-bb36-4d03-8c07-0392c092b569_rw_3840.png?h=e383294d59703110b6434dc6a2fadef7"
@@ -713,7 +713,7 @@ export default function ElSecretoProject() {
               client={overview.client}
               discipline="Food Cinematography"
               index={15}
-              className="aspect-[4/3] rounded-2xl"
+              className="aspect-[4/3] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/2aa570be-ae99-42bd-940b-e71d8e921690_rw_3840.png?h=83ea0ac28d55d1476ef4923c6e0caa70"
@@ -729,7 +729,7 @@ export default function ElSecretoProject() {
               client={overview.client}
               discipline="Documentary-Style Direction"
               index={16}
-              className="aspect-[4/3] rounded-2xl"
+              className="aspect-[4/3] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/f97d5232-2ffd-435a-a5b9-aff188149226_rw_3840.png?h=db99a24a6e8d32a253917d9b386fe2d3"
@@ -747,7 +747,7 @@ export default function ElSecretoProject() {
               client={overview.client}
               discipline="Cinematic Video Production"
               index={17}
-              className="aspect-[16/10] rounded-2xl"
+              className="aspect-[16/10] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/413be7b5-9592-43c1-8aa5-ccd1b202a4e7_rw_3840.png?h=09567a03c34e0ddb4f946ab2437980c5"
@@ -763,7 +763,7 @@ export default function ElSecretoProject() {
               client={overview.client}
               discipline="Post-Production & VFX"
               index={18}
-              className="aspect-[16/10] rounded-2xl"
+              className="aspect-[16/10] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/a803fc78-3105-40fe-9681-ac2082b581bd_rw_3840.png?h=46f1734c03714d3e082846c2daf6c057"
@@ -781,7 +781,7 @@ export default function ElSecretoProject() {
               client={overview.client}
               discipline="4K Delivery"
               index={19}
-              className="aspect-[21/9] rounded-2xl"
+              className="aspect-[21/9] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/8476057e-bafc-4c8d-9ce2-c66a58a59c00_rw_3840.png?h=50d3ee6ea0b7a45dbd5e35bcfb45ee14"
@@ -797,11 +797,11 @@ export default function ElSecretoProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── The Result ───────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -809,12 +809,12 @@ export default function ElSecretoProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-sun-gold tracking-widest uppercase mb-4">
+          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
             The Result
           </p>
-          <h2 className="font-headline text-h3 font-bold">
+          <h2 className="font-headline text-h3 font-light">
             An immersive experience,{" "}
-            <span className="text-white">captured in 4K</span>
+            <span className="text-bone-white">captured in 4K</span>
           </h2>
         </m.div>
 
@@ -826,7 +826,7 @@ export default function ElSecretoProject() {
           viewport={{ once: true, margin: "-60px" }}
           className="max-w-4xl"
         >
-          <p className="font-display text-h2 font-bold text-pure-white mb-10">
+          <p className="font-display text-h2 font-light text-pure-white mb-10">
             {results[0]}
           </p>
 
@@ -847,11 +847,11 @@ export default function ElSecretoProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── Tools & Technology ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -859,11 +859,11 @@ export default function ElSecretoProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-sun-gold tracking-widest uppercase mb-4">
+          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
             Tools & Technology
           </p>
-          <h2 className="font-headline text-h3 font-bold">
-            The <span className="text-white">production stack</span>
+          <h2 className="font-headline text-h3 font-light">
+            The <span className="text-bone-white">production stack</span>
           </h2>
         </m.div>
 
@@ -878,9 +878,9 @@ export default function ElSecretoProject() {
             <m.div
               key={tool.name}
               variants={staggerItem}
-              className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-sun-gold/20 hover:bg-sun-gold/[0.03] transition-all duration-500"
+              className="group p-6 rounded-none border border-black/5 bg-black/[0.02] hover:border-sun-gold/20 hover:bg-sun-gold/[0.03] transition-all duration-500"
             >
-              <h3 className="font-headline text-lg font-bold text-pure-white mb-2 group-hover:text-sun-gold transition-colors duration-300">
+              <h3 className="font-headline text-lg font-light text-pure-white mb-2 group-hover:text-sun-gold transition-colors duration-300">
                 {tool.name}
               </h3>
               <p className="font-body text-sm text-clay-gray leading-relaxed">
@@ -893,11 +893,11 @@ export default function ElSecretoProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -905,9 +905,9 @@ export default function ElSecretoProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="text-center max-w-2xl mx-auto"
         >
-          <h2 className="font-headline text-h2 font-bold mb-6">
+          <h2 className="font-headline text-h2 font-light mb-6">
             Ready to tell{" "}
-            <span className="text-white">your story cinematically</span>?
+            <span className="text-bone-white">your story cinematically</span>?
           </h2>
           <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s create premium video content that captures the soul of

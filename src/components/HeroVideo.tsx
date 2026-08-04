@@ -145,19 +145,8 @@ export default function HeroVideo() {
     <section
       ref={sectionRef}
       className="relative bg-espresso overflow-hidden"
-      style={{ backgroundColor: "#1A120D" }}
+      style={{ backgroundColor: "#fffef7" }}
     >
-      {/* Ambient glow behind video */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div
-          className="w-[80%] h-[60%] opacity-[0.06] blur-[120px]"
-          style={{
-            background:
-              "radial-gradient(ellipse at center, #D96C47 0%, #E9B368 40%, transparent 70%)",
-          }}
-        />
-      </div>
-
       <div className="section-container relative z-10 py-16 md:py-24">
         {/* Section label */}
         <m.div
@@ -165,15 +154,15 @@ export default function HeroVideo() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="text-center mb-10 md:mb-14"
+          className="text-left mb-10 md:mb-14"
         >
-          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
+          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
             Agency Reel
           </p>
-          <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-bold text-pure-white tracking-tight">
-            <TextReveal text="SEE THE WORK" as="span" className="block" />
+          <h2 className="font-headline text-3xl md:text-4xl lg:text-5xl font-light text-pure-white tracking-tight">
+            <TextReveal text="See the work" as="span" className="block" />
             <TextReveal
-              text="IN MOTION"
+              text="in motion"
               as="span"
               className="block text-pure-white"
               delay={0.2}
@@ -194,11 +183,11 @@ export default function HeroVideo() {
             className="relative group"
           >
             {/* Outer glow ring */}
-            <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-terracotta/20 via-transparent to-sun-gold/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-sm" />
+            <div className="absolute -inset-px rounded-none bg-gradient-to-br from-terracotta/20 via-transparent to-sun-gold/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-sm" />
 
             {/* Main video frame */}
             <div
-              className="video-container relative aspect-video rounded-2xl overflow-hidden border border-white/[0.08] bg-black shadow-2xl shadow-black/40 cursor-pointer"
+              className="video-container relative aspect-video rounded-none overflow-hidden border border-black/[0.08] bg-black   cursor-pointer"
               onMouseMove={resetHideTimer}
               onMouseLeave={() => isPlaying && setShowControls(false)}
             >
@@ -258,7 +247,7 @@ export default function HeroVideo() {
                       <div className="absolute inset-0 rounded-full bg-terracotta/20 animate-ping" />
 
                       {/* Button circle */}
-                      <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-white/30 bg-black/40 backdrop-blur-md flex items-center justify-center group-hover/play:border-terracotta/60 group-hover/play:bg-terracotta/10 transition-all duration-500">
+                      <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-black/30 bg-black/40 backdrop-blur-md flex items-center justify-center group-hover/play:border-terracotta/60 group-hover/play:bg-terracotta/10 transition-all duration-500">
                         <svg
                           className="w-8 h-8 md:w-10 md:h-10 text-pure-white ml-1 group-hover/play:scale-110 transition-transform duration-300"
                           fill="currentColor"
@@ -271,7 +260,7 @@ export default function HeroVideo() {
 
                     {/* Bottom caption */}
                     <div className="absolute bottom-6 left-6 pointer-events-none">
-                      <span className="inline-block font-mono text-xs text-white/50 tracking-wider uppercase px-3 py-1 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
+                      <span className="inline-block font-mono text-xs text-bone-white/50 tracking-wider uppercase px-3 py-1 rounded-full border border-black/10 backdrop-blur-sm bg-black/5">
                         DT+C Agency Reel
                       </span>
                     </div>
@@ -295,7 +284,7 @@ export default function HeroVideo() {
                     <div
                       ref={progressRef}
                       onClick={handleProgressClick}
-                      className="group/bar w-full h-1.5 bg-white/10 rounded-full cursor-pointer mb-3 hover:h-2.5 transition-all duration-200"
+                      className="group/bar w-full h-1.5 bg-black/10 rounded-full cursor-pointer mb-3 hover:h-2.5 transition-all duration-200"
                     >
                       {/* Buffered / played */}
                       <div
@@ -303,7 +292,7 @@ export default function HeroVideo() {
                         style={{ width: `${progress}%` }}
                       >
                         {/* Scrub handle */}
-                        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-pure-white shadow-lg shadow-black/30 opacity-0 group-hover/bar:opacity-100 transition-opacity duration-200" />
+                        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-pure-white   opacity-0 group-hover/bar:opacity-100 transition-opacity duration-200" />
                       </div>
                     </div>
 
@@ -345,7 +334,7 @@ export default function HeroVideo() {
                         </button>
 
                         {/* Time */}
-                        <span className="font-mono text-xs text-white/60 tabular-nums">
+                        <span className="font-mono text-xs text-bone-white/60 tabular-nums">
                           {formatTime(currentTime)} / {formatTime(duration)}
                         </span>
                       </div>
@@ -376,7 +365,7 @@ export default function HeroVideo() {
             <div
               className="absolute -bottom-8 left-[10%] right-[10%] h-16 opacity-[0.08] blur-2xl rounded-full"
               style={{
-                background: "linear-gradient(90deg, #D96C47, #E9B368)",
+                background: "linear-gradient(90deg, #8a0467, #03624c)",
               }}
             />
           </m.div>
@@ -385,7 +374,7 @@ export default function HeroVideo() {
 
       {/* Bottom divider */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
     </section>
   );

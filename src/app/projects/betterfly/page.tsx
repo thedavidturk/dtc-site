@@ -141,7 +141,7 @@ const tools = [
 
 export default function BetterflyProject() {
   return (
-    <article className="bg-espresso min-h-screen" style={{ backgroundColor: "#1A120D" }}>
+    <article className="bg-espresso min-h-screen" style={{ backgroundColor: "#fffef7" }}>
       {/* ── Back Link ─────────────────────────────────────────────── */}
       <m.div
         initial={{ opacity: 0, x: -20 }}
@@ -192,7 +192,7 @@ export default function BetterflyProject() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
+            <span className="inline-block font-mono text-xs tracking-widest uppercase text-bone-white/70 mb-4 px-3 py-1.5 rounded-full border border-black/10 backdrop-blur-sm bg-black/5">
               VFX + FOOH Campaign
             </span>
           </m.div>
@@ -201,7 +201,7 @@ export default function BetterflyProject() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-h1 font-bold mb-4"
+            className="font-display text-h1 font-light mb-4"
           >
             BETTERFLY
           </m.h1>
@@ -210,7 +210,7 @@ export default function BetterflyProject() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-2xl md:text-3xl lg:text-4xl font-medium text-white/80 tracking-tight"
+            className="font-headline text-2xl md:text-3xl lg:text-4xl font-normal text-bone-white/80 tracking-tight"
           >
             #RecursosMasHumanos FOOH Campaign
           </m.p>
@@ -239,7 +239,7 @@ export default function BetterflyProject() {
       />
 
       {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Sidebar */}
           <m.aside
@@ -254,7 +254,7 @@ export default function BetterflyProject() {
                 <p className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-2">
                   Client
                 </p>
-                <p className="font-headline text-lg font-semibold text-pure-white">
+                <p className="font-headline text-lg font-light text-pure-white">
                   {overview.client}
                 </p>
               </div>
@@ -304,7 +304,7 @@ export default function BetterflyProject() {
             <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
               The Challenge
             </p>
-            <h2 className="font-headline text-h3 font-bold mb-8">
+            <h2 className="font-headline text-h3 font-light mb-8">
               Global out-of-home impact{" "}
               <span className="gradient-text">without the logistics</span>
             </h2>
@@ -332,7 +332,7 @@ export default function BetterflyProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── Our Approach (scroll-scrubbed pinned section) ────────── */}
@@ -347,11 +347,11 @@ export default function BetterflyProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── The Solution ─────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -362,9 +362,9 @@ export default function BetterflyProject() {
           <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
             The Solution
           </p>
-          <h2 className="font-headline text-h3 font-bold mb-8">
+          <h2 className="font-headline text-h3 font-light mb-8">
             Fake out-of-home,{" "}
-            <span className="text-white">real impact</span>
+            <span className="text-bone-white">real impact</span>
           </h2>
           <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
             <p>
@@ -387,11 +387,11 @@ export default function BetterflyProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── Campaign Gallery ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -402,8 +402,8 @@ export default function BetterflyProject() {
           <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
             Campaign Gallery
           </p>
-          <h2 className="font-headline text-h3 font-bold">
-            Monument <span className="text-white">Executions</span>
+          <h2 className="font-headline text-h3 font-light">
+            Monument <span className="text-bone-white">Executions</span>
           </h2>
         </m.div>
 
@@ -420,7 +420,7 @@ export default function BetterflyProject() {
               client={overview.client}
               discipline="FOOH (Fake Out-of-Home)"
               index={1}
-              className="aspect-[16/10] rounded-2xl"
+              className="aspect-[16/10] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/afa1b619-7f85-4631-b906-65725f2afb1d_rw_3840.jpg?h=c011327012d82e389e6536546dad732a"
@@ -436,7 +436,7 @@ export default function BetterflyProject() {
               client={overview.client}
               discipline="VFX Compositing"
               index={2}
-              className="aspect-[3/4] rounded-2xl"
+              className="aspect-[3/4] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/0c4aae34-962c-4708-9e09-10d7c2270b0d_rw_3840.jpg?h=9486e194d38c38c0b70c1ffc7e317fcd"
@@ -454,7 +454,7 @@ export default function BetterflyProject() {
               client={overview.client}
               discipline="FOOH (Fake Out-of-Home)"
               index={3}
-              className="aspect-[4/3] rounded-2xl"
+              className="aspect-[4/3] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/86e3da3a-6b51-4572-94f5-260d6a761c0f_rw_3840.jpg?h=9b9f844be5ce86bd5089282e90bddbea"
@@ -470,7 +470,7 @@ export default function BetterflyProject() {
               client={overview.client}
               discipline="VFX Compositing"
               index={4}
-              className="aspect-[4/3] rounded-2xl"
+              className="aspect-[4/3] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/700cdcee-cf9b-4414-b54c-82e507d0ed53_rw_3840.jpg?h=ad51ee0c19861e16fffbd807aa14d780"
@@ -486,7 +486,7 @@ export default function BetterflyProject() {
               client={overview.client}
               discipline="FOOH (Fake Out-of-Home)"
               index={5}
-              className="aspect-[4/3] rounded-2xl"
+              className="aspect-[4/3] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/158c693d-d708-434a-8451-47c529b3cc20_rw_3840.jpg?h=a7b17b9dff25de2b80d8d8cdfeb196cc"
@@ -504,7 +504,7 @@ export default function BetterflyProject() {
               client={overview.client}
               discipline="VFX Breakdown Reels"
               index={6}
-              className="aspect-[21/9] rounded-2xl"
+              className="aspect-[21/9] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/e9307a9f-c204-4722-9a9f-4d5b3113db28_rw_3840.jpg?h=72945d2944442b86cf4ba4dc3f52f58b"
@@ -522,7 +522,7 @@ export default function BetterflyProject() {
               client={overview.client}
               discipline="Social Media Content"
               index={7}
-              className="aspect-square rounded-2xl"
+              className="aspect-square rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/d06fd2d0-9618-4b28-a9ca-e2a56de0f9cc_rw_600.png?h=840f98de7ce65d2053f15fc1a332bb28"
@@ -538,7 +538,7 @@ export default function BetterflyProject() {
               client={overview.client}
               discipline="Social Media Content"
               index={8}
-              className="aspect-square rounded-2xl"
+              className="aspect-square rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/cccf2a57-e137-49db-b68b-570f7e4fe7bb_rw_600.png?h=c478a37e18d4ff133ffe947f26345c64"
@@ -554,7 +554,7 @@ export default function BetterflyProject() {
               client={overview.client}
               discipline="Social Media Content"
               index={9}
-              className="aspect-square rounded-2xl"
+              className="aspect-square rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/e854902b-d6b9-4da5-af46-a70b99f340c9_rw_1200.png?h=e07b0dc8c60685b5d414767e27915bfe"
@@ -570,7 +570,7 @@ export default function BetterflyProject() {
               client={overview.client}
               discipline="Social Media Content"
               index={10}
-              className="aspect-square rounded-2xl"
+              className="aspect-square rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/bc6dcbf4-5941-4a5b-9eaf-ec3f35d31163_rw_1200.png?h=60a8aa2806584e03b80f08b765317b22"
@@ -586,11 +586,11 @@ export default function BetterflyProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── The Result ───────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -601,9 +601,9 @@ export default function BetterflyProject() {
           <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
             The Result
           </p>
-          <h2 className="font-headline text-h3 font-bold">
+          <h2 className="font-headline text-h3 font-light">
             Global presence,{" "}
-            <span className="text-white">zero logistics</span>
+            <span className="text-bone-white">zero logistics</span>
           </h2>
         </m.div>
 
@@ -615,7 +615,7 @@ export default function BetterflyProject() {
           viewport={{ once: true, margin: "-60px" }}
           className="max-w-4xl"
         >
-          <p className="font-display text-h2 font-bold text-pure-white mb-10">
+          <p className="font-display text-h2 font-light text-pure-white mb-10">
             {results[0]}
           </p>
 
@@ -636,11 +636,11 @@ export default function BetterflyProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── Tools & Technology ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -651,8 +651,8 @@ export default function BetterflyProject() {
           <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
             Tools & Technology
           </p>
-          <h2 className="font-headline text-h3 font-bold">
-            The <span className="text-white">production stack</span>
+          <h2 className="font-headline text-h3 font-light">
+            The <span className="text-bone-white">production stack</span>
           </h2>
         </m.div>
 
@@ -667,9 +667,9 @@ export default function BetterflyProject() {
             <m.div
               key={tool.name}
               variants={staggerItem}
-              className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-emerald-400/20 hover:bg-emerald-400/[0.03] transition-all duration-500"
+              className="group p-6 rounded-none border border-black/5 bg-black/[0.02] hover:border-emerald-400/20 hover:bg-emerald-400/[0.03] transition-all duration-500"
             >
-              <h3 className="font-headline text-lg font-bold text-pure-white mb-2 group-hover:text-emerald-400 transition-colors duration-300">
+              <h3 className="font-headline text-lg font-light text-pure-white mb-2 group-hover:text-emerald-400 transition-colors duration-300">
                 {tool.name}
               </h3>
               <p className="font-body text-sm text-clay-gray leading-relaxed">
@@ -682,11 +682,11 @@ export default function BetterflyProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -694,9 +694,9 @@ export default function BetterflyProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="text-center max-w-2xl mx-auto"
         >
-          <h2 className="font-headline text-h2 font-bold mb-6">
+          <h2 className="font-headline text-h2 font-light mb-6">
             Ready to make{" "}
-            <span className="text-white">a global statement</span>?
+            <span className="text-bone-white">a global statement</span>?
           </h2>
           <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s create campaign content that commands attention and

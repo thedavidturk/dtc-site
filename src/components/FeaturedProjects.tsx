@@ -29,7 +29,7 @@ const projects: Project[] = [
       "An ongoing partnership delivering immersive 3D campaigns, from cosmic worlds to elemental landscapes to holiday storytelling",
     href: "/projects/new-era-cap",
     gradient: "from-terracotta via-purple-600 to-violet-900",
-    accentGlow: "group-hover:shadow-terracotta/30",
+    accentGlow: "group-hover:",
     coverImage: "/motion/new-era-3d.mp4",
     coverPoster: "/motion/new-era-3d.jpg",
   },
@@ -53,7 +53,7 @@ const projects: Project[] = [
       "An intimate omakase experience captured with cinematic storytelling at Faena Miami Beach",
     href: "/projects/el-secreto",
     gradient: "from-sun-gold via-amber-500 to-red-700",
-    accentGlow: "group-hover:shadow-sun-gold/30",
+    accentGlow: "group-hover:",
     coverImage: "/motion/faena.mp4",
     coverPoster: "/motion/faena.jpg",
   },
@@ -249,51 +249,45 @@ const headingVariants = {
   },
 };
 
+/* The occasional color-rupture moment: at most one tinted card per row. */
+const accentSurface: Record<number, string> = {
+  4: "bg-mint-wash",
+  11: "bg-powder-blue",
+};
+
 export default function FeaturedProjects() {
   return (
-    <section id="projects" className="bg-espresso section-padding relative overflow-hidden" style={{ backgroundColor: "#1A120D" }}>
-      {/* Subtle background texture */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(217,108,71,0.05)_0%,transparent_60%)]" />
-
+    <section id="projects" className="bg-bone-white section-padding relative overflow-hidden">
       <div className="section-container relative z-10">
-        {/* Section header */}
+        {/* Section title block - eyebrow + statement, whitespace only */}
         <m.div
           variants={headingVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="mb-16 md:mb-20"
+          className="mb-12 md:mb-16"
         >
-          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
+          <p className="text-caption font-normal uppercase tracking-[0.08em] text-graphite mb-6">
             Selected Work
           </p>
-          <h2 className="font-display text-h2 font-bold text-pure-white">
-            <TextReveal text="WORK THAT PUSHES" as="span" className="block" />
-            <TextReveal text="BOUNDARIES" as="span" className="block text-pure-white" delay={0.2} />
+          <h2 className="font-display text-h2 font-light text-ink-black">
+            <TextReveal text="Work that pushes" as="span" className="block" />
+            <TextReveal text="boundaries" as="span" className="block" delay={0.2} />
           </h2>
         </m.div>
 
-        {/* Project grid */}
+        {/* Project grid - sharp corners, text below the image */}
         <m.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8"
+          className="grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-16"
         >
           {projects.map((project, i) => (
             <m.div key={project.href} variants={cardVariants}>
-              <Link
-                href={project.href}
-                className={`group relative block ${project.accentGlow}`}
-              >
-                <WorkFrame
-                  client={project.client}
-                  discipline={project.type}
-                  index={i + 1}
-                  className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl shadow-black/20"
-                >
-                  {/* Background - cover video, image, or gradient */}
+              <Link href={project.href} className="group block">
+                <WorkFrame className="aspect-[4/3] overflow-hidden">
                   {project.coverImage && project.coverImage.toLowerCase().endsWith(".mp4") ? (
                     <div className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-105">
                       <AutoplayVideo
@@ -309,56 +303,39 @@ export default function FeaturedProjects() {
                         src={project.coverImage}
                         alt={`${project.client} project`}
                         fill
-                        sizes="(max-width: 768px) 100vw, 50vw"
+                        sizes="(max-width: 768px) 100vw, 33vw"
                         className="object-cover"
                         unoptimized={project.coverImage.toLowerCase().includes(".gif")}
                       />
                     </div>
                   ) : (
-                    <>
-                      <div
-                        className={`absolute inset-0 bg-gradient-to-br ${project.gradient} transition-transform duration-700 ease-out group-hover:scale-105`}
-                      />
-                      {/* Noise / grain overlay for cinematic feel */}
-                      <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIxIi8+PC9zdmc+')]" />
-                      {/* Subtle grid pattern */}
-                      <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:60px_60px]" />
-                    </>
+                    <div className="absolute inset-0 bg-mint-wash" />
                   )}
                 </WorkFrame>
 
-                {/* Editorial overlay - sits above the framed media, never parallaxes */}
-                <div className="pointer-events-none absolute inset-0 rounded-2xl overflow-hidden">
-                  {/* Dark overlay - intensifies on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-500 group-hover:from-black/90 group-hover:via-black/40" />
-
-                  {/* Content overlay */}
-                  <div className="absolute inset-x-0 bottom-0 z-10 p-6 pb-14 md:p-8 md:pb-16 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                    {/* Client name */}
-                    <h3 className="font-headline text-2xl md:text-3xl font-bold text-pure-white tracking-tight mb-1">
-                      {project.client}
-                    </h3>
-
-                    {/* Project name */}
-                    <p className="font-body text-base md:text-lg text-white/80 mb-3">
-                      {project.title}
-                    </p>
-
-                    {/* Teaser - revealed on hover */}
-                    <p className="font-body text-sm text-white/50 max-h-0 overflow-hidden opacity-0 group-hover:max-h-20 group-hover:opacity-100 transition-all duration-500 ease-out leading-relaxed">
-                      {project.teaser}
-                    </p>
-                  </div>
-
-                  {/* Border glow on hover */}
-                  <div className="absolute inset-0 rounded-2xl border border-white/0 group-hover:border-white/10 transition-colors duration-500" />
-                  <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[inset_0_0_60px_rgba(217,108,71,0.08)]" />
+                {/* Editorial caption block below the image */}
+                <div
+                  className={
+                    accentSurface[i] ? `${accentSurface[i]} p-6 mt-0` : "pt-4"
+                  }
+                >
+                  <p className="text-[10px] font-normal uppercase tracking-[0.14em] text-graphite mb-2">
+                    {project.type}
+                  </p>
+                  <h3 className="text-xl font-light text-ink-black leading-tight">
+                    {project.client}
+                  </h3>
+                  <p className="text-sm font-normal text-graphite mt-1">
+                    {project.title}
+                  </p>
+                  <p className="text-sm font-normal text-graphite/80 mt-2 line-clamp-2 leading-relaxed">
+                    {project.teaser}
+                  </p>
                 </div>
               </Link>
             </m.div>
           ))}
         </m.div>
-
       </div>
     </section>
   );

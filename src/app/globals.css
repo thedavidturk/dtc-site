@@ -23,8 +23,8 @@ html.lenis, html.lenis body {
 }
 
 :root {
-  --background: #1A120D;
-  --foreground: #FFFFFF;
+  --background: #fffef7;
+  --foreground: #000000;
 }
 
 * {
@@ -33,7 +33,7 @@ html.lenis, html.lenis body {
 
 html,
 body {
-  background-color: #1A120D !important;
+  background-color: #fffef7 !important;
 }
 
 html {
@@ -56,18 +56,23 @@ body {
 main,
 section,
 footer {
-  background-color: #1A120D;
+  background-color: #fffef7;
 }
 
-/* Ensure all motion.div wrappers inherit the dark background */
+/* Ensure all motion.div wrappers inherit the paper canvas */
 main > div,
 main > div > div {
-  background-color: #1A120D;
+  background-color: #fffef7;
+}
+
+/* Headlines never bold - the 300 weight is the brand */
+h1, h2, h3 {
+  font-weight: 300;
 }
 
 ::selection {
-  background: rgba(217,108,71, 0.4);
-  color: #FFFFFF;
+  background: rgba(138, 4, 103, 0.18);
+  color: #000000;
 }
 
 @layer utilities {
@@ -77,149 +82,60 @@ main > div > div {
 }
 
 @layer components {
+  /* Full-bleed page model: no max-width container, consistent
+     edge padding. The cream canvas is the structural tool. */
   .section-container {
-    @apply max-w-7xl mx-auto px-6 md:px-8 lg:px-12;
+    @apply w-full px-5 md:px-8 lg:px-12;
   }
 
   .section-padding {
-    @apply py-20 md:py-28 lg:py-32;
+    @apply py-16 md:py-20 lg:py-28;
   }
 
+  /* Legacy gradient-text hook: now the single rationed chromatic
+     hit per page - solid magenta, no gradient. */
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-terracotta to-sun-gold;
+    @apply bg-none text-magenta-bloom;
+    -webkit-text-fill-color: currentColor;
   }
 
+  /* All interactive surfaces are black or transparent pills. */
   .btn-primary {
-    @apply inline-flex items-center justify-center px-8 py-4 bg-gradient-cta text-white font-headline font-bold rounded-lg transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98];
+    @apply inline-flex items-center justify-center px-7 py-3.5 bg-ink-black text-bone-white font-body font-normal rounded-pill transition-opacity duration-300 hover:opacity-75;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-8 py-4 border border-clay-gray/30 text-pure-white font-headline font-bold rounded-lg transition-all duration-300 hover:border-terracotta hover:bg-terracotta/10;
+    @apply inline-flex items-center justify-center px-7 py-3.5 border border-ash text-ink-black font-body font-normal rounded-pill transition-colors duration-300 hover:border-ink-black;
   }
 }
 
 /* ------------------------------------------------------------------ */
-/* Hero text effects                                                   */
+/* Legacy hero text-effect hooks - flattened to solid ink.             */
+/* The poster system has no shimmer, glow, or gradient borders.        */
 /* ------------------------------------------------------------------ */
 
-@keyframes shimmer-sweep {
-  0%, 100% { background-position: 100% center; }
-  50% { background-position: 0% center; }
-}
-
-@keyframes glow-pulse {
-  0%, 100% {
-    filter: drop-shadow(0 0 15px rgba(217,108,71,0))
-            drop-shadow(0 0 35px rgba(217,108,71,0));
-  }
-  50% {
-    filter: drop-shadow(0 0 15px rgba(217,108,71,0.15))
-            drop-shadow(0 0 40px rgba(217,108,71,0.06));
-  }
-}
-
-/* White text with subtle warm-cream highlight sweep */
 .hero-shimmer-white {
-  background: linear-gradient(
-    105deg,
-    #ffffff 0%,
-    #ffffff 40%,
-    #EFDFC7 49%,
-    #E5C79A 50%,
-    #EFDFC7 51%,
-    #ffffff 60%,
-    #ffffff 100%
-  );
-  background-size: 250% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shimmer-sweep 8s ease-in-out infinite;
+  color: #000000;
 }
 
-/* Gradient text with bright highlight sweep */
 .hero-shimmer-gradient {
-  background: linear-gradient(
-    105deg,
-    #D96C47 0%,
-    #E28E6A 15%,
-    #E9B368 40%,
-    #fef3c7 49%,
-    #ffffff 50%,
-    #fef3c7 51%,
-    #D96C47 60%,
-    #E28E6A 80%,
-    #E9B368 100%
-  );
-  background-size: 250% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shimmer-sweep 6s ease-in-out infinite;
-  animation-delay: -3s;
+  color: #8a0467;
 }
 
-/* Breathing indigo glow on headline wrappers */
 .hero-glow-line {
-  animation: glow-pulse 4s ease-in-out infinite;
-}
-
-/* Accent line breathing pulse */
-@keyframes accent-pulse {
-  0%, 100% { opacity: 0.6; }
-  50% { opacity: 1; }
+  animation: none;
 }
 
 .hero-accent-pulse {
-  animation: accent-pulse 3s ease-in-out infinite;
-}
-
-/* Rotating gradient border for CTA buttons */
-@keyframes border-rotate {
-  0% { --border-angle: 0deg; }
-  100% { --border-angle: 360deg; }
-}
-
-@property --border-angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
+  opacity: 1;
 }
 
 .hero-border-gradient {
-  background: conic-gradient(
-    from var(--border-angle),
-    #D96C47 0%,
-    #E28E6A 25%,
-    #E9B368 50%,
-    #F0C68A 75%,
-    #D96C47 100%
-  );
-  animation: border-rotate 4s linear infinite;
-}
-
-/* Edge light leaks — slow drift + breathing */
-@keyframes light-leak-drift {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-    opacity: 1;
-  }
-  25% {
-    transform: translate(10px, -8px) scale(1.05);
-    opacity: 0.7;
-  }
-  50% {
-    transform: translate(-5px, 5px) scale(0.95);
-    opacity: 1;
-  }
-  75% {
-    transform: translate(8px, 10px) scale(1.08);
-    opacity: 0.6;
-  }
+  background: #000000;
 }
 
 .hero-light-leak {
-  animation: light-leak-drift 12s ease-in-out infinite;
+  display: none;
 }
 
 /* ------------------------------------------------------------------ */

@@ -46,7 +46,7 @@ export default function ProjectGifBand({
   return (
     <section
       className="section-container py-16 md:py-24"
-      style={{ backgroundColor: "#1A120D" }}
+      style={{ backgroundColor: "#fffef7" }}
     >
       <m.div
         variants={fadeUp}
@@ -55,10 +55,10 @@ export default function ProjectGifBand({
         viewport={{ once: true, margin: "-80px" }}
         className="mb-10"
       >
-        <p className="font-mono text-sm text-sun-gold tracking-widest uppercase mb-4">
+        <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
           {eyebrow}
         </p>
-        <h2 className="font-headline text-h3 font-bold text-pure-white">
+        <h2 className="font-headline text-h3 font-light text-pure-white">
           {heading}
         </h2>
       </m.div>
@@ -73,10 +73,10 @@ export default function ProjectGifBand({
         {gifs.slice(0, 2).map((gif, i) => (
           <div
             key={i}
-            className="group relative overflow-hidden rounded-2xl border border-white/10 bg-black shadow-2xl shadow-black/40"
+            className="group relative overflow-hidden rounded-none border border-black/10 bg-black  "
           >
             {/* Ambient glow on hover */}
-            <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-terracotta/20 via-transparent to-sun-gold/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-sm pointer-events-none" />
+            <div className="absolute -inset-px rounded-none bg-gradient-to-br from-terracotta/20 via-transparent to-sun-gold/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-sm pointer-events-none" />
 
             <AutoplayVideo
               src={gif.src}
@@ -91,7 +91,7 @@ export default function ProjectGifBand({
 
             {gif.label && (
               <div className="absolute bottom-4 left-4 z-10">
-                <span className="inline-block font-mono text-xs text-white/70 tracking-wider uppercase px-3 py-1 rounded-full border border-white/10 backdrop-blur-sm bg-black/30">
+                <span className="inline-block font-mono text-xs text-bone-white/70 tracking-wider uppercase px-3 py-1 rounded-full border border-black/10 backdrop-blur-sm bg-black/30">
                   {gif.label}
                 </span>
               </div>

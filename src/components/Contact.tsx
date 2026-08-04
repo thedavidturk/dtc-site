@@ -92,7 +92,7 @@ interface FormErrors {
 }
 
 const inputClasses =
-  "w-full bg-white/[0.05] border border-white/10 rounded-lg p-4 text-pure-white font-body text-sm placeholder:text-clay-gray/50 focus:border-terracotta focus:ring-1 focus:ring-terracotta/50 outline-none transition-all duration-300";
+  "w-full bg-transparent border border-ash rounded-none p-4 text-pure-white font-body text-sm placeholder:text-clay-gray/50 focus:border-terracotta focus:ring-1 focus:ring-terracotta/50 outline-none transition-all duration-300";
 
 const labelClasses = "block text-sm font-body text-clay-gray mb-2";
 
@@ -188,11 +188,11 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="bg-espresso section-padding relative overflow-hidden" style={{ backgroundColor: "#1A120D" }}>
+    <section id="contact" className="bg-espresso section-padding relative overflow-hidden" style={{ backgroundColor: "#fffef7" }}>
       {/* Background decorative elements */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(217,108,71,0.06)_0%,transparent_50%)]" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] opacity-[0.03] bg-[radial-gradient(circle,#E9B368,transparent_60%)]" />
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] opacity-[0.03] bg-[radial-gradient(circle,#D96C47,transparent_60%)]" />
+      <div className="absolute inset-0 hidden bg-[radial-gradient(ellipse_at_center,rgba(138,4,103,0.06)_0%,transparent_50%)]" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] opacity-[0.03] hidden bg-[radial-gradient(circle,#03624c,transparent_60%)]" />
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] opacity-[0.03] hidden bg-[radial-gradient(circle,#8a0467,transparent_60%)]" />
 
       <m.div
         className="section-container relative z-10"
@@ -202,16 +202,16 @@ export default function Contact() {
         viewport={{ once: true, margin: "-100px" }}
       >
         {/* Section header */}
-        <m.div className="text-center mb-16 md:mb-20" variants={headingVariants}>
-          <span className="font-mono text-xs tracking-[0.3em] text-terracotta uppercase mb-4 block">
+        <m.div className="text-left mb-12 md:mb-16" variants={headingVariants}>
+          <span className="text-caption tracking-[0.08em] text-graphite uppercase mb-4 block">
             Get In Touch
           </span>
-          <h2 className="font-display text-h2 font-bold text-pure-white">
-            LET&apos;S BUILD
+          <h2 className="font-display text-h2 font-light text-pure-white">
+            Let&apos;s build
             <br />
-            <span className="text-pure-white">WHAT&apos;S NEXT</span>
+            <span className="text-pure-white">what&apos;s next</span>
           </h2>
-          <p className="font-body text-clay-gray text-lg mt-4 max-w-2xl mx-auto leading-relaxed">
+          <p className="font-body text-clay-gray text-lg mt-4 max-w-2xl leading-relaxed">
             Have a project in mind? Tell us what you&apos;re building and we&apos;ll show you how we&apos;d execute it.
           </p>
         </m.div>
@@ -386,7 +386,7 @@ export default function Contact() {
                   initial="hidden"
                   animate="visible"
                   exit="exit"
-                  className="flex flex-col items-center justify-center text-center py-16 px-8 bg-white/[0.03] border border-white/5 rounded-2xl"
+                  className="flex flex-col items-center justify-center text-center py-16 px-8 bg-black/[0.03] border border-black/5 rounded-none"
                 >
                   {/* Success checkmark */}
                   <div className="relative mb-6">
@@ -409,7 +409,7 @@ export default function Contact() {
                     <div className="absolute inset-0 rounded-full bg-gradient-to-br from-terracotta to-sun-gold opacity-20 blur-xl" />
                   </div>
 
-                  <h3 className="font-headline text-2xl font-bold text-pure-white mb-3">
+                  <h3 className="font-headline text-2xl font-light text-pure-white mb-3">
                     Message Sent
                   </h3>
                   <p className="font-body text-clay-gray text-sm max-w-sm leading-relaxed">
@@ -444,22 +444,20 @@ export default function Contact() {
           {/* Right side: Contact info */}
           <m.div className="lg:col-span-2 relative" variants={rightColVariants}>
             <div className="relative h-full z-10">
-              {/* Decorative gradient border element */}
-              <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-terracotta/20 via-transparent to-sun-gold/20 opacity-60" />
-              <div className="relative bg-white/[0.02] backdrop-blur-sm border border-white/5 rounded-2xl p-8 lg:p-10 h-full">
+              <div className="relative bg-black/[0.02] backdrop-blur-sm border border-black/5 rounded-none p-8 lg:p-10 h-full">
                 {/* Decorative corner accent */}
-                <div className="absolute top-0 right-0 w-40 h-40 bg-[radial-gradient(circle_at_top_right,rgba(217,108,71,0.08),transparent_70%)] rounded-tr-2xl" />
-                <div className="absolute bottom-0 left-0 w-40 h-40 bg-[radial-gradient(circle_at_bottom_left,rgba(233,179,104,0.06),transparent_70%)] rounded-bl-2xl" />
+                <div className="absolute top-0 right-0 w-40 h-40 hidden bg-[radial-gradient(circle_at_top_right,rgba(138,4,103,0.08),transparent_70%)] rounded-tr-2xl" />
+                <div className="absolute bottom-0 left-0 w-40 h-40 hidden bg-[radial-gradient(circle_at_bottom_left,rgba(3,98,76,0.06),transparent_70%)] rounded-bl-2xl" />
 
                 <div className="relative z-10">
-                  <h3 className="font-headline text-xl font-bold text-pure-white mb-8">
+                  <h3 className="font-headline text-xl font-light text-pure-white mb-8">
                     Prefer to reach out directly?
                   </h3>
 
                   {/* Email */}
                   <div className="mb-6">
                     <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-white/[0.05] border border-white/10 flex items-center justify-center">
+                      <div className="flex-shrink-0 w-10 h-10 rounded-full border border-ash flex items-center justify-center">
                         <svg
                           className="w-5 h-5 text-sun-gold"
                           fill="none"
@@ -491,7 +489,7 @@ export default function Contact() {
                   {/* LinkedIn */}
                   <div className="mb-8">
                     <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-white/[0.05] border border-white/10 flex items-center justify-center">
+                      <div className="flex-shrink-0 w-10 h-10 rounded-full border border-ash flex items-center justify-center">
                         <svg
                           className="w-5 h-5 text-clay-gray"
                           fill="currentColor"
@@ -530,13 +528,13 @@ export default function Contact() {
                   </div>
 
                   {/* Divider */}
-                  <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8" />
+                  <div className="h-px w-full bg-gradient-to-r from-transparent via-black/10 to-transparent mb-8" />
 
                   {/* Response time */}
                   <div className="flex items-center gap-3">
                     <div className="relative flex-shrink-0">
-                      <div className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
-                      <div className="absolute inset-0 w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping opacity-40" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-forest-teal" />
+                      <div className="absolute inset-0 w-2.5 h-2.5 rounded-full bg-forest-teal animate-ping opacity-40" />
                     </div>
                     <p className="font-mono text-sm text-clay-gray">
                       We respond within 24 hours.

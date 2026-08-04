@@ -1,34 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import { m } from "framer-motion";
 import WorkMarquee from "./WorkMarquee";
 import useAutoplayInView from "./useAutoplayInView";
-
-/* ------------------------------------------------------------------ */
-/*  Desktop / mobile detection (JS, not CSS)                           */
-/*                                                                     */
-/*  The desktop wall and mobile strip each mount dozens of videos, so  */
-/*  only one variant may render - display:none alone doesn't stop the  */
-/*  hidden copy from downloading and decoding. Pre-mount we default to */
-/*  the mobile strip (its lg:hidden class keeps it invisible on        */
-/*  desktop, so there's no layout flash while the wall swaps in).      */
-/* ------------------------------------------------------------------ */
-
-function useIsDesktop() {
-  const [isDesktop, setIsDesktop] = useState(false);
-
-  useEffect(() => {
-    const query = window.matchMedia("(min-width: 1024px)");
-    const update = () => setIsDesktop(query.matches);
-    update();
-    query.addEventListener("change", update);
-    return () => query.removeEventListener("change", update);
-  }, []);
-
-  return isDesktop;
-}
 
 /* ------------------------------------------------------------------ */
 /*  Real work - pulled from the featured projects                      */
@@ -168,7 +143,7 @@ const work: WorkTile[] = [
 ];
 
 /* ------------------------------------------------------------------ */
-/*  A single work tile                                                 */
+/*  A single work tile - sharp corners, meta pinned bottom-left        */
 /* ------------------------------------------------------------------ */
 
 function Tile({ tile }: { tile: WorkTile }) {
@@ -181,7 +156,7 @@ function Tile({ tile }: { tile: WorkTile }) {
     <a
       href="#projects"
       aria-label={`${tile.client} - ${tile.tag}. View our work.`}
-      className="group relative block overflow-hidden rounded-xl border border-white/[0.06] bg-white/[0.02] shadow-xl shadow-black/40 transition-colors duration-300 hover:border-white/20"
+      className="group relative block overflow-hidden"
       draggable={false}
     >
       <div className="relative aspect-[4/5] w-full overflow-hidden">
@@ -209,12 +184,12 @@ function Tile({ tile }: { tile: WorkTile }) {
           />
         )}
       </div>
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-espresso/90 via-transparent to-transparent" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-center justify-between p-3">
-        <span className="font-headline text-sm font-semibold text-pure-white">
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-baseline justify-between gap-3 p-4">
+        <span className="text-sm font-light text-bone-white">
           {tile.client}
         </span>
-        <span className="font-mono text-[10px] uppercase tracking-widest text-sun-gold">
+        <span className="text-[10px] font-normal uppercase tracking-[0.14em] text-bone-white/70">
           {tile.tag}
         </span>
       </div>
@@ -223,50 +198,23 @@ function Tile({ tile }: { tile: WorkTile }) {
 }
 
 /* ------------------------------------------------------------------ */
-/*  A vertically-scrolling column (interactive: auto + drag)           */
+/*  Full-bleed horizontal work band                                    */
 /* ------------------------------------------------------------------ */
 
-function MarqueeColumn({
-  tiles,
-  reverse,
-  speed,
-}: {
-  tiles: WorkTile[];
-  reverse: boolean;
-  speed: number;
-}) {
-  // Duplicate the set so the wrap-around loop is seamless.
-  const loop = [...tiles, ...tiles];
-  return (
-    <WorkMarquee
-      orientation="vertical"
-      reverse={reverse}
-      speed={speed}
-      className="flex-1"
-      trackClassName="flex flex-col gap-4"
-    >
-      {loop.map((tile, i) => (
-        <Tile key={`${tile.client}-${i}`} tile={tile} />
-      ))}
-    </WorkMarquee>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/*  A horizontally-scrolling strip - mobile only (interactive)         */
-/* ------------------------------------------------------------------ */
-
-function MarqueeRow({ tiles }: { tiles: WorkTile[] }) {
+function WorkBand({ tiles }: { tiles: WorkTile[] }) {
   const loop = [...tiles, ...tiles];
   return (
     <WorkMarquee
       orientation="horizontal"
       reverse={false}
       speed={45}
-      trackClassName="flex w-max gap-4"
+      trackClassName="flex w-max"
     >
       {loop.map((tile, i) => (
-        <div key={`${tile.client}-${i}`} className="w-44 shrink-0">
+        <div
+          key={`${tile.client}-${i}`}
+          className="w-52 shrink-0 sm:w-64 lg:w-80"
+        >
           <Tile tile={tile} />
         </div>
       ))}
@@ -291,92 +239,56 @@ const item = {
 };
 
 /* ------------------------------------------------------------------ */
-/*  Hero                                                               */
+/*  Hero - oversized poster headline over a full-bleed work band       */
 /* ------------------------------------------------------------------ */
 
 export default function Hero() {
-  const colA = work.filter((_, i) => i % 2 === 0);
-  const colB = work.filter((_, i) => i % 2 === 1);
-  const isDesktop = useIsDesktop();
-
   return (
-    <section
-      className="relative min-h-screen overflow-hidden bg-espresso pt-24 lg:pt-0"
-      style={{ backgroundColor: "#1A120D" }}
-    >
-      {/* Ambient color wash */}
-      <div className="pointer-events-none absolute inset-0 z-0">
-        <div className="absolute -left-40 top-0 h-[36rem] w-[36rem] rounded-full bg-terracotta/15 blur-[140px]" />
-        <div className="absolute -right-20 bottom-0 h-[32rem] w-[32rem] rounded-full bg-sun-gold/10 blur-[140px]" />
-        <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(rgba(255,255,255,0.6)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.6)_1px,transparent_1px)] bg-[size:64px_64px]" />
-      </div>
-
-      <div className="relative z-10 mx-auto grid min-h-screen max-w-7xl grid-cols-1 items-center gap-12 px-6 md:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:px-12">
-        {/* ---------------------------- Left: message ---------------------------- */}
-        <m.div
-          variants={container}
-          initial="hidden"
-          animate="visible"
-          className="py-16 lg:py-0"
+    <section className="relative overflow-hidden bg-bone-white pt-28 md:pt-36">
+      {/* ---------------------------- Poster block ---------------------------- */}
+      <m.div
+        variants={container}
+        initial="hidden"
+        animate="visible"
+        className="section-container"
+      >
+        {/* Meta eyebrow */}
+        <m.p
+          variants={item}
+          className="mb-8 text-caption font-normal uppercase tracking-[0.08em] text-graphite"
         >
-          {/* Eyebrow */}
-          <m.div
-            variants={item}
-            className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 backdrop-blur-sm"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sun-gold opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-sun-gold" />
-            </span>
-            <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-clay-gray">
-              DT+C - Creative Studio
-            </span>
-          </m.div>
+          DT+C // AI-Native Creative Studio
+        </m.p>
 
-          {/* Headline - editorial mixed-scale display type */}
-          <h1 className="font-display text-pure-white">
-            {/* Line 1: "Content that" - tight, bold, large */}
-            <m.span
-              variants={item}
-              className="block font-bold leading-[0.86] tracking-[-0.03em] text-h1"
-            >
-              Content that
-            </m.span>
+        {/* Poster headline - two lines, weight 300, one chromatic hit */}
+        <h1 className="font-display font-light text-display text-ink-black">
+          <m.span variants={item} className="block">
+            Content that moves
+          </m.span>
+          <m.span variants={item} className="block">
+            at the speed of{" "}
+            <span className="text-magenta-bloom">culture.</span>
+          </m.span>
+        </h1>
 
-            {/* Line 2: "moves at the speed of" - smaller, lighter, italic, wider tracking */}
-            <m.span
-              variants={item}
-              className="mt-2 block font-light italic leading-none tracking-[0.01em] text-clay-gray text-2xl sm:text-3xl lg:text-[2.4rem]"
-            >
-              moves at the speed of
-            </m.span>
-
-            {/* Line 3: "culture." - oversized hero word in gradient */}
-            <m.span
-              variants={item}
-              className="mt-1 block gradient-text font-extrabold leading-[0.82] tracking-[-0.04em] text-display"
-            >
-              culture.
-            </m.span>
-          </h1>
-
-          {/* Subhead */}
+        {/* Subhead + CTAs share a row on desktop */}
+        <div className="mt-10 flex flex-col gap-8 md:mt-12 md:flex-row md:items-end md:justify-between">
           <m.p
             variants={item}
-            className="mt-8 max-w-xl font-body text-lg leading-relaxed text-clay-gray"
+            className="max-w-xl text-body-lg font-normal text-graphite"
           >
-            Strategy, content, VFX, and web, under one roof and built to launch
-            in <span className="text-pure-white">weeks, not months.</span>
+            Strategy, content, VFX, and web, under one roof and built to
+            launch in{" "}
+            <span className="text-ink-black">weeks, not months.</span>
           </m.p>
 
-          {/* CTAs */}
           <m.div
             variants={item}
-            className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center"
+            className="flex flex-col gap-3 sm:flex-row sm:items-center"
           >
             <a
               href="#projects"
-              className="group inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-cta px-7 py-4 font-headline font-bold text-white transition-all duration-300 hover:scale-[1.02] hover:opacity-95 active:scale-[0.98]"
+              className="group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-pill bg-ink-black px-7 py-3.5 font-normal text-bone-white transition-opacity duration-300 hover:opacity-75"
             >
               See Our Work
               <svg
@@ -384,97 +296,57 @@ export default function Hero() {
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                strokeWidth={2.5}
+                strokeWidth={1.5}
               >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </a>
             <a
               href="/#contact"
-              className="inline-flex items-center justify-center rounded-lg border border-white/15 bg-white/[0.03] px-7 py-4 font-headline font-bold text-pure-white backdrop-blur-sm transition-all duration-300 hover:border-terracotta/60 hover:bg-terracotta/10"
+              className="inline-flex items-center justify-center whitespace-nowrap rounded-pill border border-ash px-7 py-3.5 font-normal text-ink-black transition-colors duration-300 hover:border-ink-black"
             >
               Book a Call
             </a>
           </m.div>
+        </div>
+      </m.div>
 
-          {/* Client strip */}
-          <m.div
-            variants={item}
-            className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/[0.06] pt-6"
-          >
-            <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-clay-gray/50">
-              Trusted by
-            </span>
-            {[
-              "New Era Cap",
-              "United Parks",
-              "Ford Motors",
-              "Betterfly",
-              "Barry's",
-            ].map((name) => (
-              <span
-                key={name}
-                className="font-headline text-sm font-semibold text-clay-gray/80"
-              >
-                {name}
-              </span>
-            ))}
-            <span className="font-headline text-sm font-semibold text-clay-gray/40">
-              &amp; more
-            </span>
-          </m.div>
-        </m.div>
+      {/* ---------------------------- Full-bleed work band ---------------------------- */}
+      <m.div
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9, ease, delay: 0.35 }}
+        className="mt-14 md:mt-20"
+      >
+        <WorkBand tiles={work} />
+      </m.div>
 
-        {/* ---------------------------- Right: work wall ---------------------------- */}
-        {isDesktop && (
-          <m.div
-            initial={{ opacity: 0, scale: 0.97 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease, delay: 0.2 }}
-            className="relative hidden lg:block lg:h-screen"
-          >
-            {/* Two scrolling columns (auto-scroll, grab to drag, click to view work) */}
-            <div className="absolute inset-0 flex gap-4 px-1 py-6">
-              <MarqueeColumn tiles={colA} reverse={false} speed={34} />
-              <MarqueeColumn tiles={colB} reverse speed={28} />
-            </div>
-
-            {/* Feather edges so the wall melts into the page */}
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-espresso to-transparent" />
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-espresso to-transparent" />
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-espresso to-transparent" />
-          </m.div>
-        )}
-
-        {/* ---------------------------- Mobile work strip ---------------------------- */}
-        {!isDesktop && (
-          <m.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease, delay: 0.3 }}
-            className="-mx-6 pb-16 md:-mx-8 lg:hidden"
-          >
-            <MarqueeRow tiles={work} />
-          </m.div>
-        )}
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="pointer-events-none absolute bottom-6 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 lg:flex">
-        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-clay-gray/40">
-          Scroll
-        </span>
-        <svg
-          className="h-4 w-4 text-clay-gray/40 hero-scroll-bob"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
+      {/* Client strip */}
+      <div className="section-container">
+        <m.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="flex flex-wrap items-baseline gap-x-8 gap-y-2 py-8"
         >
-          <polyline points="6 9 12 15 18 9" />
-        </svg>
+          <span className="text-[10px] font-normal uppercase tracking-[0.2em] text-graphite">
+            Trusted by
+          </span>
+          {[
+            "New Era Cap",
+            "United Parks",
+            "Ford Motors",
+            "Betterfly",
+            "Barry's",
+          ].map((name) => (
+            <span key={name} className="text-sm font-normal text-ink-black">
+              {name}
+            </span>
+          ))}
+          <span className="text-sm font-normal text-graphite">
+            &amp; more
+          </span>
+        </m.div>
       </div>
     </section>
   );

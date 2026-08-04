@@ -9,10 +9,10 @@ const AboutVisual3D = dynamic(() => import("./AboutVisual3D"), {
   ssr: false,
   loading: () => (
     <div
-      className="aspect-[3/4] w-full max-w-[480px] mx-auto lg:mx-0 rounded-2xl"
+      className="aspect-[3/4] w-full max-w-[480px] mx-auto lg:mx-0 rounded-none"
       style={{
         background:
-          "linear-gradient(160deg, #2A1D14 0%, #251811 30%, #1A120D 70%, #231710 100%)",
+          "#fffef7",
       }}
     />
   ),
@@ -67,23 +67,7 @@ const fadeUp = {
 
 export default function About() {
   return (
-    <section id="about" className="relative bg-espresso overflow-hidden" style={{ backgroundColor: "#1A120D" }}>
-      {/* Background accents */}
-      <div
-        className="absolute top-0 right-0 w-[600px] h-[600px] opacity-[0.04]"
-        style={{
-          background:
-            "radial-gradient(circle at center, #E9B368 0%, transparent 70%)",
-        }}
-      />
-      <div
-        className="absolute bottom-0 left-0 w-[500px] h-[500px] opacity-[0.04]"
-        style={{
-          background:
-            "radial-gradient(circle at center, #D96C47 0%, transparent 70%)",
-        }}
-      />
-
+    <section id="about" className="relative bg-espresso overflow-hidden" style={{ backgroundColor: "#fffef7" }}>
       <m.div
         className="relative z-10 section-container section-padding"
         variants={containerVariants}
@@ -92,14 +76,14 @@ export default function About() {
         viewport={{ once: true, margin: "-100px" }}
       >
         {/* Section Header */}
-        <m.div className="text-center mb-16 md:mb-20" variants={fadeUp}>
-          <span className="font-mono text-xs tracking-[0.3em] text-terracotta uppercase mb-4 block">
+        <m.div className="text-left mb-12 md:mb-16" variants={fadeUp}>
+          <span className="text-caption tracking-[0.08em] text-graphite uppercase mb-4 block">
             About
           </span>
           <TextReveal
-            text="BUILT FOR WHAT'S NEXT"
+            text="Built for what's next"
             as="h2"
-            className="font-display text-h2 font-bold text-pure-white"
+            className="font-display text-h2 font-light text-pure-white"
           />
         </m.div>
 
@@ -107,7 +91,7 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left - 3D Visual */}
           <m.div className="relative" variants={slideFromLeft}>
-            <Lazy3D className="aspect-[3/4] w-full max-w-[480px] mx-auto lg:mx-0 rounded-2xl overflow-hidden relative">
+            <Lazy3D className="aspect-[3/4] w-full max-w-[480px] mx-auto lg:mx-0 rounded-none overflow-hidden relative">
               <AboutVisual3D className="w-full h-full" />
             </Lazy3D>
 
@@ -125,7 +109,7 @@ export default function About() {
               keep up with.
             </p>
 
-            <p className="font-headline text-2xl text-pure-white font-bold leading-snug">
+            <p className="font-headline text-2xl text-pure-white font-light leading-snug">
               DT+C was built for the pace of right now.
             </p>
 

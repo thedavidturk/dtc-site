@@ -146,13 +146,13 @@ export default function InsightsIndexPage() {
       >
         <m.span
           variants={heroVariants}
-          className="font-mono text-xs tracking-[0.3em] text-terracotta uppercase mb-4 block"
+          className="text-caption tracking-[0.08em] text-graphite uppercase mb-4 block"
         >
           Insights
         </m.span>
         <m.h1
           variants={heroVariants}
-          className="font-display text-h1 font-bold text-pure-white"
+          className="font-display text-h1 font-light text-pure-white"
         >
           Perspectives
         </m.h1>
@@ -178,7 +178,7 @@ export default function InsightsIndexPage() {
             <m.article key={article.href} variants={cardVariants}>
               <Link
                 href={article.href}
-                className="group block h-full bg-white/[0.03] border border-white/5 rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:border-terracotta/30 hover:shadow-2xl hover:shadow-terracotta/5"
+                className="group block h-full bg-black/[0.03] border border-black/5 rounded-none overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:border-terracotta/30 hover: hover:"
               >
                 {/* Gradient header */}
                 <div className="relative h-40 overflow-hidden">
@@ -188,9 +188,9 @@ export default function InsightsIndexPage() {
                   {/* Grid pattern */}
                   <div className="absolute inset-0 opacity-[0.06] bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:40px_40px]" />
                   {/* Bottom fade */}
-                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#1A120D]/80 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#fffef7]/80 to-transparent" />
                   {/* Corner accent glow on hover */}
-                  <div className="absolute top-0 right-0 w-32 h-32 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-[radial-gradient(circle_at_top_right,rgba(217,108,71,0.15),transparent_70%)]" />
+                  <div className="absolute top-0 right-0 w-32 h-32 opacity-0 group-hover:opacity-100 transition-opacity duration-700 hidden bg-[radial-gradient(circle_at_top_right,rgba(138,4,103,0.15),transparent_70%)]" />
                 </div>
 
                 {/* Card content */}
@@ -203,7 +203,7 @@ export default function InsightsIndexPage() {
                   </div>
 
                   {/* Title */}
-                  <h2 className="font-headline font-bold text-lg text-pure-white mt-3 leading-snug group-hover:text-cream transition-colors duration-300">
+                  <h2 className="font-headline font-light text-lg text-pure-white mt-3 leading-snug group-hover:text-cream transition-colors duration-300">
                     {article.title}
                   </h2>
 
@@ -213,8 +213,8 @@ export default function InsightsIndexPage() {
                   </p>
 
                   {/* Read Article link */}
-                  <div className="mt-5 pt-4 border-t border-white/5">
-                    <span className="inline-flex items-center gap-2 text-sun-gold text-sm font-medium group-hover:gap-3 transition-all duration-300">
+                  <div className="mt-5 pt-4 border-t border-black/5">
+                    <span className="inline-flex items-center gap-2 text-sun-gold text-sm font-normal group-hover:gap-3 transition-all duration-300">
                       Read Article
                       <svg
                         className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"

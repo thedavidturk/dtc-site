@@ -7,9 +7,9 @@ import * as THREE from "three";
 // ---------------------------------------------------------------------------
 // Constants
 // ---------------------------------------------------------------------------
-const COLOR_INDIGO = "#D96C47";
-const COLOR_CORAL = "#E9B368";
-const DEEP_SPACE = "#1A120D";
+const COLOR_INDIGO = "#8a0467";
+const COLOR_CORAL = "#03624c";
+const DEEP_SPACE = "#fffef7";
 const PARTICLE_COUNT = 60;
 
 // ---------------------------------------------------------------------------
@@ -450,7 +450,7 @@ export default function AboutVisual3D({ className = "" }: AboutVisual3DProps) {
         className={className}
         aria-hidden="true"
         style={{
-          background: `linear-gradient(160deg, #2A1D14 0%, #251811 30%, ${DEEP_SPACE} 70%, #231710 100%)`,
+          background: `linear-gradient(160deg, #fffef7 0%, #251811 30%, ${DEEP_SPACE} 70%, #231710 100%)`,
         }}
       />
     );

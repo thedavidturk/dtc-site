@@ -193,7 +193,7 @@ export default function TodesVejiganteProject() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
+            <span className="inline-block font-mono text-xs tracking-widest uppercase text-bone-white/70 mb-4 px-3 py-1.5 rounded-full border border-black/10 backdrop-blur-sm bg-black/5">
               Strategy + Campaign Production
             </span>
           </m.div>
@@ -202,7 +202,7 @@ export default function TodesVejiganteProject() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-h1 font-bold mb-4"
+            className="font-display text-h1 font-light mb-4"
           >
             TODES VEJIGANTE
           </m.h1>
@@ -211,7 +211,7 @@ export default function TodesVejiganteProject() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-2xl md:text-3xl lg:text-4xl font-medium text-white/80 tracking-tight"
+            className="font-headline text-2xl md:text-3xl lg:text-4xl font-normal text-bone-white/80 tracking-tight"
           >
             Preserving Heritage Through Story
           </m.p>
@@ -255,7 +255,7 @@ export default function TodesVejiganteProject() {
                 <p className="font-mono text-xs tracking-widest uppercase text-amber-400 mb-2">
                   Client
                 </p>
-                <p className="font-headline text-lg font-semibold text-pure-white">
+                <p className="font-headline text-lg font-light text-pure-white">
                   {overview.client}
                 </p>
               </div>
@@ -305,7 +305,7 @@ export default function TodesVejiganteProject() {
             <p className="font-mono text-sm text-amber-400 tracking-widest uppercase mb-4">
               The Challenge
             </p>
-            <h2 className="font-headline text-h3 font-bold mb-8">
+            <h2 className="font-headline text-h3 font-light mb-8">
               Cultural preservation{" "}
               <span className="gradient-text">against erasure</span>
             </h2>
@@ -334,7 +334,7 @@ export default function TodesVejiganteProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── Our Approach (scroll-scrubbed pinned section) ────────── */}
@@ -349,7 +349,7 @@ export default function TodesVejiganteProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── The Solution ─────────────────────────────────────────── */}
@@ -364,9 +364,9 @@ export default function TodesVejiganteProject() {
           <p className="font-mono text-sm text-amber-400 tracking-widest uppercase mb-4">
             The Solution
           </p>
-          <h2 className="font-headline text-h3 font-bold mb-8">
+          <h2 className="font-headline text-h3 font-light mb-8">
             Culture as the campaign{" "}
-            <span className="text-white">itself</span>
+            <span className="text-bone-white">itself</span>
           </h2>
           <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
             <p>
@@ -392,7 +392,7 @@ export default function TodesVejiganteProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── Campaign Gallery ────────────────────────────────────── */}
@@ -407,9 +407,9 @@ export default function TodesVejiganteProject() {
           <p className="font-mono text-sm text-amber-400 tracking-widest uppercase mb-4">
             Campaign Gallery
           </p>
-          <h2 className="font-headline text-h3 font-bold">
+          <h2 className="font-headline text-h3 font-light">
             Portraits, exhibition &{" "}
-            <span className="text-white">community</span>
+            <span className="text-bone-white">community</span>
           </h2>
         </m.div>
 
@@ -426,7 +426,7 @@ export default function TodesVejiganteProject() {
               client={overview.client}
               discipline="Photography & Exhibition"
               index={1}
-              className="aspect-[16/10] rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-[16/10] rounded-none  "
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/5c702b8d-e939-46c9-9a51-21f7465d6b67_rw_1920.jpg?h=0d55bd3b23e10a0b7b506f672a98d2f1"
@@ -444,7 +444,7 @@ export default function TodesVejiganteProject() {
               client={overview.client}
               discipline="Photography & Exhibition"
               index={2}
-              className="aspect-[3/4] rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-[3/4] rounded-none  "
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/a0c12513-c551-46dc-834c-7cc8b86565cf_rw_1920.jpg?h=0d55bd3b23e10a0b7b506f672a98d2f1"
@@ -463,7 +463,7 @@ export default function TodesVejiganteProject() {
               client={overview.client}
               discipline="Campaign Strategy"
               index={3}
-              className="aspect-[4/3] rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-[4/3] rounded-none  "
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/2366b306-628e-40ef-b957-49ea27e2ca94_rw_1920.png?h=0d55bd3b23e10a0b7b506f672a98d2f1"
@@ -481,7 +481,7 @@ export default function TodesVejiganteProject() {
               client={overview.client}
               discipline="Photography & Exhibition"
               index={4}
-              className="aspect-[16/9] rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-[16/9] rounded-none  "
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6f6775eb-a524-4ee6-921e-55d7dd255f6c_rw_1920.jpg?h=0d55bd3b23e10a0b7b506f672a98d2f1"
@@ -500,7 +500,7 @@ export default function TodesVejiganteProject() {
               client={overview.client}
               discipline="Photography & Exhibition"
               index={5}
-              className="aspect-square rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-square rounded-none  "
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/bbc241fe-1029-4a0e-9f4d-d44d4eed7c48_rw_1920.jpg?h=0d55bd3b23e10a0b7b506f672a98d2f1"
@@ -518,7 +518,7 @@ export default function TodesVejiganteProject() {
               client={overview.client}
               discipline="Immersive Event Production"
               index={6}
-              className="aspect-square rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-square rounded-none  "
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/a7c6289a-1050-405d-a340-a793d92b29cd_rw_1920.png?h=0d55bd3b23e10a0b7b506f672a98d2f1"
@@ -536,7 +536,7 @@ export default function TodesVejiganteProject() {
               client={overview.client}
               discipline="Immersive Event Production"
               index={7}
-              className="aspect-square rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-square rounded-none  "
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/ec3965ca-86b5-46e9-a8dd-947479c91eeb_rw_1920.png?h=0d55bd3b23e10a0b7b506f672a98d2f1"
@@ -555,7 +555,7 @@ export default function TodesVejiganteProject() {
               client={overview.client}
               discipline="Immersive Event Production"
               index={8}
-              className="aspect-[16/10] rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-[16/10] rounded-none  "
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/34c014e3-651c-47cb-ae49-3572fc351b0f_rw_1200.png?h=0d55bd3b23e10a0b7b506f672a98d2f1"
@@ -573,7 +573,7 @@ export default function TodesVejiganteProject() {
               client={overview.client}
               discipline="Campaign Strategy"
               index={9}
-              className="aspect-[16/10] rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-[16/10] rounded-none  "
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/95bd6c52-fbb1-4b5c-b8f4-f13e8bb8ad05_rw_1920.png?h=0d55bd3b23e10a0b7b506f672a98d2f1"
@@ -592,7 +592,7 @@ export default function TodesVejiganteProject() {
               client={overview.client}
               discipline="Documentary Production"
               index={10}
-              className="aspect-[21/9] rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-[21/9] rounded-none  "
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/7cf1295f-7c6f-4057-a833-094f979df0d3_rw_1200.png?h=0d55bd3b23e10a0b7b506f672a98d2f1"
@@ -609,7 +609,7 @@ export default function TodesVejiganteProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── The Result ───────────────────────────────────────────── */}
@@ -624,9 +624,9 @@ export default function TodesVejiganteProject() {
           <p className="font-mono text-sm text-amber-400 tracking-widest uppercase mb-4">
             The Result
           </p>
-          <h2 className="font-headline text-h3 font-bold">
+          <h2 className="font-headline text-h3 font-light">
             Real impact,{" "}
-            <span className="text-white">lasting support</span>
+            <span className="text-bone-white">lasting support</span>
           </h2>
         </m.div>
 
@@ -638,7 +638,7 @@ export default function TodesVejiganteProject() {
           viewport={{ once: true, margin: "-60px" }}
           className="max-w-4xl"
         >
-          <p className="font-display text-h2 font-bold text-pure-white mb-10">
+          <p className="font-display text-h2 font-light text-pure-white mb-10">
             {results[0]}
           </p>
 
@@ -659,7 +659,7 @@ export default function TodesVejiganteProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── Tools & Technology ────────────────────────────────────── */}
@@ -674,8 +674,8 @@ export default function TodesVejiganteProject() {
           <p className="font-mono text-sm text-amber-400 tracking-widest uppercase mb-4">
             Capabilities
           </p>
-          <h2 className="font-headline text-h3 font-bold">
-            The <span className="text-white">production toolkit</span>
+          <h2 className="font-headline text-h3 font-light">
+            The <span className="text-bone-white">production toolkit</span>
           </h2>
         </m.div>
 
@@ -690,9 +690,9 @@ export default function TodesVejiganteProject() {
             <m.div
               key={tool.name}
               variants={staggerItem}
-              className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-amber-400/20 hover:bg-amber-400/[0.03] transition-all duration-500"
+              className="group p-6 rounded-none border border-black/5 bg-black/[0.02] hover:border-amber-400/20 hover:bg-amber-400/[0.03] transition-all duration-500"
             >
-              <h3 className="font-headline text-lg font-bold text-pure-white mb-2 group-hover:text-amber-400 transition-colors duration-300">
+              <h3 className="font-headline text-lg font-light text-pure-white mb-2 group-hover:text-amber-400 transition-colors duration-300">
                 {tool.name}
               </h3>
               <p className="font-body text-sm text-clay-gray leading-relaxed">
@@ -705,7 +705,7 @@ export default function TodesVejiganteProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
@@ -717,9 +717,9 @@ export default function TodesVejiganteProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="text-center max-w-2xl mx-auto"
         >
-          <h2 className="font-headline text-h2 font-bold mb-6">
+          <h2 className="font-headline text-h2 font-light mb-6">
             Have a story{" "}
-            <span className="text-white">worth telling</span>?
+            <span className="text-bone-white">worth telling</span>?
           </h2>
           <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s build a campaign that turns your mission into

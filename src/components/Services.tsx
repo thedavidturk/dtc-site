@@ -179,9 +179,9 @@ const capabilityVariants = {
 
 export default function Services() {
   return (
-    <section id="services" className="bg-espresso relative overflow-hidden" style={{ backgroundColor: "#1A120D" }}>
+    <section id="services" className="bg-espresso relative overflow-hidden" style={{ backgroundColor: "#fffef7" }}>
       {/* Background accent */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(217,108,71,0.04)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 hidden bg-[radial-gradient(ellipse_at_bottom_left,rgba(138,4,103,0.04)_0%,transparent_50%)]" />
 
       {/* Section header */}
       <div className="section-container pt-20 md:pt-28 lg:pt-32 pb-12 md:pb-16 relative z-10">
@@ -191,12 +191,12 @@ export default function Services() {
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
         >
-          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
+          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
             Capabilities
           </p>
-          <h2 className="font-display text-h2 font-bold text-pure-white">
+          <h2 className="font-display text-h2 font-light text-pure-white">
             <TextReveal
-              text="WHAT WE DO"
+              text="What we do"
               as="span"
               className="inline"
             />
@@ -212,7 +212,7 @@ export default function Services() {
           return (
             <div
               key={service.label}
-              className="border-t border-white/5 last:border-b"
+              className="border-t border-black/5 last:border-b"
             >
               <div className="section-container section-padding">
                 <div
@@ -228,7 +228,7 @@ export default function Services() {
                     viewport={{ once: true, margin: "-80px" }}
                     className="w-full lg:w-1/2 flex-shrink-0"
                   >
-                    <Lazy3D className="aspect-video rounded-2xl overflow-hidden relative">
+                    <Lazy3D className="aspect-video rounded-none overflow-hidden relative">
                       <ServiceScene
                         scene={service.scene}
                         className="w-full h-full"
@@ -250,22 +250,22 @@ export default function Services() {
                     </span>
 
                     {/* Headline */}
-                    <h3 className="font-headline text-h3 font-bold leading-tight mb-6">
+                    <h3 className="font-headline text-h3 font-light leading-tight mb-6">
                       <span className="text-pure-white">{service.headline}</span>
                     </h3>
 
                     {/* Old Way / Our Way / Result */}
                     <div className="space-y-4 mb-10">
                       <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed">
-                        <span className="font-bold text-cream">The old way:</span>{" "}
+                        <span className="font-light text-cream">The old way:</span>{" "}
                         {service.oldWay}
                       </p>
                       <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed">
-                        <span className="font-bold text-cream">Our way:</span>{" "}
+                        <span className="font-light text-cream">Our way:</span>{" "}
                         {service.ourWay}
                       </p>
                       <p className="font-body text-base md:text-lg leading-relaxed text-terracotta">
-                        <span className="font-bold">Result:</span>{" "}
+                        <span className="font-light">Result:</span>{" "}
                         {service.result}
                       </p>
                     </div>

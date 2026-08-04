@@ -168,14 +168,14 @@ function CampaignSection({
         className="mb-12"
       >
         <div className="flex items-center gap-4 mb-4">
-          <span className="font-mono text-4xl md:text-5xl font-bold text-white/10">
+          <span className="font-mono text-4xl md:text-5xl font-light text-bone-white/10">
             {String(index + 1).padStart(2, "0")}
           </span>
           <div>
             <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-1">
               {campaign.subtitle}
             </p>
-            <h2 className="font-headline text-h3 font-bold text-pure-white">
+            <h2 className="font-headline text-h3 font-light text-pure-white">
               {campaign.title}
             </h2>
           </div>
@@ -199,7 +199,7 @@ function CampaignSection({
               client={overview.client}
               discipline={campaign.discipline}
               index={imgIndex + 1}
-              className={`${img.aspect} rounded-2xl`}
+              className={`${img.aspect} rounded-none`}
             >
               <Image
                 src={img.src}
@@ -275,7 +275,7 @@ export default function NewEraCapProject() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
+            <span className="inline-block font-mono text-xs tracking-widest uppercase text-bone-white/70 mb-4 px-3 py-1.5 rounded-full border border-black/10 backdrop-blur-sm bg-black/5">
               Strategy + 3D Animation + VFX
             </span>
           </m.div>
@@ -284,7 +284,7 @@ export default function NewEraCapProject() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-h1 font-bold mb-4"
+            className="font-display text-h1 font-light mb-4"
           >
             NEW ERA CAP
           </m.h1>
@@ -293,7 +293,7 @@ export default function NewEraCapProject() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-2xl md:text-3xl lg:text-4xl font-medium text-white/80 tracking-tight"
+            className="font-headline text-2xl md:text-3xl lg:text-4xl font-normal text-bone-white/80 tracking-tight"
           >
             4 Campaigns. One Vision.
           </m.p>
@@ -340,7 +340,7 @@ export default function NewEraCapProject() {
                 <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
                   Client
                 </p>
-                <p className="font-headline text-lg font-semibold text-pure-white">
+                <p className="font-headline text-lg font-light text-pure-white">
                   {overview.client}
                 </p>
               </div>
@@ -383,10 +383,10 @@ export default function NewEraCapProject() {
             viewport={{ once: true, margin: "-80px" }}
             className="lg:col-span-8"
           >
-            <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
+            <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
               The Partnership
             </p>
-            <h2 className="font-headline text-h3 font-bold mb-8">
+            <h2 className="font-headline text-h3 font-light mb-8">
               Building worlds for{" "}
               <span className="gradient-text">an iconic brand</span>
             </h2>
@@ -420,12 +420,12 @@ export default function NewEraCapProject() {
                   key={c.id}
                   href={`#${c.id}`}
                   variants={staggerItem}
-                  className="group p-4 rounded-xl border border-white/5 bg-white/[0.02] hover:border-terracotta/20 hover:bg-terracotta/[0.03] transition-all duration-500"
+                  className="group p-4 rounded-none border border-black/5 bg-black/[0.02] hover:border-terracotta/20 hover:bg-terracotta/[0.03] transition-all duration-500"
                 >
                   <span className="font-mono text-xs text-terracotta/50 group-hover:text-terracotta transition-colors">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <p className="font-headline text-sm font-bold text-pure-white mt-1">
+                  <p className="font-headline text-sm font-light text-pure-white mt-1">
                     {c.title}
                   </p>
                   <p className="font-body text-xs text-clay-gray mt-0.5">
@@ -442,7 +442,7 @@ export default function NewEraCapProject() {
       {campaigns.map((campaign, index) => (
         <div key={campaign.id}>
           <div className="section-container">
-            <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+            <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
           </div>
           <CampaignSection campaign={campaign} index={index} />
         </div>
@@ -450,7 +450,7 @@ export default function NewEraCapProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
@@ -462,9 +462,9 @@ export default function NewEraCapProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="text-center max-w-2xl mx-auto"
         >
-          <h2 className="font-headline text-h2 font-bold mb-6">
+          <h2 className="font-headline text-h2 font-light mb-6">
             Ready to build your{" "}
-            <span className="text-white">next world</span>?
+            <span className="text-bone-white">next world</span>?
           </h2>
           <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s create a campaign with the same cinematic ambition and

@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 
 // --- Design system colors ---
-const ELECTRIC_INDIGO = { r: 99, g: 102, b: 241 }; // #D96C47
-const WARM_CORAL = { r: 249, g: 115, b: 22 }; // #E9B368
+const ELECTRIC_INDIGO = { r: 138, g: 4, b: 103 }; // #8a0467 magenta bloom
+const WARM_CORAL = { r: 3, g: 98, b: 76 }; // #03624c forest teal
 
 const NODE_COUNT = 9;
 const PARTICLE_COUNT = 6;

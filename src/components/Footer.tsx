@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "./TransitionLink";
-import ConstellationNetwork from "./ConstellationNetwork";
 
 const footerLinks = [
   { label: "Work", href: "#projects" },
@@ -14,16 +13,17 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-espresso border-t border-white/5" style={{ backgroundColor: "#1A120D" }}>
-      <ConstellationNetwork className="absolute inset-0 z-0" />
-      <div className="relative z-10 section-container py-12 md:py-16">
+    <footer className="bg-bone-white border-t border-black/10">
+      <div className="section-container py-12 md:py-16">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-          {/* Logo */}
+          {/* Lockup */}
           <div>
-            <Link href="/" className="font-headline font-bold text-2xl tracking-tight">
-              DT+C
+            <Link href="/" className="flex items-center gap-3">
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-ink-black text-bone-white text-[10px] font-normal tracking-tight">
+                DT+C
+              </span>
             </Link>
-            <p className="text-clay-gray text-sm mt-2 max-w-xs">
+            <p className="text-graphite text-sm mt-3 max-w-xs">
               Future-proof creative for forward-thinking brands.
             </p>
           </div>
@@ -34,7 +34,7 @@ export default function Footer() {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm text-clay-gray hover:text-pure-white transition-colors"
+                className="text-sm text-ink-black hover:text-graphite transition-colors"
               >
                 {link.label}
               </a>
@@ -47,7 +47,7 @@ export default function Footer() {
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-clay-gray hover:text-terracotta transition-colors"
+              className="text-graphite hover:text-ink-black transition-colors"
               aria-label="LinkedIn"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -56,7 +56,7 @@ export default function Footer() {
             </a>
             <a
               href="mailto:david@davidturkcreative.com"
-              className="text-clay-gray hover:text-sun-gold transition-colors"
+              className="text-graphite hover:text-ink-black transition-colors"
               aria-label="Email"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
@@ -67,8 +67,8 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-12 pt-8 border-t border-white/5 text-center">
-          <p className="text-clay-gray text-sm">
+        <div className="mt-12 pt-8 border-t border-black/10">
+          <p className="text-graphite text-caption uppercase tracking-[0.08em]">
             &copy; 2026 DT+C. All rights reserved.
           </p>
         </div>

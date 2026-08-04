@@ -217,10 +217,10 @@ export default function Insights() {
   };
 
   return (
-    <section id="insights" className="bg-espresso section-padding relative overflow-hidden" style={{ backgroundColor: "#1A120D" }}>
+    <section id="insights" className="bg-espresso section-padding relative overflow-hidden" style={{ backgroundColor: "#fffef7" }}>
       {/* Background texture */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(233,179,104,0.04)_0%,transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(217,108,71,0.04)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 hidden bg-[radial-gradient(ellipse_at_bottom_left,rgba(3,98,76,0.04)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 hidden bg-[radial-gradient(ellipse_at_top_right,rgba(138,4,103,0.04)_0%,transparent_50%)]" />
 
       <m.div
         className="relative z-10"
@@ -230,22 +230,22 @@ export default function Insights() {
         viewport={{ once: true, margin: "-100px" }}
       >
         {/* Section header */}
-        <m.div className="section-container text-center mb-12 md:mb-16" variants={headingVariants}>
-          <span className="font-mono text-xs tracking-[0.3em] text-terracotta uppercase mb-4 block">
+        <m.div className="section-container text-left mb-12 md:mb-16" variants={headingVariants}>
+          <span className="text-caption tracking-[0.08em] text-graphite uppercase mb-4 block">
             Insights
           </span>
-          <h2 className="font-display text-h2 font-bold text-pure-white">
-            PERSPECTIVES
+          <h2 className="font-display text-h2 font-light text-pure-white">
+            Perspectives
           </h2>
           {liveDate && (
-            <div className="flex items-center justify-center gap-3 mt-4">
-              <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="font-mono text-xs tracking-[0.2em] text-emerald-400 uppercase">
+            <div className="flex items-center gap-3 mt-4">
+              <div className="w-2 h-2 rounded-full bg-forest-teal animate-pulse" />
+              <span className="font-mono text-xs tracking-[0.2em] text-forest-teal uppercase">
                 {liveDate}
               </span>
             </div>
           )}
-          <p className="font-body text-clay-gray text-lg mt-4 max-w-2xl mx-auto leading-relaxed">
+          <p className="font-body text-clay-gray text-lg mt-4 max-w-2xl leading-relaxed">
             Thoughts on AI-driven production, creative technology, and the future of brand content. New perspectives every month.
           </p>
         </m.div>
@@ -259,8 +259,8 @@ export default function Insights() {
             onClick={() => scroll("left")}
             className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 ${
               canScrollLeft
-                ? "border-white/20 text-pure-white hover:bg-white/10 hover:border-white/40"
-                : "border-white/5 text-white/20 cursor-not-allowed"
+                ? "border-black/20 text-pure-white hover:bg-black/10 hover:border-black/40"
+                : "border-black/5 text-bone-white/20 cursor-not-allowed"
             }`}
             disabled={!canScrollLeft}
             aria-label="Scroll left"
@@ -273,8 +273,8 @@ export default function Insights() {
             onClick={() => scroll("right")}
             className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 ${
               canScrollRight
-                ? "border-white/20 text-pure-white hover:bg-white/10 hover:border-white/40"
-                : "border-white/5 text-white/20 cursor-not-allowed"
+                ? "border-black/20 text-pure-white hover:bg-black/10 hover:border-black/40"
+                : "border-black/5 text-bone-white/20 cursor-not-allowed"
             }`}
             disabled={!canScrollRight}
             aria-label="Scroll right"
@@ -289,13 +289,13 @@ export default function Insights() {
         <div className="relative">
           {/* Left fade */}
           <div
-            className={`absolute left-0 top-0 bottom-0 w-16 md:w-24 z-10 bg-gradient-to-r from-[#1A120D] to-transparent pointer-events-none transition-opacity duration-300 ${
+            className={`absolute left-0 top-0 bottom-0 w-16 md:w-24 z-10 bg-gradient-to-r from-[#fffef7] to-transparent pointer-events-none transition-opacity duration-300 ${
               canScrollLeft ? "opacity-100" : "opacity-0"
             }`}
           />
           {/* Right fade */}
           <div
-            className={`absolute right-0 top-0 bottom-0 w-16 md:w-24 z-10 bg-gradient-to-l from-[#1A120D] to-transparent pointer-events-none transition-opacity duration-300 ${
+            className={`absolute right-0 top-0 bottom-0 w-16 md:w-24 z-10 bg-gradient-to-l from-[#fffef7] to-transparent pointer-events-none transition-opacity duration-300 ${
               canScrollRight ? "opacity-100" : "opacity-0"
             }`}
           />
@@ -313,8 +313,8 @@ export default function Insights() {
                 variants={cardVariants}
                 className="group relative flex-shrink-0 w-[85vw] sm:w-[60vw] md:w-[38vw] lg:w-[30vw] xl:w-[26vw] snap-start"
               >
-                <Link href={`/insights/${post.slug}`} className="block h-full bg-white/[0.03] border border-white/5 rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 hover:-translate-y-2 hover:border-white/15 hover:shadow-2xl hover:shadow-black/30">
-                  <div className="relative rounded-2xl h-full flex flex-col">
+                <Link href={`/insights/${post.slug}`} className="block h-full bg-black/[0.03] border border-black/5 rounded-none overflow-hidden cursor-pointer transition-all duration-500 hover:-translate-y-2 hover:border-black/15 hover: hover:">
+                  <div className="relative rounded-none h-full flex flex-col">
                     {/* Cover area */}
                     <WorkFrame
                       year={post.month.split(" ").pop()}
@@ -341,10 +341,10 @@ export default function Insights() {
                       <div className="absolute inset-0 z-20 opacity-[0.06] bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:40px_40px]" />
 
                       {/* Bottom fade */}
-                      <div className="absolute inset-x-0 bottom-0 h-1/3 z-20 bg-gradient-to-t from-[#1A120D]/80 to-transparent" />
+                      <div className="absolute inset-x-0 bottom-0 h-1/3 z-20 bg-gradient-to-t from-[#fffef7]/80 to-transparent" />
 
                       {/* Corner accent glow on hover */}
-                      <div className="absolute top-0 right-0 w-32 h-32 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-[radial-gradient(circle_at_top_right,rgba(217,108,71,0.15),transparent_70%)]" />
+                      <div className="absolute top-0 right-0 w-32 h-32 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 hidden bg-[radial-gradient(circle_at_top_right,rgba(138,4,103,0.15),transparent_70%)]" />
                     </WorkFrame>
 
                     {/* Card content */}
@@ -357,7 +357,7 @@ export default function Insights() {
                       </div>
 
                       {/* Title */}
-                      <h3 className="font-headline font-bold text-lg text-pure-white mt-3 leading-snug group-hover:text-cream transition-colors duration-300">
+                      <h3 className="font-headline font-light text-lg text-pure-white mt-3 leading-snug group-hover:text-cream transition-colors duration-300">
                         {post.title}
                       </h3>
 
@@ -367,8 +367,8 @@ export default function Insights() {
                       </p>
 
                       {/* Read Article link */}
-                      <div className="mt-5 pt-4 border-t border-white/5">
-                        <span className="inline-flex items-center gap-2 text-sun-gold text-sm font-medium group-hover:gap-3 transition-all duration-300">
+                      <div className="mt-5 pt-4 border-t border-black/5">
+                        <span className="inline-flex items-center gap-2 text-sun-gold text-sm font-normal group-hover:gap-3 transition-all duration-300">
                           Read Article
                           <svg
                             className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
@@ -388,7 +388,7 @@ export default function Insights() {
                     </div>
 
                     {/* Hover border glow */}
-                    <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none shadow-[inset_0_0_40px_rgba(217,108,71,0.05)]" />
+                    <div className="absolute inset-0 rounded-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none shadow-[inset_0_0_40px_rgba(138,4,103,0.05)]" />
                   </div>
                 </Link>
               </m.article>
@@ -410,7 +410,7 @@ export default function Insights() {
                   card.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
                 }
               }}
-              className="w-1.5 h-1.5 rounded-full bg-white/20 hover:bg-white/50 transition-colors duration-300"
+              className="w-1.5 h-1.5 rounded-full bg-black/20 hover:bg-black/50 transition-colors duration-300"
               aria-label={`Go to article ${i + 1}`}
             />
           ))}

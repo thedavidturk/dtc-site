@@ -96,7 +96,7 @@ export default function RealTime4KArticle() {
       {/* -- Hero ----------------------------------------------------- */}
       <section className="relative min-h-[60vh] md:min-h-[70vh] flex items-end overflow-hidden">
         {/* Gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 via-blue-700 to-blue-950" />
+        <div className="absolute inset-0 bg-bone-white" />
 
         {/* Noise overlay */}
         <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIxIi8+PC9zdmc+')]" />
@@ -108,8 +108,8 @@ export default function RealTime4KArticle() {
         <div className="absolute inset-0 bg-gradient-to-t from-espresso via-espresso/40 to-transparent" />
 
         {/* Floating geometric accents */}
-        <div className="absolute top-1/4 right-[20%] w-36 h-36 border border-white/[0.06] rounded-full animate-pulse" />
-        <div className="absolute top-2/5 left-1/4 w-16 h-16 border border-white/10 rounded-lg rotate-45" />
+        <div className="absolute top-1/4 right-[20%] w-36 h-36 border border-black/[0.06] rounded-full animate-pulse" />
+        <div className="absolute top-2/5 left-1/4 w-16 h-16 border border-black/10 rounded-none rotate-45" />
         <div className="absolute bottom-1/3 right-1/3 w-3 h-3 bg-cyan-400/20 rounded-full" />
 
         <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
@@ -118,7 +118,7 @@ export default function RealTime4KArticle() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
+            <span className="inline-block font-mono text-xs tracking-widest uppercase text-bone-white/70 mb-4 px-3 py-1.5 rounded-full border border-black/10 backdrop-blur-sm bg-black/5">
               Creative Technology
             </span>
           </m.div>
@@ -127,7 +127,7 @@ export default function RealTime4KArticle() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-h1 font-bold mb-4 max-w-4xl"
+            className="font-display text-h1 font-light mb-4 max-w-4xl"
           >
             The AI-Powered Creative Pipeline: VFX, Sound Design, and Content at Machine Speed
           </m.h1>
@@ -136,7 +136,7 @@ export default function RealTime4KArticle() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="font-body text-lg md:text-xl text-white/70 max-w-2xl"
+            className="font-body text-lg md:text-xl text-bone-white/70 max-w-2xl"
           >
             How custom AI workflows are collapsing post-production timelines
             from months to days, without sacrificing the craft.
@@ -148,11 +148,11 @@ export default function RealTime4KArticle() {
             transition={{ duration: 0.5, delay: 0.6 }}
             className="flex items-center gap-4 mt-6"
           >
-            <span className="font-mono text-xs text-white/50 tracking-wide">
+            <span className="font-mono text-xs text-bone-white/50 tracking-wide">
               David Turk
             </span>
-            <span className="w-1 h-1 rounded-full bg-white/30" />
-            <span className="font-mono text-xs text-white/50 tracking-wide">
+            <span className="w-1 h-1 rounded-full bg-black/30" />
+            <span className="font-mono text-xs text-bone-white/50 tracking-wide">
               10 min read
             </span>
           </m.div>
@@ -162,7 +162,7 @@ export default function RealTime4KArticle() {
             initial={{ width: 0 }}
             animate={{ width: "6rem" }}
             transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="h-px bg-gradient-to-r from-cyan-400 to-blue-500 mt-8"
+            className="h-px bg-magenta-bloom mt-8"
           />
         </div>
       </section>
@@ -178,7 +178,7 @@ export default function RealTime4KArticle() {
         >
           {/* --- The Old Post-Production --- */}
           <m.div variants={fadeUp}>
-            <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
+            <h2 className="text-2xl font-headline font-light text-pure-white mt-12 mb-4">
               Post-Production Used to Be the Bottleneck
             </h2>
             <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
@@ -211,7 +211,7 @@ export default function RealTime4KArticle() {
 
           {/* --- AI VFX --- */}
           <m.div variants={fadeUp}>
-            <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
+            <h2 className="text-2xl font-headline font-light text-pure-white mt-12 mb-4">
               AI-Powered VFX: 40% Cost Reduction, Zero Quality Compromise
             </h2>
             <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
@@ -244,7 +244,7 @@ export default function RealTime4KArticle() {
 
           {/* --- AI Sound Design --- */}
           <m.div variants={fadeUp}>
-            <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
+            <h2 className="text-2xl font-headline font-light text-pure-white mt-12 mb-4">
               Sound Design: Where AI Removes Friction Without Removing Soul
             </h2>
             <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
@@ -284,7 +284,7 @@ export default function RealTime4KArticle() {
 
           {/* --- Image Generation --- */}
           <m.div variants={fadeUp}>
-            <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
+            <h2 className="text-2xl font-headline font-light text-pure-white mt-12 mb-4">
               AI Image Generation as a Creative Accelerator
             </h2>
             <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
@@ -309,7 +309,7 @@ export default function RealTime4KArticle() {
 
           {/* --- The Unified Pipeline --- */}
           <m.div variants={fadeUp}>
-            <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
+            <h2 className="text-2xl font-headline font-light text-pure-white mt-12 mb-4">
               The Unified Pipeline: Everything Connects
             </h2>
             <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
@@ -342,7 +342,7 @@ export default function RealTime4KArticle() {
 
           {/* --- Conclusion --- */}
           <m.div variants={fadeUp}>
-            <h2 className="text-2xl font-headline font-bold text-pure-white mt-12 mb-4">
+            <h2 className="text-2xl font-headline font-light text-pure-white mt-12 mb-4">
               The New Standard for Creative Production
             </h2>
             <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
@@ -373,7 +373,7 @@ export default function RealTime4KArticle() {
 
       {/* -- Divider -------------------------------------------------- */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* -- More Perspectives ---------------------------------------- */}
@@ -385,10 +385,10 @@ export default function RealTime4KArticle() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-terracotta tracking-widest uppercase mb-4">
+          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
             Continue Reading
           </p>
-          <h2 className="font-headline text-h3 font-bold">
+          <h2 className="font-headline text-h3 font-light">
             More <span className="gradient-text">Perspectives</span>
           </h2>
         </m.div>
@@ -404,7 +404,7 @@ export default function RealTime4KArticle() {
             <m.div key={article.href} variants={staggerItem}>
               <Link
                 href={article.href}
-                className="group block rounded-2xl border border-white/5 bg-white/[0.02] overflow-hidden hover:border-white/15 hover:-translate-y-1 transition-all duration-500"
+                className="group block rounded-none border border-black/5 bg-black/[0.02] overflow-hidden hover:border-black/15 hover:-translate-y-1 transition-all duration-500"
               >
                 {/* Gradient header */}
                 <div className="relative h-32 overflow-hidden">
@@ -417,10 +417,10 @@ export default function RealTime4KArticle() {
                   <span className="font-mono text-xs text-terracotta uppercase tracking-wider">
                     {article.category}
                   </span>
-                  <h3 className="font-headline font-bold text-lg text-pure-white mt-2 leading-snug group-hover:text-cream transition-colors duration-300">
+                  <h3 className="font-headline font-light text-lg text-pure-white mt-2 leading-snug group-hover:text-cream transition-colors duration-300">
                     {article.title}
                   </h3>
-                  <span className="inline-flex items-center gap-2 text-sun-gold text-sm font-medium mt-4 group-hover:gap-3 transition-all duration-300">
+                  <span className="inline-flex items-center gap-2 text-sun-gold text-sm font-normal mt-4 group-hover:gap-3 transition-all duration-300">
                     Read Article
                     <svg
                       className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"

@@ -211,7 +211,7 @@ export default function SeaWorldProject() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
+            <span className="inline-block font-mono text-xs tracking-widest uppercase text-bone-white/70 mb-4 px-3 py-1.5 rounded-full border border-black/10 backdrop-blur-sm bg-black/5">
               Virtual World Cinematic + 3D Animation
             </span>
           </m.div>
@@ -220,7 +220,7 @@ export default function SeaWorldProject() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-h1 font-bold mb-4"
+            className="font-display text-h1 font-light mb-4"
           >
             SEAWORLD
           </m.h1>
@@ -229,7 +229,7 @@ export default function SeaWorldProject() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-2xl md:text-3xl lg:text-4xl font-medium text-white/80 tracking-tight"
+            className="font-headline text-2xl md:text-3xl lg:text-4xl font-normal text-bone-white/80 tracking-tight"
           >
             SEAQuest Announcement Campaign
           </m.p>
@@ -273,7 +273,7 @@ export default function SeaWorldProject() {
                 <p className="font-mono text-xs tracking-widest uppercase text-cyan-400 mb-2">
                   Client
                 </p>
-                <p className="font-headline text-lg font-semibold text-pure-white">
+                <p className="font-headline text-lg font-light text-pure-white">
                   {overview.client}
                 </p>
               </div>
@@ -323,7 +323,7 @@ export default function SeaWorldProject() {
             <p className="font-mono text-sm text-cyan-400 tracking-widest uppercase mb-4">
               The Challenge
             </p>
-            <h2 className="font-headline text-h3 font-bold mb-8">
+            <h2 className="font-headline text-h3 font-light mb-8">
               Generating massive excitement{" "}
               <span className="gradient-text">in 30 days flat</span>
             </h2>
@@ -348,7 +348,7 @@ export default function SeaWorldProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── Our Approach (scroll-scrubbed pinned section) ────────── */}
@@ -363,7 +363,7 @@ export default function SeaWorldProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── The Solution ─────────────────────────────────────────── */}
@@ -378,9 +378,9 @@ export default function SeaWorldProject() {
           <p className="font-mono text-sm text-cyan-400 tracking-widest uppercase mb-4">
             The Solution
           </p>
-          <h2 className="font-headline text-h3 font-bold mb-8">
+          <h2 className="font-headline text-h3 font-light mb-8">
             An immersive underwater world{" "}
-            <span className="text-white">ready for every screen</span>
+            <span className="text-bone-white">ready for every screen</span>
           </h2>
           <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
             <p>
@@ -403,7 +403,7 @@ export default function SeaWorldProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── Campaign Gallery ────────────────────────────────────── */}
@@ -418,9 +418,9 @@ export default function SeaWorldProject() {
           <p className="font-mono text-sm text-cyan-400 tracking-widest uppercase mb-4">
             Campaign Gallery
           </p>
-          <h2 className="font-headline text-h3 font-bold">
+          <h2 className="font-headline text-h3 font-light">
             Deep-sea worlds &{" "}
-            <span className="text-white">hero visuals</span>
+            <span className="text-bone-white">hero visuals</span>
           </h2>
         </m.div>
 
@@ -437,7 +437,7 @@ export default function SeaWorldProject() {
               client={overview.client}
               discipline="Virtual World Cinematic"
               index={1}
-              className="aspect-[21/9] rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-[21/9] rounded-none  "
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/f42a6c83-e2bc-4d2f-afde-e3505ae3a0a9_rw_1920.png?h=170768e389c41ddce65e3137271f173b"
@@ -456,7 +456,7 @@ export default function SeaWorldProject() {
               client={overview.client}
               discipline="Virtual World Cinematic"
               index={2}
-              className="aspect-[16/10] rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-[16/10] rounded-none  "
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/3c7bc293-4736-41b8-8521-17c11820918f_rw_3840.png?h=f85762d23e378abf6d005270cc55be51"
@@ -474,7 +474,7 @@ export default function SeaWorldProject() {
               client={overview.client}
               discipline="3D Animation"
               index={3}
-              className="aspect-[3/4] rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-[3/4] rounded-none  "
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/e2ae76f5-6ff8-4000-b921-9efcda85561b_rw_1920.png?h=47ba580be2e46e8961a7055179cca782"
@@ -493,7 +493,7 @@ export default function SeaWorldProject() {
               client={overview.client}
               discipline="Virtual World Cinematic"
               index={4}
-              className="aspect-square rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-square rounded-none  "
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/a0c5a09c-5ae1-4809-8418-d072f7ff38e7_rw_1920.png?h=d1837ce3e9abe99f02954cd7d6f5caa8"
@@ -511,7 +511,7 @@ export default function SeaWorldProject() {
               client={overview.client}
               discipline="Cinematic Trailer Production"
               index={5}
-              className="aspect-square rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-square rounded-none  "
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/99c61769-cc68-4fc9-8ef4-365536e3c58e_rw_3840.png?h=c28e4e9259afbb5e932ec23bb4710f6d"
@@ -529,7 +529,7 @@ export default function SeaWorldProject() {
               client={overview.client}
               discipline="3D Animation"
               index={6}
-              className="aspect-square rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-square rounded-none  "
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/01dd4666-1311-43dd-823f-87f48aa1b850_rw_3840.png?h=ef9af32f06f1941f72f3c2c1ea3871da"
@@ -548,7 +548,7 @@ export default function SeaWorldProject() {
               client={overview.client}
               discipline="Cinematic Trailer Production"
               index={7}
-              className="aspect-[4/3] rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-[4/3] rounded-none  "
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/ee311317-b52f-486c-b7b8-a7ff822d4072_rw_1920.PNG?h=4a424422f10bb668b900397248ed4aa9"
@@ -566,7 +566,7 @@ export default function SeaWorldProject() {
               client={overview.client}
               discipline="Cinematic Trailer Production"
               index={8}
-              className="aspect-[16/9] rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-[16/9] rounded-none  "
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/1cff982c-74b9-4f55-9170-55356266000e_rw_1920.PNG?h=8dfd2224c89e37b93770cb529d694246"
@@ -585,7 +585,7 @@ export default function SeaWorldProject() {
               client={overview.client}
               discipline="Hero Visual Development"
               index={9}
-              className="aspect-[16/10] rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-[16/10] rounded-none  "
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/90b4e2ae-8a49-43e4-bf1c-ab699d4be4bd_rw_1920.png?h=5170336821b0fa88310d44d96d9c81f0"
@@ -603,7 +603,7 @@ export default function SeaWorldProject() {
               client={overview.client}
               discipline="Hero Visual Development"
               index={10}
-              className="aspect-[16/10] rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-[16/10] rounded-none  "
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/85375b3b-ee17-49bc-a6bd-b0f9c1e8af76_rw_1920.png?h=f33cddbaee960edf0a99219140614530"
@@ -622,7 +622,7 @@ export default function SeaWorldProject() {
               client={overview.client}
               discipline="Multi-Platform Delivery"
               index={11}
-              className="aspect-[4/3] rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-[4/3] rounded-none  "
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/22f7b6a7-fa2a-423e-9131-21aa2ca30d30_rw_1200.png?h=951bc97f963a396b893b96b579241f48"
@@ -640,7 +640,7 @@ export default function SeaWorldProject() {
               client={overview.client}
               discipline="Multi-Platform Delivery"
               index={12}
-              className="aspect-[4/3] rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-[4/3] rounded-none  "
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6e8eaa44-8e9a-4a35-ae02-8d2ad72906a7_rw_1200.png?h=0b699e851567f945902885e75a975a5f"
@@ -658,7 +658,7 @@ export default function SeaWorldProject() {
               client={overview.client}
               discipline="Multi-Platform Delivery"
               index={13}
-              className="aspect-[4/3] rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-[4/3] rounded-none  "
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/0f64c0a7-a38b-4361-8ebf-024f4ba6f35d_rw_1200.png?h=952e6d7648e23f1064600919f94c2061"
@@ -677,7 +677,7 @@ export default function SeaWorldProject() {
               client={overview.client}
               discipline="3D Animation"
               index={14}
-              className="aspect-[16/10] rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-[16/10] rounded-none  "
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/bf9e63f9-1332-4a61-8b37-9e9ff18599d0_rw_1200.png?h=2f6fc056141cc8e5c3d2ea749a0cc8ec"
@@ -695,7 +695,7 @@ export default function SeaWorldProject() {
               client={overview.client}
               discipline="Hero Visual Development"
               index={15}
-              className="aspect-[16/10] rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-[16/10] rounded-none  "
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/918196cb-2b18-470c-8d58-b4c08ab8f0fd_rw_1920.png?h=cdefda8462349a291b43dc3052b341a7"
@@ -714,7 +714,7 @@ export default function SeaWorldProject() {
               client={overview.client}
               discipline="Virtual World Cinematic"
               index={16}
-              className="aspect-[16/9] rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-[16/9] rounded-none  "
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/00ff6d1a-7447-4034-951e-33fec9cde331_rw_1920.png?h=ef9ae3b1eab3157492a06878707463e7"
@@ -732,7 +732,7 @@ export default function SeaWorldProject() {
               client={overview.client}
               discipline="Hero Visual Development"
               index={17}
-              className="aspect-[4/3] rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-[4/3] rounded-none  "
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/3b4756c3-fd33-4064-96bb-03dff37bf48d_rw_1920.png?h=143c12ac7b0c1b9fb60eaca4ee74bcb2"
@@ -751,7 +751,7 @@ export default function SeaWorldProject() {
               client={overview.client}
               discipline="Cinematic Trailer Production"
               index={18}
-              className="aspect-[21/9] rounded-2xl shadow-2xl shadow-black/20"
+              className="aspect-[21/9] rounded-none  "
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/7fa1d7c1-4fc0-4460-b5df-1fbd816fd1df_rw_1920.png?h=5e09de0e5d2ebd0a9ca418b01ea12a9b"
@@ -768,7 +768,7 @@ export default function SeaWorldProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── The Result ───────────────────────────────────────────── */}
@@ -783,9 +783,9 @@ export default function SeaWorldProject() {
           <p className="font-mono text-sm text-cyan-400 tracking-widest uppercase mb-4">
             The Result
           </p>
-          <h2 className="font-headline text-h3 font-bold">
+          <h2 className="font-headline text-h3 font-light">
             Speed, scale, and{" "}
-            <span className="text-white">cinematic quality</span>
+            <span className="text-bone-white">cinematic quality</span>
           </h2>
         </m.div>
 
@@ -797,7 +797,7 @@ export default function SeaWorldProject() {
           viewport={{ once: true, margin: "-60px" }}
           className="max-w-4xl"
         >
-          <p className="font-display text-h2 font-bold text-pure-white mb-10">
+          <p className="font-display text-h2 font-light text-pure-white mb-10">
             {results[0]}
           </p>
 
@@ -818,7 +818,7 @@ export default function SeaWorldProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── Tools & Technology ────────────────────────────────────── */}
@@ -833,8 +833,8 @@ export default function SeaWorldProject() {
           <p className="font-mono text-sm text-cyan-400 tracking-widest uppercase mb-4">
             Tools & Technology
           </p>
-          <h2 className="font-headline text-h3 font-bold">
-            The <span className="text-white">production stack</span>
+          <h2 className="font-headline text-h3 font-light">
+            The <span className="text-bone-white">production stack</span>
           </h2>
         </m.div>
 
@@ -849,9 +849,9 @@ export default function SeaWorldProject() {
             <m.div
               key={tool.name}
               variants={staggerItem}
-              className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-cyan-400/20 hover:bg-cyan-400/[0.03] transition-all duration-500"
+              className="group p-6 rounded-none border border-black/5 bg-black/[0.02] hover:border-cyan-400/20 hover:bg-cyan-400/[0.03] transition-all duration-500"
             >
-              <h3 className="font-headline text-lg font-bold text-pure-white mb-2 group-hover:text-cyan-400 transition-colors duration-300">
+              <h3 className="font-headline text-lg font-light text-pure-white mb-2 group-hover:text-cyan-400 transition-colors duration-300">
                 {tool.name}
               </h3>
               <p className="font-body text-sm text-clay-gray leading-relaxed">
@@ -864,7 +864,7 @@ export default function SeaWorldProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
@@ -876,9 +876,9 @@ export default function SeaWorldProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="text-center max-w-2xl mx-auto"
         >
-          <h2 className="font-headline text-h2 font-bold mb-6">
+          <h2 className="font-headline text-h2 font-light mb-6">
             Ready to make a{" "}
-            <span className="text-white">splash</span>?
+            <span className="text-bone-white">splash</span>?
           </h2>
           <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s build your next campaign with speed, scale, and

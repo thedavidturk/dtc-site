@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter, JetBrains_Mono, Bricolage_Grotesque } from "next/font/google";
+import localFont from "next/font/local";
 import dynamic from "next/dynamic";
 import Script from "next/script";
 import { ViewTransitions } from "next-view-transitions";
@@ -24,25 +24,15 @@ const Analytics = dynamic(() => import("@/components/Analytics"), {
   ssr: false,
 });
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-space-grotesk",
-});
-
-// Expressive display face for oversized editorial headlines
-const bricolage = Bricolage_Grotesque({
-  subsets: ["latin"],
-  variable: "--font-bricolage",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
+// Single-family system: Switzer 300 carries all display work,
+// 400 carries body and UI. Self-hosted from Fontshare.
+const switzer = localFont({
+  src: [
+    { path: "../fonts/Switzer-Light.woff2", weight: "300", style: "normal" },
+    { path: "../fonts/Switzer-Regular.woff2", weight: "400", style: "normal" },
+  ],
+  variable: "--font-switzer",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -88,7 +78,7 @@ export default function RootLayout({
 }>) {
   return (
     <ViewTransitions>
-    <html lang="en" className="dark" style={{ backgroundColor: "#1A120D" }}>
+    <html lang="en" style={{ backgroundColor: "#fffef7" }}>
       <head>
         <JsonLd
           data={{
@@ -101,8 +91,8 @@ export default function RootLayout({
             sameAs: [],
           }}
         />
-        {/* Critical CSS - prevents white flash before Tailwind loads */}
-        <style dangerouslySetInnerHTML={{ __html: `html,body,main,section,footer{background-color:#1A120D!important}` }} />
+        {/* Critical CSS - prevents flash before Tailwind loads */}
+        <style dangerouslySetInnerHTML={{ __html: `html,body,main,section,footer{background-color:#fffef7!important}` }} />
         {/* Google Analytics */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
@@ -118,8 +108,8 @@ export default function RootLayout({
         </Script>
       </head>
       <body
-        className={`${spaceGrotesk.variable} ${bricolage.variable} ${inter.variable} ${jetbrainsMono.variable} font-body antialiased bg-espresso text-pure-white`}
-        style={{ backgroundColor: "#1A120D" }}
+        className={`${switzer.variable} font-body antialiased bg-bone-white text-ink-black`}
+        style={{ backgroundColor: "#fffef7" }}
       >
         <MotionProvider>
           <SmoothScroll />
@@ -128,7 +118,7 @@ export default function RootLayout({
             <ScrollProgressTrail />
           </DesktopFX>
           <Header />
-          <main style={{ backgroundColor: "#1A120D" }}>{children}</main>
+          <main style={{ backgroundColor: "#fffef7" }}>{children}</main>
           <Footer />
         </MotionProvider>
       </body>

@@ -3,14 +3,13 @@
 import { useState, useEffect } from "react";
 import Link from "./TransitionLink";
 import { m, AnimatePresence } from "framer-motion";
-import MagneticButton from "./MagneticButton";
 
 const navLinks = [
   { label: "Work", href: "#projects" },
   { label: "Services", href: "#services" },
   { label: "Process", href: "#process" },
   { label: "About", href: "#about" },
-{ label: "Perspectives", href: "#insights" },
+  { label: "Perspectives", href: "#insights" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -28,17 +27,20 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-white/[0.06] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)] ${
-        scrolled
-          ? "bg-white/[0.06] backdrop-blur-2xl backdrop-saturate-[1.8]"
-          : "bg-white/[0.03] backdrop-blur-xl backdrop-saturate-[1.8]"
+      className={`fixed top-0 left-0 right-0 z-50 bg-bone-white transition-[border-color] duration-300 border-b ${
+        scrolled ? "border-black/10" : "border-transparent"
       }`}
     >
       <div className="section-container flex items-center justify-between h-16 md:h-20">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <span className="font-headline font-bold text-xl tracking-tight">
+        {/* Lockup: circular mark + two-line eyebrow */}
+        <Link href="/" className="flex items-center gap-4">
+          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-ink-black text-bone-white text-[10px] font-normal tracking-tight">
             DT+C
+          </span>
+          <span className="hidden sm:block text-[10px] leading-[1.5] uppercase tracking-[0.08em] text-ink-black">
+            Future-proof creative
+            <br />
+            for forward-thinking brands
           </span>
         </Link>
 
@@ -48,16 +50,17 @@ export default function Header() {
             <a
               key={link.label}
               href={link.href}
-              className="text-sm font-body text-clay-gray hover:text-pure-white transition-colors duration-200"
+              className="text-caption uppercase tracking-[0.08em] text-graphite hover:text-ink-black transition-colors duration-200"
             >
               {link.label}
             </a>
           ))}
-          <MagneticButton strength={0.2} radius={100}>
-            <a href="/#contact" className="btn-primary text-sm !px-6 !py-2.5">
-              Book a Call
-            </a>
-          </MagneticButton>
+          <a
+            href="/#contact"
+            className="inline-flex items-center justify-center rounded-pill bg-ink-black px-6 py-2.5 text-sm font-normal text-bone-white transition-opacity duration-300 hover:opacity-75"
+          >
+            Book a Call
+          </a>
         </nav>
 
         {/* Mobile Toggle */}
@@ -68,29 +71,18 @@ export default function Header() {
         >
           <m.span
             animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-            className="block w-6 h-0.5 bg-pure-white"
+            className="block w-6 h-0.5 bg-ink-black"
           />
           <m.span
             animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
-            className="block w-6 h-0.5 bg-pure-white"
+            className="block w-6 h-0.5 bg-ink-black"
           />
           <m.span
             animate={mobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-            className="block w-6 h-0.5 bg-pure-white"
+            className="block w-6 h-0.5 bg-ink-black"
           />
         </button>
       </div>
-
-      {/* Animated shimmer border */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-px"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent, rgba(217,108,71,0.3), rgba(233,179,104,0.2), transparent)",
-          backgroundSize: "200% 100%",
-          animation: "shimmer-border 3.5s linear infinite",
-        }}
-      />
 
       {/* Mobile Menu */}
       <AnimatePresence>
@@ -100,7 +92,7 @@ export default function Header() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden overflow-hidden bg-white/[0.04] backdrop-blur-2xl backdrop-saturate-[1.8] border-b border-white/[0.06]"
+            className="lg:hidden overflow-hidden bg-bone-white border-b border-black/10"
           >
             <div className="section-container py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
@@ -108,7 +100,7 @@ export default function Header() {
                   key={link.label}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="text-lg font-body text-clay-gray hover:text-pure-white transition-colors"
+                  className="text-lg font-light text-ink-black hover:text-graphite transition-colors"
                 >
                   {link.label}
                 </a>
@@ -124,18 +116,6 @@ export default function Header() {
           </m.nav>
         )}
       </AnimatePresence>
-
-      {/* Keyframes for shimmer border animation */}
-      <style jsx>{`
-        @keyframes shimmer-border {
-          0% {
-            background-position: -200% 0;
-          }
-          100% {
-            background-position: 200% 0;
-          }
-        }
-      `}</style>
     </header>
   );
 }

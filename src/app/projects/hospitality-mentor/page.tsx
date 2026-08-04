@@ -137,7 +137,7 @@ const tools = [
 
 export default function HospitalityMentorProject() {
   return (
-    <article className="bg-espresso min-h-screen" style={{ backgroundColor: "#1A120D" }}>
+    <article className="bg-espresso min-h-screen" style={{ backgroundColor: "#fffef7" }}>
       {/* ── Back Link ─────────────────────────────────────────────── */}
       <m.div
         initial={{ opacity: 0, x: -20 }}
@@ -181,7 +181,7 @@ export default function HospitalityMentorProject() {
         </div>
 
         {/* Tonal wash for legibility */}
-        <div className="absolute inset-0 z-[1] bg-gradient-to-br from-espresso/50 via-espresso/20 to-sun-gold/10" />
+        <div className="absolute inset-0 z-[1] bg-gradient-to-br from-espresso/50 via-espresso/20 to-espresso/10" />
 
         {/* Noise overlay */}
         <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIxIi8+PC9zdmc+')]" />
@@ -195,7 +195,7 @@ export default function HospitalityMentorProject() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="inline-block font-mono text-xs tracking-widest uppercase text-white/70 mb-4 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-sm bg-white/5">
+            <span className="inline-block font-mono text-xs tracking-widest uppercase text-bone-white/70 mb-4 px-3 py-1.5 rounded-full border border-black/10 backdrop-blur-sm bg-black/5">
               The Hospitality Mentor / TV Episode
             </span>
           </m.div>
@@ -204,7 +204,7 @@ export default function HospitalityMentorProject() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-h1 font-bold mb-4"
+            className="font-display text-h1 font-light mb-4"
           >
             THE FONTAINEBLEAU
           </m.h1>
@@ -213,7 +213,7 @@ export default function HospitalityMentorProject() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-2xl md:text-3xl lg:text-4xl font-medium text-white/80 tracking-tight"
+            className="font-headline text-2xl md:text-3xl lg:text-4xl font-normal text-bone-white/80 tracking-tight"
           >
             A Look Inside the Iconic Hotel
           </m.p>
@@ -242,7 +242,7 @@ export default function HospitalityMentorProject() {
       />
 
       {/* ── The Episode (Video) ───────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -250,10 +250,10 @@ export default function HospitalityMentorProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-10"
         >
-          <p className="font-mono text-sm text-sun-gold tracking-widest uppercase mb-4">
+          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
             The Episode
           </p>
-          <h2 className="font-headline text-h3 font-bold">
+          <h2 className="font-headline text-h3 font-light">
             A Look Inside the{" "}
             <span className="gradient-text">Iconic Fontainebleau</span>
           </h2>
@@ -264,7 +264,7 @@ export default function HospitalityMentorProject() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="relative w-full overflow-hidden rounded-2xl border border-white/10 bg-black aspect-video shadow-2xl shadow-black/40"
+          className="relative w-full overflow-hidden rounded-none border border-black/10 bg-black aspect-video  "
         >
           <iframe
             src="https://www.youtube-nocookie.com/embed/7x0nV-e70Wc?rel=0&modestbranding=1"
@@ -278,11 +278,11 @@ export default function HospitalityMentorProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Sidebar */}
           <m.aside
@@ -297,7 +297,7 @@ export default function HospitalityMentorProject() {
                 <p className="font-mono text-xs tracking-widest uppercase text-sun-gold mb-2">
                   Client
                 </p>
-                <p className="font-headline text-lg font-semibold text-pure-white">
+                <p className="font-headline text-lg font-light text-pure-white">
                   {overview.client}
                 </p>
               </div>
@@ -344,12 +344,12 @@ export default function HospitalityMentorProject() {
             viewport={{ once: true, margin: "-80px" }}
             className="lg:col-span-8"
           >
-            <p className="font-mono text-sm text-sun-gold tracking-widest uppercase mb-4">
+            <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
               The Story
             </p>
-            <h2 className="font-headline text-h3 font-bold mb-8">
+            <h2 className="font-headline text-h3 font-light mb-8">
               The people and places{" "}
-              <span className="text-white">behind the magic</span>
+              <span className="text-bone-white">behind the magic</span>
             </h2>
             <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
               <p>
@@ -371,7 +371,7 @@ export default function HospitalityMentorProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── Our Approach (scroll-scrubbed pinned section) ────────── */}
@@ -386,11 +386,11 @@ export default function HospitalityMentorProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── Campaign Gallery ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -398,11 +398,11 @@ export default function HospitalityMentorProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-16"
         >
-          <p className="font-mono text-sm text-sun-gold tracking-widest uppercase mb-4">
+          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
             Frames
           </p>
-          <h2 className="font-headline text-h3 font-bold">
-            Character & <span className="text-white">Location Frames</span>
+          <h2 className="font-headline text-h3 font-light">
+            Character & <span className="text-bone-white">Location Frames</span>
           </h2>
         </m.div>
 
@@ -419,7 +419,7 @@ export default function HospitalityMentorProject() {
               client={overview.client}
               discipline="Cinematic Video Production"
               index={1}
-              className="aspect-[21/9] rounded-2xl"
+              className="aspect-[21/9] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/36260dbf-5542-4beb-8e58-8c29508d31f1_rw_3840.jpg?h=e4c0a60847058ccefbf7b4d46fd543e2"
@@ -437,7 +437,7 @@ export default function HospitalityMentorProject() {
               client={overview.client}
               discipline="Shot on Canon C70 in 4K"
               index={2}
-              className="aspect-[16/10] rounded-2xl"
+              className="aspect-[16/10] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/5c769b0c-465e-4b2f-85c6-cc7b98778c49_rw_3840.jpg?h=cdb8228ade21e66f1affc343d0ef322d"
@@ -453,7 +453,7 @@ export default function HospitalityMentorProject() {
               client={overview.client}
               discipline="Documentary-Style Direction"
               index={3}
-              className="aspect-[3/4] rounded-2xl"
+              className="aspect-[3/4] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/691f76f8-a588-432b-ab11-065ec59b0a0b_rw_3840.jpg?h=ae9e2554c37a6c9afe2f55d02d2792cc"
@@ -471,7 +471,7 @@ export default function HospitalityMentorProject() {
               client={overview.client}
               discipline="Cinematic Video Production"
               index={4}
-              className="aspect-[4/3] rounded-2xl"
+              className="aspect-[4/3] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/8c7398dd-4282-4ddc-873d-521dcee46d76_rw_3840.jpg?h=19fe9f7b33bc81864b8810735dc77586"
@@ -487,7 +487,7 @@ export default function HospitalityMentorProject() {
               client={overview.client}
               discipline="Documentary-Style Direction"
               index={5}
-              className="aspect-[4/3] rounded-2xl"
+              className="aspect-[4/3] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/a320897b-6515-41fc-b406-6c19c703b083_rw_3840.jpg?h=822959a337e879c542ed3a40a347e19c"
@@ -503,7 +503,7 @@ export default function HospitalityMentorProject() {
               client={overview.client}
               discipline="Shot on Canon C70 in 4K"
               index={6}
-              className="aspect-[4/3] rounded-2xl"
+              className="aspect-[4/3] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/8564b4c1-291a-41ae-9a83-59135b9956ab_rw_3840.jpg?h=c2fccdb5a76147d85f2609b266b1fd82"
@@ -521,7 +521,7 @@ export default function HospitalityMentorProject() {
               client={overview.client}
               discipline="Documentary-Style Direction"
               index={7}
-              className="aspect-[3/4] rounded-2xl"
+              className="aspect-[3/4] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/7c7fb05d-78bb-43a8-82c3-4a1a5cc7f5fb_rw_3840.jpg?h=a392d944f5e60d6642c9185cae426438"
@@ -537,7 +537,7 @@ export default function HospitalityMentorProject() {
               client={overview.client}
               discipline="Editorial in Premiere Pro"
               index={8}
-              className="aspect-[16/10] rounded-2xl"
+              className="aspect-[16/10] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/e9c164e4-0e05-4ab3-a9f1-8b183a0b9677_rw_3840.jpg?h=3a6711cbe9f04febe3b9d25c311e64e4"
@@ -555,7 +555,7 @@ export default function HospitalityMentorProject() {
               client={overview.client}
               discipline="Cinematic Video Production"
               index={9}
-              className="aspect-[21/9] rounded-2xl"
+              className="aspect-[21/9] rounded-none"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/026b1245-42eb-4ad3-a850-f245624bcd44_rw_3840.jpg?h=a300b5c31fec6bae40aa6a3d7874c3b9"
@@ -571,11 +571,11 @@ export default function HospitalityMentorProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── The Result ───────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -583,12 +583,12 @@ export default function HospitalityMentorProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-sun-gold tracking-widest uppercase mb-4">
+          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
             The Result
           </p>
-          <h2 className="font-headline text-h3 font-bold">
+          <h2 className="font-headline text-h3 font-light">
             A magical hotel,{" "}
-            <span className="text-white">captured in 4K</span>
+            <span className="text-bone-white">captured in 4K</span>
           </h2>
         </m.div>
 
@@ -600,7 +600,7 @@ export default function HospitalityMentorProject() {
           viewport={{ once: true, margin: "-60px" }}
           className="max-w-4xl"
         >
-          <p className="font-display text-h2 font-bold text-pure-white mb-10">
+          <p className="font-display text-h2 font-light text-pure-white mb-10">
             {results[0]}
           </p>
 
@@ -621,11 +621,11 @@ export default function HospitalityMentorProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── Tools & Technology ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -633,11 +633,11 @@ export default function HospitalityMentorProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="font-mono text-sm text-sun-gold tracking-widest uppercase mb-4">
+          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
             Tools & Technology
           </p>
-          <h2 className="font-headline text-h3 font-bold">
-            The <span className="text-white">production stack</span>
+          <h2 className="font-headline text-h3 font-light">
+            The <span className="text-bone-white">production stack</span>
           </h2>
         </m.div>
 
@@ -652,9 +652,9 @@ export default function HospitalityMentorProject() {
             <m.div
               key={tool.name}
               variants={staggerItem}
-              className="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-sun-gold/20 hover:bg-sun-gold/[0.03] transition-all duration-500"
+              className="group p-6 rounded-none border border-black/5 bg-black/[0.02] hover:border-sun-gold/20 hover:bg-sun-gold/[0.03] transition-all duration-500"
             >
-              <h3 className="font-headline text-lg font-bold text-pure-white mb-2 group-hover:text-sun-gold transition-colors duration-300">
+              <h3 className="font-headline text-lg font-light text-pure-white mb-2 group-hover:text-sun-gold transition-colors duration-300">
                 {tool.name}
               </h3>
               <p className="font-body text-sm text-clay-gray leading-relaxed">
@@ -667,11 +667,11 @@ export default function HospitalityMentorProject() {
 
       {/* ── Divider ──────────────────────────────────────────────── */}
       <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
       </div>
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#1A120D" }}>
+      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -679,9 +679,9 @@ export default function HospitalityMentorProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="text-center max-w-2xl mx-auto"
         >
-          <h2 className="font-headline text-h2 font-bold mb-6">
+          <h2 className="font-headline text-h2 font-light mb-6">
             Ready to tell{" "}
-            <span className="text-white">your story cinematically</span>?
+            <span className="text-bone-white">your story cinematically</span>?
           </h2>
           <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed mb-10">
             Let&rsquo;s create premium video content that captures the soul of

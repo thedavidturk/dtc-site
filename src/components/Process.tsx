@@ -126,12 +126,12 @@ export default function Process() {
   }, []);
 
   return (
-    <section id="process" className="relative bg-espresso overflow-hidden" style={{ backgroundColor: "#1A120D" }}>
+    <section id="process" className="relative bg-espresso overflow-hidden" style={{ backgroundColor: "#fffef7" }}>
       {/* Wireframe terrain background */}
       <Lazy3D className="absolute inset-0 z-0">
         <WireframeTerrain
           className="absolute inset-0"
-          color="#D96C47"
+          color="#8a0467"
           opacity={0.07}
           speed={1}
         />
@@ -142,7 +142,7 @@ export default function Process() {
         className="absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 50% 50%, #D96C47 0%, transparent 60%)",
+            "radial-gradient(circle at 50% 50%, #8a0467 0%, transparent 60%)",
         }}
       />
 
@@ -155,13 +155,13 @@ export default function Process() {
       >
         {/* Section Header */}
         <m.div className="text-center mb-20" variants={headerVariants}>
-          <span className="font-mono text-xs tracking-[0.3em] text-terracotta uppercase mb-4 block">
+          <span className="text-caption tracking-[0.08em] text-graphite uppercase mb-4 block">
             Our Process
           </span>
           <TextReveal
-            text="HOW WE PARTNER"
+            text="How we partner"
             as="h2"
-            className="font-display text-h2 font-bold text-pure-white"
+            className="font-display text-h2 font-light text-pure-white"
           />
         </m.div>
 
@@ -174,14 +174,14 @@ export default function Process() {
         <div className="relative grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-0">
           {/* Connecting Line - horizontal on desktop */}
           <m.div
-            className="hidden md:block absolute top-[52px] left-[12.5%] right-[12.5%] h-px bg-white/10"
+            className="hidden md:block absolute top-[52px] left-[12.5%] right-[12.5%] h-px bg-black/10"
             variants={lineVariants}
             style={{ originX: 0 }}
           />
 
           {/* Connecting Line - vertical on mobile */}
           <m.div
-            className="md:hidden absolute top-0 bottom-0 left-8 w-px bg-white/10"
+            className="md:hidden absolute top-0 bottom-0 left-8 w-px bg-black/10"
             variants={lineVariants}
             style={{ originY: 0 }}
           />
@@ -204,12 +204,12 @@ export default function Process() {
 
               <div className="flex-1 md:flex-initial">
                 {/* Step Number */}
-                <span className="font-mono text-5xl md:text-6xl font-bold text-terracotta/20 leading-none block mb-3 md:mb-6">
+                <span className="font-mono text-5xl md:text-6xl font-light text-terracotta/20 leading-none block mb-3 md:mb-6">
                   {step.number}
                 </span>
 
                 {/* Step Title */}
-                <h3 className="font-headline font-bold text-xl text-pure-white mb-3">
+                <h3 className="font-headline font-light text-xl text-pure-white mb-3">
                   {step.title}
                 </h3>
 
