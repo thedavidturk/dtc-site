@@ -69,7 +69,7 @@ export default function About() {
           {/* The thesis: scale is the emphasis */}
           <m.p
             variants={fadeUp}
-            className="font-body font-normal text-heading-lg headline-lime mt-10 md:mt-12"
+            className="font-body font-semibold uppercase text-heading-lg headline-lime mt-10 md:mt-12"
           >
             DT+C was built for the pace of right now.
           </m.p>

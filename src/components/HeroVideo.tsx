@@ -136,7 +136,7 @@ export default function HeroVideo() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12 text-center md:mb-16"
         >
-          <h2 className="text-h2 font-normal headline-cyan">
+          <h2 className="text-h2 font-semibold uppercase headline-cyan">
             <LineReveal>See the work</LineReveal>
             <LineReveal delay={0.15}>in motion</LineReveal>
           </h2>

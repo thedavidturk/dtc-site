@@ -282,7 +282,7 @@ export default function FeaturedProjects() {
             Selected Work
           </p>
           <div className="mt-8 flex flex-col gap-4 md:flex-row md:items-baseline md:justify-between md:gap-8">
-            <h2 className="font-headline text-heading-lg font-normal headline-lime">
+            <h2 className="font-headline text-heading-lg font-semibold uppercase headline-lime">
               Work that pushes boundaries
             </h2>
             <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue whitespace-nowrap">

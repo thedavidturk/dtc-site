@@ -119,7 +119,7 @@ export default function FAQ() {
           <span className="block text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-6">
             FAQ
           </span>
-          <h2 className="font-headline font-normal text-h2 headline-cyan mb-8">
+          <h2 className="font-headline font-semibold uppercase text-h2 headline-cyan mb-8">
             Frequently Asked Questions
           </h2>
           <p className="max-w-[640px] font-body font-normal text-body-sm text-fog-blue">

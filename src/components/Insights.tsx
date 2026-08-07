@@ -114,7 +114,7 @@ export default function Insights() {
           <p className="text-[17px] font-normal uppercase tracking-[0.02em] text-fog-blue">
             Perspectives
           </p>
-          <h2 className="mt-8 max-w-[900px] font-headline text-heading-lg font-normal headline-red">
+          <h2 className="mt-8 max-w-[900px] font-headline text-heading-lg font-semibold uppercase headline-red">
             Thoughts on AI-driven production, creative technology, and the future of brand content.
           </h2>
           <div className="mt-8 flex flex-col gap-4 md:flex-row md:items-baseline md:justify-between md:gap-8">

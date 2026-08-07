@@ -4,7 +4,63 @@
    chromatic voice, split across the page. */
 const HEADLINE_CHANNELS = ["headline-cyan", "headline-lime", "headline-red", "headline-yellow"];
 
+import { useEffect, useRef } from "react";
 import { m } from "framer-motion";
+
+/**
+ * Tracks a title's letters out so the text fills its column exactly:
+ * every row starts on the same left edge AND ends on the same right
+ * edge, mirroring the flush description column beside it. Extra space
+ * is distributed evenly between characters (never lumpy word gaps).
+ * If the title is wider than the column (narrow viewports) it falls
+ * back to natural wrapping.
+ */
+function JustifiedTitle({
+  className,
+  children,
+}: {
+  className: string;
+  children: string;
+}) {
+  const box = useRef<HTMLHeadingElement>(null);
+  const text = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const h = box.current;
+    const s = text.current;
+    if (!h || !s) return;
+
+    const fit = () => {
+      s.style.letterSpacing = "";
+      s.style.marginRight = "";
+      s.style.whiteSpace = "nowrap";
+      const target = h.clientWidth;
+      const natural = s.getBoundingClientRect().width;
+      const gaps = (s.textContent?.length ?? 0) - 1;
+      if (gaps < 1 || natural > target) {
+        s.style.whiteSpace = "";
+        return;
+      }
+      const ls = (target - natural) / gaps;
+      s.style.letterSpacing = `${ls}px`;
+      // letter-spacing also trails the last glyph; pull it back so the
+      // final letter lands exactly on the column's right edge.
+      s.style.marginRight = `${-ls}px`;
+    };
+
+    fit();
+    const ro = new ResizeObserver(fit);
+    ro.observe(h);
+    document.fonts?.ready.then(fit).catch(() => {});
+    return () => ro.disconnect();
+  }, [children]);
+
+  return (
+    <h3 ref={box} className={className}>
+      <span ref={text}>{children}</span>
+    </h3>
+  );
+}
 
 /**
  * ValuePropositions -- the claims band.
@@ -121,9 +177,9 @@ export default function ValuePropositions() {
                 variants={rowVariants}
                 className="border-t border-ash-border py-9 md:py-11 grid grid-cols-1 md:grid-cols-12 gap-y-4 md:gap-x-14"
               >
-                <h3 className={`font-headline font-normal text-heading-sm md:col-span-6 lg:col-span-5 ${HEADLINE_CHANNELS[index % 4]}`}>
+                <JustifiedTitle className={`font-headline font-semibold uppercase text-heading-sm md:col-span-6 lg:col-span-5 ${HEADLINE_CHANNELS[index % 4]}`}>
                   {pillar.title}
-                </h3>
+                </JustifiedTitle>
                 <p className="font-body font-normal text-body-sm text-fog-blue md:col-span-6 lg:col-span-7 max-w-[640px]">
                   {pillar.description}
                 </p>

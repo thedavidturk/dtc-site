@@ -25,12 +25,14 @@ const Analytics = dynamic(() => import("@/components/Analytics"), {
 });
 
 // Exclusive typeface: Switzer (Neue Montreal stand-in) carries every
-// role at weight 400. Authority comes from scale, not weight.
+// role. Body sits at 400; section headlines at 600.
 // Self-hosted from Fontshare.
 const switzer = localFont({
   src: [
     { path: "../fonts/Switzer-Light.woff2", weight: "300", style: "normal" },
     { path: "../fonts/Switzer-Regular.woff2", weight: "400", style: "normal" },
+    { path: "../fonts/Switzer-Semibold.woff2", weight: "600", style: "normal" },
+    { path: "../fonts/Switzer-Bold.woff2", weight: "700", style: "normal" },
   ],
   variable: "--font-switzer",
   display: "swap",

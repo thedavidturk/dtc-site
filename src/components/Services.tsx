@@ -179,7 +179,7 @@ export default function Services() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
-            className="font-headline text-heading-lg font-normal headline-red"
+            className="font-headline text-heading-lg font-semibold uppercase headline-red"
           >
             What we do
           </m.h2>
@@ -207,7 +207,7 @@ export default function Services() {
                     className={isReversed ? "lg:order-2" : "lg:order-1"}
                   >
                     {/* Service title */}
-                    <h3 className={`font-headline text-heading-sm font-normal max-w-[640px] ${HEADLINE_CHANNELS[index % 4]}`}>
+                    <h3 className={`font-headline text-heading-sm font-semibold uppercase max-w-[640px] ${HEADLINE_CHANNELS[index % 4]}`}>
                       {service.headline}
                     </h3>
 

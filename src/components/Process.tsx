@@ -66,7 +66,7 @@ export default function Process() {
         >
           Our Process
         </m.span>
-        <h2 className="font-headline font-normal text-h2 headline-yellow">
+        <h2 className="font-headline font-semibold uppercase text-h2 headline-yellow">
           <LineReveal>How we partner</LineReveal>
         </h2>
       </div>
@@ -91,7 +91,7 @@ export default function Process() {
 
               {/* Step content */}
               <div className="md:col-span-9">
-                <h3 className={`font-headline font-normal text-heading-lg mb-6 ${HEADLINE_CHANNELS[index % 4]}`}>
+                <h3 className={`font-headline font-semibold uppercase text-heading-lg mb-6 ${HEADLINE_CHANNELS[index % 4]}`}>
                   {step.title}
                 </h3>
                 <p className="max-w-[640px] text-body-sm font-normal text-fog-blue">

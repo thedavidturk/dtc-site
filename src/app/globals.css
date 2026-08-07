@@ -99,48 +99,14 @@ h1 {
     transition-timing-function: cubic-bezier(0.52, 0.01, 0, 1);
   }
 
-  /* Headline channels: section headlines carry the prism's light.
-     Each channel = color at 85% presence, a soft same-hue glow, and a
-     1px red/cyan chromatic fringe (the artifact's aberration, applied
-     to type). Use these INSTEAD of raw text-prism-* on headlines. */
-  .headline-red {
-    color: #ff2a2a;
-    opacity: 0.85;
-    text-shadow:
-      0 0 18px rgba(255, 42, 42, 0.5),
-      0 0 56px rgba(255, 42, 42, 0.24),
-      1px 1px 0 rgba(42, 127, 255, 0.22),
-      -1px -1px 0 rgba(42, 255, 42, 0.18);
-  }
-
-  .headline-cyan {
-    color: #2a7fff;
-    opacity: 0.85;
-    text-shadow:
-      0 0 18px rgba(42, 127, 255, 0.5),
-      0 0 56px rgba(42, 127, 255, 0.24),
-      1px 1px 0 rgba(255, 42, 42, 0.22),
-      -1px -1px 0 rgba(42, 255, 42, 0.18);
-  }
-
-  .headline-lime {
-    color: #2aff2a;
-    opacity: 0.85;
-    text-shadow:
-      0 0 18px rgba(42, 255, 42, 0.45),
-      0 0 56px rgba(42, 255, 42, 0.22),
-      1px 1px 0 rgba(255, 42, 42, 0.2),
-      -1px -1px 0 rgba(42, 127, 255, 0.2);
-  }
-
+  /* Headline channels: retired prism treatment, now plain bone white.
+     The channel names remain so sections keep their assignments; the
+     glow and chromatic fringe are gone. */
+  .headline-red,
+  .headline-cyan,
+  .headline-lime,
   .headline-yellow {
-    color: #ffd52a;
-    opacity: 0.85;
-    text-shadow:
-      0 0 18px rgba(255, 213, 42, 0.5),
-      0 0 56px rgba(255, 213, 42, 0.24),
-      1px 1px 0 rgba(255, 42, 42, 0.2),
-      -1px -1px 0 rgba(42, 127, 255, 0.22);
+    color: #fffdf9;
   }
 }
 
