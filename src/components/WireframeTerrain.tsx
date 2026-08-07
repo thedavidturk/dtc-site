@@ -62,7 +62,7 @@ function FloatingPoints() {
       {/* Electric-indigo point */}
       <Sphere ref={point1} args={[1, 8, 8]}>
         <meshBasicMaterial
-          color="#8a0467"
+          color="#fffdf9"
           transparent
           opacity={0.6}
           blending={THREE.AdditiveBlending}
@@ -73,7 +73,7 @@ function FloatingPoints() {
       {/* Warm-coral point */}
       <Sphere ref={point2} args={[1, 8, 8]}>
         <meshBasicMaterial
-          color="#03624c"
+          color="#495764"
           transparent
           opacity={0.5}
           blending={THREE.AdditiveBlending}
@@ -84,7 +84,7 @@ function FloatingPoints() {
       {/* Mixed indigo-coral point */}
       <Sphere ref={point3} args={[1, 8, 8]}>
         <meshBasicMaterial
-          color="#8a0467"
+          color="#fffdf9"
           transparent
           opacity={0.45}
           blending={THREE.AdditiveBlending}
@@ -209,7 +209,7 @@ function Scene({ color, opacity, speed }: SceneProps) {
 // ---------------------------------------------------------------------------
 export default function WireframeTerrain({
   className = "",
-  color = "#8a0467",
+  color = "#fffdf9",
   opacity = 0.08,
   speed = 1,
 }: WireframeTerrainProps) {

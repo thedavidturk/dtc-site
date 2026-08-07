@@ -23,8 +23,8 @@ const NODE_POSITIONS: [number, number, number][] = [
   [4.5, 0, 0],
 ];
 
-const COLOR_INDIGO = "#8a0467";
-const COLOR_CORAL = "#03624c";
+const COLOR_INDIGO = "#fffdf9";
+const COLOR_CORAL = "#495764";
 const PARTICLES_PER_BEAM = 3;
 const PARTICLE_TRAVEL_DURATION = 2; // seconds for one full traversal
 

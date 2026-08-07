@@ -3,20 +3,20 @@
 import Link from "@/components/TransitionLink";
 import Image from "next/image";
 import { m } from "framer-motion";
-import ProjectGifBand from "@/components/ProjectGifBand";
-import PinnedApproach from "@/components/PinnedApproach";
-import WorkFrame from "@/components/WorkFrame";
+import AutoplayVideo from "@/components/AutoplayVideo";
 
 /* ------------------------------------------------------------------ */
-/*  Animation Variants                                                 */
+/*  Animation Variants (prism ease: slow start, decisive stop)         */
 /* ------------------------------------------------------------------ */
+
+const prismEase = [0.52, 0.01, 0, 1] as const;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.5, ease: prismEase },
   },
 };
 
@@ -32,7 +32,7 @@ const staggerItem = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.5, ease: prismEase },
   },
 };
 
@@ -44,12 +44,11 @@ const galleryContainer = {
 };
 
 const galleryItem = {
-  hidden: { opacity: 0, y: 50, scale: 0.96 },
+  hidden: { opacity: 0, y: 50 },
   visible: {
     opacity: 1,
     y: 0,
-    scale: 1,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.5, ease: prismEase },
   },
 };
 
@@ -147,6 +146,19 @@ const galleryImages = [
   "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/fe679578-f5cf-4a09-b48c-bc5490fbd9ba_rw_1920.jpg?h=eab8951d0daddbdf5ed6db72005d6551",
 ];
 
+/* Discipline labels carried over from the original gallery frames. */
+const galleryDisciplines = [
+  "Live Music Direction",
+  "Performance Cinematography",
+  "Multi-Camera Capture",
+  "Performance Cinematography",
+  "Multi-Camera Capture",
+  "Performance Cinematography",
+  "Performance Cinematography",
+  "Editorial & Color",
+  "Live Music Direction",
+];
+
 /* Adobe CCV performance video embeds scraped from the live source. */
 const videos = [
   { id: "Pexs9H2brcJ", label: "Session One" },
@@ -155,221 +167,265 @@ const videos = [
 ];
 
 /* ------------------------------------------------------------------ */
+/*  Local helpers                                                      */
+/* ------------------------------------------------------------------ */
+
+/* Hairline band divider */
+function Rule() {
+  return (
+    <div className="section-container">
+      <div className="border-t border-ash-border" />
+    </div>
+  );
+}
+
+/* Caption below a media card: fog-blue uppercase label + bone value */
+function PlateCaption({ label, value }: { label: string; value: string }) {
+  return (
+    <figcaption className="mt-4 flex flex-wrap items-baseline gap-x-4 gap-y-1">
+      <span className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue">
+        {label}
+      </span>
+      <span className="text-caption font-normal text-bone">{value}</span>
+    </figcaption>
+  );
+}
+
+/* ------------------------------------------------------------------ */
 /*  Component                                                          */
 /* ------------------------------------------------------------------ */
 
 export default function UnpluggedSessionsProject() {
   return (
-    <article className="bg-espresso min-h-screen" style={{ backgroundColor: "#fffef7" }}>
-      {/* ── Back Link ─────────────────────────────────────────────── */}
-      <m.div
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-        className="fixed top-24 left-6 md:left-8 lg:left-12 z-40"
-      >
-        <Link
-          href="/#projects"
-          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-clay-gray hover:text-pure-white transition-colors duration-300"
+    <article className="bg-obsidian min-h-screen text-bone">
+      {/* ── Opener ────────────────────────────────────────────────── */}
+      <section className="section-container section-padding pt-36 md:pt-44">
+        <m.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1, ease: prismEase }}
+          className="mb-14"
         >
-          <svg
-            className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
+          <Link
+            href="/#projects"
+            className="group inline-flex items-center gap-2 text-caption uppercase tracking-[0.02em] font-normal text-bone hover:text-fog-blue transition-colors duration-500 ease-prism"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
-            />
-          </svg>
-          Back to Work
-        </Link>
-      </m.div>
+            <svg
+              className="w-4 h-4 transition-transform duration-500 ease-prism group-hover:-translate-x-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
+              />
+            </svg>
+            Back to Work
+          </Link>
+        </m.div>
 
-      {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-end overflow-hidden">
-        {/* Cover image */}
-        <div className="absolute inset-0">
-          <Image
-            src={galleryImages[0]}
-            alt="Unplugged Music Sessions live performance still"
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-          />
-        </div>
-        <div className="absolute inset-0 bg-black/50" />
+        <m.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2, ease: prismEase }}
+          className="text-[17px] uppercase tracking-[0.02em] font-normal text-fog-blue mb-8"
+        >
+          Live Music Direction
+        </m.p>
 
-        {/* Indigo wash */}
-        <div className="absolute inset-0 bg-gradient-to-br from-terracotta/30 via-transparent to-black/40 mix-blend-multiply" />
+        <m.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3, ease: prismEase }}
+          className="font-body font-normal text-bone text-display-sm leading-[1.01] tracking-[-0.02em] mb-8"
+        >
+          Unplugged
+          <br />
+          Sessions
+        </m.h1>
 
-        {/* Radial fade at bottom */}
-        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-espresso via-espresso/40 to-transparent" />
+        <m.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.45, ease: prismEase }}
+          className="font-body text-body-lg font-normal text-bone max-w-[640px]"
+        >
+          Live Music, Captured in the Room
+        </m.p>
 
-        <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
-          <m.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <span className="inline-block font-mono text-xs tracking-widest uppercase text-bone-white/70 mb-4 px-3 py-1.5 rounded-full border border-black/10 backdrop-blur-sm bg-black/5">
-              Live Music Direction
-            </span>
-          </m.div>
-
-          <m.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-h1 font-normal mb-4"
-          >
-            UNPLUGGED SESSIONS
-          </m.h1>
-
-          <m.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-2xl md:text-3xl lg:text-4xl font-normal text-bone-white/80 tracking-tight"
-          >
-            Live Music, Captured in the Room
-          </m.p>
-
-          {/* Animated line */}
-          <m.div
-            initial={{ width: 0 }}
-            animate={{ width: "6rem" }}
-            transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="h-px bg-gradient-to-r from-terracotta to-violet-400 mt-8"
-          />
-        </div>
-      </section>
-
-      {/* ── Animated GIF Band ─────────────────────────────────────── */}
-      <ProjectGifBand
-        eyebrow="In Motion"
-        heading="The Sessions, Moving"
-        gifs={[
-          {
-            src: "/motion/unplugged.mp4",
-            poster: "/motion/unplugged.jpg",
-            label: "Unplugged",
-          },
-        ]}
-      />
-
-      {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-          {/* Sidebar */}
-          <m.aside
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="lg:col-span-4"
-          >
-            <div className="lg:sticky lg:top-28 space-y-8">
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
-                  Project
-                </p>
-                <p className="font-headline text-lg font-light text-pure-white">
-                  {overview.client}
-                </p>
-              </div>
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
-                  Discipline
-                </p>
-                <p className="font-body text-clay-gray">
-                  {overview.industry}
-                </p>
-              </div>
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
-                  Format
-                </p>
-                <p className="font-body text-clay-gray">
-                  {overview.timeline}
-                </p>
-              </div>
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
-                  Services
-                </p>
-                <ul className="space-y-2">
+        {/* Metadata rule row */}
+        <m.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6, ease: prismEase }}
+          className="mt-16 border-t border-ash-border pt-10"
+        >
+          <dl className="flex flex-wrap gap-x-14 gap-y-10">
+            <div>
+              <dt className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-2">
+                Project
+              </dt>
+              <dd className="font-body text-body-sm font-normal text-bone">
+                {overview.client}
+              </dd>
+            </div>
+            <div>
+              <dt className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-2">
+                Discipline
+              </dt>
+              <dd className="font-body text-body-sm font-normal text-bone">
+                {overview.industry}
+              </dd>
+            </div>
+            <div>
+              <dt className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-2">
+                Format
+              </dt>
+              <dd className="font-body text-body-sm font-normal text-bone">
+                {overview.timeline}
+              </dd>
+            </div>
+            <div>
+              <dt className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-2">
+                Services
+              </dt>
+              <dd>
+                <ul className="space-y-1.5">
                   {overview.services.map((service) => (
                     <li
                       key={service}
-                      className="flex items-center gap-3 font-body text-sm text-clay-gray"
+                      className="font-body text-caption font-normal text-fog-blue"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-terracotta flex-shrink-0" />
                       {service}
                     </li>
                   ))}
                 </ul>
-              </div>
+              </dd>
             </div>
-          </m.aside>
+          </dl>
+        </m.div>
 
-          {/* Challenge */}
-          <m.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="lg:col-span-8"
-          >
-            <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
-              The Idea
-            </p>
-            <h2 className="font-headline text-h3 font-light mb-8">
-              A live series built around{" "}
-              <span className="gradient-text">the song itself</span>
-            </h2>
-            <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
-              <p>
-                Unplugged Sessions is a live music series built to strip a
-                performance down to its core. No heavy production gloss, no
-                distractions, just an artist, a room, and a song captured the way
-                it actually sounds and feels in the moment.
-              </p>
-              <p>
-                The direction challenge was to make something intimate feel
-                cinematic without losing the rawness that makes an unplugged
-                performance special. Every session had to hold the energy of a
-                live take while still reading as a finished, shareable film.
-              </p>
-            </div>
-          </m.div>
-        </div>
+        {/* Hero media card */}
+        <m.figure
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.75, ease: prismEase }}
+          className="mt-20"
+        >
+          <div className="relative w-full aspect-[16/9] rounded-[15px] overflow-hidden border border-ash-border">
+            <Image
+              src={galleryImages[0]}
+              alt="Unplugged Music Sessions live performance still"
+              fill
+              className="object-cover"
+              priority
+              sizes="100vw"
+            />
+          </div>
+          <PlateCaption
+            label="Live Music Direction"
+            value={overview.client}
+          />
+        </m.figure>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+      <Rule />
 
-      {/* ── The Sessions (Video) ─────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
+      {/* ── In Motion ─────────────────────────────────────────────── */}
+      <section className="section-container section-padding">
         <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="mb-10"
+          className="mb-14"
         >
-          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
+          <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-4">
+            In Motion
+          </p>
+          <h2 className="font-body text-heading-lg font-normal text-bone">
+            The Sessions, Moving
+          </h2>
+        </m.div>
+
+        <m.figure
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="max-w-[1200px]"
+        >
+          <div className="rounded-[15px] overflow-hidden border border-ash-border">
+            <AutoplayVideo
+              src="/motion/unplugged.mp4"
+              poster="/motion/unplugged.jpg"
+              className="w-full h-auto block"
+            />
+          </div>
+          <PlateCaption label="In Motion" value="Unplugged" />
+        </m.figure>
+      </section>
+
+      <Rule />
+
+      {/* ── The Idea ──────────────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="mb-12"
+        >
+          <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-4">
+            The Idea
+          </p>
+          <h2 className="font-body text-heading-lg font-normal text-bone max-w-[900px]">
+            A live series built around the song itself
+          </h2>
+        </m.div>
+
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="max-w-[640px] font-body text-body-sm font-normal text-bone space-y-7"
+        >
+          <p>
+            Unplugged Sessions is a live music series built to strip a
+            performance down to its core. No heavy production gloss, no
+            distractions, just an artist, a room, and a song captured the way
+            it actually sounds and feels in the moment.
+          </p>
+          <p>
+            The direction challenge was to make something intimate feel
+            cinematic without losing the rawness that makes an unplugged
+            performance special. Every session had to hold the energy of a
+            live take while still reading as a finished, shareable film.
+          </p>
+        </m.div>
+      </section>
+
+      <Rule />
+
+      {/* ── The Sessions (videos, stacked cards) ──────────────────── */}
+      <section className="section-container section-padding">
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="mb-14"
+        >
+          <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-4">
             The Sessions
           </p>
-          <h2 className="font-headline text-h3 font-light">
-            Press play on{" "}
-            <span className="text-bone-white">the performances</span>
+          <h2 className="font-body text-heading-lg font-normal text-bone max-w-[900px]">
+            Press play on the performances
           </h2>
         </m.div>
 
@@ -378,103 +434,29 @@ export default function UnpluggedSessionsProject() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8"
+          className="max-w-[1200px] space-y-16"
         >
-          {videos.map((video, index) => (
-            <m.div
-              key={video.id}
-              variants={galleryItem}
-              className={`relative ${
-                index === 0 ? "lg:col-span-2" : "lg:col-span-1"
-              }`}
-            >
-              {/* Ambient glow behind the video */}
-              <div className="absolute -inset-3 md:-inset-5 bg-gradient-to-r from-terracotta/10 via-violet-500/5 to-terracotta/10 rounded-none blur-2xl opacity-60 pointer-events-none" />
-
-              {/* Video container */}
-              <div className="relative rounded-none overflow-hidden border border-black/10  ">
-
-                {/* 16:9 aspect ratio wrapper */}
-                <div className="relative w-full aspect-video">
-                  <iframe
-                    src={`https://www-ccv.adobe.io/v1/player/ccv/${video.id}/embed?bgcolor=%23120D1A&lazyLoading=true&api_key=BehancePro2View`}
-                    title={`Unplugged Sessions: ${video.label}`}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="absolute inset-0 w-full h-full"
-                  />
-                </div>
+          {videos.map((video) => (
+            <m.figure key={video.id} variants={galleryItem}>
+              <div className="relative w-full aspect-video rounded-[15px] overflow-hidden border border-ash-border">
+                <iframe
+                  src={`https://www-ccv.adobe.io/v1/player/ccv/${video.id}/embed?bgcolor=%23120D1A&lazyLoading=true&api_key=BehancePro2View`}
+                  title={`Unplugged Sessions: ${video.label}`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full"
+                />
               </div>
-
-              <p className="mt-3 font-mono text-xs tracking-widest uppercase text-clay-gray">
-                {video.label}
-              </p>
-            </m.div>
+              <PlateCaption label="Performance Film" value={video.label} />
+            </m.figure>
           ))}
         </m.div>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+      <Rule />
 
-      {/* ── Our Approach (scroll-scrubbed pinned section) ────────── */}
-      <PinnedApproach
-        eyebrow="The Direction"
-        heading="From the room to the cut in five moves"
-        steps={approach.map(({ title, description }) => ({
-          title,
-          body: description,
-        }))}
-      />
-
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
-
-      {/* ── The Approach Narrative ───────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
-        <m.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="max-w-4xl"
-        >
-          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
-            The Feel
-          </p>
-          <h2 className="font-headline text-h3 font-light mb-8">
-            Cinematic, but{" "}
-            <span className="text-bone-white">never overproduced</span>
-          </h2>
-          <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
-            <p>
-              Each session is treated as its own short film. The camera moves
-              with intent, the lighting sets a mood, and the edit follows the
-              music instead of cutting against it. The aim is to put the viewer
-              in the room with the artist, close enough to catch the small
-              moments that make a live take feel alive.
-            </p>
-            <p>
-              By keeping the visual language consistent across the series, every
-              session reads as part of the same world. The result is a body of
-              performance films that work individually and stack into a
-              recognizable identity for Unplugged Sessions as a whole.
-            </p>
-          </div>
-        </m.div>
-      </section>
-
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
-
-      {/* ── Gallery ──────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
+      {/* ── The Direction ─────────────────────────────────────────── */}
+      <section className="section-container section-padding">
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -482,247 +464,11 @@ export default function UnpluggedSessionsProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-16"
         >
-          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
-            Stills
+          <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-4">
+            The Direction
           </p>
-          <h2 className="font-headline text-h3 font-light">
-            Moments from{" "}
-            <span className="text-bone-white">the sessions</span>
-          </h2>
-        </m.div>
-
-        <m.div
-          variants={galleryContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6"
-        >
-          {/* Row 1: Full-width hero */}
-          <m.div variants={galleryItem} className="md:col-span-12">
-            <WorkFrame
-              client={overview.client}
-              discipline="Live Music Direction"
-              index={1}
-              className="aspect-[21/9] rounded-none"
-            >
-              <Image
-                src={galleryImages[0]}
-                alt="Unplugged Sessions performance still 1"
-                fill
-                className="object-cover"
-                sizes="100vw"
-              />
-            </WorkFrame>
-          </m.div>
-
-          {/* Row 2: Wide + tall */}
-          <m.div variants={galleryItem} className="md:col-span-7">
-            <WorkFrame
-              client={overview.client}
-              discipline="Performance Cinematography"
-              index={2}
-              className="aspect-[16/10] rounded-none"
-            >
-              <Image
-                src={galleryImages[1]}
-                alt="Unplugged Sessions performance still 2"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 58vw"
-              />
-            </WorkFrame>
-          </m.div>
-          <m.div variants={galleryItem} className="md:col-span-5">
-            <WorkFrame
-              client={overview.client}
-              discipline="Multi-Camera Capture"
-              index={3}
-              className="aspect-[3/4] rounded-none"
-            >
-              <Image
-                src={galleryImages[2]}
-                alt="Unplugged Sessions performance still 3"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 42vw"
-              />
-            </WorkFrame>
-          </m.div>
-
-          {/* Row 3: Three equal columns */}
-          <m.div variants={galleryItem} className="md:col-span-4">
-            <WorkFrame
-              client={overview.client}
-              discipline="Performance Cinematography"
-              index={4}
-              className="aspect-[4/3] rounded-none"
-            >
-              <Image
-                src={galleryImages[3]}
-                alt="Unplugged Sessions performance still 4"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-            </WorkFrame>
-          </m.div>
-          <m.div variants={galleryItem} className="md:col-span-4">
-            <WorkFrame
-              client={overview.client}
-              discipline="Multi-Camera Capture"
-              index={5}
-              className="aspect-[4/3] rounded-none"
-            >
-              <Image
-                src={galleryImages[4]}
-                alt="Unplugged Sessions performance still 5"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-            </WorkFrame>
-          </m.div>
-          <m.div variants={galleryItem} className="md:col-span-4">
-            <WorkFrame
-              client={overview.client}
-              discipline="Performance Cinematography"
-              index={6}
-              className="aspect-[4/3] rounded-none"
-            >
-              <Image
-                src={galleryImages[5]}
-                alt="Unplugged Sessions performance still 6"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-            </WorkFrame>
-          </m.div>
-
-          {/* Row 4: Asymmetric pair */}
-          <m.div variants={galleryItem} className="md:col-span-5">
-            <WorkFrame
-              client={overview.client}
-              discipline="Performance Cinematography"
-              index={7}
-              className="aspect-[3/4] rounded-none"
-            >
-              <Image
-                src={galleryImages[6]}
-                alt="Unplugged Sessions performance still 7"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 42vw"
-              />
-            </WorkFrame>
-          </m.div>
-          <m.div variants={galleryItem} className="md:col-span-7">
-            <WorkFrame
-              client={overview.client}
-              discipline="Editorial & Color"
-              index={8}
-              className="aspect-[16/10] rounded-none"
-            >
-              <Image
-                src={galleryImages[7]}
-                alt="Unplugged Sessions performance still 8"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 58vw"
-              />
-            </WorkFrame>
-          </m.div>
-
-          {/* Row 5: Full-width closing */}
-          <m.div variants={galleryItem} className="md:col-span-12">
-            <WorkFrame
-              client={overview.client}
-              discipline="Live Music Direction"
-              index={9}
-              className="aspect-[21/9] rounded-none"
-            >
-              <Image
-                src={galleryImages[8]}
-                alt="Unplugged Sessions performance closing still"
-                fill
-                className="object-cover"
-                sizes="100vw"
-              />
-            </WorkFrame>
-          </m.div>
-        </m.div>
-      </section>
-
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
-
-      {/* ── The Result ───────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
-        <m.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mb-12"
-        >
-          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
-            The Result
-          </p>
-          <h2 className="font-headline text-h3 font-light">
-            A series that{" "}
-            <span className="text-bone-white">feels like the room</span>
-          </h2>
-        </m.div>
-
-        {/* Lead result statement */}
-        <m.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="max-w-4xl"
-        >
-          <p className="font-display text-h2 font-normal text-pure-white mb-10">
-            {results[0]}
-          </p>
-
-          {/* TODO(David): add quantified result or client quote here */}
-
-          <ul className="space-y-4 border-l border-terracotta/30 pl-6">
-            {results.slice(1).map((result) => (
-              <li
-                key={result}
-                className="font-body text-clay-gray text-base md:text-lg leading-relaxed"
-              >
-                {result}
-              </li>
-            ))}
-          </ul>
-        </m.div>
-      </section>
-
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
-
-      {/* ── Tools & Technology ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
-        <m.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mb-12"
-        >
-          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
-            Capabilities
-          </p>
-          <h2 className="font-headline text-h3 font-light">
-            The <span className="text-bone-white">production toolkit</span>
+          <h2 className="font-body text-heading-lg font-normal text-bone max-w-[900px]">
+            From the room to the cut in five moves
           </h2>
         </m.div>
 
@@ -731,18 +477,299 @@ export default function UnpluggedSessionsProject() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+          className="max-w-[720px]"
         >
-          {tools.map((tool) => (
+          {approach.map((step, index) => (
+            <m.div
+              key={step.step}
+              variants={staggerItem}
+              className={`py-14 ${
+                index > 0 ? "border-t border-ash-border" : ""
+              }`}
+            >
+              <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-6">
+                {step.step}
+              </p>
+              <h3 className="font-body text-heading-sm font-normal text-bone mb-4">
+                {step.title}
+              </h3>
+              <p className="font-body text-body-sm font-normal text-fog-blue max-w-[640px]">
+                {step.description}
+              </p>
+            </m.div>
+          ))}
+        </m.div>
+      </section>
+
+      <Rule />
+
+      {/* ── The Feel ──────────────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="mb-12"
+        >
+          <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-4">
+            The Feel
+          </p>
+          <h2 className="font-body text-heading-lg font-normal text-bone max-w-[900px]">
+            Cinematic, but never overproduced
+          </h2>
+        </m.div>
+
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="max-w-[640px] font-body text-body-sm font-normal text-bone space-y-7"
+        >
+          <p>
+            Each session is treated as its own short film. The camera moves
+            with intent, the lighting sets a mood, and the edit follows the
+            music instead of cutting against it. The aim is to put the viewer
+            in the room with the artist, close enough to catch the small
+            moments that make a live take feel alive.
+          </p>
+          <p>
+            By keeping the visual language consistent across the series, every
+            session reads as part of the same world. The result is a body of
+            performance films that work individually and stack into a
+            recognizable identity for Unplugged Sessions as a whole.
+          </p>
+        </m.div>
+      </section>
+
+      <Rule />
+
+      {/* ── Stills (gallery of media cards) ───────────────────────── */}
+      <section className="section-container section-padding">
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="mb-16"
+        >
+          <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-4">
+            Stills
+          </p>
+          <h2 className="font-body text-heading-lg font-normal text-bone max-w-[900px]">
+            Moments from the sessions
+          </h2>
+        </m.div>
+
+        <m.div
+          variants={galleryContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="space-y-16"
+        >
+          {/* Full-width opening still */}
+          <m.figure variants={galleryItem}>
+            <div className="relative w-full aspect-[21/9] rounded-[15px] overflow-hidden border border-ash-border">
+              <Image
+                src={galleryImages[0]}
+                alt="Unplugged Sessions performance still 1"
+                fill
+                className="object-cover"
+                sizes="100vw"
+              />
+            </div>
+            <PlateCaption
+              label={galleryDisciplines[0]}
+              value={overview.client}
+            />
+          </m.figure>
+
+          {/* Pair */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 items-start max-w-[1200px]">
+            {[1, 2].map((i) => (
+              <m.figure key={galleryImages[i]} variants={galleryItem}>
+                <div className="relative aspect-[4/3] rounded-[15px] overflow-hidden border border-ash-border">
+                  <Image
+                    src={galleryImages[i]}
+                    alt={`Unplugged Sessions performance still ${i + 1}`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+                <PlateCaption
+                  label={galleryDisciplines[i]}
+                  value={overview.client}
+                />
+              </m.figure>
+            ))}
+          </div>
+
+          {/* Pair */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 items-start max-w-[1200px]">
+            {[3, 4].map((i) => (
+              <m.figure key={galleryImages[i]} variants={galleryItem}>
+                <div className="relative aspect-[4/3] rounded-[15px] overflow-hidden border border-ash-border">
+                  <Image
+                    src={galleryImages[i]}
+                    alt={`Unplugged Sessions performance still ${i + 1}`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+                <PlateCaption
+                  label={galleryDisciplines[i]}
+                  value={overview.client}
+                />
+              </m.figure>
+            ))}
+          </div>
+
+          {/* Pair */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 items-start max-w-[1200px]">
+            {[5, 6].map((i) => (
+              <m.figure key={galleryImages[i]} variants={galleryItem}>
+                <div className="relative aspect-[4/3] rounded-[15px] overflow-hidden border border-ash-border">
+                  <Image
+                    src={galleryImages[i]}
+                    alt={`Unplugged Sessions performance still ${i + 1}`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+                <PlateCaption
+                  label={galleryDisciplines[i]}
+                  value={overview.client}
+                />
+              </m.figure>
+            ))}
+          </div>
+
+          {/* Single editorial card */}
+          <m.figure variants={galleryItem} className="max-w-[900px]">
+            <div className="relative aspect-[16/10] rounded-[15px] overflow-hidden border border-ash-border">
+              <Image
+                src={galleryImages[7]}
+                alt="Unplugged Sessions performance still 8"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 900px"
+              />
+            </div>
+            <PlateCaption
+              label={galleryDisciplines[7]}
+              value={overview.client}
+            />
+          </m.figure>
+
+          {/* Full-width closing still */}
+          <m.figure variants={galleryItem}>
+            <div className="relative w-full aspect-[21/9] rounded-[15px] overflow-hidden border border-ash-border">
+              <Image
+                src={galleryImages[8]}
+                alt="Unplugged Sessions performance closing still"
+                fill
+                className="object-cover"
+                sizes="100vw"
+              />
+            </div>
+            <PlateCaption
+              label={galleryDisciplines[8]}
+              value={overview.client}
+            />
+          </m.figure>
+        </m.div>
+      </section>
+
+      <Rule />
+
+      {/* ── The Result ───────────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="mb-12"
+        >
+          <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-4">
+            The Result
+          </p>
+          <h2 className="font-body text-heading-lg font-normal text-bone max-w-[900px]">
+            A series that feels like the room
+          </h2>
+        </m.div>
+
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="max-w-[720px]"
+        >
+          <p className="font-body text-heading-sm font-normal text-bone mb-10">
+            {results[0]}
+          </p>
+
+          {/* TODO(David): add quantified result or client quote here */}
+
+          <ul className="max-w-[640px]">
+            {results.slice(1).map((result, index) => (
+              <li
+                key={result}
+                className={`py-4 font-body text-body-sm font-normal text-fog-blue ${
+                  index > 0 ? "border-t border-ash-border" : ""
+                }`}
+              >
+                {result}
+              </li>
+            ))}
+          </ul>
+        </m.div>
+      </section>
+
+      <Rule />
+
+      {/* ── Capabilities ─────────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="mb-14"
+        >
+          <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-4">
+            Capabilities
+          </p>
+          <h2 className="font-body text-heading-lg font-normal text-bone max-w-[900px]">
+            The production toolkit
+          </h2>
+        </m.div>
+
+        <m.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="max-w-[720px]"
+        >
+          {tools.map((tool, index) => (
             <m.div
               key={tool.name}
               variants={staggerItem}
-              className="group p-6 rounded-none border border-black/5 bg-black/[0.02] hover:border-terracotta/20 hover:bg-terracotta/[0.03] transition-all duration-500"
+              className={`py-9 ${
+                index > 0 ? "border-t border-ash-border" : ""
+              }`}
             >
-              <h3 className="font-headline text-lg font-light text-pure-white mb-2 group-hover:text-terracotta transition-colors duration-300">
+              <h3 className="font-body text-heading-sm font-normal text-bone mb-3">
                 {tool.name}
               </h3>
-              <p className="font-body text-sm text-clay-gray leading-relaxed">
+              <p className="font-body text-body-sm font-normal text-fog-blue max-w-[640px]">
                 {tool.description}
               </p>
             </m.div>
@@ -750,43 +777,39 @@ export default function UnpluggedSessionsProject() {
         </m.div>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+      <Rule />
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
+      <section className="section-container section-padding">
         <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="text-center max-w-2xl mx-auto"
+          className="max-w-[720px]"
         >
-          <h2 className="font-headline text-h2 font-light mb-6">
-            Have a performance{" "}
-            <span className="text-bone-white">worth capturing</span>?
+          <h2 className="font-body text-heading-lg font-normal text-bone mb-6">
+            Have a performance worth capturing?
           </h2>
-          <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed mb-10">
+          <p className="font-body text-body-sm font-normal text-fog-blue mb-10 max-w-[640px]">
             Let&rsquo;s direct a live music series that feels intimate, looks
             cinematic, and travels well across every platform.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
             <Link href="/#contact" className="btn-primary">
               Book a Call
             </Link>
             <Link
               href="/projects/el-secreto"
-              className="btn-secondary group inline-flex items-center gap-2"
+              className="group inline-flex items-center gap-2 uppercase text-sm font-normal text-bone hover:text-fog-blue transition-colors duration-500 ease-prism"
             >
               View Next Project
               <svg
-                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                className="w-4 h-4 transition-transform duration-500 ease-prism group-hover:translate-x-1"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                strokeWidth={2}
+                strokeWidth={1.5}
               >
                 <path
                   strokeLinecap="round"

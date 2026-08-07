@@ -1,232 +1,107 @@
 "use client";
 
-import { useRef, useState, useEffect, useCallback } from "react";
+/* Section headlines carry the prism's channels in rotation: the one
+   chromatic voice, split across the page. */
+const HEADLINE_CHANNELS = ["headline-cyan", "headline-lime", "headline-red", "headline-yellow"];
+
 import { m } from "framer-motion";
-import dynamic from "next/dynamic";
-import TextReveal from "./TextReveal";
-import Lazy3D from "./Lazy3D";
-
-const WireframeTerrain = dynamic(() => import("./WireframeTerrain"), {
-  ssr: false,
-});
-
-const ProcessPipeline = dynamic(() => import("./ProcessPipeline"), {
-  ssr: false,
-});
+import LineReveal from "./LineReveal";
 
 const steps = [
   {
     number: "01",
-    title: "DISCOVER",
+    label: "Phase 01",
+    title: "Discover",
     description:
       "Deep dive into your brand, audience, and objectives. We understand before we create.",
   },
   {
     number: "02",
-    title: "DESIGN",
+    label: "Phase 02",
+    title: "Design",
     description:
       "Virtual environments, camera moves, and creative concepts. Every detail engineered in 3D.",
   },
   {
     number: "03",
-    title: "PRODUCE",
+    label: "Phase 03",
+    title: "Produce",
     description:
       "3D pipelines, AI workflows, VFX, video gen, and sound design. Cinematic quality, 4K ready.",
   },
   {
     number: "04",
-    title: "EVOLVE",
+    label: "Phase 04",
+    title: "Evolve",
     description:
       "Performance data informs continuous improvement. Creative that gets smarter.",
   },
 ];
 
-const sectionVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.3,
-    },
-  },
-};
+const easePrism = [0.52, 0.01, 0, 1] as const;
 
-const headerVariants = {
-  hidden: { opacity: 0, y: 30 },
+const rowVariants = {
+  hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.8,
-      ease: [0.25, 0.46, 0.45, 0.94] as const,
-    },
-  },
-};
-
-const stepVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.7,
-      ease: [0.25, 0.46, 0.45, 0.94] as const,
-    },
-  },
-};
-
-const lineVariants = {
-  hidden: { scaleX: 0, scaleY: 0 },
-  visible: {
-    scaleX: 1,
-    scaleY: 1,
-    transition: {
-      duration: 0.8,
-      ease: [0.25, 0.46, 0.45, 0.94] as const,
+      duration: 0.5,
+      ease: easePrism,
     },
   },
 };
 
 export default function Process() {
-  const [activeStep, setActiveStep] = useState(-1);
-  const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  const setStepRef = useCallback(
-    (index: number) => (el: HTMLDivElement | null) => {
-      stepRefs.current[index] = el;
-    },
-    []
-  );
-
-  useEffect(() => {
-    const observers: IntersectionObserver[] = [];
-
-    stepRefs.current.forEach((el, index) => {
-      if (!el) return;
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              setActiveStep((prev) => Math.max(prev, index));
-            }
-          });
-        },
-        { threshold: 0.5 }
-      );
-
-      observer.observe(el);
-      observers.push(observer);
-    });
-
-    return () => {
-      observers.forEach((obs) => obs.disconnect());
-    };
-  }, []);
-
   return (
-    <section id="process" className="relative bg-espresso overflow-hidden" style={{ backgroundColor: "#fffef7" }}>
-      {/* Wireframe terrain background */}
-      <Lazy3D className="absolute inset-0 z-0">
-        <WireframeTerrain
-          className="absolute inset-0"
-          color="#8a0467"
-          opacity={0.07}
-          speed={1}
-        />
-      </Lazy3D>
+    <section id="process" className="section-padding">
+      {/* Section opener */}
+      <div className="section-container mb-20 md:mb-28">
+        <m.span
+          className="block text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-6"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5, ease: easePrism }}
+        >
+          Our Process
+        </m.span>
+        <h2 className="font-headline font-normal text-h2 headline-yellow">
+          <LineReveal>How we partner</LineReveal>
+        </h2>
+      </div>
 
-      {/* Subtle background accent */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 50% 50%, #8a0467 0%, transparent 60%)",
-        }}
-      />
-
-      <m.div
-        className="relative z-10 section-container section-padding"
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-      >
-        {/* Section Header */}
-        <m.div className="text-center mb-20" variants={headerVariants}>
-          <span className="text-caption tracking-[0.08em] text-graphite uppercase mb-4 block">
-            Our Process
-          </span>
-          <TextReveal
-            text="How we partner"
-            as="h2"
-            className="font-display text-h2 font-normal text-pure-white"
-          />
-        </m.div>
-
-        {/* 3D Pipeline - desktop only */}
-        <Lazy3D className="hidden lg:block mx-auto max-w-[800px] h-[100px] mb-12">
-          <ProcessPipeline activeStep={activeStep} className="w-full h-full" />
-        </Lazy3D>
-
-        {/* Steps Grid */}
-        <div className="relative grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-0">
-          {/* Connecting Line - horizontal on desktop */}
-          <m.div
-            className="hidden md:block absolute top-[52px] left-[12.5%] right-[12.5%] h-px bg-black/10"
-            variants={lineVariants}
-            style={{ originX: 0 }}
-          />
-
-          {/* Connecting Line - vertical on mobile */}
-          <m.div
-            className="md:hidden absolute top-0 bottom-0 left-8 w-px bg-black/10"
-            variants={lineVariants}
-            style={{ originY: 0 }}
-          />
-
-          {steps.map((step, index) => (
+      {/* Hairline step rows */}
+      <div className="border-b border-ash-border">
+        {steps.map((step, index) => (
+          <div key={step.number} className="border-t border-ash-border">
             <m.div
-              key={step.number}
-              ref={setStepRef(index)}
-              className="relative flex md:flex-col items-start md:items-center text-left md:text-center px-0 md:px-6"
-              variants={stepVariants}
+              className="section-container py-16 md:py-24 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start"
+              variants={rowVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
             >
-              {/* Step Node Dot - desktop */}
-              <div className="hidden md:block absolute top-[48px] left-1/2 -translate-x-1/2 w-[9px] h-[9px] rounded-full bg-terracotta ring-4 ring-espresso z-10" />
-
-              {/* Step Node Dot - mobile */}
-              <div className="md:hidden absolute top-2 left-[29px] w-[9px] h-[9px] rounded-full bg-terracotta ring-4 ring-espresso z-10" />
-
-              {/* Mobile left spacing for the vertical line */}
-              <div className="md:hidden w-20 flex-shrink-0" />
-
-              <div className="flex-1 md:flex-initial">
-                {/* Step Number */}
-                <span className="font-mono text-5xl md:text-6xl font-light text-terracotta/20 leading-none block mb-3 md:mb-6">
-                  {step.number}
+              {/* Step number */}
+              <div className="md:col-span-3">
+                <span className="block text-caption uppercase tracking-[0.02em] font-normal text-fog-blue">
+                  {step.label}
                 </span>
+              </div>
 
-                {/* Step Title */}
-                <h3 className="font-headline font-light text-xl text-pure-white mb-3">
+              {/* Step content */}
+              <div className="md:col-span-9">
+                <h3 className={`font-headline font-normal text-heading-lg mb-6 ${HEADLINE_CHANNELS[index % 4]}`}>
                   {step.title}
                 </h3>
-
-                {/* Step Description */}
-                <p className="text-clay-gray text-sm leading-relaxed max-w-[260px] md:mx-auto">
+                <p className="max-w-[640px] text-body-sm font-normal text-fog-blue">
                   {step.description}
                 </p>
               </div>
-
-              {/* Mobile separator spacing */}
-              {index < steps.length - 1 && (
-                <div className="md:hidden h-8" aria-hidden="true" />
-              )}
             </m.div>
-          ))}
-        </div>
-      </m.div>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }

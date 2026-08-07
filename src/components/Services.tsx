@@ -1,8 +1,11 @@
 "use client";
 
+/* Section headlines carry the prism's channels in rotation: the one
+   chromatic voice, split across the page. */
+const HEADLINE_CHANNELS = ["headline-cyan", "headline-lime", "headline-red", "headline-yellow"];
+
 import { m } from "framer-motion";
 import dynamic from "next/dynamic";
-import TextReveal from "./TextReveal";
 import Lazy3D from "./Lazy3D";
 
 // Dynamically import ServiceScene with SSR disabled (Three.js needs the DOM)
@@ -15,13 +18,13 @@ interface Service {
   ourWay: string;
   result: string;
   capabilities: string[];
-  accentColor: string;
   scene: "cinematography" | "animation" | "direction" | "capture";
+  sceneCaption: string;
 }
 
 const services: Service[] = [
   {
-    label: "CREATIVE STRATEGY & RESEARCH",
+    label: "Creative Strategy & Research",
     headline: "Strategy first. So the work has somewhere to go.",
     oldWay:
       "A brief lands, production starts, and nobody can say what the work is actually for.",
@@ -37,11 +40,11 @@ const services: Service[] = [
       "Competitive and cultural insight",
       "Creative briefs that actually direct",
     ],
-    accentColor: "bg-sun-gold",
     scene: "direction",
+    sceneCaption: "Direction study",
   },
   {
-    label: "AI PRODUCTION PIPELINES",
+    label: "AI Production Pipelines",
     headline: "One idea in. A full campaign out.",
     oldWay:
       "Every asset built from scratch, every format a new project, every round of edits a new bottleneck.",
@@ -57,11 +60,11 @@ const services: Service[] = [
       "Multi-format, multi-platform delivery",
       "Human-in-the-loop quality control",
     ],
-    accentColor: "bg-cyan-500",
     scene: "animation",
+    sceneCaption: "Animation study",
   },
   {
-    label: "VIRTUAL CINEMATOGRAPHY",
+    label: "Virtual Cinematography",
     headline: "Create any world. In 4K. Without leaving the studio.",
     oldWay: "Location scouts, permits, travel days, weather delays.",
     ourWay:
@@ -75,11 +78,11 @@ const services: Service[] = [
       "Look development and automated camera testing",
       "Multi-format delivery (16:9, 9:16, 4:5)",
     ],
-    accentColor: "bg-terracotta",
     scene: "cinematography",
+    sceneCaption: "Cinematography study",
   },
   {
-    label: "3D ANIMATION & VISUALIZATION",
+    label: "3D Animation & Visualization",
     headline: "Products and worlds. Brought to life in pixels.",
     oldWay:
       "Physical prototypes, expensive photo shoots, weeks of post-production.",
@@ -94,11 +97,11 @@ const services: Service[] = [
       "Motion graphics and VFX",
       "4K delivery for any platform",
     ],
-    accentColor: "bg-cyan-500",
     scene: "animation",
+    sceneCaption: "Animation study",
   },
   {
-    label: "VIDEOGRAPHY & PHOTOGRAPHY",
+    label: "Videography & Photography",
     headline: "Real moments. Captured with intent.",
     oldWay: "Bloated crews, multi-day shoots, months in post.",
     ourWay:
@@ -112,11 +115,11 @@ const services: Service[] = [
       "On-location and studio production",
       "Color grading and retouching",
     ],
-    accentColor: "bg-amber-500",
     scene: "capture",
+    sceneCaption: "Capture study",
   },
   {
-    label: "CREATIVE DIRECTION & POST",
+    label: "Creative Direction & Post",
     headline: "Vision that drives results.",
     oldWay:
       "Strategy in one silo, production in another, post-production in a third.",
@@ -131,168 +134,157 @@ const services: Service[] = [
       "Brand storytelling",
       "Multi-channel execution",
     ],
-    accentColor: "bg-sun-gold",
     scene: "direction",
+    sceneCaption: "Direction study",
   },
 ];
 
-const sectionHeadingVariants = {
-  hidden: { opacity: 0, y: 30 },
+const PRISM_EASE = [0.52, 0.01, 0, 1] as const;
+
+const riseVariants = {
+  hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.5, ease: PRISM_EASE },
   },
 };
 
-const imageVariants = {
-  hidden: { opacity: 0, scale: 0.92 },
+const plateVariants = {
+  hidden: { opacity: 0, y: 32 },
   visible: {
     opacity: 1,
-    scale: 1,
-    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
-  },
-};
-
-const textBlockVariants = {
-  hidden: { opacity: 0, x: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    x: 0,
     y: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.5, ease: PRISM_EASE },
   },
-};
-
-const capabilityVariants = {
-  hidden: { opacity: 0, y: 12 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.4,
-      delay: 0.3 + i * 0.06,
-      ease: [0.22, 1, 0.36, 1] as const,
-    },
-  }),
 };
 
 export default function Services() {
   return (
-    <section id="services" className="bg-espresso relative overflow-hidden" style={{ backgroundColor: "#fffef7" }}>
-      {/* Background accent */}
-      <div className="absolute inset-0 hidden bg-[radial-gradient(ellipse_at_bottom_left,rgba(138,4,103,0.04)_0%,transparent_50%)]" />
-
-      {/* Section header */}
-      <div className="section-container pt-20 md:pt-28 lg:pt-32 pb-12 md:pb-16 relative z-10">
-        <m.div
-          variants={sectionHeadingVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-        >
-          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
+    <section id="services" className="">
+      {/* Section opener */}
+      <div className="pt-24 md:pt-32 lg:pt-[150px] pb-16 md:pb-24">
+        <div className="section-container">
+          <m.p
+            variants={riseVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-8"
+          >
             Capabilities
-          </p>
-          <h2 className="font-display text-h2 font-normal text-pure-white">
-            <TextReveal
-              text="What we do"
-              as="span"
-              className="inline"
-            />
-          </h2>
-        </m.div>
+          </m.p>
+          <m.h2
+            variants={riseVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            className="font-headline text-heading-lg font-normal headline-red"
+          >
+            What we do
+          </m.h2>
+        </div>
       </div>
 
-      {/* Service blocks */}
-      <div className="relative z-10">
+      {/* Service rows: hairline-divided listings on the void */}
+      <div>
         {services.map((service, index) => {
           const isReversed = index % 2 !== 0;
 
           return (
             <div
               key={service.label}
-              className="border-t border-black/5 last:border-b"
+              className="border-t border-ash-border last:border-b"
             >
               <div className="section-container section-padding">
-                <div
-                  className={`flex flex-col ${
-                    isReversed ? "lg:flex-row-reverse" : "lg:flex-row"
-                  } items-center gap-12 lg:gap-16 xl:gap-20`}
-                >
-                  {/* 3D Scene visual */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 xl:gap-24 items-start">
+                  {/* Text column */}
                   <m.div
-                    variants={imageVariants}
+                    variants={riseVariants}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-80px" }}
-                    className="w-full lg:w-1/2 flex-shrink-0"
+                    className={isReversed ? "lg:order-2" : "lg:order-1"}
                   >
-                    <Lazy3D className="aspect-video rounded-none overflow-hidden relative">
+                    {/* Service title */}
+                    <h3 className={`font-headline text-heading-sm font-normal max-w-[640px] ${HEADLINE_CHANNELS[index % 4]}`}>
+                      {service.headline}
+                    </h3>
+
+                    {/* Ghost service label */}
+                    <p className="font-body text-body font-normal text-fog-blue pt-[20px] pb-[30px]">
+                      {service.label}
+                    </p>
+
+                    {/* Old way / Our way / Result */}
+                    <div className="max-w-[640px] space-y-8 mb-14">
+                      <div>
+                        <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-2">
+                          The old way
+                        </p>
+                        <p className="font-body text-body-sm font-normal text-fog-blue">
+                          {service.oldWay}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-2">
+                          Our way
+                        </p>
+                        <p className="font-body text-body-sm font-normal text-bone">
+                          {service.ourWay}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-2">
+                          Result
+                        </p>
+                        <p className="font-body text-body font-normal text-bone">
+                          {service.result}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Capability list */}
+                    <ul className="max-w-[640px] space-y-3 list-none">
+                      {service.capabilities.map((cap) => (
+                        <li key={cap} className="flex items-baseline gap-3">
+                          <span
+                            aria-hidden="true"
+                            className="text-caption text-fog-blue flex-shrink-0"
+                          >
+                            &middot;
+                          </span>
+                          <span className="font-body text-body-sm font-normal text-fog-blue">
+                            {cap}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </m.div>
+
+                  {/* 3D scene as media card */}
+                  <m.figure
+                    variants={plateVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-80px" }}
+                    className={isReversed ? "lg:order-1" : "lg:order-2"}
+                  >
+                    <Lazy3D className="aspect-video rounded-[15px] overflow-hidden border border-ash-border relative">
                       <ServiceScene
                         scene={service.scene}
                         className="w-full h-full"
                       />
                     </Lazy3D>
-                  </m.div>
-
-                  {/* Text content */}
-                  <m.div
-                    variants={textBlockVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-80px" }}
-                    className="w-full lg:w-1/2"
-                  >
-                    {/* Service label */}
-                    <span className="inline-block font-mono text-xs tracking-widest uppercase text-terracotta mb-6 px-3 py-1.5 rounded-full border border-terracotta/20 bg-terracotta/5">
-                      {service.label}
-                    </span>
-
-                    {/* Headline */}
-                    <h3 className="font-headline text-h3 font-light leading-tight mb-6">
-                      <span className="text-pure-white">{service.headline}</span>
-                    </h3>
-
-                    {/* Old Way / Our Way / Result */}
-                    <div className="space-y-4 mb-10">
-                      <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed">
-                        <span className="font-light text-cream">The old way:</span>{" "}
-                        {service.oldWay}
-                      </p>
-                      <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed">
-                        <span className="font-light text-cream">Our way:</span>{" "}
-                        {service.ourWay}
-                      </p>
-                      <p className="font-body text-base md:text-lg leading-relaxed text-terracotta">
-                        <span className="font-light">Result:</span>{" "}
-                        {service.result}
-                      </p>
-                    </div>
-
-                    {/* Capabilities grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
-                      {service.capabilities.map((cap, capIndex) => (
-                        <m.div
-                          key={cap}
-                          custom={capIndex}
-                          variants={capabilityVariants}
-                          initial="hidden"
-                          whileInView="visible"
-                          viewport={{ once: true, margin: "-40px" }}
-                          className="flex items-start gap-3 group/cap"
-                        >
-                          {/* Indigo dot */}
-                          <span
-                            className={`mt-2 w-1.5 h-1.5 rounded-full ${service.accentColor} flex-shrink-0 group-hover/cap:scale-150 transition-transform duration-300`}
-                          />
-                          <span className="font-body text-sm text-clay-gray group-hover/cap:text-cream transition-colors duration-300 leading-relaxed">
-                            {cap}
-                          </span>
-                        </m.div>
-                      ))}
-                    </div>
-                  </m.div>
+                    <figcaption className="mt-4 flex flex-wrap items-baseline gap-x-4 gap-y-1">
+                      <span className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue">
+                        {service.sceneCaption}
+                      </span>
+                      <span className="font-body text-caption font-normal text-fog-blue">
+                        Rendered live in-browser
+                      </span>
+                    </figcaption>
+                  </m.figure>
                 </div>
               </div>
             </div>

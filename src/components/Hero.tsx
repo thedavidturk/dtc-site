@@ -10,6 +10,7 @@ import {
 } from "framer-motion";
 import WorkMarquee from "./WorkMarquee";
 import LineReveal from "./LineReveal";
+import PrismArtifact from "./PrismArtifact";
 import useAutoplayInView from "./useAutoplayInView";
 
 /* ------------------------------------------------------------------ */
@@ -149,8 +150,22 @@ const work: WorkTile[] = [
   },
 ];
 
+/* Quiet client roll: one fog-blue caption line below the fold. */
+const clients = [
+  "New Era Cap",
+  "Ford",
+  "SeaWorld",
+  "Miami Dolphins",
+  "Betterfly",
+  "Brugal Rum",
+  "Faena",
+  "Barry's",
+  "United Parks",
+  "Perez Art Museum Miami",
+];
+
 /* ------------------------------------------------------------------ */
-/*  A single work tile - sharp corners, meta pinned bottom-left        */
+/*  A single work tile - rounded media card on the void, caption below */
 /* ------------------------------------------------------------------ */
 
 function Tile({ tile }: { tile: WorkTile }) {
@@ -163,10 +178,11 @@ function Tile({ tile }: { tile: WorkTile }) {
     <a
       href="#projects"
       aria-label={`${tile.client} - ${tile.tag}. View our work.`}
-      className="group relative block overflow-hidden"
+      className="group block"
       draggable={false}
     >
-      <div className="relative aspect-[4/5] w-full overflow-hidden">
+      {/* The card: 15px radius on the void, nothing overlaid */}
+      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[15px]">
         {isVideo ? (
           <video
             ref={videoRef}
@@ -177,7 +193,7 @@ function Tile({ tile }: { tile: WorkTile }) {
             playsInline
             preload="none"
             aria-label={`${tile.client} - ${tile.tag}`}
-            className="pointer-events-none absolute inset-0 h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
+            className="pointer-events-none absolute inset-0 h-full w-full object-cover"
           />
         ) : (
           <Image
@@ -185,18 +201,18 @@ function Tile({ tile }: { tile: WorkTile }) {
             alt={`${tile.client} - ${tile.tag}`}
             fill
             sizes="(max-width: 1024px) 45vw, 22vw"
-            className="pointer-events-none object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
+            className="pointer-events-none object-cover"
             unoptimized={isGif}
             draggable={false}
           />
         )}
       </div>
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-baseline justify-between gap-3 p-4">
-        <span className="text-sm font-light text-bone-white">
+      {/* Caption below the card: client in bone, tag in fog-blue */}
+      <div className="flex items-baseline justify-between gap-3 pt-3">
+        <span className="text-sm font-normal text-bone transition-colors duration-500 ease-prism group-hover:text-fog-blue">
           {tile.client}
         </span>
-        <span className="text-[10px] font-normal uppercase tracking-[0.14em] text-bone-white/70">
+        <span className="text-[11px] font-normal uppercase tracking-[0.02em] text-fog-blue">
           {tile.tag}
         </span>
       </div>
@@ -220,7 +236,7 @@ function WorkBand({ tiles }: { tiles: WorkTile[] }) {
       {loop.map((tile, i) => (
         <div
           key={`${tile.client}-${i}`}
-          className="w-52 shrink-0 sm:w-64 lg:w-80"
+          className="w-56 shrink-0 px-2 sm:w-72 sm:px-2.5 lg:w-[21.5rem] lg:px-3"
         >
           <Tile tile={tile} />
         </div>
@@ -230,185 +246,220 @@ function WorkBand({ tiles }: { tiles: WorkTile[] }) {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Motion presets                                                     */
+/*  Motion presets - focus-pull curve, transform + opacity only        */
 /* ------------------------------------------------------------------ */
 
-const ease = [0.22, 1, 0.36, 1] as const;
+const easePrism = [0.52, 0.01, 0, 1] as const;
 
 const container = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.09, delayChildren: 0.1 } },
+  visible: { transition: { staggerChildren: 0.09, delayChildren: 0.5 } },
 };
 
 const item = {
   hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: easePrism } },
 };
 
 /* ------------------------------------------------------------------ */
-/*  Hero - oversized poster headline over a full-bleed work band       */
+/*  Hero - obsidian void, prism artifact, display type crossing it     */
 /* ------------------------------------------------------------------ */
 
-/* Hover-reactive headline word: lifts off the baseline and takes the
-   chromatic hit. Transform + color only, so neighbors never reflow. */
-function HeadlineWord({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="inline-block cursor-default transition-[transform,color] duration-300 ease-out hover:-translate-y-[0.06em] hover:text-magenta-bloom">
-      {children}
-    </span>
-  );
-}
-
 export default function Hero() {
-  const sectionRef = useRef<HTMLElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
 
-  // As the hero scrolls away, the two headline lines shear apart
-  // horizontally like a broadsheet being folded.
+  /* The hero-exit morph, scrubbed by how far the landing panel has
+     scrolled out: the cubes converge and spin up, detonate into a
+     chromatic flash, and the flash condenses into the hairline that
+     introduces the next section. Scrolling back up reverses it. */
   const { scrollYProgress } = useScroll({
-    target: sectionRef,
+    target: panelRef,
     offset: ["start start", "end start"],
   });
-  const line1X = useTransform(scrollYProgress, [0, 1], ["0vw", "-6vw"]);
-  const line2X = useTransform(scrollYProgress, [0, 1], ["0vw", "5vw"]);
+
+  const converge = useTransform(scrollYProgress, [0.02, 0.32], [0, 1]);
+  const morphRotation = useTransform(scrollYProgress, [0, 0.38], [0, Math.PI]);
+  const prismOpacity = useTransform(scrollYProgress, [0.28, 0.4], [1, 0]);
+  const prismScale = useTransform(scrollYProgress, [0, 0.4], [1, 0.55]);
+
+  /* The flash: a burst of light that peaks as the cubes vanish. It is
+     anchored near the panel's exit edge, so it blooms exactly where
+     the next band is arriving. */
+  const burstOpacity = useTransform(
+    scrollYProgress,
+    [0.28, 0.38, 0.48, 0.56],
+    [0, 0.95, 0.85, 0]
+  );
+  const burstHeight = useTransform(
+    scrollYProgress,
+    [0.28, 0.38, 0.56],
+    ["4px", "34vh", "2px"]
+  );
+  const burstWidth = useTransform(
+    scrollYProgress,
+    [0.28, 0.38, 0.56],
+    ["12vw", "44vw", "70vw"]
+  );
+
+  /* ...and condenses into the hairline that rules the next band. */
+  const lineScaleX = useTransform(scrollYProgress, [0.4, 0.6], [0, 1]);
+  const lineOpacity = useTransform(scrollYProgress, [0.4, 0.48], [0, 1]);
+  const lineColor = useTransform(
+    scrollYProgress,
+    [0.58, 0.85],
+    ["#fffdf9", "#403f3f"]
+  );
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative overflow-hidden bg-bone-white pt-28 md:pt-36"
-    >
-      {/* ---------------------------- Poster block ---------------------------- */}
-      <m.div
-        variants={container}
-        initial="hidden"
-        animate="visible"
-        className="section-container"
+    <section className="relative overflow-hidden ">
+      {/* ------------------------- Void panel ------------------------- */}
+      <div
+        ref={panelRef}
+        className="relative flex min-h-screen flex-col justify-center pb-16 pt-28 md:pt-32"
       >
-        {/* Meta eyebrow */}
-        <m.p
-          variants={item}
-          className="mb-8 text-caption font-normal uppercase tracking-[0.08em] text-graphite"
+        {/* The artifact: smaller and lower on mobile so the headline
+            owns the screen; full presence on desktop. The scrub morphs
+            it as the panel scrolls out. */}
+        <m.div
+          style={
+            prefersReducedMotion
+              ? undefined
+              : { opacity: prismOpacity, scale: prismScale }
+          }
+          className="pointer-events-none absolute left-1/2 top-[64%] z-0 h-[34vh] w-[74vw] -translate-x-1/2 -translate-y-1/2 md:top-1/2 md:h-[72vh] md:w-[40vw]"
         >
-          DT+C // AI-Native Creative Studio
-        </m.p>
+          <PrismArtifact
+            className="h-full w-full opacity-70 md:opacity-100"
+            scrollRotation={prefersReducedMotion ? undefined : morphRotation}
+            converge={prefersReducedMotion ? undefined : converge}
+          />
+        </m.div>
 
-        {/* Broadside headline - serif roman with an italic interjection,
-            each line rising from its own mask, shearing on scroll,
-            words reacting on hover. One chromatic hit. */}
-        <h1 className="font-serif font-normal text-display-serif text-ink-black">
-          <m.span
-            className="block"
-            style={{ x: prefersReducedMotion ? 0 : line1X }}
+        {/* The flash: light bursting from the collapsed cluster, with
+            the artifact's red/cyan fringe, then the condensed hairline
+            that introduces the next section. */}
+        {!prefersReducedMotion && (
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute left-1/2 top-[96%] z-0 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center md:top-[94%]"
           >
-            <LineReveal delay={0.15}>
-              <HeadlineWord>Content</HeadlineWord>{" "}
-              <HeadlineWord>that</HeadlineWord>{" "}
-              <HeadlineWord>moves</HeadlineWord>
-            </LineReveal>
-          </m.span>
-          <m.span
-            className="block"
-            style={{ x: prefersReducedMotion ? 0 : line2X }}
-          >
-            <LineReveal delay={0.3}>
-              <span className="italic text-[0.42em] leading-none text-sepia align-[0.08em] mr-3 md:mr-4">
-                at the speed of
-              </span>
-              <span className="inline-block cursor-default italic text-magenta-bloom transition-transform duration-300 ease-out hover:-translate-y-[0.06em] hover:-skew-x-3">
-                culture.
-              </span>
-            </LineReveal>
-          </m.span>
-        </h1>
+            <m.div
+              style={{
+                opacity: burstOpacity,
+                height: burstHeight,
+                width: burstWidth,
+                background:
+                  "radial-gradient(closest-side, rgba(255,253,249,0.95), rgba(255,253,249,0.35) 45%, rgba(255,253,249,0) 72%)",
+              }}
+              className="relative rounded-[50%]"
+            >
+              <div
+                className="absolute inset-0 -translate-x-[6px] rounded-[50%]"
+                style={{
+                  background:
+                    "radial-gradient(closest-side, rgba(255,42,42,0.35), rgba(255,42,42,0) 70%)",
+                }}
+              />
+              <div
+                className="absolute inset-0 translate-x-[6px] rounded-[50%]"
+                style={{
+                  background:
+                    "radial-gradient(closest-side, rgba(42,127,255,0.35), rgba(42,127,255,0) 70%)",
+                }}
+              />
+            </m.div>
+          </div>
+        )}
+        {!prefersReducedMotion && (
+          <m.div
+            aria-hidden="true"
+            style={{
+              scaleX: lineScaleX,
+              opacity: lineOpacity,
+              backgroundColor: lineColor,
+            }}
+            className="pointer-events-none absolute left-1/2 top-[96%] z-0 h-px w-[86vw] -translate-x-1/2 md:top-[94%]"
+          />
+        )}
 
-        {/* Subhead + CTAs share a row on desktop */}
-        <div className="mt-10 flex flex-col gap-8 md:mt-12 md:flex-row md:items-end md:justify-between">
-          <m.p
-            variants={item}
-            className="max-w-xl text-body-lg font-normal text-graphite"
-          >
-            Strategy, content, VFX, and web, under one roof and built to
-            launch in{" "}
-            <span className="text-ink-black">weeks, not months.</span>
-          </m.p>
+        <div className="section-container relative z-30">
+          {/* Sculptural display headline: one weight, hierarchy from
+              scale alone, each line rising from its own mask. */}
+          <h1 className="text-display font-normal text-bone">
+            <LineReveal delay={0.15}>Content that</LineReveal>
+            <LineReveal delay={0.27}>moves at the</LineReveal>
+            <LineReveal delay={0.39}>speed of culture.</LineReveal>
+          </h1>
 
           <m.div
-            variants={item}
-            className="flex flex-col gap-3 sm:flex-row sm:items-center"
+            variants={container}
+            initial="hidden"
+            animate="visible"
+            className="mt-12 md:mt-16"
           >
-            <a
-              href="#projects"
-              className="group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-pill bg-ink-black px-7 py-3.5 font-normal text-bone-white transition-opacity duration-300 hover:opacity-75"
+            {/* Lead paragraph: single narrow column, below-left */}
+            <m.p
+              variants={item}
+              className="max-w-[440px] text-left text-body-lg font-normal text-bone"
             >
-              See Our Work
-              <svg
-                className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
+              Strategy, content, VFX, and web, under one roof and built to
+              launch in weeks, not months.
+            </m.p>
+
+            {/* CTAs: one outlined button, one ghost link */}
+            <m.div
+              variants={item}
+              className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-4"
+            >
+              <a href="/#contact" className="btn-primary">
+                Book a Call
+              </a>
+              <a
+                href="#projects"
+                className="group inline-flex items-center gap-2 text-sm font-normal uppercase tracking-[0.02em] text-bone transition-colors duration-500 ease-prism hover:text-fog-blue"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </a>
-            <a
-              href="/#contact"
-              className="inline-flex items-center justify-center whitespace-nowrap rounded-pill border border-ash px-7 py-3.5 font-normal text-ink-black transition-colors duration-300 hover:border-ink-black"
-            >
-              Book a Call
-            </a>
+                See Our Work
+                <svg
+                  className="h-4 w-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+              </a>
+            </m.div>
           </m.div>
         </div>
-      </m.div>
+      </div>
 
-      {/* ---------------------------- Full-bleed work band ---------------------------- */}
-      <m.div
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, ease, delay: 0.35 }}
-        className="mt-14 md:mt-20"
-      >
-        <WorkBand tiles={work} />
-      </m.div>
-
-      {/* Brand ticker - full-bleed ink band, serif wordmarks on cream */}
+      {/* Quiet client roll: fog-blue caption line below the fold */}
       <m.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.6 }}
-        className="overflow-hidden bg-warm-ink py-5 md:py-6"
+        transition={{ duration: 0.5, ease: easePrism, delay: 0.8 }}
+        className="section-container pb-10"
       >
-        <div className="hero-marquee-left flex w-max items-center">
-          {[0, 1].map((copy) => (
-            <div key={copy} className="flex items-center" aria-hidden={copy === 1}>
-              {[
-                "New Era Cap",
-                "United Parks",
-                "Ford Motors",
-                "Betterfly",
-                "Barry's",
-                "Faena",
-                "SeaWorld",
-                "Miami Dolphins",
-                "Brugal Rum",
-                "Perez Art Museum Miami",
-              ].map((name, i) => (
-                <span key={name} className="flex items-center">
-                  <span className="whitespace-nowrap font-serif text-xl md:text-2xl text-bone-white">
-                    {name}
-                  </span>
-                  {i % 3 === 2 ? (
-                    <span className="mx-8 whitespace-nowrap rounded-pill border border-bone-white/40 px-2.5 py-0.5 text-[10px] font-normal uppercase tracking-[0.14em] text-bone-white/70">
-                      Trusted by DT+C
-                    </span>
-                  ) : (
-                    <span className="mx-8 h-1 w-1 rounded-full bg-bone-white/30" />
-                  )}
-                </span>
-              ))}
-            </div>
-          ))}
-        </div>
+        <p className="text-caption font-normal text-fog-blue">
+          {clients.join(" · ")}
+        </p>
+      </m.div>
+
+      {/* ------------- Full-bleed work band: the work, in motion ------------- */}
+      <m.div
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: easePrism, delay: 0.35 }}
+        className="pb-16 md:pb-24"
+      >
+        <WorkBand tiles={work} />
       </m.div>
     </section>
   );

@@ -2,44 +2,21 @@
 
 import Link from "@/components/TransitionLink";
 import Image from "next/image";
-import dynamic from "next/dynamic";
 import { m } from "framer-motion";
-import ProjectGifBand from "@/components/ProjectGifBand";
-import Lazy3D from "@/components/Lazy3D";
-import PinnedApproach from "@/components/PinnedApproach";
-import WorkFrame from "@/components/WorkFrame";
-
-// Three.js needs the DOM — load client-side only
-const ProjectScene = dynamic(() => import("@/components/ProjectScene"), {
-  ssr: false,
-});
+import AutoplayVideo from "@/components/AutoplayVideo";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
 /* ------------------------------------------------------------------ */
+
+const PRISM_EASE = [0.52, 0.01, 0, 1] as const;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
-  },
-};
-
-const staggerContainer = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.1 },
-  },
-};
-
-const staggerItem = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.5, ease: PRISM_EASE },
   },
 };
 
@@ -51,12 +28,11 @@ const galleryContainer = {
 };
 
 const galleryItem = {
-  hidden: { opacity: 0, y: 50, scale: 0.96 },
+  hidden: { opacity: 0, y: 50 },
   visible: {
     opacity: 1,
     y: 0,
-    scale: 1,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.5, ease: PRISM_EASE },
   },
 };
 
@@ -87,49 +63,42 @@ const galleryImages = [
     src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/e99154f1-4ec2-42c3-8161-f5d61dc7efed_rw_3840.jpg?h=12d2746f516b788b3bf32a1371d2f5da",
     alt: "Ford Mustang Mach-E hero key visual",
     aspect: "21/9",
-    span: 12,
     discipline: "Hi-Res Key Visuals",
   },
   {
     src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/fcf6296b-216c-429f-b8fc-4ada80f68dfc_rw_3840.jpg?h=9d25b37ccabacab16672b34557c312a4",
     alt: "Ford Mustang Mach-E rendered three quarter view",
     aspect: "16/10",
-    span: 7,
     discipline: "3D Design (Cinema 4D)",
   },
   {
     src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/b9902159-050d-4e1f-a691-35165cf456ba_rw_3840.jpg?h=ea86ac1cce2b7d16732f4aea590402e7",
     alt: "Ford Mustang Mach-E detail composition",
     aspect: "3/4",
-    span: 5,
     discipline: "Concept & Art Direction",
   },
   {
     src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/143dcbf7-583c-47b6-92d4-bdd1bbf8173d_rw_3840.jpg?h=eb89949a5d83ab26d8665d77524d50e7",
     alt: "Ford Mustang Mach-E lighting study",
     aspect: "4/3",
-    span: 4,
     discipline: "3D Design (Cinema 4D)",
   },
   {
     src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/2c0d78b8-991d-46ca-8dfd-7cc0a4b0e7aa_rw_3840.jpg?h=4defce8940261e93c0bdfd9f8d010291",
     alt: "Ford Mustang Mach-E rendered profile",
     aspect: "4/3",
-    span: 4,
     discipline: "Hi-Res Key Visuals",
   },
   {
     src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/bbf6a1f7-2b68-4bd1-a519-4fef713a2cbf_rw_1920.png?h=60f9bbfa8172959bd001998034ef16e2",
     alt: "Ford Mustang Mach-E social frame",
     aspect: "4/3",
-    span: 4,
     discipline: "Social Media Delivery",
   },
   {
     src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/da3d77ca-1e4b-4f7e-b3cb-7b0e58cf2210_rw_1920.png?h=4f041b47252b875962082d62685b2730",
     alt: "Ford Mustang Mach-E animation still",
     aspect: "21/9",
-    span: 12,
     discipline: "4K Motion Animation",
   },
 ];
@@ -201,233 +170,223 @@ const tools = [
 ];
 
 /* ------------------------------------------------------------------ */
+/*  Local pieces                                                       */
+/* ------------------------------------------------------------------ */
+
+/** Full-width hairline rule separating bands. */
+function Rule() {
+  return (
+    <div className="section-container">
+      <div className="border-t border-ash-border" />
+    </div>
+  );
+}
+
+/** Media card on the void: 15px radius, caption below in bone + fog-blue. */
+function Plate({
+  label,
+  value,
+  aspect,
+  children,
+}: {
+  label: string;
+  value: string;
+  aspect?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <figure>
+      <div
+        className={`relative overflow-hidden rounded-[15px] border border-ash-border ${
+          aspect ?? ""
+        }`}
+      >
+        {children}
+      </div>
+      <figcaption className="mt-4 flex flex-wrap items-baseline gap-x-4 gap-y-1">
+        <span className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue">
+          {label}
+        </span>
+        <span className="font-body text-caption font-normal text-bone">
+          {value}
+        </span>
+      </figcaption>
+    </figure>
+  );
+}
+
+/** Gallery plate bound to a galleryImages entry. */
+function GalleryPlate({ index }: { index: number }) {
+  const img = galleryImages[index];
+  return (
+    <Plate label={img.discipline} value={img.alt} aspect={aspectClass[img.aspect]}>
+      <Image
+        src={img.src}
+        alt={img.alt}
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 1200px"
+        className="object-cover"
+      />
+    </Plate>
+  );
+}
+
+/* ------------------------------------------------------------------ */
 /*  Component                                                          */
 /* ------------------------------------------------------------------ */
 
 export default function FordMustangMachEProject() {
   return (
-    <article className="bg-espresso min-h-screen" style={{ backgroundColor: "#fffef7" }}>
-      {/* ── Back Link ─────────────────────────────────────────────── */}
-      <m.div
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-        className="fixed top-24 left-6 md:left-8 lg:left-12 z-40"
-      >
-        <Link
-          href="/#projects"
-          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-clay-gray hover:text-pure-white transition-colors duration-300"
+    <article className="bg-obsidian min-h-screen">
+      {/* ── Opener ────────────────────────────────────────────────── */}
+      <header className="section-container pt-28 md:pt-36 pb-16 md:pb-20">
+        <m.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1, ease: PRISM_EASE }}
         >
-          <svg
-            className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
+          <Link
+            href="/#projects"
+            className="group inline-flex items-center gap-2 text-caption font-normal uppercase tracking-[0.02em] text-bone transition-colors duration-500 ease-prism hover:text-fog-blue"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
+            <svg
+              className="w-4 h-4 transition-transform duration-500 ease-prism group-hover:-translate-x-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
+              />
+            </svg>
+            Back to Work
+          </Link>
+        </m.div>
+
+        <m.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2, ease: PRISM_EASE }}
+          className="mt-14 text-[17px] font-normal uppercase tracking-[0.02em] text-fog-blue"
+        >
+          Automotive / Social Media
+        </m.p>
+
+        <m.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3, ease: PRISM_EASE }}
+          className="mt-6 font-headline text-display-sm font-normal text-bone"
+        >
+          Rebuilding
+          <br />
+          a Classic
+        </m.h1>
+
+        <m.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.45, ease: PRISM_EASE }}
+          className="mt-6 font-body text-body-lg font-normal text-bone max-w-[640px]"
+        >
+          Ford Mustang Mach-E
+        </m.p>
+
+        {/* Metadata row */}
+        <m.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6, ease: PRISM_EASE }}
+          className="mt-16 border-t border-ash-border pt-10"
+        >
+          <div className="flex flex-col md:flex-row md:items-start gap-10 md:gap-16 lg:gap-24">
+            <div>
+              <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-2">
+                Client
+              </p>
+              <p className="font-body text-body-sm font-normal text-bone">
+                {overview.client}
+              </p>
+            </div>
+            <div>
+              <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-2">
+                Industry
+              </p>
+              <p className="font-body text-body-sm font-normal text-bone">
+                {overview.industry}
+              </p>
+            </div>
+            <div>
+              <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-2">
+                Role
+              </p>
+              <p className="font-body text-body-sm font-normal text-bone">
+                {overview.role}
+              </p>
+            </div>
+            <div>
+              <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-2">
+                Services
+              </p>
+              <ul className="space-y-1">
+                {overview.services.map((service) => (
+                  <li
+                    key={service}
+                    className="font-body text-body-sm font-normal text-bone"
+                  >
+                    {service}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </m.div>
+      </header>
+
+      {/* ── Hero Media ────────────────────────────────────────────── */}
+      <section className="section-container pb-20 md:pb-28">
+        <m.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.7, ease: PRISM_EASE }}
+          className="mx-auto max-w-[1200px]"
+        >
+          <Plate
+            label="Hi-Res Key Visuals"
+            value="Ford Mustang Mach-E key visual"
+            aspect="aspect-[16/10]"
+          >
+            <Image
+              src={heroImage}
+              alt="Ford Mustang Mach-E key visual"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
             />
-          </svg>
-          Back to Work
-        </Link>
-      </m.div>
-
-      {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section className="relative min-h-[78vh] md:min-h-[88vh] flex items-end overflow-hidden">
-        {/* Real hero key visual */}
-        <div className="absolute inset-0">
-          <Image
-            src={heroImage}
-            alt="Ford Mustang Mach-E key visual"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-          />
-        </div>
-
-        {/* Themed 3D atmosphere — desktop only, unmounts off-screen */}
-        <Lazy3D className="pointer-events-none absolute inset-0 z-[1] hidden lg:block opacity-[0.35]">
-          <ProjectScene theme="automotive" className="h-full w-full" />
-        </Lazy3D>
-
-        {/* Tonal wash to seat the headline */}
-        <div
-          className="absolute inset-0 z-[1]"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(255,254,247,0.55) 0%, rgba(255,254,247,0.2) 35%, rgba(255,254,247,0.75) 80%, #fffef7 100%)",
-          }}
-        />
-        <div
-          className="absolute inset-0 z-[1]"
-          style={{
-            background:
-              "radial-gradient(120% 90% at 80% 10%, rgba(138,4,103,0.28) 0%, rgba(255,254,247,0) 55%)",
-          }}
-        />
-
-        <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
-          <m.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <span className="inline-block font-mono text-xs tracking-widest uppercase text-bone-white/80 mb-4 px-3 py-1.5 rounded-full border border-black/15 backdrop-blur-sm bg-black/10">
-              Automotive / Social Media
-            </span>
-          </m.div>
-
-          <m.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-h1 font-normal mb-4"
-          >
-            REBUILDING
-            <br />
-            A CLASSIC
-          </m.h1>
-
-          <m.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-2xl md:text-3xl lg:text-4xl font-normal text-bone-white/85 tracking-tight"
-          >
-            Ford Mustang Mach-E
-          </m.p>
-
-          <m.div
-            initial={{ width: 0 }}
-            animate={{ width: "6rem" }}
-            transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="h-px bg-gradient-to-r from-terracotta to-sun-gold mt-8"
-            style={{ backgroundImage: "linear-gradient(to right, #8a0467, #03624c)" }}
-          />
-        </div>
+          </Plate>
+        </m.div>
       </section>
 
-      {/* ── In Motion GIF Band ────────────────────────────────────── */}
-      <ProjectGifBand
-        eyebrow="In Motion"
-        heading="Rebuilt in Motion"
-        gifs={[
-          {
-            src: "/motion/ford-mustang.mp4",
-            poster: "/motion/ford-mustang.jpg",
-            label: "Mustang Mach-E",
-          },
-        ]}
-      />
+      <Rule />
 
-      {/* ── Overview Sidebar + Intro ──────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-          {/* Sidebar */}
-          <m.aside
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="lg:col-span-4"
-          >
-            <div className="lg:sticky lg:top-28 space-y-8">
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-sun-gold mb-2">
-                  Client
-                </p>
-                <p className="font-headline text-lg font-light text-pure-white">
-                  {overview.client}
-                </p>
-              </div>
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-sun-gold mb-2">
-                  Industry
-                </p>
-                <p className="font-body text-clay-gray">{overview.industry}</p>
-              </div>
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-sun-gold mb-2">
-                  Role
-                </p>
-                <p className="font-body text-clay-gray">{overview.role}</p>
-              </div>
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-sun-gold mb-2">
-                  Services
-                </p>
-                <ul className="space-y-2">
-                  {overview.services.map((service) => (
-                    <li
-                      key={service}
-                      className="flex items-center gap-3 font-body text-sm text-clay-gray"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-sun-gold flex-shrink-0" />
-                      {service}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </m.aside>
-
-          {/* Intro */}
-          <m.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="lg:col-span-8"
-          >
-            <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
-              The Brief
-            </p>
-            <h2 className="font-headline text-h3 font-light mb-8">
-              A muscle-car icon,{" "}
-              <span className="gradient-text">reborn for the feed</span>
-            </h2>
-            <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
-              <p>
-                The Mustang Mach-E is Ford taking the most loaded name in its
-                history and putting it on something electric. For social, that
-                story had to land in seconds, with imagery that felt as crafted
-                and premium as the car itself.
-              </p>
-              <p>
-                The approach was direct. Build the vehicle in 3D, light it like
-                a hero, and animate it in 4K so every frame reads as a finished
-                key visual rather than a screen grab. Hi-res imagery plus 4K
-                animations, designed and animated in Cinema 4D and Adobe After
-                Effects, with one goal at the end of it. A happy client.
-              </p>
-            </div>
-          </m.div>
-        </div>
-      </section>
-
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
-
-      {/* ── The Film / Animation ─────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
+      {/* ── In Motion ─────────────────────────────────────────────── */}
+      <section className="section-container section-padding">
         <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="mb-10"
+          className="mb-12 md:mb-16"
         >
-          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
-            The Animation
+          <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-4">
+            In Motion
           </p>
-          <h2 className="font-headline text-h3 font-light">
-            Hi-res imagery, <span className="text-bone-white">brought to life in 4K</span>
+          <h2 className="font-headline text-heading-lg font-normal text-bone">
+            Rebuilt in Motion
           </h2>
         </m.div>
 
@@ -436,49 +395,154 @@ export default function FordMustangMachEProject() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="relative max-w-5xl mx-auto"
+          className="mx-auto max-w-[1200px]"
         >
-          {/* Ambient glow behind the player */}
-          <div className="absolute -inset-4 md:-inset-8 bg-gradient-to-r from-terracotta/10 via-black/5 to-sun-gold/10 rounded-none blur-2xl opacity-60 pointer-events-none" />
+          <Plate label="In Motion" value="Mustang Mach-E">
+            <AutoplayVideo
+              src="/motion/ford-mustang.mp4"
+              poster="/motion/ford-mustang.jpg"
+              aria-label="Mustang Mach-E"
+              className="block w-full h-auto"
+            />
+          </Plate>
+        </m.div>
+      </section>
 
-          <div className="relative rounded-none overflow-hidden border border-black/10  ">
+      <Rule />
 
-            {/* 16:9 responsive embed (Adobe CCV player from the source case study) */}
-            <div className="relative w-full aspect-video">
-              <iframe
-                src="https://www-ccv.adobe.io/v1/player/ccv/V3B-d9Ww-Nr/embed?bgcolor=%23191919&lazyLoading=true&api_key=BehancePro2View"
-                title="Rebuilding a Classic: Ford Mustang Mach-E"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="absolute inset-0 w-full h-full"
-              />
-            </div>
+      {/* ── The Brief ─────────────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="max-w-[640px]"
+        >
+          <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-4">
+            The Brief
+          </p>
+          <h2 className="font-headline text-heading-lg font-normal text-bone mb-12">
+            A muscle-car icon, reborn for the feed
+          </h2>
+          <div className="font-body text-body-sm font-normal text-bone space-y-7">
+            <p>
+              The Mustang Mach-E is Ford taking the most loaded name in its
+              history and putting it on something electric. For social, that
+              story had to land in seconds, with imagery that felt as crafted
+              and premium as the car itself.
+            </p>
+            <p>
+              The approach was direct. Build the vehicle in 3D, light it like
+              a hero, and animate it in 4K so every frame reads as a finished
+              key visual rather than a screen grab. Hi-res imagery plus 4K
+              animations, designed and animated in Cinema 4D and Adobe After
+              Effects, with one goal at the end of it. A happy client.
+            </p>
           </div>
         </m.div>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+      <Rule />
 
-      {/* ── Our Approach (scroll-scrubbed pinned section) ────────── */}
-      <PinnedApproach
-        eyebrow="Our Approach"
-        heading="From render to feed in four moves"
-        steps={approach.map(({ title, description }) => ({
-          title,
-          body: description,
-        }))}
-      />
+      {/* ── The Animation ─────────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="mb-12 md:mb-16"
+        >
+          <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-4">
+            The Animation
+          </p>
+          <h2 className="font-headline text-heading-lg font-normal text-bone">
+            Hi-res imagery, brought to life in 4K
+          </h2>
+        </m.div>
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="mx-auto max-w-[1200px]"
+        >
+          <figure>
+            <div className="relative overflow-hidden rounded-[15px] border border-ash-border">
+              {/* 16:9 responsive embed (Adobe CCV player from the source case study) */}
+              <div className="relative w-full aspect-video">
+                <iframe
+                  src="https://www-ccv.adobe.io/v1/player/ccv/V3B-d9Ww-Nr/embed?bgcolor=%23191919&lazyLoading=true&api_key=BehancePro2View"
+                  title="Rebuilding a Classic: Ford Mustang Mach-E"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full"
+                />
+              </div>
+            </div>
+            <figcaption className="mt-4 flex flex-wrap items-baseline gap-x-4 gap-y-1">
+              <span className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue">
+                4K Motion Animation
+              </span>
+              <span className="font-body text-caption font-normal text-bone">
+                Rebuilding a Classic: Ford Mustang Mach-E
+              </span>
+            </figcaption>
+          </figure>
+        </m.div>
+      </section>
 
-      {/* ── Gallery ──────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
+      <Rule />
+
+      {/* ── Our Approach ──────────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="mb-16 md:mb-24"
+        >
+          <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-4">
+            Our Approach
+          </p>
+          <h2 className="font-headline text-heading-lg font-normal text-bone">
+            From render to feed in four moves
+          </h2>
+        </m.div>
+
+        <div className="max-w-[640px]">
+          {approach.map((step, i) => (
+            <m.div
+              key={step.step}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+              className={
+                i === 0 ? "" : "border-t border-ash-border mt-14 pt-14"
+              }
+            >
+              <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue">
+                {step.step}
+              </p>
+              <h3 className="mt-4 font-headline text-heading-sm font-normal text-bone">
+                {step.title}
+              </h3>
+              <p className="mt-5 font-body text-body-sm font-normal text-bone">
+                {step.description}
+              </p>
+            </m.div>
+          ))}
+        </div>
+      </section>
+
+      <Rule />
+
+      {/* ── Key Visuals Gallery ──────────────────────────────────── */}
+      <section className="section-container section-padding">
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -486,11 +550,11 @@ export default function FordMustangMachEProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-16"
         >
-          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
+          <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-4">
             Key Visuals
           </p>
-          <h2 className="font-headline text-h3 font-light">
-            Every frame, <span className="text-bone-white">a finished piece</span>
+          <h2 className="font-headline text-heading-lg font-normal text-bone">
+            Every frame, a finished piece
           </h2>
         </m.div>
 
@@ -499,81 +563,82 @@ export default function FordMustangMachEProject() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6"
+          className="mx-auto max-w-[1200px] space-y-14 md:space-y-20"
         >
-          {galleryImages.map((img, i) => {
-            const spanClass =
-              img.span === 12
-                ? "md:col-span-12"
-                : img.span === 7
-                ? "md:col-span-7"
-                : img.span === 5
-                ? "md:col-span-5"
-                : "md:col-span-4";
-            return (
-              <m.div key={img.src} variants={galleryItem} className={spanClass}>
-                <WorkFrame
-                  client={overview.client}
-                  discipline={img.discipline}
-                  index={i + 1}
-                  className={`${aspectClass[img.aspect]} rounded-none`}
-                >
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 1200px"
-                    className="object-cover"
-                  />
-                </WorkFrame>
-              </m.div>
-            );
-          })}
+          {/* Single: full-width hero key visual */}
+          <m.div variants={galleryItem}>
+            <GalleryPlate index={0} />
+          </m.div>
+
+          {/* Pair: three quarter view + detail composition */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10">
+            <m.div variants={galleryItem} className="md:col-span-7">
+              <GalleryPlate index={1} />
+            </m.div>
+            <m.div variants={galleryItem} className="md:col-span-5">
+              <GalleryPlate index={2} />
+            </m.div>
+          </div>
+
+          {/* Pair: lighting study + rendered profile */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+            <m.div variants={galleryItem}>
+              <GalleryPlate index={3} />
+            </m.div>
+            <m.div variants={galleryItem}>
+              <GalleryPlate index={4} />
+            </m.div>
+          </div>
+
+          {/* Single: social frame */}
+          <m.div variants={galleryItem} className="mx-auto max-w-[900px]">
+            <GalleryPlate index={5} />
+          </m.div>
+
+          {/* Single: full-width animation still */}
+          <m.div variants={galleryItem}>
+            <GalleryPlate index={6} />
+          </m.div>
         </m.div>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+      <Rule />
 
       {/* ── The Result ───────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
+      <section className="section-container section-padding">
         <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="mb-12"
+          className="mb-14"
         >
-          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
+          <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-4">
             The Result
           </p>
-          <h2 className="font-headline text-h3 font-light">
-            Premium imagery,{" "}
-            <span className="text-bone-white">built for social</span>
+          <h2 className="font-headline text-heading-lg font-normal text-bone">
+            Premium imagery, built for social
           </h2>
         </m.div>
 
-        {/* Lead result statement */}
         <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="max-w-4xl"
+          className="max-w-[820px]"
         >
-          <p className="font-display text-h2 font-normal text-pure-white mb-10">
+          <p className="font-headline text-heading-sm font-normal text-bone">
             {results[0]}
           </p>
 
           {/* TODO(David): add quantified result or client quote here */}
 
-          <ul className="space-y-4 border-l border-sun-gold/30 pl-6">
+          <ul className="mt-16 max-w-[640px] border-t border-ash-border">
             {results.slice(1).map((result) => (
               <li
                 key={result}
-                className="font-body text-clay-gray text-base md:text-lg leading-relaxed"
+                className="border-b border-ash-border py-6 font-body text-body-sm font-normal text-bone"
               >
                 {result}
               </li>
@@ -582,89 +647,75 @@ export default function FordMustangMachEProject() {
         </m.div>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+      <Rule />
 
       {/* ── Tools & Technology ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
+      <section className="section-container section-padding">
         <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="mb-12"
+          className="mb-14"
         >
-          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
+          <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-4">
             Tools &amp; Technology
           </p>
-          <h2 className="font-headline text-h3 font-light">
-            The <span className="text-bone-white">production stack</span>
+          <h2 className="font-headline text-heading-lg font-normal text-bone">
+            The production stack
           </h2>
         </m.div>
 
         <m.div
-          variants={staggerContainer}
+          variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+          className="max-w-[640px] border-t border-ash-border"
         >
           {tools.map((tool) => (
-            <m.div
-              key={tool.name}
-              variants={staggerItem}
-              className="group p-6 rounded-none border border-black/5 bg-black/[0.02] transition-all duration-500 hover:border-black/15 hover:bg-black/[0.04]"
-            >
-              <h3 className="font-headline text-lg font-light text-pure-white mb-2 group-hover:text-sun-gold transition-colors duration-300">
+            <div key={tool.name} className="border-b border-ash-border py-8">
+              <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue">
                 {tool.name}
-              </h3>
-              <p className="font-body text-sm text-clay-gray leading-relaxed">
+              </p>
+              <p className="mt-3 font-body text-body-sm font-normal text-bone">
                 {tool.description}
               </p>
-            </m.div>
+            </div>
           ))}
         </m.div>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+      <Rule />
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
+      <section className="section-container section-padding">
         <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="text-center max-w-2xl mx-auto"
+          className="max-w-[640px]"
         >
-          <h2 className="font-headline text-h2 font-light mb-6">
-            Have an icon{" "}
-            <span className="text-bone-white">to reinvent</span>?
+          <h2 className="font-headline text-heading-lg font-normal text-bone mb-6">
+            Have an icon to reinvent?
           </h2>
-          <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed mb-10">
+          <p className="font-body text-body-sm font-normal text-fog-blue mb-10">
             Let&rsquo;s build imagery and motion that makes your brand impossible
             to scroll past.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <Link href="/#contact" className="btn-primary">
               Book a Call
             </Link>
-            <Link
-              href="/#projects"
-              className="btn-secondary group inline-flex items-center gap-2"
-            >
+            <Link href="/#projects" className="btn-secondary group gap-2">
               View More Work
               <svg
-                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                className="w-4 h-4 transition-transform duration-500 ease-prism group-hover:translate-x-1"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                strokeWidth={2}
+                strokeWidth={1.5}
               >
                 <path
                   strokeLinecap="round"

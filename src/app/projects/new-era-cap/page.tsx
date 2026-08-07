@@ -2,28 +2,21 @@
 
 import Link from "@/components/TransitionLink";
 import Image from "next/image";
-import dynamic from "next/dynamic";
 import { m } from "framer-motion";
-import ProjectGifBand from "@/components/ProjectGifBand";
-import Lazy3D from "@/components/Lazy3D";
-import WorkFrame from "@/components/WorkFrame";
 import AutoplayVideo from "@/components/AutoplayVideo";
-
-// Three.js needs the DOM — load client-side only
-const ProjectScene = dynamic(() => import("@/components/ProjectScene"), {
-  ssr: false,
-});
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
 /* ------------------------------------------------------------------ */
+
+const prismEase = [0.52, 0.01, 0, 1] as const;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.5, ease: prismEase },
   },
 };
 
@@ -39,7 +32,7 @@ const staggerItem = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.5, ease: prismEase },
   },
 };
 
@@ -51,12 +44,11 @@ const galleryContainer = {
 };
 
 const galleryItem = {
-  hidden: { opacity: 0, scale: 0.92, y: 30 },
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
-    scale: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.5, ease: prismEase },
   },
 };
 
@@ -84,7 +76,6 @@ const campaigns = [
     subtitle: "Space-themed collection campaign",
     description:
       "A cinematic campaign that placed New Era's space-themed caps inside immersive cosmic environments. We built entire planets, star fields, and galaxies in 3D, then wove the product into each world so the audience could feel the wonder of space exploration, not just see a hat in front of it.",
-    accent: "terracotta",
     discipline: "3D Animation & Sequencing",
     images: [
       { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/6a9909de-e004-4637-b305-03c7c3afc105_rw_1920.png?h=0d2513de6a3d5442c9276b98ca32ddb3", alt: "Cosmic hero shot", aspect: "aspect-[16/10]", span: "md:col-span-7" },
@@ -101,7 +92,6 @@ const campaigns = [
     subtitle: "Nature-inspired foliage campaign",
     description:
       "A nature-inspired campaign bringing New Era's foliage-themed hat collection to life through immersive 3D environments. We built lush forests, mushroom hilltops, and overgrown cityscapes, grounding each cap in a world that felt as organic and alive as the designs themselves.",
-    accent: "emerald-400",
     discipline: "3D Animation & Sequencing",
     images: [
       { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/9093a3b0-956b-49e3-a039-06897868e553_rw_1200.png?h=bf736fd7c3636fa8eedc8a44dd910bcd", alt: "Forest environment hero", aspect: "aspect-[16/10]", span: "md:col-span-6" },
@@ -117,7 +107,6 @@ const campaigns = [
     subtitle: "Earth, Fire, Air & Water 3D animation",
     description:
       "Immersive elemental environments built to showcase New Era's Elements collection. Each hat was reconstructed through photogrammetry and placed inside its own world: volcanic landscapes for Fire, underwater caverns for Water, windswept peaks for Air, and ancient forests for Earth.",
-    accent: "amber-400",
     discipline: "3D Animation & Sequencing",
     images: [
       { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/bc84ed39-2bc9-411a-8290-6f0cc5b43df2_rw_3840.png?h=ccf4884ee6b1129fa7a3eecd9ddb11f9", alt: "Elements hero shot", aspect: "aspect-[21/9]", span: "md:col-span-12" },
@@ -134,7 +123,6 @@ const campaigns = [
     subtitle: "Festive VFX campaign",
     description:
       "A festive opening sequence featuring a single brownstone on a snowy city block, built entirely in 3D. We captured the essence of a cozy holiday night with warm glowing windows, falling snow, and dynamic camera movement, delivering high-end production value without a single location shoot.",
-    accent: "red-400",
     discipline: "Post-Production & VFX",
     images: [
       { src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/f5254e37-7c30-48ac-9a2c-cf4191fa8719_rw_3840.png?h=6bcd777da7c646bb14244acd5c429f4d", alt: "Holiday brownstone hero", aspect: "aspect-[16/10]", span: "md:col-span-7" },
@@ -145,6 +133,42 @@ const campaigns = [
     ],
   },
 ];
+
+const motionReel = [
+  {
+    src: "/motion/new-era-cosmic.mp4",
+    poster: "/motion/new-era-cosmic.jpg",
+    label: "Out of This World",
+  },
+  {
+    src: "/motion/new-era-elements.mp4",
+    poster: "/motion/new-era-elements.jpg",
+    label: "Elements",
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  Shared pieces                                                      */
+/* ------------------------------------------------------------------ */
+
+function PlateCaption({ label, value }: { label: string; value: string }) {
+  return (
+    <figcaption className="mt-4 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+      <span className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue">
+        {label}
+      </span>
+      <span className="text-caption font-normal text-bone">{value}</span>
+    </figcaption>
+  );
+}
+
+function Rule() {
+  return (
+    <div className="section-container">
+      <div className="border-t border-ash-border" />
+    </div>
+  );
+}
 
 /* ------------------------------------------------------------------ */
 /*  Campaign Section Component                                         */
@@ -159,57 +183,52 @@ function CampaignSection({
 }) {
   return (
     <section id={campaign.id} className="section-container section-padding">
-      {/* Campaign header */}
+      {/* Campaign chapter opener */}
       <m.div
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-80px" }}
-        className="mb-12"
+        className="mb-16 max-w-[640px]"
       >
-        <div className="flex items-center gap-4 mb-4">
-          <span className="font-mono text-4xl md:text-5xl font-light text-bone-white/10">
-            {String(index + 1).padStart(2, "0")}
-          </span>
-          <div>
-            <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-1">
-              {campaign.subtitle}
-            </p>
-            <h2 className="font-headline text-h3 font-light text-pure-white">
-              {campaign.title}
-            </h2>
-          </div>
-        </div>
-        <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed max-w-4xl">
+        <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-6">
+          {String(index + 1).padStart(2, "0")}
+        </p>
+        <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-4">
+          {campaign.subtitle}
+        </p>
+        <h2 className="font-body text-heading-lg font-normal text-bone mb-10">
+          {campaign.title}
+        </h2>
+        <p className="font-body text-body-sm font-normal text-bone">
           {campaign.description}
         </p>
       </m.div>
 
-      {/* Image gallery */}
+      {/* Media plates */}
       <m.div
         variants={galleryContainer}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-60px" }}
-        className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-5"
+        className="grid grid-cols-1 md:grid-cols-12 gap-x-6 gap-y-12"
       >
-        {campaign.images.map((img, imgIndex) => (
+        {campaign.images.map((img) => (
           <m.div key={img.src} variants={galleryItem} className={img.span}>
-            <WorkFrame
-              client={overview.client}
-              discipline={campaign.discipline}
-              index={imgIndex + 1}
-              className={`${img.aspect} rounded-none`}
-            >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                className="object-cover"
-                unoptimized
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
-            </WorkFrame>
+            <figure>
+              <div
+                className={`relative ${img.aspect} overflow-hidden rounded-[15px] border border-ash-border`}
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+              </div>
+              <PlateCaption label={campaign.discipline} value={img.alt} />
+            </figure>
           </m.div>
         ))}
       </m.div>
@@ -223,235 +242,253 @@ function CampaignSection({
 
 export default function NewEraCapProject() {
   return (
-    <article className="bg-espresso min-h-screen">
-      {/* ── Back Link ─────────────────────────────────────────────── */}
-      <m.div
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-        className="fixed top-24 left-6 md:left-8 lg:left-12 z-40"
-      >
-        <Link
-          href="/#projects"
-          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-clay-gray hover:text-pure-white transition-colors duration-300"
+    <article className="bg-obsidian min-h-screen">
+      {/* ── Opener ────────────────────────────────────────────────── */}
+      <header className="section-container pt-32 md:pt-40 pb-16 md:pb-20">
+        <m.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1, ease: prismEase }}
+          className="mb-14"
         >
-          <svg
-            className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
+          <Link
+            href="/#projects"
+            className="group inline-flex items-center gap-2 text-caption uppercase tracking-[0.02em] font-normal text-bone hover:text-fog-blue transition-colors duration-500 ease-prism"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
-            />
-          </svg>
-          Back to Work
-        </Link>
-      </m.div>
+            <svg
+              className="w-4 h-4 transition-transform duration-500 ease-prism group-hover:-translate-x-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
+              />
+            </svg>
+            Back to Work
+          </Link>
+        </m.div>
 
-      {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-end overflow-hidden">
-        <div className="absolute inset-0">
-          <AutoplayVideo
-            src="/motion/new-era-3d.mp4"
-            poster="/motion/new-era-3d.jpg"
-            aria-label="New Era Cap campaign visual"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-        </div>
-        <div className="absolute inset-0 bg-black/30" />
-        {/* Themed 3D atmosphere — desktop only, unmounts off-screen */}
-        <Lazy3D className="pointer-events-none absolute inset-0 z-[1] hidden lg:block opacity-30">
-          <ProjectScene theme="space" className="h-full w-full" />
-        </Lazy3D>
-        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-espresso via-espresso/40 to-transparent" />
+        <m.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2, ease: prismEase }}
+          className="text-[17px] uppercase tracking-[0.02em] font-normal text-fog-blue mb-6"
+        >
+          Strategy + 3D Animation + VFX
+        </m.p>
 
-        <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
-          <m.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <span className="inline-block font-mono text-xs tracking-widest uppercase text-bone-white/70 mb-4 px-3 py-1.5 rounded-full border border-black/10 backdrop-blur-sm bg-black/5">
-              Strategy + 3D Animation + VFX
-            </span>
-          </m.div>
+        <m.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3, ease: prismEase }}
+          className="font-body font-normal text-bone text-display-sm leading-[1.01] tracking-[-0.02em] mb-6"
+        >
+          New Era Cap
+        </m.h1>
 
-          <m.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-h1 font-normal mb-4"
-          >
-            NEW ERA CAP
-          </m.h1>
+        <m.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.45, ease: prismEase }}
+          className="font-body text-body-lg font-normal text-bone"
+        >
+          4 Campaigns. One Vision.
+        </m.p>
 
-          <m.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-2xl md:text-3xl lg:text-4xl font-normal text-bone-white/80 tracking-tight"
-          >
-            4 Campaigns. One Vision.
-          </m.p>
-
-          <m.div
-            initial={{ width: 0 }}
-            animate={{ width: "6rem" }}
-            transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="h-px bg-gradient-to-r from-terracotta to-sun-gold mt-8"
-          />
-        </div>
-      </section>
-
-      <ProjectGifBand
-        eyebrow="In Motion"
-        heading="Campaigns in Motion"
-        gifs={[
-          {
-            src: "/motion/new-era-cosmic.mp4",
-            poster: "/motion/new-era-cosmic.jpg",
-            label: "Out of This World",
-          },
-          {
-            src: "/motion/new-era-elements.mp4",
-            poster: "/motion/new-era-elements.jpg",
-            label: "Elements",
-          },
-        ]}
-      />
-
-      {/* ── Overview + Partnership Story ────────────────────────────── */}
-      <section className="section-container section-padding">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-          {/* Sidebar */}
-          <m.aside
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="lg:col-span-4"
-          >
-            <div className="lg:sticky lg:top-28 space-y-8">
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
-                  Client
-                </p>
-                <p className="font-headline text-lg font-light text-pure-white">
-                  {overview.client}
-                </p>
-              </div>
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
-                  Industry
-                </p>
-                <p className="font-body text-clay-gray">{overview.industry}</p>
-              </div>
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
-                  Scope
-                </p>
-                <p className="font-body text-clay-gray">{overview.scope}</p>
-              </div>
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
-                  Services
-                </p>
-                <ul className="space-y-2">
+        {/* Metadata row */}
+        <m.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6, ease: prismEase }}
+          className="mt-16 border-t border-b border-ash-border py-8"
+        >
+          <dl className="flex flex-wrap gap-x-16 gap-y-8">
+            <div>
+              <dt className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-2">
+                Client
+              </dt>
+              <dd className="font-body text-body-sm font-normal text-bone">
+                {overview.client}
+              </dd>
+            </div>
+            <div>
+              <dt className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-2">
+                Industry
+              </dt>
+              <dd className="font-body text-body-sm font-normal text-bone">
+                {overview.industry}
+              </dd>
+            </div>
+            <div>
+              <dt className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-2">
+                Scope
+              </dt>
+              <dd className="font-body text-body-sm font-normal text-bone">
+                {overview.scope}
+              </dd>
+            </div>
+            <div>
+              <dt className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-2">
+                Services
+              </dt>
+              <dd>
+                <ul className="space-y-1">
                   {overview.services.map((service) => (
                     <li
                       key={service}
-                      className="flex items-center gap-3 font-body text-sm text-clay-gray"
+                      className="font-body text-caption font-normal text-bone"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-terracotta flex-shrink-0" />
                       {service}
                     </li>
                   ))}
                 </ul>
-              </div>
+              </dd>
             </div>
-          </m.aside>
+          </dl>
+        </m.div>
+      </header>
 
-          {/* Partnership overview */}
-          <m.div
-            variants={fadeUp}
+      {/* ── Hero media plate ──────────────────────────────────────── */}
+      <section className="section-container pb-24 md:pb-32">
+        <m.figure
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.75, ease: prismEase }}
+        >
+          <div className="relative aspect-video overflow-hidden rounded-[15px] border border-ash-border">
+            <AutoplayVideo
+              src="/motion/new-era-3d.mp4"
+              poster="/motion/new-era-3d.jpg"
+              aria-label="New Era Cap campaign visual"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          </div>
+          <PlateCaption label="Campaign Film" value="New Era Cap campaign visual" />
+        </m.figure>
+      </section>
+
+      <Rule />
+
+      {/* ── In Motion ─────────────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="mb-14 max-w-[640px]"
+        >
+          <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-4">
+            In Motion
+          </p>
+          <h2 className="font-body text-heading-lg font-normal text-bone">
+            Campaigns in Motion
+          </h2>
+        </m.div>
+
+        <m.div
+          variants={galleryContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-12"
+        >
+          {motionReel.map((gif) => (
+            <m.figure key={gif.src} variants={galleryItem}>
+              <div className="relative aspect-video overflow-hidden rounded-[15px] border border-ash-border">
+                <AutoplayVideo
+                  src={gif.src}
+                  poster={gif.poster}
+                  aria-label={gif.label}
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+              </div>
+              <PlateCaption label="In Motion" value={gif.label} />
+            </m.figure>
+          ))}
+        </m.div>
+      </section>
+
+      <Rule />
+
+      {/* ── The Partnership ───────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="max-w-[640px]"
+        >
+          <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-4">
+            The Partnership
+          </p>
+          <h2 className="font-body text-heading-lg font-normal text-bone mb-8">
+            Building worlds for an iconic brand
+          </h2>
+          <div className="font-body text-body-sm font-normal text-bone space-y-7">
+            <p>
+              New Era Cap is one of the most recognized headwear brands in the
+              world. Over the course of four campaigns, DT+C became their go-to
+              partner for immersive 3D content, transforming each seasonal
+              collection into a fully realized visual world.
+            </p>
+            <p>
+              From cosmic galaxies to lush forests, elemental landscapes to snowy
+              city blocks, every campaign started with research and creative
+              strategy, then came to life through 3D animation, VFX, and
+              cinematic sequencing. No location shoots. No physical sets. Just
+              ambitious creative delivered at the speed their release calendar
+              demanded.
+            </p>
+          </div>
+
+          {/* Campaign index */}
+          <m.nav
+            variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="lg:col-span-8"
+            viewport={{ once: true }}
+            className="mt-16 border-t border-ash-border"
+            aria-label="Campaign index"
           >
-            <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
-              The Partnership
-            </p>
-            <h2 className="font-headline text-h3 font-light mb-8">
-              Building worlds for{" "}
-              <span className="gradient-text">an iconic brand</span>
-            </h2>
-            <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
-              <p>
-                New Era Cap is one of the most recognized headwear brands in the
-                world. Over the course of four campaigns, DT+C became their go-to
-                partner for immersive 3D content, transforming each seasonal
-                collection into a fully realized visual world.
-              </p>
-              <p>
-                From cosmic galaxies to lush forests, elemental landscapes to snowy
-                city blocks, every campaign started with research and creative
-                strategy, then came to life through 3D animation, VFX, and
-                cinematic sequencing. No location shoots. No physical sets. Just
-                ambitious creative delivered at the speed their release calendar
-                demanded.
-              </p>
-            </div>
-
-            {/* Campaign quick nav */}
-            <m.div
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="mt-10 grid grid-cols-2 gap-3"
-            >
-              {campaigns.map((c, i) => (
-                <m.a
-                  key={c.id}
-                  href={`#${c.id}`}
-                  variants={staggerItem}
-                  className="group p-4 rounded-none border border-black/5 bg-black/[0.02] hover:border-terracotta/20 hover:bg-terracotta/[0.03] transition-all duration-500"
-                >
-                  <span className="font-mono text-xs text-terracotta/50 group-hover:text-terracotta transition-colors">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <p className="font-headline text-sm font-light text-pure-white mt-1">
+            {campaigns.map((c, i) => (
+              <m.a
+                key={c.id}
+                href={`#${c.id}`}
+                variants={staggerItem}
+                className="group flex items-baseline gap-6 border-b border-ash-border py-5"
+              >
+                <span className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="flex-1">
+                  <span className="block font-body text-body font-normal text-bone group-hover:text-fog-blue transition-colors duration-500 ease-prism">
                     {c.title}
-                  </p>
-                  <p className="font-body text-xs text-clay-gray mt-0.5">
+                  </span>
+                  <span className="block font-body text-body-sm font-normal text-fog-blue mt-0.5">
                     {c.subtitle}
-                  </p>
-                </m.a>
-              ))}
-            </m.div>
-          </m.div>
-        </div>
+                  </span>
+                </span>
+              </m.a>
+            ))}
+          </m.nav>
+        </m.div>
       </section>
 
       {/* ── Campaign Sections ───────────────────────────────────────── */}
       {campaigns.map((campaign, index) => (
         <div key={campaign.id}>
-          <div className="section-container">
-            <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-          </div>
+          <Rule />
           <CampaignSection campaign={campaign} index={index} />
         </div>
       ))}
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+      <Rule />
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
       <section className="section-container section-padding">
@@ -460,31 +497,30 @@ export default function NewEraCapProject() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="text-center max-w-2xl mx-auto"
+          className="max-w-[640px]"
         >
-          <h2 className="font-headline text-h2 font-light mb-6">
-            Ready to build your{" "}
-            <span className="text-bone-white">next world</span>?
+          <h2 className="font-body text-heading-lg font-normal text-bone mb-6">
+            Ready to build your next world?
           </h2>
-          <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed mb-10">
+          <p className="font-body text-body-sm font-normal text-fog-blue mb-10">
             Let&rsquo;s create a campaign with the same cinematic ambition and
             creative strategy.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
             <Link href="/#contact" className="btn-primary">
               Book a Call
             </Link>
             <Link
               href="/projects/seaworld"
-              className="btn-secondary group inline-flex items-center gap-2"
+              className="group inline-flex items-center gap-2 uppercase text-sm font-normal text-bone hover:text-fog-blue transition-colors duration-500 ease-prism"
             >
               View Next Project
               <svg
-                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                className="w-4 h-4 transition-transform duration-500 ease-prism group-hover:translate-x-1"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                strokeWidth={2}
+                strokeWidth={1.5}
               >
                 <path
                   strokeLinecap="round"

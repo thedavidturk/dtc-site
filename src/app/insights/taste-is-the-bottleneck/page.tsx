@@ -23,31 +23,31 @@ const staggerItem = {
 
 const moreArticles = [
   {
-    title: "Native Audio Changes Everything: The Year AI Learned to Score Its Own Footage",
-    category: "AI + PRODUCTION",
-    href: "/insights/ai-native-audio",
+    title: "The Campaign You Can Walk Through: World Models Turn Brand Films Into Places",
+    category: "AI + WORLDS",
+    href: "/insights/playable-brand-worlds",
   },
   {
-    title: "From 13 Days to 27 Minutes: Rebuilding the Content Pipeline Around AI Video",
-    category: "PRODUCTION STRATEGY",
-    href: "/insights/ai-content-pipeline",
+    title: "The Authenticity Premium: Why Trust Beats Reach When 57% of People Doubt Your Ads",
+    category: "BRAND + TRUST",
+    href: "/insights/ai-authenticity-premium",
   },
 ];
 
 const metaRow = [
   { label: "Words", value: "David Turk" },
-  { label: "Published", value: "June 2026" },
+  { label: "Published", value: "August 2026" },
   { label: "Reading Time", value: "8 min read" },
 ];
 
-export default function AiVideoStackArticle() {
+export default function TasteIsTheBottleneckArticle() {
   return (
     <main className="relative min-h-screen bg-obsidian text-bone">
       <ArticleJsonLd
-        title="After Sora: Why the Best Brand Video Now Comes From a Stack, Not a Single Tool"
-        description="OpenAI shut Sora down in March 2026. The studios making the best brand video now run a stack of tools, not a single one. Here is how we orchestrate it."
-        datePublished="2026-06-01"
-        url="https://davidturkcreative.com/insights/ai-video-stack"
+        title="Taste Is the Bottleneck: Creative Direction in the Slop Flood"
+        description="Audiences spent the year learning to spot machine-made sameness, and the trust numbers doubled to prove it. The answer is not less AI. It is more direction."
+        datePublished="2026-08-05"
+        url="https://davidturkcreative.com/insights/taste-is-the-bottleneck"
       />
 
       {/* Opener: sculptural type on the obsidian void */}
@@ -85,23 +85,23 @@ export default function AiVideoStackArticle() {
             variants={staggerItem}
             className="mt-16 text-[17px] font-normal uppercase tracking-[0.02em] text-fog-blue"
           >
-            AI + Video
+            Craft + AI
           </m.p>
 
           <m.h1
             variants={staggerItem}
             className="mt-6 font-body text-h1 font-normal text-bone"
           >
-            After Sora: Why the Best Brand Video Now Comes From a Stack, Not a Single Tool
+            Taste Is the Bottleneck: Creative Direction in the Slop Flood
           </m.h1>
 
           <m.p
             variants={staggerItem}
             className="mt-8 max-w-2xl text-body-lg font-normal text-fog-blue"
           >
-            The era of betting your whole pipeline on one model is over. The studios shipping the
-            best brand video in 2026 run a stack, choosing the right tool per shot and keeping a
-            human creative director on the whole thing.
+            Audiences spent this year getting fluent at spotting machine-made sameness, and the
+            trust numbers doubled to prove it. The answer is not less AI. It is more direction over
+            what the AI makes.
           </m.p>
 
           {/* Metadata rule row */}
@@ -132,21 +132,20 @@ export default function AiVideoStackArticle() {
             className="mb-16"
           >
             <h2 className="mb-6 text-heading-sm font-normal text-bone">
-              The Day the Flagship Went Dark
+              The Numbers Doubled in a Year
             </h2>
             <p className="mb-6 text-body-sm font-normal text-bone">
-              In March 2026, OpenAI shut down Sora. Not paused, not rebranded. Shut down. The
-              numbers told the story plainly enough: roughly fifteen million dollars a day to run
-              against something like two point one million in lifetime revenue. That is not a
-              product, that is a marketing budget with a generate button. When it went dark, a lot
-              of brands woke up to the fact that they had built creative workflows on rented ground.
+              In 2025, about twenty percent of consumers said heavy AI use would decrease their
+              trust in a favorite brand. In 2026 that figure hit forty percent. It doubled in
+              roughly the time it takes most organizations to finish an AI rollout. Half of US
+              consumers now say they would rather buy from brands that do not use generative AI in
+              customer-facing content at all.
             </p>
             <p className="text-body-sm font-normal text-bone">
-              We were not surprised in our studio, because we had never gone all in on it. The
-              shutdown did not break our pipeline. It just confirmed the bet we had already made,
-              which is that no single model is worth your loyalty. The hype-funded era of AI video
-              ended that month. The sustainable-business era started, and it rewards a completely
-              different kind of discipline.
+              We wrote in June about the authenticity premium, and at the time the data looked like
+              a warning. Two months later it looks like a verdict. Audiences did not slowly drift
+              toward skepticism. They got trained, feed by feed, into a kind of fluency. They can
+              read the tells now, and they hold what they read against the brand that posted it.
             </p>
           </m.section>
 
@@ -158,117 +157,20 @@ export default function AiVideoStackArticle() {
             className="mb-16"
           >
             <h2 className="mb-6 text-heading-sm font-normal text-bone">
-              Single-Tool Loyalty Was Always a Liability
+              Slop Is a Consumer Word Now
             </h2>
             <p className="mb-6 text-body-sm font-normal text-bone">
-              The instinct to standardize on one platform makes sense on paper. One login, one
-              prompt grammar, one set of habits to teach the team. But video models are not
-              utilities, they are opinionated instruments, and each one has a personality. Picking
-              a favorite and forcing every shot through it is like hiring one camera operator and
-              making them shoot the macro, the drone work, and the dialogue coverage too.
+              Research puts the detection rate at roughly seventy-three percent. Nearly three out
+              of four people can identify AI-generated marketing content when they see it, and
+              fifty-two percent reduce their engagement the moment they suspect it. Not when they
+              confirm it. When they suspect it. Suspicion alone is now a conversion killer.
             </p>
             <p className="text-body-sm font-normal text-bone">
-              When your one tool gets a price hike, a quality regression, or a shutdown notice, the
-              cost is not just a subscription. It is every project mid-flight, every brand look you
-              tuned to that model, every prompt library your team memorized. Concentration feels
-              efficient right up until the moment it becomes the single point of failure for your
-              entire output.
-            </p>
-          </m.section>
-
-          <m.blockquote
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="my-20 border-l border-ash-border pl-8"
-          >
-            <p className="text-heading-sm font-normal text-bone">
-              &ldquo;Betting your pipeline on one model is not a strategy. It is a hope that the
-              company behind it stays solvent, generous, and good. Sora was none of the three by
-              March.&rdquo;
-            </p>
-          </m.blockquote>
-
-          <m.section
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="mb-16"
-          >
-            <h2 className="mb-6 text-heading-sm font-normal text-bone">
-              Meet the Stack: One Job Per Tool
-            </h2>
-            <p className="mb-6 text-body-sm font-normal text-bone">
-              The agencies getting the best results in 2026 do not commit to a platform, they
-              assemble a stack. In our studio the roster is specific. Runway carries the hero work,
-              the shots that need real visual quality and tight creative control. Kling handles
-              volume and multi-shot sequences, the coverage you need a lot of and need to stay
-              consistent. Veo 3.1 owns native audio and the highest output specs, so it goes
-              wherever spec and sound matter most. Pika is our social-first sandbox, the place we
-              experiment fast and cheap before anything goes near a client deck.
-            </p>
-            <p className="mb-6 text-body-sm font-normal text-bone">
-              None of these is the best tool. Each is the best tool for a specific job. The skill
-              is not knowing how to drive one of them. It is knowing which one to reach for when the
-              shot calls for it, and how to make the seams disappear once the pieces come back
-              together. That is closer to editing and casting than to prompting.
-            </p>
-            <p className="text-body-sm font-normal text-bone">
-              The roster also stays liquid. When Sora went down, we did not rebuild a process, we
-              swapped a name out of a lineup we already trusted. A stack is antifragile by design.
-              Lose one tool and the work keeps moving, because the work was never about that tool.
-            </p>
-          </m.section>
-
-          <m.section
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="mb-16"
-          >
-            <h2 className="mb-6 text-heading-sm font-normal text-bone">
-              Orchestration Is the Actual Craft
-            </h2>
-            <p className="mb-6 text-body-sm font-normal text-bone">
-              Anyone can type a prompt. Almost nobody can hold a sixty-second brand spot together
-              across four different generators, each with its own color science, motion feel, and
-              frame logic. That is the work now. Matching grain and grade across tools, keeping a
-              character recognizable from shot to shot, deciding which beat earns the expensive hero
-              render and which one a fast pass will carry.
-            </p>
-            <p className="text-body-sm font-normal text-bone">
-              We treat the stack the way a post house treats a finishing suite. Each tool is a
-              station, the project moves through them in order, and a single sensibility governs the
-              whole route. The output of one becomes the input or the reference for the next. The
-              orchestration is the product. The individual clips are just raw stock.
-            </p>
-          </m.section>
-
-          <m.section
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="mb-16"
-          >
-            <h2 className="mb-6 text-heading-sm font-normal text-bone">
-              The Economics Nobody Can Ignore Anymore
-            </h2>
-            <p className="mb-6 text-body-sm font-normal text-bone">
-              This is no longer a fringe experiment. Around seventy-eight percent of marketing
-              teams now put AI-generated video into at least one campaign per quarter. It is in the
-              budget, in the calendar, and in the expectations. The brands asking whether to use it
-              have mostly lost the thread. The real question is how to use it well.
-            </p>
-            <p className="text-body-sm font-normal text-bone">
-              The cost curve is brutal in the best way. Production runs down roughly ninety-one
-              percent against traditional methods. A sixty-second marketing video that used to take
-              about thirteen days can be produced in something like twenty-seven minutes. When the
-              floor drops that far, the differentiator stops being who can make video and becomes
-              who can make video worth watching. Volume is free now. Taste is not.
+              The audience even coined the vocabulary. Slop is not an industry term, it is what
+              regular people call the low-effort, repetitive content drowning their feeds: work
+              that looks polished and signals nothing. The polish is the giveaway. Everything is
+              lit correctly, composed correctly, and utterly interchangeable with the post above it
+              and the post below it.
             </p>
           </m.section>
 
@@ -280,8 +182,8 @@ export default function AiVideoStackArticle() {
             className="my-20 border-l border-ash-border pl-8"
           >
             <p className="text-heading-sm font-normal text-bone">
-              &ldquo;When anyone can generate a thousand clips before lunch, the scarce thing is not
-              the clip. It is the judgment to know which one is any good.&rdquo;
+              &ldquo;Audiences are not detecting the model. They are detecting that nobody
+              cared.&rdquo;
             </p>
           </m.blockquote>
 
@@ -293,20 +195,20 @@ export default function AiVideoStackArticle() {
             className="mb-16"
           >
             <h2 className="mb-6 text-heading-sm font-normal text-bone">
-              The Director Never Leaves the Chair
+              Even Coke Could Not Outsource the Feeling
             </h2>
             <p className="mb-6 text-body-sm font-normal text-bone">
-              A stack is not an autopilot. The reason our work holds together across four tools is
-              that one creative director is directing the whole pipeline, the same way you would
-              direct a crew. Someone has to own the look, reject the eighty percent that is merely
-              competent, and push for the version that actually says something. The models propose.
-              A human decides.
+              In December 2025, Coca-Cola released an AI remake of &ldquo;Holidays Are
+              Coming,&rdquo; one of the most loved pieces of brand film ever made. The response was
+              furious. Audiences called it soulless, and they were not wrong to. The trucks were
+              there, the lights were there, and the thing people actually loved was not.
             </p>
             <p className="text-body-sm font-normal text-bone">
-              This is where most teams go wrong. They buy the tools, automate the generation, and
-              wonder why the output feels like everyone else&rsquo;s output. It feels generic
-              because no one was directing it. The stack gives you leverage. It does not give you a
-              point of view. That part is still on us, and frankly it always will be.
+              That is the lesson of the year in one campaign. A century of brand equity could not
+              cover for a pipeline that skipped the part where humans decide what the work should
+              feel like. About eighty-six percent of consumers say authenticity matters in deciding
+              which brands they support. You cannot generate your way around that number. You have
+              to earn your way through it.
             </p>
           </m.section>
 
@@ -318,21 +220,108 @@ export default function AiVideoStackArticle() {
             className="mb-16"
           >
             <h2 className="mb-6 text-heading-sm font-normal text-bone">
-              How to Build Your Own Stack
+              The Tension That Defines 2026
             </h2>
             <p className="mb-6 text-body-sm font-normal text-bone">
-              Start by refusing the question of which single tool is best, because it has no useful
-              answer. Map your real shot types instead. Hero moments, volume coverage, anything that
-              lives or dies on sound, fast social tests. Then assign each category to the tool that
-              wins it today, and stay ready to reassign when something better shows up next quarter.
+              Here is the trap every brand is standing in. Distribution rewards volume and variety.
+              The algorithms want more posts, more formats, more versions per audience. At the same
+              time, the humans on the other end punish sameness harder than they ever have. The
+              platforms say publish constantly. The audience says bore me once and I am gone.
             </p>
             <p className="text-body-sm font-normal text-bone">
-              Keep your standards portable, not tool-specific. Document your brand look as a
-              reference you can carry into any generator, so swapping a model never means restarting
-              a project. And put a real director over the whole thing. The studios that win the next
-              few years will not be the ones with the fanciest single tool. They will be the ones
-              who orchestrate the best stack and bring the most taste to it. That is the bet we are
-              making in our studio, and Sora going dark only made us more sure of it.
+              Producing more became easy at the exact moment producing something distinct became
+              the whole game. That is not a paradox, it is a filter. The cost of making content
+              went to nearly zero, so content stopped being the scarce thing. What is scarce is a
+              point of view, and no model ships with one.
+            </p>
+          </m.section>
+
+          <m.section
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            className="mb-16"
+          >
+            <h2 className="mb-6 text-heading-sm font-normal text-bone">
+              This Is Not an Argument Against the Tools
+            </h2>
+            <p className="mb-6 text-body-sm font-normal text-bone">
+              Let us be plain about where our studio stands, because we are AI-native and intend to
+              stay that way. The backlash is not against the tools. It is against the absence of a
+              point of view. When a brand hands the keys to a model and walks away, the output
+              converges toward the average of everything the model has ever seen. And the average
+              is invisible. It scrolls past without leaving a mark.
+            </p>
+            <p className="text-body-sm font-normal text-bone">
+              The same tools, pointed by a director with an actual opinion, produce work no
+              committee of prompts could reach. The variable was never the model. It was whether
+              anyone with taste was steering it, rejecting what it wanted to make, and pushing it
+              toward what the brand needed to say.
+            </p>
+          </m.section>
+
+          <m.blockquote
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            className="my-20 border-l border-ash-border pl-8"
+          >
+            <p className="text-heading-sm font-normal text-bone">
+              &ldquo;AI without direction converges to the average of everything, and the average
+              is invisible.&rdquo;
+            </p>
+          </m.blockquote>
+
+          <m.section
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            className="mb-16"
+          >
+            <h2 className="mb-6 text-heading-sm font-normal text-bone">
+              What Taste Looks Like on a Tuesday
+            </h2>
+            <p className="mb-6 text-body-sm font-normal text-bone">
+              Taste sounds abstract until you watch it operate. In our studio it looks like
+              rejecting the first competent draft on principle, because competent is exactly what
+              everyone else is shipping. It looks like art direction that comes from the
+              brand&rsquo;s world, its city, its people, its actual texture, instead of the
+              model&rsquo;s defaults. It looks like human writing wherever the voice carries the
+              brand.
+            </p>
+            <p className="text-body-sm font-normal text-bone">
+              And it looks like craft passes at the end, the unglamorous rounds where we add the
+              specific and the imperfect back in. The odd crop. The line that only this brand would
+              say. The detail a model would never invent because no average contains it. That is
+              the work the detection rate cannot catch, because there is nothing generic left to
+              detect.
+            </p>
+          </m.section>
+
+          <m.section
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            className="mb-16"
+          >
+            <h2 className="mb-6 text-heading-sm font-normal text-bone">
+              Who Survives the Flood
+            </h2>
+            <p className="mb-6 text-body-sm font-normal text-bone">
+              The flood is not receding. The tools will get better, the volume will get higher, and
+              the audience will get sharper right along with it. Every gain in generation gets
+              matched by a gain in detection, which means the only durable advantage left is the
+              one that was never automated in the first place.
+            </p>
+            <p className="text-body-sm font-normal text-bone">
+              The studios that survive this will not be the loudest or the fastest. They will be
+              the ones whose work could not have been made by anyone else&rsquo;s pipeline. That is
+              the bar we hold our own work to, and it is the only bar the audience is still
+              grading on.
             </p>
           </m.section>
         </div>

@@ -135,7 +135,7 @@ function NodeGrid() {
           />
         </bufferGeometry>
         <pointsMaterial
-          color="#a5c8eb"
+          color="#6f879c"
           size={0.045}
           transparent
           opacity={0.85}
@@ -144,7 +144,7 @@ function NodeGrid() {
       </points>
       {/* Connection lines */}
       <lineSegments ref={linesRef} geometry={lineGeo}>
-        <lineBasicMaterial color="#a5c8eb" transparent opacity={0.18} />
+        <lineBasicMaterial color="#6f879c" transparent opacity={0.18} />
       </lineSegments>
     </group>
   );
@@ -169,7 +169,7 @@ function SweepGlow() {
   return (
     <mesh ref={ref} position={[0, 0, -0.1]}>
       <planeGeometry args={[0.5, 3]} />
-      <meshBasicMaterial color="#a5c8eb" transparent opacity={0.06} />
+      <meshBasicMaterial color="#6f879c" transparent opacity={0.06} />
     </mesh>
   );
 }

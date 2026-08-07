@@ -3,20 +3,20 @@
 import Link from "@/components/TransitionLink";
 import Image from "next/image";
 import { m } from "framer-motion";
-import ProjectGifBand from "@/components/ProjectGifBand";
-import PinnedApproach from "@/components/PinnedApproach";
-import WorkFrame from "@/components/WorkFrame";
+import AutoplayVideo from "@/components/AutoplayVideo";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
 /* ------------------------------------------------------------------ */
+
+const prismEase = [0.52, 0.01, 0, 1] as const;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.5, ease: prismEase },
   },
 };
 
@@ -28,28 +28,11 @@ const staggerContainer = {
 };
 
 const staggerItem = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
-  },
-};
-
-const galleryContainer = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.14 },
-  },
-};
-
-const galleryItem = {
-  hidden: { opacity: 0, y: 50, scale: 0.96 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.5, ease: prismEase },
   },
 };
 
@@ -148,143 +131,316 @@ const galleryImages = [
   "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/4e4eb44c-6192-46ae-a513-225f4ccca381_rw_1920.png?h=a0068bcf308dcf78c80c95b312833879",
 ];
 
+/* Editorial gallery plan: aspect + column width per still, captions below.
+   The final two stills are a genuine pair and stay 2-up. */
+const galleryPlan = [
+  {
+    src: galleryImages[0],
+    alt: "Behind the Stage documentary still 1",
+    discipline: "Documentary Direction",
+    aspect: "aspect-[21/9]",
+    width: "max-w-none",
+    sizes: "100vw",
+  },
+  {
+    src: galleryImages[1],
+    alt: "Behind the Stage documentary still 2",
+    discipline: "On-Site Capture",
+    aspect: "aspect-[16/10]",
+    width: "max-w-[980px]",
+    sizes: "(max-width: 768px) 100vw, 980px",
+  },
+  {
+    src: galleryImages[2],
+    alt: "Behind the Stage documentary still 3",
+    discipline: "Documentary Direction",
+    aspect: "aspect-[3/4]",
+    width: "max-w-[560px]",
+    sizes: "(max-width: 768px) 100vw, 560px",
+  },
+  {
+    src: galleryImages[3],
+    alt: "Behind the Stage documentary still 4",
+    discipline: "On-Site Capture",
+    aspect: "aspect-[4/3]",
+    width: "max-w-[820px]",
+    sizes: "(max-width: 768px) 100vw, 820px",
+  },
+  {
+    src: galleryImages[4],
+    alt: "Behind the Stage documentary still 5",
+    discipline: "On-Site Capture",
+    aspect: "aspect-[4/3]",
+    width: "max-w-[820px]",
+    sizes: "(max-width: 768px) 100vw, 820px",
+  },
+  {
+    src: galleryImages[5],
+    alt: "Behind the Stage documentary still 6",
+    discipline: "Color & Finishing",
+    aspect: "aspect-[4/3]",
+    width: "max-w-[820px]",
+    sizes: "(max-width: 768px) 100vw, 820px",
+  },
+  {
+    src: galleryImages[6],
+    alt: "Behind the Stage documentary still 7",
+    discipline: "Documentary Direction",
+    aspect: "aspect-[3/4]",
+    width: "max-w-[560px]",
+    sizes: "(max-width: 768px) 100vw, 560px",
+  },
+  {
+    src: galleryImages[7],
+    alt: "Behind the Stage documentary still 8",
+    discipline: "Editorial & Story",
+    aspect: "aspect-[16/10]",
+    width: "max-w-[980px]",
+    sizes: "(max-width: 768px) 100vw, 980px",
+  },
+];
+
+const galleryPair = [
+  {
+    src: galleryImages[8],
+    alt: "Behind the Stage documentary still 9",
+    discipline: "On-Site Capture",
+  },
+  {
+    src: galleryImages[9],
+    alt: "Behind the Stage documentary closing still",
+    discipline: "Color & Finishing",
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  Local Prism Pieces                                                 */
+/* ------------------------------------------------------------------ */
+
+function PlateCaption({ label, value }: { label: string; value: string }) {
+  return (
+    <figcaption className="mt-4">
+      <span className="block text-caption uppercase tracking-[0.02em] font-normal text-fog-blue">
+        {label}
+      </span>
+      <span className="mt-1 block font-body text-body-sm font-normal text-bone">
+        {value}
+      </span>
+    </figcaption>
+  );
+}
+
+function Rule() {
+  return <div aria-hidden="true" className="border-t border-ash-border" />;
+}
+
+function SectionHeader({ eyebrow, title }: { eyebrow: string; title: string }) {
+  return (
+    <m.div
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-80px" }}
+      className="mb-14"
+    >
+      <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-4">
+        {eyebrow}
+      </p>
+      <h2 className="font-body text-heading-lg font-normal text-bone max-w-[900px]">
+        {title}
+      </h2>
+    </m.div>
+  );
+}
+
 /* ------------------------------------------------------------------ */
 /*  Component                                                          */
 /* ------------------------------------------------------------------ */
 
 export default function CrespoJadenSmithProject() {
   return (
-    <article className="bg-espresso min-h-screen" style={{ backgroundColor: "#fffef7" }}>
-      {/* ── Back Link ─────────────────────────────────────────────── */}
-      <m.div
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-        className="fixed top-24 left-6 md:left-8 lg:left-12 z-40"
-      >
-        <Link
-          href="/#projects"
-          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-clay-gray hover:text-pure-white transition-colors duration-300"
+    <article className="bg-obsidian min-h-screen">
+      {/* ── Opener ────────────────────────────────────────────────── */}
+      <header className="section-container pt-36 pb-16 md:pt-44 md:pb-24">
+        <m.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1, ease: prismEase }}
         >
-          <svg
-            className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
+          <Link
+            href="/#projects"
+            className="group inline-flex items-center gap-2 text-caption uppercase tracking-[0.02em] font-normal text-bone hover:text-fog-blue transition-colors duration-500 ease-prism"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
-            />
-          </svg>
-          Back to Work
-        </Link>
-      </m.div>
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
+              />
+            </svg>
+            Back to Work
+          </Link>
+        </m.div>
 
-      {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-end overflow-hidden">
-        {/* Cover image */}
-        <div className="absolute inset-0">
-          <Image
-            src={galleryImages[0]}
-            alt="Behind the Stage: Jaden Smith and CRESPO documentary still"
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-          />
-        </div>
-        <div className="absolute inset-0 bg-black/50" />
+        <m.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2, ease: prismEase }}
+          className="mt-14 text-[17px] uppercase tracking-[0.02em] font-normal text-fog-blue"
+        >
+          Documentary / Music
+        </m.p>
 
-        {/* Indigo wash */}
-        <div className="absolute inset-0 bg-gradient-to-br from-terracotta/30 via-transparent to-black/40 mix-blend-multiply" />
-
-        {/* Radial fade at bottom */}
-        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-espresso via-espresso/40 to-transparent" />
-
-        <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
-          <m.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <span className="inline-block font-mono text-xs tracking-widest uppercase text-bone-white/70 mb-4 px-3 py-1.5 rounded-full border border-black/10 backdrop-blur-sm bg-black/5">
-              Documentary / Music
-            </span>
-          </m.div>
-
+        <div className="mt-6 overflow-hidden">
           <m.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-h1 font-normal mb-4"
+            initial={{ y: "110%" }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.7, delay: 0.25, ease: prismEase }}
+            className="font-body font-normal text-bone text-display-sm"
           >
-            BEHIND THE STAGE
+            Behind the Stage
           </m.h1>
-
-          <m.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-2xl md:text-3xl lg:text-4xl font-normal text-bone-white/80 tracking-tight"
-          >
-            Jaden Smith + CRESPO, a 24-Hour Docu Short
-          </m.p>
-
-          {/* Animated line */}
-          <m.div
-            initial={{ width: 0 }}
-            animate={{ width: "6rem" }}
-            transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="h-px bg-gradient-to-r from-terracotta to-violet-400 mt-8"
-          />
         </div>
+
+        <m.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5, ease: prismEase }}
+          className="mt-6 font-body text-body-lg font-normal text-bone"
+        >
+          Jaden Smith + CRESPO, a 24-Hour Docu Short
+        </m.p>
+
+        {/* Metadata row */}
+        <m.dl
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.65, ease: prismEase }}
+          className="mt-16 grid grid-cols-1 gap-y-8 sm:grid-cols-3 sm:gap-x-10 border-b border-ash-border pb-8"
+        >
+          <div>
+            <dt className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue">
+              Project
+            </dt>
+            <dd className="mt-1 font-body text-body-lg font-normal text-bone">
+              {overview.client}
+            </dd>
+          </div>
+          <div>
+            <dt className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue">
+              Discipline
+            </dt>
+            <dd className="mt-1 font-body text-body-lg font-normal text-bone">
+              {overview.industry}
+            </dd>
+          </div>
+          <div>
+            <dt className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue">
+              Format
+            </dt>
+            <dd className="mt-1 font-body text-body-lg font-normal text-bone">
+              {overview.timeline}
+            </dd>
+          </div>
+        </m.dl>
+      </header>
+
+      {/* ── Hero Media Card ───────────────────────────────────────── */}
+      <section className="section-container pb-24 md:pb-36">
+        <m.figure
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="w-full"
+        >
+          <div className="relative aspect-[21/9] overflow-hidden rounded-[15px] border border-ash-border">
+            <Image
+              src={galleryImages[0]}
+              alt="Behind the Stage: Jaden Smith and CRESPO documentary still"
+              fill
+              className="object-cover"
+              priority
+              sizes="100vw"
+            />
+          </div>
+          <PlateCaption
+            label={overview.client}
+            value="Behind the Stage documentary still"
+          />
+        </m.figure>
       </section>
 
-      {/* ── Animated GIF Band ─────────────────────────────────────── */}
-      <ProjectGifBand
-        eyebrow="In Motion"
-        heading="Behind the Stage, Moving"
-        gifs={[
-          {
-            src: "/motion/crespo.mp4",
-            poster: "/motion/crespo.jpg",
-            label: "Behind the Stage",
-          },
-        ]}
-      />
+      <Rule />
 
-      {/* ── The Film (Video) ──────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
+      {/* ── In Motion ─────────────────────────────────────────────── */}
+      <section className="section-container section-padding">
         <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="mb-10"
+          className="mb-12"
         >
-          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
-            The Film
+          <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-4">
+            In Motion
           </p>
-          <h2 className="font-headline text-h3 font-light">
-            Press play on{" "}
-            <span className="gradient-text">the documentary short</span>
+          <h2 className="font-body text-heading-sm font-normal text-bone">
+            Behind the Stage, Moving
           </h2>
         </m.div>
 
-        <m.div
+        <m.figure
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="relative"
+          className="w-full max-w-[980px]"
         >
-          {/* Ambient glow behind the video */}
-          <div className="absolute -inset-3 md:-inset-5 bg-gradient-to-r from-terracotta/10 via-violet-500/5 to-terracotta/10 rounded-none blur-2xl opacity-60 pointer-events-none" />
+          <div className="relative aspect-video overflow-hidden rounded-[15px] border border-ash-border">
+            <AutoplayVideo
+              src="/motion/crespo.mp4"
+              poster="/motion/crespo.jpg"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          </div>
+          <PlateCaption label="In Motion" value="Behind the Stage" />
+        </m.figure>
+      </section>
 
-          <div className="relative w-full overflow-hidden rounded-none border border-black/10 bg-black aspect-video  ">
+      <Rule />
+
+      {/* ── The Film ──────────────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="mb-12"
+        >
+          <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-4">
+            The Film
+          </p>
+          <h2 className="font-body text-heading-sm font-normal text-bone">
+            Press play on the documentary short
+          </h2>
+        </m.div>
+
+        <m.figure
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="w-full"
+        >
+          <div className="relative w-full overflow-hidden rounded-[15px] border border-ash-border aspect-video">
             <iframe
               src="https://www-ccv.adobe.io/v1/player/ccv/Tevy7Apn4ss/embed?bgcolor=%23120D1A&lazyLoading=true&api_key=BehancePro2View"
               className="absolute inset-0 h-full w-full"
@@ -293,146 +449,129 @@ export default function CrespoJadenSmithProject() {
               title="Behind the Stage"
             />
           </div>
-        </m.div>
+          <PlateCaption label="The Film" value="Behind the Stage documentary short" />
+        </m.figure>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+      <Rule />
 
-      {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-          {/* Sidebar */}
-          <m.aside
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="lg:col-span-4"
-          >
-            <div className="lg:sticky lg:top-28 space-y-8">
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
-                  Project
-                </p>
-                <p className="font-headline text-lg font-light text-pure-white">
-                  {overview.client}
-                </p>
-              </div>
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
-                  Discipline
-                </p>
-                <p className="font-body text-clay-gray">
-                  {overview.industry}
-                </p>
-              </div>
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
-                  Format
-                </p>
-                <p className="font-body text-clay-gray">
-                  {overview.timeline}
-                </p>
-              </div>
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
-                  Services
-                </p>
-                <ul className="space-y-2">
-                  {overview.services.map((service) => (
-                    <li
-                      key={service}
-                      className="flex items-center gap-3 font-body text-sm text-clay-gray"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-terracotta flex-shrink-0" />
-                      {service}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </m.aside>
+      {/* ── The Idea ──────────────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <SectionHeader
+          eyebrow="The Idea"
+          title="A documentary short shot and edited in 24 hours"
+        />
 
-          {/* Challenge */}
-          <m.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="lg:col-span-8"
-          >
-            <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
-              The Idea
-            </p>
-            <h2 className="font-headline text-h3 font-light mb-8">
-              A documentary short shot and edited in{" "}
-              <span className="text-bone-white">24 hours</span>
-            </h2>
-            <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
-              <p>
-                Behind the Stage follows Jaden Smith and CRESPO away from the
-                show, in the quiet space most people never see. The idea was to
-                capture the moments before the moment, the prep and the waiting
-                and the run up, and turn them into a self-contained film.
-              </p>
-              <p>
-                The challenge was time. The entire piece was shot and edited in
-                24 hours in Adobe Premiere Pro and After Effects, which meant the
-                story had to be found in the room and shaped on the fly without
-                losing the cinematic feel the artists deserved.
-              </p>
-            </div>
-          </m.div>
-        </div>
-      </section>
-
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
-
-      {/* ── Our Approach (scroll-scrubbed pinned section) ────────── */}
-      <PinnedApproach
-        eyebrow="The Direction"
-        heading="From the room to the cut in five moves"
-        steps={approach.map(({ title, description }) => ({
-          title,
-          body: description,
-        }))}
-      />
-
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
-
-      {/* ── The Approach Narrative ───────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
         <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="max-w-4xl"
+          className="max-w-[640px]"
         >
-          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
-            The Feel
+          <div className="text-body-sm font-normal space-y-7">
+            <p className="text-bone">
+              Behind the Stage follows Jaden Smith and CRESPO away from the
+              show, in the quiet space most people never see. The idea was to
+              capture the moments before the moment, the prep and the waiting
+              and the run up, and turn them into a self-contained film.
+            </p>
+            <p className="text-fog-blue">
+              The challenge was time. The entire piece was shot and edited in
+              24 hours in Adobe Premiere Pro and After Effects, which meant the
+              story had to be found in the room and shaped on the fly without
+              losing the cinematic feel the artists deserved.
+            </p>
+          </div>
+        </m.div>
+
+        {/* Services */}
+        <m.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="max-w-[640px] mt-20"
+        >
+          <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-2">
+            Services
           </p>
-          <h2 className="font-headline text-h3 font-light mb-8">
-            Cinematic, but{" "}
-            <span className="text-bone-white">honest to the moment</span>
-          </h2>
-          <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
-            <p>
+          <ul>
+            {overview.services.map((service) => (
+              <m.li
+                key={service}
+                variants={staggerItem}
+                className="border-b border-ash-border py-4 font-body text-body-lg font-normal text-bone"
+              >
+                {service}
+              </m.li>
+            ))}
+          </ul>
+        </m.div>
+      </section>
+
+      <Rule />
+
+      {/* ── The Direction ─────────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <SectionHeader
+          eyebrow="The Direction"
+          title="From the room to the cut in five moves"
+        />
+
+        <div className="max-w-[900px]">
+          {approach.map((item) => (
+            <m.div
+              key={item.step}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+              className="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-6 md:gap-10 border-t border-ash-border py-12"
+            >
+              <span
+                aria-hidden="true"
+                className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue"
+              >
+                Step {item.step}
+              </span>
+              <div>
+                <h3 className="font-body text-heading-sm font-normal text-bone mb-4">
+                  {item.title}
+                </h3>
+                <p className="max-w-[640px] text-body-sm font-normal text-bone">
+                  {item.description}
+                </p>
+              </div>
+            </m.div>
+          ))}
+        </div>
+      </section>
+
+      <Rule />
+
+      {/* ── The Feel ──────────────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <SectionHeader
+          eyebrow="The Feel"
+          title="Cinematic, but honest to the moment"
+        />
+
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="max-w-[640px]"
+        >
+          <div className="text-body-sm font-normal space-y-7">
+            <p className="text-bone">
               The short is built around presence. The camera stays close to the
               people in the room, catching the small, unguarded moments that a
               polished concert film would skip over. The aim was to make the
               backstage feel like the real story, not the warm up.
             </p>
-            <p>
+            <p className="text-fog-blue">
               Titles and motion treatments give the piece a finished frame, while
               the grade keeps it grounded and low-key. The result is a film that
               reads as intentional and cinematic even though it was made against
@@ -442,250 +581,98 @@ export default function CrespoJadenSmithProject() {
         </m.div>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+      <Rule />
 
-      {/* ── Gallery ──────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
-        <m.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mb-16"
-        >
-          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
-            Stills
-          </p>
-          <h2 className="font-headline text-h3 font-light">
-            Moments from{" "}
-            <span className="text-bone-white">behind the stage</span>
-          </h2>
-        </m.div>
+      {/* ── Gallery ───────────────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <SectionHeader eyebrow="Stills" title="Moments from behind the stage" />
 
-        <m.div
-          variants={galleryContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6"
-        >
-          {/* Row 1: Full-width hero */}
-          <m.div variants={galleryItem} className="md:col-span-12">
-            <WorkFrame
-              client={overview.client}
-              discipline="Documentary Direction"
-              index={1}
-              className="aspect-[21/9] rounded-none"
+        <div className="space-y-20 md:space-y-28">
+          {galleryPlan.map((plate, i) => (
+            <m.figure
+              key={plate.src + i}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+              className={`w-full ${plate.width}`}
             >
-              <Image
-                src={galleryImages[0]}
-                alt="Behind the Stage documentary still 1"
-                fill
-                className="object-cover"
-                sizes="100vw"
+              <div
+                className={`relative ${plate.aspect} overflow-hidden rounded-[15px] border border-ash-border`}
+              >
+                <Image
+                  src={plate.src}
+                  alt={plate.alt}
+                  fill
+                  className="object-cover"
+                  sizes={plate.sizes}
+                />
+              </div>
+              <PlateCaption
+                label={`${overview.client} / ${String(i + 1).padStart(2, "0")}`}
+                value={plate.discipline}
               />
-            </WorkFrame>
-          </m.div>
+            </m.figure>
+          ))}
 
-          {/* Row 2: Wide + tall */}
-          <m.div variants={galleryItem} className="md:col-span-7">
-            <WorkFrame
-              client={overview.client}
-              discipline="On-Site Capture"
-              index={2}
-              className="aspect-[16/10] rounded-none"
-            >
-              <Image
-                src={galleryImages[1]}
-                alt="Behind the Stage documentary still 2"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 58vw"
-              />
-            </WorkFrame>
+          {/* Closing pair: two matched 16/10 stills */}
+          <m.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-6"
+          >
+            {galleryPair.map((plate, i) => (
+              <m.figure key={plate.src} variants={staggerItem}>
+                <div className="relative aspect-[16/10] overflow-hidden rounded-[15px] border border-ash-border">
+                  <Image
+                    src={plate.src}
+                    alt={plate.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+                <PlateCaption
+                  label={`${overview.client} / ${String(
+                    galleryPlan.length + i + 1
+                  ).padStart(2, "0")}`}
+                  value={plate.discipline}
+                />
+              </m.figure>
+            ))}
           </m.div>
-          <m.div variants={galleryItem} className="md:col-span-5">
-            <WorkFrame
-              client={overview.client}
-              discipline="Documentary Direction"
-              index={3}
-              className="aspect-[3/4] rounded-none"
-            >
-              <Image
-                src={galleryImages[2]}
-                alt="Behind the Stage documentary still 3"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 42vw"
-              />
-            </WorkFrame>
-          </m.div>
-
-          {/* Row 3: Three equal columns */}
-          <m.div variants={galleryItem} className="md:col-span-4">
-            <WorkFrame
-              client={overview.client}
-              discipline="On-Site Capture"
-              index={4}
-              className="aspect-[4/3] rounded-none"
-            >
-              <Image
-                src={galleryImages[3]}
-                alt="Behind the Stage documentary still 4"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-            </WorkFrame>
-          </m.div>
-          <m.div variants={galleryItem} className="md:col-span-4">
-            <WorkFrame
-              client={overview.client}
-              discipline="On-Site Capture"
-              index={5}
-              className="aspect-[4/3] rounded-none"
-            >
-              <Image
-                src={galleryImages[4]}
-                alt="Behind the Stage documentary still 5"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-            </WorkFrame>
-          </m.div>
-          <m.div variants={galleryItem} className="md:col-span-4">
-            <WorkFrame
-              client={overview.client}
-              discipline="Color & Finishing"
-              index={6}
-              className="aspect-[4/3] rounded-none"
-            >
-              <Image
-                src={galleryImages[5]}
-                alt="Behind the Stage documentary still 6"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-            </WorkFrame>
-          </m.div>
-
-          {/* Row 4: Asymmetric pair */}
-          <m.div variants={galleryItem} className="md:col-span-5">
-            <WorkFrame
-              client={overview.client}
-              discipline="Documentary Direction"
-              index={7}
-              className="aspect-[3/4] rounded-none"
-            >
-              <Image
-                src={galleryImages[6]}
-                alt="Behind the Stage documentary still 7"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 42vw"
-              />
-            </WorkFrame>
-          </m.div>
-          <m.div variants={galleryItem} className="md:col-span-7">
-            <WorkFrame
-              client={overview.client}
-              discipline="Editorial & Story"
-              index={8}
-              className="aspect-[16/10] rounded-none"
-            >
-              <Image
-                src={galleryImages[7]}
-                alt="Behind the Stage documentary still 8"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 58vw"
-              />
-            </WorkFrame>
-          </m.div>
-
-          {/* Row 5: Pair */}
-          <m.div variants={galleryItem} className="md:col-span-6">
-            <WorkFrame
-              client={overview.client}
-              discipline="On-Site Capture"
-              index={9}
-              className="aspect-[16/10] rounded-none"
-            >
-              <Image
-                src={galleryImages[8]}
-                alt="Behind the Stage documentary still 9"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </WorkFrame>
-          </m.div>
-          <m.div variants={galleryItem} className="md:col-span-6">
-            <WorkFrame
-              client={overview.client}
-              discipline="Color & Finishing"
-              index={10}
-              className="aspect-[16/10] rounded-none"
-            >
-              <Image
-                src={galleryImages[9]}
-                alt="Behind the Stage documentary closing still"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </WorkFrame>
-          </m.div>
-        </m.div>
+        </div>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+      <Rule />
 
-      {/* ── The Result ───────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
-        <m.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mb-12"
-        >
-          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
-            The Result
-          </p>
-          <h2 className="font-headline text-h3 font-light">
-            A short that{" "}
-            <span className="text-bone-white">lives in the room</span>
-          </h2>
-        </m.div>
+      {/* ── The Result ────────────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <SectionHeader
+          eyebrow="The Result"
+          title="A short that lives in the room"
+        />
 
-        {/* Lead result statement */}
         <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="max-w-4xl"
+          className="max-w-[720px]"
         >
-          <p className="font-display text-h2 font-normal text-pure-white mb-10">
+          <p className="font-body text-heading-sm font-normal text-bone mb-12">
             {results[0]}
           </p>
 
           {/* TODO(David): add quantified result or client quote here */}
 
-          <ul className="space-y-4 border-l border-terracotta/30 pl-6">
+          <ul className="max-w-[640px]">
             {results.slice(1).map((result) => (
               <li
                 key={result}
-                className="font-body text-clay-gray text-base md:text-lg leading-relaxed"
+                className="border-t border-ash-border py-5 text-body-sm font-normal text-bone"
               >
                 {result}
               </li>
@@ -694,45 +681,29 @@ export default function CrespoJadenSmithProject() {
         </m.div>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+      <Rule />
 
-      {/* ── Tools & Technology ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
-        <m.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mb-12"
-        >
-          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
-            Capabilities
-          </p>
-          <h2 className="font-headline text-h3 font-light">
-            The <span className="text-bone-white">production toolkit</span>
-          </h2>
-        </m.div>
+      {/* ── Capabilities ──────────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <SectionHeader eyebrow="Capabilities" title="The production toolkit" />
 
         <m.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+          className="max-w-[720px]"
         >
           {tools.map((tool) => (
             <m.div
               key={tool.name}
               variants={staggerItem}
-              className="group p-6 rounded-none border border-black/5 bg-black/[0.02] hover:border-terracotta/20 hover:bg-terracotta/[0.03] transition-all duration-500"
+              className="border-t border-ash-border py-8"
             >
-              <h3 className="font-headline text-lg font-light text-pure-white mb-2 group-hover:text-terracotta transition-colors duration-300">
+              <h3 className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-2">
                 {tool.name}
               </h3>
-              <p className="font-body text-sm text-clay-gray leading-relaxed">
+              <p className="max-w-[640px] text-body-sm font-normal text-bone">
                 {tool.description}
               </p>
             </m.div>
@@ -740,29 +711,25 @@ export default function CrespoJadenSmithProject() {
         </m.div>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+      <Rule />
 
-      {/* ── CTA ──────────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
+      {/* ── CTA ───────────────────────────────────────────────────── */}
+      <section className="section-container section-padding">
         <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="text-center max-w-2xl mx-auto"
+          className="max-w-[720px]"
         >
-          <h2 className="font-headline text-h2 font-light mb-6">
-            Have a moment{" "}
-            <span className="text-bone-white">worth documenting</span>?
+          <h2 className="font-body text-heading-lg font-normal text-bone mb-6">
+            Have a moment worth documenting?
           </h2>
-          <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed mb-10">
+          <p className="text-body-sm font-normal text-fog-blue mb-10 max-w-[640px]">
             Let&rsquo;s capture a documentary short that finds the real story in
             the room and finishes with a cinematic, intentional feel.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <Link href="/#contact" className="btn-primary">
               Book a Call
             </Link>
@@ -772,11 +739,11 @@ export default function CrespoJadenSmithProject() {
             >
               View Next Project
               <svg
-                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                className="w-4 h-4"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                strokeWidth={2}
+                strokeWidth={1.5}
               >
                 <path
                   strokeLinecap="round"

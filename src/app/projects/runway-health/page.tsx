@@ -3,19 +3,19 @@
 import Link from "@/components/TransitionLink";
 import Image from "next/image";
 import { m } from "framer-motion";
-import PinnedApproach from "@/components/PinnedApproach";
-import WorkFrame from "@/components/WorkFrame";
 
 /* ------------------------------------------------------------------ */
-/*  Animation Variants                                                 */
+/*  Animation Variants (prism ease: slow start, decisive stop)         */
 /* ------------------------------------------------------------------ */
+
+const prismEase = [0.52, 0.01, 0, 1] as const;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.5, ease: prismEase },
   },
 };
 
@@ -31,7 +31,7 @@ const staggerItem = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.5, ease: prismEase },
   },
 };
 
@@ -43,12 +43,11 @@ const galleryContainer = {
 };
 
 const galleryItem = {
-  hidden: { opacity: 0, y: 50, scale: 0.92 },
+  hidden: { opacity: 0, y: 50 },
   visible: {
     opacity: 1,
     y: 0,
-    scale: 1,
-    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.5, ease: prismEase },
   },
 };
 
@@ -157,49 +156,35 @@ const interiorSet = [
   },
 ];
 
-/* Studio + outdoor product designs, full-bleed gallery */
+/* Studio + outdoor product designs, in page order */
 const studioSet = [
   {
     src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/61ab1215-4a25-4a8c-b8dd-be535c8138b5_rw_1920.png?h=414c217bbc144eb9d2f3eace4f642912",
     alt: "Runway Health studio product design",
-    span: "md:col-span-12",
-    ratio: "aspect-[16/9]",
   },
   {
     src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/7c3cd610-936c-428b-880e-cbaf4fbfc8be_rw_1920.png?h=f50cedc2f8d87ca2bae59e5d0955b3f6",
     alt: "Runway Health studio product design",
-    span: "md:col-span-4",
-    ratio: "aspect-[4/5]",
   },
   {
     src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/20088b97-36f9-4184-8dc7-f9f301be4dbd_rw_1920.png?h=548d8be623e34ababb41e342e2a4cf73",
     alt: "Runway Health studio product design",
-    span: "md:col-span-4",
-    ratio: "aspect-[4/5]",
   },
   {
     src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/2efc22b3-9f9b-45d6-9fba-be3ecb8e7fcc_rw_1920.png?h=2b7e4e15c80ba7f4e0a032277ba969b7",
     alt: "Runway Health studio product design",
-    span: "md:col-span-4",
-    ratio: "aspect-[4/5]",
   },
   {
     src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/053106dc-138d-4119-ad3b-7473de8b9bde_rw_1920.png?h=4283f5cf7ba65b771b8be2184d1920b3",
     alt: "Runway Health studio product design",
-    span: "md:col-span-6",
-    ratio: "aspect-[4/5]",
   },
   {
     src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/48a1b237-fb48-49b8-beba-55b3d23c643b_rw_3840.png?h=b7a31f22c154ad79cbde52f002ea5037",
     alt: "Runway Health studio product design",
-    span: "md:col-span-6",
-    ratio: "aspect-[4/5]",
   },
   {
     src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/9b459fa4-2f35-4dde-9c3e-3cf89d852a3f_rw_1920.png?h=64647bb12fee204b7f68273ecdd93002",
     alt: "Runway Health outdoor product design",
-    span: "md:col-span-12",
-    ratio: "aspect-[16/9]",
   },
 ];
 
@@ -217,188 +202,172 @@ const INTERIOR_HERO =
   "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/e11b12cc-0672-4b9c-be4d-b2502d908b75_rw_1200.png?h=a1b91baf517f210509ef94c7036b5274";
 
 /* ------------------------------------------------------------------ */
+/*  Local helpers                                                      */
+/* ------------------------------------------------------------------ */
+
+/* Hairline band divider */
+function Rule() {
+  return (
+    <div className="section-container">
+      <div className="border-t border-ash-border" />
+    </div>
+  );
+}
+
+/* Caption below a media card: fog-blue uppercase label + bone value */
+function PlateCaption({ label, value }: { label: string; value: string }) {
+  return (
+    <figcaption className="mt-4 flex flex-wrap items-baseline gap-x-4 gap-y-1">
+      <span className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue">
+        {label}
+      </span>
+      <span className="text-caption font-normal text-bone">{value}</span>
+    </figcaption>
+  );
+}
+
+/* ------------------------------------------------------------------ */
 /*  Component                                                          */
 /* ------------------------------------------------------------------ */
 
 export default function RunwayHealthProject() {
   return (
-    <article className="bg-espresso min-h-screen" style={{ backgroundColor: "#fffef7" }}>
-      {/* ── Back Link ─────────────────────────────────────────────── */}
-      <m.div
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-        className="fixed top-24 left-6 md:left-8 lg:left-12 z-40"
-      >
-        <Link
-          href="/#projects"
-          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-clay-gray hover:text-pure-white transition-colors duration-300"
+    <article className="bg-obsidian min-h-screen text-bone">
+      {/* ── Opener ────────────────────────────────────────────────── */}
+      <section className="section-container section-padding pt-36 md:pt-44">
+        <m.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1, ease: prismEase }}
+          className="mb-14"
         >
-          <svg
-            className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
+          <Link
+            href="/#projects"
+            className="group inline-flex items-center gap-2 text-caption uppercase tracking-[0.02em] font-normal text-bone hover:text-fog-blue transition-colors duration-500 ease-prism"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
-            />
-          </svg>
-          Back to Work
-        </Link>
-      </m.div>
+            <svg
+              className="w-4 h-4 transition-transform duration-500 ease-prism group-hover:-translate-x-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
+              />
+            </svg>
+            Back to Work
+          </Link>
+        </m.div>
 
-      {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section className="relative min-h-[80vh] md:min-h-[90vh] flex items-end overflow-hidden">
-        {/* Cover render */}
-        <div className="absolute inset-0">
-          <Image
-            src={HERO_IMG}
-            alt="Runway Health 3D product render"
-            fill
-            className="object-cover"
-            sizes="100vw"
-            priority
-          />
-        </div>
+        <m.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2, ease: prismEase }}
+          className="text-[17px] uppercase tracking-[0.02em] font-normal text-fog-blue mb-8"
+        >
+          Product Design + 3D
+        </m.p>
 
-        {/* Ambient color wash + dark fade */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-terracotta/30 via-transparent to-sun-gold/10 mix-blend-screen" />
-        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-espresso via-espresso/50 to-espresso/10" />
+        <m.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3, ease: prismEase }}
+          className="font-body font-normal text-bone text-display-sm leading-[1.01] tracking-[-0.02em] mb-8"
+        >
+          Runway
+          <br />
+          Health
+        </m.h1>
 
-        <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
-          <m.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <span className="inline-block font-mono text-xs tracking-widest uppercase text-bone-white/70 mb-4 px-3 py-1.5 rounded-full border border-black/10 backdrop-blur-sm bg-black/5">
-              Product Design + 3D
-            </span>
-          </m.div>
+        <m.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.45, ease: prismEase }}
+          className="font-body text-body-lg font-normal text-bone max-w-[640px]"
+        >
+          Product Built in 3D
+        </m.p>
 
-          <m.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-h1 font-normal mb-4"
-          >
-            RUNWAY HEALTH
-          </m.h1>
-
-          <m.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-2xl md:text-3xl lg:text-4xl font-normal text-bone-white/80 tracking-tight"
-          >
-            Product Built in 3D
-          </m.p>
-
-          <m.div
-            initial={{ width: 0 }}
-            animate={{ width: "6rem" }}
-            transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="h-px bg-gradient-to-r from-terracotta to-sun-gold mt-8"
-          />
-        </div>
-      </section>
-
-      {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-          {/* Sidebar */}
-          <m.aside
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="lg:col-span-4"
-          >
-            <div className="lg:sticky lg:top-28 space-y-8">
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
-                  Client
-                </p>
-                <p className="font-headline text-lg font-light text-pure-white">
-                  {overview.client}
-                </p>
-              </div>
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
-                  Industry
-                </p>
-                <p className="font-body text-clay-gray">{overview.industry}</p>
-              </div>
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
-                  Discipline
-                </p>
-                <p className="font-body text-clay-gray">{overview.timeline}</p>
-              </div>
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-terracotta mb-2">
-                  Services
-                </p>
-                <ul className="space-y-2">
+        {/* Metadata rule row */}
+        <m.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6, ease: prismEase }}
+          className="mt-16 border-t border-ash-border pt-10"
+        >
+          <dl className="flex flex-wrap gap-x-14 gap-y-10">
+            <div>
+              <dt className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-2">
+                Client
+              </dt>
+              <dd className="font-body text-body-sm font-normal text-bone">
+                {overview.client}
+              </dd>
+            </div>
+            <div>
+              <dt className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-2">
+                Industry
+              </dt>
+              <dd className="font-body text-body-sm font-normal text-bone">
+                {overview.industry}
+              </dd>
+            </div>
+            <div>
+              <dt className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-2">
+                Discipline
+              </dt>
+              <dd className="font-body text-body-sm font-normal text-bone">
+                {overview.timeline}
+              </dd>
+            </div>
+            <div>
+              <dt className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-2">
+                Services
+              </dt>
+              <dd>
+                <ul className="space-y-1.5">
                   {overview.services.map((service) => (
                     <li
                       key={service}
-                      className="flex items-center gap-3 font-body text-sm text-clay-gray"
+                      className="font-body text-caption font-normal text-fog-blue"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-terracotta flex-shrink-0" />
                       {service}
                     </li>
                   ))}
                 </ul>
-              </div>
+              </dd>
             </div>
-          </m.aside>
+          </dl>
+        </m.div>
 
-          {/* Challenge */}
-          <m.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="lg:col-span-8"
-          >
-            <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
-              The Brief
-            </p>
-            <h2 className="font-headline text-h3 font-light mb-8">
-              Product design for{" "}
-              <span className="gradient-text">runwayhealth.com</span>
-            </h2>
-            <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
-              <p>
-                Runway Health needed a complete set of product visuals for its
-                online experience, built entirely in 3D rather than shot on a
-                physical set. The work spanned modeling, texture design, scene
-                design, and rendering, turning the brand line into clean,
-                photoreal imagery that could live anywhere on the site.
-              </p>
-              <p>
-                Every bottle, package, and surface was created from scratch and
-                lit to feel like a real studio photograph. Product textures were
-                created in Adobe Substance Painter, while a custom box was
-                designed in Cinema4D to carry the products with precision.
-              </p>
-            </div>
-          </m.div>
-        </div>
+        {/* Hero media card */}
+        <m.figure
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.75, ease: prismEase }}
+          className="mt-20"
+        >
+          <div className="relative w-full aspect-[16/9] rounded-[15px] overflow-hidden border border-ash-border">
+            <Image
+              src={HERO_IMG}
+              alt="Runway Health 3D product render"
+              fill
+              className="object-cover"
+              sizes="100vw"
+              priority
+            />
+          </div>
+          <PlateCaption label="Rendering" value={overview.client} />
+        </m.figure>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+      <Rule />
 
-      {/* ── Interior Product Render Set ───────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
+      {/* ── The Brief ─────────────────────────────────────────────── */}
+      <section className="section-container section-padding">
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -406,323 +375,149 @@ export default function RunwayHealthProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
-            Interior Product Render Set
+          <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-4">
+            The Brief
           </p>
-          <h2 className="font-headline text-h3 font-light">
-            The line, in <span className="text-bone-white">context</span>
+          <h2 className="font-body text-heading-lg font-normal text-bone max-w-[900px]">
+            Product design for runwayhealth.com
           </h2>
         </m.div>
 
-        {/* Lead interior render */}
         <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="max-w-[640px] font-body text-body-sm font-normal text-bone space-y-7"
+        >
+          <p>
+            Runway Health needed a complete set of product visuals for its
+            online experience, built entirely in 3D rather than shot on a
+            physical set. The work spanned modeling, texture design, scene
+            design, and rendering, turning the brand line into clean,
+            photoreal imagery that could live anywhere on the site.
+          </p>
+          <p>
+            Every bottle, package, and surface was created from scratch and
+            lit to feel like a real studio photograph. Product textures were
+            created in Adobe Substance Painter, while a custom box was
+            designed in Cinema4D to carry the products with precision.
+          </p>
+        </m.div>
+      </section>
+
+      <Rule />
+
+      {/* ── Interior Product Render Set ───────────────────────────── */}
+      <section className="section-container section-padding">
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="mb-16"
+        >
+          <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-4">
+            Interior Product Render Set
+          </p>
+          <h2 className="font-body text-heading-lg font-normal text-bone max-w-[900px]">
+            The line, in context
+          </h2>
+        </m.div>
+
+        {/* Lead interior render card */}
+        <m.figure
           variants={galleryItem}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="mb-6"
+          className="max-w-[1000px] mb-16"
         >
-          <WorkFrame
-            client={overview.client}
-            discipline="Scene Design"
-            index={1}
-            className="aspect-[4/5] sm:aspect-[16/12] rounded-none  "
-          >
+          <div className="relative aspect-[4/5] sm:aspect-[16/12] rounded-[15px] overflow-hidden border border-ash-border">
             <Image
               src={INTERIOR_HERO}
               alt="Runway Health interior product render set"
               fill
               className="object-cover"
-              sizes="(max-width: 768px) 100vw, 1080px"
+              sizes="(max-width: 768px) 100vw, 1000px"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-          </WorkFrame>
-        </m.div>
+          </div>
+          <PlateCaption label="Scene Design" value={overview.client} />
+        </m.figure>
 
-        {/* Five-up interior grid */}
+        {/* Interior set as paired cards */}
         <m.div
           variants={galleryContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-2 md:grid-cols-5 gap-4 lg:gap-5"
+          className="max-w-[1000px] space-y-16"
         >
-          {interiorSet.map((img, i) => (
-            <m.div
-              key={img.src}
-              variants={galleryItem}
-              className={i === 4 ? "col-span-2 md:col-span-1" : ""}
-            >
-              <WorkFrame
-                client={overview.client}
-                discipline="Scene Design"
-                index={i + 2}
-                className="aspect-[4/5] rounded-none  "
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 50vw, 20vw"
-                />
-              </WorkFrame>
-            </m.div>
-          ))}
-        </m.div>
-      </section>
-
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
-
-      {/* ── Process / Approach (scroll-scrubbed pinned section) ──── */}
-      <PinnedApproach
-        eyebrow="The Process"
-        heading="From geometry to finished render"
-        steps={approach.map(({ title, description }) => ({
-          title,
-          body: description,
-        }))}
-      />
-
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
-
-      {/* ── Texture + Packaging feature ───────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-10 items-center">
-          {/* Substance Painter texture */}
-          <m.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-          >
-            <div className="aspect-[16/9] rounded-none overflow-hidden relative  ">
-              <Image
-                src={TEXTURE_IMG}
-                alt="Runway Health product texture creation in Adobe Substance Painter"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </div>
-            <p className="mt-4 font-mono text-xs tracking-widest uppercase text-clay-gray">
-              Product texture creation in Adobe Substance Painter
-            </p>
-          </m.div>
-
-          {/* Cinema4D box */}
-          <m.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-          >
-            <div className="aspect-[16/9] rounded-none overflow-hidden relative  ">
-              <Image
-                src={BOX_IMG}
-                alt="Runway Health custom box design created in Cinema4D"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </div>
-            <p className="mt-4 font-body text-sm text-clay-gray leading-relaxed">
-              Custom box design created in Cinema4D. Volume Builder and modeling
-              allowed the box to have custom hold positions for the pill bottles.
-            </p>
-          </m.div>
-        </div>
-      </section>
-
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
-
-      {/* ── Hero Imagery ──────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
-        <m.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mb-12"
-        >
-          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
-            Hero Imagery
-          </p>
-          <h2 className="font-headline text-h3 font-light">
-            Built for the <span className="text-bone-white">brand experience</span>
-          </h2>
-        </m.div>
-
-        <m.div
-          variants={galleryContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="space-y-6"
-        >
-          <m.div variants={galleryItem}>
-            <WorkFrame
-              client={overview.client}
-              discipline="Rendering"
-              index={7}
-              className="aspect-[21/9] rounded-none"
-            >
-              <Image
-                src={HERO_WIDE_1}
-                alt="Runway Health hero product imagery"
-                fill
-                className="object-cover"
-                sizes="100vw"
-              />
-            </WorkFrame>
-          </m.div>
-
-          <m.div variants={galleryItem}>
-            <WorkFrame
-              client={overview.client}
-              discipline="Rendering"
-              index={8}
-              className="aspect-[21/9] rounded-none"
-            >
-              <Image
-                src={HERO_WIDE_2}
-                alt="Runway Health hero product imagery"
-                fill
-                className="object-cover"
-                sizes="100vw"
-              />
-            </WorkFrame>
-          </m.div>
-        </m.div>
-      </section>
-
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
-
-      {/* ── Studio + Outdoor Gallery ──────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
-        <m.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mb-12"
-        >
-          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
-            Studio & Outdoor Product Designs
-          </p>
-          <h2 className="font-headline text-h3 font-light">
-            One product, <span className="text-bone-white">many scenes</span>
-          </h2>
-        </m.div>
-
-        <m.div
-          variants={galleryContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6"
-        >
-          {studioSet.map((img, i) => (
-            <m.div key={img.src} variants={galleryItem} className={img.span}>
-              <WorkFrame
-                client={overview.client}
-                discipline="Rendering"
-                index={i + 9}
-                className={`${img.ratio} rounded-none  `}
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  className="object-cover"
-                  sizes={img.span.includes("12") ? "100vw" : "(max-width: 768px) 100vw, 33vw"}
-                />
-              </WorkFrame>
-            </m.div>
-          ))}
-        </m.div>
-      </section>
-
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
-
-      {/* ── What Was Delivered ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
-        <m.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mb-12"
-        >
-          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
-            What Was Delivered
-          </p>
-          <h2 className="font-headline text-h3 font-light">
-            A complete <span className="text-bone-white">3D product world</span>
-          </h2>
-        </m.div>
-
-        {/* Lead result statement */}
-        <m.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="max-w-4xl"
-        >
-          <p className="font-display text-h2 font-normal text-pure-white mb-10">
-            {results[0]}
-          </p>
-
-          {/* TODO(David): add quantified result or client quote here */}
-
-          <ul className="space-y-4 border-l border-terracotta/30 pl-6">
-            {results.slice(1).map((result) => (
-              <li
-                key={result}
-                className="font-body text-clay-gray text-base md:text-lg leading-relaxed"
-              >
-                {result}
-              </li>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 items-start">
+            {interiorSet.slice(0, 2).map((img) => (
+              <m.figure key={img.src} variants={galleryItem}>
+                <div className="relative aspect-[4/5] rounded-[15px] overflow-hidden border border-ash-border">
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+                <PlateCaption label="Scene Design" value={overview.client} />
+              </m.figure>
             ))}
-          </ul>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 items-start">
+            {interiorSet.slice(2, 4).map((img) => (
+              <m.figure key={img.src} variants={galleryItem}>
+                <div className="relative aspect-[4/5] rounded-[15px] overflow-hidden border border-ash-border">
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+                <PlateCaption label="Scene Design" value={overview.client} />
+              </m.figure>
+            ))}
+          </div>
+
+          <m.figure variants={galleryItem} className="max-w-[600px]">
+            <div className="relative aspect-[4/5] rounded-[15px] overflow-hidden border border-ash-border">
+              <Image
+                src={interiorSet[4].src}
+                alt={interiorSet[4].alt}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 600px"
+              />
+            </div>
+            <PlateCaption label="Scene Design" value={overview.client} />
+          </m.figure>
         </m.div>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+      <Rule />
 
-      {/* ── Tools & Technology ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
+      {/* ── The Process ───────────────────────────────────────────── */}
+      <section className="section-container section-padding">
         <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="mb-12"
+          className="mb-16"
         >
-          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
-            Tools & Technology
+          <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-4">
+            The Process
           </p>
-          <h2 className="font-headline text-h3 font-light">
-            The <span className="text-bone-white">3D pipeline</span>
+          <h2 className="font-body text-heading-lg font-normal text-bone max-w-[900px]">
+            From geometry to finished render
           </h2>
         </m.div>
 
@@ -731,18 +526,332 @@ export default function RunwayHealthProject() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+          className="max-w-[720px]"
         >
-          {tools.map((tool) => (
+          {approach.map((step, index) => (
+            <m.div
+              key={step.step}
+              variants={staggerItem}
+              className={`py-14 ${
+                index > 0 ? "border-t border-ash-border" : ""
+              }`}
+            >
+              <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-6">
+                {step.step}
+              </p>
+              <h3 className="font-body text-heading-sm font-normal text-bone mb-4">
+                {step.title}
+              </h3>
+              <p className="font-body text-body-sm font-normal text-fog-blue max-w-[640px]">
+                {step.description}
+              </p>
+            </m.div>
+          ))}
+        </m.div>
+      </section>
+
+      <Rule />
+
+      {/* ── Texture + Packaging (genuine pair) ────────────────────── */}
+      <section className="section-container section-padding">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-10 items-start max-w-[1200px]">
+          {/* Substance Painter texture */}
+          <m.figure
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+          >
+            <div className="relative aspect-[16/9] rounded-[15px] overflow-hidden border border-ash-border">
+              <Image
+                src={TEXTURE_IMG}
+                alt="Runway Health product texture creation in Adobe Substance Painter"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+            <PlateCaption
+              label="Texture Design"
+              value="Product texture creation in Adobe Substance Painter"
+            />
+          </m.figure>
+
+          {/* Cinema4D box */}
+          <m.figure
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+          >
+            <div className="relative aspect-[16/9] rounded-[15px] overflow-hidden border border-ash-border">
+              <Image
+                src={BOX_IMG}
+                alt="Runway Health custom box design created in Cinema4D"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+            <figcaption className="mt-4">
+              <span className="block text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-2">
+                Packaging Design
+              </span>
+              <span className="block font-body text-caption font-normal text-bone max-w-[480px]">
+                Custom box design created in Cinema4D. Volume Builder and
+                modeling allowed the box to have custom hold positions for the
+                pill bottles.
+              </span>
+            </figcaption>
+          </m.figure>
+        </div>
+      </section>
+
+      <Rule />
+
+      {/* ── Hero Imagery ──────────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="mb-16"
+        >
+          <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-4">
+            Hero Imagery
+          </p>
+          <h2 className="font-body text-heading-lg font-normal text-bone max-w-[900px]">
+            Built for the brand experience
+          </h2>
+        </m.div>
+
+        <m.div
+          variants={galleryContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="space-y-16"
+        >
+          <m.figure variants={galleryItem}>
+            <div className="relative w-full aspect-[21/9] rounded-[15px] overflow-hidden border border-ash-border">
+              <Image
+                src={HERO_WIDE_1}
+                alt="Runway Health hero product imagery"
+                fill
+                className="object-cover"
+                sizes="100vw"
+              />
+            </div>
+            <PlateCaption label="Rendering" value={overview.client} />
+          </m.figure>
+
+          <m.figure variants={galleryItem}>
+            <div className="relative w-full aspect-[21/9] rounded-[15px] overflow-hidden border border-ash-border">
+              <Image
+                src={HERO_WIDE_2}
+                alt="Runway Health hero product imagery"
+                fill
+                className="object-cover"
+                sizes="100vw"
+              />
+            </div>
+            <PlateCaption label="Rendering" value={overview.client} />
+          </m.figure>
+        </m.div>
+      </section>
+
+      <Rule />
+
+      {/* ── Studio + Outdoor Gallery ──────────────────────────────── */}
+      <section className="section-container section-padding">
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="mb-16"
+        >
+          <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-4">
+            Studio & Outdoor Product Designs
+          </p>
+          <h2 className="font-body text-heading-lg font-normal text-bone max-w-[900px]">
+            One product, many scenes
+          </h2>
+        </m.div>
+
+        <m.div
+          variants={galleryContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="space-y-16"
+        >
+          {/* Full-width opening render */}
+          <m.figure variants={galleryItem}>
+            <div className="relative w-full aspect-[16/9] rounded-[15px] overflow-hidden border border-ash-border">
+              <Image
+                src={studioSet[0].src}
+                alt={studioSet[0].alt}
+                fill
+                className="object-cover"
+                sizes="100vw"
+              />
+            </div>
+            <PlateCaption label="Rendering" value={overview.client} />
+          </m.figure>
+
+          {/* Pair */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 items-start max-w-[1000px]">
+            {studioSet.slice(1, 3).map((img) => (
+              <m.figure key={img.src} variants={galleryItem}>
+                <div className="relative aspect-[4/5] rounded-[15px] overflow-hidden border border-ash-border">
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+                <PlateCaption label="Rendering" value={overview.client} />
+              </m.figure>
+            ))}
+          </div>
+
+          {/* Single portrait */}
+          <m.figure variants={galleryItem} className="max-w-[600px]">
+            <div className="relative aspect-[4/5] rounded-[15px] overflow-hidden border border-ash-border">
+              <Image
+                src={studioSet[3].src}
+                alt={studioSet[3].alt}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 600px"
+              />
+            </div>
+            <PlateCaption label="Rendering" value={overview.client} />
+          </m.figure>
+
+          {/* Pair */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 items-start max-w-[1000px]">
+            {studioSet.slice(4, 6).map((img) => (
+              <m.figure key={img.src} variants={galleryItem}>
+                <div className="relative aspect-[4/5] rounded-[15px] overflow-hidden border border-ash-border">
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+                <PlateCaption label="Rendering" value={overview.client} />
+              </m.figure>
+            ))}
+          </div>
+
+          {/* Full-width closing render */}
+          <m.figure variants={galleryItem}>
+            <div className="relative w-full aspect-[16/9] rounded-[15px] overflow-hidden border border-ash-border">
+              <Image
+                src={studioSet[6].src}
+                alt={studioSet[6].alt}
+                fill
+                className="object-cover"
+                sizes="100vw"
+              />
+            </div>
+            <PlateCaption label="Rendering" value={overview.client} />
+          </m.figure>
+        </m.div>
+      </section>
+
+      <Rule />
+
+      {/* ── What Was Delivered ────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="mb-12"
+        >
+          <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-4">
+            What Was Delivered
+          </p>
+          <h2 className="font-body text-heading-lg font-normal text-bone max-w-[900px]">
+            A complete 3D product world
+          </h2>
+        </m.div>
+
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="max-w-[720px]"
+        >
+          <p className="font-body text-heading-sm font-normal text-bone mb-10">
+            {results[0]}
+          </p>
+
+          {/* TODO(David): add quantified result or client quote here */}
+
+          <ul className="max-w-[640px]">
+            {results.slice(1).map((result, index) => (
+              <li
+                key={result}
+                className={`py-4 font-body text-body-sm font-normal text-fog-blue ${
+                  index > 0 ? "border-t border-ash-border" : ""
+                }`}
+              >
+                {result}
+              </li>
+            ))}
+          </ul>
+        </m.div>
+      </section>
+
+      <Rule />
+
+      {/* ── Tools & Technology ────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="mb-14"
+        >
+          <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-4">
+            Tools & Technology
+          </p>
+          <h2 className="font-body text-heading-lg font-normal text-bone max-w-[900px]">
+            The 3D pipeline
+          </h2>
+        </m.div>
+
+        <m.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="max-w-[720px]"
+        >
+          {tools.map((tool, index) => (
             <m.div
               key={tool.name}
               variants={staggerItem}
-              className="group p-6 rounded-none border border-black/5 bg-black/[0.02] hover:border-terracotta/20 hover:bg-terracotta/[0.03] transition-all duration-500"
+              className={`py-9 ${
+                index > 0 ? "border-t border-ash-border" : ""
+              }`}
             >
-              <h3 className="font-headline text-lg font-light text-pure-white mb-2 group-hover:text-terracotta transition-colors duration-300">
+              <h3 className="font-body text-heading-sm font-normal text-bone mb-3">
                 {tool.name}
               </h3>
-              <p className="font-body text-sm text-clay-gray leading-relaxed">
+              <p className="font-body text-body-sm font-normal text-fog-blue max-w-[640px]">
                 {tool.description}
               </p>
             </m.div>
@@ -750,43 +859,39 @@ export default function RunwayHealthProject() {
         </m.div>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+      <Rule />
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
+      <section className="section-container section-padding">
         <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="text-center max-w-2xl mx-auto"
+          className="max-w-[720px]"
         >
-          <h2 className="font-headline text-h2 font-light mb-6">
-            Need product visuals{" "}
-            <span className="text-bone-white">built in 3D</span>?
+          <h2 className="font-body text-heading-lg font-normal text-bone mb-6">
+            Need product visuals built in 3D?
           </h2>
-          <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed mb-10">
+          <p className="font-body text-body-sm font-normal text-fog-blue mb-10 max-w-[640px]">
             Let&rsquo;s model, texture, and render your product into imagery that
             looks like a studio shoot, without the studio.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
             <Link href="/#contact" className="btn-primary">
               Book a Call
             </Link>
             <Link
               href="/projects/el-secreto"
-              className="btn-secondary group inline-flex items-center gap-2"
+              className="group inline-flex items-center gap-2 uppercase text-sm font-normal text-bone hover:text-fog-blue transition-colors duration-500 ease-prism"
             >
               View Next Project
               <svg
-                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                className="w-4 h-4 transition-transform duration-500 ease-prism group-hover:translate-x-1"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                strokeWidth={2}
+                strokeWidth={1.5}
               >
                 <path
                   strokeLinecap="round"

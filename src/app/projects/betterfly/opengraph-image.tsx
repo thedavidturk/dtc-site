@@ -28,7 +28,7 @@ export default async function OgImage() {
           height: "100%",
           position: "relative",
           overflow: "hidden",
-          backgroundColor: "#171009",
+          backgroundColor: "#000000",
           fontFamily: "sans-serif",
           display: "flex",
           flexDirection: "column",
@@ -75,7 +75,7 @@ export default async function OgImage() {
             left: 0,
             right: 0,
             height: 8,
-            background: "linear-gradient(to right, #D96C47, #E9B368)",
+            background: "#fffdf9",
           }}
         />
 
@@ -108,7 +108,7 @@ export default async function OgImage() {
               fontSize: 22,
               letterSpacing: "0.22em",
               textTransform: "uppercase",
-              color: "#E9B368",
+              color: "#6f879c",
             }}
           >
             BETTERFLY

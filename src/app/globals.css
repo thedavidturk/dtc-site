@@ -23,17 +23,23 @@ html.lenis, html.lenis body {
 }
 
 :root {
-  --background: #fffef7;
-  --foreground: #000000;
+  --background: #101010;
+  --foreground: #fffdf9;
 }
 
 * {
   box-sizing: border-box;
 }
 
-html,
+html {
+  background-color: #101010 !important;
+}
+
+/* body stays TRANSPARENT: with html carrying its own background, a
+   body background paints as in-flow content, ABOVE negative z-index
+   fixed layers, and would hide the prism's journey. */
 body {
-  background-color: #fffef7 !important;
+  background: transparent !important;
 }
 
 html {
@@ -43,83 +49,140 @@ html {
 /* Offset anchor jumps so targets clear the fixed header */
 #projects,
 #services,
+#process,
+#about,
 #insights,
+#contact,
 #value-propositions {
   scroll-margin-top: 6rem;
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
 }
 
-main,
-section,
-footer {
-  background-color: #fffef7;
+/* Sections stay TRANSPARENT: the obsidian void is painted once by the
+   body, and the fixed prism layer sits between the body background and
+   the content (z-index -1), showing through every band. Never give a
+   section an opaque background or it will punch a hole in the prism's
+   journey. */
+
+body {
+  font-feature-settings: "ss01";
 }
 
-/* Ensure all motion.div wrappers inherit the paper canvas */
-main > div,
-main > div > div {
-  background-color: #fffef7;
-}
-
-/* Headlines never bold - serif display sits at 400, never heavier */
+/* One weight: authority comes from scale (105-136px display), never
+   stroke weight. Headlines hold 400. */
 h1, h2, h3 {
   font-weight: 400;
 }
 
+/* All type wears the single near-white. Pages that set an explicit
+   text-* utility still win (class > element specificity). */
+h1 {
+  color: #fffdf9;
+}
+
 ::selection {
-  background: rgba(138, 4, 103, 0.18);
-  color: #000000;
+  background: rgba(255, 253, 249, 0.2);
+  color: #fffdf9;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+
+  /* The signature curve: slow start, decisive stop, like optical
+     focus pulling. */
+  .ease-prism {
+    transition-timing-function: cubic-bezier(0.52, 0.01, 0, 1);
+  }
+
+  /* Headline channels: section headlines carry the prism's light.
+     Each channel = color at 85% presence, a soft same-hue glow, and a
+     1px red/cyan chromatic fringe (the artifact's aberration, applied
+     to type). Use these INSTEAD of raw text-prism-* on headlines. */
+  .headline-red {
+    color: #ff2a2a;
+    opacity: 0.85;
+    text-shadow:
+      0 0 18px rgba(255, 42, 42, 0.5),
+      0 0 56px rgba(255, 42, 42, 0.24),
+      1px 1px 0 rgba(42, 127, 255, 0.22),
+      -1px -1px 0 rgba(42, 255, 42, 0.18);
+  }
+
+  .headline-cyan {
+    color: #2a7fff;
+    opacity: 0.85;
+    text-shadow:
+      0 0 18px rgba(42, 127, 255, 0.5),
+      0 0 56px rgba(42, 127, 255, 0.24),
+      1px 1px 0 rgba(255, 42, 42, 0.22),
+      -1px -1px 0 rgba(42, 255, 42, 0.18);
+  }
+
+  .headline-lime {
+    color: #2aff2a;
+    opacity: 0.85;
+    text-shadow:
+      0 0 18px rgba(42, 255, 42, 0.45),
+      0 0 56px rgba(42, 255, 42, 0.22),
+      1px 1px 0 rgba(255, 42, 42, 0.2),
+      -1px -1px 0 rgba(42, 127, 255, 0.2);
+  }
+
+  .headline-yellow {
+    color: #ffd52a;
+    opacity: 0.85;
+    text-shadow:
+      0 0 18px rgba(255, 213, 42, 0.5),
+      0 0 56px rgba(255, 213, 42, 0.24),
+      1px 1px 0 rgba(255, 42, 42, 0.2),
+      -1px -1px 0 rgba(42, 127, 255, 0.22);
+  }
 }
 
 @layer components {
-  /* Full-bleed page model: no max-width container, consistent
-     edge padding. The cream canvas is the structural tool. */
+  /* Single content column: max-width 1440px on the full-bleed void. */
   .section-container {
-    @apply w-full px-5 md:px-8 lg:px-12;
+    @apply mx-auto w-full max-w-[1440px] px-5 md:px-10 lg:px-16;
   }
 
+  /* ~108px section rhythm. */
   .section-padding {
-    @apply py-16 md:py-20 lg:py-28;
+    @apply py-16 md:py-24 lg:py-[108px];
   }
 
-  /* Legacy gradient-text hook: now the single rationed chromatic
-     hit per page - solid magenta, no gradient. */
+  /* Legacy gradient-text hook: bone white, no gradient. */
   .gradient-text {
-    @apply bg-none text-magenta-bloom;
+    @apply bg-none text-bone;
     -webkit-text-fill-color: currentColor;
   }
 
-  /* All interactive surfaces are black or transparent pills. */
+  /* The only bordered element class: outlined button, 1px bone,
+     5px radius, transparent fill. */
   .btn-primary {
-    @apply inline-flex items-center justify-center px-7 py-3.5 bg-ink-black text-bone-white font-body font-normal rounded-pill transition-opacity duration-300 hover:opacity-75;
+    @apply inline-flex items-center justify-center rounded-nav border border-bone bg-transparent px-[15px] py-[9px] font-body text-sm font-normal uppercase tracking-[0.02em] text-bone transition-colors duration-500 ease-prism hover:bg-bone hover:text-obsidian;
   }
 
+  /* Ghost secondary: letterforms alone, color shift on hover. */
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-7 py-3.5 border border-ash text-ink-black font-body font-normal rounded-pill transition-colors duration-300 hover:border-ink-black;
+    @apply inline-flex items-center justify-center bg-transparent px-[15px] py-[9px] font-body text-sm font-normal uppercase tracking-[0.02em] text-bone transition-colors duration-500 ease-prism hover:text-fog-blue;
   }
 }
 
 /* ------------------------------------------------------------------ */
-/* Legacy hero text-effect hooks - flattened to solid ink.             */
-/* The poster system has no shimmer, glow, or gradient borders.        */
+/* Legacy hero text-effect hooks - flattened to the monochrome system. */
 /* ------------------------------------------------------------------ */
 
 .hero-shimmer-white {
-  color: #000000;
+  color: #fffdf9;
 }
 
 .hero-shimmer-gradient {
-  color: #8a0467;
+  color: #fffdf9;
 }
 
 .hero-glow-line {
@@ -131,7 +194,7 @@ h1, h2, h3 {
 }
 
 .hero-border-gradient {
-  background: #000000;
+  background: #403f3f;
 }
 
 .hero-light-leak {
@@ -188,11 +251,22 @@ h1, h2, h3 {
   animation: hero-scroll-bob 2s ease-in-out infinite;
 }
 
+/* The prism artifact's slow chromatic shimmer - its only motion. */
+@keyframes prism-shimmer {
+  0%, 100% { filter: hue-rotate(0deg) saturate(1); }
+  50%      { filter: hue-rotate(12deg) saturate(1.15); }
+}
+
+.prism-shimmer {
+  animation: prism-shimmer 6.65s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-marquee-up,
   .hero-marquee-down,
   .hero-marquee-left,
-  .hero-scroll-bob {
+  .hero-scroll-bob,
+  .prism-shimmer {
     animation: none;
   }
 }

@@ -23,31 +23,31 @@ const staggerItem = {
 
 const moreArticles = [
   {
-    title: "Native Audio Changes Everything: The Year AI Learned to Score Its Own Footage",
-    category: "AI + PRODUCTION",
-    href: "/insights/ai-native-audio",
+    title: "One Brief, a Thousand Variants: Creative Ops in the Agent Era",
+    category: "AI + OPERATIONS",
+    href: "/insights/agentic-creative-ops",
   },
   {
-    title: "From 13 Days to 27 Minutes: Rebuilding the Content Pipeline Around AI Video",
-    category: "PRODUCTION STRATEGY",
-    href: "/insights/ai-content-pipeline",
+    title: "Taste Is the Bottleneck: Creative Direction in the Slop Flood",
+    category: "CRAFT + AI",
+    href: "/insights/taste-is-the-bottleneck",
   },
 ];
 
 const metaRow = [
   { label: "Words", value: "David Turk" },
-  { label: "Published", value: "June 2026" },
+  { label: "Published", value: "August 2026" },
   { label: "Reading Time", value: "8 min read" },
 ];
 
-export default function AiVideoStackArticle() {
+export default function PlayableBrandWorldsArticle() {
   return (
     <main className="relative min-h-screen bg-obsidian text-bone">
       <ArticleJsonLd
-        title="After Sora: Why the Best Brand Video Now Comes From a Stack, Not a Single Tool"
-        description="OpenAI shut Sora down in March 2026. The studios making the best brand video now run a stack of tools, not a single one. Here is how we orchestrate it."
-        datePublished="2026-06-01"
-        url="https://davidturkcreative.com/insights/ai-video-stack"
+        title="The Campaign You Can Walk Through: World Models Turn Brand Films Into Places"
+        description="Real-time world models like Genie 3 just turned brand worlds from something audiences watch into somewhere they can go. Here is what that means for campaigns."
+        datePublished="2026-08-01"
+        url="https://davidturkcreative.com/insights/playable-brand-worlds"
       />
 
       {/* Opener: sculptural type on the obsidian void */}
@@ -85,23 +85,23 @@ export default function AiVideoStackArticle() {
             variants={staggerItem}
             className="mt-16 text-[17px] font-normal uppercase tracking-[0.02em] text-fog-blue"
           >
-            AI + Video
+            AI + Worlds
           </m.p>
 
           <m.h1
             variants={staggerItem}
             className="mt-6 font-body text-h1 font-normal text-bone"
           >
-            After Sora: Why the Best Brand Video Now Comes From a Stack, Not a Single Tool
+            The Campaign You Can Walk Through: World Models Turn Brand Films Into Places
           </m.h1>
 
           <m.p
             variants={staggerItem}
             className="mt-8 max-w-2xl text-body-lg font-normal text-fog-blue"
           >
-            The era of betting your whole pipeline on one model is over. The studios shipping the
-            best brand video in 2026 run a stack, choosing the right tool per shot and keeping a
-            human creative director on the whole thing.
+            Real-time world models just changed the relationship between a brand world and its
+            audience. What used to be something people watched is becoming somewhere they can go,
+            and that shift will reshape how campaigns get made.
           </m.p>
 
           {/* Metadata rule row */}
@@ -132,21 +132,21 @@ export default function AiVideoStackArticle() {
             className="mb-16"
           >
             <h2 className="mb-6 text-heading-sm font-normal text-bone">
-              The Day the Flagship Went Dark
+              The Demo That Changed the Verb
             </h2>
             <p className="mb-6 text-body-sm font-normal text-bone">
-              In March 2026, OpenAI shut down Sora. Not paused, not rebranded. Shut down. The
-              numbers told the story plainly enough: roughly fifteen million dollars a day to run
-              against something like two point one million in lifetime revenue. That is not a
-              product, that is a marketing budget with a generate button. When it went dark, a lot
-              of brands woke up to the fact that they had built creative workflows on rented ground.
+              Google DeepMind&rsquo;s Genie 3 is the first real-time interactive world model that
+              actually earns the name. Type a description and it generates a photorealistic,
+              explorable world, running at 720p and 24 frames per second, staying coherent for
+              minutes of continuous interaction. You do not watch the output. You move through it,
+              and the world holds together as you go.
             </p>
             <p className="text-body-sm font-normal text-bone">
-              We were not surprised in our studio, because we had never gone all in on it. The
-              shutdown did not break our pipeline. It just confirmed the bet we had already made,
-              which is that no single model is worth your loyalty. The hype-funded era of AI video
-              ended that month. The sustainable-business era started, and it rewards a completely
-              different kind of discipline.
+              That is a different product than video generation, even when the frames look
+              similar. A video model answers the question of what a place looks like. A world
+              model answers the question of what it is like to be there. For anyone who builds
+              brand worlds for a living, that distinction is not academic. It is the whole job
+              changing shape.
             </p>
           </m.section>
 
@@ -158,117 +158,20 @@ export default function AiVideoStackArticle() {
             className="mb-16"
           >
             <h2 className="mb-6 text-heading-sm font-normal text-bone">
-              Single-Tool Loyalty Was Always a Liability
+              A Field, Not a Fluke
             </h2>
             <p className="mb-6 text-body-sm font-normal text-bone">
-              The instinct to standardize on one platform makes sense on paper. One login, one
-              prompt grammar, one set of habits to teach the team. But video models are not
-              utilities, they are opinionated instruments, and each one has a personality. Picking
-              a favorite and forcing every shot through it is like hiring one camera operator and
-              making them shoot the macro, the drone work, and the dialogue coverage too.
+              Genie 3 is the headline, but it is not alone. A wave of competing systems, Oasis,
+              GameNGen, Mineworld, Matrix-Game, is demonstrating real-time open environments built
+              on streaming diffusion, with physics that emerge from the model rather than from a
+              hand-coded engine. Matrix-Game 3.0 adds long-horizon memory, so the world remembers
+              what you did in it minutes ago.
             </p>
             <p className="text-body-sm font-normal text-bone">
-              When your one tool gets a price hike, a quality regression, or a shutdown notice, the
-              cost is not just a subscription. It is every project mid-flight, every brand look you
-              tuned to that model, every prompt library your team memorized. Concentration feels
-              efficient right up until the moment it becomes the single point of failure for your
-              entire output.
-            </p>
-          </m.section>
-
-          <m.blockquote
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="my-20 border-l border-ash-border pl-8"
-          >
-            <p className="text-heading-sm font-normal text-bone">
-              &ldquo;Betting your pipeline on one model is not a strategy. It is a hope that the
-              company behind it stays solvent, generous, and good. Sora was none of the three by
-              March.&rdquo;
-            </p>
-          </m.blockquote>
-
-          <m.section
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="mb-16"
-          >
-            <h2 className="mb-6 text-heading-sm font-normal text-bone">
-              Meet the Stack: One Job Per Tool
-            </h2>
-            <p className="mb-6 text-body-sm font-normal text-bone">
-              The agencies getting the best results in 2026 do not commit to a platform, they
-              assemble a stack. In our studio the roster is specific. Runway carries the hero work,
-              the shots that need real visual quality and tight creative control. Kling handles
-              volume and multi-shot sequences, the coverage you need a lot of and need to stay
-              consistent. Veo 3.1 owns native audio and the highest output specs, so it goes
-              wherever spec and sound matter most. Pika is our social-first sandbox, the place we
-              experiment fast and cheap before anything goes near a client deck.
-            </p>
-            <p className="mb-6 text-body-sm font-normal text-bone">
-              None of these is the best tool. Each is the best tool for a specific job. The skill
-              is not knowing how to drive one of them. It is knowing which one to reach for when the
-              shot calls for it, and how to make the seams disappear once the pieces come back
-              together. That is closer to editing and casting than to prompting.
-            </p>
-            <p className="text-body-sm font-normal text-bone">
-              The roster also stays liquid. When Sora went down, we did not rebuild a process, we
-              swapped a name out of a lineup we already trusted. A stack is antifragile by design.
-              Lose one tool and the work keeps moving, because the work was never about that tool.
-            </p>
-          </m.section>
-
-          <m.section
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="mb-16"
-          >
-            <h2 className="mb-6 text-heading-sm font-normal text-bone">
-              Orchestration Is the Actual Craft
-            </h2>
-            <p className="mb-6 text-body-sm font-normal text-bone">
-              Anyone can type a prompt. Almost nobody can hold a sixty-second brand spot together
-              across four different generators, each with its own color science, motion feel, and
-              frame logic. That is the work now. Matching grain and grade across tools, keeping a
-              character recognizable from shot to shot, deciding which beat earns the expensive hero
-              render and which one a fast pass will carry.
-            </p>
-            <p className="text-body-sm font-normal text-bone">
-              We treat the stack the way a post house treats a finishing suite. Each tool is a
-              station, the project moves through them in order, and a single sensibility governs the
-              whole route. The output of one becomes the input or the reference for the next. The
-              orchestration is the product. The individual clips are just raw stock.
-            </p>
-          </m.section>
-
-          <m.section
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="mb-16"
-          >
-            <h2 className="mb-6 text-heading-sm font-normal text-bone">
-              The Economics Nobody Can Ignore Anymore
-            </h2>
-            <p className="mb-6 text-body-sm font-normal text-bone">
-              This is no longer a fringe experiment. Around seventy-eight percent of marketing
-              teams now put AI-generated video into at least one campaign per quarter. It is in the
-              budget, in the calendar, and in the expectations. The brands asking whether to use it
-              have mostly lost the thread. The real question is how to use it well.
-            </p>
-            <p className="text-body-sm font-normal text-bone">
-              The cost curve is brutal in the best way. Production runs down roughly ninety-one
-              percent against traditional methods. A sixty-second marketing video that used to take
-              about thirteen days can be produced in something like twenty-seven minutes. When the
-              floor drops that far, the differentiator stops being who can make video and becomes
-              who can make video worth watching. Volume is free now. Taste is not.
+              When one lab shows a trick, it is a demo. When five labs converge on the same
+              capability within a year, it is a direction. Real-time world generation is now a
+              direction, and the pace looks a lot like AI video did two years before it landed in
+              every campaign budget.
             </p>
           </m.section>
 
@@ -280,8 +183,8 @@ export default function AiVideoStackArticle() {
             className="my-20 border-l border-ash-border pl-8"
           >
             <p className="text-heading-sm font-normal text-bone">
-              &ldquo;When anyone can generate a thousand clips before lunch, the scarce thing is not
-              the clip. It is the judgment to know which one is any good.&rdquo;
+              &ldquo;The render is no longer a film. It is a place. And a place asks something
+              different of the people who make it.&rdquo;
             </p>
           </m.blockquote>
 
@@ -293,20 +196,19 @@ export default function AiVideoStackArticle() {
             className="mb-16"
           >
             <h2 className="mb-6 text-heading-sm font-normal text-bone">
-              The Director Never Leaves the Chair
+              From Watching to Walking
             </h2>
             <p className="mb-6 text-body-sm font-normal text-bone">
-              A stack is not an autopilot. The reason our work holds together across four tools is
-              that one creative director is directing the whole pipeline, the same way you would
-              direct a crew. Someone has to own the look, reject the eighty percent that is merely
-              competent, and push for the version that actually says something. The models propose.
-              A human decides.
+              The shift underneath all of this is from passive generation to active interaction.
+              Every AI video tool to date produces something an audience receives. World models
+              produce something an audience inhabits. The frame stops being a window and becomes a
+              door, and the audience stops being a viewer and becomes a visitor.
             </p>
             <p className="text-body-sm font-normal text-bone">
-              This is where most teams go wrong. They buy the tools, automate the generation, and
-              wonder why the output feels like everyone else&rsquo;s output. It feels generic
-              because no one was directing it. The stack gives you leverage. It does not give you a
-              point of view. That part is still on us, and frankly it always will be.
+              That changes the creative brief in a fundamental way. A film has a beginning, an
+              edit, and a running time you control. A place has sightlines, paths, and moments
+              people find on their own. You stop authoring a sequence and start authoring a
+              space, and you have to trust the visitor to walk it in an order you did not choose.
             </p>
           </m.section>
 
@@ -318,21 +220,108 @@ export default function AiVideoStackArticle() {
             className="mb-16"
           >
             <h2 className="mb-6 text-heading-sm font-normal text-bone">
-              How to Build Your Own Stack
+              We Have Been Building Worlds Already
             </h2>
             <p className="mb-6 text-body-sm font-normal text-bone">
-              Start by refusing the question of which single tool is best, because it has no useful
-              answer. Map your real shot types instead. Hero moments, volume coverage, anything that
-              lives or dies on sound, fast social tests. Then assign each category to the tool that
-              wins it today, and stay ready to reassign when something better shows up next quarter.
+              Our studio already builds photoreal brand worlds in Unreal Engine 5 for campaigns.
+              We took SeaWorld into deep-sea cinematics and built cosmic worlds for New Era, and
+              in both cases the world was the asset: art-directed, lit, and staged like a set,
+              then shot for the film. World models are the next step on the same road. Today you
+              art-direct a world and shoot it. Soon the audience will walk through it themselves.
             </p>
             <p className="text-body-sm font-normal text-bone">
-              Keep your standards portable, not tool-specific. Document your brand look as a
-              reference you can carry into any generator, so swapping a model never means restarting
-              a project. And put a real director over the whole thing. The studios that win the next
-              few years will not be the ones with the fanciest single tool. They will be the ones
-              who orchestrate the best stack and bring the most taste to it. That is the bet we are
-              making in our studio, and Sora going dark only made us more sure of it.
+              The encouraging part is how much of the craft carries over. Art direction, lighting,
+              staging, restraint: a generated world without those is just square footage. The
+              teams who already know how to make a place feel like a brand will be the ones who
+              make these models sing, the same way cinematographers made early AI video watchable.
+            </p>
+          </m.section>
+
+          <m.section
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            className="mb-16"
+          >
+            <h2 className="mb-6 text-heading-sm font-normal text-bone">
+              What Brands Can Do With This Now
+            </h2>
+            <p className="mb-6 text-body-sm font-normal text-bone">
+              The near-term uses are more practical than the demos suggest. Explorable product
+              environments, where a customer wanders the world a product implies instead of
+              watching a thirty-second tour of it. Virtual location scouting in minutes instead of
+              weeks, generating and walking a dozen candidate settings before lunch. Live
+              backdrops for virtual production, generated to the brief rather than licensed from
+              a library.
+            </p>
+            <p className="text-body-sm font-normal text-bone">
+              And the one we find most interesting: campaign microsites where the hero film
+              becomes a hero place. The sixty-second spot introduces the world, and the site lets
+              people step into it. The film and the place share one art direction, one grade, one
+              feeling. That is a campaign architecture nobody could sell a year ago.
+            </p>
+          </m.section>
+
+          <m.blockquote
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            className="my-20 border-l border-ash-border pl-8"
+          >
+            <p className="text-heading-sm font-normal text-bone">
+              &ldquo;Brands spent a century buying attention inside other people&rsquo;s worlds.
+              The next decade is about building worlds worth visiting.&rdquo;
+            </p>
+          </m.blockquote>
+
+          <m.section
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            className="mb-16"
+          >
+            <h2 className="mb-6 text-heading-sm font-normal text-bone">
+              The Honest Limits
+            </h2>
+            <p className="mb-6 text-body-sm font-normal text-bone">
+              Now the caveats, because the demos hide them. Coherence holds for minutes, not
+              hours. Resolution sits at 720p, which is fine for a laptop window and wrong for a
+              stadium screen. And there is no persistent state across sessions yet: leave the
+              world and come back, and it will not remember you were there.
+            </p>
+            <p className="text-body-sm font-normal text-bone">
+              So we treat 2026 world models the way we treated early AI video: as pre-viz and
+              prototype tools while the fidelity climbs. They are already good enough to scout,
+              to pitch, and to prototype a place before you commit an Unreal build to it. They
+              are not yet good enough to be the flagship experience. That line will move, and
+              probably faster than anyone budgets for.
+            </p>
+          </m.section>
+
+          <m.section
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            className="mb-16"
+          >
+            <h2 className="mb-6 text-heading-sm font-normal text-bone">
+              Worlds Worth Visiting
+            </h2>
+            <p className="mb-6 text-body-sm font-normal text-bone">
+              Step back far enough and the pattern is old. Advertising has always been a tenant,
+              renting thirty seconds inside someone else&rsquo;s show, someone else&rsquo;s feed,
+              someone else&rsquo;s game. World models offer brands the landlord&rsquo;s side of
+              the deal for the first time at a cost that is not a theme park.
+            </p>
+            <p className="text-body-sm font-normal text-bone">
+              The bar, though, is brutal. Nobody has to visit your world, so it has to be worth
+              the trip. That is a craft problem, not a compute problem, and it is exactly the kind
+              of problem our studio likes. We spent the last few years learning to build places
+              people want to look at. The next few are about building places people want to stay.
             </p>
           </m.section>
         </div>

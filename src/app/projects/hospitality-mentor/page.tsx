@@ -3,20 +3,20 @@
 import Link from "@/components/TransitionLink";
 import Image from "next/image";
 import { m } from "framer-motion";
-import ProjectGifBand from "@/components/ProjectGifBand";
-import PinnedApproach from "@/components/PinnedApproach";
-import WorkFrame from "@/components/WorkFrame";
+import AutoplayVideo from "@/components/AutoplayVideo";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
 /* ------------------------------------------------------------------ */
+
+const prismEase = [0.52, 0.01, 0, 1] as const;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.5, ease: prismEase },
   },
 };
 
@@ -28,28 +28,11 @@ const staggerContainer = {
 };
 
 const staggerItem = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
-  },
-};
-
-const galleryContainer = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.14 },
-  },
-};
-
-const galleryItem = {
-  hidden: { opacity: 0, y: 50, scale: 0.96 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.5, ease: prismEase },
   },
 };
 
@@ -131,451 +114,250 @@ const tools = [
   },
 ];
 
+/* Editorial gallery plan: aspect + column width per still, captions below. */
+const galleryPlan = [
+  {
+    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/36260dbf-5542-4beb-8e58-8c29508d31f1_rw_3840.jpg?h=e4c0a60847058ccefbf7b4d46fd543e2",
+    alt: "Fontainebleau Miami Beach cinematic still 1",
+    discipline: "Cinematic Video Production",
+    aspect: "aspect-[21/9]",
+    width: "max-w-none",
+    sizes: "100vw",
+  },
+  {
+    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/5c769b0c-465e-4b2f-85c6-cc7b98778c49_rw_3840.jpg?h=cdb8228ade21e66f1affc343d0ef322d",
+    alt: "Fontainebleau Miami Beach cinematic still 2",
+    discipline: "Shot on Canon C70 in 4K",
+    aspect: "aspect-[16/10]",
+    width: "max-w-[980px]",
+    sizes: "(max-width: 768px) 100vw, 980px",
+  },
+  {
+    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/691f76f8-a588-432b-ab11-065ec59b0a0b_rw_3840.jpg?h=ae9e2554c37a6c9afe2f55d02d2792cc",
+    alt: "Fontainebleau Miami Beach cinematic still 3",
+    discipline: "Documentary-Style Direction",
+    aspect: "aspect-[3/4]",
+    width: "max-w-[560px]",
+    sizes: "(max-width: 768px) 100vw, 560px",
+  },
+  {
+    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/8c7398dd-4282-4ddc-873d-521dcee46d76_rw_3840.jpg?h=19fe9f7b33bc81864b8810735dc77586",
+    alt: "Fontainebleau Miami Beach cinematic still 4",
+    discipline: "Cinematic Video Production",
+    aspect: "aspect-[4/3]",
+    width: "max-w-[820px]",
+    sizes: "(max-width: 768px) 100vw, 820px",
+  },
+  {
+    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/a320897b-6515-41fc-b406-6c19c703b083_rw_3840.jpg?h=822959a337e879c542ed3a40a347e19c",
+    alt: "Fontainebleau Miami Beach cinematic still 5",
+    discipline: "Documentary-Style Direction",
+    aspect: "aspect-[4/3]",
+    width: "max-w-[820px]",
+    sizes: "(max-width: 768px) 100vw, 820px",
+  },
+  {
+    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/8564b4c1-291a-41ae-9a83-59135b9956ab_rw_3840.jpg?h=c2fccdb5a76147d85f2609b266b1fd82",
+    alt: "Fontainebleau Miami Beach cinematic still 6",
+    discipline: "Shot on Canon C70 in 4K",
+    aspect: "aspect-[4/3]",
+    width: "max-w-[820px]",
+    sizes: "(max-width: 768px) 100vw, 820px",
+  },
+  {
+    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/7c7fb05d-78bb-43a8-82c3-4a1a5cc7f5fb_rw_3840.jpg?h=a392d944f5e60d6642c9185cae426438",
+    alt: "Fontainebleau Miami Beach cinematic still 7",
+    discipline: "Documentary-Style Direction",
+    aspect: "aspect-[3/4]",
+    width: "max-w-[560px]",
+    sizes: "(max-width: 768px) 100vw, 560px",
+  },
+  {
+    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/e9c164e4-0e05-4ab3-a9f1-8b183a0b9677_rw_3840.jpg?h=3a6711cbe9f04febe3b9d25c311e64e4",
+    alt: "Fontainebleau Miami Beach cinematic still 8",
+    discipline: "Editorial in Premiere Pro",
+    aspect: "aspect-[16/10]",
+    width: "max-w-[980px]",
+    sizes: "(max-width: 768px) 100vw, 980px",
+  },
+  {
+    src: "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/026b1245-42eb-4ad3-a850-f245624bcd44_rw_3840.jpg?h=a300b5c31fec6bae40aa6a3d7874c3b9",
+    alt: "Fontainebleau Miami Beach cinematic closing still",
+    discipline: "Cinematic Video Production",
+    aspect: "aspect-[21/9]",
+    width: "max-w-none",
+    sizes: "100vw",
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  Local Prism Pieces                                                 */
+/* ------------------------------------------------------------------ */
+
+function PlateCaption({ label, value }: { label: string; value: string }) {
+  return (
+    <figcaption className="mt-4">
+      <span className="block text-caption uppercase tracking-[0.02em] font-normal text-fog-blue">
+        {label}
+      </span>
+      <span className="mt-1 block font-body text-body-sm font-normal text-bone">
+        {value}
+      </span>
+    </figcaption>
+  );
+}
+
+function Rule() {
+  return <div aria-hidden="true" className="border-t border-ash-border" />;
+}
+
+function SectionHeader({ eyebrow, title }: { eyebrow: string; title: string }) {
+  return (
+    <m.div
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-80px" }}
+      className="mb-14"
+    >
+      <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-4">
+        {eyebrow}
+      </p>
+      <h2 className="font-body text-heading-lg font-normal text-bone max-w-[900px]">
+        {title}
+      </h2>
+    </m.div>
+  );
+}
+
 /* ------------------------------------------------------------------ */
 /*  Component                                                          */
 /* ------------------------------------------------------------------ */
 
 export default function HospitalityMentorProject() {
   return (
-    <article className="bg-espresso min-h-screen" style={{ backgroundColor: "#fffef7" }}>
-      {/* ── Back Link ─────────────────────────────────────────────── */}
-      <m.div
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-        className="fixed top-24 left-6 md:left-8 lg:left-12 z-40"
-      >
-        <Link
-          href="/#projects"
-          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-clay-gray hover:text-pure-white transition-colors duration-300"
+    <article className="bg-obsidian min-h-screen">
+      {/* ── Opener ────────────────────────────────────────────────── */}
+      <header className="section-container pt-36 pb-16 md:pt-44 md:pb-24">
+        <m.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1, ease: prismEase }}
         >
-          <svg
-            className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
+          <Link
+            href="/#projects"
+            className="group inline-flex items-center gap-2 text-caption uppercase tracking-[0.02em] font-normal text-bone hover:text-fog-blue transition-colors duration-500 ease-prism"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
-            />
-          </svg>
-          Back to Work
-        </Link>
-      </m.div>
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
+              />
+            </svg>
+            Back to Work
+          </Link>
+        </m.div>
 
-      {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-end overflow-hidden">
-        {/* Hero image */}
-        <div className="absolute inset-0">
-          <Image
-            src={HERO_IMAGE}
-            alt="Inside the Fontainebleau Miami Beach"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-          />
-        </div>
+        <m.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2, ease: prismEase }}
+          className="mt-14 text-[17px] uppercase tracking-[0.02em] font-normal text-fog-blue"
+        >
+          The Hospitality Mentor / TV Episode
+        </m.p>
 
-        {/* Tonal wash for legibility */}
-        <div className="absolute inset-0 z-[1] bg-gradient-to-br from-espresso/50 via-espresso/20 to-espresso/10" />
-
-        {/* Noise overlay */}
-        <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIxIi8+PC9zdmc+')]" />
-
-        {/* Radial fade at bottom */}
-        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-espresso via-espresso/40 to-transparent" />
-
-        <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
-          <m.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <span className="inline-block font-mono text-xs tracking-widest uppercase text-bone-white/70 mb-4 px-3 py-1.5 rounded-full border border-black/10 backdrop-blur-sm bg-black/5">
-              The Hospitality Mentor / TV Episode
-            </span>
-          </m.div>
-
+        <div className="mt-6 overflow-hidden">
           <m.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-h1 font-normal mb-4"
+            initial={{ y: "110%" }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.7, delay: 0.25, ease: prismEase }}
+            className="font-body font-normal text-bone text-display-sm"
           >
-            THE FONTAINEBLEAU
+            The Fontainebleau
           </m.h1>
-
-          <m.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-2xl md:text-3xl lg:text-4xl font-normal text-bone-white/80 tracking-tight"
-          >
-            A Look Inside the Iconic Hotel
-          </m.p>
-
-          {/* Animated line */}
-          <m.div
-            initial={{ width: 0 }}
-            animate={{ width: "6rem" }}
-            transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="h-px bg-gradient-to-r from-sun-gold to-amber-400 mt-8"
-          />
         </div>
-      </section>
 
-      {/* ── GIF Band ──────────────────────────────────────────────── */}
-      <ProjectGifBand
-        eyebrow="In Motion"
-        heading="The Fontainebleau in Motion"
-        gifs={[
-          {
-            src: "/motion/hospitality.mp4",
-            poster: "/motion/hospitality.jpg",
-            label: "Fontainebleau",
-          },
-        ]}
-      />
-
-      {/* ── The Episode (Video) ───────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
-        <m.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mb-10"
+        <m.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5, ease: prismEase }}
+          className="mt-6 font-body text-body-lg font-normal text-bone"
         >
-          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
-            The Episode
-          </p>
-          <h2 className="font-headline text-h3 font-light">
-            A Look Inside the{" "}
-            <span className="gradient-text">Iconic Fontainebleau</span>
-          </h2>
-        </m.div>
+          A Look Inside the Iconic Hotel
+        </m.p>
 
-        <m.div
+        {/* Metadata row */}
+        <m.dl
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.65, ease: prismEase }}
+          className="mt-16 grid grid-cols-1 gap-y-8 sm:grid-cols-3 sm:gap-x-10 border-b border-ash-border pb-8"
+        >
+          <div>
+            <dt className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue">
+              Client
+            </dt>
+            <dd className="mt-1 font-body text-body-lg font-normal text-bone">
+              {overview.client}
+            </dd>
+          </div>
+          <div>
+            <dt className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue">
+              Category
+            </dt>
+            <dd className="mt-1 font-body text-body-lg font-normal text-bone">
+              {overview.industry}
+            </dd>
+          </div>
+          <div>
+            <dt className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue">
+              Format
+            </dt>
+            <dd className="mt-1 font-body text-body-lg font-normal text-bone">
+              {overview.timeline}
+            </dd>
+          </div>
+        </m.dl>
+      </header>
+
+      {/* ── Hero Media Card ───────────────────────────────────────── */}
+      <section className="section-container pb-24 md:pb-36">
+        <m.figure
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="relative w-full overflow-hidden rounded-none border border-black/10 bg-black aspect-video  "
+          className="w-full"
         >
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/7x0nV-e70Wc?rel=0&modestbranding=1"
-            className="absolute inset-0 h-full w-full"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            title="The Hospitality Mentor"
+          <div className="relative aspect-[21/9] overflow-hidden rounded-[15px] border border-ash-border">
+            <Image
+              src={HERO_IMAGE}
+              alt="Inside the Fontainebleau Miami Beach"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+          <PlateCaption
+            label={overview.client}
+            value="Inside the Fontainebleau Miami Beach"
           />
-        </m.div>
+        </m.figure>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+      <Rule />
 
-      {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-          {/* Sidebar */}
-          <m.aside
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="lg:col-span-4"
-          >
-            <div className="lg:sticky lg:top-28 space-y-8">
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-sun-gold mb-2">
-                  Client
-                </p>
-                <p className="font-headline text-lg font-light text-pure-white">
-                  {overview.client}
-                </p>
-              </div>
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-sun-gold mb-2">
-                  Category
-                </p>
-                <p className="font-body text-clay-gray">
-                  {overview.industry}
-                </p>
-              </div>
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-sun-gold mb-2">
-                  Format
-                </p>
-                <p className="font-body text-clay-gray">
-                  {overview.timeline}
-                </p>
-              </div>
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-sun-gold mb-2">
-                  Services
-                </p>
-                <ul className="space-y-2">
-                  {overview.services.map((service) => (
-                    <li
-                      key={service}
-                      className="flex items-center gap-3 font-body text-sm text-clay-gray"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-sun-gold flex-shrink-0" />
-                      {service}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </m.aside>
-
-          {/* Challenge */}
-          <m.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="lg:col-span-8"
-          >
-            <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
-              The Story
-            </p>
-            <h2 className="font-headline text-h3 font-light mb-8">
-              The people and places{" "}
-              <span className="text-bone-white">behind the magic</span>
-            </h2>
-            <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
-              <p>
-                We wanted to shine a light on the hard-working people and
-                beautiful places that make hospitality such a magical industry.
-                In this episode of The Hospitality Mentor, we feature the
-                Fontainebleau Miami Beach Hotel.
-              </p>
-              <p>
-                This hotel is a special place. It has been creating lifelong
-                memories for guests since it opened in 1954. Come on a journey
-                with The Hospitality Mentor as we learn about what makes this
-                hotel so magical.
-              </p>
-            </div>
-          </m.div>
-        </div>
-      </section>
-
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
-
-      {/* ── Our Approach (scroll-scrubbed pinned section) ────────── */}
-      <PinnedApproach
-        eyebrow="Our Approach"
-        heading="From the lobby to the final cut"
-        steps={approach.map(({ title, description }) => ({
-          title,
-          body: description,
-        }))}
-      />
-
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
-
-      {/* ── Campaign Gallery ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
-        <m.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mb-16"
-        >
-          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
-            Frames
-          </p>
-          <h2 className="font-headline text-h3 font-light">
-            Character & <span className="text-bone-white">Location Frames</span>
-          </h2>
-        </m.div>
-
-        <m.div
-          variants={galleryContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6"
-        >
-          {/* Row 1: Full-width hero */}
-          <m.div variants={galleryItem} className="md:col-span-12">
-            <WorkFrame
-              client={overview.client}
-              discipline="Cinematic Video Production"
-              index={1}
-              className="aspect-[21/9] rounded-none"
-            >
-              <Image
-                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/36260dbf-5542-4beb-8e58-8c29508d31f1_rw_3840.jpg?h=e4c0a60847058ccefbf7b4d46fd543e2"
-                alt="Fontainebleau Miami Beach cinematic still 1"
-                fill
-                sizes="100vw"
-                className="object-cover"
-              />
-            </WorkFrame>
-          </m.div>
-
-          {/* Row 2: Wide + tall */}
-          <m.div variants={galleryItem} className="md:col-span-7">
-            <WorkFrame
-              client={overview.client}
-              discipline="Shot on Canon C70 in 4K"
-              index={2}
-              className="aspect-[16/10] rounded-none"
-            >
-              <Image
-                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/5c769b0c-465e-4b2f-85c6-cc7b98778c49_rw_3840.jpg?h=cdb8228ade21e66f1affc343d0ef322d"
-                alt="Fontainebleau Miami Beach cinematic still 2"
-                fill
-                sizes="(max-width: 768px) 100vw, 58vw"
-                className="object-cover"
-              />
-            </WorkFrame>
-          </m.div>
-          <m.div variants={galleryItem} className="md:col-span-5">
-            <WorkFrame
-              client={overview.client}
-              discipline="Documentary-Style Direction"
-              index={3}
-              className="aspect-[3/4] rounded-none"
-            >
-              <Image
-                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/691f76f8-a588-432b-ab11-065ec59b0a0b_rw_3840.jpg?h=ae9e2554c37a6c9afe2f55d02d2792cc"
-                alt="Fontainebleau Miami Beach cinematic still 3"
-                fill
-                sizes="(max-width: 768px) 100vw, 42vw"
-                className="object-cover"
-              />
-            </WorkFrame>
-          </m.div>
-
-          {/* Row 3: Three equal columns */}
-          <m.div variants={galleryItem} className="md:col-span-4">
-            <WorkFrame
-              client={overview.client}
-              discipline="Cinematic Video Production"
-              index={4}
-              className="aspect-[4/3] rounded-none"
-            >
-              <Image
-                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/8c7398dd-4282-4ddc-873d-521dcee46d76_rw_3840.jpg?h=19fe9f7b33bc81864b8810735dc77586"
-                alt="Fontainebleau Miami Beach cinematic still 4"
-                fill
-                sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover"
-              />
-            </WorkFrame>
-          </m.div>
-          <m.div variants={galleryItem} className="md:col-span-4">
-            <WorkFrame
-              client={overview.client}
-              discipline="Documentary-Style Direction"
-              index={5}
-              className="aspect-[4/3] rounded-none"
-            >
-              <Image
-                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/a320897b-6515-41fc-b406-6c19c703b083_rw_3840.jpg?h=822959a337e879c542ed3a40a347e19c"
-                alt="Fontainebleau Miami Beach cinematic still 5"
-                fill
-                sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover"
-              />
-            </WorkFrame>
-          </m.div>
-          <m.div variants={galleryItem} className="md:col-span-4">
-            <WorkFrame
-              client={overview.client}
-              discipline="Shot on Canon C70 in 4K"
-              index={6}
-              className="aspect-[4/3] rounded-none"
-            >
-              <Image
-                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/8564b4c1-291a-41ae-9a83-59135b9956ab_rw_3840.jpg?h=c2fccdb5a76147d85f2609b266b1fd82"
-                alt="Fontainebleau Miami Beach cinematic still 6"
-                fill
-                sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover"
-              />
-            </WorkFrame>
-          </m.div>
-
-          {/* Row 4: Asymmetric pair */}
-          <m.div variants={galleryItem} className="md:col-span-5">
-            <WorkFrame
-              client={overview.client}
-              discipline="Documentary-Style Direction"
-              index={7}
-              className="aspect-[3/4] rounded-none"
-            >
-              <Image
-                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/7c7fb05d-78bb-43a8-82c3-4a1a5cc7f5fb_rw_3840.jpg?h=a392d944f5e60d6642c9185cae426438"
-                alt="Fontainebleau Miami Beach cinematic still 7"
-                fill
-                sizes="(max-width: 768px) 100vw, 42vw"
-                className="object-cover"
-              />
-            </WorkFrame>
-          </m.div>
-          <m.div variants={galleryItem} className="md:col-span-7">
-            <WorkFrame
-              client={overview.client}
-              discipline="Editorial in Premiere Pro"
-              index={8}
-              className="aspect-[16/10] rounded-none"
-            >
-              <Image
-                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/e9c164e4-0e05-4ab3-a9f1-8b183a0b9677_rw_3840.jpg?h=3a6711cbe9f04febe3b9d25c311e64e4"
-                alt="Fontainebleau Miami Beach cinematic still 8"
-                fill
-                sizes="(max-width: 768px) 100vw, 58vw"
-                className="object-cover"
-              />
-            </WorkFrame>
-          </m.div>
-
-          {/* Row 5: Full-width closing */}
-          <m.div variants={galleryItem} className="md:col-span-12">
-            <WorkFrame
-              client={overview.client}
-              discipline="Cinematic Video Production"
-              index={9}
-              className="aspect-[21/9] rounded-none"
-            >
-              <Image
-                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/026b1245-42eb-4ad3-a850-f245624bcd44_rw_3840.jpg?h=a300b5c31fec6bae40aa6a3d7874c3b9"
-                alt="Fontainebleau Miami Beach cinematic closing still"
-                fill
-                sizes="100vw"
-                className="object-cover"
-              />
-            </WorkFrame>
-          </m.div>
-        </m.div>
-      </section>
-
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
-
-      {/* ── The Result ───────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
+      {/* ── In Motion ─────────────────────────────────────────────── */}
+      <section className="section-container section-padding">
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -583,34 +365,232 @@ export default function HospitalityMentorProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-12"
         >
-          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
-            The Result
+          <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-4">
+            In Motion
           </p>
-          <h2 className="font-headline text-h3 font-light">
-            A magical hotel,{" "}
-            <span className="text-bone-white">captured in 4K</span>
+          <h2 className="font-body text-heading-sm font-normal text-bone">
+            The Fontainebleau in Motion
           </h2>
         </m.div>
 
-        {/* Lead result statement */}
+        <m.figure
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="w-full max-w-[980px]"
+        >
+          <div className="relative aspect-video overflow-hidden rounded-[15px] border border-ash-border">
+            <AutoplayVideo
+              src="/motion/hospitality.mp4"
+              poster="/motion/hospitality.jpg"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          </div>
+          <PlateCaption label="In Motion" value="Fontainebleau" />
+        </m.figure>
+      </section>
+
+      <Rule />
+
+      {/* ── The Episode ───────────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="mb-12"
+        >
+          <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-4">
+            The Episode
+          </p>
+          <h2 className="font-body text-heading-sm font-normal text-bone">
+            A Look Inside the Iconic Fontainebleau
+          </h2>
+        </m.div>
+
+        <m.figure
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="w-full"
+        >
+          <div className="relative w-full overflow-hidden rounded-[15px] border border-ash-border aspect-video">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/7x0nV-e70Wc?rel=0&modestbranding=1"
+              className="absolute inset-0 h-full w-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              title="The Hospitality Mentor"
+            />
+          </div>
+          <PlateCaption
+            label="The Episode"
+            value="The Hospitality Mentor at the Fontainebleau"
+          />
+        </m.figure>
+      </section>
+
+      <Rule />
+
+      {/* ── The Story ─────────────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <SectionHeader
+          eyebrow="The Story"
+          title="The people and places behind the magic"
+        />
+
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="max-w-[640px]"
+        >
+          <div className="text-body-sm font-normal space-y-7">
+            <p className="text-bone">
+              We wanted to shine a light on the hard-working people and
+              beautiful places that make hospitality such a magical industry.
+              In this episode of The Hospitality Mentor, we feature the
+              Fontainebleau Miami Beach Hotel.
+            </p>
+            <p className="text-fog-blue">
+              This hotel is a special place. It has been creating lifelong
+              memories for guests since it opened in 1954. Come on a journey
+              with The Hospitality Mentor as we learn about what makes this
+              hotel so magical.
+            </p>
+          </div>
+        </m.div>
+
+        {/* Services */}
+        <m.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="max-w-[640px] mt-20"
+        >
+          <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-2">
+            Services
+          </p>
+          <ul>
+            {overview.services.map((service) => (
+              <m.li
+                key={service}
+                variants={staggerItem}
+                className="border-b border-ash-border py-4 font-body text-body-lg font-normal text-bone"
+              >
+                {service}
+              </m.li>
+            ))}
+          </ul>
+        </m.div>
+      </section>
+
+      <Rule />
+
+      {/* ── Our Approach ──────────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <SectionHeader
+          eyebrow="Our Approach"
+          title="From the lobby to the final cut"
+        />
+
+        <div className="max-w-[900px]">
+          {approach.map((item) => (
+            <m.div
+              key={item.step}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+              className="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-6 md:gap-10 border-t border-ash-border py-12"
+            >
+              <span
+                aria-hidden="true"
+                className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue"
+              >
+                Step {item.step}
+              </span>
+              <div>
+                <h3 className="font-body text-heading-sm font-normal text-bone mb-4">
+                  {item.title}
+                </h3>
+                <p className="max-w-[640px] text-body-sm font-normal text-bone">
+                  {item.description}
+                </p>
+              </div>
+            </m.div>
+          ))}
+        </div>
+      </section>
+
+      <Rule />
+
+      {/* ── Character & Location Frames ───────────────────────────── */}
+      <section className="section-container section-padding">
+        <SectionHeader eyebrow="Frames" title="Character & Location Frames" />
+
+        <div className="space-y-20 md:space-y-28">
+          {galleryPlan.map((plate, i) => (
+            <m.figure
+              key={plate.src}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+              className={`w-full ${plate.width}`}
+            >
+              <div
+                className={`relative ${plate.aspect} overflow-hidden rounded-[15px] border border-ash-border`}
+              >
+                <Image
+                  src={plate.src}
+                  alt={plate.alt}
+                  fill
+                  className="object-cover"
+                  sizes={plate.sizes}
+                />
+              </div>
+              <PlateCaption
+                label={`${overview.client} / ${String(i + 1).padStart(2, "0")}`}
+                value={plate.discipline}
+              />
+            </m.figure>
+          ))}
+        </div>
+      </section>
+
+      <Rule />
+
+      {/* ── The Result ────────────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <SectionHeader
+          eyebrow="The Result"
+          title="A magical hotel, captured in 4K"
+        />
+
         <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="max-w-4xl"
+          className="max-w-[720px]"
         >
-          <p className="font-display text-h2 font-normal text-pure-white mb-10">
+          <p className="font-body text-heading-sm font-normal text-bone mb-12">
             {results[0]}
           </p>
 
           {/* TODO(David): add quantified result or client quote here */}
 
-          <ul className="space-y-4 border-l border-sun-gold/30 pl-6">
+          <ul className="max-w-[640px]">
             {results.slice(1).map((result) => (
               <li
                 key={result}
-                className="font-body text-clay-gray text-base md:text-lg leading-relaxed"
+                className="border-t border-ash-border py-5 text-body-sm font-normal text-bone"
               >
                 {result}
               </li>
@@ -619,45 +599,32 @@ export default function HospitalityMentorProject() {
         </m.div>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+      <Rule />
 
       {/* ── Tools & Technology ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
-        <m.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mb-12"
-        >
-          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
-            Tools & Technology
-          </p>
-          <h2 className="font-headline text-h3 font-light">
-            The <span className="text-bone-white">production stack</span>
-          </h2>
-        </m.div>
+      <section className="section-container section-padding">
+        <SectionHeader
+          eyebrow="Tools & Technology"
+          title="The production stack"
+        />
 
         <m.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4"
+          className="max-w-[720px]"
         >
           {tools.map((tool) => (
             <m.div
               key={tool.name}
               variants={staggerItem}
-              className="group p-6 rounded-none border border-black/5 bg-black/[0.02] hover:border-sun-gold/20 hover:bg-sun-gold/[0.03] transition-all duration-500"
+              className="border-t border-ash-border py-8"
             >
-              <h3 className="font-headline text-lg font-light text-pure-white mb-2 group-hover:text-sun-gold transition-colors duration-300">
+              <h3 className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-2">
                 {tool.name}
               </h3>
-              <p className="font-body text-sm text-clay-gray leading-relaxed">
+              <p className="max-w-[640px] text-body-sm font-normal text-bone">
                 {tool.description}
               </p>
             </m.div>
@@ -665,29 +632,25 @@ export default function HospitalityMentorProject() {
         </m.div>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+      <Rule />
 
-      {/* ── CTA ──────────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
+      {/* ── CTA ───────────────────────────────────────────────────── */}
+      <section className="section-container section-padding">
         <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="text-center max-w-2xl mx-auto"
+          className="max-w-[720px]"
         >
-          <h2 className="font-headline text-h2 font-light mb-6">
-            Ready to tell{" "}
-            <span className="text-bone-white">your story cinematically</span>?
+          <h2 className="font-body text-heading-lg font-normal text-bone mb-6">
+            Ready to tell your story cinematically?
           </h2>
-          <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed mb-10">
+          <p className="text-body-sm font-normal text-fog-blue mb-10 max-w-[640px]">
             Let&rsquo;s create premium video content that captures the soul of
             your brand and commands attention.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <Link href="/#contact" className="btn-primary">
               Book a Call
             </Link>
@@ -697,11 +660,11 @@ export default function HospitalityMentorProject() {
             >
               View Next Project
               <svg
-                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                className="w-4 h-4"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                strokeWidth={2}
+                strokeWidth={1.5}
               >
                 <path
                   strokeLinecap="round"

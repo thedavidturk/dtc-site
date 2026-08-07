@@ -15,9 +15,9 @@ interface CinematicIntroProps {
 // ---------------------------------------------------------------------------
 // Constants
 // ---------------------------------------------------------------------------
-const DEEP_SPACE = "#fffef7";
-const ELECTRIC_INDIGO = "#8a0467";
-const WARM_CORAL = "#03624c";
+const DEEP_SPACE = "#101010";
+const ELECTRIC_INDIGO = "#fffdf9";
+const WARM_CORAL = "#495764";
 
 const PARTICLE_COUNT = 300;
 const AMBIENT_COUNT = 120;

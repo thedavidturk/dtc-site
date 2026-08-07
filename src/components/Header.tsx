@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "./TransitionLink";
 import { m, AnimatePresence } from "framer-motion";
 
@@ -10,76 +10,61 @@ const navLinks = [
   { label: "Process", href: "#process" },
   { label: "About", href: "#about" },
   { label: "Perspectives", href: "#insights" },
-  { label: "Contact", href: "#contact" },
 ];
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 bg-bone-white transition-[border-color] duration-300 border-b ${
-        scrolled ? "border-black/10" : "border-transparent"
-      }`}
-    >
-      <div className="section-container flex items-center justify-between h-16 md:h-20">
-        {/* Lockup: circular mark + two-line eyebrow */}
-        <Link href="/" className="flex items-center gap-4">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-ink-black text-bone-white text-[10px] font-normal tracking-tight">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-obsidian/90">
+      {/* Thin top bar: wordmark left, ghost links right, outlined Contact terminating the row */}
+      <div className="section-container flex items-center h-16 md:h-20">
+        <Link href="/" className="shrink-0">
+          <span className="font-body text-[20px] font-normal leading-none tracking-[-0.01em] text-bone">
             DT+C
-          </span>
-          <span className="hidden sm:block text-[10px] leading-[1.5] uppercase tracking-[0.08em] text-ink-black">
-            Future-proof creative
-            <br />
-            for forward-thinking brands
           </span>
         </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-8">
+        {/* Desktop ghost links: right-aligned row */}
+        <nav
+          className="hidden lg:flex flex-1 items-center justify-end gap-10 px-10"
+          aria-label="Primary"
+        >
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="text-caption uppercase tracking-[0.08em] text-graphite hover:text-ink-black transition-colors duration-200"
+              className="font-body text-sm font-normal uppercase tracking-[0.02em] text-bone transition-colors duration-500 ease-prism hover:text-fog-blue"
             >
               {link.label}
             </a>
           ))}
-          <a
-            href="/#contact"
-            className="inline-flex items-center justify-center rounded-pill bg-ink-black px-6 py-2.5 text-sm font-normal text-bone-white transition-opacity duration-300 hover:opacity-75"
-          >
-            Book a Call
-          </a>
         </nav>
+
+        <a href="/#contact" className="btn-primary hidden lg:inline-flex shrink-0">
+          Contact
+        </a>
 
         {/* Mobile Toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="lg:hidden flex flex-col gap-1.5 p-2"
+          className="lg:hidden ml-auto flex flex-col gap-1.5 p-2"
           aria-label="Toggle menu"
         >
           <m.span
             animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-            className="block w-6 h-0.5 bg-ink-black"
+            transition={{ duration: 0.5, ease: [0.52, 0.01, 0, 1] }}
+            className="block w-6 h-px bg-bone"
           />
           <m.span
             animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
-            className="block w-6 h-0.5 bg-ink-black"
+            transition={{ duration: 0.5, ease: [0.52, 0.01, 0, 1] }}
+            className="block w-6 h-px bg-bone"
           />
           <m.span
             animate={mobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-            className="block w-6 h-0.5 bg-ink-black"
+            transition={{ duration: 0.5, ease: [0.52, 0.01, 0, 1] }}
+            className="block w-6 h-px bg-bone"
           />
         </button>
       </div>
@@ -91,16 +76,19 @@ export default function Header() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden overflow-hidden bg-bone-white border-b border-black/10"
+            transition={{ duration: 0.5, ease: [0.52, 0.01, 0, 1] }}
+            className="lg:hidden overflow-hidden bg-obsidian border-t border-ash-border"
+            aria-label="Primary mobile"
           >
-            <div className="section-container py-6 flex flex-col gap-4">
-              {navLinks.map((link) => (
+            <div className="section-container py-8 flex flex-col">
+              {navLinks.map((link, i) => (
                 <a
                   key={link.label}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="text-lg font-light text-ink-black hover:text-graphite transition-colors"
+                  className={`py-4 font-body text-body-sm font-normal uppercase tracking-[0.02em] text-bone transition-colors duration-500 ease-prism hover:text-fog-blue ${
+                    i > 0 ? "border-t border-ash-border" : ""
+                  }`}
                 >
                   {link.label}
                 </a>
@@ -108,10 +96,15 @@ export default function Header() {
               <a
                 href="/#contact"
                 onClick={() => setMobileOpen(false)}
-                className="btn-primary text-center mt-2"
+                className="btn-primary text-center mt-6"
               >
-                Book a Call
+                Contact
               </a>
+              <p className="mt-8 text-caption font-normal uppercase tracking-[0.02em] text-fog-blue">
+                Future-proof creative
+                <br />
+                for forward-thinking brands
+              </p>
             </div>
           </m.nav>
         )}

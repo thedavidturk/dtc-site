@@ -9,77 +9,94 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Creative Giants palette - warm paper canvas, ink type,
-        // rationed chromatic accents.
-        'bone-white': '#fffef7',
-        'ink-black': '#000000',
-        'graphite': '#666666',
-        'ash': '#aaaaaa',
-        'charcoal-scale': '#4d4c4a',
-        'magenta-bloom': '#8a0467',
-        'forest-teal': '#03624c',
-        'powder-blue': '#a5c8eb',
-        'candy-pink': '#ffacea',
-        'mint-wash': '#a5ebd6',
-        'navy-ink': '#101731',
-        'signal-yellow': '#ffd001',
-        // Broadside inversion surfaces (Henry layer): warm near-black
-        // ink for full-bleed inverted bands, sepia for secondary text
-        // on paper.
-        'warm-ink': '#2a2722',
-        'sepia': '#3e3b36',
-        // Legacy token names remapped into the new system so every
-        // existing page inherits the light editorial palette.
-        // espresso was the dark base -> now the paper canvas;
-        // cream/pure-white were text-on-dark -> now ink.
-        'espresso': '#fffef7',
-        'terracotta': '#8a0467',
-        'sun-gold': '#03624c',
-        'clay-gray': '#666666',
-        'cream': '#000000',
-        'pure-white': '#000000',
+        // Prism system - obsidian void, bone-white type, fog-blue
+        // metadata, and RGB prism channels that exist ONLY inside the
+        // prism artifact.
+        'obsidian': '#101010',
+        'bone': '#fffdf9',
+        'graphite-veil': '#495764',
+        'ash-border': '#403f3f',
+        'fog-blue': '#6f879c',
+        'prism-red': '#ff2a2a',
+        'prism-cyan': '#2a7fff',
+        'prism-lime': '#2aff2a',
+        'prism-yellow': '#ffd52a',
+        // Legacy names remapped by ROLE so unconverted code inherits
+        // the dark system: bone-white was the page canvas (now
+        // obsidian), ink-black was body text (now bone), voltage was
+        // the accent (now bone: there is no UI accent).
+        'bone-white': '#101010',
+        'ink-black': '#fffdf9',
+        'graphite': '#6f879c',
+        'ash': '#403f3f',
+        'charcoal-scale': '#495764',
+        'voltage': '#fffdf9',
+        'voltage-tint': '#6f879c',
+        'voltage-deep': '#495764',
+        'magenta-bloom': '#fffdf9',
+        'forest-teal': '#495764',
+        'powder-blue': '#6f879c',
+        'candy-pink': '#6f879c',
+        'mint-wash': '#6f879c',
+        'navy-ink': '#495764',
+        'signal-yellow': '#fffdf9',
+        'warm-ink': '#101010',
+        'sepia': '#6f879c',
+        'espresso': '#101010',
+        'terracotta': '#fffdf9',
+        'sun-gold': '#fffdf9',
+        'clay-gray': '#6f879c',
+        'cream': '#fffdf9',
+        'pure-white': '#fffdf9',
       },
       fontFamily: {
-        // Single-family system: Switzer carries display, headline,
-        // body, and meta. Weight does the differentiation (300/400).
+        // Exclusive typeface: Switzer (Neue Montreal stand-in) across
+        // every role. Serif slots resolve to the same grotesk so no
+        // straggler renders off-system.
         headline: ['var(--font-switzer)', 'sans-serif'],
-        // Display headlines are serif broadside type (Henry layer);
-        // Switzer stays on headline/body/mono for UI and prose.
-        display: ['var(--font-fraunces)', 'Georgia', 'serif'],
+        display: ['var(--font-switzer)', 'sans-serif'],
         body: ['var(--font-switzer)', 'sans-serif'],
         mono: ['var(--font-switzer)', 'sans-serif'],
-        // Henry layer: editorial serif for broadside headlines,
-        // condensed stamp for section mastheads.
-        serif: ['var(--font-fraunces)', 'Georgia', 'serif'],
-        stamp: ['var(--font-antonio)', 'var(--font-switzer)', 'sans-serif'],
+        serif: ['var(--font-switzer)', 'sans-serif'],
+        stamp: ['var(--font-switzer)', 'sans-serif'],
       },
       fontSize: {
-        // Fluid scale tuned to the poster system: 84px display,
-        // 54px heading, 34px heading-sm at desktop.
-        display: ['clamp(3rem, 1.9rem + 5.5vw, 5.25rem)', { lineHeight: '1', letterSpacing: '-0.04em' }],
-        // Serif broadside headline: bigger than the sans poster scale,
-        // gentle tracking (serifs carve their own edges).
-        'display-serif': ['clamp(3.25rem, 2rem + 6.5vw, 7.75rem)', { lineHeight: '0.95', letterSpacing: '-0.02em' }],
-        // Edge-to-edge stamped masthead. Scales with viewport so the
-        // slab always spans the page.
-        'display-xl': ['clamp(4.5rem, 15.5vw, 19rem)', { lineHeight: '0.78', letterSpacing: '-0.01em' }],
-        h1: ['clamp(2.5rem, 1.9rem + 3vw, 4.25rem)', { lineHeight: '1', letterSpacing: '-0.027em' }],
-        h2: ['clamp(2rem, 1.6rem + 1.9vw, 3.375rem)', { lineHeight: '1.05', letterSpacing: '-0.023em' }],
-        h3: ['clamp(1.625rem, 1.4rem + 1vw, 2.125rem)', { lineHeight: '1.25', letterSpacing: '-0.02em' }],
-        h4: ['clamp(1.125rem, 1.05rem + 0.4vw, 1.25rem)', { lineHeight: '1.4', letterSpacing: '-0.018em' }],
-        'body-lg': ['clamp(1.0625rem, 1rem + 0.3vw, 1.125rem)', { lineHeight: '1.5', letterSpacing: '-0.018em' }],
-        body: ['1rem', { lineHeight: '1.4', letterSpacing: '-0.018em' }],
-        caption: ['0.75rem', { lineHeight: '1.43', letterSpacing: '-0.018em' }],
+        // Sculptural scale: hierarchy from size alone, weight 400
+        // everywhere. Display sizes hold lh 1.00-1.01, -0.02em.
+        display: ['clamp(3.5rem, 2rem + 7.5vw, 8.5rem)', { lineHeight: '1', letterSpacing: '-0.02em' }],
+        'display-serif': ['clamp(3.5rem, 2rem + 7.5vw, 8.5rem)', { lineHeight: '1', letterSpacing: '-0.02em' }],
+        'display-sm': ['clamp(3rem, 1.8rem + 5.5vw, 6.5625rem)', { lineHeight: '1.01', letterSpacing: '-0.02em' }],
+        'display-xl': ['clamp(4rem, 12vw, 12rem)', { lineHeight: '1', letterSpacing: '-0.02em' }],
+        h1: ['clamp(2.75rem, 2rem + 3.2vw, 6.5625rem)', { lineHeight: '1.01', letterSpacing: '-0.02em' }],
+        h2: ['clamp(2.25rem, 1.8rem + 1.8vw, 3.5rem)', { lineHeight: '1.13', letterSpacing: '-0.01em' }],
+        h3: ['clamp(1.75rem, 1.55rem + 0.8vw, 2.0625rem)', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+        h4: ['1.375rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+        'heading-lg': ['clamp(2.25rem, 1.8rem + 1.8vw, 3.5rem)', { lineHeight: '1.13', letterSpacing: '-0.01em' }],
+        'heading-sm': ['clamp(1.75rem, 1.55rem + 0.8vw, 2.0625rem)', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+        'body-lg': ['1.375rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+        body: ['1.25rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+        'body-sm': ['1.125rem', { lineHeight: '1.5', letterSpacing: '0.01em' }],
+        caption: ['0.9375rem', { lineHeight: '1.2', letterSpacing: '0.01em' }],
       },
       borderRadius: {
-        // Interactive elements only - cards and images stay sharp.
-        pill: '1440px',
+        // nav/buttons 5px, cards 15px, tags pill. Most of the UI is
+        // square-edged; the prism supplies the softness.
+        nav: '5px',
+        card: '15px',
+        pill: '9999px',
+      },
+      transitionTimingFunction: {
+        // The signature curve: slow start, decisive stop, like optical
+        // focus pulling.
+        prism: 'cubic-bezier(0.52, 0.01, 0, 1)',
+      },
+      maxWidth: {
+        page: '1440px',
       },
       backgroundImage: {
-        // Legacy gradient hooks flattened: all interactive surfaces
-        // are black; the charcoal-to-black track is the one dark band.
-        'gradient-cta': 'linear-gradient(#000000, #000000)',
-        'gradient-dark': 'linear-gradient(180deg, #4d4c4a 0%, #000000 100%)',
+        // Flat system: legacy gradient hooks resolve to solid ink.
+        'gradient-cta': 'linear-gradient(#101010, #101010)',
+        'gradient-dark': 'linear-gradient(#101010, #101010)',
       },
     },
   },

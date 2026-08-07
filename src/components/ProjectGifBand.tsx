@@ -46,7 +46,7 @@ export default function ProjectGifBand({
   return (
     <section
       className="section-container py-16 md:py-24"
-      style={{ backgroundColor: "#fffef7" }}
+      style={{ backgroundColor: "#101010" }}
     >
       <m.div
         variants={fadeUp}

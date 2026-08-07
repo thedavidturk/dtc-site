@@ -41,7 +41,7 @@ export default async function OgImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          backgroundColor: "#171009",
+          backgroundColor: "#000000",
           position: "relative",
           overflow: "hidden",
           fontFamily: "sans-serif",
@@ -55,7 +55,7 @@ export default async function OgImage() {
             left: 0,
             right: 0,
             height: 8,
-            background: "linear-gradient(to right, #D96C47, #E9B368)",
+            background: "#fffdf9",
           }}
         />
 
@@ -109,7 +109,7 @@ export default async function OgImage() {
             style={{
               display: "flex",
               fontSize: 18,
-              color: "#B5A99A",
+              color: "#6f879c",
               letterSpacing: "0.28em",
               textTransform: "uppercase",
             }}
@@ -146,7 +146,7 @@ export default async function OgImage() {
               lineHeight: 1.04,
               letterSpacing: "-0.02em",
               marginTop: 4,
-              background: "linear-gradient(to right, #E28E6A, #E9B368)",
+              background: "linear-gradient(to right, #fffdf9, #6f879c)",
               backgroundClip: "text",
               color: "transparent",
             }}
@@ -157,7 +157,7 @@ export default async function OgImage() {
             style={{
               display: "flex",
               fontSize: 24,
-              color: "#B5A99A",
+              color: "#6f879c",
               marginTop: 22,
             }}
           >

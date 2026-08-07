@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Fraunces, Antonio } from "next/font/google";
 import dynamic from "next/dynamic";
 import Script from "next/script";
 import { ViewTransitions } from "next-view-transitions";
@@ -25,34 +24,15 @@ const Analytics = dynamic(() => import("@/components/Analytics"), {
   ssr: false,
 });
 
-// Single-family system: Switzer 300 carries all display work,
-// 400 carries body and UI. Self-hosted from Fontshare.
+// Exclusive typeface: Switzer (Neue Montreal stand-in) carries every
+// role at weight 400. Authority comes from scale, not weight.
+// Self-hosted from Fontshare.
 const switzer = localFont({
   src: [
     { path: "../fonts/Switzer-Light.woff2", weight: "300", style: "normal" },
     { path: "../fonts/Switzer-Regular.woff2", weight: "400", style: "normal" },
   ],
   variable: "--font-switzer",
-  display: "swap",
-});
-
-// Editorial display serif (Louize Display substitute): roman + italic
-// mixed inside broadside headlines. Optical sizing keeps the large
-// cuts high-contrast.
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-  axes: ["opsz"],
-  variable: "--font-fraunces",
-  display: "swap",
-});
-
-// Ultra-condensed stamp face (Manuka substitute) for edge-to-edge
-// section mastheads. One weight, always uppercase.
-const antonio = Antonio({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-antonio",
   display: "swap",
 });
 
@@ -99,7 +79,7 @@ export default function RootLayout({
 }>) {
   return (
     <ViewTransitions>
-    <html lang="en" style={{ backgroundColor: "#fffef7" }}>
+    <html lang="en" style={{ backgroundColor: "#101010" }}>
       <head>
         <JsonLd
           data={{
@@ -114,7 +94,7 @@ export default function RootLayout({
         />
         {/* Critical CSS - prevents flash before Tailwind loads */}
         {/* Sections are excluded so full-bleed ink bands can invert */}
-        <style dangerouslySetInnerHTML={{ __html: `html,body,main,footer{background-color:#fffef7!important}` }} />
+        <style dangerouslySetInnerHTML={{ __html: `html{background-color:#101010!important}body{background:transparent!important}` }} />
         {/* Google Analytics */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
@@ -130,8 +110,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body
-        className={`${switzer.variable} ${fraunces.variable} ${antonio.variable} font-body antialiased bg-bone-white text-ink-black`}
-        style={{ backgroundColor: "#fffef7" }}
+        className={`${switzer.variable} font-body antialiased text-bone`}
       >
         <MotionProvider>
           <SmoothScroll />
@@ -140,7 +119,7 @@ export default function RootLayout({
             <ScrollProgressTrail />
           </DesktopFX>
           <Header />
-          <main style={{ backgroundColor: "#fffef7" }}>{children}</main>
+          <main>{children}</main>
           <Footer />
         </MotionProvider>
       </body>

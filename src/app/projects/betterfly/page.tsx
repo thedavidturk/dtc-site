@@ -3,37 +3,20 @@
 import Link from "@/components/TransitionLink";
 import Image from "next/image";
 import { m } from "framer-motion";
-import ProjectGifBand from "@/components/ProjectGifBand";
-import PinnedApproach from "@/components/PinnedApproach";
-import WorkFrame from "@/components/WorkFrame";
 import AutoplayVideo from "@/components/AutoplayVideo";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
 /* ------------------------------------------------------------------ */
 
+const PRISM_EASE = [0.52, 0.01, 0, 1] as const;
+
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
-  },
-};
-
-const staggerContainer = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.1 },
-  },
-};
-
-const staggerItem = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.5, ease: PRISM_EASE },
   },
 };
 
@@ -45,12 +28,11 @@ const galleryContainer = {
 };
 
 const galleryItem = {
-  hidden: { opacity: 0, y: 50, scale: 0.96 },
+  hidden: { opacity: 0, y: 50 },
   visible: {
     opacity: 1,
     y: 0,
-    scale: 1,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.5, ease: PRISM_EASE },
   },
 };
 
@@ -136,237 +118,325 @@ const tools = [
 ];
 
 /* ------------------------------------------------------------------ */
+/*  Local pieces                                                       */
+/* ------------------------------------------------------------------ */
+
+/** Full-width hairline rule separating bands. */
+function Rule() {
+  return (
+    <div className="section-container">
+      <div className="border-t border-ash-border" />
+    </div>
+  );
+}
+
+/** Media card on the void: 15px radius, caption below in bone + fog-blue. */
+function Plate({
+  label,
+  value,
+  aspect,
+  children,
+}: {
+  label: string;
+  value: string;
+  aspect?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <figure>
+      <div
+        className={`relative overflow-hidden rounded-[15px] border border-ash-border ${
+          aspect ?? ""
+        }`}
+      >
+        {children}
+      </div>
+      <figcaption className="mt-4 flex flex-wrap items-baseline gap-x-4 gap-y-1">
+        <span className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue">
+          {label}
+        </span>
+        <span className="font-body text-caption font-normal text-bone">
+          {value}
+        </span>
+      </figcaption>
+    </figure>
+  );
+}
+
+/* ------------------------------------------------------------------ */
 /*  Component                                                          */
 /* ------------------------------------------------------------------ */
 
 export default function BetterflyProject() {
   return (
-    <article className="bg-espresso min-h-screen" style={{ backgroundColor: "#fffef7" }}>
-      {/* ── Back Link ─────────────────────────────────────────────── */}
-      <m.div
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-        className="fixed top-24 left-6 md:left-8 lg:left-12 z-40"
-      >
-        <Link
-          href="/#projects"
-          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-clay-gray hover:text-pure-white transition-colors duration-300"
+    <article className="bg-obsidian min-h-screen">
+      {/* ── Opener ────────────────────────────────────────────────── */}
+      <header className="section-container pt-28 md:pt-36 pb-16 md:pb-20">
+        <m.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1, ease: PRISM_EASE }}
         >
-          <svg
-            className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
+          <Link
+            href="/#projects"
+            className="group inline-flex items-center gap-2 text-caption font-normal uppercase tracking-[0.02em] text-bone transition-colors duration-500 ease-prism hover:text-fog-blue"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
+            <svg
+              className="w-4 h-4 transition-transform duration-500 ease-prism group-hover:-translate-x-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
+              />
+            </svg>
+            Back to Work
+          </Link>
+        </m.div>
+
+        <m.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2, ease: PRISM_EASE }}
+          className="mt-14 text-[17px] font-normal uppercase tracking-[0.02em] text-fog-blue"
+        >
+          VFX + FOOH Campaign
+        </m.p>
+
+        <m.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3, ease: PRISM_EASE }}
+          className="mt-6 font-headline text-display-sm font-normal text-bone"
+        >
+          Betterfly
+        </m.h1>
+
+        <m.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.45, ease: PRISM_EASE }}
+          className="mt-6 font-body text-body-lg font-normal text-bone max-w-[640px]"
+        >
+          #RecursosMasHumanos FOOH Campaign
+        </m.p>
+
+        {/* Metadata row */}
+        <m.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6, ease: PRISM_EASE }}
+          className="mt-16 border-t border-ash-border pt-10"
+        >
+          <div className="flex flex-col md:flex-row md:items-start gap-10 md:gap-16 lg:gap-24">
+            <div>
+              <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-2">
+                Client
+              </p>
+              <p className="font-body text-body-sm font-normal text-bone">
+                {overview.client}
+              </p>
+            </div>
+            <div>
+              <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-2">
+                Industry
+              </p>
+              <p className="font-body text-body-sm font-normal text-bone">
+                {overview.industry}
+              </p>
+            </div>
+            <div>
+              <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-2">
+                Timeline
+              </p>
+              <p className="font-body text-body-sm font-normal text-bone">
+                {overview.timeline}
+              </p>
+            </div>
+            <div>
+              <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-2">
+                Services
+              </p>
+              <ul className="space-y-1">
+                {overview.services.map((service) => (
+                  <li
+                    key={service}
+                    className="font-body text-body-sm font-normal text-bone"
+                  >
+                    {service}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </m.div>
+      </header>
+
+      {/* ── Hero Media ────────────────────────────────────────────── */}
+      <section className="section-container pb-20 md:pb-28">
+        <m.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.7, ease: PRISM_EASE }}
+          className="mx-auto max-w-[1200px]"
+        >
+          <Plate
+            label="FOOH (Fake Out-of-Home)"
+            value="Betterfly FOOH campaign VFX scene"
+            aspect="aspect-[16/9]"
+          >
+            <AutoplayVideo
+              src="/motion/betterfly-fooh.mp4"
+              poster="/motion/betterfly-fooh.jpg"
+              aria-label="Betterfly FOOH campaign VFX scene"
+              className="absolute inset-0 h-full w-full object-cover"
             />
-          </svg>
-          Back to Work
-        </Link>
-      </m.div>
-
-      {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-end overflow-hidden">
-        {/* GIF cover image */}
-        <div className="absolute inset-0">
-          <AutoplayVideo
-            src="/motion/betterfly-fooh.mp4"
-            poster="/motion/betterfly-fooh.jpg"
-            aria-label="Betterfly FOOH campaign VFX scene"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-        </div>
-        <div className="absolute inset-0 bg-black/30" />
-
-        {/* Radial fade at bottom */}
-        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-espresso via-espresso/40 to-transparent" />
-
-        <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
-          <m.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <span className="inline-block font-mono text-xs tracking-widest uppercase text-bone-white/70 mb-4 px-3 py-1.5 rounded-full border border-black/10 backdrop-blur-sm bg-black/5">
-              VFX + FOOH Campaign
-            </span>
-          </m.div>
-
-          <m.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-h1 font-normal mb-4"
-          >
-            BETTERFLY
-          </m.h1>
-
-          <m.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-2xl md:text-3xl lg:text-4xl font-normal text-bone-white/80 tracking-tight"
-          >
-            #RecursosMasHumanos FOOH Campaign
-          </m.p>
-
-          {/* Animated line */}
-          <m.div
-            initial={{ width: 0 }}
-            animate={{ width: "6rem" }}
-            transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="h-px bg-gradient-to-r from-emerald-400 to-teal-400 mt-8"
-          />
-        </div>
+          </Plate>
+        </m.div>
       </section>
 
-      {/* ── In Motion (Animated GIF Band) ─────────────────────────── */}
-      <ProjectGifBand
-        eyebrow="In Motion"
-        heading="The Campaign, Moving"
-        gifs={[
-          {
-            src: "/motion/betterfly.mp4",
-            poster: "/motion/betterfly.jpg",
-            label: "#RecursosMasHumanos",
-          },
-        ]}
-      />
+      <Rule />
 
-      {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-          {/* Sidebar */}
-          <m.aside
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="lg:col-span-4"
-          >
-            <div className="lg:sticky lg:top-28 space-y-8">
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-2">
-                  Client
-                </p>
-                <p className="font-headline text-lg font-light text-pure-white">
-                  {overview.client}
-                </p>
-              </div>
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-2">
-                  Industry
-                </p>
-                <p className="font-body text-clay-gray">
-                  {overview.industry}
-                </p>
-              </div>
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-2">
-                  Timeline
-                </p>
-                <p className="font-body text-clay-gray">
-                  {overview.timeline}
-                </p>
-              </div>
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-2">
-                  Services
-                </p>
-                <ul className="space-y-2">
-                  {overview.services.map((service) => (
-                    <li
-                      key={service}
-                      className="flex items-center gap-3 font-body text-sm text-clay-gray"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
-                      {service}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </m.aside>
-
-          {/* Challenge */}
-          <m.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="lg:col-span-8"
-          >
-            <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
-              The Challenge
-            </p>
-            <h2 className="font-headline text-h3 font-light mb-8">
-              Global out-of-home impact{" "}
-              <span className="gradient-text">without the logistics</span>
-            </h2>
-            <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
-              <p>
-                Betterfly needed a visually striking campaign to announce
-                &ldquo;a new era of benefits&rdquo; and position their platform
-                in front of HR administrators worldwide. They wanted the impact
-                of a massive global out-of-home campaign (branded banners
-                draped over iconic monuments) without the impossible logistics
-                and budget of physically wrapping world landmarks.
-              </p>
-              <p>
-                The challenge: make it look completely real. Every banner needed
-                to interact convincingly with the architecture (matching
-                lighting, casting shadows, responding to wind) so viewers
-                would do a double-take before realizing it was VFX. The campaign
-                had to generate social media buzz and position Betterfly as a
-                bold, forward-thinking brand.
-              </p>
-            </div>
-          </m.div>
-        </div>
-      </section>
-
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
-
-      {/* ── Our Approach (scroll-scrubbed pinned section) ────────── */}
-      <PinnedApproach
-        eyebrow="Our Approach"
-        heading="From monuments to feeds in five steps"
-        steps={approach.map(({ title, description }) => ({
-          title,
-          body: description,
-        }))}
-      />
-
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
-
-      {/* ── The Solution ─────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
+      {/* ── In Motion ─────────────────────────────────────────────── */}
+      <section className="section-container section-padding">
         <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="max-w-4xl"
+          className="mb-12 md:mb-16"
         >
-          <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
+          <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-4">
+            In Motion
+          </p>
+          <h2 className="font-headline text-heading-lg font-normal text-bone">
+            The Campaign, Moving
+          </h2>
+        </m.div>
+
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="mx-auto max-w-[1200px]"
+        >
+          <Plate label="In Motion" value="#RecursosMasHumanos">
+            <AutoplayVideo
+              src="/motion/betterfly.mp4"
+              poster="/motion/betterfly.jpg"
+              aria-label="#RecursosMasHumanos"
+              className="block w-full h-auto"
+            />
+          </Plate>
+        </m.div>
+      </section>
+
+      <Rule />
+
+      {/* ── The Challenge ─────────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="max-w-[640px]"
+        >
+          <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-4">
+            The Challenge
+          </p>
+          <h2 className="font-headline text-heading-lg font-normal text-bone mb-12">
+            Global out-of-home impact without the logistics
+          </h2>
+          <div className="font-body text-body-sm font-normal text-bone space-y-7">
+            <p>
+              Betterfly needed a visually striking campaign to announce
+              &ldquo;a new era of benefits&rdquo; and position their platform
+              in front of HR administrators worldwide. They wanted the impact
+              of a massive global out-of-home campaign (branded banners
+              draped over iconic monuments) without the impossible logistics
+              and budget of physically wrapping world landmarks.
+            </p>
+            <p>
+              The challenge: make it look completely real. Every banner needed
+              to interact convincingly with the architecture (matching
+              lighting, casting shadows, responding to wind) so viewers
+              would do a double-take before realizing it was VFX. The campaign
+              had to generate social media buzz and position Betterfly as a
+              bold, forward-thinking brand.
+            </p>
+          </div>
+        </m.div>
+      </section>
+
+      <Rule />
+
+      {/* ── Our Approach ──────────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="mb-16 md:mb-24"
+        >
+          <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-4">
+            Our Approach
+          </p>
+          <h2 className="font-headline text-heading-lg font-normal text-bone">
+            From monuments to feeds in five steps
+          </h2>
+        </m.div>
+
+        <div className="max-w-[640px]">
+          {approach.map((step, i) => (
+            <m.div
+              key={step.step}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+              className={
+                i === 0 ? "" : "border-t border-ash-border mt-14 pt-14"
+              }
+            >
+              <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue">
+                {step.step}
+              </p>
+              <h3 className="mt-4 font-headline text-heading-sm font-normal text-bone">
+                {step.title}
+              </h3>
+              <p className="mt-5 font-body text-body-sm font-normal text-bone">
+                {step.description}
+              </p>
+            </m.div>
+          ))}
+        </div>
+      </section>
+
+      <Rule />
+
+      {/* ── The Solution ─────────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="max-w-[640px]"
+        >
+          <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-4">
             The Solution
           </p>
-          <h2 className="font-headline text-h3 font-light mb-8">
-            Fake out-of-home,{" "}
-            <span className="text-bone-white">real impact</span>
+          <h2 className="font-headline text-heading-lg font-normal text-bone mb-12">
+            Fake out-of-home, real impact
           </h2>
-          <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
+          <div className="font-body text-body-sm font-normal text-bone space-y-7">
             <p>
               We used VFX to digitally drape massive Betterfly branded banners
               over six iconic global monuments. Advanced cloth simulation,
@@ -385,13 +455,10 @@ export default function BetterflyProject() {
         </m.div>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+      <Rule />
 
       {/* ── Campaign Gallery ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
+      <section className="section-container section-padding">
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -399,11 +466,11 @@ export default function BetterflyProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-16"
         >
-          <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
+          <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-4">
             Campaign Gallery
           </p>
-          <h2 className="font-headline text-h3 font-light">
-            Monument <span className="text-bone-white">Executions</span>
+          <h2 className="font-headline text-heading-lg font-normal text-bone">
+            Monument Executions
           </h2>
         </m.div>
 
@@ -412,81 +479,82 @@ export default function BetterflyProject() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6"
+          className="mx-auto max-w-[1200px] space-y-14 md:space-y-20"
         >
-          {/* Row 1: Wide hero + tall side */}
-          <m.div variants={galleryItem} className="md:col-span-7">
-            <WorkFrame
-              client={overview.client}
-              discipline="FOOH (Fake Out-of-Home)"
-              index={1}
-              className="aspect-[16/10] rounded-none"
-            >
-              <Image
-                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/afa1b619-7f85-4631-b906-65725f2afb1d_rw_3840.jpg?h=c011327012d82e389e6536546dad732a"
-                alt="Betterfly FOOH monument execution 1"
-                fill
-                className="object-cover"
-                unoptimized
-              />
-            </WorkFrame>
-          </m.div>
-          <m.div variants={galleryItem} className="md:col-span-5">
-            <WorkFrame
-              client={overview.client}
-              discipline="VFX Compositing"
-              index={2}
-              className="aspect-[3/4] rounded-none"
-            >
-              <Image
-                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/0c4aae34-962c-4708-9e09-10d7c2270b0d_rw_3840.jpg?h=9486e194d38c38c0b70c1ffc7e317fcd"
-                alt="Betterfly FOOH monument execution 2"
-                fill
-                className="object-cover"
-                unoptimized
-              />
-            </WorkFrame>
-          </m.div>
+          {/* Pair: wide hero + tall side */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10">
+            <m.div variants={galleryItem} className="md:col-span-7">
+              <Plate
+                label="FOOH (Fake Out-of-Home)"
+                value="Betterfly FOOH monument execution 1"
+                aspect="aspect-[16/10]"
+              >
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/afa1b619-7f85-4631-b906-65725f2afb1d_rw_3840.jpg?h=c011327012d82e389e6536546dad732a"
+                  alt="Betterfly FOOH monument execution 1"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+              </Plate>
+            </m.div>
+            <m.div variants={galleryItem} className="md:col-span-5">
+              <Plate
+                label="VFX Compositing"
+                value="Betterfly FOOH monument execution 2"
+                aspect="aspect-[3/4]"
+              >
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/0c4aae34-962c-4708-9e09-10d7c2270b0d_rw_3840.jpg?h=9486e194d38c38c0b70c1ffc7e317fcd"
+                  alt="Betterfly FOOH monument execution 2"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+              </Plate>
+            </m.div>
+          </div>
 
-          {/* Row 2: Three equal columns */}
-          <m.div variants={galleryItem} className="md:col-span-4">
-            <WorkFrame
-              client={overview.client}
-              discipline="FOOH (Fake Out-of-Home)"
-              index={3}
-              className="aspect-[4/3] rounded-none"
-            >
-              <Image
-                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/86e3da3a-6b51-4572-94f5-260d6a761c0f_rw_3840.jpg?h=9b9f844be5ce86bd5089282e90bddbea"
-                alt="Betterfly FOOH monument execution 3"
-                fill
-                className="object-cover"
-                unoptimized
-              />
-            </WorkFrame>
-          </m.div>
-          <m.div variants={galleryItem} className="md:col-span-4">
-            <WorkFrame
-              client={overview.client}
-              discipline="VFX Compositing"
-              index={4}
-              className="aspect-[4/3] rounded-none"
-            >
-              <Image
-                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/700cdcee-cf9b-4414-b54c-82e507d0ed53_rw_3840.jpg?h=ad51ee0c19861e16fffbd807aa14d780"
-                alt="Betterfly FOOH monument execution 4"
-                fill
-                className="object-cover"
-                unoptimized
-              />
-            </WorkFrame>
-          </m.div>
-          <m.div variants={galleryItem} className="md:col-span-4">
-            <WorkFrame
-              client={overview.client}
-              discipline="FOOH (Fake Out-of-Home)"
-              index={5}
-              className="aspect-[4/3] rounded-none"
+          {/* Pair: monument executions 3 + 4 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+            <m.div variants={galleryItem}>
+              <Plate
+                label="FOOH (Fake Out-of-Home)"
+                value="Betterfly FOOH monument execution 3"
+                aspect="aspect-[4/3]"
+              >
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/86e3da3a-6b51-4572-94f5-260d6a761c0f_rw_3840.jpg?h=9b9f844be5ce86bd5089282e90bddbea"
+                  alt="Betterfly FOOH monument execution 3"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+              </Plate>
+            </m.div>
+            <m.div variants={galleryItem}>
+              <Plate
+                label="VFX Compositing"
+                value="Betterfly FOOH monument execution 4"
+                aspect="aspect-[4/3]"
+              >
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/700cdcee-cf9b-4414-b54c-82e507d0ed53_rw_3840.jpg?h=ad51ee0c19861e16fffbd807aa14d780"
+                  alt="Betterfly FOOH monument execution 4"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+              </Plate>
+            </m.div>
+          </div>
+
+          {/* Single: monument execution 5 */}
+          <m.div variants={galleryItem} className="mx-auto max-w-[900px]">
+            <Plate
+              label="FOOH (Fake Out-of-Home)"
+              value="Betterfly FOOH monument execution 5"
+              aspect="aspect-[4/3]"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/158c693d-d708-434a-8451-47c529b3cc20_rw_3840.jpg?h=a7b17b9dff25de2b80d8d8cdfeb196cc"
@@ -495,16 +563,15 @@ export default function BetterflyProject() {
                 className="object-cover"
                 unoptimized
               />
-            </WorkFrame>
+            </Plate>
           </m.div>
 
-          {/* Row 3: Full-width VFX breakdown */}
-          <m.div variants={galleryItem} className="md:col-span-12">
-            <WorkFrame
-              client={overview.client}
-              discipline="VFX Breakdown Reels"
-              index={6}
-              className="aspect-[21/9] rounded-none"
+          {/* Single: full-width VFX breakdown */}
+          <m.div variants={galleryItem}>
+            <Plate
+              label="VFX Breakdown Reels"
+              value="Betterfly FOOH VFX breakdown"
+              aspect="aspect-[21/9]"
             >
               <Image
                 src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/e9307a9f-c204-4722-9a9f-4d5b3113db28_rw_3840.jpg?h=72945d2944442b86cf4ba4dc3f52f58b"
@@ -513,119 +580,116 @@ export default function BetterflyProject() {
                 className="object-cover"
                 unoptimized
               />
-            </WorkFrame>
+            </Plate>
           </m.div>
 
-          {/* Row 4: Social media assets - 2x2 grid */}
-          <m.div variants={galleryItem} className="md:col-span-3">
-            <WorkFrame
-              client={overview.client}
-              discipline="Social Media Content"
-              index={7}
-              className="aspect-square rounded-none"
-            >
-              <Image
-                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/d06fd2d0-9618-4b28-a9ca-e2a56de0f9cc_rw_600.png?h=840f98de7ce65d2053f15fc1a332bb28"
-                alt="Betterfly social media asset 1"
-                fill
-                className="object-cover"
-                unoptimized
-              />
-            </WorkFrame>
-          </m.div>
-          <m.div variants={galleryItem} className="md:col-span-3">
-            <WorkFrame
-              client={overview.client}
-              discipline="Social Media Content"
-              index={8}
-              className="aspect-square rounded-none"
-            >
-              <Image
-                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/cccf2a57-e137-49db-b68b-570f7e4fe7bb_rw_600.png?h=c478a37e18d4ff133ffe947f26345c64"
-                alt="Betterfly social media asset 2"
-                fill
-                className="object-cover"
-                unoptimized
-              />
-            </WorkFrame>
-          </m.div>
-          <m.div variants={galleryItem} className="md:col-span-3">
-            <WorkFrame
-              client={overview.client}
-              discipline="Social Media Content"
-              index={9}
-              className="aspect-square rounded-none"
-            >
-              <Image
-                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/e854902b-d6b9-4da5-af46-a70b99f340c9_rw_1200.png?h=e07b0dc8c60685b5d414767e27915bfe"
-                alt="Betterfly social media asset 3"
-                fill
-                className="object-cover"
-                unoptimized
-              />
-            </WorkFrame>
-          </m.div>
-          <m.div variants={galleryItem} className="md:col-span-3">
-            <WorkFrame
-              client={overview.client}
-              discipline="Social Media Content"
-              index={10}
-              className="aspect-square rounded-none"
-            >
-              <Image
-                src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/bc6dcbf4-5941-4a5b-9eaf-ec3f35d31163_rw_1200.png?h=60a8aa2806584e03b80f08b765317b22"
-                alt="Betterfly social media asset 4"
-                fill
-                className="object-cover"
-                unoptimized
-              />
-            </WorkFrame>
-          </m.div>
+          {/* Pair: social media assets 1 + 2 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+            <m.div variants={galleryItem}>
+              <Plate
+                label="Social Media Content"
+                value="Betterfly social media asset 1"
+                aspect="aspect-square"
+              >
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/d06fd2d0-9618-4b28-a9ca-e2a56de0f9cc_rw_600.png?h=840f98de7ce65d2053f15fc1a332bb28"
+                  alt="Betterfly social media asset 1"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+              </Plate>
+            </m.div>
+            <m.div variants={galleryItem}>
+              <Plate
+                label="Social Media Content"
+                value="Betterfly social media asset 2"
+                aspect="aspect-square"
+              >
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/cccf2a57-e137-49db-b68b-570f7e4fe7bb_rw_600.png?h=c478a37e18d4ff133ffe947f26345c64"
+                  alt="Betterfly social media asset 2"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+              </Plate>
+            </m.div>
+          </div>
+
+          {/* Pair: social media assets 3 + 4 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+            <m.div variants={galleryItem}>
+              <Plate
+                label="Social Media Content"
+                value="Betterfly social media asset 3"
+                aspect="aspect-square"
+              >
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/e854902b-d6b9-4da5-af46-a70b99f340c9_rw_1200.png?h=e07b0dc8c60685b5d414767e27915bfe"
+                  alt="Betterfly social media asset 3"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+              </Plate>
+            </m.div>
+            <m.div variants={galleryItem}>
+              <Plate
+                label="Social Media Content"
+                value="Betterfly social media asset 4"
+                aspect="aspect-square"
+              >
+                <Image
+                  src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/bc6dcbf4-5941-4a5b-9eaf-ec3f35d31163_rw_1200.png?h=60a8aa2806584e03b80f08b765317b22"
+                  alt="Betterfly social media asset 4"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+              </Plate>
+            </m.div>
+          </div>
         </m.div>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+      <Rule />
 
       {/* ── The Result ───────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
+      <section className="section-container section-padding">
         <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="mb-12"
+          className="mb-14"
         >
-          <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
+          <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-4">
             The Result
           </p>
-          <h2 className="font-headline text-h3 font-light">
-            Global presence,{" "}
-            <span className="text-bone-white">zero logistics</span>
+          <h2 className="font-headline text-heading-lg font-normal text-bone">
+            Global presence, zero logistics
           </h2>
         </m.div>
 
-        {/* Lead result statement */}
         <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="max-w-4xl"
+          className="max-w-[820px]"
         >
-          <p className="font-display text-h2 font-normal text-pure-white mb-10">
+          <p className="font-headline text-heading-sm font-normal text-bone">
             {results[0]}
           </p>
 
           {/* TODO(David): add quantified result or client quote here */}
 
-          <ul className="space-y-4 border-l border-emerald-400/30 pl-6">
+          <ul className="mt-16 max-w-[640px] border-t border-ash-border">
             {results.slice(1).map((result) => (
               <li
                 key={result}
-                className="font-body text-clay-gray text-base md:text-lg leading-relaxed"
+                className="border-b border-ash-border py-6 font-body text-body-sm font-normal text-bone"
               >
                 {result}
               </li>
@@ -634,89 +698,78 @@ export default function BetterflyProject() {
         </m.div>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+      <Rule />
 
       {/* ── Tools & Technology ────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
+      <section className="section-container section-padding">
         <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="mb-12"
+          className="mb-14"
         >
-          <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
+          <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-4">
             Tools & Technology
           </p>
-          <h2 className="font-headline text-h3 font-light">
-            The <span className="text-bone-white">production stack</span>
+          <h2 className="font-headline text-heading-lg font-normal text-bone">
+            The production stack
           </h2>
         </m.div>
 
         <m.div
-          variants={staggerContainer}
+          variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4"
+          className="max-w-[640px] border-t border-ash-border"
         >
           {tools.map((tool) => (
-            <m.div
-              key={tool.name}
-              variants={staggerItem}
-              className="group p-6 rounded-none border border-black/5 bg-black/[0.02] hover:border-emerald-400/20 hover:bg-emerald-400/[0.03] transition-all duration-500"
-            >
-              <h3 className="font-headline text-lg font-light text-pure-white mb-2 group-hover:text-emerald-400 transition-colors duration-300">
+            <div key={tool.name} className="border-b border-ash-border py-8">
+              <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue">
                 {tool.name}
-              </h3>
-              <p className="font-body text-sm text-clay-gray leading-relaxed">
+              </p>
+              <p className="mt-3 font-body text-body-sm font-normal text-bone">
                 {tool.description}
               </p>
-            </m.div>
+            </div>
           ))}
         </m.div>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+      <Rule />
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
+      <section className="section-container section-padding">
         <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="text-center max-w-2xl mx-auto"
+          className="max-w-[640px]"
         >
-          <h2 className="font-headline text-h2 font-light mb-6">
-            Ready to make{" "}
-            <span className="text-bone-white">a global statement</span>?
+          <h2 className="font-headline text-heading-lg font-normal text-bone mb-6">
+            Ready to make a global statement?
           </h2>
-          <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed mb-10">
+          <p className="font-body text-body-sm font-normal text-fog-blue mb-10">
             Let&rsquo;s create campaign content that commands attention and
             breaks through the noise, no logistics required.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <Link href="/#contact" className="btn-primary">
               Book a Call
             </Link>
             <Link
               href="/projects/new-era-cap"
-              className="btn-secondary group inline-flex items-center gap-2"
+              className="btn-secondary group gap-2"
             >
               View Next Project
               <svg
-                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                className="w-4 h-4 transition-transform duration-500 ease-prism group-hover:translate-x-1"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                strokeWidth={2}
+                strokeWidth={1.5}
               >
                 <path
                   strokeLinecap="round"

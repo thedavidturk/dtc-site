@@ -3,19 +3,20 @@
 import Link from "@/components/TransitionLink";
 import Image from "next/image";
 import { m } from "framer-motion";
-import ProjectGifBand from "@/components/ProjectGifBand";
-import PinnedApproach from "@/components/PinnedApproach";
+import AutoplayVideo from "@/components/AutoplayVideo";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
 /* ------------------------------------------------------------------ */
+
+const prismEase = [0.52, 0.01, 0, 1] as const;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.5, ease: prismEase },
   },
 };
 
@@ -31,7 +32,7 @@ const staggerItem = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.5, ease: prismEase },
   },
 };
 
@@ -122,217 +123,292 @@ const tools = [
 ];
 
 /* ------------------------------------------------------------------ */
+/*  Shared pieces                                                      */
+/* ------------------------------------------------------------------ */
+
+function PlateCaption({ label, value }: { label: string; value: string }) {
+  return (
+    <figcaption className="mt-4 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+      <span className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue">
+        {label}
+      </span>
+      <span className="text-caption font-normal text-bone">{value}</span>
+    </figcaption>
+  );
+}
+
+function Rule() {
+  return (
+    <div className="section-container">
+      <div className="border-t border-ash-border" />
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
 /*  Component                                                          */
 /* ------------------------------------------------------------------ */
 
 export default function SproutedProject() {
   return (
-    <article className="bg-espresso min-h-screen">
-      {/* ── Back Link ─────────────────────────────────────────────── */}
-      <m.div
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-        className="fixed top-24 left-6 md:left-8 lg:left-12 z-40"
-      >
-        <Link
-          href="/#projects"
-          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-clay-gray hover:text-pure-white transition-colors duration-300"
+    <article className="bg-obsidian min-h-screen">
+      {/* ── Opener ────────────────────────────────────────────────── */}
+      <header className="section-container pt-32 md:pt-40 pb-16 md:pb-20">
+        <m.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1, ease: prismEase }}
+          className="mb-14"
         >
-          <svg
-            className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
+          <Link
+            href="/#projects"
+            className="group inline-flex items-center gap-2 text-caption uppercase tracking-[0.02em] font-normal text-bone hover:text-fog-blue transition-colors duration-500 ease-prism"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
-            />
-          </svg>
-          Back to Work
-        </Link>
-      </m.div>
+            <svg
+              className="w-4 h-4 transition-transform duration-500 ease-prism group-hover:-translate-x-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
+              />
+            </svg>
+            Back to Work
+          </Link>
+        </m.div>
 
-      {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-end overflow-hidden">
-        {/* Cover image */}
-        <div className="absolute inset-0">
-          <Image
-            src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/9093a3b0-956b-49e3-a039-06897868e553_rw_1200.png?h=bf736fd7c3636fa8eedc8a44dd910bcd"
-            alt="New Era Cap Sprouted Collection nature scene"
-            fill
-            className="object-cover"
-            unoptimized
-            priority
-          />
-        </div>
-        <div className="absolute inset-0 bg-black/30" />
+        <m.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2, ease: prismEase }}
+          className="text-[17px] uppercase tracking-[0.02em] font-normal text-fog-blue mb-6"
+        >
+          Strategy + Content Development
+        </m.p>
 
-        {/* Radial fade at bottom */}
-        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-espresso via-espresso/40 to-transparent" />
+        <m.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3, ease: prismEase }}
+          className="font-body font-normal text-bone text-display-sm leading-[1.01] tracking-[-0.02em] mb-6"
+        >
+          New Era Cap
+        </m.h1>
 
-        <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
-          <m.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <span className="inline-block font-mono text-xs tracking-widest uppercase text-bone-white/70 mb-4 px-3 py-1.5 rounded-full border border-black/10 backdrop-blur-sm bg-black/5">
-              Strategy + Content Development
-            </span>
-          </m.div>
+        <m.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.45, ease: prismEase }}
+          className="font-body text-body-lg font-normal text-bone"
+        >
+          &ldquo;Sprouted&rdquo; Collection
+        </m.p>
 
-          <m.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-h1 font-normal mb-4"
-          >
-            NEW ERA CAP
-          </m.h1>
-
-          <m.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-2xl md:text-3xl lg:text-4xl font-normal text-bone-white/80 tracking-tight"
-          >
-            &ldquo;Sprouted&rdquo; Collection
-          </m.p>
-
-          {/* Animated line */}
-          <m.div
-            initial={{ width: 0 }}
-            animate={{ width: "6rem" }}
-            transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="h-px bg-gradient-to-r from-emerald-500 to-lime-400 mt-8"
-          />
-        </div>
-      </section>
-
-      <ProjectGifBand
-        eyebrow="In Motion"
-        heading="The Collection, Growing"
-        gifs={[
-          {
-            src: "/motion/new-era-sprouted.mp4",
-            poster: "/motion/new-era-sprouted.jpg",
-            label: "Sprouted",
-          },
-        ]}
-      />
-
-      {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
-      <section className="section-container section-padding">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-          {/* Sidebar */}
-          <m.aside
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="lg:col-span-4"
-          >
-            <div className="lg:sticky lg:top-28 space-y-8">
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-2">
-                  Client
-                </p>
-                <p className="font-headline text-lg font-light text-pure-white">
-                  {overview.client}
-                </p>
-              </div>
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-2">
-                  Industry
-                </p>
-                <p className="font-body text-clay-gray">
-                  {overview.industry}
-                </p>
-              </div>
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-2">
-                  Timeline
-                </p>
-                <p className="font-body text-clay-gray">
-                  {overview.timeline}
-                </p>
-              </div>
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-emerald-400 mb-2">
-                  Services
-                </p>
-                <ul className="space-y-2">
+        {/* Metadata row */}
+        <m.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6, ease: prismEase }}
+          className="mt-16 border-t border-b border-ash-border py-8"
+        >
+          <dl className="flex flex-wrap gap-x-16 gap-y-8">
+            <div>
+              <dt className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-2">
+                Client
+              </dt>
+              <dd className="font-body text-body-sm font-normal text-bone">
+                {overview.client}
+              </dd>
+            </div>
+            <div>
+              <dt className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-2">
+                Industry
+              </dt>
+              <dd className="font-body text-body-sm font-normal text-bone">
+                {overview.industry}
+              </dd>
+            </div>
+            <div>
+              <dt className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-2">
+                Timeline
+              </dt>
+              <dd className="font-body text-body-sm font-normal text-bone">
+                {overview.timeline}
+              </dd>
+            </div>
+            <div>
+              <dt className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-2">
+                Services
+              </dt>
+              <dd>
+                <ul className="space-y-1">
                   {overview.services.map((service) => (
                     <li
                       key={service}
-                      className="flex items-center gap-3 font-body text-sm text-clay-gray"
+                      className="font-body text-caption font-normal text-bone"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
                       {service}
                     </li>
                   ))}
                 </ul>
-              </div>
+              </dd>
             </div>
-          </m.aside>
+          </dl>
+        </m.div>
+      </header>
 
-          {/* Challenge */}
-          <m.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="lg:col-span-8"
-          >
-            <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
-              The Challenge
-            </p>
-            <h2 className="font-headline text-h3 font-light mb-8">
-              Bringing a nature-inspired collection{" "}
-              <span className="gradient-text">to life digitally</span>
-            </h2>
-            <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
-              <p>
-                New Era Cap launched the &ldquo;Sprouted&rdquo; collection, a
-                line of hats built around botanical motifs, earthy textures, and
-                organic design elements. They needed a campaign that went beyond
-                standard product photography and immersed the audience in the
-                world the collection was inspired by.
-              </p>
-              <p>
-                The challenge: create visuals of a foliage-filled world that
-                would spotlight the product&rsquo;s distinctive features while
-                generating excitement across digital and social channels, all
-                without physical sets or location shoots.
-              </p>
-            </div>
-          </m.div>
-        </div>
+      {/* ── Hero media plate ──────────────────────────────────────── */}
+      <section className="section-container pb-24 md:pb-32">
+        <m.figure
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.75, ease: prismEase }}
+        >
+          <div className="relative aspect-[16/9] overflow-hidden rounded-[15px] border border-ash-border">
+            <Image
+              src="https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104/9093a3b0-956b-49e3-a039-06897868e553_rw_1200.png?h=bf736fd7c3636fa8eedc8a44dd910bcd"
+              alt="New Era Cap Sprouted Collection nature scene"
+              fill
+              className="object-cover"
+              unoptimized
+              priority
+            />
+          </div>
+          <PlateCaption
+            label="Key Visual"
+            value="New Era Cap Sprouted Collection nature scene"
+          />
+        </m.figure>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+      <Rule />
 
-      {/* ── Our Approach (scroll-scrubbed pinned section) ────────── */}
-      <PinnedApproach
-        eyebrow="Our Approach"
-        heading="From seed to screen in five steps"
-        steps={approach.map(({ title, description }) => ({
-          title,
-          body: description,
-        }))}
-      />
+      {/* ── In Motion ─────────────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="mb-14 max-w-[640px]"
+        >
+          <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-4">
+            In Motion
+          </p>
+          <h2 className="font-body text-heading-lg font-normal text-bone">
+            The Collection, Growing
+          </h2>
+        </m.div>
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+        <m.figure
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+        >
+          <div className="relative aspect-video overflow-hidden rounded-[15px] border border-ash-border">
+            <AutoplayVideo
+              src="/motion/new-era-sprouted.mp4"
+              poster="/motion/new-era-sprouted.jpg"
+              aria-label="Sprouted"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          </div>
+          <PlateCaption label="In Motion" value="Sprouted" />
+        </m.figure>
+      </section>
+
+      <Rule />
+
+      {/* ── The Challenge ─────────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="max-w-[640px]"
+        >
+          <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-4">
+            The Challenge
+          </p>
+          <h2 className="font-body text-heading-lg font-normal text-bone mb-8">
+            Bringing a nature-inspired collection to life digitally
+          </h2>
+          <div className="font-body text-body-sm font-normal text-bone space-y-7">
+            <p>
+              New Era Cap launched the &ldquo;Sprouted&rdquo; collection, a
+              line of hats built around botanical motifs, earthy textures, and
+              organic design elements. They needed a campaign that went beyond
+              standard product photography and immersed the audience in the
+              world the collection was inspired by.
+            </p>
+            <p>
+              The challenge: create visuals of a foliage-filled world that
+              would spotlight the product&rsquo;s distinctive features while
+              generating excitement across digital and social channels, all
+              without physical sets or location shoots.
+            </p>
+          </div>
+        </m.div>
+      </section>
+
+      <Rule />
+
+      {/* ── Our Approach ──────────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="mb-16 max-w-[640px]"
+        >
+          <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-4">
+            Our Approach
+          </p>
+          <h2 className="font-body text-heading-lg font-normal text-bone">
+            From seed to screen in five steps
+          </h2>
+        </m.div>
+
+        <m.ol
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="max-w-[760px] border-t border-ash-border"
+        >
+          {approach.map((step) => (
+            <m.li
+              key={step.step}
+              variants={staggerItem}
+              className="flex flex-col md:flex-row md:items-start gap-4 md:gap-12 border-b border-ash-border py-12"
+            >
+              <span
+                aria-hidden="true"
+                className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue md:w-28 flex-shrink-0"
+              >
+                {step.step}
+              </span>
+              <div className="max-w-[640px]">
+                <h3 className="font-body text-heading-sm font-normal text-bone mb-3">
+                  {step.title}
+                </h3>
+                <p className="font-body text-body-sm font-normal text-fog-blue">
+                  {step.description}
+                </p>
+              </div>
+            </m.li>
+          ))}
+        </m.ol>
+      </section>
+
+      <Rule />
 
       {/* ── The Solution ─────────────────────────────────────────── */}
       <section className="section-container section-padding">
@@ -341,16 +417,15 @@ export default function SproutedProject() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="max-w-4xl"
+          className="max-w-[640px]"
         >
-          <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
+          <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-4">
             The Solution
           </p>
-          <h2 className="font-headline text-h3 font-light mb-8">
-            Strategy-driven content{" "}
-            <span className="text-bone-white">rooted in nature</span>
+          <h2 className="font-body text-heading-lg font-normal text-bone mb-8">
+            Strategy-driven content rooted in nature
           </h2>
-          <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
+          <div className="font-body text-body-sm font-normal text-bone space-y-7">
             <p>
               Our research revealed that the audience didn&rsquo;t just want to
               see hats; they wanted to feel the world behind the collection.
@@ -369,10 +444,7 @@ export default function SproutedProject() {
         </m.div>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+      <Rule />
 
       {/* ── The Result ───────────────────────────────────────────── */}
       <section className="section-container section-padding">
@@ -381,14 +453,13 @@ export default function SproutedProject() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="mb-12"
+          className="max-w-[640px] mb-12"
         >
-          <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
+          <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-4">
             The Result
           </p>
-          <h2 className="font-headline text-h3 font-light">
-            Organic impact,{" "}
-            <span className="text-bone-white">cultivated content</span>
+          <h2 className="font-body text-heading-lg font-normal text-bone">
+            Organic impact, cultivated content
           </h2>
         </m.div>
 
@@ -398,19 +469,19 @@ export default function SproutedProject() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="max-w-4xl"
+          className="max-w-[640px]"
         >
-          <p className="font-display text-h2 font-normal text-pure-white mb-10">
+          <p className="font-body text-heading-sm font-normal text-bone mb-10">
             {results[0]}
           </p>
 
           {/* TODO(David): add quantified result or client quote here */}
 
-          <ul className="space-y-4 border-l border-emerald-400/30 pl-6">
+          <ul className="space-y-4 border-l border-ash-border pl-6">
             {results.slice(1).map((result) => (
               <li
                 key={result}
-                className="font-body text-clay-gray text-base md:text-lg leading-relaxed"
+                className="font-body text-body-sm font-normal text-fog-blue"
               >
                 {result}
               </li>
@@ -419,10 +490,7 @@ export default function SproutedProject() {
         </m.div>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+      <Rule />
 
       {/* ── Tools & Technology ────────────────────────────────────── */}
       <section className="section-container section-padding">
@@ -431,13 +499,13 @@ export default function SproutedProject() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="mb-12"
+          className="max-w-[640px] mb-12"
         >
-          <p className="font-mono text-sm text-emerald-400 tracking-widest uppercase mb-4">
+          <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-4">
             Tools & Technology
           </p>
-          <h2 className="font-headline text-h3 font-light">
-            The <span className="text-bone-white">production stack</span>
+          <h2 className="font-body text-heading-lg font-normal text-bone">
+            The production stack
           </h2>
         </m.div>
 
@@ -446,18 +514,18 @@ export default function SproutedProject() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+          className="max-w-[640px] border-t border-ash-border"
         >
           {tools.map((tool) => (
             <m.div
               key={tool.name}
               variants={staggerItem}
-              className="group p-6 rounded-none border border-black/5 bg-black/[0.02] hover:border-emerald-400/20 hover:bg-emerald-400/[0.03] transition-all duration-500"
+              className="border-b border-ash-border py-6"
             >
-              <h3 className="font-headline text-lg font-light text-pure-white mb-2 group-hover:text-emerald-400 transition-colors duration-300">
+              <h3 className="font-body text-body font-normal text-bone mb-2">
                 {tool.name}
               </h3>
-              <p className="font-body text-sm text-clay-gray leading-relaxed">
+              <p className="font-body text-body-sm font-normal text-fog-blue">
                 {tool.description}
               </p>
             </m.div>
@@ -465,10 +533,7 @@ export default function SproutedProject() {
         </m.div>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+      <Rule />
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
       <section className="section-container section-padding">
@@ -477,31 +542,30 @@ export default function SproutedProject() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="text-center max-w-2xl mx-auto"
+          className="max-w-[640px]"
         >
-          <h2 className="font-headline text-h2 font-light mb-6">
-            Ready to grow{" "}
-            <span className="text-bone-white">your next campaign</span>?
+          <h2 className="font-body text-heading-lg font-normal text-bone mb-6">
+            Ready to grow your next campaign?
           </h2>
-          <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed mb-10">
+          <p className="font-body text-body-sm font-normal text-fog-blue mb-10">
             Let&rsquo;s develop strategy-driven content that connects your
             product to the world your audience lives in.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
             <Link href="/#contact" className="btn-primary">
               Book a Call
             </Link>
             <Link
               href="/projects/todes-vejigante"
-              className="btn-secondary group inline-flex items-center gap-2"
+              className="group inline-flex items-center gap-2 uppercase text-sm font-normal text-bone hover:text-fog-blue transition-colors duration-500 ease-prism"
             >
               View Next Project
               <svg
-                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                className="w-4 h-4 transition-transform duration-500 ease-prism group-hover:translate-x-1"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                strokeWidth={2}
+                strokeWidth={1.5}
               >
                 <path
                   strokeLinecap="round"

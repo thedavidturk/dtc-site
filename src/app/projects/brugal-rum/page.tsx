@@ -3,36 +3,20 @@
 import Link from "@/components/TransitionLink";
 import Image from "next/image";
 import { m } from "framer-motion";
-import ProjectGifBand from "@/components/ProjectGifBand";
-import PinnedApproach from "@/components/PinnedApproach";
-import WorkFrame from "@/components/WorkFrame";
+import AutoplayVideo from "@/components/AutoplayVideo";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
 /* ------------------------------------------------------------------ */
+
+const PRISM_EASE = [0.52, 0.01, 0, 1] as const;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
-  },
-};
-
-const staggerContainer = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.1 },
-  },
-};
-
-const staggerItem = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.5, ease: PRISM_EASE },
   },
 };
 
@@ -44,12 +28,11 @@ const galleryContainer = {
 };
 
 const galleryItem = {
-  hidden: { opacity: 0, y: 50, scale: 0.94 },
+  hidden: { opacity: 0, y: 50 },
   visible: {
     opacity: 1,
     y: 0,
-    scale: 1,
-    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.5, ease: PRISM_EASE },
   },
 };
 
@@ -166,235 +149,329 @@ const capabilities = [
 ];
 
 /* ------------------------------------------------------------------ */
+/*  Local pieces                                                       */
+/* ------------------------------------------------------------------ */
+
+/** Full-width hairline rule separating bands. */
+function Rule() {
+  return (
+    <div className="section-container">
+      <div className="border-t border-ash-border" />
+    </div>
+  );
+}
+
+/** Media card on the void: 15px radius, caption below in bone + fog-blue. */
+function Plate({
+  label,
+  value,
+  aspect,
+  children,
+}: {
+  label: string;
+  value: string;
+  aspect?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <figure>
+      <div
+        className={`relative overflow-hidden rounded-[15px] border border-ash-border ${
+          aspect ?? ""
+        }`}
+      >
+        {children}
+      </div>
+      <figcaption className="mt-4 flex flex-wrap items-baseline gap-x-4 gap-y-1">
+        <span className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue">
+          {label}
+        </span>
+        <span className="font-body text-caption font-normal text-bone">
+          {value}
+        </span>
+      </figcaption>
+    </figure>
+  );
+}
+
+/* ------------------------------------------------------------------ */
 /*  Component                                                          */
 /* ------------------------------------------------------------------ */
 
 export default function BrugalRumProject() {
   return (
-    <article className="bg-espresso min-h-screen" style={{ backgroundColor: "#fffef7" }}>
-      {/* ── Back Link ─────────────────────────────────────────────── */}
-      <m.div
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-        className="fixed top-24 left-6 md:left-8 lg:left-12 z-40"
-      >
-        <Link
-          href="/#projects"
-          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-clay-gray hover:text-pure-white transition-colors duration-300"
+    <article className="bg-obsidian min-h-screen">
+      {/* ── Opener ────────────────────────────────────────────────── */}
+      <header className="section-container pt-28 md:pt-36 pb-16 md:pb-20">
+        <m.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1, ease: PRISM_EASE }}
         >
-          <svg
-            className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
+          <Link
+            href="/#projects"
+            className="group inline-flex items-center gap-2 text-caption font-normal uppercase tracking-[0.02em] text-bone transition-colors duration-500 ease-prism hover:text-fog-blue"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
+            <svg
+              className="w-4 h-4 transition-transform duration-500 ease-prism group-hover:-translate-x-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
+              />
+            </svg>
+            Back to Work
+          </Link>
+        </m.div>
+
+        <m.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2, ease: PRISM_EASE }}
+          className="mt-14 text-[17px] font-normal uppercase tracking-[0.02em] text-fog-blue"
+        >
+          Event Videography
+        </m.p>
+
+        <m.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3, ease: PRISM_EASE }}
+          className="mt-6 font-headline text-display-sm font-normal text-bone"
+        >
+          Brugal
+          <br />
+          Rum
+        </m.h1>
+
+        <m.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.45, ease: PRISM_EASE }}
+          className="mt-6 font-body text-body-lg font-normal text-bone max-w-[640px]"
+        >
+          Miami Concours 2023
+        </m.p>
+
+        {/* Metadata row */}
+        <m.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6, ease: PRISM_EASE }}
+          className="mt-16 border-t border-ash-border pt-10"
+        >
+          <div className="flex flex-col md:flex-row md:items-start gap-10 md:gap-16 lg:gap-24">
+            <div>
+              <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-2">
+                Client
+              </p>
+              <p className="font-body text-body-sm font-normal text-bone">
+                {overview.client}
+              </p>
+            </div>
+            <div>
+              <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-2">
+                Industry
+              </p>
+              <p className="font-body text-body-sm font-normal text-bone">
+                {overview.industry}
+              </p>
+            </div>
+            <div>
+              <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-2">
+                Event
+              </p>
+              <p className="font-body text-body-sm font-normal text-bone">
+                {overview.timeline}
+              </p>
+            </div>
+            <div>
+              <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-2">
+                Services
+              </p>
+              <ul className="space-y-1">
+                {overview.services.map((service) => (
+                  <li
+                    key={service}
+                    className="font-body text-body-sm font-normal text-bone"
+                  >
+                    {service}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </m.div>
+      </header>
+
+      {/* ── Hero Media ────────────────────────────────────────────── */}
+      <section className="section-container pb-20 md:pb-28">
+        <m.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.7, ease: PRISM_EASE }}
+          className="mx-auto max-w-[1200px]"
+        >
+          <Plate
+            label="Event Coverage"
+            value="Brugal Rum activation at Miami Concours 2023"
+            aspect="aspect-[16/10]"
+          >
+            <Image
+              src={IMG.hero}
+              alt="Brugal Rum activation at Miami Concours 2023"
+              fill
+              sizes="100vw"
+              className="object-cover"
+              priority
             />
-          </svg>
-          Back to Work
-        </Link>
-      </m.div>
-
-      {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-end overflow-hidden">
-        {/* Cover image */}
-        <div className="absolute inset-0">
-          <Image
-            src={IMG.hero}
-            alt="Brugal Rum activation at Miami Concours 2023"
-            fill
-            sizes="100vw"
-            className="object-cover"
-            priority
-          />
-        </div>
-        <div className="absolute inset-0 bg-black/45" />
-
-        {/* Radial fade at bottom */}
-        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-espresso via-espresso/40 to-transparent" />
-
-        <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
-          <m.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <span className="inline-block font-mono text-xs tracking-widest uppercase text-bone-white/70 mb-4 px-3 py-1.5 rounded-full border border-black/10 backdrop-blur-sm bg-black/5">
-              Event Videography
-            </span>
-          </m.div>
-
-          <m.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-h1 font-normal mb-4"
-          >
-            BRUGAL RUM
-          </m.h1>
-
-          <m.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="font-headline text-2xl md:text-3xl lg:text-4xl font-normal text-bone-white/80 tracking-tight"
-          >
-            Miami Concours 2023
-          </m.p>
-
-          {/* Animated line */}
-          <m.div
-            initial={{ width: 0 }}
-            animate={{ width: "6rem" }}
-            transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="h-px bg-gradient-to-r from-sun-gold to-amber-400 mt-8"
-          />
-        </div>
+          </Plate>
+        </m.div>
       </section>
 
-      {/* ── In Motion (GIF Band) ──────────────────────────────────── */}
-      <ProjectGifBand
-        eyebrow="In Motion"
-        heading="The Activation, Moving"
-        gifs={[
-          {
-            src: "/motion/brugal.mp4",
-            poster: "/motion/brugal.jpg",
-            label: "Miami Concours",
-          },
-        ]}
-      />
+      <Rule />
 
-      {/* ── Overview Sidebar + Challenge ──────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-          {/* Sidebar */}
-          <m.aside
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="lg:col-span-4"
-          >
-            <div className="lg:sticky lg:top-28 space-y-8">
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-sun-gold mb-2">
-                  Client
-                </p>
-                <p className="font-headline text-lg font-light text-pure-white">
-                  {overview.client}
-                </p>
-              </div>
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-sun-gold mb-2">
-                  Industry
-                </p>
-                <p className="font-body text-clay-gray">{overview.industry}</p>
-              </div>
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-sun-gold mb-2">
-                  Event
-                </p>
-                <p className="font-body text-clay-gray">{overview.timeline}</p>
-              </div>
-              <div>
-                <p className="font-mono text-xs tracking-widest uppercase text-sun-gold mb-2">
-                  Services
-                </p>
-                <ul className="space-y-2">
-                  {overview.services.map((service) => (
-                    <li
-                      key={service}
-                      className="flex items-center gap-3 font-body text-sm text-clay-gray"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-sun-gold flex-shrink-0" />
-                      {service}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </m.aside>
-
-          {/* Challenge */}
-          <m.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="lg:col-span-8"
-          >
-            <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
-              The Challenge
-            </p>
-            <h2 className="font-headline text-h3 font-light mb-8">
-              Capturing a Caribbean spirit{" "}
-              <span className="gradient-text">on a luxury show floor</span>
-            </h2>
-            <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
-              <p>
-                Brugal 1888 Rum approached us with a unique opportunity: capture
-                their event held during the Miami Concours 2023 car show, an
-                exhibition known for displaying high-end luxury vehicles and the
-                fervor of automotive enthusiasts. The objective was to highlight
-                the brand&rsquo;s presence and showcase the fusion of Brugal
-                1888&rsquo;s rich Dominican heritage with the vibrant energy of Miami.
-              </p>
-              <p>
-                The challenge was to bring the dynamic essence of a live, fast
-                moving event to life on screen. We needed to move through the
-                crowd, work in changing light, and emphasize the custom rum
-                bottles and art installations, all while producing footage
-                polished enough to match the premium world the brand was standing
-                inside.
-              </p>
-            </div>
-          </m.div>
-        </div>
-      </section>
-
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
-
-      {/* ── Our Approach (scroll-scrubbed pinned section) ────────── */}
-      <PinnedApproach
-        eyebrow="Our Approach"
-        heading="From show floor to cinematic cut"
-        steps={approach.map(({ title, description }) => ({
-          title,
-          body: description,
-        }))}
-      />
-
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
-
-      {/* ── The Solution ─────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
+      {/* ── In Motion ─────────────────────────────────────────────── */}
+      <section className="section-container section-padding">
         <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="max-w-4xl"
+          className="mb-12 md:mb-16"
         >
-          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
+          <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-4">
+            In Motion
+          </p>
+          <h2 className="font-headline text-heading-lg font-normal text-bone">
+            The Activation, Moving
+          </h2>
+        </m.div>
+
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="mx-auto max-w-[1200px]"
+        >
+          <Plate label="In Motion" value="Miami Concours">
+            <AutoplayVideo
+              src="/motion/brugal.mp4"
+              poster="/motion/brugal.jpg"
+              aria-label="Miami Concours"
+              className="block w-full h-auto"
+            />
+          </Plate>
+        </m.div>
+      </section>
+
+      <Rule />
+
+      {/* ── The Challenge ─────────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="max-w-[640px]"
+        >
+          <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-4">
+            The Challenge
+          </p>
+          <h2 className="font-headline text-heading-lg font-normal text-bone mb-12">
+            Capturing a Caribbean spirit on a luxury show floor
+          </h2>
+          <div className="font-body text-body-sm font-normal text-bone space-y-7">
+            <p>
+              Brugal 1888 Rum approached us with a unique opportunity: capture
+              their event held during the Miami Concours 2023 car show, an
+              exhibition known for displaying high-end luxury vehicles and the
+              fervor of automotive enthusiasts. The objective was to highlight
+              the brand&rsquo;s presence and showcase the fusion of Brugal
+              1888&rsquo;s rich Dominican heritage with the vibrant energy of Miami.
+            </p>
+            <p>
+              The challenge was to bring the dynamic essence of a live, fast
+              moving event to life on screen. We needed to move through the
+              crowd, work in changing light, and emphasize the custom rum
+              bottles and art installations, all while producing footage
+              polished enough to match the premium world the brand was standing
+              inside.
+            </p>
+          </div>
+        </m.div>
+      </section>
+
+      <Rule />
+
+      {/* ── Our Approach ──────────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="mb-16 md:mb-24"
+        >
+          <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-4">
+            Our Approach
+          </p>
+          <h2 className="font-headline text-heading-lg font-normal text-bone">
+            From show floor to cinematic cut
+          </h2>
+        </m.div>
+
+        <div className="max-w-[640px]">
+          {approach.map((step, i) => (
+            <m.div
+              key={step.step}
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+              className={
+                i === 0 ? "" : "border-t border-ash-border mt-14 pt-14"
+              }
+            >
+              <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue">
+                {step.step}
+              </p>
+              <h3 className="mt-4 font-headline text-heading-sm font-normal text-bone">
+                {step.title}
+              </h3>
+              <p className="mt-5 font-body text-body-sm font-normal text-bone">
+                {step.description}
+              </p>
+            </m.div>
+          ))}
+        </div>
+      </section>
+
+      <Rule />
+
+      {/* ── The Solution ─────────────────────────────────────────── */}
+      <section className="section-container section-padding">
+        <m.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="max-w-[640px]"
+        >
+          <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-4">
             The Solution
           </p>
-          <h2 className="font-headline text-h3 font-light mb-8">
-            Storytelling through{" "}
-            <span className="text-bone-white">the lens</span>
+          <h2 className="font-headline text-heading-lg font-normal text-bone mb-12">
+            Storytelling through the lens
           </h2>
-          <div className="font-body text-clay-gray text-base md:text-lg leading-relaxed space-y-6">
+          <div className="font-body text-body-sm font-normal text-bone space-y-7">
             <p>
               We leaned on cinematography and editing to bring the dynamic essence
               of the event to life. Shooting on the Canon C70 Cinema Camera, a
@@ -416,13 +493,10 @@ export default function BrugalRumProject() {
         </m.div>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+      <Rule />
 
       {/* ── Activation Gallery ──────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
+      <section className="section-container section-padding">
         <m.div
           variants={fadeUp}
           initial="hidden"
@@ -430,12 +504,11 @@ export default function BrugalRumProject() {
           viewport={{ once: true, margin: "-80px" }}
           className="mb-16"
         >
-          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
+          <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-4">
             Activation Gallery
           </p>
-          <h2 className="font-headline text-h3 font-light">
-            The bottles, the art &{" "}
-            <span className="text-bone-white">the energy</span>
+          <h2 className="font-headline text-heading-lg font-normal text-bone">
+            The bottles, the art & the energy
           </h2>
         </m.div>
 
@@ -444,15 +517,14 @@ export default function BrugalRumProject() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6"
+          className="mx-auto max-w-[1200px] space-y-14 md:space-y-20"
         >
-          {/* Row 1 - full-width hero */}
-          <m.div variants={galleryItem} className="md:col-span-12">
-            <WorkFrame
-              client={overview.client}
-              discipline="Event Coverage"
-              index={1}
-              className="aspect-[21/9] rounded-none"
+          {/* Single: full-width branded lounge */}
+          <m.div variants={galleryItem}>
+            <Plate
+              label="Event Coverage"
+              value="Brugal Rum branded lounge at Miami Concours"
+              aspect="aspect-[21/9]"
             >
               <Image
                 src={IMG.g1}
@@ -461,82 +533,83 @@ export default function BrugalRumProject() {
                 sizes="100vw"
                 className="object-cover"
               />
-            </WorkFrame>
+            </Plate>
           </m.div>
 
-          {/* Row 2 - wide + tall */}
-          <m.div variants={galleryItem} className="md:col-span-7">
-            <WorkFrame
-              client={overview.client}
-              discipline="Brand Storytelling"
-              index={2}
-              className="aspect-[16/10] rounded-none"
-            >
-              <Image
-                src={IMG.g2}
-                alt="Brugal activation footprint and signage"
-                fill
-                sizes="(max-width: 768px) 100vw, 58vw"
-                className="object-cover"
-              />
-            </WorkFrame>
-          </m.div>
-          <m.div variants={galleryItem} className="md:col-span-5">
-            <WorkFrame
-              client={overview.client}
-              discipline="Cinematic Videography"
-              index={3}
-              className="aspect-[3/4] rounded-none"
-            >
-              <Image
-                src={IMG.g3}
-                alt="Brugal signature cocktail serve"
-                fill
-                sizes="(max-width: 768px) 100vw, 42vw"
-                className="object-cover"
-              />
-            </WorkFrame>
-          </m.div>
+          {/* Pair: wide + tall */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10">
+            <m.div variants={galleryItem} className="md:col-span-7">
+              <Plate
+                label="Brand Storytelling"
+                value="Brugal activation footprint and signage"
+                aspect="aspect-[16/10]"
+              >
+                <Image
+                  src={IMG.g2}
+                  alt="Brugal activation footprint and signage"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 58vw"
+                  className="object-cover"
+                />
+              </Plate>
+            </m.div>
+            <m.div variants={galleryItem} className="md:col-span-5">
+              <Plate
+                label="Cinematic Videography"
+                value="Brugal signature cocktail serve"
+                aspect="aspect-[3/4]"
+              >
+                <Image
+                  src={IMG.g3}
+                  alt="Brugal signature cocktail serve"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 42vw"
+                  className="object-cover"
+                />
+              </Plate>
+            </m.div>
+          </div>
 
-          {/* Row 3 - three equal columns */}
-          <m.div variants={galleryItem} className="md:col-span-4">
-            <WorkFrame
-              client={overview.client}
-              discipline="4K Capture"
-              index={4}
-              className="aspect-[4/3] rounded-none"
-            >
-              <Image
-                src={IMG.g4}
-                alt="Brugal bar program detail"
-                fill
-                sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover"
-              />
-            </WorkFrame>
-          </m.div>
-          <m.div variants={galleryItem} className="md:col-span-4">
-            <WorkFrame
-              client={overview.client}
-              discipline="Event Coverage"
-              index={5}
-              className="aspect-[4/3] rounded-none"
-            >
-              <Image
-                src={IMG.g5}
-                alt="Guests at the Brugal lounge"
-                fill
-                sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover"
-              />
-            </WorkFrame>
-          </m.div>
-          <m.div variants={galleryItem} className="md:col-span-4">
-            <WorkFrame
-              client={overview.client}
-              discipline="Event Coverage"
-              index={6}
-              className="aspect-[4/3] rounded-none"
+          {/* Pair: bar program + guests */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+            <m.div variants={galleryItem}>
+              <Plate
+                label="4K Capture"
+                value="Brugal bar program detail"
+                aspect="aspect-[4/3]"
+              >
+                <Image
+                  src={IMG.g4}
+                  alt="Brugal bar program detail"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover"
+                />
+              </Plate>
+            </m.div>
+            <m.div variants={galleryItem}>
+              <Plate
+                label="Event Coverage"
+                value="Guests at the Brugal lounge"
+                aspect="aspect-[4/3]"
+              >
+                <Image
+                  src={IMG.g5}
+                  alt="Guests at the Brugal lounge"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover"
+                />
+              </Plate>
+            </m.div>
+          </div>
+
+          {/* Single: brand ambassadors */}
+          <m.div variants={galleryItem} className="mx-auto max-w-[900px]">
+            <Plate
+              label="Event Coverage"
+              value="Brugal brand ambassadors hosting guests"
+              aspect="aspect-[4/3]"
             >
               <Image
                 src={IMG.g6}
@@ -545,82 +618,83 @@ export default function BrugalRumProject() {
                 sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover"
               />
-            </WorkFrame>
+            </Plate>
           </m.div>
 
-          {/* Row 4 - asymmetric pair */}
-          <m.div variants={galleryItem} className="md:col-span-5">
-            <WorkFrame
-              client={overview.client}
-              discipline="4K Capture"
-              index={7}
-              className="aspect-[3/4] rounded-none"
-            >
-              <Image
-                src={IMG.g7}
-                alt="Brugal Rum bottle presentation"
-                fill
-                sizes="(max-width: 768px) 100vw, 42vw"
-                className="object-cover"
-              />
-            </WorkFrame>
-          </m.div>
-          <m.div variants={galleryItem} className="md:col-span-7">
-            <WorkFrame
-              client={overview.client}
-              discipline="Cinematic Videography"
-              index={8}
-              className="aspect-[16/10] rounded-none"
-            >
-              <Image
-                src={IMG.g8}
-                alt="Brugal activation at golden hour"
-                fill
-                sizes="(max-width: 768px) 100vw, 58vw"
-                className="object-cover"
-              />
-            </WorkFrame>
-          </m.div>
+          {/* Pair: bottle presentation + golden hour */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10">
+            <m.div variants={galleryItem} className="md:col-span-5">
+              <Plate
+                label="4K Capture"
+                value="Brugal Rum bottle presentation"
+                aspect="aspect-[3/4]"
+              >
+                <Image
+                  src={IMG.g7}
+                  alt="Brugal Rum bottle presentation"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 42vw"
+                  className="object-cover"
+                />
+              </Plate>
+            </m.div>
+            <m.div variants={galleryItem} className="md:col-span-7">
+              <Plate
+                label="Cinematic Videography"
+                value="Brugal activation at golden hour"
+                aspect="aspect-[16/10]"
+              >
+                <Image
+                  src={IMG.g8}
+                  alt="Brugal activation at golden hour"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 58vw"
+                  className="object-cover"
+                />
+              </Plate>
+            </m.div>
+          </div>
 
-          {/* Row 5 - three equal columns */}
-          <m.div variants={galleryItem} className="md:col-span-4">
-            <WorkFrame
-              client={overview.client}
-              discipline="4K Capture"
-              index={9}
-              className="aspect-[4/3] rounded-none"
-            >
-              <Image
-                src={IMG.g9}
-                alt="Brugal cocktail detail"
-                fill
-                sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover"
-              />
-            </WorkFrame>
-          </m.div>
-          <m.div variants={galleryItem} className="md:col-span-4">
-            <WorkFrame
-              client={overview.client}
-              discipline="Event Coverage"
-              index={10}
-              className="aspect-[4/3] rounded-none"
-            >
-              <Image
-                src={IMG.g10}
-                alt="Brugal lounge atmosphere"
-                fill
-                sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover"
-              />
-            </WorkFrame>
-          </m.div>
-          <m.div variants={galleryItem} className="md:col-span-4">
-            <WorkFrame
-              client={overview.client}
-              discipline="Brand Storytelling"
-              index={11}
-              className="aspect-[4/3] rounded-none"
+          {/* Pair: cocktail detail + lounge atmosphere */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+            <m.div variants={galleryItem}>
+              <Plate
+                label="4K Capture"
+                value="Brugal cocktail detail"
+                aspect="aspect-[4/3]"
+              >
+                <Image
+                  src={IMG.g9}
+                  alt="Brugal cocktail detail"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover"
+                />
+              </Plate>
+            </m.div>
+            <m.div variants={galleryItem}>
+              <Plate
+                label="Event Coverage"
+                value="Brugal lounge atmosphere"
+                aspect="aspect-[4/3]"
+              >
+                <Image
+                  src={IMG.g10}
+                  alt="Brugal lounge atmosphere"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover"
+                />
+              </Plate>
+            </m.div>
+          </div>
+
+          {/* Single: closing brand shot */}
+          <m.div variants={galleryItem} className="mx-auto max-w-[900px]">
+            <Plate
+              label="Brand Storytelling"
+              value="Brugal branding across the show floor"
+              aspect="aspect-[4/3]"
             >
               <Image
                 src={IMG.g11}
@@ -629,53 +703,48 @@ export default function BrugalRumProject() {
                 sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover"
               />
-            </WorkFrame>
+            </Plate>
           </m.div>
         </m.div>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+      <Rule />
 
       {/* ── The Result ───────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
+      <section className="section-container section-padding">
         <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="mb-12"
+          className="mb-14"
         >
-          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
+          <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-4">
             The Result
           </p>
-          <h2 className="font-headline text-h3 font-light">
-            A story told{" "}
-            <span className="text-bone-white">in vivid 4K</span>
+          <h2 className="font-headline text-heading-lg font-normal text-bone">
+            A story told in vivid 4K
           </h2>
         </m.div>
 
-        {/* Lead result statement */}
         <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="max-w-4xl"
+          className="max-w-[820px]"
         >
-          <p className="font-display text-h2 font-normal text-pure-white mb-10">
+          <p className="font-headline text-heading-sm font-normal text-bone">
             {results[0]}
           </p>
 
           {/* TODO(David): add quantified result or client quote here */}
 
-          <ul className="space-y-4 border-l border-sun-gold/30 pl-6">
+          <ul className="mt-16 max-w-[640px] border-t border-ash-border">
             {results.slice(1).map((result) => (
               <li
                 key={result}
-                className="font-body text-clay-gray text-base md:text-lg leading-relaxed"
+                className="border-b border-ash-border py-6 font-body text-body-sm font-normal text-bone"
               >
                 {result}
               </li>
@@ -684,89 +753,78 @@ export default function BrugalRumProject() {
         </m.div>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+      <Rule />
 
       {/* ── Capabilities ──────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
+      <section className="section-container section-padding">
         <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="mb-12"
+          className="mb-14"
         >
-          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
+          <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-4">
             Capabilities
           </p>
-          <h2 className="font-headline text-h3 font-light">
-            The <span className="text-bone-white">production stack</span>
+          <h2 className="font-headline text-heading-lg font-normal text-bone">
+            The production stack
           </h2>
         </m.div>
 
         <m.div
-          variants={staggerContainer}
+          variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+          className="max-w-[640px] border-t border-ash-border"
         >
           {capabilities.map((tool) => (
-            <m.div
-              key={tool.name}
-              variants={staggerItem}
-              className="group p-6 rounded-none border border-black/5 bg-black/[0.02] hover:border-sun-gold/20 hover:bg-sun-gold/[0.03] transition-all duration-500"
-            >
-              <h3 className="font-headline text-lg font-light text-pure-white mb-2 group-hover:text-sun-gold transition-colors duration-300">
+            <div key={tool.name} className="border-b border-ash-border py-8">
+              <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue">
                 {tool.name}
-              </h3>
-              <p className="font-body text-sm text-clay-gray leading-relaxed">
+              </p>
+              <p className="mt-3 font-body text-body-sm font-normal text-bone">
                 {tool.description}
               </p>
-            </m.div>
+            </div>
           ))}
         </m.div>
       </section>
 
-      {/* ── Divider ──────────────────────────────────────────────── */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+      <Rule />
 
       {/* ── CTA ──────────────────────────────────────────────────── */}
-      <section className="section-container section-padding" style={{ backgroundColor: "#fffef7" }}>
+      <section className="section-container section-padding">
         <m.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="text-center max-w-2xl mx-auto"
+          className="max-w-[640px]"
         >
-          <h2 className="font-headline text-h2 font-light mb-6">
-            Ready to capture{" "}
-            <span className="text-bone-white">your next event</span>?
+          <h2 className="font-headline text-heading-lg font-normal text-bone mb-6">
+            Ready to capture your next event?
           </h2>
-          <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed mb-10">
+          <p className="font-body text-body-sm font-normal text-fog-blue mb-10">
             Let&rsquo;s turn your event into a cinematic story that captures the
             energy of the room and keeps working long after the night ends.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <Link href="/#contact" className="btn-primary">
               Book a Call
             </Link>
             <Link
               href="/projects/el-secreto"
-              className="btn-secondary group inline-flex items-center gap-2"
+              className="btn-secondary group gap-2"
             >
               View Next Project
               <svg
-                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                className="w-4 h-4 transition-transform duration-500 ease-prism group-hover:translate-x-1"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                strokeWidth={2}
+                strokeWidth={1.5}
               >
                 <path
                   strokeLinecap="round"

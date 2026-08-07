@@ -13,7 +13,7 @@ const fadeUp = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.5, ease: [0.52, 0.01, 0, 1] as const },
   },
 };
 
@@ -29,7 +29,7 @@ const staggerItem = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.5, ease: [0.52, 0.01, 0, 1] as const },
   },
 };
 
@@ -40,15 +40,13 @@ const staggerItem = {
 const moreArticles = [
   {
     title: "AI Video Generation Is Replacing Traditional Production Pipelines",
-    category: "AI PRODUCTION",
+    category: "AI Production",
     href: "/insights/virtual-worlds",
-    gradient: "from-terracotta/40 via-purple-900/60 to-espresso",
   },
   {
     title: "Your Brand in the Age of AI Search: Why GEO Is the New SEO",
-    category: "AI STRATEGY",
+    category: "AI Strategy",
     href: "/insights/building-worlds",
-    gradient: "from-sun-gold/30 via-amber-900/40 to-espresso",
   },
 ];
 
@@ -58,114 +56,107 @@ const moreArticles = [
 
 export default function RealTime4KArticle() {
   return (
-    <article className="bg-espresso min-h-screen">
+    <article className="bg-obsidian min-h-screen">
       <ArticleJsonLd
         title="The AI-Powered Creative Pipeline: VFX, Sound Design, and Content at Machine Speed"
         description="How custom AI workflows are collapsing post-production timelines from months to days, without sacrificing the craft."
         datePublished="2026-02-15"
         url="https://davidturkcreative.com/insights/real-time-4k"
       />
-      {/* -- Back Link ------------------------------------------------ */}
-      <m.div
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-        className="fixed top-24 left-6 md:left-8 lg:left-12 z-40"
-      >
-        <Link
-          href="/"
-          className="group inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-clay-gray hover:text-pure-white transition-colors duration-300"
+
+      {/* -- Opener: the article opens with type on the void ---------- */}
+      <header className="section-container pt-32 md:pt-40 pb-16 md:pb-20">
+        <m.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1, ease: [0.52, 0.01, 0, 1] }}
         >
-          <svg
-            className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
+          <Link
+            href="/"
+            className="group inline-flex items-center gap-2 text-caption uppercase tracking-[0.02em] font-normal text-bone transition-colors duration-500 ease-prism hover:text-fog-blue"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
-            />
-          </svg>
-          Back to Home
-        </Link>
-      </m.div>
+            <svg
+              className="w-4 h-4 transition-transform duration-500 ease-prism group-hover:-translate-x-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
+              />
+            </svg>
+            Back to Home
+          </Link>
+        </m.div>
 
-      {/* -- Hero ----------------------------------------------------- */}
-      <section className="relative min-h-[60vh] md:min-h-[70vh] flex items-end overflow-hidden">
-        {/* Gradient background */}
-        <div className="absolute inset-0 bg-bone-white" />
+        <m.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2, ease: [0.52, 0.01, 0, 1] }}
+          className="mt-16 md:mt-20 text-[17px] uppercase tracking-[0.02em] font-normal text-fog-blue"
+        >
+          Creative Technology
+        </m.p>
 
-        {/* Noise overlay */}
-        <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIxIi8+PC9zdmc+')]" />
+        <m.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3, ease: [0.52, 0.01, 0, 1] }}
+          className="font-headline font-normal text-h1 text-bone max-w-5xl mt-6 mb-8"
+        >
+          The AI-Powered Creative Pipeline: VFX, Sound Design, and Content at Machine Speed
+        </m.h1>
 
-        {/* Grid pattern */}
-        <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:60px_60px]" />
+        <m.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.45, ease: [0.52, 0.01, 0, 1] }}
+          className="font-body font-normal text-body-lg text-fog-blue max-w-2xl"
+        >
+          How custom AI workflows are collapsing post-production timelines
+          from months to days, without sacrificing the craft.
+        </m.p>
 
-        {/* Radial fade at bottom */}
-        <div className="absolute inset-0 bg-gradient-to-t from-espresso via-espresso/40 to-transparent" />
-
-        {/* Floating geometric accents */}
-        <div className="absolute top-1/4 right-[20%] w-36 h-36 border border-black/[0.06] rounded-full animate-pulse" />
-        <div className="absolute top-2/5 left-1/4 w-16 h-16 border border-black/10 rounded-none rotate-45" />
-        <div className="absolute bottom-1/3 right-1/3 w-3 h-3 bg-cyan-400/20 rounded-full" />
-
-        <div className="section-container relative z-10 pb-16 md:pb-24 pt-32">
-          <m.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <span className="inline-block font-mono text-xs tracking-widest uppercase text-bone-white/70 mb-4 px-3 py-1.5 rounded-full border border-black/10 backdrop-blur-sm bg-black/5">
-              Creative Technology
-            </span>
-          </m.div>
-
-          <m.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-h1 font-normal mb-4 max-w-4xl"
-          >
-            The AI-Powered Creative Pipeline: VFX, Sound Design, and Content at Machine Speed
-          </m.h1>
-
-          <m.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="font-body text-lg md:text-xl text-bone-white/70 max-w-2xl"
-          >
-            How custom AI workflows are collapsing post-production timelines
-            from months to days, without sacrificing the craft.
-          </m.p>
-
-          <m.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className="flex items-center gap-4 mt-6"
-          >
-            <span className="font-mono text-xs text-bone-white/50 tracking-wide">
+        {/* Metadata rule row */}
+        <m.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="mt-14 border-t border-ash-border pt-6 flex flex-wrap gap-x-14 gap-y-6"
+        >
+          <div>
+            <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-1">
+              Words By
+            </p>
+            <p className="font-body font-normal text-body text-bone">
               David Turk
-            </span>
-            <span className="w-1 h-1 rounded-full bg-black/30" />
-            <span className="font-mono text-xs text-bone-white/50 tracking-wide">
-              10 min read
-            </span>
-          </m.div>
+            </p>
+          </div>
+          <div>
+            <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-1">
+              Published
+            </p>
+            <p className="font-body font-normal text-body text-bone">
+              February 2026
+            </p>
+          </div>
+          <div>
+            <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-1">
+              Read Time
+            </p>
+            <p className="font-body font-normal text-body text-bone">
+              10 min
+            </p>
+          </div>
+        </m.div>
+      </header>
 
-          {/* Animated line */}
-          <m.div
-            initial={{ width: 0 }}
-            animate={{ width: "6rem" }}
-            transition={{ duration: 0.8, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="h-px bg-magenta-bloom mt-8"
-          />
-        </div>
-      </section>
+      {/* -- Rule ------------------------------------------------------ */}
+      <div className="border-t border-ash-border" />
 
       {/* -- Article Body --------------------------------------------- */}
       <section className="section-container section-padding">
@@ -174,14 +165,14 @@ export default function RealTime4KArticle() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="max-w-3xl mx-auto"
+          className="max-w-[640px] mx-auto"
         >
           {/* --- The Old Post-Production --- */}
           <m.div variants={fadeUp}>
-            <h2 className="text-2xl font-headline font-light text-pure-white mt-12 mb-4">
+            <h2 className="font-headline text-heading-sm font-normal text-bone mb-6">
               Post-Production Used to Be the Bottleneck
             </h2>
-            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
+            <p className="font-body text-body-sm font-normal text-bone mb-7">
               For as long as I&rsquo;ve been in this industry, post-production
               has been where timelines go to die. You shoot for three days, then
               spend three weeks in post. VFX compositing, color grading, sound
@@ -190,7 +181,7 @@ export default function RealTime4KArticle() {
               tools, its own revision cycles. A single round of client feedback
               could add a week to the schedule.
             </p>
-            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
+            <p className="font-body text-body-sm font-normal text-bone mb-7">
               The irony was always obvious: the creative work (the part that
               actually matters) takes a fraction of the total production time.
               Most of the calendar was consumed by technical execution, file
@@ -203,7 +194,7 @@ export default function RealTime4KArticle() {
           {/* --- Pull Quote --- */}
           <m.blockquote
             variants={fadeUp}
-            className="pl-6 border-l-2 border-terracotta text-cream italic text-xl my-8"
+            className="border-l border-ash-border pl-6 md:pl-8 my-14 font-body font-normal text-body-lg text-bone"
           >
             We used to spend 80% of post-production time on technical
             execution and 20% on creative decisions. AI flipped that ratio.
@@ -211,10 +202,10 @@ export default function RealTime4KArticle() {
 
           {/* --- AI VFX --- */}
           <m.div variants={fadeUp}>
-            <h2 className="text-2xl font-headline font-light text-pure-white mt-12 mb-4">
+            <h2 className="font-headline text-heading-sm font-normal text-bone mt-16 mb-6">
               AI-Powered VFX: 40% Cost Reduction, Zero Quality Compromise
             </h2>
-            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
+            <p className="font-body text-body-sm font-normal text-bone mb-7">
               The VFX side of the pipeline has seen the most dramatic
               transformation. Tasks that used to require frame-by-frame manual
               work are now handled by AI tools that deliver results in a
@@ -224,7 +215,7 @@ export default function RealTime4KArticle() {
               now handling them with 30-40% cost reduction while maintaining
               broadcast-quality output.
             </p>
-            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
+            <p className="font-body text-body-sm font-normal text-bone mb-7">
               But here&rsquo;s what matters: the AI handles the repetitive
               technical execution. The creative decisions (what the effect
               should look like, how it serves the story, where it directs the
@@ -232,7 +223,7 @@ export default function RealTime4KArticle() {
               replacing VFX artists. We&rsquo;re freeing them from the grunt
               work so they can focus on the craft.
             </p>
-            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
+            <p className="font-body text-body-sm font-normal text-bone mb-7">
               We&rsquo;ve integrated AI VFX tools directly into our 3D
               pipelines, creating a seamless workflow where generated
               environments, composited elements, and real-time rendered scenes
@@ -244,17 +235,17 @@ export default function RealTime4KArticle() {
 
           {/* --- AI Sound Design --- */}
           <m.div variants={fadeUp}>
-            <h2 className="text-2xl font-headline font-light text-pure-white mt-12 mb-4">
+            <h2 className="font-headline text-heading-sm font-normal text-bone mt-16 mb-6">
               Sound Design: Where AI Removes Friction Without Removing Soul
             </h2>
-            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
+            <p className="font-body text-body-sm font-normal text-bone mb-7">
               Sound is the most underestimated element of visual content. Great
               visuals with mediocre audio feel amateur. But traditional sound
               design and mixing has always been expensive and time-consuming,
               which meant it was the first thing to get cut when budgets got
               tight.
             </p>
-            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
+            <p className="font-body text-body-sm font-normal text-bone mb-7">
               AI has changed this equation completely. Audio cleanup, noise
               reduction, stem separation, dialogue enhancement. These used to
               require dedicated studio time and specialized engineers. Now AI
@@ -262,7 +253,7 @@ export default function RealTime4KArticle() {
               quality level that matches or exceeds what we were getting from
               manual processing.
             </p>
-            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
+            <p className="font-body text-body-sm font-normal text-bone mb-7">
               For original score and sound design, we use AI as a starting
               point, not an endpoint. AI generates initial sound beds,
               atmospheric layers, and tonal foundations that our team then
@@ -275,7 +266,7 @@ export default function RealTime4KArticle() {
           {/* --- Pull Quote --- */}
           <m.blockquote
             variants={fadeUp}
-            className="pl-6 border-l-2 border-terracotta text-cream italic text-xl my-8"
+            className="border-l border-ash-border pl-6 md:pl-8 my-14 font-body font-normal text-body-lg text-bone"
           >
             AI handles the technical foundation. Humans handle the emotion.
             That&rsquo;s the workflow that produces content people actually
@@ -284,10 +275,10 @@ export default function RealTime4KArticle() {
 
           {/* --- Image Generation --- */}
           <m.div variants={fadeUp}>
-            <h2 className="text-2xl font-headline font-light text-pure-white mt-12 mb-4">
+            <h2 className="font-headline text-heading-sm font-normal text-bone mt-16 mb-6">
               AI Image Generation as a Creative Accelerator
             </h2>
-            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
+            <p className="font-body text-body-sm font-normal text-bone mb-7">
               Before a single frame of video is produced, AI image generation
               has already transformed our pre-production process. Concept art
               that used to take days now takes hours. Mood boards are generated
@@ -296,7 +287,7 @@ export default function RealTime4KArticle() {
               clients with an immediacy that sketches and reference folders
               never could.
             </p>
-            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
+            <p className="font-body text-body-sm font-normal text-bone mb-7">
               We also use AI image generation for texture creation, environment
               concepts, and product visualization mockups. These assets feed
               directly into our 3D pipelines, giving the animation and look
@@ -309,10 +300,10 @@ export default function RealTime4KArticle() {
 
           {/* --- The Unified Pipeline --- */}
           <m.div variants={fadeUp}>
-            <h2 className="text-2xl font-headline font-light text-pure-white mt-12 mb-4">
+            <h2 className="font-headline text-heading-sm font-normal text-bone mt-16 mb-6">
               The Unified Pipeline: Everything Connects
             </h2>
-            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
+            <p className="font-body text-body-sm font-normal text-bone mb-7">
               The real power isn&rsquo;t in any individual AI tool. It&rsquo;s
               in how we&rsquo;ve wired them together into a single production
               pipeline. AI image generation feeds into 3D look development.
@@ -321,7 +312,7 @@ export default function RealTime4KArticle() {
               foundation. Human creatives direct, refine, and elevate at every
               stage.
             </p>
-            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
+            <p className="font-body text-body-sm font-normal text-bone mb-7">
               This unified approach means there&rsquo;s no handoff delay
               between stages. No waiting for one vendor to finish before
               another can start. The pipeline flows continuously from concept
@@ -333,7 +324,7 @@ export default function RealTime4KArticle() {
           {/* --- Pull Quote --- */}
           <m.blockquote
             variants={fadeUp}
-            className="pl-6 border-l-2 border-terracotta text-cream italic text-xl my-8"
+            className="border-l border-ash-border pl-6 md:pl-8 my-14 font-body font-normal text-body-lg text-bone"
           >
             The competitive advantage isn&rsquo;t the AI tools you use.
             It&rsquo;s how you connect them into a pipeline that moves at the
@@ -342,24 +333,24 @@ export default function RealTime4KArticle() {
 
           {/* --- Conclusion --- */}
           <m.div variants={fadeUp}>
-            <h2 className="text-2xl font-headline font-light text-pure-white mt-12 mb-4">
+            <h2 className="font-headline text-heading-sm font-normal text-bone mt-16 mb-6">
               The New Standard for Creative Production
             </h2>
-            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
+            <p className="font-body text-body-sm font-normal text-bone mb-7">
               Virtual production hardware costs have dropped 40% since 2022.
               AI tools driving real-time rendering and post-production have
               reached quality thresholds that make them viable for premium brand
               content. The economic and creative case for AI-powered pipelines
               is no longer theoretical. It&rsquo;s proven.
             </p>
-            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
+            <p className="font-body text-body-sm font-normal text-bone mb-7">
               Every project we take on now runs through this AI-augmented
               pipeline. Not because we&rsquo;re chasing technology trends, but
               because it consistently delivers better creative work in less
               time. More iterations. More experimentation. More polish. Less
               waiting. Less waste. Less compromise.
             </p>
-            <p className="font-body text-clay-gray text-lg leading-relaxed mb-6">
+            <p className="font-body text-body-sm font-normal text-bone mb-7">
               The studios that build this pipeline now will set the standard for
               the next era of content production. The ones still running
               traditional post-production workflows will find themselves
@@ -371,10 +362,8 @@ export default function RealTime4KArticle() {
         </m.div>
       </section>
 
-      {/* -- Divider -------------------------------------------------- */}
-      <div className="section-container">
-        <div className="h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
-      </div>
+      {/* -- Rule ------------------------------------------------------ */}
+      <div className="border-t border-ash-border" />
 
       {/* -- More Perspectives ---------------------------------------- */}
       <section className="section-container section-padding">
@@ -383,13 +372,13 @@ export default function RealTime4KArticle() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="mb-12"
+          className="mb-16 md:mb-20"
         >
-          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
+          <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-5">
             Continue Reading
           </p>
-          <h2 className="font-headline text-h3 font-light">
-            More <span className="gradient-text">Perspectives</span>
+          <h2 className="font-headline font-normal text-heading-lg text-bone">
+            More Perspectives
           </h2>
         </m.div>
 
@@ -398,48 +387,40 @@ export default function RealTime4KArticle() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          className="max-w-[900px]"
         >
           {moreArticles.map((article) => (
             <m.div key={article.href} variants={staggerItem}>
               <Link
                 href={article.href}
-                className="group block rounded-none border border-black/5 bg-black/[0.02] overflow-hidden hover:border-black/15 hover:-translate-y-1 transition-all duration-500"
+                className="group block border-t border-ash-border py-9 md:py-10"
               >
-                {/* Gradient header */}
-                <div className="relative h-32 overflow-hidden">
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${article.gradient} transition-transform duration-700 group-hover:scale-110`}
-                  />
-                  <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:40px_40px]" />
-                </div>
-                <div className="p-6">
-                  <span className="font-mono text-xs text-terracotta uppercase tracking-wider">
-                    {article.category}
-                  </span>
-                  <h3 className="font-headline font-light text-lg text-pure-white mt-2 leading-snug group-hover:text-cream transition-colors duration-300">
+                <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-3">
+                  {article.category}
+                </p>
+                <div className="flex items-start justify-between gap-6">
+                  <h3 className="font-headline font-normal text-body-lg text-bone max-w-2xl transition-colors duration-500 ease-prism group-hover:text-fog-blue">
                     {article.title}
                   </h3>
-                  <span className="inline-flex items-center gap-2 text-sun-gold text-sm font-normal mt-4 group-hover:gap-3 transition-all duration-300">
-                    Read Article
-                    <svg
-                      className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      strokeWidth={2}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-                      />
-                    </svg>
-                  </span>
+                  <svg
+                    className="w-5 h-5 mt-1 shrink-0 text-fog-blue transition-transform duration-500 ease-prism group-hover:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                    />
+                  </svg>
                 </div>
               </Link>
             </m.div>
           ))}
+          <div className="border-t border-ash-border" />
         </m.div>
       </section>
     </article>

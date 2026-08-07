@@ -1,49 +1,7 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
 import Link from "./TransitionLink";
 import { m } from "framer-motion";
-import dynamic from "next/dynamic";
-import Lazy3D from "./Lazy3D";
-import WorkFrame from "./WorkFrame";
-import SectionMasthead from "./SectionMasthead";
-
-// ---------------------------------------------------------------------------
-// Dynamic imports for Three.js cover scenes (SSR disabled)
-// ---------------------------------------------------------------------------
-const InsightCoverVirtualWorlds = dynamic(
-  () => import("./InsightCoverVirtualWorlds"),
-  { ssr: false }
-);
-const InsightCoverRealTime4K = dynamic(
-  () => import("./InsightCoverRealTime4K"),
-  { ssr: false }
-);
-const InsightCoverBuildingWorlds = dynamic(
-  () => import("./InsightCoverBuildingWorlds"),
-  { ssr: false }
-);
-const InsightCoverProductViz = dynamic(
-  () => import("./InsightCoverProductViz"),
-  { ssr: false }
-);
-const InsightCoverShortForm = dynamic(
-  () => import("./InsightCoverShortForm"),
-  { ssr: false }
-);
-const InsightCoverBrandIdentity = dynamic(
-  () => import("./InsightCoverBrandIdentity"),
-  { ssr: false }
-);
-
-const coverComponents: Record<string, React.ComponentType> = {
-  InsightCoverVirtualWorlds,
-  InsightCoverRealTime4K,
-  InsightCoverBuildingWorlds,
-  InsightCoverProductViz,
-  InsightCoverShortForm,
-  InsightCoverBrandIdentity,
-};
 
 // ---------------------------------------------------------------------------
 // Types
@@ -52,10 +10,8 @@ interface BlogPost {
   title: string;
   subtitle: string;
   category: string;
-  gradient: string;
   slug: string;
   month: string;
-  coverComponent: string;
 }
 
 // ---------------------------------------------------------------------------
@@ -63,357 +19,172 @@ interface BlogPost {
 // ---------------------------------------------------------------------------
 const posts: BlogPost[] = [
   {
+    title: "The Campaign You Can Walk Through: World Models Turn Brand Films Into Places",
+    subtitle:
+      "Real-time world models like Genie 3 just turned brand worlds from something audiences watch into somewhere they can go. What that means for campaigns.",
+    category: "AI + WORLDS",
+    slug: "playable-brand-worlds",
+    month: "AUG 2026",
+  },
+  {
+    title: "One Brief, a Thousand Variants: Creative Ops in the Agent Era",
+    subtitle:
+      "The platforms just industrialized creative variation. Orchestration and governance, not generation, are the new job.",
+    category: "AI + OPERATIONS",
+    slug: "agentic-creative-ops",
+    month: "AUG 2026",
+  },
+  {
+    title: "Taste Is the Bottleneck: Creative Direction in the Slop Flood",
+    subtitle:
+      "Audiences got fluent at spotting machine-made sameness this year. The answer is more direction, not less AI.",
+    category: "CRAFT + AI",
+    slug: "taste-is-the-bottleneck",
+    month: "AUG 2026",
+  },
+  {
     title: "After Sora: Why the Best Brand Video Now Comes From a Stack, Not a Single Tool",
     subtitle:
       "OpenAI shut Sora down in March 2026. The studios making the best brand video now run a stack of tools, not one. Here is how we orchestrate it.",
     category: "AI + VIDEO",
-    gradient: "from-indigo-500/40 via-blue-900/60 to-espresso",
     slug: "ai-video-stack",
     month: "JUN 2026",
-    coverComponent: "InsightCoverVirtualWorlds",
   },
   {
     title: "Native Audio Changes Everything: The Year AI Learned to Score Its Own Footage",
     subtitle:
       "AI video models now generate matching sound in the same pass as the picture, collapsing a whole post stage. Where it wins, and where human sound direction still does.",
     category: "AI + PRODUCTION",
-    gradient: "from-cyan-500/30 via-teal-900/50 to-espresso",
     slug: "ai-native-audio",
     month: "JUN 2026",
-    coverComponent: "InsightCoverRealTime4K",
   },
   {
     title: "Zero-Click Is Here: How Brands Get Found When Nobody Visits Your Website",
     subtitle:
       "Discovery has moved from ranking on Google to being the source an AI cites. How brands stay found in a zero-click world.",
     category: "AI + DISCOVERY",
-    gradient: "from-emerald-500/30 via-teal-900/50 to-espresso",
     slug: "zero-click-visibility",
     month: "JUN 2026",
-    coverComponent: "InsightCoverBuildingWorlds",
-  },
-  {
-    title: "The Authenticity Premium: Winning Trust When 57% of People Fear Fake AI Ads",
-    subtitle:
-      "As AI makes infinite content cheap, authenticity becomes the scarce, premium asset. How brands earn trust instead of faking it.",
-    category: "BRAND + TRUST",
-    gradient: "from-rose-500/30 via-pink-900/50 to-espresso",
-    slug: "ai-authenticity-premium",
-    month: "JUN 2026",
-    coverComponent: "InsightCoverProductViz",
-  },
-  {
-    title: "Virtual Production Without the Volume: AI Pre-Viz and LED-Free Worldbuilding",
-    subtitle:
-      "LED volumes used to demand a soundstage and a massive budget. AI pre-viz and generative 3D worlds give smaller studios virtual production thinking.",
-    category: "VIRTUAL PRODUCTION",
-    gradient: "from-violet-500/30 via-purple-900/50 to-espresso",
-    slug: "virtual-production-ai",
-    month: "JUN 2026",
-    coverComponent: "InsightCoverShortForm",
-  },
-  {
-    title: "From 13 Days to 27 Minutes: Rebuilding the Content Pipeline Around AI Video",
-    subtitle:
-      "A 60-second video that took 13 days now ships in 27 minutes. The bottleneck moved from production to taste. Here is how we rebuilt the pipeline.",
-    category: "PRODUCTION STRATEGY",
-    gradient: "from-amber-500/30 via-orange-900/50 to-espresso",
-    slug: "ai-content-pipeline",
-    month: "JUN 2026",
-    coverComponent: "InsightCoverBrandIdentity",
   },
 ];
 
 // ---------------------------------------------------------------------------
+// Publication date for the current batch of Perspectives
+// ---------------------------------------------------------------------------
+const liveDate = "AUGUST 2026";
+
+// ---------------------------------------------------------------------------
 // Animation variants
 // ---------------------------------------------------------------------------
-const sectionVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.3,
-    },
-  },
-};
+const prismEase = [0.52, 0.01, 0, 1] as const;
 
-const headingVariants = {
+const headerVariants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.8,
-      ease: [0.25, 0.46, 0.45, 0.94] as const,
-    },
+    transition: { duration: 0.5, ease: prismEase },
   },
 };
 
-const cardVariants = {
-  hidden: {
-    opacity: 0,
-    y: 50,
-    scale: 0.96,
-  },
+const rowVariants = {
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
-    scale: 1,
-    transition: {
-      duration: 0.7,
-      ease: [0.22, 1, 0.36, 1] as const,
-    },
+    transition: { duration: 0.5, ease: prismEase },
   },
 };
-
-// ---------------------------------------------------------------------------
-// Publication date for the current batch of Perspectives
-// ---------------------------------------------------------------------------
-function getLiveDate(): string {
-  return "JUNE 2026";
-}
 
 // ---------------------------------------------------------------------------
 // Component
 // ---------------------------------------------------------------------------
 export default function Insights() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
-  const [liveDate, setLiveDate] = useState("");
-
-  useEffect(() => {
-    setLiveDate(getLiveDate());
-  }, []);
-
-  const checkScroll = () => {
-    const el = scrollRef.current;
-    if (!el) return;
-    setCanScrollLeft(el.scrollLeft > 10);
-    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 10);
-  };
-
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    checkScroll();
-    el.addEventListener("scroll", checkScroll, { passive: true });
-    window.addEventListener("resize", checkScroll);
-    return () => {
-      el.removeEventListener("scroll", checkScroll);
-      window.removeEventListener("resize", checkScroll);
-    };
-  }, []);
-
-  const scroll = (direction: "left" | "right") => {
-    const el = scrollRef.current;
-    if (!el) return;
-    const cardWidth = el.querySelector("article")?.offsetWidth ?? 400;
-    const gap = 24;
-    el.scrollBy({
-      left: direction === "left" ? -(cardWidth + gap) : cardWidth + gap,
-      behavior: "smooth",
-    });
-  };
-
   return (
-    <section id="insights" className="bg-espresso section-padding relative overflow-hidden" style={{ backgroundColor: "#fffef7" }}>
-      {/* Background texture */}
-      <div className="absolute inset-0 hidden bg-[radial-gradient(ellipse_at_bottom_left,rgba(3,98,76,0.04)_0%,transparent_50%)]" />
-      <div className="absolute inset-0 hidden bg-[radial-gradient(ellipse_at_top_right,rgba(138,4,103,0.04)_0%,transparent_50%)]" />
-
-      <m.div
-        className="relative z-10"
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-      >
-        {/* Stamped masthead */}
-        <SectionMasthead text="Perspectives" className="mb-4 md:mb-6" />
-
-        {/* Section header */}
-        <m.div className="section-container text-left mb-12 md:mb-16 border-t border-warm-ink pt-4" variants={headingVariants}>
-          {liveDate && (
-            <div className="flex items-center gap-3 mt-4">
-              <div className="w-2 h-2 rounded-full bg-forest-teal animate-pulse" />
-              <span className="font-mono text-xs tracking-[0.2em] text-forest-teal uppercase">
-                {liveDate}
-              </span>
-            </div>
-          )}
-          <p className="font-body text-clay-gray text-lg mt-4 max-w-2xl leading-relaxed">
-            Thoughts on AI-driven production, creative technology, and the future of brand content. New perspectives every month.
+    <section id="insights" className="section-padding">
+      <div className="section-container">
+        {/* Section opener: eyebrow and statement, hierarchy from size alone */}
+        <m.div
+          variants={headerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="mb-20 md:mb-28"
+        >
+          <p className="text-[17px] font-normal uppercase tracking-[0.02em] text-fog-blue">
+            Perspectives
           </p>
+          <h2 className="mt-8 max-w-[900px] font-headline text-heading-lg font-normal headline-red">
+            Thoughts on AI-driven production, creative technology, and the future of brand content.
+          </h2>
+          <div className="mt-8 flex flex-col gap-4 md:flex-row md:items-baseline md:justify-between md:gap-8">
+            <p className="text-body-sm font-normal text-fog-blue">
+              New perspectives every month.
+            </p>
+            <div className="flex items-baseline gap-8">
+              <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue whitespace-nowrap">
+                {liveDate}
+              </p>
+              <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue whitespace-nowrap">
+                {posts.length} Articles
+              </p>
+            </div>
+          </div>
         </m.div>
 
-        {/* Scroll controls */}
-        <div className="section-container flex items-center justify-end gap-3 mb-6">
-          <span className="font-mono text-xs text-clay-gray tracking-wider mr-auto">
-            {posts.length} ARTICLES
-          </span>
-          <button
-            onClick={() => scroll("left")}
-            className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 ${
-              canScrollLeft
-                ? "border-black/20 text-pure-white hover:bg-black/10 hover:border-black/40"
-                : "border-black/5 text-bone-white/20 cursor-not-allowed"
-            }`}
-            disabled={!canScrollLeft}
-            aria-label="Scroll left"
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-            </svg>
-          </button>
-          <button
-            onClick={() => scroll("right")}
-            className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-300 ${
-              canScrollRight
-                ? "border-black/20 text-pure-white hover:bg-black/10 hover:border-black/40"
-                : "border-black/5 text-bone-white/20 cursor-not-allowed"
-            }`}
-            disabled={!canScrollRight}
-            aria-label="Scroll right"
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-            </svg>
-          </button>
-        </div>
-
-        {/* Scrollable card track */}
-        <div className="relative">
-          {/* Left fade */}
-          <div
-            className={`absolute left-0 top-0 bottom-0 w-16 md:w-24 z-10 bg-gradient-to-r from-[#fffef7] to-transparent pointer-events-none transition-opacity duration-300 ${
-              canScrollLeft ? "opacity-100" : "opacity-0"
-            }`}
-          />
-          {/* Right fade */}
-          <div
-            className={`absolute right-0 top-0 bottom-0 w-16 md:w-24 z-10 bg-gradient-to-l from-[#fffef7] to-transparent pointer-events-none transition-opacity duration-300 ${
-              canScrollRight ? "opacity-100" : "opacity-0"
-            }`}
-          />
-
-          <div
-            ref={scrollRef}
-            className="flex gap-6 overflow-x-auto scrollbar-hide px-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))] pb-4 snap-x snap-mandatory"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-          >
-            {posts.map((post, i) => {
-              const CoverScene = coverComponents[post.coverComponent];
-              return (
-              <m.article
-                key={post.slug}
-                variants={cardVariants}
-                className="group relative flex-shrink-0 w-[85vw] sm:w-[60vw] md:w-[38vw] lg:w-[30vw] xl:w-[26vw] snap-start"
-              >
-                <Link href={`/insights/${post.slug}`} className="block h-full bg-black/[0.03] border border-black/5 rounded-none overflow-hidden cursor-pointer transition-all duration-500 hover:-translate-y-2 hover:border-black/15 hover: hover:">
-                  <div className="relative rounded-none h-full flex flex-col">
-                    {/* Cover area */}
-                    <WorkFrame
-                      year={post.month.split(" ").pop()}
-                      discipline={post.category}
-                      index={i + 1}
-                      className="aspect-[16/10]"
-                    >
-                      {/* Gradient background */}
-                      <div
-                        className={`absolute inset-0 bg-gradient-to-br ${post.gradient}`}
-                      />
-
-                      {/* Three.js cover scene */}
-                      {CoverScene && (
-                        <Lazy3D className="absolute inset-0 z-10">
-                          <CoverScene />
-                        </Lazy3D>
-                      )}
-
-                      {/* Noise overlay */}
-                      <div className="absolute inset-0 z-20 opacity-[0.04] mix-blend-overlay bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIxIi8+PC9zdmc+')]" />
-
-                      {/* Grid pattern */}
-                      <div className="absolute inset-0 z-20 opacity-[0.06] bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:40px_40px]" />
-
-                      {/* Bottom fade */}
-                      <div className="absolute inset-x-0 bottom-0 h-1/3 z-20 bg-gradient-to-t from-[#fffef7]/80 to-transparent" />
-
-                      {/* Corner accent glow on hover */}
-                      <div className="absolute top-0 right-0 w-32 h-32 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 hidden bg-[radial-gradient(circle_at_top_right,rgba(138,4,103,0.15),transparent_70%)]" />
-                    </WorkFrame>
-
-                    {/* Card content */}
-                    <div className="p-6 flex flex-col flex-1">
-                      {/* Category label */}
-                      <div className="border-l-2 border-terracotta pl-3">
-                        <span className="font-mono text-xs text-terracotta uppercase tracking-wider">
-                          {post.category}
-                        </span>
-                      </div>
-
-                      {/* Title */}
-                      <h3 className="font-headline font-light text-lg text-pure-white mt-3 leading-snug group-hover:text-cream transition-colors duration-300">
-                        {post.title}
-                      </h3>
-
-                      {/* Subtitle */}
-                      <p className="text-clay-gray text-sm mt-2 leading-relaxed flex-1">
-                        {post.subtitle}
-                      </p>
-
-                      {/* Read Article link */}
-                      <div className="mt-5 pt-4 border-t border-black/5">
-                        <span className="inline-flex items-center gap-2 text-sun-gold text-sm font-normal group-hover:gap-3 transition-all duration-300">
-                          Read Article
-                          <svg
-                            className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            strokeWidth={2}
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-                            />
-                          </svg>
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Hover border glow */}
-                    <div className="absolute inset-0 rounded-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none shadow-[inset_0_0_40px_rgba(138,4,103,0.05)]" />
-                  </div>
-                </Link>
-              </m.article>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Scroll progress dots */}
-        <div className="flex items-center justify-center gap-2 mt-8">
-          {posts.map((post, i) => (
-            <button
+        {/* The index: one listing row per article, hairline-ruled */}
+        <div className="border-b border-ash-border">
+          {posts.map((post) => (
+            <m.article
               key={post.slug}
-              onClick={() => {
-                const el = scrollRef.current;
-                if (!el) return;
-                const card = el.querySelectorAll("article")[i];
-                if (card) {
-                  card.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
-                }
-              }}
-              className="w-1.5 h-1.5 rounded-full bg-black/20 hover:bg-black/50 transition-colors duration-300"
-              aria-label={`Go to article ${i + 1}`}
-            />
+              variants={rowVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+              className="border-t border-ash-border"
+            >
+              <Link
+                href={`/insights/${post.slug}`}
+                className="group grid grid-cols-1 gap-4 py-10 md:grid-cols-12 md:gap-8 md:py-12"
+              >
+                {/* Title link, category and date, one-line deck */}
+                <div className="md:col-span-10">
+                  <h3 className="max-w-[900px] text-heading-sm font-normal text-bone transition-colors duration-500 ease-prism group-hover:text-fog-blue">
+                    {post.title}
+                  </h3>
+                  <p className="pt-[20px] text-body font-normal uppercase tracking-[0.02em] text-fog-blue">
+                    {post.category}, {post.month}
+                  </p>
+                  <p className="mt-4 max-w-[640px] text-body-sm font-normal text-fog-blue">
+                    {post.subtitle}
+                  </p>
+                </div>
+
+                {/* Ghost read link at the row end */}
+                <div className="md:col-span-2 flex items-start md:justify-end">
+                  <span className="inline-flex items-center gap-2 text-caption font-normal uppercase tracking-[0.02em] text-bone transition-colors duration-500 ease-prism group-hover:text-fog-blue">
+                    Read
+                    <svg
+                      className="h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </Link>
+            </m.article>
           ))}
         </div>
-      </m.div>
+      </div>
     </section>
   );
 }
