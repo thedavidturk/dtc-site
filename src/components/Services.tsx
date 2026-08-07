@@ -179,7 +179,7 @@ export default function Services() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
-            className="font-headline text-heading-lg font-semibold uppercase headline-red"
+            className="font-anton text-heading-lg font-normal uppercase tracking-normal headline-red"
           >
             What we do
           </m.h2>

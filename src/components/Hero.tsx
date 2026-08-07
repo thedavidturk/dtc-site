@@ -390,10 +390,10 @@ export default function Hero() {
         <div className="section-container relative z-30">
           {/* Sculptural display headline: one weight, hierarchy from
               scale alone, each line rising from its own mask. */}
-          <h1 className="text-display font-normal text-bone">
+          <h1 className="font-anton text-display font-normal uppercase tracking-normal text-bone">
             <LineReveal delay={0.15}>Content that</LineReveal>
             <LineReveal delay={0.27}>moves at the</LineReveal>
-            <LineReveal delay={0.39}>speed of culture.</LineReveal>
+            <LineReveal delay={0.39}>speed of culture</LineReveal>
           </h1>
 
           <m.div

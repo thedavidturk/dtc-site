@@ -193,7 +193,7 @@ export default function Contact() {
           <p className="font-body text-[17px] uppercase tracking-[0.02em] font-normal text-fog-blue">
             Contact
           </p>
-          <h2 className="font-body text-display-sm font-semibold uppercase headline-red mt-6">
+          <h2 className="font-anton text-display-sm font-normal uppercase tracking-normal headline-red mt-6">
             Get In Touch
           </h2>
           <p className="font-body text-body-lg font-normal text-bone mt-10 max-w-[440px]">

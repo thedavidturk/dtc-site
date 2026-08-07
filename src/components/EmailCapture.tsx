@@ -130,7 +130,7 @@ export default function EmailCapture() {
             <span className="block text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-5">
               Stay in the Loop
             </span>
-            <h2 className="font-headline font-semibold uppercase text-heading-sm headline-yellow">
+            <h2 className="font-anton font-normal uppercase tracking-normal text-heading-sm headline-yellow">
               Get Monthly AI Creative Insights
             </h2>
             <p className="font-body font-normal text-body-sm text-fog-blue mt-4">

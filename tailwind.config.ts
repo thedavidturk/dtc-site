@@ -55,6 +55,7 @@ const config: Config = {
         // straggler renders off-system.
         headline: ['var(--font-switzer)', 'sans-serif'],
         display: ['var(--font-switzer)', 'sans-serif'],
+        anton: ['var(--font-anton)', 'sans-serif'],
         body: ['var(--font-switzer)', 'sans-serif'],
         mono: ['var(--font-switzer)', 'sans-serif'],
         serif: ['var(--font-switzer)', 'sans-serif'],

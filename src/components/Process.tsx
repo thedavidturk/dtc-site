@@ -66,7 +66,7 @@ export default function Process() {
         >
           Our Process
         </m.span>
-        <h2 className="font-headline font-semibold uppercase text-h2 headline-yellow">
+        <h2 className="font-anton font-normal uppercase tracking-normal text-h2 headline-yellow">
           <LineReveal>How we partner</LineReveal>
         </h2>
       </div>

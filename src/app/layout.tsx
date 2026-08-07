@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Anton } from "next/font/google";
 import dynamic from "next/dynamic";
 import Script from "next/script";
 import { ViewTransitions } from "next-view-transitions";
@@ -35,6 +36,15 @@ const switzer = localFont({
     { path: "../fonts/Switzer-Bold.woff2", weight: "700", style: "normal" },
   ],
   variable: "--font-switzer",
+  display: "swap",
+});
+
+// Hero display face: Anton, the one heavy condensed voice reserved
+// for the landing statement.
+const anton = Anton({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-anton",
   display: "swap",
 });
 
@@ -112,7 +122,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body
-        className={`${switzer.variable} font-body antialiased text-bone`}
+        className={`${switzer.variable} ${anton.variable} font-body antialiased text-bone`}
       >
         <MotionProvider>
           <SmoothScroll />
