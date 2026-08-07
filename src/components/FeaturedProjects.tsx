@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "./TransitionLink";
 import Image from "next/image";
 import { m } from "framer-motion";
@@ -166,25 +166,34 @@ const TILE_CHANNELS: { color: string; x: number; y: number }[] = [
 ];
 
 /**
- * One mosaic tile. Poster-first: the still renders immediately and the
- * clip only loads and plays while the pointer (or focus) is on the
- * tile, so sixteen tiles stay cheap.
+ * One mosaic tile. Poster-first: the still renders immediately, then the
+ * clip loads and plays while the tile is in the viewport (paused when
+ * scrolled away), so sixteen tiles stay cheap. Reduced-motion users
+ * keep the stills.
  */
 function Tile({ project, index }: { project: Project; index: number }) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(false);
   const isVideo = project.coverImage?.toLowerCase().endsWith(".mp4") ?? false;
   const still = isVideo ? project.coverPoster : project.coverImage;
 
-  const play = () => {
+  useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
-    v.play().catch(() => {});
-  };
-  const stop = () => {
-    const v = videoRef.current;
-    if (!v) return;
-    v.pause();
-  };
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          v.play().catch(() => {});
+        } else {
+          v.pause();
+        }
+      },
+      { rootMargin: "100px" },
+    );
+    observer.observe(v);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <m.div
@@ -197,10 +206,6 @@ function Tile({ project, index }: { project: Project; index: number }) {
         href={project.href}
         aria-label={`${project.client}: ${project.title}. ${project.type}. View project.`}
         className="group relative block"
-        onMouseEnter={play}
-        onMouseLeave={stop}
-        onFocus={play}
-        onBlur={stop}
       >
         <div className="relative aspect-square overflow-hidden rounded-[15px]">
           {still && (
@@ -222,7 +227,8 @@ function Tile({ project, index }: { project: Project; index: number }) {
               playsInline
               preload="none"
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-500 ease-prism group-hover:opacity-100 group-focus-visible:opacity-100"
+              onPlaying={() => setPlaying(true)}
+              className={`pointer-events-none absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ease-prism ${playing ? "opacity-100" : "opacity-0"}`}
             />
           )}
 
@@ -286,7 +292,7 @@ export default function FeaturedProjects() {
         </m.div>
 
         {/* The mosaic: every project at once, one tight grid of squares.
-            7px gaps (the system's element gap); hover plays the work. */}
+            7px gaps (the system's element gap); clips play while in view. */}
         <div className="grid grid-cols-2 gap-[7px] sm:grid-cols-3 lg:grid-cols-4">
           {projects.map((project, i) => (
             <Tile key={project.href} project={project} index={i} />
