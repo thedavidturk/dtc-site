@@ -71,13 +71,17 @@ function Cluster({
 }) {
   const group = useRef<THREE.Group>(null);
   const cubeRefs = useRef<(THREE.Group | null)[]>([]);
+  /* Accumulated spin per cube: integrated frame-by-frame so the
+     converge boost changes velocity smoothly instead of re-scaling
+     the whole elapsed-time rotation at once. */
+  const spinAngles = useRef<number[]>(CUBES.map(() => 0));
 
   const edges = useMemo(
     () => new THREE.EdgesGeometry(new THREE.BoxGeometry(1, 1, 1)),
     []
   );
 
-  useFrame(({ clock }) => {
+  useFrame(({ clock }, delta) => {
     const g = group.current;
     if (!g) return;
     const t = clock.getElapsedTime();
@@ -89,11 +93,11 @@ function Cluster({
     g.rotation.x = scroll * 0.35 + phase * 0.05;
 
     // The morph: as converge approaches 1 the satellites collapse into
-    // the anchor and the whole cluster spins up, winding toward the
+    // the anchor and the whole cluster quickens, winding toward the
     // flash that hands off to the next section.
     const cv = converge?.get() ?? 0;
     const spread = Math.max(0.04, 1 - cv);
-    const spinBoost = 1 + cv * 9;
+    const spinBoost = 1 + cv * 2;
 
     CUBES.forEach((cube, i) => {
       const c = cubeRefs.current[i];
@@ -104,9 +108,11 @@ function Cluster({
         cube.position[1] * spread + float,
         cube.position[2] * spread
       );
+      spinAngles.current[i] += delta * CUBE_SPIN[i] * spinBoost;
+      const spin = spinAngles.current[i];
       c.rotation.set(
-        cube.rotation[0] + t * CUBE_SPIN[i] * 0.6 * spinBoost,
-        cube.rotation[1] + t * CUBE_SPIN[i] * spinBoost,
+        cube.rotation[0] + spin * 0.6,
+        cube.rotation[1] + spin,
         cube.rotation[2]
       );
     });

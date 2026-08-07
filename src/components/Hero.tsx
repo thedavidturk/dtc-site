@@ -279,7 +279,11 @@ export default function Hero() {
   });
 
   const converge = useTransform(scrollYProgress, [0.02, 0.32], [0, 1]);
-  const morphRotation = useTransform(scrollYProgress, [0, 0.38], [0, Math.PI]);
+  const morphRotation = useTransform(
+    scrollYProgress,
+    [0, 0.38],
+    [0, Math.PI * 0.45]
+  );
   const prismOpacity = useTransform(scrollYProgress, [0.28, 0.4], [1, 0]);
   const prismScale = useTransform(scrollYProgress, [0, 0.4], [1, 0.55]);
 
