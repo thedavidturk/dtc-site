@@ -40,23 +40,24 @@ const steps = [
 
 const easePrism = [0.52, 0.01, 0, 1] as const;
 
-const rowVariants = {
+const cardVariants = {
   hidden: { opacity: 0, y: 24 },
-  visible: {
+  visible: (i: number) => ({
     opacity: 1,
     y: 0,
     transition: {
       duration: 0.5,
       ease: easePrism,
+      delay: i * 0.08,
     },
-  },
+  }),
 };
 
 export default function Process() {
   return (
     <section id="process" className="section-padding">
       {/* Section opener */}
-      <div className="section-container mb-20 md:mb-28">
+      <div className="section-container mb-12 md:mb-16">
         <m.span
           className="block text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-6"
           initial={{ opacity: 0 }}
@@ -71,36 +72,33 @@ export default function Process() {
         </h2>
       </div>
 
-      {/* Hairline step rows */}
-      <div className="border-b border-ash-border">
-        {steps.map((step, index) => (
-          <div key={step.number} className="border-t border-ash-border">
+      {/* The four phases, side by side: one row at desktop, 2x2 at
+          tablet, a tight stack on mobile. Each card carries its own
+          top hairline so the grid reads as one broken rule. */}
+      <div className="section-container">
+        <div className="grid grid-cols-1 gap-x-10 md:grid-cols-2 lg:grid-cols-4">
+          {steps.map((step, index) => (
             <m.div
-              className="section-container py-16 md:py-24 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start"
-              variants={rowVariants}
+              key={step.number}
+              custom={index}
+              variants={cardVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
+              viewport={{ once: true, margin: "-60px" }}
+              className="border-t border-ash-border py-8 md:py-10"
             >
-              {/* Step number */}
-              <div className="md:col-span-3">
-                <span className="block text-caption uppercase tracking-[0.02em] font-normal text-fog-blue">
-                  {step.label}
-                </span>
-              </div>
-
-              {/* Step content */}
-              <div className="md:col-span-9">
-                <h3 className={`font-headline font-semibold uppercase text-heading-lg mb-6 ${HEADLINE_CHANNELS[index % 4]}`}>
-                  {step.title}
-                </h3>
-                <p className="max-w-[640px] text-body-sm font-normal text-fog-blue">
-                  {step.description}
-                </p>
-              </div>
+              <span className="block text-caption uppercase tracking-[0.02em] font-normal text-fog-blue">
+                {step.label}
+              </span>
+              <h3 className={`font-headline font-semibold uppercase text-heading-sm mt-4 mb-4 ${HEADLINE_CHANNELS[index % 4]}`}>
+                {step.title}
+              </h3>
+              <p className="text-body-sm font-normal text-fog-blue">
+                {step.description}
+              </p>
             </m.div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
