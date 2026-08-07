@@ -108,6 +108,67 @@ h1 {
   .headline-yellow {
     color: #fffdf9;
   }
+
+  /* Velocity-reactive aberration: at rest --chroma is 0 and these
+     shadows vanish; scroll fast and ScrollChroma raises it toward 1,
+     splitting the type into the prism's channels until the page
+     settles back into focus. `.chroma-text` opts non-channel type
+     (the hero) into the same treatment. */
+  .headline-red,
+  .headline-cyan,
+  .headline-lime,
+  .headline-yellow,
+  .chroma-text {
+    text-shadow:
+      calc(var(--chroma, 0) * -7px) calc(var(--chroma, 0) * 2px) 0
+        rgba(255, 42, 42, calc(var(--chroma, 0) * 0.8)),
+      calc(var(--chroma, 0) * 7px) calc(var(--chroma, 0) * -2px) 0
+        rgba(42, 127, 255, calc(var(--chroma, 0) * 0.8)),
+      0 calc(var(--chroma, 0) * 7px) 0
+        rgba(42, 255, 42, calc(var(--chroma, 0) * 0.55));
+  }
+
+  /* Custom cursor: hide the native pointer on fine-pointer devices
+     while the viewfinder is mounted; text fields keep theirs. */
+  @media (pointer: fine) {
+    .cursor-custom,
+    .cursor-custom * {
+      cursor: none !important;
+    }
+    .cursor-custom input,
+    .cursor-custom textarea,
+    .cursor-custom select {
+      cursor: auto !important;
+    }
+  }
+
+  /* Film grain: an SVG turbulence tile over everything, stepped
+     translation for the flicker. Oversized so the jumps never reveal
+     an edge. */
+  .film-grain {
+    position: fixed;
+    inset: -50%;
+    z-index: 90;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    animation: grain-shift 0.9s steps(9) infinite;
+  }
+
+  @keyframes grain-shift {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(7%, 4%, 0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .film-grain {
+      animation: none;
+    }
+  }
 }
 
 @layer components {

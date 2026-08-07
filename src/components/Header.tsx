@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "./TransitionLink";
-import { m, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence, useMotionValueEvent, useScroll } from "framer-motion";
 
 const navLinks = [
   { label: "Work", href: "#projects" },
@@ -15,8 +15,20 @@ const navLinks = [
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  /* Past the top of the page the bar turns to frosted obsidian glass:
+     the hero's transmission material, borrowed for the chrome. */
+  const [scrolled, setScrolled] = useState(false);
+  const { scrollY } = useScroll();
+  useMotionValueEvent(scrollY, "change", (y) => setScrolled(y > 40));
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-obsidian/90">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500 ease-prism border-b ${
+        scrolled || mobileOpen
+          ? "bg-obsidian/60 backdrop-blur-xl border-bone/10"
+          : "bg-obsidian/90 border-transparent"
+      }`}
+    >
       {/* Thin top bar: wordmark left, ghost links right, outlined Contact terminating the row */}
       <div className="section-container flex items-center h-16 md:h-20">
         <Link href="/" className="shrink-0">

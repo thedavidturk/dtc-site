@@ -11,6 +11,9 @@ import MotionProvider from "@/components/MotionProvider";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import DesktopFX from "@/components/DesktopFX";
+import FilmGrain from "@/components/FilmGrain";
+import ScrollChroma from "@/components/ScrollChroma";
+import CustomCursor from "@/components/CustomCursor";
 
 const ScrollProgressTrail = dynamic(
   () => import("@/components/ScrollProgressTrail"),
@@ -129,6 +132,9 @@ export default function RootLayout({
           <Analytics />
           <DesktopFX>
             <ScrollProgressTrail />
+            <ScrollChroma />
+            <FilmGrain />
+            <CustomCursor />
           </DesktopFX>
           <Header />
           <main>{children}</main>

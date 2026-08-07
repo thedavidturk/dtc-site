@@ -10,6 +10,7 @@ import {
 } from "framer-motion";
 import WorkMarquee from "./WorkMarquee";
 import LineReveal from "./LineReveal";
+import Magnetic from "./Magnetic";
 import PrismArtifact from "./PrismArtifact";
 import useAutoplayInView from "./useAutoplayInView";
 
@@ -390,7 +391,7 @@ export default function Hero() {
         <div className="section-container relative z-30">
           {/* Sculptural display headline: one weight, hierarchy from
               scale alone, each line rising from its own mask. */}
-          <h1 className="font-anton text-display font-normal uppercase tracking-normal text-bone">
+          <h1 className="font-anton text-display font-normal uppercase tracking-normal text-bone chroma-text">
             <LineReveal delay={0.15}>Content that</LineReveal>
             <LineReveal delay={0.27}>moves at the</LineReveal>
             <LineReveal delay={0.39}>speed of culture</LineReveal>
@@ -416,14 +417,17 @@ export default function Hero() {
               variants={item}
               className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-4"
             >
-              <a href="/#contact" className="btn-primary">
-                Book a Call
-              </a>
-              <a
-                href="#projects"
-                className="group inline-flex items-center gap-2 text-sm font-normal uppercase tracking-[0.02em] text-bone transition-colors duration-500 ease-prism hover:text-fog-blue"
-              >
-                See Our Work
+              <Magnetic>
+                <a href="/#contact" className="btn-primary">
+                  Book a Call
+                </a>
+              </Magnetic>
+              <Magnetic>
+                <a
+                  href="#projects"
+                  className="group inline-flex items-center gap-2 text-sm font-normal uppercase tracking-[0.02em] text-bone transition-colors duration-500 ease-prism hover:text-fog-blue"
+                >
+                  See Our Work
                 <svg
                   className="h-4 w-4"
                   fill="none"
@@ -432,13 +436,14 @@ export default function Hero() {
                   strokeWidth={1.5}
                   aria-hidden="true"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"
-                  />
-                </svg>
-              </a>
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M13 7l5 5m0 0l-5 5m5-5H6"
+                    />
+                  </svg>
+                </a>
+              </Magnetic>
             </m.div>
           </m.div>
         </div>

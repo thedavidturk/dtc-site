@@ -206,6 +206,7 @@ function Tile({ project, index }: { project: Project; index: number }) {
         href={project.href}
         aria-label={`${project.client}: ${project.title}. ${project.type}. View project.`}
         className="group relative block"
+        data-cursor="view"
       >
         <div className="relative aspect-square overflow-hidden rounded-[15px]">
           {still && (
