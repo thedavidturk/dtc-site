@@ -2,6 +2,7 @@
 
 import Link from "@/components/TransitionLink";
 import { m } from "framer-motion";
+import PinnedApproach from "@/components/PinnedApproach";
 import LineReveal from "@/components/LineReveal";
 import AutoplayVideo from "@/components/AutoplayVideo";
 
@@ -221,7 +222,7 @@ export default function BarrysBootcampProject() {
             Fitness + Content
           </m.p>
 
-          <h1 className="font-headline font-normal text-bone text-display-sm">
+          <h1 className="font-anton uppercase tracking-normal text-bone text-display-sm chroma-text">
             <LineReveal delay={0.25}>BARRY&rsquo;S</LineReveal>
             <LineReveal delay={0.35}>BOOTCAMP</LineReveal>
           </h1>
@@ -344,53 +345,15 @@ export default function BarrysBootcampProject() {
 
       <Rule />
 
-      {/* ── Our Approach ──────────────────────────────────────────── */}
-      <section className="section-container section-padding">
-        <m.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mb-16 md:mb-24"
-        >
-          <Label>Our Approach</Label>
-          <h2 className="mt-4 font-headline text-heading-lg font-normal text-bone">
-            From studio floor to feed
-          </h2>
-        </m.div>
-
-        <ol className="max-w-[720px]">
-          {approach.map((item, i) => (
-            <m.li
-              key={item.step}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-60px" }}
-              className={`py-12 md:py-16 ${
-                i > 0 ? "border-t border-ash-border" : ""
-              }`}
-            >
-              <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-12">
-                <span
-                  aria-hidden="true"
-                  className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue shrink-0 pt-2"
-                >
-                  {item.step}
-                </span>
-                <div className="max-w-[640px]">
-                  <h3 className="font-headline text-heading-sm font-normal text-bone mb-4">
-                    {item.title}
-                  </h3>
-                  <p className="font-body text-body-sm font-normal text-fog-blue">
-                    {item.description}
-                  </p>
-                </div>
-              </div>
-            </m.li>
-          ))}
-        </ol>
-      </section>
+      {/* Our Approach (scroll-pinned director's viewport) */}
+      <PinnedApproach
+        eyebrow="Our Approach"
+        heading="From studio floor to feed"
+        steps={approach.map(({ title, description }) => ({
+          title,
+          body: description,
+        }))}
+      />
 
       <Rule />
 

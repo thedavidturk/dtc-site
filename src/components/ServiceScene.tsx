@@ -57,6 +57,27 @@ function MouseParallaxGroup({ children }: { children: React.ReactNode }) {
 }
 
 /* ================================================================== */
+/*  Shared: Ambient Spin -- a slow, continuous turn so every scene     */
+/*  reads as a live render even with no cursor input, layered under   */
+/*  the mouse-parallax tilt above.                                    */
+/* ================================================================== */
+
+function AmbientSpin({
+  children,
+  speed = 0.045,
+}: {
+  children: React.ReactNode;
+  speed?: number;
+}) {
+  const groupRef = useRef<THREE.Group>(null!);
+  useFrame((_, delta) => {
+    if (!groupRef.current) return;
+    groupRef.current.rotation.y += delta * speed;
+  });
+  return <group ref={groupRef}>{children}</group>;
+}
+
+/* ================================================================== */
 /*  SCENE 1: CINEMATOGRAPHY - Virtual World Viewport                   */
 /* ================================================================== */
 
@@ -99,7 +120,7 @@ function CinematographyTerrain() {
         color="#fffdf9"
         wireframe
         transparent
-        opacity={0.25}
+        opacity={0.4}
         depthWrite={false}
         side={THREE.DoubleSide}
       />
@@ -146,7 +167,7 @@ function CinematographyCameraPath() {
     <>
       <Line
         points={pathPoints}
-        color="#495764"
+        color="#6f879c"
         lineWidth={1.5}
         transparent
         opacity={0.8}
@@ -155,7 +176,7 @@ function CinematographyCameraPath() {
       <mesh ref={sphereRef}>
         <sphereGeometry args={[0.08, 12, 12]} />
         <meshBasicMaterial
-          color="#495764"
+          color="#6f879c"
           toneMapped={false}
         />
       </mesh>
@@ -199,9 +220,9 @@ function CinematographyGlowTrail() {
     <mesh ref={meshRef}>
       <sphereGeometry args={[0.2, 8, 8]} />
       <meshBasicMaterial
-        color="#495764"
+        color="#6f879c"
         transparent
-        opacity={0.15}
+        opacity={0.28}
         blending={THREE.AdditiveBlending}
         depthWrite={false}
       />
@@ -254,7 +275,7 @@ function CinematographyViewportFrame() {
           color="#ffffff"
           lineWidth={0.5}
           transparent
-          opacity={0.1}
+          opacity={0.22}
         />
       ))}
       {crosshairs.map((pts, i) => (
@@ -264,7 +285,7 @@ function CinematographyViewportFrame() {
           color="#ffffff"
           lineWidth={0.8}
           transparent
-          opacity={0.15}
+          opacity={0.3}
         />
       ))}
     </>
@@ -297,7 +318,7 @@ function CinematographyGridOverlay() {
           color="#ffffff"
           lineWidth={0.3}
           transparent
-          opacity={0.05}
+          opacity={0.12}
         />
       ))}
     </>
@@ -307,14 +328,16 @@ function CinematographyGridOverlay() {
 function CinematographyScene() {
   return (
     <>
-      <ambientLight intensity={0.3} />
-      <MouseParallaxGroup>
-        <CinematographyTerrain />
-        <CinematographyCameraPath />
-        <CinematographyGlowTrail />
-        <CinematographyViewportFrame />
-        <CinematographyGridOverlay />
-      </MouseParallaxGroup>
+      <ambientLight intensity={0.55} />
+      <AmbientSpin>
+        <MouseParallaxGroup>
+          <CinematographyTerrain />
+          <CinematographyCameraPath />
+          <CinematographyGlowTrail />
+          <CinematographyViewportFrame />
+          <CinematographyGridOverlay />
+        </MouseParallaxGroup>
+      </AmbientSpin>
     </>
   );
 }
@@ -341,7 +364,7 @@ function AnimationProduct() {
           color="#fffdf9"
           wireframe
           transparent
-          opacity={0.6}
+          opacity={0.72}
           depthWrite={false}
         />
       </mesh>
@@ -352,7 +375,7 @@ function AnimationProduct() {
           color="#fffdf9"
           wireframe
           transparent
-          opacity={0.6}
+          opacity={0.72}
           depthWrite={false}
         />
       </mesh>
@@ -398,12 +421,12 @@ function AnimationMeasurementLines() {
 
   return (
     <>
-      <Line points={verticalLine} color="#495764" lineWidth={1} transparent opacity={0.4} />
-      <Line points={vertTickTop} color="#495764" lineWidth={1} transparent opacity={0.4} />
-      <Line points={vertTickBottom} color="#495764" lineWidth={1} transparent opacity={0.4} />
-      <Line points={horizontalLine} color="#495764" lineWidth={1} transparent opacity={0.4} />
-      <Line points={horizTickLeft} color="#495764" lineWidth={1} transparent opacity={0.4} />
-      <Line points={horizTickRight} color="#495764" lineWidth={1} transparent opacity={0.4} />
+      <Line points={verticalLine} color="#6f879c" lineWidth={1} transparent opacity={0.55} />
+      <Line points={vertTickTop} color="#6f879c" lineWidth={1} transparent opacity={0.55} />
+      <Line points={vertTickBottom} color="#6f879c" lineWidth={1} transparent opacity={0.55} />
+      <Line points={horizontalLine} color="#6f879c" lineWidth={1} transparent opacity={0.55} />
+      <Line points={horizTickLeft} color="#6f879c" lineWidth={1} transparent opacity={0.55} />
+      <Line points={horizTickRight} color="#6f879c" lineWidth={1} transparent opacity={0.55} />
     </>
   );
 }
@@ -416,7 +439,7 @@ function AnimationOrbitRing() {
         color="#fffdf9"
         wireframe
         transparent
-        opacity={0.15}
+        opacity={0.28}
         depthWrite={false}
       />
     </mesh>
@@ -431,7 +454,7 @@ function AnimationGridFloor() {
         color="#ffffff"
         wireframe
         transparent
-        opacity={0.08}
+        opacity={0.16}
         depthWrite={false}
       />
     </mesh>
@@ -451,7 +474,7 @@ function AnimationFloatingPoints() {
     const yOff = new Float32Array(count);
 
     const indigoColor = new THREE.Color("#fffdf9");
-    const coralColor = new THREE.Color("#495764");
+    const coralColor = new THREE.Color("#6f879c");
 
     for (let i = 0; i < count; i++) {
       ang[i] = Math.random() * Math.PI * 2;
@@ -512,14 +535,16 @@ function AnimationFloatingPoints() {
 function AnimationScene() {
   return (
     <>
-      <ambientLight intensity={0.3} />
-      <MouseParallaxGroup>
-        <AnimationProduct />
-        <AnimationMeasurementLines />
-        <AnimationOrbitRing />
-        <AnimationGridFloor />
-        <AnimationFloatingPoints />
-      </MouseParallaxGroup>
+      <ambientLight intensity={0.55} />
+      <AmbientSpin>
+        <MouseParallaxGroup>
+          <AnimationProduct />
+          <AnimationMeasurementLines />
+          <AnimationOrbitRing />
+          <AnimationGridFloor />
+          <AnimationFloatingPoints />
+        </MouseParallaxGroup>
+      </AmbientSpin>
     </>
   );
 }
@@ -555,7 +580,7 @@ function DirectionCentralFrame() {
         <meshBasicMaterial
           color="#fffdf9"
           transparent
-          opacity={0.04}
+          opacity={0.09}
           depthWrite={false}
           side={THREE.DoubleSide}
         />
@@ -602,7 +627,7 @@ function DirectionOutputFrame({
         color={color}
         lineWidth={1.5}
         transparent
-        opacity={0.7}
+        opacity={0.85}
       />
       {/* Subtle fill */}
       <mesh>
@@ -610,7 +635,7 @@ function DirectionOutputFrame({
         <meshBasicMaterial
           color={color}
           transparent
-          opacity={0.03}
+          opacity={0.07}
           depthWrite={false}
           side={THREE.DoubleSide}
         />
@@ -662,7 +687,7 @@ function DirectionParticleStreams() {
     const colArr = colAttr.array as Float32Array;
 
     const indigoColor = new THREE.Color("#fffdf9");
-    const coralColor = new THREE.Color("#495764");
+    const coralColor = new THREE.Color("#6f879c");
 
     for (let s = 0; s < streamCount; s++) {
       const target = targets[s];
@@ -780,7 +805,7 @@ function DirectionAmbientParticles() {
         size={0.02}
         color="#fffdf9"
         transparent
-        opacity={0.3}
+        opacity={0.42}
         blending={THREE.AdditiveBlending}
         depthWrite={false}
         sizeAttenuation
@@ -792,34 +817,36 @@ function DirectionAmbientParticles() {
 function DirectionScene() {
   return (
     <>
-      <ambientLight intensity={0.2} />
-      <MouseParallaxGroup>
-        <DirectionCentralFrame />
-        {/* Output frames: mobile (9:16), social (1:1), cinema (16:9) */}
-        <DirectionOutputFrame
-          position={[2.0, 1.2, 0]}
-          width={0.56}
-          height={1.0}
-          color="#fffdf9"
-          phaseOffset={0}
-        />
-        <DirectionOutputFrame
-          position={[2.2, 0.0, 0]}
-          width={0.7}
-          height={0.7}
-          color="#fffdf9"
-          phaseOffset={2.0}
-        />
-        <DirectionOutputFrame
-          position={[2.0, -1.2, 0]}
-          width={1.2}
-          height={0.675}
-          color="#495764"
-          phaseOffset={4.0}
-        />
-        <DirectionParticleStreams />
-        <DirectionAmbientParticles />
-      </MouseParallaxGroup>
+      <ambientLight intensity={0.45} />
+      <AmbientSpin>
+        <MouseParallaxGroup>
+          <DirectionCentralFrame />
+          {/* Output frames: mobile (9:16), social (1:1), cinema (16:9) */}
+          <DirectionOutputFrame
+            position={[2.0, 1.2, 0]}
+            width={0.56}
+            height={1.0}
+            color="#fffdf9"
+            phaseOffset={0}
+          />
+          <DirectionOutputFrame
+            position={[2.2, 0.0, 0]}
+            width={0.7}
+            height={0.7}
+            color="#fffdf9"
+            phaseOffset={2.0}
+          />
+          <DirectionOutputFrame
+            position={[2.0, -1.2, 0]}
+            width={1.2}
+            height={0.675}
+            color="#6f879c"
+            phaseOffset={4.0}
+          />
+          <DirectionParticleStreams />
+          <DirectionAmbientParticles />
+        </MouseParallaxGroup>
+      </AmbientSpin>
     </>
   );
 }
@@ -841,7 +868,7 @@ function CaptureCinemaCamera() {
       color: "#fffdf9",
       wireframe: true,
       transparent: true,
-      opacity: 0.55,
+      opacity: 0.68,
       depthWrite: false,
     }),
     []
@@ -849,10 +876,10 @@ function CaptureCinemaCamera() {
 
   const accentMat = useMemo(
     () => ({
-      color: "#495764",
+      color: "#6f879c",
       wireframe: true,
       transparent: true,
-      opacity: 0.5,
+      opacity: 0.62,
       depthWrite: false,
     }),
     []
@@ -884,7 +911,7 @@ function CaptureCinemaCamera() {
         <meshBasicMaterial
           color="#fffdf9"
           transparent
-          opacity={0.08}
+          opacity={0.18}
           depthWrite={false}
           side={THREE.DoubleSide}
         />
@@ -936,7 +963,7 @@ function CaptureCinemaCamera() {
           color="#fffdf9"
           wireframe
           transparent
-          opacity={0.2}
+          opacity={0.32}
           depthWrite={false}
         />
       </mesh>
@@ -957,7 +984,7 @@ function CaptureOrbitRing() {
       <meshBasicMaterial
         color="#fffdf9"
         transparent
-        opacity={0.12}
+        opacity={0.24}
         depthWrite={false}
       />
     </mesh>
@@ -972,7 +999,7 @@ function CaptureGridFloor() {
         color="#ffffff"
         wireframe
         transparent
-        opacity={0.08}
+        opacity={0.16}
         depthWrite={false}
       />
     </mesh>
@@ -992,7 +1019,7 @@ function CaptureFloatingPoints() {
     const yOff = new Float32Array(count);
 
     const indigoColor = new THREE.Color("#fffdf9");
-    const coralColor = new THREE.Color("#495764");
+    const coralColor = new THREE.Color("#6f879c");
 
     for (let i = 0; i < count; i++) {
       ang[i] = Math.random() * Math.PI * 2;
@@ -1053,13 +1080,15 @@ function CaptureFloatingPoints() {
 function CaptureScene() {
   return (
     <>
-      <ambientLight intensity={0.3} />
-      <MouseParallaxGroup>
-        <CaptureCinemaCamera />
-        <CaptureOrbitRing />
-        <CaptureGridFloor />
-        <CaptureFloatingPoints />
-      </MouseParallaxGroup>
+      <ambientLight intensity={0.55} />
+      <AmbientSpin>
+        <MouseParallaxGroup>
+          <CaptureCinemaCamera />
+          <CaptureOrbitRing />
+          <CaptureGridFloor />
+          <CaptureFloatingPoints />
+        </MouseParallaxGroup>
+      </AmbientSpin>
     </>
   );
 }

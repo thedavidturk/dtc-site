@@ -3,6 +3,7 @@
 import Link from "@/components/TransitionLink";
 import Image from "next/image";
 import { m } from "framer-motion";
+import PinnedApproach from "@/components/PinnedApproach";
 import AutoplayVideo from "@/components/AutoplayVideo";
 
 /* ------------------------------------------------------------------ */
@@ -211,7 +212,7 @@ export default function BetterflyProject() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3, ease: PRISM_EASE }}
-          className="mt-6 font-headline text-display-sm font-normal text-bone"
+          className="mt-6 font-anton text-display-sm uppercase tracking-normal text-bone chroma-text"
         >
           Betterfly
         </m.h1>
@@ -376,48 +377,15 @@ export default function BetterflyProject() {
 
       <Rule />
 
-      {/* ── Our Approach ──────────────────────────────────────────── */}
-      <section className="section-container section-padding">
-        <m.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mb-16 md:mb-24"
-        >
-          <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue mb-4">
-            Our Approach
-          </p>
-          <h2 className="font-headline text-heading-lg font-normal text-bone">
-            From monuments to feeds in five steps
-          </h2>
-        </m.div>
-
-        <div className="max-w-[640px]">
-          {approach.map((step, i) => (
-            <m.div
-              key={step.step}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-60px" }}
-              className={
-                i === 0 ? "" : "border-t border-ash-border mt-14 pt-14"
-              }
-            >
-              <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue">
-                {step.step}
-              </p>
-              <h3 className="mt-4 font-headline text-heading-sm font-normal text-bone">
-                {step.title}
-              </h3>
-              <p className="mt-5 font-body text-body-sm font-normal text-bone">
-                {step.description}
-              </p>
-            </m.div>
-          ))}
-        </div>
-      </section>
+      {/* Our Approach (scroll-pinned director's viewport) */}
+      <PinnedApproach
+        eyebrow="Our Approach"
+        heading="From monuments to feeds in five steps"
+        steps={approach.map(({ title, description }) => ({
+          title,
+          body: description,
+        }))}
+      />
 
       <Rule />
 

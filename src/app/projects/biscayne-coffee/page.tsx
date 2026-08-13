@@ -3,6 +3,7 @@
 import Link from "@/components/TransitionLink";
 import Image from "next/image";
 import { m } from "framer-motion";
+import PinnedApproach from "@/components/PinnedApproach";
 import AutoplayVideo from "@/components/AutoplayVideo";
 
 /* ------------------------------------------------------------------ */
@@ -295,7 +296,7 @@ export default function BiscayneCoffeeProject() {
             initial={{ y: "110%" }}
             animate={{ y: 0 }}
             transition={{ duration: 0.7, delay: 0.25, ease: prismEase }}
-            className="font-body font-normal text-bone text-display-sm"
+            className="font-anton uppercase tracking-normal text-bone text-display-sm chroma-text"
           >
             Biscayne Coffee
           </m.h1>
@@ -503,41 +504,15 @@ export default function BiscayneCoffeeProject() {
 
       <Rule />
 
-      {/* ── The Process ───────────────────────────────────────────── */}
-      <section className="section-container section-padding">
-        <SectionHeader
-          eyebrow="The Process"
-          title="From the shoot to the render in five moves"
-        />
-
-        <div className="max-w-[900px]">
-          {approach.map((item) => (
-            <m.div
-              key={item.step}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-60px" }}
-              className="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-6 md:gap-10 border-t border-ash-border py-12"
-            >
-              <span
-                aria-hidden="true"
-                className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue"
-              >
-                Step {item.step}
-              </span>
-              <div>
-                <h3 className="font-body text-heading-sm font-normal text-bone mb-4">
-                  {item.title}
-                </h3>
-                <p className="max-w-[640px] text-body-sm font-normal text-bone">
-                  {item.description}
-                </p>
-              </div>
-            </m.div>
-          ))}
-        </div>
-      </section>
+      {/* The Process (scroll-pinned director's viewport) */}
+      <PinnedApproach
+        eyebrow="The Process"
+        heading="From the shoot to the render in five moves"
+        steps={approach.map(({ title, description }) => ({
+          title,
+          body: description,
+        }))}
+      />
 
       <Rule />
 

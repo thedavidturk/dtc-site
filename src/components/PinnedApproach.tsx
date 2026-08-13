@@ -4,12 +4,17 @@ import React, { useEffect, useId, useRef, useState } from "react";
 import { m, MotionValue, useScroll, useTransform } from "framer-motion";
 
 /**
- * PinnedApproach -- the scroll-scrubbed "Approach" section for case studies.
+ * PinnedApproach -- the scroll-pinned "director's viewport" for a
+ * case study's Approach section.
  *
- * Replaces the static numbered 01-05 list on project pages with the site's
- * one earned scroll moment, in the director's-viewport language (Bricolage
- * display numerals, JetBrains Mono HUD readouts, terracotta ticks --
- * see WorkFrame.tsx for the 2D vocabulary this extends).
+ * Replaces the static numbered 01-05 list on project pages with the
+ * site's one earned scroll moment: a sticky stage where each step
+ * crossfades in on the Prism system's own tokens (obsidian / bone /
+ * fog-blue), the oversized step numeral set in Anton to match the
+ * homepage hero's display voice, and a progress rail that carries the
+ * spec's single narrow exception to "no prism color on UI": one prism
+ * channel (cyan), used only as a wayfinding fill on this rail. See
+ * DESIGN_SPEC.md, "PinnedApproach" for the full rationale.
  *
  * Mechanics (desktop, motion-safe):
  * - Outer container is steps.length * 90vh tall; the inner stage is
@@ -84,6 +89,41 @@ function usePinnedCapable() {
 }
 
 /* ------------------------------------------------------------------ */
+/*  Section header -- eyebrow + heading, shared by both renderings     */
+/* ------------------------------------------------------------------ */
+
+function ApproachHeader({
+  eyebrow,
+  heading,
+  headingId,
+  className = "",
+}: {
+  eyebrow?: string;
+  heading?: string;
+  headingId: string;
+  className?: string;
+}) {
+  if (!eyebrow && !heading) return null;
+  return (
+    <div className={className}>
+      {eyebrow && (
+        <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-4">
+          {eyebrow}
+        </p>
+      )}
+      {heading && (
+        <h2
+          id={headingId}
+          className="font-body text-heading-lg font-normal text-bone max-w-[900px]"
+        >
+          {heading}
+        </h2>
+      )}
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
 /*  One scrubbed step layer (hooks live here, not in a loop)           */
 /* ------------------------------------------------------------------ */
 
@@ -127,14 +167,15 @@ function StepLayer({ step, index, count, progress }: StepLayerProps) {
 
   return (
     <div className="pointer-events-none absolute inset-0 grid grid-cols-12 items-center gap-8">
-      {/* Oversized step numeral -- purely decorative */}
+      {/* Oversized step numeral -- purely decorative, Anton to match
+          the homepage hero's display voice at case-study scale. */}
       <m.div
         aria-hidden
         style={{ opacity, y: numeralY }}
         className="col-span-5 flex items-center gap-6"
       >
-        <span className="h-16 w-px shrink-0 bg-terracotta" />
-        <span className="font-display text-display font-normal text-pure-white/90 select-none">
+        <span className="h-16 w-px shrink-0 bg-ash-border" />
+        <span className="font-anton text-display font-normal uppercase tracking-normal text-bone/90 select-none">
           {pad2(index + 1)}
         </span>
       </m.div>
@@ -144,14 +185,14 @@ function StepLayer({ step, index, count, progress }: StepLayerProps) {
         style={{ opacity, y: textY }}
         className="col-span-6 col-start-7 max-w-xl"
       >
-        <p className="font-mono text-xs tracking-[0.25em] uppercase text-clay-gray mb-5">
-          <span className="text-terracotta">Step</span> {pad2(index + 1)}{" "}
-          <span className="text-bone-white/30">/</span> {pad2(count)}
+        <p className="font-body text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-5">
+          Step {pad2(index + 1)}{" "}
+          <span className="text-fog-blue/40">/</span> {pad2(count)}
         </p>
-        <h3 className="font-headline text-h3 font-light text-pure-white mb-4">
+        <h3 className="font-body text-heading-sm font-normal text-bone mb-4">
           {step.title}
         </h3>
-        <p className="font-body text-clay-gray text-base md:text-lg leading-relaxed">
+        <p className="font-body text-body-sm font-normal text-fog-blue max-w-[640px]">
           {step.body}
         </p>
       </m.div>
@@ -187,18 +228,12 @@ function PinnedStage({ steps, eyebrow, heading, headingId }: PinnedStageProps) {
     >
       <div className="sticky top-0 flex h-screen flex-col overflow-hidden">
         {/* Section header, pinned at the top of the stage */}
-        <div className="section-container pt-28 pb-4">
-          {eyebrow && (
-            <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
-              {eyebrow}
-            </p>
-          )}
-          {heading && (
-            <h2 id={headingId} className="font-headline text-h3 font-light">
-              {heading}
-            </h2>
-          )}
-        </div>
+        <ApproachHeader
+          eyebrow={eyebrow}
+          heading={heading}
+          headingId={headingId}
+          className="section-container pt-28 pb-4"
+        />
 
         {/* Scrub area: stacked step layers + progress rail */}
         <div className="section-container relative w-full flex-1 pb-16">
@@ -212,20 +247,23 @@ function PinnedStage({ steps, eyebrow, heading, headingId }: PinnedStageProps) {
             />
           ))}
 
-          {/* Progress rail: fill scrubs with scroll, ticks mark the step
-              boundaries so the pin reads as wayfinding. */}
+          {/* Progress rail: the spec's one narrow, named exception to
+              "no prism color on UI" -- a single prism-cyan fill used
+              purely as a wayfinding gauge, never as decoration. Track
+              and boundary ticks stay on the neutral ash-border/bone
+              tokens so the cyan reads as signal, not ornament. */}
           <div
             aria-hidden
-            className="pointer-events-none absolute right-0 top-[12%] bottom-[12%] w-px bg-black/10"
+            className="pointer-events-none absolute right-0 top-[12%] bottom-[12%] w-px bg-ash-border"
           >
             <m.div
-              className="absolute inset-x-0 top-0 h-full origin-top bg-terracotta"
+              className="absolute inset-x-0 top-0 h-full origin-top bg-prism-cyan"
               style={{ scaleY: scrollYProgress }}
             />
             {Array.from({ length: count + 1 }, (_, i) => (
               <span
                 key={i}
-                className="absolute right-0 h-px w-3 bg-black/25"
+                className="absolute right-0 h-px w-3 bg-bone/40"
                 style={{ top: `${(i / count) * 100}%` }}
               />
             ))}
@@ -238,7 +276,7 @@ function PinnedStage({ steps, eyebrow, heading, headingId }: PinnedStageProps) {
 
 /* ------------------------------------------------------------------ */
 /*  Static fallback (below lg / prefers-reduced-motion)                */
-/*  Mirrors the numbered-list markup the project pages shipped with.   */
+/*  Mirrors the numbered-list layout the project pages shipped with.   */
 /* ------------------------------------------------------------------ */
 
 interface StaticListProps {
@@ -249,40 +287,32 @@ interface StaticListProps {
 }
 
 function StaticList({ steps, eyebrow, heading, headingId }: StaticListProps) {
+  const count = steps.length;
   return (
     <div className="section-container section-padding">
-      <div className="mb-16">
-        {eyebrow && (
-          <p className="text-caption uppercase tracking-[0.08em] text-graphite mb-4">
-            {eyebrow}
-          </p>
-        )}
-        {heading && (
-          <h2 id={headingId} className="font-headline text-h3 font-light">
-            {heading}
-          </h2>
-        )}
-      </div>
+      <ApproachHeader
+        eyebrow={eyebrow}
+        heading={heading}
+        headingId={headingId}
+        className="mb-16"
+      />
 
-      <div className="space-y-12">
+      <div className="max-w-[720px]">
         {steps.map((step, i) => (
           <div
             key={step.title}
-            className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 group"
+            className={`py-14 ${i > 0 ? "border-t border-ash-border" : ""}`}
           >
-            <div className="md:col-span-1">
-              <span className="font-mono text-3xl md:text-4xl font-light text-terracotta/30 group-hover:text-terracotta transition-colors duration-500">
-                {pad2(i + 1)}
-              </span>
-            </div>
-            <div className="md:col-span-11">
-              <h3 className="font-headline text-xl md:text-2xl font-light text-pure-white mb-3 group-hover:text-cream transition-colors duration-300">
-                {step.title}
-              </h3>
-              <p className="font-body text-clay-gray leading-relaxed max-w-3xl">
-                {step.body}
-              </p>
-            </div>
+            <p className="font-body text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-6">
+              Step {pad2(i + 1)}{" "}
+              <span className="text-fog-blue/40">/</span> {pad2(count)}
+            </p>
+            <h3 className="font-body text-heading-sm font-normal text-bone mb-4">
+              {step.title}
+            </h3>
+            <p className="font-body text-body-sm font-normal text-fog-blue max-w-[640px]">
+              {step.body}
+            </p>
           </div>
         ))}
       </div>

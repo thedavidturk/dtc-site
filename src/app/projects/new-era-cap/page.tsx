@@ -285,7 +285,7 @@ export default function NewEraCapProject() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3, ease: prismEase }}
-          className="font-body font-normal text-bone text-display-sm leading-[1.01] tracking-[-0.02em] mb-6"
+          className="font-anton uppercase tracking-normal text-bone text-display-sm chroma-text leading-[1.01] mb-6"
         >
           New Era Cap
         </m.h1>

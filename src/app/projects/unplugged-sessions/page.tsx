@@ -3,6 +3,7 @@
 import Link from "@/components/TransitionLink";
 import Image from "next/image";
 import { m } from "framer-motion";
+import PinnedApproach from "@/components/PinnedApproach";
 import AutoplayVideo from "@/components/AutoplayVideo";
 
 /* ------------------------------------------------------------------ */
@@ -240,7 +241,7 @@ export default function UnpluggedSessionsProject() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3, ease: prismEase }}
-          className="font-body font-normal text-bone text-display-sm leading-[1.01] tracking-[-0.02em] mb-8"
+          className="font-anton uppercase tracking-normal text-bone text-display-sm chroma-text leading-[1.01] mb-8"
         >
           Unplugged
           <br />
@@ -455,51 +456,15 @@ export default function UnpluggedSessionsProject() {
 
       <Rule />
 
-      {/* ── The Direction ─────────────────────────────────────────── */}
-      <section className="section-container section-padding">
-        <m.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mb-16"
-        >
-          <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-4">
-            The Direction
-          </p>
-          <h2 className="font-body text-heading-lg font-normal text-bone max-w-[900px]">
-            From the room to the cut in five moves
-          </h2>
-        </m.div>
-
-        <m.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="max-w-[720px]"
-        >
-          {approach.map((step, index) => (
-            <m.div
-              key={step.step}
-              variants={staggerItem}
-              className={`py-14 ${
-                index > 0 ? "border-t border-ash-border" : ""
-              }`}
-            >
-              <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-6">
-                {step.step}
-              </p>
-              <h3 className="font-body text-heading-sm font-normal text-bone mb-4">
-                {step.title}
-              </h3>
-              <p className="font-body text-body-sm font-normal text-fog-blue max-w-[640px]">
-                {step.description}
-              </p>
-            </m.div>
-          ))}
-        </m.div>
-      </section>
+      {/* The Direction (scroll-pinned director's viewport) */}
+      <PinnedApproach
+        eyebrow="The Direction"
+        heading="From the room to the cut in five moves"
+        steps={approach.map(({ title, description }) => ({
+          title,
+          body: description,
+        }))}
+      />
 
       <Rule />
 

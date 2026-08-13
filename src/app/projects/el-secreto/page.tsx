@@ -3,6 +3,7 @@
 import Link from "@/components/TransitionLink";
 import Image from "next/image";
 import { m } from "framer-motion";
+import PinnedApproach from "@/components/PinnedApproach";
 import AutoplayVideo from "@/components/AutoplayVideo";
 
 /* ------------------------------------------------------------------ */
@@ -227,7 +228,7 @@ export default function ElSecretoProject() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3, ease: prismEase }}
-          className="font-body font-normal text-bone text-display-sm leading-[1.01] tracking-[-0.02em] mb-6"
+          className="font-anton uppercase tracking-normal text-bone text-display-sm chroma-text leading-[1.01] mb-6"
         >
           El Secreto
         </m.h1>
@@ -352,54 +353,15 @@ export default function ElSecretoProject() {
 
       <Rule />
 
-      {/* ── Our Approach ──────────────────────────────────────────── */}
-      <section className="section-container section-padding">
-        <m.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="mb-16 max-w-[640px]"
-        >
-          <p className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-4">
-            Our Approach
-          </p>
-          <h2 className="font-body text-heading-lg font-normal text-bone">
-            From kitchen to screen in five steps
-          </h2>
-        </m.div>
-
-        <m.ol
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="max-w-[760px] border-t border-ash-border"
-        >
-          {approach.map((step) => (
-            <m.li
-              key={step.step}
-              variants={staggerItem}
-              className="flex flex-col md:flex-row md:items-start gap-4 md:gap-12 border-b border-ash-border py-12"
-            >
-              <span
-                aria-hidden="true"
-                className="text-caption uppercase tracking-[0.02em] font-normal text-fog-blue md:w-28 flex-shrink-0"
-              >
-                {step.step}
-              </span>
-              <div className="max-w-[640px]">
-                <h3 className="font-body text-heading-sm font-normal text-bone mb-3">
-                  {step.title}
-                </h3>
-                <p className="font-body text-body-sm font-normal text-fog-blue">
-                  {step.description}
-                </p>
-              </div>
-            </m.li>
-          ))}
-        </m.ol>
-      </section>
+      {/* Our Approach (scroll-pinned director's viewport) */}
+      <PinnedApproach
+        eyebrow="Our Approach"
+        heading="From kitchen to screen in five steps"
+        steps={approach.map(({ title, description }) => ({
+          title,
+          body: description,
+        }))}
+      />
 
       <Rule />
 
