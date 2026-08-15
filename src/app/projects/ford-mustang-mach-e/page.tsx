@@ -5,6 +5,7 @@ import Image from "next/image";
 import { m } from "framer-motion";
 import PinnedApproach from "@/components/PinnedApproach";
 import AutoplayVideo from "@/components/AutoplayVideo";
+import CCVEmbed from "@/components/CCVEmbed";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -276,16 +277,11 @@ export default function FordMustangMachEProject() {
           Automotive / Social Media
         </m.p>
 
-        <m.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3, ease: PRISM_EASE }}
-          className="mt-6 font-anton text-display-sm uppercase tracking-normal text-bone chroma-text"
-        >
+        <h1 className="mt-6 font-anton text-display-sm uppercase tracking-normal text-bone chroma-text h1-paint-in">
           Rebuilding
           <br />
           a Classic
-        </m.h1>
+        </h1>
 
         <m.p
           initial={{ opacity: 0, y: 30 }}
@@ -474,12 +470,13 @@ export default function FordMustangMachEProject() {
             <div className="relative overflow-hidden rounded-[15px] border border-ash-border">
               {/* 16:9 responsive embed (Adobe CCV player from the source case study) */}
               <div className="relative w-full aspect-video">
-                <iframe
-                  src="https://www-ccv.adobe.io/v1/player/ccv/V3B-d9Ww-Nr/embed?bgcolor=%23191919&lazyLoading=true&api_key=BehancePro2View"
+                <CCVEmbed
+                  videoId="V3B-d9Ww-Nr"
                   title="Rebuilding a Classic: Ford Mustang Mach-E"
+                  bgcolor="191919"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="absolute inset-0 w-full h-full"
+                  poster={galleryImages[1].src}
+                  posterAlt={galleryImages[1].alt}
                 />
               </div>
             </div>

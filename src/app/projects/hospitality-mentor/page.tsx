@@ -276,14 +276,9 @@ export default function HospitalityMentorProject() {
         </m.p>
 
         <div className="mt-6 overflow-hidden">
-          <m.h1
-            initial={{ y: "110%" }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.7, delay: 0.25, ease: prismEase }}
-            className="font-anton uppercase tracking-normal text-bone text-display-sm chroma-text"
-          >
+          <h1 className="font-anton uppercase tracking-normal text-bone text-display-sm chroma-text h1-paint-in">
             The Fontainebleau
-          </m.h1>
+          </h1>
         </div>
 
         <m.p

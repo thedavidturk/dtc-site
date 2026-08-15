@@ -3,7 +3,6 @@
 import Link from "@/components/TransitionLink";
 import { m } from "framer-motion";
 import PinnedApproach from "@/components/PinnedApproach";
-import LineReveal from "@/components/LineReveal";
 import AutoplayVideo from "@/components/AutoplayVideo";
 
 /* ------------------------------------------------------------------ */
@@ -222,9 +221,10 @@ export default function BarrysBootcampProject() {
             Fitness + Content
           </m.p>
 
-          <h1 className="font-anton uppercase tracking-normal text-bone text-display-sm chroma-text">
-            <LineReveal delay={0.25}>BARRY&rsquo;S</LineReveal>
-            <LineReveal delay={0.35}>BOOTCAMP</LineReveal>
+          <h1 className="font-anton uppercase tracking-normal text-bone text-display-sm chroma-text h1-paint-in">
+            BARRY&rsquo;S
+            <br />
+            BOOTCAMP
           </h1>
 
           <m.p

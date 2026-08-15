@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "./TransitionLink";
 import Image from "next/image";
-import { m } from "framer-motion";
+import { AnimatePresence, m, useReducedMotion } from "framer-motion";
 
 interface Project {
   client: string;
@@ -145,6 +145,63 @@ const projects: Project[] = [
   },
 ];
 
+/* Discipline filters -------------------------------------------------
+   Each project already carries a free-text `type` string ("Strategy +
+   3D Animation + VFX"). This lookup buckets those strings into a small
+   set of plain-language disciplines for the filter bar, without
+   touching the data model above. A project can land in more than one
+   bucket when its type string spans crafts (e.g. New Era Cap is both
+   Strategy and 3D / VFX). Buckets with zero matches today ("AI
+   Production": none of the 16 type strings name it) are simply left
+   out of the rendered filter bar below, computed from FILTERS -- add a
+   project whose type maps there and the filter appears on its own. */
+type Discipline =
+  | "Strategy"
+  | "3D / VFX"
+  | "Film"
+  | "Experiential"
+  | "AI Production";
+
+const DISCIPLINE_ORDER: Discipline[] = [
+  "Strategy",
+  "3D / VFX",
+  "Film",
+  "Experiential",
+  "AI Production",
+];
+
+const TYPE_TO_DISCIPLINES: Record<string, Discipline[]> = {
+  "Strategy + 3D Animation + VFX": ["Strategy", "3D / VFX"],
+  "Strategy + Content Development": ["Strategy"],
+  "Cinematic Video Production": ["Film"],
+  "VFX + FOOH Campaign": ["3D / VFX", "Experiential"],
+  "Brand Activation + Event Production": ["Experiential"],
+  "Automotive CGI + Commercial": ["3D / VFX"],
+  "Experiential Creative Direction": ["Experiential"],
+  "Live Music + Multi-Camera Direction": ["Film"],
+  "3D Product Design + CGI Rendering": ["3D / VFX"],
+  "Cultural Branding + Art Direction": ["Strategy"],
+  "Documentary + Cultural Preservation": ["Film"],
+  "Documentary Short + Direction": ["Film"],
+  "Video + 3D Product Design": ["Film", "3D / VFX"],
+  "Brand Film + Cause Campaign": ["Film"],
+  "Social Content + Motion Design": ["Film"],
+  "TV Episode + Cinematography": ["Film"],
+};
+
+type FilterValue = "All" | Discipline;
+
+/* Only offer filters with at least one project behind them, in a fixed
+   editorial order, "All" always first and always the default. */
+const FILTERS: FilterValue[] = [
+  "All",
+  ...DISCIPLINE_ORDER.filter((discipline) =>
+    projects.some((project) =>
+      TYPE_TO_DISCIPLINES[project.type]?.includes(discipline),
+    ),
+  ),
+];
+
 const prismEase = [0.52, 0.01, 0, 1] as const;
 
 const headerVariants = {
@@ -174,6 +231,7 @@ const TILE_CHANNELS: { color: string; x: number; y: number }[] = [
 function Tile({ project, index }: { project: Project; index: number }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
   const isVideo = project.coverImage?.toLowerCase().endsWith(".mp4") ?? false;
   const still = isVideo ? project.coverPoster : project.coverImage;
 
@@ -199,6 +257,13 @@ function Tile({ project, index }: { project: Project; index: number }) {
     <m.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
+      exit={{
+        opacity: 0,
+        transition: {
+          duration: prefersReducedMotion ? 0 : 0.35,
+          ease: prismEase,
+        },
+      }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.5, ease: prismEase, delay: (index % 4) * 0.06 }}
     >
@@ -268,6 +333,15 @@ function Tile({ project, index }: { project: Project; index: number }) {
 }
 
 export default function FeaturedProjects() {
+  const [active, setActive] = useState<FilterValue>("All");
+
+  const visibleProjects =
+    active === "All"
+      ? projects
+      : projects.filter((project) =>
+          TYPE_TO_DISCIPLINES[project.type]?.includes(active),
+        );
+
   return (
     <section id="projects" className="section-padding">
       <div className="section-container">
@@ -287,17 +361,46 @@ export default function FeaturedProjects() {
               Work that pushes boundaries
             </h2>
             <p className="text-caption font-normal uppercase tracking-[0.02em] text-fog-blue whitespace-nowrap">
-              16 Projects
+              {visibleProjects.length}{" "}
+              {visibleProjects.length === 1 ? "Project" : "Projects"}
             </p>
           </div>
         </m.div>
 
+        {/* Discipline filters: plain-text ghost links in the nav's own
+            voice, fog-blue idle, bone active, no pills, no borders. */}
+        <nav
+          aria-label="Filter work by discipline"
+          className="mb-8 flex flex-wrap gap-x-6 gap-y-3 md:mb-10"
+        >
+          {FILTERS.map((filter) => {
+            const isActive = filter === active;
+            return (
+              <button
+                key={filter}
+                type="button"
+                onClick={() => setActive(filter)}
+                aria-pressed={isActive}
+                className={`font-body text-sm font-normal uppercase tracking-[0.02em] transition-colors duration-500 ease-prism focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-bone ${
+                  isActive ? "text-bone" : "text-fog-blue hover:text-bone"
+                }`}
+              >
+                {filter}
+              </button>
+            );
+          })}
+        </nav>
+
         {/* The mosaic: every project at once, one tight grid of squares.
-            7px gaps (the system's element gap); clips play while in view. */}
+            7px gaps (the system's element gap); clips play while in view.
+            AnimatePresence fades tiles out on filter change; tiles that
+            stay visible hold still (matched by key, never remounted). */}
         <div className="grid grid-cols-2 gap-[7px] sm:grid-cols-3 lg:grid-cols-4">
-          {projects.map((project, i) => (
-            <Tile key={project.href} project={project} index={i} />
-          ))}
+          <AnimatePresence>
+            {visibleProjects.map((project, i) => (
+              <Tile key={project.href} project={project} index={i} />
+            ))}
+          </AnimatePresence>
         </div>
       </div>
     </section>

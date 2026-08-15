@@ -224,14 +224,9 @@ export default function ElSecretoProject() {
           Cinematic Video Production
         </m.p>
 
-        <m.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3, ease: prismEase }}
-          className="font-anton uppercase tracking-normal text-bone text-display-sm chroma-text leading-[1.01] mb-6"
-        >
+        <h1 className="font-anton uppercase tracking-normal text-bone text-display-sm chroma-text leading-[1.01] mb-6 h1-paint-in">
           El Secreto
-        </m.h1>
+        </h1>
 
         <m.p
           initial={{ opacity: 0, y: 30 }}

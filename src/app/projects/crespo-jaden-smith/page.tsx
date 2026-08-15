@@ -5,6 +5,7 @@ import Image from "next/image";
 import { m } from "framer-motion";
 import PinnedApproach from "@/components/PinnedApproach";
 import AutoplayVideo from "@/components/AutoplayVideo";
+import CCVEmbed from "@/components/CCVEmbed";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -299,14 +300,9 @@ export default function CrespoJadenSmithProject() {
         </m.p>
 
         <div className="mt-6 overflow-hidden">
-          <m.h1
-            initial={{ y: "110%" }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.7, delay: 0.25, ease: prismEase }}
-            className="font-anton uppercase tracking-normal text-bone text-display-sm chroma-text"
-          >
+          <h1 className="font-anton uppercase tracking-normal text-bone text-display-sm chroma-text h1-paint-in">
             Behind the Stage
-          </m.h1>
+          </h1>
         </div>
 
         <m.p
@@ -442,12 +438,13 @@ export default function CrespoJadenSmithProject() {
           className="w-full"
         >
           <div className="relative w-full overflow-hidden rounded-[15px] border border-ash-border aspect-video">
-            <iframe
-              src="https://www-ccv.adobe.io/v1/player/ccv/Tevy7Apn4ss/embed?bgcolor=%23120D1A&lazyLoading=true&api_key=BehancePro2View"
-              className="absolute inset-0 h-full w-full"
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowFullScreen
+            <CCVEmbed
+              videoId="Tevy7Apn4ss"
               title="Behind the Stage"
+              bgcolor="120D1A"
+              allow="autoplay; fullscreen; picture-in-picture"
+              poster={galleryImages[1]}
+              posterAlt="Behind the Stage: Jaden Smith and CRESPO documentary still"
             />
           </div>
           <PlateCaption label="The Film" value="Behind the Stage documentary short" />

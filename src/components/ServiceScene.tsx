@@ -1117,25 +1117,51 @@ const cameraPositions: Record<ServiceSceneProps["scene"], [number, number, numbe
 
 export default function ServiceScene({ scene, className }: ServiceSceneProps) {
   const [mounted, setMounted] = useState(false);
+  // Lazy3D (the parent) already mounts/unmounts this component around a
+  // 200px viewport buffer to manage WebGL context count. That buffer is
+  // deliberately generous so context creation doesn't happen right at
+  // the visible edge. But "mounted within 200px" isn't the same as
+  // "actually on screen" -- a row sitting just past the buffer was
+  // still rendering every frame (AmbientSpin, mouse parallax, per-vertex
+  // wave/particle math, a full WebGL pass) even while invisible. This
+  // second, tighter observer gates the R3F frameloop itself: the canvas
+  // only renders while truly intersecting the viewport, and idles
+  // (frameloop="never", zero useFrame calls, zero GPU work) otherwise,
+  // without tearing down and recreating the WebGL context on every
+  // scroll tick the way unmounting would.
+  const [inView, setInView] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
+  useEffect(() => {
+    if (!mounted) return;
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [mounted]);
+
   if (!mounted) {
-    return <div className={className} aria-hidden="true" />;
+    return <div ref={containerRef} className={className} aria-hidden="true" />;
   }
 
   const SceneComponent = sceneComponents[scene];
   const cameraPos = cameraPositions[scene];
 
   return (
-    <div className={className} aria-hidden="true">
+    <div ref={containerRef} className={className} aria-hidden="true">
       <Canvas
         camera={{ fov: 50, position: cameraPos, near: 0.1, far: 100 }}
         gl={{ alpha: true, antialias: true }}
         dpr={[1, 1.5]}
-        frameloop="always"
+        frameloop={inView ? "always" : "never"}
         style={{ background: "transparent" }}
       >
         <SceneComponent />

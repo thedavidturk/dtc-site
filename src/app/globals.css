@@ -288,12 +288,30 @@ h1 {
   animation: prism-shimmer 6.65s ease-in-out infinite;
 }
 
+/* Case-study h1: the LCP element on every project page. Framer Motion's
+   initial={opacity:0} + a scheduled delay meant the h1 couldn't paint
+   until hydration finished AND the delay elapsed (~1s of measured LCP
+   render delay). A CSS animation starts at first paint, on the
+   compositor, independent of JS hydration -- so the h1 is visible on
+   schedule with its own site regardless of when React takes over.
+   Secondary elements (back link, eyebrow) keep their original Framer
+   choreography; only the h1 moved off the JS-gated path. */
+@keyframes h1-paint-in {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.h1-paint-in {
+  animation: h1-paint-in 0.6s cubic-bezier(0.52, 0.01, 0, 1) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-marquee-up,
   .hero-marquee-down,
   .hero-marquee-left,
   .hero-scroll-bob,
-  .prism-shimmer {
+  .prism-shimmer,
+  .h1-paint-in {
     animation: none;
   }
 }

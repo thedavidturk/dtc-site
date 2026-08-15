@@ -4,8 +4,8 @@ import Link from "@/components/TransitionLink";
 import Image from "next/image";
 import { m } from "framer-motion";
 import PinnedApproach from "@/components/PinnedApproach";
-import LineReveal from "@/components/LineReveal";
 import AutoplayVideo from "@/components/AutoplayVideo";
+import CCVEmbed from "@/components/CCVEmbed";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants                                                 */
@@ -235,9 +235,10 @@ export default function FloridaPanthersProject() {
             Brand Film / Cause
           </m.p>
 
-          <h1 className="font-anton uppercase tracking-normal text-bone text-display-sm chroma-text">
-            <LineReveal delay={0.25}>FORD:</LineReveal>
-            <LineReveal delay={0.35}>GO FURTHER</LineReveal>
+          <h1 className="font-anton uppercase tracking-normal text-bone text-display-sm chroma-text h1-paint-in">
+            FORD:
+            <br />
+            GO FURTHER
           </h1>
 
           <m.p
@@ -389,12 +390,13 @@ export default function FloridaPanthersProject() {
           viewport={{ once: true, margin: "-60px" }}
         >
           <div className="relative w-full aspect-video rounded-[15px] overflow-hidden border border-ash-border">
-            <iframe
-              src="https://www-ccv.adobe.io/v1/player/ccv/7bxcHMYo5Xg/embed?bgcolor=%23120D1A&lazyLoading=true&api_key=BehancePro2View"
-              className="absolute inset-0 h-full w-full"
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowFullScreen
+            <CCVEmbed
+              videoId="7bxcHMYo5Xg"
               title="Ford Go Further"
+              bgcolor="120D1A"
+              allow="autoplay; fullscreen; picture-in-picture"
+              poster={galleryImages[1]}
+              posterAlt="Ford Go Further Florida Panthers Keys hurricane relief drive still"
             />
           </div>
           <figcaption>

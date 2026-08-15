@@ -5,6 +5,7 @@ import Image from "next/image";
 import { m } from "framer-motion";
 import PinnedApproach from "@/components/PinnedApproach";
 import AutoplayVideo from "@/components/AutoplayVideo";
+import CCVEmbed from "@/components/CCVEmbed";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants (prism ease: slow start, decisive stop)         */
@@ -220,16 +221,11 @@ export default function FordFieldClubProject() {
           Experiential Creative Direction
         </m.p>
 
-        <m.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3, ease: prismEase }}
-          className="font-anton uppercase tracking-normal text-bone text-display-sm chroma-text leading-[1.01] mb-8"
-        >
+        <h1 className="font-anton uppercase tracking-normal text-bone text-display-sm chroma-text leading-[1.01] mb-8 h1-paint-in">
           Ford Field
           <br />
           Club
-        </m.h1>
+        </h1>
 
         <m.p
           initial={{ opacity: 0, y: 30 }}
@@ -425,12 +421,13 @@ export default function FordFieldClubProject() {
           className="max-w-[1200px]"
         >
           <div className="relative w-full aspect-video rounded-[15px] overflow-hidden border border-ash-border">
-            <iframe
-              src={`https://www-ccv.adobe.io/v1/player/ccv/${videoId}/embed?bgcolor=%23120D1A&lazyLoading=true&api_key=BehancePro2View`}
+            <CCVEmbed
+              videoId={videoId}
               title="Ford Field Club at Hard Rock Stadium"
+              bgcolor="120D1A"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="absolute inset-0 w-full h-full"
+              poster={img.g1}
+              posterAlt="Ford Field Club premium hospitality detail"
             />
           </div>
           <PlateCaption label="Experience Film" value="Ford Field Club" />

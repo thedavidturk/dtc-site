@@ -5,6 +5,7 @@ import Image from "next/image";
 import { m } from "framer-motion";
 import PinnedApproach from "@/components/PinnedApproach";
 import AutoplayVideo from "@/components/AutoplayVideo";
+import CCVEmbed from "@/components/CCVEmbed";
 
 /* ------------------------------------------------------------------ */
 /*  Animation Variants (prism ease: slow start, decisive stop)         */
@@ -160,11 +161,13 @@ const galleryDisciplines = [
   "Live Music Direction",
 ];
 
-/* Adobe CCV performance video embeds scraped from the live source. */
+/* Adobe CCV performance video embeds scraped from the live source.
+   Poster stills are reused from the gallery below (no artwork
+   invented for the click-to-load affordance). */
 const videos = [
-  { id: "Pexs9H2brcJ", label: "Session One" },
-  { id: "6enmnpI-WUx", label: "Session Two" },
-  { id: "RgDvHPPd6Bd", label: "Session Three" },
+  { id: "Pexs9H2brcJ", label: "Session One", poster: galleryImages[1] },
+  { id: "6enmnpI-WUx", label: "Session Two", poster: galleryImages[3] },
+  { id: "RgDvHPPd6Bd", label: "Session Three", poster: galleryImages[5] },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -237,16 +240,11 @@ export default function UnpluggedSessionsProject() {
           Live Music Direction
         </m.p>
 
-        <m.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3, ease: prismEase }}
-          className="font-anton uppercase tracking-normal text-bone text-display-sm chroma-text leading-[1.01] mb-8"
-        >
+        <h1 className="font-anton uppercase tracking-normal text-bone text-display-sm chroma-text leading-[1.01] mb-8 h1-paint-in">
           Unplugged
           <br />
           Sessions
-        </m.h1>
+        </h1>
 
         <m.p
           initial={{ opacity: 0, y: 30 }}
@@ -440,12 +438,13 @@ export default function UnpluggedSessionsProject() {
           {videos.map((video) => (
             <m.figure key={video.id} variants={galleryItem}>
               <div className="relative w-full aspect-video rounded-[15px] overflow-hidden border border-ash-border">
-                <iframe
-                  src={`https://www-ccv.adobe.io/v1/player/ccv/${video.id}/embed?bgcolor=%23120D1A&lazyLoading=true&api_key=BehancePro2View`}
+                <CCVEmbed
+                  videoId={video.id}
                   title={`Unplugged Sessions: ${video.label}`}
+                  bgcolor="120D1A"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="absolute inset-0 w-full h-full"
+                  poster={video.poster}
+                  posterAlt={`Unplugged Sessions: ${video.label} poster`}
                 />
               </div>
               <PlateCaption label="Performance Film" value={video.label} />
