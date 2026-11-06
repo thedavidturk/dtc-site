@@ -88,7 +88,7 @@ export default async function OgImage() {
             color: "#FFFFFF",
           }}
         >
-          DT+C
+          David Turk Creative
         </div>
 
         <div

@@ -27,7 +27,7 @@ export default function ArticleJsonLd({
     },
     publisher: {
       "@type": "Organization",
-      name: "DT+C",
+      name: "David Turk Creative",
     },
     mainEntityOfPage: {
       "@type": "WebPage",

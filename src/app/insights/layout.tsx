@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | DT+C",
-    default: "Insights | DT+C",
+    template: "%s | David Turk Creative",
+    default: "Perspectives | David Turk Creative",
   },
   description:
-    "Expert perspectives on AI video generation, VFX automation, GEO optimization, AI brand identity, and the future of creative production. Monthly insights from DT+C.",
+    "Expert perspectives on AI video generation, VFX automation, GEO optimization, AI brand identity, and the future of creative production. Writing by David Turk.",
   openGraph: {
-    title: "Insights | DT+C",
+    title: "Perspectives | David Turk Creative",
     description:
-      "Expert perspectives on AI video generation, VFX automation, GEO optimization, AI brand identity, and the future of creative production. Monthly insights from DT+C.",
+      "Expert perspectives on AI video generation, VFX automation, GEO optimization, AI brand identity, and the future of creative production. Writing by David Turk.",
     type: "website",
   },
 };

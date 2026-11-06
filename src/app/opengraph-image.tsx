@@ -1,26 +1,29 @@
 import { ImageResponse } from "next/og";
+import { existsSync } from "fs";
 import { readFile } from "fs/promises";
 import { join } from "path";
 
 export const runtime = "nodejs";
 
-export const alt =
-  "DT+C - Content that moves at the speed of culture";
+export const alt = "David Turk Creative: cinematic worlds, ideas in motion";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-// Work posters featured in the share card's thumbnail strip.
+// Share-card strip: the 2062 still leads once it exists, then selected work.
 const STRIP = [
-  "new-era-cosmic.jpg",
-  "ford-mustang.jpg",
-  "brugal.jpg",
-  "faena.jpg",
-  "unplugged.jpg",
+  "work/2062/hero.jpg",
+  "motion/new-era-cosmic.jpg",
+  "motion/seaworld-hero.jpg",
+  "motion/crespo.jpg",
+  "motion/new-era-elements.jpg",
+  "motion/hospitality.jpg",
 ];
 
 async function loadDataUri(file: string): Promise<string | null> {
+  const path = join(process.cwd(), "public", file);
+  if (!existsSync(path)) return null;
   try {
-    const buf = await readFile(join(process.cwd(), "public/motion", file));
+    const buf = await readFile(path);
     return `data:image/jpeg;base64,${buf.toString("base64")}`;
   } catch {
     return null;
@@ -28,9 +31,9 @@ async function loadDataUri(file: string): Promise<string | null> {
 }
 
 export default async function OgImage() {
-  const thumbs = (await Promise.all(STRIP.map(loadDataUri))).filter(
-    Boolean
-  ) as string[];
+  const thumbs = (await Promise.all(STRIP.map(loadDataUri)))
+    .filter((src): src is string => Boolean(src))
+    .slice(0, 5);
 
   return new ImageResponse(
     (
@@ -41,159 +44,64 @@ export default async function OgImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          backgroundColor: "#000000",
-          position: "relative",
-          overflow: "hidden",
+          backgroundColor: "#101010",
           fontFamily: "sans-serif",
+          padding: "54px 64px",
         }}
       >
-        {/* Gradient accent bar */}
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            height: 8,
-            background: "#fffdf9",
-          }}
-        />
-
-        {/* Ambient glow */}
-        <div
-          style={{
-            position: "absolute",
-            top: -160,
-            left: -120,
-            width: 620,
-            height: 620,
-            borderRadius: "50%",
-            background:
-              "radial-gradient(circle, rgba(217,108,71,0.22) 0%, transparent 70%)",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            bottom: -200,
-            right: -120,
-            width: 560,
-            height: 560,
-            borderRadius: "50%",
-            background:
-              "radial-gradient(circle, rgba(233,179,104,0.16) 0%, transparent 70%)",
-          }}
-        />
-
-        {/* Top: brand mark + studio label */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            padding: "54px 64px 0",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              fontSize: 44,
-              fontWeight: 800,
-              color: "#FFFFFF",
-              letterSpacing: "-0.02em",
-            }}
-          >
-            DT+C
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <div style={{ display: "flex", fontSize: 30, color: "#fffdf9" }}>
+            David Turk&nbsp;<span style={{ color: "#6f879c" }}>Creative</span>
           </div>
           <div
             style={{
               display: "flex",
               fontSize: 18,
               color: "#6f879c",
-              letterSpacing: "0.28em",
+              letterSpacing: "0.2em",
               textTransform: "uppercase",
             }}
           >
-            Creative Studio
+            Miami
           </div>
         </div>
 
-        {/* Headline */}
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            padding: "0 64px",
-          }}
-        >
+        <div style={{ display: "flex", flexDirection: "column" }}>
           <div
             style={{
               display: "flex",
-              fontSize: 64,
-              fontWeight: 700,
-              color: "#FFFFFF",
-              lineHeight: 1.04,
-              letterSpacing: "-0.02em",
-            }}
-          >
-            Content that moves
-          </div>
-          <div
-            style={{
-              display: "flex",
-              fontSize: 64,
+              fontSize: 76,
               fontWeight: 800,
-              lineHeight: 1.04,
+              color: "#fffdf9",
+              lineHeight: 1,
               letterSpacing: "-0.02em",
-              marginTop: 4,
-              background: "linear-gradient(to right, #fffdf9, #6f879c)",
-              backgroundClip: "text",
-              color: "transparent",
+              textTransform: "uppercase",
             }}
           >
-            at the speed of culture.
+            David Turk
           </div>
-          <div
-            style={{
-              display: "flex",
-              fontSize: 24,
-              color: "#6f879c",
-              marginTop: 22,
-            }}
-          >
-            Strategy, content, VFX, and web. New Era, Ford, SeaWorld, Betterfly,
-            and more.
+          <div style={{ display: "flex", fontSize: 38, color: "#fffdf9", marginTop: 18 }}>
+            Cinematic worlds. Ideas in motion.
+          </div>
+          <div style={{ display: "flex", fontSize: 24, color: "#6f879c", marginTop: 12 }}>
+            Creative direction, film, 3D &amp; AI for brands and original stories.
           </div>
         </div>
 
-        {/* Work thumbnail strip */}
-        <div
-          style={{
-            display: "flex",
-            gap: 14,
-            padding: "0 64px 54px",
-          }}
-        >
+        <div style={{ display: "flex", gap: 14 }}>
           {thumbs.map((src, i) => (
             <div
               key={i}
               style={{
                 display: "flex",
-                width: 198,
-                height: 132,
-                borderRadius: 14,
+                width: 202,
+                height: 120,
+                borderRadius: 12,
                 overflow: "hidden",
-                border: "1px solid rgba(255,255,255,0.08)",
               }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={src}
-                width={198}
-                height={132}
-                style={{ objectFit: "cover" }}
-                alt=""
-              />
+              <img src={src} width={202} height={120} style={{ objectFit: "cover" }} alt="" />
             </div>
           ))}
         </div>

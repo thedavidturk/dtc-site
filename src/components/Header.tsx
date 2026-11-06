@@ -1,126 +1,120 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import Link from "./TransitionLink";
-import { m, AnimatePresence, useMotionValueEvent, useScroll } from "framer-motion";
+import { site } from "@/content/work";
 
 const navLinks = [
-  { label: "Work", href: "#projects" },
-  { label: "Services", href: "#services" },
-  { label: "Process", href: "#process" },
-  { label: "About", href: "#about" },
-  { label: "Perspectives", href: "#insights" },
+  { label: "Work", href: "/work" },
+  { label: "About", href: "/about" },
 ];
 
+/**
+ * Wordmark left (the business, with the person's name leading), two
+ * ghost links, and Contact always visible, including on phones.
+ */
 export default function Header() {
+  const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  /* Past the top of the page the bar turns to frosted obsidian glass:
-     the hero's transmission material, borrowed for the chrome. */
   const [scrolled, setScrolled] = useState(false);
-  const { scrollY } = useScroll();
-  useMotionValueEvent(scrollY, "change", (y) => setScrolled(y > 40));
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
+
+  const isActive = (href: string) => pathname === href || pathname?.startsWith(`${href}/`);
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500 ease-prism border-b ${
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color,backdrop-filter] duration-500 ease-prism ${
         scrolled || mobileOpen
-          ? "bg-obsidian/60 backdrop-blur-xl border-bone/10"
-          : "bg-obsidian/90 border-transparent"
+          ? "border-bone/10 bg-obsidian/75 backdrop-blur-xl"
+          : "border-transparent bg-transparent"
       }`}
     >
-      {/* Thin top bar: wordmark left, ghost links right, outlined Contact terminating the row */}
-      <div className="section-container flex items-center h-16 md:h-20">
-        <Link href="/" className="shrink-0">
-          <span className="font-body text-[20px] font-normal leading-none tracking-[-0.01em] text-bone">
-            DT+C
+      <div className="section-container flex h-16 items-center md:h-20">
+        <Link href="/" className="shrink-0" aria-label={`${site.studio}, home`}>
+          <span className="font-body text-[18px] font-normal leading-none tracking-[-0.01em] text-bone md:text-[20px]">
+            David Turk <span className="text-fog-blue">Creative</span>
           </span>
         </Link>
 
-        {/* Desktop ghost links: right-aligned row */}
-        <nav
-          className="hidden lg:flex flex-1 items-center justify-end gap-10 px-10"
-          aria-label="Primary"
-        >
+        <nav className="ml-auto hidden items-center gap-10 md:flex" aria-label="Primary">
           {navLinks.map((link) => (
-            <a
-              key={link.label}
+            <Link
+              key={link.href}
               href={link.href}
-              className="font-body text-sm font-normal uppercase tracking-[0.02em] text-bone transition-colors duration-500 ease-prism hover:text-fog-blue"
+              aria-current={isActive(link.href) ? "page" : undefined}
+              className={`font-body text-sm font-normal uppercase tracking-[0.02em] transition-colors duration-500 ease-prism hover:text-fog-blue ${
+                isActive(link.href) ? "text-fog-blue" : "text-bone"
+              }`}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
+          <Link href="/contact" className="btn-primary">
+            Contact
+          </Link>
         </nav>
 
-        <a href="/#contact" className="btn-primary hidden lg:inline-flex shrink-0">
-          Contact
-        </a>
-
-        {/* Mobile Toggle */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="lg:hidden ml-auto flex flex-col gap-1.5 p-2"
-          aria-label="Toggle menu"
-        >
-          <m.span
-            animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-            transition={{ duration: 0.5, ease: [0.52, 0.01, 0, 1] }}
-            className="block w-6 h-px bg-bone"
-          />
-          <m.span
-            animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
-            transition={{ duration: 0.5, ease: [0.52, 0.01, 0, 1] }}
-            className="block w-6 h-px bg-bone"
-          />
-          <m.span
-            animate={mobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-            transition={{ duration: 0.5, ease: [0.52, 0.01, 0, 1] }}
-            className="block w-6 h-px bg-bone"
-          />
-        </button>
+        {/* Phones: Contact stays visible next to the menu toggle */}
+        <div className="ml-auto flex items-center gap-3 md:hidden">
+          <Link href="/contact" className="btn-primary px-3 py-[7px]">
+            Contact
+          </Link>
+          <button
+            type="button"
+            onClick={() => setMobileOpen((open) => !open)}
+            className="flex h-10 w-10 flex-col items-center justify-center gap-1.5"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-menu"
+          >
+            <span
+              className={`block h-px w-6 bg-bone transition-transform duration-500 ease-prism ${
+                mobileOpen ? "translate-y-[3.5px] rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`block h-px w-6 bg-bone transition-transform duration-500 ease-prism ${
+                mobileOpen ? "-translate-y-[3.5px] -rotate-45" : ""
+              }`}
+            />
+          </button>
+        </div>
       </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <m.nav
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.5, ease: [0.52, 0.01, 0, 1] }}
-            className="lg:hidden overflow-hidden bg-obsidian border-t border-ash-border"
-            aria-label="Primary mobile"
-          >
-            <div className="section-container py-8 flex flex-col">
-              {navLinks.map((link, i) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className={`py-4 font-body text-body-sm font-normal uppercase tracking-[0.02em] text-bone transition-colors duration-500 ease-prism hover:text-fog-blue ${
-                    i > 0 ? "border-t border-ash-border" : ""
-                  }`}
-                >
-                  {link.label}
-                </a>
-              ))}
-              <a
-                href="/#contact"
-                onClick={() => setMobileOpen(false)}
-                className="btn-primary text-center mt-6"
+      {mobileOpen && (
+        <nav id="mobile-menu" className="border-t border-ash-border bg-obsidian md:hidden" aria-label="Primary mobile">
+          <div className="section-container flex flex-col py-6">
+            {[...navLinks, { label: "Contact", href: "/contact" }].map((link, i) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`py-4 font-body text-body-sm font-normal uppercase tracking-[0.02em] text-bone ${
+                  i > 0 ? "border-t border-ash-border" : ""
+                }`}
               >
-                Contact
-              </a>
-              <p className="mt-8 text-caption font-normal uppercase tracking-[0.02em] text-fog-blue">
-                Future-proof creative
-                <br />
-                for forward-thinking brands
-              </p>
-            </div>
-          </m.nav>
-        )}
-      </AnimatePresence>
+                {link.label}
+              </Link>
+            ))}
+            <a
+              href={`mailto:${site.email}`}
+              className="mt-6 font-body text-body-sm font-normal text-fog-blue"
+            >
+              {site.email}
+            </a>
+          </div>
+        </nav>
+      )}
     </header>
   );
 }

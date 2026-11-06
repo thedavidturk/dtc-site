@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Anton } from "next/font/google";
 import dynamic from "next/dynamic";
 import Script from "next/script";
 import { ViewTransitions } from "next-view-transitions";
@@ -10,19 +9,7 @@ import Header from "@/components/Header";
 import MotionProvider from "@/components/MotionProvider";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
-import DesktopFX from "@/components/DesktopFX";
-import FilmGrain from "@/components/FilmGrain";
-import ScrollChroma from "@/components/ScrollChroma";
-import CustomCursor from "@/components/CustomCursor";
-
-const ScrollProgressTrail = dynamic(
-  () => import("@/components/ScrollProgressTrail"),
-  { ssr: false }
-);
-
-const SmoothScroll = dynamic(() => import("@/components/SmoothScroll"), {
-  ssr: false,
-});
+import { site } from "@/content/work";
 
 const Analytics = dynamic(() => import("@/components/Analytics"), {
   ssr: false,
@@ -44,46 +31,51 @@ const switzer = localFont({
 
 // Hero display face: Anton, the one heavy condensed voice reserved
 // for the landing statement.
-const anton = Anton({
-  weight: "400",
-  subsets: ["latin"],
+// Self-hosted (SIL OFL, see src/fonts/Anton-OFL.txt) so builds never depend
+// on reaching Google Fonts.
+const anton = localFont({
+  src: [{ path: "../fonts/Anton-Regular.woff2", weight: "400", style: "normal" }],
   variable: "--font-anton",
   display: "swap",
 });
 
+const description =
+  "David Turk is a Miami creative director. Through David Turk Creative, he develops ideas and brings them to life through film, 3D, AI, and visual storytelling, for brands and original stories.";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://davidturkcreative.com"),
-  title: "DT+C | Future-Proof Creative for Forward-Thinking Brands",
-  description:
-    "AI-native creative studio delivering strategy-led content through 3D pipelines, AI workflows, VFX, video generation, and sound design. Future-proof creative for forward-thinking brands.",
+  metadataBase: new URL(site.url),
+  title: {
+    default: "David Turk Creative | Creative Direction, Film, 3D & AI in Miami",
+    template: "%s | David Turk Creative",
+  },
+  description,
   keywords: [
-    "AI creative studio",
-    "AI video generation",
-    "AI VFX production",
-    "3D animation studio",
-    "AI brand identity",
-    "creative technology",
-    "AI content production",
-    "generative AI for brands",
-    "3D product visualization",
-    "AI sound design",
-    "short-form video production",
-    "GEO optimization",
+    "creative director Miami",
+    "David Turk",
+    "David Turk Creative",
+    "film production Miami",
+    "3D animation",
+    "VFX",
+    "AI film",
+    "AI video production",
+    "brand campaigns",
+    "commercial director",
+    "documentary production",
+    "virtual production",
   ],
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "DT+C | Content That Moves at the Speed of Culture",
-    description:
-      "Strategy, content, VFX, and web, under one roof. A creative studio behind work for New Era, Ford, SeaWorld, Betterfly, and more.",
+    title: "David Turk Creative | Cinematic worlds. Ideas in motion.",
+    description,
     type: "website",
-    url: "https://davidturkcreative.com",
-    siteName: "DT+C",
+    url: site.url,
+    siteName: site.studio,
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "DT+C | Content That Moves at the Speed of Culture",
-    description:
-      "Strategy, content, VFX, and web, under one roof. A creative studio behind work for New Era, Ford, SeaWorld, Betterfly, and more.",
+    title: "David Turk Creative | Cinematic worlds. Ideas in motion.",
+    description,
   },
 };
 
@@ -100,15 +92,29 @@ export default function RootLayout({
           data={{
             "@context": "https://schema.org",
             "@type": "Organization",
-            name: "DT+C",
-            url: "https://davidturkcreative.com",
-            description:
-              "Strategy-led creative studio specializing in AI workflows, 3D pipelines, VFX, video generation, and sound design for forward-thinking brands.",
-            sameAs: [],
+            name: site.studio,
+            legalName: site.legalName,
+            alternateName: "DT+C",
+            url: site.url,
+            email: site.email,
+            description,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Miami",
+              addressRegion: "FL",
+              addressCountry: "US",
+            },
+            founder: {
+              "@type": "Person",
+              name: site.person,
+              jobTitle: "Creative Director",
+              url: site.url,
+              sameAs: [site.linkedin],
+            },
+            sameAs: [site.linkedin],
           }}
         />
         {/* Critical CSS - prevents flash before Tailwind loads */}
-        {/* Sections are excluded so full-bleed ink bands can invert */}
         <style dangerouslySetInnerHTML={{ __html: `html{background-color:#101010!important}body{background:transparent!important}` }} />
         {/* Google Analytics */}
         <Script
@@ -128,14 +134,7 @@ export default function RootLayout({
         className={`${switzer.variable} ${anton.variable} font-body antialiased text-bone`}
       >
         <MotionProvider>
-          <SmoothScroll />
           <Analytics />
-          <DesktopFX>
-            <ScrollProgressTrail />
-            <ScrollChroma />
-            <FilmGrain />
-            <CustomCursor />
-          </DesktopFX>
           <Header />
           <main>{children}</main>
           <Footer />

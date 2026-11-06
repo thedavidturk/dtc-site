@@ -88,7 +88,7 @@ const approach = [
 ];
 
 const results = [
-  "Six iconic monument executions delivered across social platforms",
+  "Iconic monument executions delivered across social platforms",
   "Campaign generated measurable social media buzz and engagement",
   "VFX breakdowns drove additional content virality",
   "Achieved global out-of-home impact without physical production costs",
@@ -179,7 +179,7 @@ export default function BetterflyProject() {
           transition={{ duration: 0.5, delay: 0.1, ease: PRISM_EASE }}
         >
           <Link
-            href="/#projects"
+            href="/work"
             className="group inline-flex items-center gap-2 text-caption font-normal uppercase tracking-[0.02em] text-bone transition-colors duration-500 ease-prism hover:text-fog-blue"
           >
             <svg
@@ -195,7 +195,7 @@ export default function BetterflyProject() {
                 d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
               />
             </svg>
-            Back to Work
+            All Work
           </Link>
         </m.div>
 
@@ -208,7 +208,7 @@ export default function BetterflyProject() {
           VFX + FOOH Campaign
         </m.p>
 
-        <h1 className="mt-6 font-anton text-display-sm uppercase tracking-normal text-bone chroma-text h1-paint-in">
+        <h1 className="mt-6 font-anton text-display-sm uppercase tracking-normal text-bone h1-paint-in">
           Betterfly
         </h1>
 
@@ -374,7 +374,7 @@ export default function BetterflyProject() {
 
       {/* Our Approach (scroll-pinned director's viewport) */}
       <PinnedApproach
-        eyebrow="Our Approach"
+        eyebrow="The Approach"
         heading="From monuments to feeds in five steps"
         steps={approach.map(({ title, description }) => ({
           title,
@@ -402,7 +402,7 @@ export default function BetterflyProject() {
           <div className="font-body text-body-sm font-normal text-bone space-y-7">
             <p>
               We used VFX to digitally drape massive Betterfly branded banners
-              over six iconic global monuments. Advanced cloth simulation,
+              over iconic global monuments. Advanced cloth simulation,
               precise camera tracking, and meticulous compositing made each
               execution indistinguishable from a real installation, the kind of
               spectacle that makes people stop scrolling and share.
@@ -719,7 +719,7 @@ export default function BetterflyProject() {
             breaks through the noise, no logistics required.
           </p>
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <Link href="/#contact" className="btn-primary">
+            <Link href="/contact" className="btn-primary">
               Book a Call
             </Link>
             <Link

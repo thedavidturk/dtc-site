@@ -270,7 +270,7 @@ export default function CrespoJadenSmithProject() {
           transition={{ duration: 0.5, delay: 0.1, ease: prismEase }}
         >
           <Link
-            href="/#projects"
+            href="/work"
             className="group inline-flex items-center gap-2 text-caption uppercase tracking-[0.02em] font-normal text-bone hover:text-fog-blue transition-colors duration-500 ease-prism"
           >
             <svg
@@ -286,7 +286,7 @@ export default function CrespoJadenSmithProject() {
                 d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
               />
             </svg>
-            Back to Work
+            All Work
           </Link>
         </m.div>
 
@@ -300,7 +300,7 @@ export default function CrespoJadenSmithProject() {
         </m.p>
 
         <div className="mt-6 overflow-hidden">
-          <h1 className="font-anton uppercase tracking-normal text-bone text-display-sm chroma-text h1-paint-in">
+          <h1 className="font-anton uppercase tracking-normal text-bone text-display-sm h1-paint-in">
             Behind the Stage
           </h1>
         </div>
@@ -702,7 +702,7 @@ export default function CrespoJadenSmithProject() {
             the room and finishes with a cinematic, intentional feel.
           </p>
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <Link href="/#contact" className="btn-primary">
+            <Link href="/contact" className="btn-primary">
               Book a Call
             </Link>
             <Link

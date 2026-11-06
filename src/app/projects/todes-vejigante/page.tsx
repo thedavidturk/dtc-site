@@ -179,7 +179,7 @@ export default function TodesVejiganteProject() {
           transition={{ duration: 0.5, delay: 0.1, ease: PRISM_EASE }}
         >
           <Link
-            href="/#projects"
+            href="/work"
             className="group inline-flex items-center gap-2 text-caption font-normal uppercase tracking-[0.02em] text-bone transition-colors duration-500 ease-prism hover:text-fog-blue"
           >
             <svg
@@ -195,7 +195,7 @@ export default function TodesVejiganteProject() {
                 d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
               />
             </svg>
-            Back to Work
+            All Work
           </Link>
         </m.div>
 
@@ -208,7 +208,7 @@ export default function TodesVejiganteProject() {
           Strategy + Campaign Production
         </m.p>
 
-        <h1 className="mt-6 font-anton text-display-sm uppercase tracking-normal text-bone chroma-text h1-paint-in">
+        <h1 className="mt-6 font-anton text-display-sm uppercase tracking-normal text-bone h1-paint-in">
           Todes
           <br />
           Vejigante
@@ -379,7 +379,7 @@ export default function TodesVejiganteProject() {
 
       {/* Our Approach (scroll-pinned director's viewport) */}
       <PinnedApproach
-        eyebrow="Our Approach"
+        eyebrow="The Approach"
         heading="From research to resistance in five phases"
         steps={approach.map(({ title, description }) => ({
           title,
@@ -727,7 +727,7 @@ export default function TodesVejiganteProject() {
             movement through research, strategy, and powerful content.
           </p>
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <Link href="/#contact" className="btn-primary">
+            <Link href="/contact" className="btn-primary">
               Book a Call
             </Link>
             <Link

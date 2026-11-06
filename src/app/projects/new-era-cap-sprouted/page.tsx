@@ -162,7 +162,7 @@ export default function SproutedProject() {
           className="mb-14"
         >
           <Link
-            href="/#projects"
+            href="/work"
             className="group inline-flex items-center gap-2 text-caption uppercase tracking-[0.02em] font-normal text-bone hover:text-fog-blue transition-colors duration-500 ease-prism"
           >
             <svg
@@ -178,7 +178,7 @@ export default function SproutedProject() {
                 d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
               />
             </svg>
-            Back to Work
+            All Work
           </Link>
         </m.div>
 
@@ -191,7 +191,7 @@ export default function SproutedProject() {
           Strategy + Content Development
         </m.p>
 
-        <h1 className="font-anton uppercase tracking-normal text-bone text-display-sm chroma-text leading-[1.01] mb-6 h1-paint-in">
+        <h1 className="font-anton uppercase tracking-normal text-bone text-display-sm leading-[1.01] mb-6 h1-paint-in">
           New Era Cap
         </h1>
 
@@ -357,7 +357,7 @@ export default function SproutedProject() {
 
       {/* Our Approach (scroll-pinned director's viewport) */}
       <PinnedApproach
-        eyebrow="Our Approach"
+        eyebrow="The Approach"
         heading="From seed to screen in five steps"
         steps={approach.map(({ title, description }) => ({
           title,
@@ -509,7 +509,7 @@ export default function SproutedProject() {
             product to the world your audience lives in.
           </p>
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-            <Link href="/#contact" className="btn-primary">
+            <Link href="/contact" className="btn-primary">
               Book a Call
             </Link>
             <Link

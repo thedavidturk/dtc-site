@@ -223,7 +223,7 @@ export default function AiContentPipelineArticle() {
               How We Re-Architected Our Own Studio
             </h2>
             <p className="font-body text-body-sm font-normal text-bone mb-7">
-              At DT+C we rebuilt our own pipeline the same way we&rsquo;d advise a client to. Clear brief at the front, written by humans who know the brand. AI handling drafts, variations, and volume in the middle. Creative directors stationed at every decision gate, with tight feedback loops so a note becomes a new version in minutes instead of days. A quality bar that rises with the volume rather than dissolving into it.
+              At David Turk Creative we rebuilt our own pipeline the same way we&rsquo;d advise a client to. Clear brief at the front, written by humans who know the brand. AI handling drafts, variations, and volume in the middle. Creative directors stationed at every decision gate, with tight feedback loops so a note becomes a new version in minutes instead of days. A quality bar that rises with the volume rather than dissolving into it.
             </p>
             <p className="font-body text-body-sm font-normal text-bone mb-7">
               The payoff isn&rsquo;t that we make more. It&rsquo;s that we make more of what matters, and we kill the rest early. Twenty-seven minutes bought us back the thirteen days, and we spent that time on the only thing the machines still can&rsquo;t do for us, which is deciding what&rsquo;s worth making in the first place. That&rsquo;s the work now. It was probably always the work. The AI just made it impossible to hide from.
