@@ -22,9 +22,9 @@ const faqItems = [
       "Usually 80 to 95 percent less. A traditional shoot can run anywhere from $20,000 to well over $150,000 once you count location, crew, and post. I can get you photorealistic product imagery for a fraction of that, with faster turnaround and as many variations as the campaign needs.",
   },
   {
-    question: "What services does DT+C offer?",
+    question: "What does David Turk Creative do?",
     answer:
-      "Strategy-led creative production: 3D animation, AI video generation, VFX, sound design, product visualization, short-form social content, and brand identity systems. I built all of it on AI-native workflows on purpose, so speed never comes at the cost of quality.",
+      "Creative direction, film and photography, 3D, VFX and AI production, and brand campaigns. That covers commercials, documentaries, virtual worlds, product CGI, and AI-generated film, for brands and for original stories of my own. I use AI where it makes the work better, not just faster.",
   },
   {
     question: "How long does a typical project take?",
@@ -119,11 +119,11 @@ export default function FAQ() {
           <span className="block text-caption uppercase tracking-[0.02em] font-normal text-fog-blue mb-6">
             FAQ
           </span>
-          <h2 className="font-anton font-normal uppercase tracking-normal text-h2 headline-cyan mb-8">
-            Frequently Asked Questions
+          <h2 className="font-anton font-normal uppercase tracking-normal text-h2 text-bone mb-8">
+            Questions
           </h2>
           <p className="max-w-[640px] font-body font-normal text-body-sm text-fog-blue">
-            Everything you need to know about working with DT+C.
+            What people usually ask before we start.
           </p>
         </m.div>
         <m.div

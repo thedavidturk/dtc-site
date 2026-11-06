@@ -1,11 +1,9 @@
-# DT+C "Prism" Design Spec (binding contract)
+# David Turk Creative: design spec (binding contract)
 
-Prismatic light through obsidian. A cinematic dark void: near-black canvas,
-one near-white for nearly all type and UI chrome, and a single chromatic
-voice: the RGB-split prism artifact. Authority comes from sheer scale
-(105 to 136px display at weight 400), never from weight. Differentiation
-happens through spacing, scale, and the rainbow artifact. Confidence reads
-through stillness.
+A homepage led by the work. David Turk is the person; David Turk Creative is
+the business people hire. A near-black canvas, one near-white for type, and
+the projects doing most of the talking. Authority comes from scale and
+space, never from effects. Confidence reads through stillness.
 
 ## Tokens (wired in tailwind.config.ts - USE THESE CLASS NAMES)
 
@@ -22,15 +20,10 @@ Legacy names remap: `bone-white`=#101010 (old canvas role), `ink-black`=#fffdf9
 (old text role), `graphite`/`voltage-tint`=#6f879c, `ash`=#403f3f,
 `voltage`=#fffdf9. Prefer the new names in rewritten code.
 
-HARD RULE: prism red/cyan/lime exist ONLY inside the prism artifact and its
-derivatives, with exactly two named exceptions, both automatic/instrumented
-rather than decorative choices: (1) velocity-chroma, where ScrollChroma
-drives a text-shadow RGB-split on `.chroma-text`/`.headline-*` elements in
-proportion to live scroll speed (see "Velocity-chroma" below), and (2) the
-PinnedApproach progress rail's single prism-cyan fill, used only as a
-wayfinding gauge (see "PinnedApproach" below). Outside those two named,
-documented mechanisms: never on buttons, labels, links, borders, or any
-other UI. Two static text colors exist: bone and fog-blue. Nothing else.
+HARD RULE: prism red/cyan/lime are retired from the UI. The one surviving
+use is the PinnedApproach progress rail's single prism-cyan fill, a
+wayfinding gauge on case studies (see "PinnedApproach" below). Two static
+text colors exist: bone and fog-blue. Nothing else.
 
 ## Type (Switzer + Anton: a two-voice system)
 
@@ -55,8 +48,8 @@ is determined by its role, not by taste.
   rather than a text style. Reserved for the homepage hero h1, every
   project case-study h1 (`src/app/projects/*/page.tsx`), the oversized step
   numeral inside PinnedApproach, and a section's own top-level h2 when that
-  section wants the hero's own authority ("What We Do," "Frequently Asked
-  Questions," and similar section openers). Anton never sets body copy and
+  section wants the hero's own authority ("Have something in mind?",
+  "Questions," and similar section openers). Anton never sets body copy and
   never appears below `text-heading-sm`. Case-study h1's use `text-display-sm`
   (not the full `text-display`): big enough to carry the hero's voice,
   scaled down from the homepage's singular full-bleed statement.
@@ -69,28 +62,6 @@ is determined by its role, not by taste.
   `text-fog-blue` (metadata). Never bold.
 - Display headlines stack across multiple lines, lh 1.00-1.01, occupying
   ~50% of viewport height in heroes. Sculptural, not typographic.
-
-### Velocity-chroma (ScrollChroma.tsx)
-
-The one mechanism by which prism colors ever touch text, and it is
-automatic, scroll-driven, never a static color choice:
-
-- `ScrollChroma.tsx` (mounted once, site-wide, in `layout.tsx`) drives a
-  document-level `--chroma` CSS custom property from scroll velocity,
-  spring-smoothed: 0 at rest, rising toward 1 as the visitor scrolls fast,
-  decaying back to 0 as the page settles.
-- Any element carrying `.chroma-text` or one of the four `.headline-red /
-  -cyan / -lime / -yellow` classes reads `--chroma` to drive a text-shadow
-  RGB-split (red/cyan/lime channels) proportional to scroll speed. At rest
-  every one of these renders identical plain bone text: the channel name is
-  a latent assignment, not a persistent color. `HEADLINE_CHANNELS` arrays
-  (Services, Process, ValuePropositions) assign a channel in rotation
-  across a section's repeated sub-headlines so each has its own latent
-  identity.
-- This is canon, not legacy debt: it is how "the dispersion IS the depth"
-  reaches past the artifact itself into the page's own headlines under
-  motion. Homepage hero h1 and case-study h1's carry `.chroma-text` for the
-  same reason.
 
 ## Components (the canon)
 
@@ -144,50 +115,53 @@ list (16 of 17; new-era-cap has no Approach section and is left alone).
   same content and tokens, no pinning. Chosen via the house matchMedia
   pattern so SSR/hydration match before the swap.
 
-## The Prism Artifact (signature - render via src/components/PrismArtifact.tsx)
+## Homepage structure (keep it to these five bands)
 
-The brand's only chromatic element: a staggered cluster of glass cubes with
-RGB-split chromatic-aberration edges (red #ff2a2a, cyan #2a7fff, lime
-#2aff2a) bleeding through an otherwise monochrome surface. Black cores,
-bone specular highlights, no shadows: the dispersion IS the depth. It anchors
-the hero at ~40% width with the display headline wrapping/crossing it. A slow
-~6.5s shimmer is its only motion. Never dilute it: no colored badges, no
-rainbow borders elsewhere.
+1. **Hero** (`src/components/site/HomeHero.tsx`): near-full-screen, led by
+   one project (2062). Name in Anton, the tagline, one positioning line,
+   the project label, "Explore the work". Desktop plays a short muted loop;
+   phones and reduced-motion visitors get the still. Never autoplay sound.
+   A Pause control is always offered while the loop plays.
+2. **Selected work**: the flagship (New Era Cap) full width, then five
+   more in alternating wide/narrow rows whose aspect ratios are paired so
+   both cards share a height; a leftover single closes full width.
+3. **Selected clients**: one quiet row of names.
+4. **Intro + capabilities**: a few sentences and one line.
+5. **Contact**: "Have something in mind? Let's make it." and the email.
+
+Long service explanations, the process, articles, and the FAQ stay off the
+homepage. Navigation is Work, About, Contact, with Contact always visible
+(including on phones). Perspectives lives in the footer and on About.
 
 ## Layout
 
 - Full-bleed obsidian canvas; content constrained by `.section-container`
   (max-width 1440px, centered, comfortable edge padding).
-- Section rhythm ~108px (`.section-padding`). Hero panels may run
-  full-viewport height; content bands are narrower.
-- Asymmetric composition: artifact or media anchors, type wraps around.
-  Single-column text (max ~440-640px). No card matrices, no multi-column
-  text grids.
-- Footer: 1px ash-border hairline divider, then two columns of metadata at
-  14-18px bone.
+- Section rhythm ~108px (`.section-padding`). The hero runs ~92% of the
+  viewport height.
+- Oversized imagery, generous space. Captions sit below media, never over
+  it, with one exception: the homepage hero, where the name sits over the
+  video on a bottom-up obsidian fade for legibility.
+- Single-column text (max ~440-680px).
+- Footer: 1px ash-border hairline divider, then two columns of metadata.
 
 ## Motion
 
-Default 0.5s ease; meaningful state changes use
-`cubic-bezier(0.52, 0.01, 0, 1)`: slow start, decisive stop, like optical
-focus pulling. Transform and opacity carry 90% of transitions; color the
-rest. No springs, no bounces, no scale-pops. Constant ambient motion is
-reserved for two things: the prism artifact's slow shimmer, and the live
-Three.js wireframe scenes in `ServiceScene.tsx` (rendered inside Services),
-which carry a slow `AmbientSpin` rotation (~0.045 rad/s, full turn in
-roughly two minutes) plus mouse parallax, so they read as live renders
-rather than static geometry. Both stay slow and quiet by design; do not add
-a third. Use `m.` from framer-motion (LazyMotion domAnimation; no
-drag/layout). Honor useReducedMotion.
+Subtle. Default 0.5-0.6s with `cubic-bezier(0.52, 0.01, 0, 1)`: slow start,
+decisive stop. The only entrance motion is `Reveal` (a short fade-up, once).
+Cards zoom 3% on hover. No custom cursor, no smooth-scroll hijacking, no
+film grain, no scroll-velocity effects, no 3D scenes, no ambient spin; the
+work provides the motion. Use `m.` from framer-motion (LazyMotion
+domAnimation). Honor reduced motion everywhere.
 
 ## Hard bans
 
-- No filled buttons, no gradients, no box-shadows, no glow, no
-  backdrop-blur, no light bands. Every surface is obsidian (or rarely
-  graphite-veil).
-- No third text color. No prism colors on UI beyond the two named
-  exceptions above (velocity-chroma, PinnedApproach's rail fill). No
-  underlines on links.
+- No filled buttons, no gradients, no box-shadows, no glow, no light
+  bands. Every surface is obsidian (or rarely graphite-veil). Named
+  exceptions: the hero's legibility fades, and the header's frosted
+  backdrop once the page scrolls.
+- No third text color. No prism colors on UI beyond PinnedApproach's
+  rail fill. No underlines on links.
 - No bold except Switzer 600 in the narrow repeated-sub-headline pattern
   described under Type, or Anton's own single weight; when unsure, stay 400.
 - No serif type anywhere. No letter-spacing looser than -0.01em above 22px.
@@ -196,12 +170,28 @@ drag/layout). Honor useReducedMotion.
 
 ## Content rules
 
-- Keep all existing messaging and copy. Light label rewrites fine.
-- David's work stays central: project stills and videos as rounded-[15px]
-  media cards on the void, captioned in bone/fog-blue.
+- **Names**: "David Turk" is the person; "David Turk Creative" is the
+  business (header lockup: "David Turk" in bone, "Creative" in fog-blue).
+  "DT+C" is retired from visible copy; it survives only as the JSON-LD
+  `alternateName` and the favicon.
+- **Voice**: first person singular. "I", never "we", in site copy.
+- **Content model**: every project lives in `src/content/work.ts`
+  (homepage selection, flagship, hero project, client list, capabilities,
+  shared copy). Pages read from there; don't hard-code project lists.
+- **Media for newer projects**: drop files into `public/work/<slug>/`
+  (`hero.mp4`, `hero.jpg`, `card.jpg`, `card.mp4`, `gallery/01.jpg ...`);
+  they appear on the next build. See `public/work/README.md`.
+- **AI labeling**: work made with AI says so plainly where it's shown
+  (card label and case-study notice).
+- **Case studies** answer four questions: What was the idea? What was my
+  role? What did I make? What happened? Credit collaborators. Include
+  outcomes only when verified.
+- **Drafts and preview notes**: `draft: true` hides a project on the live
+  site (Netlify CONTEXT=production) while previews still show it. Dashed
+  "Preview only" notes mark missing media or unverified copy and never
+  render on the live site.
 - Media URLs verbatim: cdn.myportfolio.com renditions carry size-specific
   ?h= hashes; never alter any media URL.
-- Keep anchors (#projects #services #process #about #insights #contact),
-  routes, SEO metadata, JsonLd, aria labels, alt text.
-- Videos through AutoplayVideo or existing gated patterns; never raw
-  autoPlay.
+- Routes: `/`, `/work`, `/about`, `/contact`, `/projects/*`, `/insights/*`.
+  Old anchors `/#projects` and `/#contact` still resolve on the homepage.
+- Videos through AutoplayVideo, CoverMedia, or HomeHero's gated loop.

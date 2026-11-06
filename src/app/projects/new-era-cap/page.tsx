@@ -252,7 +252,7 @@ export default function NewEraCapProject() {
           className="mb-14"
         >
           <Link
-            href="/#projects"
+            href="/work"
             className="group inline-flex items-center gap-2 text-caption uppercase tracking-[0.02em] font-normal text-bone hover:text-fog-blue transition-colors duration-500 ease-prism"
           >
             <svg
@@ -268,7 +268,7 @@ export default function NewEraCapProject() {
                 d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
               />
             </svg>
-            Back to Work
+            All Work
           </Link>
         </m.div>
 
@@ -281,7 +281,7 @@ export default function NewEraCapProject() {
           Strategy + 3D Animation + VFX
         </m.p>
 
-        <h1 className="font-anton uppercase tracking-normal text-bone text-display-sm chroma-text leading-[1.01] mb-6 h1-paint-in">
+        <h1 className="font-anton uppercase tracking-normal text-bone text-display-sm leading-[1.01] mb-6 h1-paint-in">
           New Era Cap
         </h1>
 
@@ -428,7 +428,7 @@ export default function NewEraCapProject() {
           <div className="font-body text-body-sm font-normal text-bone space-y-7">
             <p>
               New Era Cap is one of the most recognized headwear brands in the
-              world. Over the course of four campaigns, DT+C became their go-to
+              world. Over the course of four campaigns, David Turk Creative became their go-to
               partner for immersive 3D content, transforming each seasonal
               collection into a fully realized visual world.
             </p>
@@ -502,7 +502,7 @@ export default function NewEraCapProject() {
             creative strategy.
           </p>
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-            <Link href="/#contact" className="btn-primary">
+            <Link href="/contact" className="btn-primary">
               Book a Call
             </Link>
             <Link

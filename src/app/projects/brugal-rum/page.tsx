@@ -210,7 +210,7 @@ export default function BrugalRumProject() {
           transition={{ duration: 0.5, delay: 0.1, ease: PRISM_EASE }}
         >
           <Link
-            href="/#projects"
+            href="/work"
             className="group inline-flex items-center gap-2 text-caption font-normal uppercase tracking-[0.02em] text-bone transition-colors duration-500 ease-prism hover:text-fog-blue"
           >
             <svg
@@ -226,7 +226,7 @@ export default function BrugalRumProject() {
                 d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
               />
             </svg>
-            Back to Work
+            All Work
           </Link>
         </m.div>
 
@@ -239,7 +239,7 @@ export default function BrugalRumProject() {
           Event Videography
         </m.p>
 
-        <h1 className="mt-6 font-anton text-display-sm uppercase tracking-normal text-bone chroma-text h1-paint-in">
+        <h1 className="mt-6 font-anton text-display-sm uppercase tracking-normal text-bone h1-paint-in">
           Brugal
           <br />
           Rum
@@ -409,7 +409,7 @@ export default function BrugalRumProject() {
 
       {/* Our Approach (scroll-pinned director's viewport) */}
       <PinnedApproach
-        eyebrow="Our Approach"
+        eyebrow="The Approach"
         heading="From show floor to cinematic cut"
         steps={approach.map(({ title, description }) => ({
           title,
@@ -774,7 +774,7 @@ export default function BrugalRumProject() {
             energy of the room and keeps working long after the night ends.
           </p>
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <Link href="/#contact" className="btn-primary">
+            <Link href="/contact" className="btn-primary">
               Book a Call
             </Link>
             <Link

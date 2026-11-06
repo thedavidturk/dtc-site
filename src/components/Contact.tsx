@@ -4,11 +4,11 @@ import { useState, FormEvent } from "react";
 import { m, AnimatePresence } from "framer-motion";
 
 const projectTypes = [
-  "Virtual Cinematic",
-  "3D Animation",
-  "Content Partnership",
-  "Videography & Photography",
-  "Not sure",
+  "Creative direction",
+  "Film & photography",
+  "3D, VFX & AI",
+  "Brand campaign",
+  "Not sure yet",
 ];
 
 const prismEase = [0.52, 0.01, 0, 1] as const;
@@ -123,7 +123,7 @@ export default function Contact() {
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = "Please tell us about your project.";
+      newErrors.message = "Please tell me about your project.";
     }
 
     return newErrors;
@@ -170,7 +170,7 @@ export default function Contact() {
       if (res.ok) {
         setSubmitted(true);
       } else {
-        setSubmitError("Something went wrong. Please try again or email us directly.");
+        setSubmitError("Something went wrong. Please try again or email me directly.");
       }
     } catch {
       setSubmitError("Network error. Please check your connection and try again.");
@@ -180,7 +180,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="section-padding">
+    <section id="contact" className="pb-16 pt-36 md:pb-24 md:pt-44 lg:pb-[108px]">
       <m.div
         className="section-container"
         variants={sectionVariants}
@@ -193,14 +193,13 @@ export default function Contact() {
           <p className="font-body text-[17px] uppercase tracking-[0.02em] font-normal text-fog-blue">
             Contact
           </p>
-          <h2 className="font-anton text-display-sm font-normal uppercase tracking-normal headline-red mt-6">
-            Get In Touch
-          </h2>
-          <p className="font-body text-body-lg font-normal text-bone mt-10 max-w-[440px]">
-            Let&apos;s build what&apos;s next.
-          </p>
-          <p className="font-body text-body-sm font-normal text-bone mt-4 max-w-[440px]">
-            Have a project in mind? Tell us what you&apos;re building and we&apos;ll show you how we&apos;d execute it.
+          <h1 className="font-anton text-display-sm font-normal uppercase tracking-normal text-bone mt-6">
+            Have something in mind?
+            <br />
+            <span className="text-fog-blue">Let&apos;s make it.</span>
+          </h1>
+          <p className="font-body text-body-lg font-normal text-bone mt-10 max-w-[480px]">
+            Tell me what you&apos;re working on. I read every message and reply within 24 hours.
           </p>
         </m.div>
 
@@ -323,7 +322,7 @@ export default function Contact() {
                     {/* Message */}
                     <div>
                       <label htmlFor="message" className={labelClasses}>
-                        Tell us about your project <span className="text-fog-blue">*</span>
+                        Tell me about your project <span className="text-fog-blue">*</span>
                       </label>
                       <textarea
                         id="message"
@@ -372,8 +371,8 @@ export default function Contact() {
                       Message Sent
                     </p>
                     <p className="font-body text-body font-normal text-bone max-w-[440px]">
-                      Thank you for reaching out. We&apos;ll review your project details and
-                      get back to you within 24 hours.
+                      Thanks for reaching out. I&apos;ll read this and get back to you
+                      within 24 hours.
                     </p>
 
                     <button
@@ -451,7 +450,7 @@ export default function Contact() {
                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                   </svg>
                   <a
-                    href="https://linkedin.com/in/davidturk"
+                    href="https://www.linkedin.com/in/davidturk"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-body text-body font-normal text-bone hover:text-fog-blue transition-colors duration-500 ease-prism inline-flex items-center gap-1.5"
@@ -481,7 +480,7 @@ export default function Contact() {
                   Response Time
                 </p>
                 <p className="font-body text-body font-normal text-bone">
-                  We respond within 24 hours.
+                  I reply within 24 hours.
                 </p>
               </div>
             </div>

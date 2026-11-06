@@ -229,7 +229,7 @@ export default function BuildingWorldsArticle() {
               Why This Matters for Every Brand Producing Content
             </h2>
             <p className="mb-6 text-body-sm font-normal text-bone">
-              Here&rsquo;s where this connects directly to what we do at DT+C.
+              Here&rsquo;s where this connects directly to what we do at David Turk Creative.
               The content you produce (videos, visuals, written insights,
               case studies) is now the primary signal that AI engines use to
               understand what your brand does and whether to recommend it. Your
@@ -345,7 +345,7 @@ export default function BuildingWorldsArticle() {
               the ones that relied on gaming search algorithms.
             </p>
             <p className="mb-6 text-body-sm font-normal text-bone">
-              At DT+C, we&rsquo;re building content that works across both
+              At David Turk Creative, we&rsquo;re building content that works across both
               paradigms: traditional search and AI-generated discovery. Our
               production pipeline (AI video generation, 3D pipelines, VFX,
               sound design) is designed to produce the volume and quality of
