@@ -144,6 +144,34 @@ export default function CaseStudy({
         );
       })}
 
+      {/* The film itself, at its native shape, with controls */}
+      {media.film && (
+        <section className="border-t border-ash-border section-padding">
+          <div className="section-container grid grid-cols-1 gap-8 lg:grid-cols-12">
+            <h2 className="text-[17px] font-normal uppercase tracking-[0.02em] text-fog-blue lg:col-span-3">
+              Watch
+            </h2>
+            <div className="lg:col-span-9">
+              <div
+                className={`relative mx-auto overflow-hidden rounded-card bg-[#161616] lg:mx-0 ${
+                  item.galleryAspect === "aspect-[4/5]" ? "aspect-[4/5] max-w-[560px]" : "aspect-video"
+                }`}
+              >
+                <video
+                  src={media.film}
+                  poster={media.filmPoster}
+                  controls
+                  playsInline
+                  preload="none"
+                  className="absolute inset-0 h-full w-full object-cover"
+                  aria-label={`${item.client}, full film`}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Stills */}
       {(media.gallery.length > 0 || showNotes) && (
         <section className="border-t border-ash-border section-padding">
@@ -151,7 +179,28 @@ export default function CaseStudy({
             <p className="mb-10 text-[17px] font-normal uppercase tracking-[0.02em] text-fog-blue">
               Stills
             </p>
-            {media.gallery.length > 0 ? (
+            {media.gallery.length > 0 && item.galleryAspect ? (
+              <div
+                className={`grid grid-cols-1 gap-6 sm:grid-cols-2 ${
+                  item.galleryAspect === "aspect-[4/5]" ? "lg:grid-cols-3" : ""
+                }`}
+              >
+                {media.gallery.map((src, i) => (
+                  <div
+                    key={src}
+                    className={`relative overflow-hidden rounded-card bg-[#161616] ${item.galleryAspect}`}
+                  >
+                    <Image
+                      src={src}
+                      alt={`${item.client}: still ${i + 1}`}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            ) : media.gallery.length > 0 ? (
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 {media.gallery.map((src, i) => (
                   <div

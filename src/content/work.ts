@@ -10,6 +10,8 @@
 /*    hero.jpg   still for the hero: mobile, reduced motion, poster     */
 /*    card.jpg   cover still for cards (falls back to hero.jpg)         */
 /*    card.mp4   optional cover loop for cards                          */
+/*    film.mp4   optional full film, played on the project page with    */
+/*               controls (film.jpg as its poster, else hero.jpg)       */
 /*    gallery/   any .jpg/.png/.webp, shown on the project page in      */
 /*               file-name order (01.jpg, 02.jpg, ...)                  */
 /* ------------------------------------------------------------------ */
@@ -51,6 +53,8 @@ export interface WorkItem {
   draft?: boolean;
   /** Folder under public/work/ holding this project's media. */
   mediaDir?: string;
+  /** Uniform gallery shape for this project's stills, e.g. "aspect-[4/5]". */
+  galleryAspect?: string;
 }
 
 const PORTFOLIO_CDN = "https://cdn.myportfolio.com/3d73d869-ccec-484c-ad9c-307e1175f104";
@@ -77,9 +81,10 @@ export const work: WorkItem[] = [
     summary:
       "An original sci-fi series set in a post-apocalyptic Miami, made with AI and directed like a film.",
     kind: "original",
-    label: "Original AI film series",
+    label: "AI film series",
     disciplines: ["Original"],
     mediaDir: "2062",
+    galleryAspect: "aspect-[4/5]",
   },
   {
     slug: "fold-party",
@@ -88,9 +93,10 @@ export const work: WorkItem[] = [
     title: "Fold Party",
     summary: "A party-game arcade for one phone. Pass it around, share one scoreboard.",
     kind: "original",
-    label: "Original game for iPhone & iPad",
+    label: "Game for iPhone & iPad",
     disciplines: ["Original"],
     mediaDir: "fold-party",
+    galleryAspect: "aspect-[4/3]",
   },
   {
     slug: "weinstein-legal-team",

@@ -18,39 +18,56 @@ export default function FoldPartyProject() {
         { label: "Made by", value: "David Turk Creative" },
         { label: "Platform", value: "iPhone & iPad" },
         { label: "Players", value: "2 to 4" },
-        { label: "Built around", value: "The fold on iPhone Duo" },
+        { label: "Launched", value: "October 23, 2026" },
       ]}
       sections={[
         {
           heading: "The idea",
           body: (
             <p>
-              Pass the phone, start the party. Players pick a game from a shelf of boxes, pass one
-              phone around, and share a single scoreboard. It&rsquo;s built around the fold on iPhone
-              Duo and plays on other iPhones and iPads with on-screen controls.
+              Pass the phone, start the party. Pick a game&rsquo;s box off a lit video-store shelf,
+              pass the phone around, and a game-show host calls the action while one scoreboard
+              keeps score for the whole room. It&rsquo;s built around the fold on iPhone Duo and plays
+              on any iPhone or iPad.
             </p>
           ),
         },
         {
           heading: "My role",
-          note: "Add your role in a sentence (concept, design, development, brand?). This section stays off the live site until it has copy.",
+          body: (
+            <p>
+              I created Fold Party through David Turk Creative: the concept, the games, the look, and
+              the app.
+            </p>
+          ),
+          note: "Check this line says exactly what you did.",
         },
         {
           heading: "What I made",
           body: (
             <p>
-              An arcade of quick games, including Hot Potato, Quiz Show, Table Hockey, Double Agent,
-              and Pinball, each with its own illustrated box on a video-store shelf under a neon sign.
+              Sixteen games at launch on four aisles, from Hot Potato and Quiz Show to a 1983
+              roller-rink pinball table and a heist through a hall of lasers. On iPhone Duo every fold
+              has its own games: close it for Hot Potato, open it like a laptop for Quiz Show, lay it
+              flat for Table Hockey.
             </p>
           ),
         },
         {
           heading: "What happened",
-          body: <p>Fold Party is live at foldparty.com, and new games keep coming.</p>,
-          note: "Add the App Store link and any verified numbers (downloads, ratings) if you want them here.",
+          body: (
+            <p>
+              Fold Party launched on the App Store on October 23, 2026. New packs of four games
+              arrive in app updates.
+            </p>
+          ),
+          note: "Add downloads or ratings here only if you want them public (verified numbers only).",
         },
       ]}
-      links={[{ label: "foldparty.com", href: "https://foldparty.com" }]}
+      links={[
+        { label: "App Store", href: "https://apps.apple.com/app/id6820737260" },
+        { label: "foldparty.com", href: "https://foldparty.com" },
+      ]}
       next={nextProject("fold-party")}
       showNotes={showPreviewNotes}
     />

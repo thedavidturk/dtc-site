@@ -64,7 +64,7 @@ export default function Home() {
         still={heroMedia.heroStill}
         loop={heroMedia.heroLoop}
         projectHref={heroItem.href}
-        projectLabel={`${heroItem.client} · ${heroItem.label}`}
+        projectLabel={`${heroItem.client} · ${heroItem.kind === "original" ? "Original " : ""}${heroItem.label}`}
         showNotes={showPreviewNotes}
       />
 

@@ -17,7 +17,7 @@ export default function Project2062() {
       meta={[
         { label: "Role", value: "Creator & director" },
         { label: "Format", value: "Short-form series" },
-        { label: "Made with", value: "AI video (Seedance 2.5)" },
+        { label: "Made with", value: "AI video" },
         { label: "Home", value: "Instagram" },
       ]}
       notice="Made with AI. Every frame of 2062 is generated with AI video tools and directed shot by shot."
@@ -45,18 +45,19 @@ export default function Project2062() {
           heading: "What I made",
           body: (
             <p>
-              A look borrowed from combat reportage: bleach-bypass color, cold teal-grey shadows,
-              handheld framing, rain, haze, and heavy grain. Flooded streets, abandoned Art Deco
-              buildings, and the day the machines arrived.
+              The first 2062 short: giant machines left where they fell, across a drowned city.
+              The series that follows keeps the look: bleach-bypass color, cold teal-grey shadows,
+              handheld framing, rain, haze, and heavy grain.
             </p>
           ),
         },
         {
           heading: "What happened",
-          body: <p>The series continues on Instagram.</p>,
-          note: "Add the verified view count for the 2062 short (you've cited about 6M) and a link to the post.",
+          body: <p>The first short is on Instagram, and the series continues there.</p>,
+          note: "Your production bible lists about 151K likes on the Feb 23 post as verified (the 7M views is a bio claim only). Want that number here?",
         },
       ]}
+      links={[{ label: "Instagram", href: "https://www.instagram.com/thedavidturk/" }]}
       next={nextProject("2062")}
       showNotes={showPreviewNotes}
     />

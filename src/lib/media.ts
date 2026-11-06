@@ -46,6 +46,9 @@ export interface ResolvedMedia {
   heroLoop?: string;
   /** Gallery stills for the project page, in file-name order. */
   gallery: string[];
+  /** Optional full film with its poster. */
+  film?: string;
+  filmPoster?: string;
 }
 
 export function resolveMedia(item: WorkItem): ResolvedMedia {
@@ -74,7 +77,10 @@ export function resolveMedia(item: WorkItem): ResolvedMedia {
       .map((file) => `${base}/gallery/${file}`);
   }
 
-  return { still: cardStill, loop: cardLoop, heroStill, heroLoop, gallery };
+  const film = firstAsset([`${base}/film.mp4`]);
+  const filmPoster = firstAsset([`${base}/film.jpg`]) ?? heroStill;
+
+  return { still: cardStill, loop: cardLoop, heroStill, heroLoop, gallery, film, filmPoster };
 }
 
 /** Every project that should be visible in this build. */
