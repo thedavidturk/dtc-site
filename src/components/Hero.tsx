@@ -7,6 +7,7 @@ import LineReveal from "./LineReveal";
 import Magnetic from "./Magnetic";
 import useAutoplayInView from "./useAutoplayInView";
 import { STUDIO_ENTER_URL, enterStudio } from "./enterStudio";
+import StudioScene from "./StudioScene";
 
 /* ------------------------------------------------------------------ */
 /*  Real work - pulled from the featured projects                      */
@@ -294,30 +295,11 @@ export default function Hero() {
       {/* Desktop: the room, full width under the fixed header. The fade
           at its foot is what lets the headline cross the image. */}
       <div className="relative hidden pt-20 md:block">
-        <a
-          href={STUDIO_ENTER_URL}
-          onClick={enterStudio}
-          aria-label="Enter the studio"
-          className="group relative block h-[66vh] max-h-[680px] min-h-[420px] overflow-hidden"
-        >
-          <Image
-            src={STUDIO_STILL}
-            data-studio-still=""
-            alt={STUDIO_ALT}
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-top transition-transform duration-[1400ms] ease-prism group-hover:scale-[1.03]"
-          />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(16,16,16,0)_62%,rgba(16,16,16,0.7)_86%,#101010_100%)]"
-          />
-        </a>
+        <StudioScene src={STUDIO_STILL} alt={STUDIO_ALT} />
       </div>
 
       {/* Headline left, the two ways in on the right */}
-      <div className="section-container relative z-10 flex flex-wrap items-end justify-between gap-x-12 gap-y-7 pb-10 pt-28 md:-mt-[min(7.2vw,104px)] md:pb-14 md:pt-0">
+      <div className="section-container relative z-10 flex flex-wrap items-end justify-between gap-x-12 gap-y-7 pb-10 pt-28 md:-mt-[min(2.6vw,38px)] md:pb-14 md:pt-0">
         <h1 className="min-w-0 flex-[999_1_560px] font-anton font-normal uppercase leading-none tracking-normal text-bone chroma-text">
           {/* Phone: three lines */}
           <span className="block text-[clamp(36px,12.8vw,56px)] md:hidden">
@@ -415,7 +397,7 @@ export default function Hero() {
                 className="object-cover object-[30%_50%]"
               />
             </span>
-            <span className="flex min-h-[58px] items-center justify-between gap-3 bg-bone px-5 text-obsidian">
+            <span className="flex min-h-[58px] items-center justify-between gap-3 bg-[#3ee0ea] px-5 text-obsidian">
               <span className="flex items-center gap-2.5 text-[15px] font-normal uppercase tracking-[0.02em]">
                 <span aria-hidden="true" className="studio-cta-dot" />
                 Enter the Studio
