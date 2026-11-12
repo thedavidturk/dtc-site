@@ -327,3 +327,9 @@ h1 {
 .studio-cta:hover::after{animation:none}
 @keyframes studio-cta-ring{0%{opacity:.75;transform:scale(1)}60%,100%{opacity:0;transform:scale(1.14,1.55)}}
 @media (prefers-reduced-motion:reduce){.studio-cta::after{animation:none}}
+
+/* Phone: the studio image and its button are one card, with the same slow ring. */
+.studio-card{position:relative;display:block}
+.studio-card::after{content:"";position:absolute;inset:-1px;border:1px solid #fffdf9;border-radius:16px;opacity:0;pointer-events:none;animation:studio-card-ring 2.8s cubic-bezier(.22,1,.36,1) infinite}
+@keyframes studio-card-ring{0%{opacity:.7;transform:scale(1)}60%,100%{opacity:0;transform:scale(1.04,1.06)}}
+@media (prefers-reduced-motion:reduce){.studio-card::after{animation:none}}

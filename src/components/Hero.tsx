@@ -402,28 +402,46 @@ export default function Hero() {
         transition={{ duration: 0.5, ease: easePrism, delay: 0.6 }}
         className="section-container pb-10 md:hidden"
       >
-        <a href={STUDIO_ENTER_URL} onClick={enterStudio} className="group block">
-          <div className="relative aspect-[3/2] w-full overflow-hidden rounded-[15px]">
-            <Image
-              src={STUDIO_STILL}
-              data-studio-still=""
-              alt={STUDIO_ALT}
-              fill
-              sizes="100vw"
-              className="object-cover object-[30%_50%]"
-            />
-          </div>
-          <div className="flex items-baseline justify-between gap-3 pt-3">
-            <span className="text-sm font-normal text-bone transition-colors duration-500 ease-prism group-hover:text-fog-blue">
-              Step into the studio
+        <a href={STUDIO_ENTER_URL} onClick={enterStudio} className="studio-card">
+          {/* Image and button are one piece: the picture is the top of the button */}
+          <span className="block overflow-hidden rounded-[15px]">
+            <span className="relative block aspect-[3/2] w-full">
+              <Image
+                src={STUDIO_STILL}
+                data-studio-still=""
+                alt={STUDIO_ALT}
+                fill
+                sizes="100vw"
+                className="object-cover object-[30%_50%]"
+              />
             </span>
-            <span className="text-[11px] font-normal uppercase tracking-[0.02em] text-fog-blue">
-              Interactive 3D
+            <span className="flex min-h-[58px] items-center justify-between gap-3 bg-bone px-5 text-obsidian">
+              <span className="flex items-center gap-2.5 text-[15px] font-normal uppercase tracking-[0.02em]">
+                <span aria-hidden="true" className="studio-cta-dot" />
+                Enter the Studio
+              </span>
+              <span className="flex items-center gap-2 text-[11px] font-normal uppercase tracking-[0.02em]">
+                Interactive 3D
+                <svg
+                  className="h-4 w-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+              </span>
             </span>
-          </div>
+          </span>
         </a>
-        <p className="mt-1.5 text-[13px] leading-[1.4] text-fog-blue">
-          A 3D room you can look around. Optional.
+        <p className="mt-3 text-[13px] leading-[1.4] text-fog-blue">
+          A 3D room you can look around. Tap to step inside.
         </p>
       </m.div>
 
