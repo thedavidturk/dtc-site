@@ -127,7 +127,7 @@ const state = { mode: 'room', id: null, ready: false, rail: false, paused: false
 const qn = (k, d) => Q.has(k) ? parseFloat(Q.get(k)) : d;
 const GRADE = { uSat: { value: qn('sat', 1.1) }, uGain: { value: qn('gain', 1.04) } };      // a light grade over the baked light
 // room lighting the visitor controls: the baked light is split into "interior" and "city through the window" at draw time
-const LIGHT = { uDim: { value: 1 }, uAmt: { value: 0 }, uTint: { value: new THREE.Color(1, 1, 1) }, uCityGain: { value: 1 }, uPrac: { value: 1 }, uFace: { value: 1 }, uRaw: { value: new THREE.Color(1, 1, 1) } };
+const LIGHT = { uDim: { value: 1 }, uAmt: { value: 0 }, uTint: { value: new THREE.Color(1, 1, 1) }, uCityGain: { value: 1 }, uPrac: { value: 1 }, uFace: { value: 1 }, uRaw: { value: new THREE.Color(1, 1, 1) }, uHotC: { value: new THREE.Vector3() }, uHotR: { value: new THREE.Vector3(1, 1, 1) }, uHotA: { value: 0 } };
 const lights = { dim: 1, amt: 0, tint: new THREE.Color(1, 1, 1), raw: new THREE.Color(1, 1, 1), name: 'warm' }, bakeMats = [], glassL = [];
 let D = null, PANO = null, os = null;
 const live = {}; const hot = []; const pins = []; let composer = null, bloomOn = !MOBILE && Q.get('bloom') !== '0';
@@ -183,7 +183,7 @@ async function build() {
     m.userData.u = { uCityMap: { value: blackTex }, uHasCity: { value: 0 }, uPracMap: { value: blackTex }, uHasPrac: { value: 0 } }; m.userData.g = g; bakeMats.push(m);
     m.onBeforeCompile = s => {
       Object.assign(s.uniforms, GRADE, LIGHT, m.userData.u);
-      s.fragmentShader = 'uniform float uSat, uGain, uDim, uAmt, uCityGain, uHasCity, uHasPrac, uPrac, uFace; uniform vec3 uTint, uRaw; uniform sampler2D uCityMap, uPracMap;\n' + s.fragmentShader.replace('#include <map_fragment>',
+      s.fragmentShader = 'varying vec3 vWp; uniform vec3 uHotC, uHotR; uniform float uHotA; uniform float uSat, uGain, uDim, uAmt, uCityGain, uHasCity, uHasPrac, uPrac, uFace; uniform vec3 uTint, uRaw; uniform sampler2D uCityMap, uPracMap;\n' + s.fragmentShader.replace('#include <map_fragment>',
         `#include <map_fragment>
          // three layers: light from the city, light from the desk's own lamps, and everything else. The slider dims the last; the lamps stay on.
          vec3 fullL = diffuseColor.rgb, cityL = texture2D(uCityMap, vMapUv).rgb * uHasCity, pracL = texture2D(uPracMap, vMapUv).rgb * uHasPrac;
@@ -192,7 +192,11 @@ async function build() {
          float pY = dot(pracL, vec3(.2126,.7152,.0722)), face = smoothstep(.18, .7, pY);                     // face: the glowing front of a lamp itself, as against the light it throws
          vec3 pT = mix(pracL, mix(uTint, uRaw * 1.15, face) * pY, uAmt) * mix(uPrac, uFace, face);            // lamps take the chosen colour, ease with the slider, and go dark at Off
          diffuseColor.rgb = (inL + pT + cityL * uCityGain * mix(1., .22, face * (1. - uFace))) * fit;      // a lamp that is off should look off: its white face does not get to glow with city light
-         float lumG=dot(diffuseColor.rgb,vec3(.2126,.7152,.0722)); diffuseColor.rgb=max(mix(vec3(lumG),diffuseColor.rgb,uSat),0.)*uGain;`);
+         float lumG=dot(diffuseColor.rgb,vec3(.2126,.7152,.0722)); diffuseColor.rgb=max(mix(vec3(lumG),diffuseColor.rgb,uSat),0.)*uGain;
+         // the thing being pointed at sits in its own pool of light
+         vec3 hq = (vWp - uHotC) / uHotR; float hm = uHotA * (1. - smoothstep(.5, 1.2, length(hq)));
+         diffuseColor.rgb = diffuseColor.rgb * (1. + hm * 1.3) + vec3(1., .88, .66) * hm * .09;`);
+      s.vertexShader = 'varying vec3 vWp;\n' + s.vertexShader.replace('#include <project_vertex>', 'vWp = (modelMatrix * vec4(transformed, 1.0)).xyz;\n#include <project_vertex>');
       if (!plant) return;
       s.uniforms.uTime = U.time;
       s.vertexShader = 'attribute float sway;\nuniform float uTime;\n' + s.vertexShader.replace('#include <begin_vertex>',
@@ -530,7 +534,7 @@ function hotspots() {
     const b = document.createElement('button'); b.type = 'button'; b.className = 'pin ' + cls + (coarse && cls === 'os' ? ' show' : ''); b.innerHTML = `<span>${label}</span>`; b.setAttribute('aria-label', label);
     b.addEventListener('click', e => { e.stopPropagation(); pick(id); });
     b.addEventListener('pointerenter', () => audio.blip(1200, .04, .02));
-    wrap.appendChild(b); const h = { id, box, center, el: b, pin: center.clone().add(new V3(s[0] * .46, s[1] * .46, s[2] * .3)) }; hot.push(h); return h;
+    wrap.appendChild(b); const h = { id, label, box, center, el: b, pin: center.clone().add(new V3(s[0] * .46, s[1] * .46, s[2] * .3)) }; hot.push(h); return h;
   };
   for (const h of D.hotspots) { if (h.id === 'pc') continue; const o = add(h.id, h.label, h.c, h.s); o.data = h; }
   const L = D.screens.L; const o = add('os', 'Enter DT+C OS', L.c, [L.w, L.h, .06], 'os'); o.pin = v3(L.c).add(new V3(0, -L.h / 2 - .035, .02));
@@ -671,13 +675,36 @@ canvas.addEventListener('pointermove', e => {
       else look.tyaw = clamp(look.tyaw + dx * .0016, -.3, .3);
       look.tpitch = clamp(look.tpitch + dy * .0012, -.1, .12);
     }
-  } else if (e.pointerType === 'mouse' && state.mode === 'room') canvas.style.cursor = hitAt(e.clientX, e.clientY) ? 'pointer' : 'grab';
+      if (ptr.moved > 30) HOV.looked = true;
+  } else if (e.pointerType === 'mouse' && state.mode === 'room') { HOV.mouse = hitAt(e.clientX, e.clientY); HOV.mx = e.clientX; HOV.my = e.clientY; canvas.style.cursor = HOV.mouse ? 'pointer' : 'grab'; }
 });
 const up = e => {
   touches.delete(e.pointerId); if (!ptr.down) return; ptr.down = false;
   if (ptr.moved < 8) { if (state.mode === 'room') { const h = hitAt(e.clientX, e.clientY); if (h) pick(h.id); } else if (state.mode === 'focus') closeCard(); else if (state.mode === 'reel') reelToggle(); else if (state.mode === 'city') exitCity(); }
 };
 canvas.addEventListener('pointerup', up); canvas.addEventListener('pointercancel', up);
+canvas.addEventListener('pointerleave', () => { HOV.mouse = null; });
+// ------------------------------------------------------------------ no markers: whatever is under the pointer (on a phone, nearest the middle of the screen) sits in a pool of light and is named once. Left alone, the light walks the shelf so it is clear things open.
+const HOV = { cur: null, a: 0, k: 1, mouse: null, near: null, mx: 0, my: 0, el: null, tour: null, looked: false };
+function hovEl() { if (HOV.el) return HOV.el; const b = document.createElement('button'); b.type = 'button'; b.id = 'hov'; b.hidden = true; b.innerHTML = '<b></b><i></i>'; b.addEventListener('click', e => { e.stopPropagation(); if (HOV.cur) pick(HOV.cur.id); }); document.body.appendChild(b); return HOV.el = b; }
+function hovTick(dt) {
+  const t = now(), touch = state.rail || coarse, room = state.mode === 'room' && !state.intro && !tw;
+  if (!HOV.tour) HOV.tour = hot.filter(h => h.data);
+  let want = null, k = 1, named = true;
+  if (room) {
+    if (touch) want = HOV.near;
+    else if (HOV.mouse) want = HOV.mouse;
+    else if (t - lastInput > 2.2 && HOV.tour.length) { want = HOV.tour[Math.floor(t / 1.25) % HOV.tour.length]; k = .5; named = false; }
+  }
+  if (want !== HOV.cur) {
+    HOV.a = Math.max(0, HOV.a - dt * 7);
+    if (HOV.a <= .02) { HOV.cur = want; HOV.k = k; if (want) { const s = want.box.getSize(new V3()); LIGHT.uHotC.value.copy(want.center); LIGHT.uHotR.value.set(Math.max(s.x * .75, .13), Math.max(s.y * .75, .13), Math.max(s.z * .9, .16)); } }
+  } else if (want) { HOV.k = k; HOV.a = Math.min(1, HOV.a + dt * 5); } else HOV.a = Math.max(0, HOV.a - dt * 7);
+  LIGHT.uHotA.value = HOV.a * HOV.k * (HOV.cur && HOV.cur.data ? 1 : .45);
+  const el = hovEl(), show = room && named && !!want && want === HOV.cur && !(touch && GUIDE.on);
+  if (show) { el.firstChild.textContent = want.label; el.lastChild.textContent = touch ? 'Tap to open' : 'Click to open'; el.classList.toggle('dock', touch); el.style.transform = touch ? '' : `translate(${Math.min(HOV.mx + 18, innerWidth - 220)}px,${Math.min(HOV.my + 20, innerHeight - 70)}px)`; }
+  if (el.hidden === show) el.hidden = !show;
+}
 canvas.addEventListener('wheel', e => { e.preventDefault(); if (state.intro) { endIntro(); return; } lastInput = now(); firstInput(); if (state.mode === 'room') tdolly = clamp(tdolly - e.deltaY * .0014, -.2, 1.7); }, { passive: false });
 addEventListener('keydown', e => {
   if (book.open || caseOpen()) return;
@@ -892,7 +919,7 @@ function guideMesh() {
   x.strokeStyle = T; x.lineWidth = 5; x.lineCap = 'round'; x.lineJoin = 'round'; const k = 46, m = 12;        // corner brackets
   for (const [cx, cy, sx, sy] of [[m, m, 1, 1], [CW - m, m, -1, 1], [m, CH - m, 1, -1], [CW - m, CH - m, -1, -1]]) { x.beginPath(); x.moveTo(cx + sx * k, cy); x.lineTo(cx, cy); x.lineTo(cx, cy + sy * k); x.stroke(); }
   x.textBaseline = 'middle'; x.textAlign = 'left'; x.letterSpacing = '9px';
-  const rows = [['DRAG', 'TO LOOK AROUND'], [verb, 'A MARKER TO LEARN MORE']]; let fs = 92;
+  const rows = [['DRAG', 'TO LOOK AROUND'], [verb, 'ANYTHING THAT LIGHTS UP']]; let fs = 92;
   do { fs -= 2; x.font = `800 ${fs}px Montserrat`; } while (fs > 40 && Math.max(...rows.map(r => x.measureText(r[0] + ' ' + r[1]).width)) + 150 > CW * .9);
   const row = (y, icon, a, bt) => {
     x.font = `800 ${fs}px Montserrat`; const wa = x.measureText(a + ' ').width, wb = x.measureText(bt).width, W = 150 + wa + wb, x0 = (CW - W) / 2;
@@ -928,7 +955,7 @@ function hideGuide() { GUIDE.on = false; }
 function guideTick(dt) {
   const m = GUIDE.mesh; if (!m) return; const show = GUIDE.on && state.mode === 'room' && !state.intro;
   if (m.userData.follow && show) {                       // on a phone the room slides past, so the sign trails the camera instead of being left behind
-    const d = cam.getWorldDirection(new V3()).setY(0).normalize(), to = cam.position.clone().addScaledVector(d, 2.3); to.y = m.position.y;
+    const d = cam.getWorldDirection(new V3()).setY(0).normalize(), to = cam.position.clone().addScaledVector(d, 2.3); to.y = cam.position.y - .6;
     m.position.lerp(to, 1 - Math.exp(-dt * 2.4)); m.lookAt(m.position.clone().sub(d));
   }
   GUIDE.a = clamp(GUIDE.a + (show ? dt * 1.3 : -dt * 2.2), 0, 1); m.material.uniforms.uA.value = GUIDE.a; m.visible = GUIDE.a > 0;
@@ -977,10 +1004,10 @@ function skyText(words) {
 // arriving from the homepage's "Enter the studio": no title and no second click. The camera finishes the push-in the homepage started.
 function arrive() {
   layoutBase(); lastInput = now();
-  if (reduce || FREEZE !== null) { setTimeout(() => lightCue(showGuide), 900); return; }
+  if (reduce || FREEZE !== null) { showGuide(); setTimeout(() => lightCue(() => { }), 900); return; }
   const back = base.pos.clone().sub(base.tgt).normalize();
   pose.pos.copy(base.pos).addScaledVector(back, .25); pose.tgt.copy(base.tgt); pose.fov = base.fov + 15;
-  fly({ pos: base.pos.clone(), tgt: base.tgt.clone(), fov: base.fov }, 3.2, () => lightCue(showGuide));
+  showGuide(); fly({ pos: base.pos.clone(), tgt: base.tgt.clone(), fov: base.fov }, 3.2, () => lightCue(() => { }));
 }
 function startIntro() {
   state.intro = true; html.classList.add('intro'); INTRO.mesh = skyText(); scene.add(INTRO.mesh); INTRO.t0 = performance.now(); INTRO.out = -1;
@@ -990,7 +1017,7 @@ function startIntro() {
 function endIntro() {
   if (!state.intro) return; state.intro = false; html.classList.remove('intro'); INTRO.out = performance.now(); lastInput = now(); audio.whoosh(1.1, false);
   const h = $('#hint'); h.classList.remove('on'); layoutBase();
-  fly({ pos: base.pos.clone(), tgt: base.tgt.clone(), fov: base.fov }, 3.4, () => lightCue(showGuide));
+  showGuide(); fly({ pos: base.pos.clone(), tgt: base.tgt.clone(), fov: base.fov }, 3.4, () => lightCue(() => { }));
 }
 // ------------------------------------------------------------------ the city: press the skyline and the camera walks to the glass, and the sky says where the studio is
 const CITY = { mesh: null, t0: 0, out: -1 };
@@ -1086,9 +1113,10 @@ function frame(tms) {
     const ok = show && !state.intro && projV.z < 1 && Math.abs(projV.x) < 1.05 && Math.abs(projV.y) < 1.05;
     h.el.style.opacity = ok ? 1 : 0; h.el.style.pointerEvents = ok ? 'auto' : 'none';
     if (ok) { h.el.style.transform = `translate(${((projV.x + 1) / 2 * innerWidth).toFixed(1)}px,${((1 - projV.y) / 2 * innerHeight).toFixed(1)}px)`;
-      const d = Math.hypot(projV.x, (projV.y - .05) * .6); if (state.rail && d < nd) { nd = d; near = h; } }
+      const d = Math.hypot(projV.x, (projV.y - .05) * .6); if ((state.rail || coarse) && (h.data || HOV.looked) && d < nd) { nd = d; near = h; } }
   }
   if (near !== nearPin) { if (nearPin) nearPin.el.classList.remove('near'); if (near) near.el.classList.add('near'); nearPin = near; }
+  HOV.near = near; hovTick(dt);
   // frame rate watch: lower the internal resolution when frames take too long
   acc += dt; frames++;
   if (acc >= 1) {
@@ -1127,7 +1155,7 @@ async function start() {
   renderer.compile(scene, cam);
   requestAnimationFrame(frame);
   requestAnimationFrame(() => html.classList.add('ready'));
-  if (VIEW === 'room' && Q.has('enter')) arrive(); else if ((VIEW === 'room' || VIEW === 'tour') && !Q.has('nointro')) startIntro(); else if (VIEW === 'room') setTimeout(() => lightCue(showGuide), 1500);
+  if (VIEW === 'room' && Q.has('enter')) arrive(); else if ((VIEW === 'room' || VIEW === 'tour') && !Q.has('nointro')) startIntro(); else if (VIEW === 'room') { showGuide(); setTimeout(() => lightCue(() => { }), 1500); }
   if (state.intro) { const ip = introPose(); pose.pos.copy(ip.pos); pose.tgt.copy(ip.tgt); pose.fov = ip.fov; }
   const v2 = $('#ed-video'); if (v2 && !MOBILE && !reduce && FREEZE === null) { v2.muted = true; v2.loop = true; v2.preload = 'auto'; setTimeout(() => { if (state.mode !== 'edit') v2.play().catch(() => { }); }, 2500); }
   if (VIEW === 'tour') tour();
@@ -1139,6 +1167,6 @@ async function start() {
   else if (VIEW === 'city') enterCity();
   else if (byId(VIEW)) { openCard(VIEW); if (Q.has('case')) openCase(VIEW, caseOpts()); }
   (window.requestIdleCallback || setTimeout)(() => loadOS().catch(() => { }), { timeout: 4000 });
-  window.DTC = { state, cam, openCard, closeCard, enterOS, exitOS, enterEdit, exitEdit, enterReel, exitReel, enterCity, exitCity, endIntro, setLights, GRADE, LIGHT, audio, openBook, get os() { return os; } };
+  window.DTC = { state, cam, openCard, closeCard, enterOS, exitOS, enterEdit, exitEdit, enterReel, exitReel, enterCity, exitCity, endIntro, setLights, GRADE, LIGHT, GUIDE, HOV, audio, openBook, get os() { return os; } };
 }
 start();
