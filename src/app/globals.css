@@ -315,3 +315,15 @@ h1 {
     animation: none;
   }
 }
+
+/* ------------------------------------------------------------------ */
+/* The way into the 3D studio: the one filled button on the site, with */
+/* a slow ring so it reads as something to step into.                  */
+/* ------------------------------------------------------------------ */
+.studio-cta{position:relative;display:inline-flex;align-items:center;gap:10px;border:1px solid #fffdf9;border-radius:5px;background:#fffdf9;color:#101010;padding:11px 20px 11px 16px;font-size:14px;line-height:1.25;text-transform:uppercase;letter-spacing:.02em;transition:background-color .5s cubic-bezier(.52,.01,0,1),color .5s cubic-bezier(.52,.01,0,1)}
+.studio-cta:hover{background:transparent;color:#fffdf9}
+.studio-cta-dot{width:7px;height:7px;flex:none;background:currentColor;transform:rotate(45deg)}
+.studio-cta::after{content:"";position:absolute;inset:-1px;border:1px solid #fffdf9;border-radius:6px;opacity:0;pointer-events:none;animation:studio-cta-ring 2.8s cubic-bezier(.22,1,.36,1) infinite}
+.studio-cta:hover::after{animation:none}
+@keyframes studio-cta-ring{0%{opacity:.75;transform:scale(1)}60%,100%{opacity:0;transform:scale(1.14,1.55)}}
+@media (prefers-reduced-motion:reduce){.studio-cta::after{animation:none}}

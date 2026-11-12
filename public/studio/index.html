@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DT+C | Creative studio in Miami: video, animation, web and brand</title>
+<meta name="description" content="DT+C is David Turk Creative, a creative studio in Miami making short films, animation, commercials, websites and apps. Walk into the studio, open the work on the shelf, and step inside the screens.">
+<meta name="theme-color" content="#0c0b10">
+<meta name="color-scheme" content="dark">
+<script>window.DTC_FORM_ENDPOINT="/studio/index.html"</script>
+<script>if(/[?&]enter(=|&|$)/.test(location.search))document.documentElement.classList.add("enter")</script>
+<meta property="og:type" content="website">
+<meta property="og:title" content="DT+C | Creative studio in Miami">
+<meta property="og:description" content="Short films, animation, commercials, websites and apps, from a studio in Miami you can walk into. The work is on the shelf.">
+<meta property="og:url" content="https://davidturkcreative.com/studio/">
+<meta property="og:image" content="https://davidturkcreative.com/studio/assets/img/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DT+C | Creative studio in Miami">
+<meta name="twitter:description" content="Short films, animation, commercials, websites and apps, from a studio in Miami you can walk into. The work is on the shelf.">
+<meta name="twitter:image" content="https://davidturkcreative.com/studio/assets/img/share.jpg">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/montserrat-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/os.css">
+<script type="importmap">{"imports":{"three":"./assets/vendor/three.module.js","three/addons/":"./assets/vendor/addons/"}}</script>
+<link rel="modulepreload" href="assets/vendor/three.module.js">
+<link rel="modulepreload" href="assets/vendor/three.core.js">
+</head>
+<body>
+<a class="skip" href="#plain" id="skip">Text version</a>
+
+<div id="loader" aria-live="polite">
+  <div class="ld-mark" aria-hidden="true"><span>DT</span><i>+</i><span>C</span></div>
+  <div class="ld-bar"><b id="ld-fill"></b></div>
+  <p id="ld-text">Switching the lights on</p>
+</div>
+
+<canvas id="gl" aria-hidden="true"></canvas>
+<div id="pins" aria-label="Things to open in the room"></div>
+
+<header id="chrome">
+  <div class="brand"><div class="mark" aria-label="DT+C"><span>DT</span><i>+</i><span>C</span></div><p class="tag">Creative studio, Miami<span> · films, animation, commercials, web, apps</span></p></div>
+  <button class="cta" id="cta" type="button">Book a call</button>
+</header>
+<aside id="quest" aria-label="Things to do in the studio" hidden>
+  <button id="quest-h" type="button" aria-expanded="true" aria-controls="quest-l"><span>Explore the studio</span><b id="quest-n">0/6</b></button>
+  <ol id="quest-l"></ol>
+  <button class="cta hot" id="quest-book" type="button" data-book hidden>Book a call</button>
+</aside>
+<div id="keys" aria-hidden="true" hidden></div>
+<div id="toast" role="status" aria-live="polite" hidden></div>
+<p id="hint" aria-hidden="true">Select a project on the shelf · Enter a screen</p>
+<h1 class="sr">DT+C, David Turk Creative. New creative for your business: short films, animation, commercial production, website development and app development, with visual effects, storytelling and AI production, from a studio in Miami.</h1>
+<button id="sound" class="hud" type="button" aria-pressed="false" aria-label="Turn sound on" data-tip="Sound"><svg viewBox="0 0 32 32" aria-hidden="true"><path class="f" d="M5 12.5v7h5.2l6.8 5.6V6.9l-6.8 5.6z"/><path class="w" d="M21 12a5.6 5.6 0 0 1 0 8M24.2 8.6a10.4 10.4 0 0 1 0 14.8"/><path class="o" d="M21.5 12.5l6 7M27.5 12.5l-6 7"/></svg></button>
+<button id="lights" class="hud" type="button" aria-expanded="false" aria-controls="lt-pop" aria-label="Room lights" data-tip="Lights"><svg viewBox="0 0 32 32" aria-hidden="true"><path class="f" d="M16 6.5a7.6 7.6 0 0 0-4.6 13.7c.8.6 1.2 1.5 1.2 2.4h6.8c0-.9.4-1.8 1.2-2.4A7.6 7.6 0 0 0 16 6.5z"/><path class="f" d="M12.9 24.4h6.2v1.9h-6.2zM14 27.6h4v1.6h-4z"/><path class="w" d="M16 1.6v2.4M5.6 5.6l1.8 1.8M26.4 5.6l-1.8 1.8M1.8 15h2.6M27.6 15h2.6"/></svg></button>
+<div id="lt-pop" role="group" aria-label="Room lights" hidden>
+  <label for="lt-range">Brightness <output id="lt-val">100%</output></label>
+  <input id="lt-range" type="range" min="0" max="100" value="100">
+  <div id="lt-sw" aria-label="Light colour">
+    <button type="button" data-c="warm" style="--c:#ffb26b" aria-label="Warm"></button><button type="button" data-c="daylight" style="--c:#f4f6ff" aria-label="Daylight"></button><button type="button" data-c="blue" style="--c:#2f62ff" aria-label="Blue"></button><button type="button" data-c="red" style="--c:#ff2a33" aria-label="Red"></button><button type="button" data-c="purple" style="--c:#a23dff" aria-label="Purple"></button><button type="button" data-c="teal" style="--c:#19e6d6" aria-label="Teal"></button>
+  </div>
+</div>
+<button id="back" type="button" hidden>Back to studio</button>
+
+<aside id="card" role="dialog" aria-labelledby="card-title" hidden>
+  <button class="x" id="card-x" type="button" aria-label="Close">×</button>
+  <p class="kind" id="card-kind"></p>
+  <h2 id="card-title"></h2>
+  <div class="media" id="card-media"></div>
+  <div class="tabs" id="card-tabs"></div>
+  <div id="card-body"></div>
+  <div class="btns"><button class="cta hot" id="card-more" type="button"><span>View full project</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4l8 8-8 8zM13 4l8 8-8 8z"/></svg></button><a class="cta" id="card-store" target="_blank" rel="noopener" hidden>See in the App Store</a><button class="cta ghost" id="card-cta" type="button">Book a call</button></div>
+</aside>
+
+<div id="os" hidden></div>
+
+<video id="reel-video" playsinline preload="none" aria-label="DT+C director's reel"></video>
+<section id="reel" hidden aria-label="Director's reel controls">
+  <div class="rl-bar">
+    <button class="rl-i" id="reel-play" type="button" aria-label="Pause"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="pl" d="M7 4.5v15l12.5-7.5z"/><path class="pa" d="M6.5 4.5h4v15h-4zM13.5 4.5h4v15h-4z"/></svg></button>
+    <input id="reel-seek" type="range" min="0" max="1000" value="0" aria-label="Position in the reel">
+    <span id="reel-time">0:00 / 0:00</span>
+    <button class="rl-i" id="reel-mute" type="button" aria-pressed="true" aria-label="Turn sound off"><svg viewBox="0 0 32 32" aria-hidden="true"><path class="f" d="M5 12.5v7h5.2l6.8 5.6V6.9l-6.8 5.6z"/><path class="w" d="M21 12a5.6 5.6 0 0 1 0 8M24.2 8.6a10.4 10.4 0 0 1 0 14.8"/><path class="o" d="M21.5 12.5l6 7M27.5 12.5l-6 7"/></svg></button>
+    <button class="cta ghost" id="reel-book" type="button">Book a call</button>
+    <button class="cta" id="reel-x" type="button">Back to studio</button>
+  </div>
+</section>
+
+<section id="edit" hidden aria-label="2062 on the editing timeline">
+  <header class="ed-bar">
+    <div class="ed-name"><b>DT<i>+</i>C</b> Edit <span>2062_MIAMI_FL</span></div>
+    <div class="ed-tabs" aria-hidden="true"><span>Assembly</span><span class="on">Edit</span><span>Color</span><span>Audio</span></div>
+    <button class="ed-x" id="ed-x" type="button">Back to the studio</button>
+  </header>
+  <div class="ed-main">
+    <aside class="ed-bin"><h3>Shots</h3><ol id="ed-shots"></ol></aside>
+    <div class="ed-prog">
+      <div class="ed-frame" id="ed-frame">
+        <video id="ed-video" src="media/2062/2062.mp4" poster="media/2062/2062.jpg" playsinline muted loop preload="none" aria-label="2062, an original series from DT+C"></video>
+        <button class="ed-big" id="ed-big" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l14-8z"/></svg><span>Hit play</span></button>
+      </div>
+      <div class="ed-ctl">
+        <button id="ed-prev" type="button" aria-label="Previous shot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button>
+        <button id="ed-play" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l14-8z"/></svg></button>
+        <button id="ed-next" type="button" aria-label="Next shot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg></button>
+        <output id="ed-tc">00:00:00:00</output>
+        <button id="ed-mute" type="button" class="txt">Sound off</button>
+        <button id="ed-full" type="button" class="txt">Full screen</button>
+      </div>
+    </div>
+    <aside class="ed-info">
+      <p class="kind">Original series</p>
+      <h2>2062</h2>
+      <p>An original sci-fi series from DT+C, made with AI video. This cut opens in Miami and runs ten shots.</p>
+      <p>Hit play, jump between shots, or drag the playhead to scrub it.</p>
+      <button class="cta" id="ed-book" type="button">Book a call</button>
+    </aside>
+  </div>
+  <div class="ed-tl">
+    <div class="ed-heads" aria-hidden="true"><span></span><span>V2</span><span class="v1">V1</span><span class="a1">A1</span></div>
+    <div class="ed-lane" id="ed-lane" role="slider" tabindex="0" aria-label="Playhead" aria-valuemin="0" aria-valuemax="36" aria-valuenow="0">
+      <div class="ed-ruler" id="ed-ruler"></div>
+      <div class="ed-trk v2"><div class="ed-ttl">2062 MIAMI, FL</div></div>
+      <div class="ed-trk v1" id="ed-v1"></div>
+      <div class="ed-trk a1"><i></i></div>
+      <div class="ed-ph" id="ed-ph"><b></b></div>
+    </div>
+  </div>
+</section>
+
+<dialog id="book" aria-labelledby="book-title">
+  <form name="book-a-call" id="book-form" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+    <input type="hidden" name="form-name" value="book-a-call">
+    <p class="hp"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+    <button class="x" type="button" id="book-x" aria-label="Close">×</button>
+    <h2 id="book-title">Book a call</h2>
+    <p class="sub">Tell us what you are making. We respond within 24 hours.</p>
+    <div class="row">
+      <label>Name<input name="name" autocomplete="name" required></label>
+      <label>Company <small>optional</small><input name="company" autocomplete="organization"></label>
+    </div>
+    <label>Email<input name="email" type="email" autocomplete="email" required></label>
+    <label>Project type
+      <select name="project-type" required>
+        <option value="">Select a project type</option>
+        <option>Virtual Cinematic</option><option>3D Animation</option><option>Content Partnership</option><option>Videography &amp; Photography</option><option>Not sure</option>
+      </select>
+    </label>
+    <label>Tell us about your project<textarea name="message" rows="4" required></textarea></label>
+    <p class="err" id="book-err" role="alert"></p>
+    <button class="cta" type="submit" id="book-send">Send message</button>
+  </form>
+  <div id="book-done" hidden>
+    <h2>Thanks.</h2>
+    <p>We respond within 24 hours.</p>
+    <button class="cta" type="button" id="book-close">Back to the studio</button>
+  </div>
+</dialog>
+
+<main id="plain" hidden>
+  <img class="still" src="assets/img/still.jpg" alt="The DT+C studio at dusk: walnut shelves with project objects, a desk with two monitors, and the Miami skyline across the bay." width="1920" height="1080" loading="lazy">
+  <h1>DT+C <small>David Turk Creative</small></h1>
+  <p class="lead">Content that moves at the speed of culture. A creative studio from Miami: strategy, content, VFX and web under one roof, built to launch in weeks.</p>
+  <p><button class="cta" type="button" data-book>Book a call</button> <button class="cta ghost" type="button" id="plain-x">Back to the 3D studio</button></p>
+  <h2>Selected work</h2>
+  <div id="plain-work"></div>
+  <h2>About</h2>
+  <div id="plain-about"></div>
+</main>
+
+<noscript><p style="padding:2rem;color:#f6efe6;font-family:sans-serif">DT+C is a creative studio from Miami. This site is a 3D room and needs JavaScript. To book a call, turn JavaScript on and reload.</p></noscript>
+<script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

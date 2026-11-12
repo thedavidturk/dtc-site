@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "./TransitionLink";
+import { STUDIO_ENTER_URL, enterStudio } from "./enterStudio";
 import { m, AnimatePresence, useMotionValueEvent, useScroll } from "framer-motion";
 
 const navLinks = [
@@ -10,6 +11,7 @@ const navLinks = [
   { label: "Process", href: "#process" },
   { label: "About", href: "#about" },
   { label: "Perspectives", href: "#insights" },
+  { label: "Studio", href: STUDIO_ENTER_URL },
 ];
 
 export default function Header() {
@@ -46,6 +48,7 @@ export default function Header() {
             <a
               key={link.label}
               href={link.href}
+              onClick={link.href === STUDIO_ENTER_URL ? enterStudio : undefined}
               className="font-body text-sm font-normal uppercase tracking-[0.02em] text-bone transition-colors duration-500 ease-prism hover:text-fog-blue"
             >
               {link.label}
@@ -54,7 +57,7 @@ export default function Header() {
         </nav>
 
         <a href="/#contact" className="btn-primary hidden lg:inline-flex shrink-0">
-          Contact
+          Book a Call
         </a>
 
         {/* Mobile Toggle */}
@@ -97,7 +100,10 @@ export default function Header() {
                 <a
                   key={link.label}
                   href={link.href}
-                  onClick={() => setMobileOpen(false)}
+                  onClick={(e) => {
+                    setMobileOpen(false);
+                    if (link.href === STUDIO_ENTER_URL) enterStudio(e);
+                  }}
                   className={`py-4 font-body text-body-sm font-normal uppercase tracking-[0.02em] text-bone transition-colors duration-500 ease-prism hover:text-fog-blue ${
                     i > 0 ? "border-t border-ash-border" : ""
                   }`}
@@ -110,7 +116,7 @@ export default function Header() {
                 onClick={() => setMobileOpen(false)}
                 className="btn-primary text-center mt-6"
               >
-                Contact
+                Book a Call
               </a>
               <p className="mt-8 text-caption font-normal uppercase tracking-[0.02em] text-fog-blue">
                 Future-proof creative

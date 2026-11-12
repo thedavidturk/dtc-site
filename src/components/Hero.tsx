@@ -1,18 +1,12 @@
 "use client";
 
-import { useRef } from "react";
 import Image from "next/image";
-import {
-  m,
-  useReducedMotion,
-  useScroll,
-  useTransform,
-} from "framer-motion";
+import { m } from "framer-motion";
 import WorkMarquee from "./WorkMarquee";
 import LineReveal from "./LineReveal";
 import Magnetic from "./Magnetic";
-import PrismArtifact from "./PrismArtifact";
 import useAutoplayInView from "./useAutoplayInView";
+import { STUDIO_ENTER_URL, enterStudio } from "./enterStudio";
 
 /* ------------------------------------------------------------------ */
 /*  Real work - pulled from the featured projects                      */
@@ -263,191 +257,175 @@ const item = {
 };
 
 /* ------------------------------------------------------------------ */
-/*  Hero - obsidian void, prism artifact, display type crossing it     */
+/*  Hero - room first. The studio is the opening frame, the display    */
+/*  type crosses its lower edge, and there are two ways in: the 3D     */
+/*  studio, or the site that continues below.                          */
 /* ------------------------------------------------------------------ */
 
-export default function Hero() {
-  const panelRef = useRef<HTMLDivElement>(null);
-  const prefersReducedMotion = useReducedMotion();
+const STUDIO_STILL = "/studio/studio-hero.jpg";
+const STUDIO_ALT =
+  "The DT+C studio at dusk: a shelf of client work, two monitors on the desk and the Miami skyline through the window";
 
-  /* The hero-exit morph, scrubbed by how far the landing panel has
-     scrolled out: the cubes converge and spin up, detonate into a
-     chromatic flash, and the flash condenses into the hairline that
-     introduces the next section. Scrolling back up reverses it. */
-  const { scrollYProgress } = useScroll({
-    target: panelRef,
-    offset: ["start start", "end start"],
-  });
+const ghostLink =
+  "group inline-flex items-center gap-2 text-sm font-normal uppercase tracking-[0.02em] text-bone transition-colors duration-500 ease-prism hover:text-fog-blue";
 
-  const converge = useTransform(scrollYProgress, [0.02, 0.32], [0, 1]);
-  const morphRotation = useTransform(
-    scrollYProgress,
-    [0, 0.38],
-    [0, Math.PI * 0.45]
-  );
-  const prismOpacity = useTransform(scrollYProgress, [0.28, 0.4], [1, 0]);
-  const prismScale = useTransform(scrollYProgress, [0, 0.4], [1, 0.55]);
-
-  /* The flash: a burst of light that peaks as the cubes vanish. It is
-     anchored near the panel's exit edge, so it blooms exactly where
-     the next band is arriving. */
-  const burstOpacity = useTransform(
-    scrollYProgress,
-    [0.28, 0.38, 0.48, 0.56],
-    [0, 0.95, 0.85, 0]
-  );
-  const burstHeight = useTransform(
-    scrollYProgress,
-    [0.28, 0.38, 0.56],
-    ["4px", "34vh", "2px"]
-  );
-  const burstWidth = useTransform(
-    scrollYProgress,
-    [0.28, 0.38, 0.56],
-    ["12vw", "44vw", "70vw"]
-  );
-
-  /* ...and condenses into the hairline that rules the next band. */
-  const lineScaleX = useTransform(scrollYProgress, [0.4, 0.6], [0, 1]);
-  const lineOpacity = useTransform(scrollYProgress, [0.4, 0.48], [0, 1]);
-  const lineColor = useTransform(
-    scrollYProgress,
-    [0.58, 0.85],
-    ["#fffdf9", "#403f3f"]
-  );
-
+function ArrowDown() {
   return (
-    <section className="relative overflow-hidden ">
-      {/* ------------------------- Void panel ------------------------- */}
-      <div
-        ref={panelRef}
-        className="relative flex min-h-screen flex-col justify-center pb-16 pt-28 md:pt-32"
-      >
-        {/* The artifact: smaller and lower on mobile so the headline
-            owns the screen; full presence on desktop. The scrub morphs
-            it as the panel scrolls out. */}
-        <m.div
-          style={
-            prefersReducedMotion
-              ? undefined
-              : { opacity: prismOpacity, scale: prismScale }
-          }
-          className="pointer-events-none absolute left-1/2 top-[64%] z-0 h-[34vh] w-[74vw] -translate-x-1/2 -translate-y-1/2 md:top-1/2 md:h-[72vh] md:w-[40vw]"
-        >
-          <PrismArtifact
-            className="h-full w-full opacity-70 md:opacity-100"
-            scrollRotation={prefersReducedMotion ? undefined : morphRotation}
-            converge={prefersReducedMotion ? undefined : converge}
-          />
-        </m.div>
+    <svg
+      className="h-4 w-4"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      aria-hidden="true"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 6v12m0 0l-5-5m5 5l5-5"
+      />
+    </svg>
+  );
+}
 
-        {/* The flash: light bursting from the collapsed cluster, with
-            the artifact's red/cyan fringe, then the condensed hairline
-            that introduces the next section. */}
-        {!prefersReducedMotion && (
+export default function Hero() {
+  return (
+    <section className="relative overflow-hidden">
+      {/* Desktop: the room, full width under the fixed header. The fade
+          at its foot is what lets the headline cross the image. */}
+      <div className="relative hidden pt-20 md:block">
+        <a
+          href={STUDIO_ENTER_URL}
+          onClick={enterStudio}
+          aria-label="Enter the studio"
+          className="group relative block h-[66vh] max-h-[680px] min-h-[420px] overflow-hidden"
+        >
+          <Image
+            src={STUDIO_STILL}
+            data-studio-still=""
+            alt={STUDIO_ALT}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-top transition-transform duration-[1400ms] ease-prism group-hover:scale-[1.03]"
+          />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute left-1/2 top-[96%] z-0 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center md:top-[94%]"
-          >
-            <m.div
-              style={{
-                opacity: burstOpacity,
-                height: burstHeight,
-                width: burstWidth,
-                background:
-                  "radial-gradient(closest-side, rgba(255,253,249,0.95), rgba(255,253,249,0.35) 45%, rgba(255,253,249,0) 72%)",
-              }}
-              className="relative rounded-[50%]"
-            >
-              <div
-                className="absolute inset-0 -translate-x-[6px] rounded-[50%]"
-                style={{
-                  background:
-                    "radial-gradient(closest-side, rgba(255,42,42,0.35), rgba(255,42,42,0) 70%)",
-                }}
-              />
-              <div
-                className="absolute inset-0 translate-x-[6px] rounded-[50%]"
-                style={{
-                  background:
-                    "radial-gradient(closest-side, rgba(42,127,255,0.35), rgba(42,127,255,0) 70%)",
-                }}
-              />
-            </m.div>
-          </div>
-        )}
-        {!prefersReducedMotion && (
-          <m.div
-            aria-hidden="true"
-            style={{
-              scaleX: lineScaleX,
-              opacity: lineOpacity,
-              backgroundColor: lineColor,
-            }}
-            className="pointer-events-none absolute left-1/2 top-[96%] z-0 h-px w-[86vw] -translate-x-1/2 md:top-[94%]"
+            className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(16,16,16,0)_62%,rgba(16,16,16,0.7)_86%,#101010_100%)]"
           />
-        )}
+        </a>
+      </div>
 
-        <div className="section-container relative z-30">
-          {/* Sculptural display headline: one weight, hierarchy from
-              scale alone, each line rising from its own mask. */}
-          <h1 className="font-anton text-display font-normal uppercase tracking-normal text-bone chroma-text">
+      {/* Headline left, the two ways in on the right */}
+      <div className="section-container relative z-10 flex flex-wrap items-end justify-between gap-x-12 gap-y-7 pb-10 pt-28 md:-mt-[min(7.2vw,104px)] md:pb-14 md:pt-0">
+        <h1 className="min-w-0 flex-[999_1_560px] font-anton font-normal uppercase leading-none tracking-normal text-bone chroma-text">
+          {/* Phone: three lines */}
+          <span className="block text-[clamp(36px,12.8vw,56px)] md:hidden">
             <LineReveal delay={0.15}>Content that</LineReveal>
             <LineReveal delay={0.27}>moves at the</LineReveal>
             <LineReveal delay={0.39}>speed of culture</LineReveal>
-          </h1>
+          </span>
+          {/* Desktop: two lines */}
+          <span className="hidden text-[clamp(44px,6.1vw,88px)] md:block">
+            <LineReveal delay={0.15}>Content that moves</LineReveal>
+            <LineReveal delay={0.27}>at the speed of culture</LineReveal>
+          </span>
+        </h1>
 
-          <m.div
-            variants={container}
-            initial="hidden"
-            animate="visible"
-            className="mt-12 md:mt-16"
+        <m.div
+          variants={container}
+          initial="hidden"
+          animate="visible"
+          className="flex flex-[0_1_400px] flex-col gap-5"
+        >
+          <m.p
+            variants={item}
+            className="text-left text-body-sm font-normal text-bone"
           >
-            {/* Lead paragraph: single narrow column, below-left */}
-            <m.p
-              variants={item}
-              className="max-w-[440px] text-left text-body-lg font-normal text-bone"
-            >
-              Strategy, content, VFX, and web, under one roof and built to
-              launch in weeks, not months.
-            </m.p>
+            Strategy, content, VFX, and web, under one roof and built to
+            launch in weeks, not months.
+          </m.p>
 
-            {/* CTAs: one outlined button, one ghost link */}
-            <m.div
-              variants={item}
-              className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-4"
-            >
-              <Magnetic>
-                <a href="/#contact" className="btn-primary">
-                  Book a Call
-                </a>
-              </Magnetic>
-              <Magnetic>
-                <a
-                  href="#projects"
-                  className="group inline-flex items-center gap-2 text-sm font-normal uppercase tracking-[0.02em] text-bone transition-colors duration-500 ease-prism hover:text-fog-blue"
-                >
-                  See Our Work
-                <svg
-                  className="h-4 w-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  aria-hidden="true"
-                >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M13 7l5 5m0 0l-5 5m5-5H6"
-                    />
-                  </svg>
-                </a>
-              </Magnetic>
-            </m.div>
+          {/* Desktop: the studio is the primary way in */}
+          <m.div
+            variants={item}
+            className="hidden flex-wrap items-center gap-x-7 gap-y-3 md:flex"
+          >
+            <Magnetic>
+              <a
+                href={STUDIO_ENTER_URL}
+                onClick={enterStudio}
+                className="studio-cta"
+              >
+                <span aria-hidden="true" className="studio-cta-dot" />
+                Enter the Studio
+              </a>
+            </Magnetic>
+            <Magnetic>
+              <a href="#projects" className={ghostLink}>
+                Browse the Work
+                <ArrowDown />
+              </a>
+            </Magnetic>
           </m.div>
-        </div>
+          <m.p
+            variants={item}
+            className="-mt-2 hidden text-[13px] leading-[1.4] text-fog-blue md:block"
+          >
+            An interactive 3D room. Prefer a regular site? Keep scrolling.
+          </m.p>
+
+          {/* Phone: the regular site leads; the studio is the card below */}
+          <m.div
+            variants={item}
+            className="flex flex-wrap items-center gap-x-6 gap-y-3 md:hidden"
+          >
+            <Magnetic>
+              <a href="/#contact" className="btn-primary">
+                Book a Call
+              </a>
+            </Magnetic>
+            <Magnetic>
+              <a href="#projects" className={ghostLink}>
+                See Our Work
+                <ArrowDown />
+              </a>
+            </Magnetic>
+          </m.div>
+        </m.div>
       </div>
+
+      {/* Phone: the studio as an optional step, framed like a work tile */}
+      <m.div
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: easePrism, delay: 0.6 }}
+        className="section-container pb-10 md:hidden"
+      >
+        <a href={STUDIO_ENTER_URL} onClick={enterStudio} className="group block">
+          <div className="relative aspect-[3/2] w-full overflow-hidden rounded-[15px]">
+            <Image
+              src={STUDIO_STILL}
+              data-studio-still=""
+              alt={STUDIO_ALT}
+              fill
+              sizes="100vw"
+              className="object-cover object-[30%_50%]"
+            />
+          </div>
+          <div className="flex items-baseline justify-between gap-3 pt-3">
+            <span className="text-sm font-normal text-bone transition-colors duration-500 ease-prism group-hover:text-fog-blue">
+              Step into the studio
+            </span>
+            <span className="text-[11px] font-normal uppercase tracking-[0.02em] text-fog-blue">
+              Interactive 3D
+            </span>
+          </div>
+        </a>
+        <p className="mt-1.5 text-[13px] leading-[1.4] text-fog-blue">
+          A 3D room you can look around. Optional.
+        </p>
+      </m.div>
 
       {/* Quiet client roll: fog-blue caption line below the fold */}
       <m.div
