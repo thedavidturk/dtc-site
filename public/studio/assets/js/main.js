@@ -14,7 +14,7 @@ const $ = s => document.querySelector(s);
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const coarse = matchMedia('(pointer: coarse)').matches;
 const MOBILE = Q.get('tier') ? Q.get('tier') === 'mobile' : (coarse || Math.min(innerWidth, innerHeight) < 600);
-const R = 'assets/room/', VER = '?v=16';          // bump VER when the baked maps change
+const R = 'assets/room/', VER = '?v=19';          // bump VER when the baked maps change
 const V3 = THREE.Vector3;
 const v3 = a => new V3(a[0], a[1], a[2]);
 const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
@@ -113,14 +113,16 @@ sndBtn.addEventListener('click', () => {
 const canvas = $('#gl');
 let renderer;
 try {
-  renderer = new THREE.WebGLRenderer({ canvas, antialias: !MOBILE, powerPreference: 'high-performance' });      // phones have dense screens; multisampling there only costs frames
+  renderer = new THREE.WebGLRenderer({ canvas, antialias: !MOBILE && Q.get('bloom') === '0', powerPreference: 'high-performance' });      // with bloom on, the room is drawn into the composer's own image, so multisampling the page canvas only cost time      // phones have dense screens; multisampling there only costs frames
   if (!renderer.getContext()) throw 0;
 } catch (e) { renderer = null; }
 if (!renderer || Q.get('view') === 'plain') { plainMode(true); $('#plain-x').hidden = !renderer; }
 
 const scene = new THREE.Scene(); scene.background = new THREE.Color(0x0c0b10);
 const cam = new THREE.PerspectiveCamera(40, innerWidth / innerHeight, .05, 4000);
-const DPR_CAP = MOBILE ? 1.5 : 2; let dpr = Math.min(devicePixelRatio || 1, DPR_CAP);
+const DPR_CAP = MOBILE ? 1.5 : 2, PIX_MAX = MOBILE ? 3.2e6 : 5.0e6;      // most pixels drawn per frame: a large Retina window otherwise asks for 6-7 million and runs in the 50s
+const dprTop = () => Math.min(devicePixelRatio || 1, DPR_CAP, Math.sqrt(PIX_MAX / (innerWidth * innerHeight)));
+let dpr = dprTop(), dprCeil = Infinity;
 const DPR_LOCK = Q.has('dpr'); if (DPR_LOCK) dpr = parseFloat(Q.get('dpr')) || 1;
 const U = { time: { value: 0 } };
 const state = { mode: 'room', id: null, ready: false, rail: false, paused: false, intro: false };
@@ -130,14 +132,17 @@ const GRADE = { uSat: { value: qn('sat', 1.1) }, uGain: { value: qn('gain', 1.04
 const LIGHT = { uDim: { value: 1 }, uAmt: { value: 0 }, uTint: { value: new THREE.Color(1, 1, 1) }, uCityGain: { value: 1 }, uPrac: { value: 1 }, uFace: { value: 1 }, uRaw: { value: new THREE.Color(1, 1, 1) }, uHotC: { value: new THREE.Vector3() }, uHotR: { value: new THREE.Vector3(1, 1, 1) }, uHotA: { value: 0 } };
 const lights = { dim: 1, amt: 0, tint: new THREE.Color(1, 1, 1), raw: new THREE.Color(1, 1, 1), name: 'warm' }, bakeMats = [], glassL = [];
 let D = null, PANO = null, os = null;
-const live = {}; const hot = []; const pins = []; let composer = null, bloomOn = !MOBILE && Q.get('bloom') !== '0';
+const live = {}; const hot = []; const pins = []; let composer = null, bloomPass = null, bloomOn = !MOBILE && Q.get('bloom') !== '0';
 
 function size() {
   if (!renderer) return;
+  if (!DPR_LOCK) dpr = Math.min(dpr, dprTop());
   renderer.setPixelRatio(dpr); renderer.setSize(innerWidth, innerHeight, false);
   if (composer) { composer.setPixelRatio(dpr); composer.setSize(innerWidth, innerHeight); }
   cam.aspect = innerWidth / innerHeight; layout(); cam.updateProjectionMatrix();
+  if (state.ready && !state.paused && !html.classList.contains('plain')) draw();      // a resize clears the canvas: draw again at once, or that blank frame shows as a black flicker
 }
+function draw() { if (composer && bloomOn) composer.render(); else renderer.render(scene, cam); }
 
 // ------------------------------------------------------------------ helpers: canvases and textures
 function mkCanvas(w, h) { const c = document.createElement('canvas'); c.width = w; c.height = h; return c; }
@@ -158,7 +163,7 @@ const mgr = new THREE.LoadingManager();
 mgr.onProgress = (u, n, tot) => { $('#ld-fill').style.width = Math.round(n / tot * 100) + '%'; };
 const texL = new THREE.TextureLoader(mgr);
 const TEXC = MOBILE ? { shell: 1024, case: 1024, mill: 1024, desk: 1024, shelf: 1024, pc: 1024, plants: 1024, ceil: 512 } : { shell: 1024, case: 2048, mill: 2048, desk: 2048, shelf: 2048, pc: 1024, plants: 1024, ceil: 512 };
-const TEX = MOBILE ? { shell: 1024, case: 2048, mill: 2048, desk: 2048, shelf: 2048, pc: 1024, plants: 1024, ceil: 1024 } : { shell: 2048, case: 4096, mill: 4096, desk: 4096, shelf: 4096, pc: 2048, plants: 2048, ceil: 1024 };
+const TEX = MOBILE ? { shell: 1024, case: 2048, mill: 2048, desk: 2048, shelf: 2048, pc: 1024, plants: 2048, ceil: 1024 } : { shell: 2048, case: 4096, mill: 4096, desk: 4096, shelf: 4096, pc: 2048, plants: 4096, ceil: 1024 };
 const loadTex = (url, flip = false) => new Promise((res, rej) => texL.load(url, t => { t.colorSpace = THREE.SRGBColorSpace; t.flipY = flip; t.anisotropy = 8; res(t); }, undefined, rej));
 
 async function build() {
@@ -220,7 +225,10 @@ async function build() {
   if (bloomOn) try {
     const [ec, rp, ub, op] = await Promise.all([import('three/addons/postprocessing/EffectComposer.js'), import('three/addons/postprocessing/RenderPass.js'), import('three/addons/postprocessing/UnrealBloomPass.js'), import('three/addons/postprocessing/OutputPass.js')]);
     composer = new ec.EffectComposer(renderer); composer.addPass(new rp.RenderPass(scene, cam));
-    composer.addPass(new ub.UnrealBloomPass(new THREE.Vector2(innerWidth, innerHeight), qn('bs', .22), qn('br', .5), qn('bt', .88))); composer.addPass(new op.OutputPass());
+    bloomPass = new ub.UnrealBloomPass(new THREE.Vector2(innerWidth, innerHeight), qn('bs', .22), qn('br', .5), qn('bt', .88));
+    const hp = bloomPass.materialHighPassFilter;      // a NaN pixel (from any shader) gets blurred by the bloom into a black patch that flickers as the camera moves: drop such pixels before the blur
+    hp.fragmentShader = hp.fragmentShader.replace('vec4 texel = texture2D( tDiffuse, vUv );', 'vec4 texel = texture2D( tDiffuse, vUv ); if ( any( isnan( texel ) ) || any( isinf( texel ) ) ) texel = vec4( 0.0 );'); hp.needsUpdate = true;
+    composer.addPass(bloomPass); composer.addPass(new op.OutputPass());
   } catch (e) { composer = null; }
   await document.fonts.ready; await Promise.all([document.fonts.load('800 40px Montserrat'), document.fonts.load('500 20px Inter')]).catch(() => { });
   await screens();
@@ -327,8 +335,8 @@ function glassMat(env, strength, base, pow, tint) {
     vertexShader: 'varying vec3 vN, vW; void main(){ vec4 w=modelMatrix*vec4(position,1.); vW=w.xyz; vN=normalize(mat3(modelMatrix)*normal); gl_Position=projectionMatrix*viewMatrix*w; }',
     fragmentShader: `uniform sampler2D env; uniform float uS,uB,uP; uniform vec3 uT; varying vec3 vN,vW;
       void main(){ vec3 n=normalize(vN), v=normalize(cameraPosition-vW); if(dot(n,v)<0.) n=-n; vec3 r=reflect(-v,n);
-        vec2 uv=vec2(atan(r.x,-r.z)/6.2831853+.5, asin(clamp(r.y,-1.,1.))/3.14159265+.5);
-        vec3 e=texture2D(env,uv).rgb; float f=uB+(1.-uB)*pow(1.-max(dot(n,v),0.),uP);
+        vec2 uv=vec2((abs(r.x)+abs(r.z)<1e-6 ? 0. : atan(r.x,-r.z))/6.2831853+.5, asin(clamp(r.y,-1.,1.))/3.14159265+.5);
+        vec3 e=texture2D(env,uv).rgb; float f=uB+(1.-uB)*pow(clamp(1.-dot(n,v),0.,1.),uP);
         gl_FragColor=vec4(e*f*uS+uT,1.);
         #include <colorspace_fragment>
       }`,
@@ -941,8 +949,8 @@ function guideMesh() {
       }` });
   const L = D.screens.L, Rs = D.screens.R, n = v3(L.n).add(v3(Rs.n)).setY(0).normalize(), right = new V3().crossVectors(new V3(0, 1, 0), n).normalize();
   let P, W;
-  if (state.rail) { const d = cam.getWorldDirection(new V3()).setY(0).normalize(); P = cam.position.clone().addScaledVector(d, 2.3); P.y = cam.position.y - .6; W = 1.0; n.copy(d).negate(); }
-  else { P = v3(L.c).lerp(v3(Rs.c), .5).addScaledVector(n, qn('gz', 1.05)).addScaledVector(right, qn('gx', .06)); P.y = qn('gy', .67); W = qn('gw', 1.1); n.lerp(base.pos.clone().sub(P).setY(0).normalize(), qn('gf', .6)).normalize(); }
+  if (state.rail) { const d = cam.getWorldDirection(new V3()).setY(0).normalize(); P = cam.position.clone().addScaledVector(d, 2.3); P.y = cam.position.y - .6; W = .7; n.copy(d).negate(); }
+  else { P = v3(L.c).lerp(v3(Rs.c), .5).addScaledVector(n, qn('gz', 1.05)).addScaledVector(right, qn('gx', .06)); P.y = qn('gy', .67); W = qn('gw', .72); n.lerp(base.pos.clone().sub(P).setY(0).normalize(), qn('gf', .6)).normalize(); }
   const mesh = new THREE.Mesh(new THREE.PlaneGeometry(W, W * CH / CW), mat); mesh.position.copy(P); mesh.lookAt(P.clone().add(n)); mesh.renderOrder = 6; mesh.userData.keep = true; mesh.userData.follow = state.rail;
   return mesh;
 }
@@ -1091,8 +1099,8 @@ function lightCue(then) {
 }
 
 // ------------------------------------------------------------------ loop
-let last = performance.now(), acc = 0, frames = 0, slow = 0, fast = 0; window.__fps = 0;
-const projV = new V3();
+let last = performance.now(), acc = 0, frames = 0, slow = 0, fast = 0, hold = 0; window.__fps = 0;
+const projV = new V3(), FAN_Q = new THREE.Quaternion(), FAN_Z = new V3(0, 0, 1);
 function frame(tms) {
   requestAnimationFrame(frame);
   if (!state.ready || state.paused || html.classList.contains('plain')) { last = tms; return; }
@@ -1101,9 +1109,9 @@ function frame(tms) {
   lightTick(dt); keysDraw();
   for (const s of sprites) s.material.opacity = s.userData.base * (.9 + .1 * Math.sin(t * 1.3 + s.userData.seed)) * (s.userData.keep ? 1.7 - .7 * LIGHT.uDim.value : .12 + .88 * (s.userData.on ? Math.max(LIGHT.uDim.value, LIGHT.uPrac.value) : LIGHT.uDim.value));
   for (const f of flamesL) { const u = f.userData, k = .9 + .12 * Math.sin(t * 11 + u.seed) + .08 * Math.sin(t * 23.7 + u.seed * 2); f.scale.set(u.s * .62 * (1 + .06 * Math.sin(t * 17 + u.seed)), u.s * 1.5 * k, 1); f.position.x = u.p.x + Math.sin(t * 9 + u.seed) * .0012; }
-  for (const f of fansL) f.quaternion.copy(f.userData.q).multiply(new THREE.Quaternion().setFromAxisAngle(new V3(0, 0, 1), t * f.userData.spd));
+  for (const f of fansL) f.quaternion.copy(f.userData.q).multiply(FAN_Q.setFromAxisAngle(FAN_Z, t * f.userData.spd));
   if (live.dust) live.dust.material.uniforms.uPx.value = renderer.getPixelRatio() * innerHeight / 900;
-  if (composer && bloomOn) composer.render(); else renderer.render(scene, cam);
+  draw();
   if (card3d && state.mode === 'focus') cardTick();
   // pins follow their objects
   const show = state.mode === 'room';
@@ -1122,11 +1130,17 @@ function frame(tms) {
   if (acc >= 1) {
     const fps = frames / acc; window.__fps = Math.round(fps); acc = 0; frames = 0;
     const capped = Math.abs(fps - 30) < 3.5 || Math.abs(fps - 40) < 2 || Math.abs(fps - 45) < 2;   // a browser frame cap is not load
-    if (fps < 48 && !capped) { slow++; fast = 0; } else if (fps > 57 || capped) { fast++; slow = 0; }
-    if (DPR_LOCK) slow = fast = 0;
-    if (slow >= 2 && composer && bloomOn) { bloomOn = false; slow = 0; }
-    if (slow >= 2 && dpr > .8) { dpr = Math.max(.8, dpr * .85); slow = 0; size(); }
-    if (fast >= 6 && dpr < Math.min(devicePixelRatio || 1, DPR_CAP)) { dpr = Math.min(Math.min(devicePixelRatio || 1, DPR_CAP), dpr * 1.12); fast = 0; size(); }
+    if (fps < 55 && !capped) { slow++; fast = 0; } else if (fps > 58 || capped) { fast++; slow = 0; }
+    if (DPR_LOCK || hold > 0) { slow = fast = 0; hold = Math.max(0, hold - 1); }      // the seconds right after a change are not a fair reading
+    if (state.mode === 'focus') fast = 0;      // an open card's frosted glass costs frames; raise the resolution again only once it is closed, not back and forth under it
+    if (slow >= 2) {                                   // too slow: first a little less resolution (down to 1.25x), then the glow, then resolution again
+      slow = 0; hold = 2; const floor = Math.min(dprTop(), 1.25);
+      if (dpr > floor + .01) { dprCeil = dpr * .97; dpr = Math.max(floor, dpr * .85); size(); }
+      else if (bloomPass && bloomPass.enabled) bloomPass.enabled = false;
+      else if (dpr > .8) { dprCeil = dpr * .97; dpr = Math.max(.8, dpr * .85); size(); }
+    }
+    const top = Math.min(dprTop(), dprCeil);           // never climb back to a resolution that already proved too slow (that see-sawed)
+    if (fast >= 6 && dpr < top - .01) { dpr = Math.min(top, dpr * 1.12); fast = 0; hold = 2; size(); }
   }
 }
 
