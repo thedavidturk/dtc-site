@@ -1099,7 +1099,7 @@ function lightCue(then) {
 }
 
 // ------------------------------------------------------------------ loop
-let last = performance.now(), acc = 0, frames = 0, slow = 0, fast = 0, hold = 0; window.__fps = 0;
+let last = performance.now(), acc = 0, frames = 0, slow = 0, fast = 0, hold = 4; window.__fps = 0;      // hold: the first seconds (textures arriving, the entry move) are not a fair reading
 const projV = new V3(), FAN_Q = new THREE.Quaternion(), FAN_Z = new V3(0, 0, 1);
 function frame(tms) {
   requestAnimationFrame(frame);
@@ -1141,6 +1141,7 @@ function frame(tms) {
     }
     const top = Math.min(dprTop(), dprCeil);           // never climb back to a resolution that already proved too slow (that see-sawed)
     if (fast >= 6 && dpr < top - .01) { dpr = Math.min(top, dpr * 1.12); fast = 0; hold = 2; size(); }
+    else if (fast >= 20 && dprCeil < Infinity) { dprCeil = Infinity; fast = 0; }      // a long smooth spell: allow another try higher up
   }
 }
 
